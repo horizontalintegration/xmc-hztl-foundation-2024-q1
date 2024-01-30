@@ -1,0 +1,20 @@
+{
+  "namespace": "Content.HztlFoundation",
+  "references": ["Project.HztlFoundation"],
+  "items": {
+    "includes": [
+      {
+        "name": "Content-HztlFoundation",
+        "path": "/sitecore/content/HztlFoundation",
+        "scope": "ItemAndChildren",
+        "allowedPushOperations": "CreateAndUpdate"
+      },
+      {
+        "name": "Media-HztlFoundation",
+        "path": "/sitecore/media library/Project/HztlFoundation",
+        "scope": "ItemAndChildren",
+        "allowedPushOperations": "CreateAndUpdate"
+      }
+    ]
+  }
+}

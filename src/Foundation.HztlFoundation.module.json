@@ -1,0 +1,18 @@
+{
+  "namespace": "Foundation.HztlFoundation",
+  "references": [],
+  "items": {
+    "includes": [
+      {
+        "name": "Foundation-HztlFoundation-Templates",
+        "path": "/sitecore/templates/Foundation/HztlFoundation"
+      }
+    ]
+  },
+  "leprechaun": {
+    "configuration": {
+      "@extends": "HztlFoundation.Base",
+      "@name": "Foundation.HztlFoundation"
+    }
+  }
+}
