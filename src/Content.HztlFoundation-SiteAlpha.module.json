@@ -1,5 +1,5 @@
 {
-  "namespace": "SiteAlpha.HztlFoundation",
+  "namespace": "Content.SiteAlpha",
   "references": ["Content.HztlFoundation"],
   "items": {
     "includes": [

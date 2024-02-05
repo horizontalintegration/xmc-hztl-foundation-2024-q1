@@ -76,6 +76,7 @@ services:
     environment:
       SITECORE_LICENSE_LOCATION: c:\license\license.xml
       RENDERING_HOST_INTERNAL_URI: "http://rendering:3000"
+      MULTISITE_ENVIRONMENT: local
       JSS_DEPLOYMENT_SECRET_xmcloudpreview: ${JSS_DEPLOYMENT_SECRET_xmcloudpreview}
       SITECORE_JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
       SITECORE_EDITING_HOST_PUBLIC_HOST: "${RENDERING_HOST}"
