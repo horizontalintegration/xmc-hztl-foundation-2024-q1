@@ -6,13 +6,13 @@
       {
         "name": "Content-HztlFoundation",
         "path": "/sitecore/content/HztlFoundation",
-        "scope": "ItemAndChildren",
+        "scope": "SingleItem",
         "allowedPushOperations": "CreateAndUpdate"
       },
       {
         "name": "Media-HztlFoundation",
         "path": "/sitecore/media library/Project/HztlFoundation",
-        "scope": "ItemAndChildren",
+        "scope": "SingleItem",
         "allowedPushOperations": "CreateAndUpdate"
       }
     ]
