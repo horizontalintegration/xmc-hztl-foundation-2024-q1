@@ -71,7 +71,8 @@ try {
     if ($null -ne (Get-Command mkcert.exe -ErrorAction SilentlyContinue)) {
         # mkcert installed in PATH
         $mkcert = "mkcert"
-    } elseif (-not (Test-Path $mkcert)) {
+    }
+    elseif (-not (Test-Path $mkcert)) {
         Write-Host "Downloading and installing mkcert certificate tool..." -ForegroundColor Green
         Invoke-WebRequest "https://github.com/FiloSottile/mkcert/releases/download/v1.4.1/mkcert-v1.4.1-windows-amd64.exe" -UseBasicParsing -OutFile mkcert.exe
         if ((Get-FileHash mkcert.exe).Hash -ne "1BE92F598145F61CA67DD9F5C687DFEC17953548D013715FF54067B34D7C3246") {
@@ -81,7 +82,7 @@ try {
     }
     Write-Host "Generating Traefik TLS certificate..." -ForegroundColor Green
     & $mkcert -install
-    & $mkcert "*.sxastarter.localhost"
+    & $mkcert "*.local.hztl.com"
     & $mkcert "xmcloudcm.localhost"
 
     # stash CAROOT path for messaging at the end of the script
@@ -102,26 +103,47 @@ finally {
 Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 
 Add-HostsEntry "xmcloudcm.localhost"
-Add-HostsEntry "www.sxastarter.localhost"
+Add-HostsEntry "sitealpha.local.hztl.com"
+
+#######################################
+# Create .env.local file if needed
+#######################################
+
+$LocalEnvPath = ".\.env.local"
+if (-not (Test-Path $LocalEnvPath)) {
+    Copy-Item -Path ".\.env" -Destination $LocalEnvPath
+}
+
+$envContent = Get-Content $LocalEnvPath -Encoding UTF8
+
 
 ###############################
 # Generate scjssconfig
 ###############################
 
-Set-EnvFileVariable "JSS_DEPLOYMENT_SECRET_xmcloudpreview" -Value $xmCloudBuild.renderingHosts.xmcloudpreview.jssDeploymentSecret
+Set-EnvFileVariable "JSS_DEPLOYMENT_SECRET_xmcloudpreview" -Value $xmCloudBuild.renderingHosts.xmcloudpreview.jssDeploymentSecret -Path $LocalEnvPath
 
 ################################
 # Generate Sitecore Api Key
 ################################
 
-$sitecoreApiKey = (New-Guid).Guid
-Set-EnvFileVariable "SITECORE_API_KEY_xmcloudpreview" -Value $sitecoreApiKey
+$sitecoreApiKey = ($envContent | Where-Object { $_ -imatch "^SITECORE_API_KEY_xmcloudpreview=.+" }).Split("=")[1]
+if (![string]::IsNullOrWhitespace($sitecoreApiKey)) {
+    $sitecoreApiKey = (New-Guid).Guid
+    Set-EnvFileVariable "SITECORE_API_KEY_xmcloudpreview" -Value $sitecoreApiKey -Path $LocalEnvPath    
+}
+
 
 ################################
 # Generate JSS_EDITING_SECRET
 ################################
-$jssEditingSecret = Get-SitecoreRandomString 64 -DisallowSpecial
-Set-EnvFileVariable "JSS_EDITING_SECRET" -Value $jssEditingSecret
+
+$jssEditingSecret = ($envContent | Where-Object { $_ -imatch "^JSS_EDITING_SECRET=.+" }).Split("=")[1]
+if (![string]::IsNullOrWhitespace($jssEditingSecret)) {
+    $jssEditingSecret = Get-SitecoreRandomString 64 -DisallowSpecial
+    Set-EnvFileVariable "JSS_EDITING_SECRET" -Value $jssEditingSecret -Path $LocalEnvPath   
+}
+
 
 ###############################
 # Populate the environment file
@@ -132,56 +154,55 @@ if ($InitEnv) {
     Write-Host "Populating required .env file values..." -ForegroundColor Green
 
     # HOST_LICENSE_FOLDER
-    Set-EnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath
+    Set-EnvFileVariable "HOST_LICENSE_FOLDER" -Value $LicenseXmlPath -Path $LocalEnvPath
 
     # CM_HOST
-    Set-EnvFileVariable "CM_HOST" -Value "xmcloudcm.localhost"
+    Set-EnvFileVariable "CM_HOST" -Value "xmcloudcm.localhost" -Path $LocalEnvPath
 
     # RENDERING_HOST
-    Set-EnvFileVariable "RENDERING_HOST" -Value "www.sxastarter.localhost"
+    Set-EnvFileVariable "RENDERING_HOST" -Value "sitealpha.local.hztl.com" -Path $LocalEnvPath
 
     # REPORTING_API_KEY = random 64-128 chars
-    Set-EnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial)
+    Set-EnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial) -Path $LocalEnvPath
 
     # TELERIK_ENCRYPTION_KEY = random 64-128 chars
-    Set-EnvFileVariable "TELERIK_ENCRYPTION_KEY" -Value (Get-SitecoreRandomString 128)
+    Set-EnvFileVariable "TELERIK_ENCRYPTION_KEY" -Value (Get-SitecoreRandomString 128) -Path $LocalEnvPath
 
     # MEDIA_REQUEST_PROTECTION_SHARED_SECRET
-    Set-EnvFileVariable "MEDIA_REQUEST_PROTECTION_SHARED_SECRET" -Value (Get-SitecoreRandomString 64)
+    Set-EnvFileVariable "MEDIA_REQUEST_PROTECTION_SHARED_SECRET" -Value (Get-SitecoreRandomString 64) -Path $LocalEnvPath
 
     # SQL_SA_PASSWORD
     # Need to ensure it meets SQL complexity requirements
-    Set-EnvFileVariable "SQL_SA_PASSWORD" -Value (Get-SitecoreRandomString 19 -DisallowSpecial -EnforceComplexity)
+    Set-EnvFileVariable "SQL_SA_PASSWORD" -Value (Get-SitecoreRandomString 19 -DisallowSpecial -EnforceComplexity) -Path $LocalEnvPath
 
     # SQL_SERVER
-    Set-EnvFileVariable "SQL_SERVER" -Value "mssql"
+    Set-EnvFileVariable "SQL_SERVER" -Value "mssql" -Path $LocalEnvPath
 
     # SQL_SA_LOGIN
-    Set-EnvFileVariable "SQL_SA_LOGIN" -Value "sa"
+    Set-EnvFileVariable "SQL_SA_LOGIN" -Value "sa" -Path $LocalEnvPath
 
     # SITECORE_ADMIN_PASSWORD
-    Set-EnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value $AdminPassword
+    Set-EnvFileVariable "SITECORE_ADMIN_PASSWORD" -Value $AdminPassword -Path $LocalEnvPath
 
     # SITECORE_VERSION
-    Set-EnvFileVariable "SITECORE_VERSION" -Value "1-$baseOS"
+    Set-EnvFileVariable "SITECORE_VERSION" -Value "1-$baseOS" -Path $LocalEnvPath
 
     # EXTERNAL_IMAGE_TAG_SUFFIX
-    Set-EnvFileVariable "EXTERNAL_IMAGE_TAG_SUFFIX" -Value $baseOS
+    Set-EnvFileVariable "EXTERNAL_IMAGE_TAG_SUFFIX" -Value $baseOS -Path $LocalEnvPath
 }
 
 Write-Host "Done!" -ForegroundColor Green
 
 Push-Location docker\traefik\certs
-try
-{
+try {
     Write-Host
-    Write-Host ("#"*75) -ForegroundColor Cyan
+    Write-Host ("#" * 75) -ForegroundColor Cyan
     Write-Host "To avoid HTTPS errors, set the NODE_EXTRA_CA_CERTS environment variable" -ForegroundColor Cyan
     Write-Host "using the following commmand:" -ForegroundColor Cyan
     Write-Host "setx NODE_EXTRA_CA_CERTS $caRoot"
     Write-Host
     Write-Host "You will need to restart your terminal or VS Code for it to take effect." -ForegroundColor Cyan
-    Write-Host ("#"*75) -ForegroundColor Cyan
+    Write-Host ("#" * 75) -ForegroundColor Cyan
 }
 catch {
     Write-Error "An error occurred while attempting to generate TLS certificate: $_"

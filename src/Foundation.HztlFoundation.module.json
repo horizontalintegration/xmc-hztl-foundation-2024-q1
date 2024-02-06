@@ -6,6 +6,17 @@
       {
         "name": "Foundation-HztlFoundation-Templates",
         "path": "/sitecore/templates/Foundation/HztlFoundation"
+      },
+      {
+        "name": "Foundation-Settings-Services-RenderingHosts",
+        "path": "/sitecore/system/Settings/Services/Rendering Hosts",
+        "scope": "DescendantsOnly",
+        "rules": [
+          {
+            "path": "/Default",
+            "scope": "ignored"
+          }
+        ]
       }
     ]
   },

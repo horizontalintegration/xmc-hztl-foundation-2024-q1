@@ -1,6 +1,6 @@
 {
   "namespace": "Feature.HztlFoundation",
-  "references": ["InitItems"],
+  "references": [],
   "items": {
     "includes": [
       {
