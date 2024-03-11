@@ -4,8 +4,24 @@
   "items": {
     "includes": [
       {
+        "name": "Feature-HztlFoundation-MediaLibrary",
+        "path": "/sitecore/media library/Feature/HztlFoundation"
+      },
+      {
+        "name": "Feature-HztlFoundation-Layouts",
+        "path": "/sitecore/layout/Layouts/Feature/HztlFoundation"
+      },
+      {
         "name": "Feature-HztlFoundation-Renderings",
         "path": "/sitecore/layout/Renderings/Feature/HztlFoundation"
+      },
+      {
+        "name": "Feature-HztlFoundation-Placeholders",
+        "path": "/sitecore/layout/Placeholder Settings/Feature/HztlFoundation"
+      },
+      {
+        "name": "Feature-HztlFoundation-TemplateBranches",
+        "path": "/sitecore/templates/Branches/Feature/HztlFoundation"
       },
       {
         "name": "Feature-HztlFoundation-Templates",
