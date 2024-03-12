@@ -3,6 +3,7 @@ import {
   GraphQLErrorPagesService,
   SitecoreContext,
   ErrorPages,
+  LayoutServiceData,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SitecorePageProps } from 'lib/page-props';
 import NotFound from 'src/NotFound';
@@ -11,18 +12,44 @@ import Layout from 'src/Layout';
 import { GetStaticProps } from 'next';
 import { siteResolver } from 'lib/site-resolver';
 import clientFactory from 'lib/graphql-client-factory';
+import { useEffect, useState } from 'react';
 
 const Custom404 = (props: SitecorePageProps): JSX.Element => {
-  if (!(props && props.layoutData)) {
+  const [layoutData, setLayoutData] = useState<LayoutServiceData | undefined>(props.layoutData);
+  const [fetchError, setFetchError] = useState(false);
+
+  // We need to fetch the 404 page content client-side because NextJS doesn't provide the ability
+  // to determine which site we're on due to middleware rewrites not executing for the 404 handler.
+  useEffect(() => {
+    // Only execute if we didn't get data from the default.
+    // Depending on requirements, we may want to always fetch.
+    if (!layoutData) {
+      fetch('/api/error/404')
+        .then(async (res) => {
+          const data = await res.json();
+          setLayoutData(data);
+        })
+        .catch(() => {
+          setFetchError(true);
+        });
+    }
+    // We can't use layout data as a dependency because we are updating it
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (fetchError) {
     return <NotFound />;
+  }
+  if (!layoutData) {
+    return <></>;
   }
 
   return (
     <SitecoreContext
       componentFactory={componentBuilder.getComponentFactory()}
-      layoutData={props.layoutData}
+      layoutData={layoutData}
     >
-      <Layout layoutData={props.layoutData} headLinks={props.headLinks} />
+      <Layout layoutData={layoutData} headLinks={props.headLinks} />
     </SitecoreContext>
   );
 };
@@ -38,6 +65,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         parseInt(process.env.GRAPH_QL_SERVICE_RETRIES, 10)) ||
       0,
   });
+
   let resultErrorPages: ErrorPages | null = null;
 
   if (!process.env.DISABLE_SSG_FETCH) {
