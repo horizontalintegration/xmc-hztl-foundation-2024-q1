@@ -1,7 +1,7 @@
 @import '@sass/abstracts/vars';
 @import '@sass/abstracts/mixins';
 
-.title {
+.title-uap {
   background: $title-bg;
   h1,
   .field-title {
@@ -9,7 +9,7 @@
       @include border-basic(bottom, $border-basic-color);
       font-size: $font-extrabig;
       margin-bottom: $small-margin;
-      color: $title-color;
+      color: #BDFF69;
       line-height: normal;
       padding-bottom: 10px;
       display: block;
