@@ -1,21 +1,11 @@
-import config from 'temp/config';
-import {
-  GraphQLErrorPagesService,
-  SitecoreContext,
-  ErrorPages,
-  LayoutServiceData,
-} from '@sitecore-jss/sitecore-jss-nextjs';
-import { SitecorePageProps } from 'lib/page-props';
+import { SitecoreContext, ErrorPages, LayoutServiceData } from '@sitecore-jss/sitecore-jss-nextjs';
 import NotFound from 'src/NotFound';
 import { componentBuilder } from 'temp/componentBuilder';
 import Layout from 'src/Layout';
-import { GetStaticProps } from 'next';
-import { siteResolver } from 'lib/site-resolver';
-import clientFactory from 'lib/graphql-client-factory';
 import { useEffect, useState } from 'react';
 
-const Custom404 = (props: SitecorePageProps): JSX.Element => {
-  const [layoutData, setLayoutData] = useState<LayoutServiceData | undefined>(props.layoutData);
+const Custom404 = (): JSX.Element => {
+  const [layoutData, setLayoutData] = useState<LayoutServiceData>();
   const [fetchError, setFetchError] = useState(false);
 
   // We need to fetch the 404 page content client-side because NextJS doesn't provide the ability
@@ -24,12 +14,20 @@ const Custom404 = (props: SitecorePageProps): JSX.Element => {
     // Only execute if we didn't get data from the default.
     // Depending on requirements, we may want to always fetch.
     if (!layoutData) {
-      fetch('/api/error/404')
+      fetch('/api/error/content')
         .then(async (res) => {
-          const data = await res.json();
-          setLayoutData(data);
+          const data = (await res.json()) as ErrorPages | null;
+
+          if (data?.notFoundPage.rendered) {
+            // Render the not found page
+            setLayoutData(data?.notFoundPage.rendered);
+          } else {
+            // There was no custom error page, render the fallback.
+            setFetchError(true);
+          }
         })
         .catch(() => {
+          // There was an error, render the fallback.
           setFetchError(true);
         });
     }
@@ -37,52 +35,24 @@ const Custom404 = (props: SitecorePageProps): JSX.Element => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Only render the fallback if there was an error fetching the data
   if (fetchError) {
     return <NotFound />;
   }
+  // If data hasn't been fetched yet, don't render anything.
   if (!layoutData) {
     return <></>;
   }
 
+  // We now have data, so render the error page normally.
   return (
     <SitecoreContext
       componentFactory={componentBuilder.getComponentFactory()}
       layoutData={layoutData}
     >
-      <Layout layoutData={layoutData} headLinks={props.headLinks} />
+      <Layout layoutData={layoutData} headLinks={[]} />
     </SitecoreContext>
   );
-};
-
-export const getStaticProps: GetStaticProps = async (context) => {
-  const site = siteResolver.getByName(config.sitecoreSiteName);
-  const errorPagesService = new GraphQLErrorPagesService({
-    clientFactory,
-    siteName: site.name,
-    language: context.locale || config.defaultLanguage,
-    retries:
-      (process.env.GRAPH_QL_SERVICE_RETRIES &&
-        parseInt(process.env.GRAPH_QL_SERVICE_RETRIES, 10)) ||
-      0,
-  });
-
-  let resultErrorPages: ErrorPages | null = null;
-
-  if (!process.env.DISABLE_SSG_FETCH) {
-    try {
-      resultErrorPages = await errorPagesService.fetchErrorPages();
-    } catch (error) {
-      console.log('Error occurred while fetching error pages');
-      console.log(error);
-    }
-  }
-
-  return {
-    props: {
-      headLinks: [],
-      layoutData: resultErrorPages?.notFoundPage?.rendered || null,
-    },
-  };
 };
 
 export default Custom404;
