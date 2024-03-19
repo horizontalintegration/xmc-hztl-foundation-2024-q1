@@ -128,7 +128,7 @@ Set-EnvFileVariable "JSS_DEPLOYMENT_SECRET_xmcloudpreview" -Value $xmCloudBuild.
 ################################
 
 $sitecoreApiKey = ($envContent | Where-Object { $_ -imatch "^SITECORE_API_KEY_xmcloudpreview=.+" }).Split("=")[1]
-if (![string]::IsNullOrWhitespace($sitecoreApiKey)) {
+if ([string]::IsNullOrWhitespace($sitecoreApiKey)) {
     $sitecoreApiKey = (New-Guid).Guid
     Set-EnvFileVariable "SITECORE_API_KEY_xmcloudpreview" -Value $sitecoreApiKey -Path $LocalEnvPath    
 }
@@ -139,7 +139,7 @@ if (![string]::IsNullOrWhitespace($sitecoreApiKey)) {
 ################################
 
 $jssEditingSecret = ($envContent | Where-Object { $_ -imatch "^JSS_EDITING_SECRET=.+" }).Split("=")[1]
-if (![string]::IsNullOrWhitespace($jssEditingSecret)) {
+if ([string]::IsNullOrWhitespace($jssEditingSecret)) {
     $jssEditingSecret = Get-SitecoreRandomString 64 -DisallowSpecial
     Set-EnvFileVariable "JSS_EDITING_SECRET" -Value $jssEditingSecret -Path $LocalEnvPath   
 }

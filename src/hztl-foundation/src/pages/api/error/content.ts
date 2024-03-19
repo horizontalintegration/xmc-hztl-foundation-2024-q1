@@ -6,14 +6,20 @@ import config from 'temp/config';
 import clientFactory from 'lib/graphql-client-factory';
 
 /**
- * Gets the contents of the 404 page.  We have to fetch via API to be able to get site-specific 404 content.
+ * Gets the ErrorPages content.  We have to fetch via API to be able to get site-specific content.
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const domain = req.headers.host;
-  const site = siteResolver.getByHost(domain ?? '');
+  let siteName;
+  try {
+    const site = siteResolver.getByHost(domain ?? '');
+    siteName = site.name;
+  } catch {
+    siteName = config.sitecoreSiteName;
+  }
   const errorPagesService = new GraphQLErrorPagesService({
     clientFactory,
-    siteName: site.name,
+    siteName: siteName,
     language: (req.headers.locale as string) ?? config.defaultLanguage,
     retries:
       (process.env.GRAPH_QL_SERVICE_RETRIES &&
@@ -33,10 +39,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Cache settings for the browser.
     res.setHeader('Cache-Control', `max-age=${60 * 60}, stale-while-revalidate=59`);
 
-    res.status(200).json(resultErrorPages?.notFoundPage?.rendered);
+    res.status(200).json(resultErrorPages);
   } catch (error) {
-    console.log('Error occurred while fetching error pages');
-    console.log(error);
+    console.error('Error occurred while fetching error pages');
+    console.error(error);
 
     res.status(500).json({ message: 'An error occured' });
   }
