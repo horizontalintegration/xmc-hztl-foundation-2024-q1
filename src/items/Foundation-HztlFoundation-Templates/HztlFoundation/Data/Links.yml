@@ -1,15 +1,8 @@
 ﻿---
-ID: "ecea2f6d-0295-41d0-8d97-35a585786feb"
-Parent: "194ce6cf-deb6-49ea-b058-a4b369873a32"
-Template: "5c547d4e-7111-4995-95b0-6b561751bf2e"
-Path: /sitecore/layout/Placeholder Settings/Project/HztlFoundation/Footer
-SharedFields:
-- ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
-  Hint: Placeholder Key
-  Value: "hztl-headless-footer"
-- ID: "e391b526-d0c5-439d-803e-17512eae6222"
-  Hint: Allowed Controls
-  Value: "{485717BC-C143-4F35-8EFF-DC311ED896D7}"
+ID: "e9a64b99-b9f5-43d7-81b6-fe9d4b2e1772"
+Parent: "f9537662-6cbc-43e3-9a5d-1eb6a547fdc2"
+Template: "0437fee2-44c9-46a6-abe9-28858d9fee8c"
+Path: /sitecore/templates/Foundation/HztlFoundation/Data/Links
 Languages:
 - Language: en
   Versions:
@@ -17,7 +10,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20240130T013759Z
+      Value: 20240327T194115Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -28,11 +21,11 @@ Languages:
         sitecore\dly@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ca94bc06-29d7-44b6-bf47-f1ba4fb0847e"
+      Value: "ad6b1310-9f29-4dc2-ae9e-4965ca15b7b5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\dly@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240327T202237Z
+      Value: 20240327T194115Z
