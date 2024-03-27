@@ -1,15 +1,13 @@
 ﻿---
-ID: "ecea2f6d-0295-41d0-8d97-35a585786feb"
-Parent: "194ce6cf-deb6-49ea-b058-a4b369873a32"
-Template: "5c547d4e-7111-4995-95b0-6b561751bf2e"
-Path: /sitecore/layout/Placeholder Settings/Project/HztlFoundation/Footer
+ID: "6ea08977-9b72-4d1f-aa47-057829ac3f6a"
+Parent: "bb799c66-252c-4aee-b8af-1832230c6080"
+Template: "c6dc7393-15bb-4cd7-b798-ab63e77ebac4"
+Path: /sitecore/content/HztlFoundation/Shared/Presentation/Styles
+BranchID: "75653e9d-3c5c-45d4-823d-1bb04474400b"
 SharedFields:
-- ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
-  Hint: Placeholder Key
-  Value: "hztl-headless-footer"
-- ID: "e391b526-d0c5-439d-803e-17512eae6222"
-  Hint: Allowed Controls
-  Value: "{485717BC-C143-4F35-8EFF-DC311ED896D7}"
+- ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
+  Hint: __Originator
+  Value: "{47019583-10DF-46B6-BDCC-1741BECC3CDA}"
 Languages:
 - Language: en
   Versions:
@@ -17,7 +15,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20240130T013759Z
+      Value: 20240327T171226Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -28,11 +26,11 @@ Languages:
         sitecore\dly@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ca94bc06-29d7-44b6-bf47-f1ba4fb0847e"
+      Value: "2520c11c-a52f-4d89-82a3-8fbeb4247824"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\dly@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240327T202237Z
+      Value: 20240327T171226Z

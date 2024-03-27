@@ -48,6 +48,10 @@ class NormalModePlugin implements Plugin {
     if (!props.notFound) {
       const dictionaryService = this.getDictionaryService(props.site.name);
       props.dictionary = await dictionaryService.fetchDictionaryData(props.locale);
+
+      const sharedDictionaryService = this.getDictionaryService('shared');
+      const sharedDict = await sharedDictionaryService.fetchDictionaryData(props.locale);
+      props.dictionary = { ...sharedDict, ...props.dictionary };
     }
 
     // Initialize links to be inserted on the page
