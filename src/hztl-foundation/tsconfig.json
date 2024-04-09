@@ -2,10 +2,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "assets/*": ["src/assets/*"],
       "components/*": ["src/components/*"],
+      "helpers/*": ["src/helpers/*"],
       "lib/*": ["src/lib/*"],
       "temp/*": ["src/temp/*"],
-      "assets/*": ["src/assets/*"],
       "graphql-types": ["node_modules/@types/graphql-let/__generated__/__types__"],
       "react": ["node_modules/@types/react"]
     },
@@ -32,6 +33,6 @@
     "incremental": true,
     "forceConsistentCasingInFileNames": false
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/stories/helpers/RichTextWrapper/RichTextWrapper.stories.tsx.bak", "src/stories/helpers/LinkWrapper/LinkWrapper.stories.tsx.bak"],
   "exclude": ["node_modules"]
 }
