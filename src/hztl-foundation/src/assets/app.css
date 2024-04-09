@@ -1,6 +1,6 @@
-a[target='_blank']:after {
-  content: '\1F5D7'
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /*
   Hides Sitecore editor markup,
@@ -25,12 +25,4 @@ a[target='_blank']:after {
     font-size: 3.5rem;
     font-weight: 300;
     line-height: 1.2;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }

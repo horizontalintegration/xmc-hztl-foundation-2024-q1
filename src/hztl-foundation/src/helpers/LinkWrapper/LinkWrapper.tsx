@@ -1,12 +1,12 @@
 // Global
 import { Link, LinkProps, LinkField, LinkFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
 import NextLink from 'next/link';
-// import { sendGTMEvent } from '@next/third-parties/google';
+import { sendGTMEvent } from '@next/third-parties/google';
 import React from 'react';
 
 // Lib
 import useIsEditing from 'lib/use-is-editing';
-// import { GtmEvent } from 'lib/utils/gtm-utils';
+import { GtmEvent } from 'lib/utils/gtm-utils';
 
 /**
  * This component adds some needed accessibility updates to the JSS Link component
@@ -15,7 +15,7 @@ import useIsEditing from 'lib/use-is-editing';
 export type LinkWrapperProps = Omit<LinkProps, 'field'> & {
   className?: string;
   field?: LinkField | LinkFieldValue;
-  // gtmEvent?: GtmEvent;
+  gtmEvent?: GtmEvent;
   srOnlyText?: string;
   suppressLinkText?: boolean;
   suppressNewTabIcon?: boolean;
@@ -29,7 +29,7 @@ const LinkWrapper = React.forwardRef(
     children,
     className,
     field,
-    // gtmEvent,
+    gtmEvent,
     ref,
     srOnlyText,
     suppressLinkText,
@@ -42,19 +42,19 @@ const LinkWrapper = React.forwardRef(
 
     if (!field) return <></>;
 
-    // const handleOnClick = () => {
-    //   if (!field?.value) return;
+    const handleOnClick = () => {
+      if (!field?.value) return;
 
-    //   const asLinkField = !field.value ? { value: { ...field } } : (field as LinkField);
+      const asLinkField = !field.value ? { value: { ...field } } : (field as LinkField);
 
-    //   // const gtmEventInner = {
-    //   //   ...gtmEvent,
-    //   //   'gtm.element.dataset.gtmLinkName': asLinkField?.value?.text || asLinkField?.value?.title,
-    //   //   'gtm.element.dataset.gtmLinkUrl': asLinkField?.value?.href,
-    //   // };
+      const gtmEventInner = {
+        ...gtmEvent,
+        'gtm.element.dataset.gtmLinkName': asLinkField?.value?.text || asLinkField?.value?.title,
+        'gtm.element.dataset.gtmLinkUrl': asLinkField?.value?.href,
+      };
 
-    //   // sendGTMEvent(gtmEventInner);
-    // };
+      sendGTMEvent(gtmEventInner);
+    };
 
     // Format field as LinkField for consistency
     const asLinkField = !field.value ? { value: { ...field } } : (field as LinkField);
@@ -104,7 +104,7 @@ const LinkWrapper = React.forwardRef(
         key="link"
         // Sitecore's Link field explicitly strips out the locale.  We want to keep it.
         // locale={false}
-        // onClick={() => handleOnClick()}
+        onClick={() => handleOnClick()}
         ref={typeof ref !== 'string' ? ref : null}
         {...props}
       >
