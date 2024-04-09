@@ -15,7 +15,7 @@ SharedFields:
     <r xmlns:xsd="http://www.w3.org/2001/XMLSchema">
       <d
         id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}"
-        l="{76B463DD-8A8D-4437-AD0C-603A44942535}" />
+        l="{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}" />
     </r>
 Languages:
 - Language: en
@@ -35,7 +35,7 @@ Languages:
         sitecore\dly@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "0adeb105-71fa-4f66-8223-0b04ced4d80c"
+      Value: "0b02f91b-0a3e-4a2e-8c32-a4c744ef874f"
     - ID: "9c063550-df49-46a3-99c6-f830a981a018"
       Hint: Title
       Value: $name
@@ -45,4 +45,4 @@ Languages:
         sitecore\dly@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240130T015404Z
+      Value: 20240409T191003Z
