@@ -14,17 +14,23 @@ import { SitecorePageProps } from 'lib/page-props';
 import { sitecorePagePropsFactory } from 'lib/page-props-factory';
 import { componentBuilder } from 'temp/componentBuilder';
 import { sitemapFetcher } from 'lib/sitemap-fetcher';
+import HandleMockError, { getMockError } from 'src/helpers/ErrorHandling/HandleMockError';
 
 const SitecorePage = ({
   notFound,
   componentProps,
   layoutData,
   headLinks,
+  mockError,
 }: SitecorePageProps): JSX.Element => {
   useEffect(() => {
     // Since Sitecore editors do not support Fast Refresh, need to refresh editor chromes after Fast Refresh finished
     handleEditorFastRefresh();
   }, []);
+
+  if (mockError) {
+    return <HandleMockError {...mockError} />;
+  }
 
   if (notFound || !layoutData.sitecore.route) {
     // Shouldn't hit this (as long as 'notFound' is being returned below), but just to be safe
@@ -74,8 +80,8 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
       // Note: Next.js runs export in production mode
       paths = await sitemapFetcher.fetch(context);
     } catch (error) {
-      console.log('Error occurred while fetching static paths');
-      console.log(error);
+      console.error('Error occurred while fetching static paths');
+      console.error(error);
     }
 
     fallback = process.env.EXPORT_MODE ? false : fallback;
@@ -92,14 +98,20 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
 // revalidation (or fallback) is enabled and a new request comes in.
 export const getStaticProps: GetStaticProps = async (context) => {
   const props = await sitecorePagePropsFactory.create(context);
+  const mockError = getMockError(context);
 
+  if (mockError?.throwStaticPropsError) {
+    throw Error('mock error getStaticProps');
+  }
+
+  props.mockError = mockError;
   return {
     props,
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
     // - At most once every 5 seconds
     revalidate: 5, // In seconds
-    notFound: props.notFound, // Returns custom 404 page with a status code of 404 when true
+    notFound: !mockError && props.notFound, // Returns custom 404 page with a status code of 404 when true
   };
 };
 

@@ -48,6 +48,15 @@ class NormalModePlugin implements Plugin {
     if (!props.notFound) {
       const dictionaryService = this.getDictionaryService(props.site.name);
       props.dictionary = await dictionaryService.fetchDictionaryData(props.locale);
+
+      try {
+        const sharedDictionaryService = this.getDictionaryService('shared');
+        const sharedDict = await sharedDictionaryService.fetchDictionaryData(props.locale);
+        props.dictionary = { ...sharedDict, ...props.dictionary };
+      } catch (err) {
+        // This could be because the shared site hasn't been deployed yet.
+        console.error('unable to load shared dictionary.', err);
+      }
     }
 
     // Initialize links to be inserted on the page
