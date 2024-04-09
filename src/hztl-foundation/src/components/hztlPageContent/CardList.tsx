@@ -1,9 +1,12 @@
 import React from 'react';
-import {
+import { 
+  Link as JssLink,
+  RichText as JssRichText,
   Field,
   LinkField,
   ComponentParams,
   ComponentRendering,
+  Placeholder, 
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
@@ -20,26 +23,37 @@ interface CardListProps {
 }
 
 const CardListDefaultComponent = (props: CardListProps): JSX.Element => (
-  <div className={`component ${props.params.styles}`}>
-    <div className="component-content">
-      <p>CardList Component</p>
+    <div className={`component ${props.params.styles}`}>
+      <div className="component-content">
+        <p>CardList Component</p>
+      </div>
     </div>
-  </div>
 );
 
 export const Default = (props: CardListProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  // const phKey = `cardlist-${props.params.DynamicPlaceholderId}`;
+  const phKey = `cardlist-${props.params.DynamicPlaceholderId}`;
 
-  if (props.fields) {
+  if(props.fields){ 
     return (
-      <div className={`component ${props.params.styles}`} id={id ? id : undefined}>
+      <div className={`component cardlist ${props.params.styles}`} id={id ? id : undefined}>
         <div className="component-content">
-          <p>CardList Component</p>
+          <div className="field-cardlistheading">
+            <JssRichText field={props.fields.CardListTitle} />
+            <JssRichText field={props.fields.CardListText} />
+          </div>
+          <div className="cardlist-cards">
+            <div>
+                <Placeholder name={phKey} rendering={props.rendering} />
+            </div>
+            <div className="field-cardlistlink">
+              <JssLink field={props.fields.CardListLink} />
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 
-  return <CardListDefaultComponent {...props} />;
+  return <CardListDefaultComponent {...props} />;  
 };
