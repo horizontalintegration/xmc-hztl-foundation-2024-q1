@@ -31,7 +31,7 @@ export const Default = (props: CardListProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
   const phKey = `cardlist-${props.params.DynamicPlaceholderId}`;
 
-  if(props.fields){
+  if(props.fields){ 
     return (
       <div className={`component ${props.params.styles}`} id={id ? id : undefined}>
         <div className="component-content">

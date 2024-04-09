@@ -4,6 +4,10 @@
   "items": {
     "includes": [
       {
+        "name": "Feature-HztlFoundation-Settings-Features",
+        "path": "/sitecore/system/Settings/Feature/HztlFoundation"
+      },
+      {
         "name": "Feature-HztlFoundation-MediaLibrary",
         "path": "/sitecore/media library/Feature/HztlFoundation"
       },
