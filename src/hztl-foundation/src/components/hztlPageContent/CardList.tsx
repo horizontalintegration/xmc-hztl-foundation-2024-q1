@@ -1,9 +1,9 @@
 import React from 'react';
-import { 
+import {
   Field,
   LinkField,
-  ComponentParams, 
-  ComponentRendering 
+  ComponentParams,
+  ComponentRendering,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
@@ -20,18 +20,18 @@ interface CardListProps {
 }
 
 const CardListDefaultComponent = (props: CardListProps): JSX.Element => (
-    <div className={`component ${props.params.styles}`}>
-      <div className="component-content">
-        <p>CardList Component</p>
-      </div>
+  <div className={`component ${props.params.styles}`}>
+    <div className="component-content">
+      <p>CardList Component</p>
     </div>
+  </div>
 );
 
 export const Default = (props: CardListProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
-  const phKey = `cardlist-${props.params.DynamicPlaceholderId}`;
+  // const phKey = `cardlist-${props.params.DynamicPlaceholderId}`;
 
-  if(props.fields){ 
+  if (props.fields) {
     return (
       <div className={`component ${props.params.styles}`} id={id ? id : undefined}>
         <div className="component-content">
@@ -41,5 +41,5 @@ export const Default = (props: CardListProps): JSX.Element => {
     );
   }
 
-  return <CardListDefaultComponent {...props} />;  
+  return <CardListDefaultComponent {...props} />;
 };
