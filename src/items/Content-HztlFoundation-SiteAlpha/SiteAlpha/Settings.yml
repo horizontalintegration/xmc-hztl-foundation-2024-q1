@@ -46,7 +46,7 @@ SharedFields:
   Value: 2000
 - ID: "c8d002f9-9518-4c5e-9baa-6617e13f0797"
   Hint: LayoutPath
-  Value: "{76B463DD-8A8D-4437-AD0C-603A44942535}"
+  Value: "{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}"
 - ID: "e8881464-38af-4655-be4a-ee10586578a2"
   Hint: Templates
   Value: "{E8547164-C468-4166-9011-91D66F0E820D}"
@@ -74,11 +74,11 @@ Languages:
         sitecore\dly@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "8f150904-6379-4bd6-8030-a96cb0877ed1"
+      Value: "f96c7fbf-53f9-4ce0-a84f-2f39bc4a2705"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\dly@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240130T014928Z
+      Value: 20240409T173625Z

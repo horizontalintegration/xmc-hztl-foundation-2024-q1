@@ -1,16 +1,12 @@
 ﻿---
-ID: "67fd354e-b1b9-49dc-a195-63de10e11d6f"
-Parent: "8299219c-8ecd-4bc4-afff-2819cfbf96d0"
-Template: "1105b8f8-1e00-426b-bf1f-c840742d827b"
-Path: /sitecore/content/HztlFoundation/SiteAlpha/Presentation/Page Designs/Default
+ID: "41b2db51-fb84-4bc8-982e-0395743adcae"
+Parent: "db74fed9-a6df-41d5-aa0e-c452f913cf5c"
+Template: "bed31d6f-d968-45a9-b54e-12d7f977d861"
+Path: /sitecore/system/Settings/Feature/HztlFoundation/Hztl Site Structure/Hztl Site Structure Headless Site Setup
 SharedFields:
-- ID: "0966b999-0d0e-4278-acc9-9da69d461fe6"
-  Hint: PartialDesigns
-  Value: "{6F193D0D-0C30-42CF-9CAF-A11810C9E10C}|{ECF88CDA-457F-4BDD-B045-8EBA08C6D2D3}|{01A4DE9C-5C2F-49B7-94B8-43D06AFF4EDA}"
-- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
-  Hint: __Thumbnail
-  Value: |
-    <image mediaid="{BF55C79D-8B58-4849-A649-0A6EB4769BB0}" />
+- ID: "40deee2f-7595-40bd-b2c9-51f9e2346100"
+  Hint: Dependencies
+  Value: "{24EC97FA-F22A-404E-BC39-9B0673D46271}"
 Languages:
 - Language: en
   Versions:
@@ -18,7 +14,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20240129T193504Z
+      Value: 20240409T173306Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -29,11 +25,14 @@ Languages:
         sitecore\dly@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a7b3b3a5-39cc-4d3b-95d6-a08e81516e36"
+      Value: "8013689e-c591-45d7-836a-6d74ab7bfae1"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\dly@horizontal.com
+    - ID: "c202067e-7fab-4606-afb4-e76df2185ddc"
+      Hint: Name
+      Value: Hztl Site Structure
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240409T202819Z
+      Value: 20240409T173427Z
