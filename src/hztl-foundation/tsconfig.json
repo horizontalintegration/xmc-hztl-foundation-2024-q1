@@ -33,6 +33,6 @@
     "incremental": true,
     "forceConsistentCasingInFileNames": false
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/stories/helpers/RichTextWrapper/RichTextWrapper.stories.tsx.bak", "src/stories/helpers/LinkWrapper/LinkWrapper.stories.tsx.bak"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/stories/helpers/RichTextWrapper/RichTextWrapper.stories.tsx", "src/stories/helpers/LinkWrapper/LinkWrapper.stories.tsx.bak"],
   "exclude": ["node_modules"]
 }
