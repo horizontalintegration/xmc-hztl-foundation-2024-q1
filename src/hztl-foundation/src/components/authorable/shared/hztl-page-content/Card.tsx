@@ -1,13 +1,11 @@
 import React from 'react';
-import { 
+import {
   Image as JssImage,
   Link as JssLink,
   RichText as JssRichText,
   Field,
   LinkField,
   ImageField,
-  ComponentParams,
-  ComponentRendering
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
