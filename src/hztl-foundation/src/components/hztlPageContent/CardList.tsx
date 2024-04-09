@@ -1,9 +1,12 @@
 import React from 'react';
 import { 
+  Link as JssLink,
+  RichText as JssRichText,
   Field,
   LinkField,
-  ComponentParams, 
-  ComponentRendering 
+  ComponentParams,
+  ComponentRendering,
+  Placeholder, 
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
@@ -33,9 +36,20 @@ export const Default = (props: CardListProps): JSX.Element => {
 
   if(props.fields){ 
     return (
-      <div className={`component ${props.params.styles}`} id={id ? id : undefined}>
+      <div className={`component cardlist ${props.params.styles}`} id={id ? id : undefined}>
         <div className="component-content">
-          <p>CardList Component</p>
+          <div className="field-cardlistheading">
+            <JssRichText field={props.fields.CardListTitle} />
+            <JssRichText field={props.fields.CardListText} />
+          </div>
+          <div className="cardlist-cards">
+            <div>
+                <Placeholder name={phKey} rendering={props.rendering} />
+            </div>
+            <div className="field-cardlistlink">
+              <JssLink field={props.fields.CardListLink} />
+            </div>
+          </div>
         </div>
       </div>
     );
