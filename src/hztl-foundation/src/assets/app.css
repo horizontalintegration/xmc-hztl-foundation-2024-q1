@@ -1,6 +1,6 @@
-a[target='_blank']:after {
-  content: '\1F5D7'
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /*
   Hides Sitecore editor markup,
