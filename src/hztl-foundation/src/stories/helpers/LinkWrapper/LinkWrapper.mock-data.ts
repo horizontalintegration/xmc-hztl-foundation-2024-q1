@@ -1,5 +1,5 @@
 const defaultData = {
-  className: 'hover:underline',
+  className: 'underline hover:no-underline',
   field: {
     value: {
       href: 'https://www.horizontaldigital.com',
