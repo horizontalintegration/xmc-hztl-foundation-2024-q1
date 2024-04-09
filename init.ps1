@@ -104,6 +104,7 @@ Write-Host "Adding Windows hosts file entries..." -ForegroundColor Green
 
 Add-HostsEntry "xmcloudcm.localhost"
 Add-HostsEntry "sitealpha.local.hztl.com"
+Add-HostsEntry "sitebeta.local.hztl.com"
 
 #######################################
 # Create .env.local file if needed
@@ -159,8 +160,11 @@ if ($InitEnv) {
     # CM_HOST
     Set-EnvFileVariable "CM_HOST" -Value "xmcloudcm.localhost" -Path $LocalEnvPath
 
-    # RENDERING_HOST
-    Set-EnvFileVariable "RENDERING_HOST" -Value "sitealpha.local.hztl.com" -Path $LocalEnvPath
+    # RENDERING_HOST_ALPHA
+    Set-EnvFileVariable "RENDERING_HOST_ALPHA" -Value "sitealpha.local.hztl.com" -Path $LocalEnvPath
+    
+    # RENDERING_HOST_BETA
+    Set-EnvFileVariable "RENDERING_HOST_BETA" -Value "sitebeta.local.hztl.com" -Path $LocalEnvPath
 
     # REPORTING_API_KEY = random 64-128 chars
     Set-EnvFileVariable "REPORTING_API_KEY" -Value (Get-SitecoreRandomString 128 -DisallowSpecial) -Path $LocalEnvPath
