@@ -57,6 +57,14 @@
     "@graphql-typed-document-node/core": "^3.1.1",
     "@sitecore-jss/sitecore-jss-cli": "~21.6.0",
     "@sitecore-jss/sitecore-jss-dev-tools": "~21.6.0",
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/addon-onboarding": "^1.0.11",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/nextjs": "^7.6.17",
+    "@storybook/react": "^7.6.17",
+    "@storybook/test": "^7.6.17",
     "@types/node": "^18.11.18",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.0.5",
@@ -72,10 +80,13 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.1",
+    "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-yaml": "^0.5.0",
     "graphql-let": "^0.18.6",
     "npm-run-all": "~4.1.5",
     "prettier": "^2.8.3",
+    "storybook": "^7.6.17",
+    "tailwindcss": "^3.4.3",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.2",
     "typescript": "~4.9.4",
@@ -96,6 +107,15 @@
     "start": "npm-run-all --serial leprechaun start:connected",
     "start:connected": "npm-run-all --serial bootstrap --parallel next:dev start:watch-components",
     "start:production": "npm-run-all --serial bootstrap next:build next:start",
-    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-builder/index.ts --watch"
+    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-builder/index.ts --watch",
+    "prestorybook": "npm run bootstrap",
+    "prebuild-storybook": "npm run bootstrap",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }
