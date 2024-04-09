@@ -1,5 +1,4 @@
 services:
-
   # A Windows-based nodejs base image
   nodejs:
     image: ${REGISTRY}${COMPOSE_PROJECT_NAME}-nodejs:${VERSION:-latest}
@@ -23,7 +22,7 @@ services:
     environment:
       SITECORE_API_HOST: "http://cm"
       NEXTJS_DIST_DIR: ".next-container"
-      PUBLIC_URL: "https://${RENDERING_HOST}"
+      PUBLIC_URL: "https://${RENDERING_HOST_ALPHA}"
       JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
       SITECORE_API_KEY: "${SITECORE_API_KEY_xmcloudpreview}"
       DISABLE_SSG_FETCH: ${DISABLE_SSG_FETCH}
@@ -33,7 +32,11 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.rendering-secure.entrypoints=websecure"
-      - "traefik.http.routers.rendering-secure.rule=Host(`${RENDERING_HOST}`)"
+      # - "traefik.http.routers.rendering-secure.rule=Host(`${RENDERING_HOST_ALPHA}`) || Host(`${RENDERING_HOST_BETA}`)"
+      - >
+        traefik.http.routers.rendering-secure.rule=
+        Host(`${RENDERING_HOST_ALPHA}`)
+        || Host(`${RENDERING_HOST_BETA}`)
       - "traefik.http.routers.rendering-secure.tls=true"
 
   # Mount the Traefik configuration and certs.
