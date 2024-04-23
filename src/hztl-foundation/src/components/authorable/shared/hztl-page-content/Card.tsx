@@ -17,43 +17,39 @@ interface Fields {
   CardLink2: LinkField;
 }
 
-type CardProps = {
+export type CardProps = {
   params: { [key: string]: string };
   fields: Fields;
 };
 
-const CardDefaultComponent = (props: CardProps): JSX.Element => (
-  <div className={`component card ${props.params.styles}`}>
-    <div className="component-content">
-      <span className="is-empty-hint">Card</span>
-    </div>
-  </div>
-);
-
 export const Default = (props: CardProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
-  if (props.fields) {
-    return (
-      <div className={`component card ${props.params.styles}`} id={id ? id : undefined}>
-        <div className="component-content">
-          <div className="field-cardtitle">
-            <JssRichText field={props.fields.CardTitle} />
+  console.log('props:', props);
+  return (
+    <div className="component card flex max-w-xl">
+      <div className="component-content p-6">
+        <div className="field-cardtitle text-2xl pb-6">
+          <JssRichText field={props.fields.CardTitle} />
+        </div>
+        <div className="field-cardimage pb-6">
+          <JssImage field={props.fields.CardImage} className="border-2" />
+        </div>
+        <div className="card-text">
+          <div className="field-cardtext pb-6">
+            <JssRichText field={props.fields.CardText} />
           </div>
-          <div className="field-cardimage">
-            <JssImage field={props.fields.CardImage} />
+          <div className="field-cardtext2 pb-6">
+            <JssRichText field={props.fields.CardText2} />
           </div>
-          <div className="card-text">
-            <div className="field-cardtext">
-              <JssRichText field={props.fields.CardText} />
-            </div>
-            <div className="field-cardlink">
-              <JssLink field={props.fields.CardLink} />
-            </div>
+          <div className="field-cardlink pb-6">
+            <JssLink field={props.fields.CardLink} className="underline" />
+          </div>
+          <div className="field-cardlink2 pb-6">
+            <JssLink field={props.fields.CardLink2} className="underline" />
           </div>
         </div>
       </div>
-    );
-  }
-
-  return <CardDefaultComponent {...props} />;
+    </div>
+  );
 };
+
+export default Default;
