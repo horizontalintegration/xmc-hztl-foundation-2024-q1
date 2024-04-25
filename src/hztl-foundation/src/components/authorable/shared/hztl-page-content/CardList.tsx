@@ -18,12 +18,12 @@ interface Fields {
 
 interface CardListProps {
   rendering: ComponentRendering & { params: ComponentParams };
-  params: ComponentParams;
+  params?: ComponentParams;
   fields: Fields;
 }
 
 const CardListDefaultComponent = (props: CardListProps): JSX.Element => (
-  <div className={`component ${props.params.styles}`}>
+  <div className={`component ${props.params?.styles}`}>
     <div className="component-content">
       <p>CardList Component</p>
     </div>
@@ -31,12 +31,12 @@ const CardListDefaultComponent = (props: CardListProps): JSX.Element => (
 );
 
 export const Default = (props: CardListProps): JSX.Element => {
-  const id = props.params.RenderingIdentifier;
-  const phKey = `cardlist-${props.params.DynamicPlaceholderId}`;
+  const id = props.params?.RenderingIdentifier;
+  const phKey = `cardlist-${props.params?.DynamicPlaceholderId}`;
 
   if (props.fields) {
     return (
-      <div className={`component cardlist ${props.params.styles}`} id={id ? id : undefined}>
+      <div className={`component cardlist ${props.params?.styles}`} id={id ? id : undefined}>
         <div className="component-content">
           <div className="field-cardlistheading">
             <JssRichText field={props.fields.CardListTitle} />

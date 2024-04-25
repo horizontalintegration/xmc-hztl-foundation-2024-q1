@@ -11,8 +11,9 @@ import defaultData from './Card.mock-data';
 const meta: Meta<typeof Card> = {
   title: 'Authorable/Card',
   component: Card,
+  tags: ['autodocs'],
   argTypes: {
-    //editable: { control: 'boolean' },
+    editable: { control: 'boolean' },
   },
 };
 
@@ -25,7 +26,6 @@ export const Primary: Story = {
     console.log('args:', args);
     return (
       <>
-        {/* <Card {...(expandObj({ ...args }) as any)} /> */}
         <Card {...(expandObj({ ...args }) as CardProps)} />
       </>
     );

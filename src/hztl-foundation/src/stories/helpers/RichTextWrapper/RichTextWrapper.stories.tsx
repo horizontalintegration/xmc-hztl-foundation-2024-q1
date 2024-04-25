@@ -12,6 +12,7 @@ import defaultData from './RichTextWrapper.mock-data';
 const meta: Meta<typeof RichTextWrapper> = {
   title: 'Helpers/A11y/Rich Text Wrapper',
   component: RichTextWrapper,
+  tags: ['autodocs'],
   argTypes: {
     editable: { control: 'boolean' },
   },

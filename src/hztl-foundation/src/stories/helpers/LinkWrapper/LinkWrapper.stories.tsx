@@ -14,6 +14,7 @@ import defaultData from './LinkWrapper.mock-data';
 const meta: Meta<typeof LinkWrapper> = {
   title: 'Helpers/A11y/Link Wrapper',
   component: LinkWrapper,
+  tags: ['autodocs'],
   argTypes: {
     'field.value.linktype': { control: 'select', options: ['external'] },
     'field.value.target': { control: 'select', options: ['_blank', '_self', '_parent', '_top'] },
