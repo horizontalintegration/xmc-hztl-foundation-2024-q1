@@ -5,7 +5,7 @@ import { sendGTMEvent } from '@next/third-parties/google';
 import React from 'react';
 
 // Lib
-import useIsEditing from 'lib/use-is-editing';
+import useIsEditing from 'lib/hooks/use-is-editing';
 import { GtmEvent } from 'lib/utils/gtm-utils';
 
 /**
@@ -21,6 +21,9 @@ export type LinkWrapperProps = Omit<LinkProps, 'field'> & {
   suppressNewTabIcon?: boolean;
   ignoreEE?: boolean;
 };
+
+export const srOnlySpan = '<span class="sr-only"> (Opens in a new tab)</span>';
+export const newTabIcon = `<span class="svg-icon inline-flex align-middle -ml-3 h-6 w-6"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="inline ml-2 -mt-1 h-em w-em"><path fill-rule="evenodd" d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z" clip-rule="evenodd"></path></svg></span>`;
 
 const INTERNAL_LINK_REGEX = /^\/|^\#/g;
 
@@ -109,7 +112,7 @@ const LinkWrapper = React.forwardRef(
         {...props}
       >
         {showLinkTextWithChildrenPresent && text ? (
-          <div dangerouslySetInnerHTML={{ __html: text }} />
+          <span dangerouslySetInnerHTML={{ __html: text }} />
         ) : null}
         {children}
         {(target === '_blank' || srOnlyText) && (
@@ -120,7 +123,9 @@ const LinkWrapper = React.forwardRef(
               {target === '_blank' && ' (Opens in a new tab)'}
             </span>
             {/* Icon Goes Here */}
-            {!suppressNewTabIcon && target === '_blank' && <span></span>}
+            {!suppressNewTabIcon && target === '_blank' && (
+              <span dangerouslySetInnerHTML={{ __html: newTabIcon }} />
+            )}
           </>
         )}
       </NextLink>

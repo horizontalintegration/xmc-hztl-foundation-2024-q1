@@ -6,11 +6,11 @@ import { RichTextProps } from '@sitecore-jss/sitecore-jss-nextjs/types/component
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import RichTextWrapper from 'helpers/RichTextWrapper/RichTextWrapper';
+import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import defaultData from './RichTextWrapper.mock-data';
 
 const meta: Meta<typeof RichTextWrapper> = {
-  title: 'Helpers/A11y/Rich Text Wrapper',
+  title: 'Helpers/Field Wrappers/Rich Text Wrapper',
   component: RichTextWrapper,
   argTypes: {
     editable: { control: 'boolean' },

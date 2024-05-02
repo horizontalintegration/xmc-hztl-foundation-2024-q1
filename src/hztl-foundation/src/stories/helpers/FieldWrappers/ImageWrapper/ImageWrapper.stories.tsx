@@ -5,7 +5,10 @@ import { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import ImageWrapper, { ImageWrapperProps } from 'helpers/ImageWrapper/ImageWrapper';
+import ImageWrapper, {
+  ImageWrapperProps,
+} from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
+
 import defaultData, { intrinsicData, responsiveData } from './ImageWrapper.mock-data';
 
 const meta: Meta<typeof ImageWrapper> = {
@@ -50,7 +53,7 @@ const meta: Meta<typeof ImageWrapper> = {
   },
   component: ImageWrapper,
   tags: ['autodocs'],
-  title: 'Helpers/General/Image Wrapper',
+  title: 'Helpers/Field Wrappers/Image Wrapper',
 };
 
 export default meta;
