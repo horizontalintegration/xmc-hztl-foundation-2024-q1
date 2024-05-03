@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './_rte.css';
+
 /*
   Hides Sitecore editor markup,
   if you run the app in connected mode while the Sitecore cookies
