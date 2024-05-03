@@ -5,20 +5,20 @@ const defaultData = {
       value: {
         src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/placeholder-image.png?h=600&iar=0&w=800',
         alt: 'placeholder-image',
-        width: '800',
-        height: '600',
+        width: '1280',
+        height: '768',
       },
     },
     CardTitle: {
       value: 'This is a card title',
     },
-    CardText: {
+    CartText: {
       value:
-        'Proin viverra, ligula sit amet ultrices semper, ligula arcu tristique sapien, a accumsan nisi mauris ac eros. Nam pretium turpis et arcu. Sed a libero. Donec vitae orci sed dolor rutrum auctor. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
     CardText2: {
       value:
-        'Morbi mattis ullamcorper velit. Maecenas malesuada. Morbi nec metus. Praesent ut ligula non mi varius sagittis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Aenean commodo ligula eget dolor. Maecenas egestas arcu quis ligula mattis placerat. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Morbi vestibulum volutpat enim. Maecenas nec odio et ante tincidunt tempus.',
+        'Etiam imperdiet imperdiet orci. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Vestibulum suscipit nulla quis orci. Etiam imperdiet imperdiet orci. Praesent ut ligula non mi varius sagittis.',
     },
     CardLink: {
       value: {
@@ -26,7 +26,7 @@ const defaultData = {
         linktype: 'external',
         url: 'https://www.google.com',
         target: '_blank',
-        text: 'This is an example link',
+        text: 'Primary CTA',
         title: 'Visit Google - opens in new window',
         class: '',
       },
@@ -37,7 +37,7 @@ const defaultData = {
         linktype: 'external',
         url: 'https://www.bing.com',
         target: '_blank',
-        text: 'This is another example link',
+        text: 'Secondary CTA',
         title: 'Visit Bing - opens in new window',
         class: '',
       },
