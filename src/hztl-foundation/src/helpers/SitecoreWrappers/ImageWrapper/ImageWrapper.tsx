@@ -6,8 +6,8 @@ import { Image as JSSImage, ImageField } from '@sitecore-jss/sitecore-jss-nextjs
 import Image, { ImageProps } from 'next/image';
 
 // Lib
-import useIsEditing from 'lib/use-is-editing';
-
+import useIsNormalMode from 'lib/hooks/use-is-normal-mode';
+import { isValidNextImageDomain } from 'lib/next-config/plugins/images';
 /**
  * JSS does not yet support Next Image in Experience Editor
  * This component will switch between the two based on environment
@@ -46,19 +46,28 @@ const ImageWrapper = ({
   sizes,
 }: ImageWrapperProps): JSX.Element => {
   const { alt, height, src, width } = field?.value || {};
-  const isEditing = useIsEditing();
+  const isNormalMode = useIsNormalMode();
 
   const newSrc = normalizeImageUrl(src);
 
-  // If running in Experience Editor, return <JSSImage /> component.
-  if (isEditing) {
+  const isValidDomain = isValidNextImageDomain(newSrc);
+
+  const newField = { ...field, value: { ...field?.value, src: newSrc } };
+
+  // If we're in edit/preview mode, or the image domain is not valid for NextImage, use JSS image.
+  if (!isNormalMode || !isValidDomain) {
     return (
-      <JSSImage field={{ ...field, value: { ...field?.value, src: newSrc } }} editable={editable} />
+      <JSSImage
+        data-component="helpers/general/imagewrapper"
+        field={newField}
+        editable={editable}
+      />
     );
   }
 
-  // If the image has no src property, return nothing.
-  if (!newSrc) return <></>;
+  if (!newSrc) {
+    return <></>;
+  }
 
   const nextImageProps: ImageProps = {
     alt: (alt as string) || '',
@@ -87,9 +96,15 @@ const ImageWrapper = ({
     nextImageProps.width = width as number;
   }
 
-  // for local development with webp images that are missing width property.
-  if (process.env.NODE_ENV === 'development' && !nextImageProps.width && !nextImageProps.fill)
-    return <JSSImage data-component="helpers/general/imagewrapper" {...nextImageProps} />;
+  // for images that are missing width property.
+  if (!nextImageProps.width && !nextImageProps.fill)
+    return (
+      <JSSImage
+        data-component="helpers/general/imagewrapper"
+        {...nextImageProps}
+        field={newField}
+      />
+    );
 
   return <Image data-component="helpers/general/imagewrapper" {...nextImageProps} />;
 };
