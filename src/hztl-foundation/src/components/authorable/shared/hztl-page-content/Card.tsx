@@ -1,7 +1,7 @@
 import React from 'react';
-import ImageWrapper from 'helpers/ImageWrapper/ImageWrapper';
+import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import LinkWrapper from 'helpers/LinkWrapper/LinkWrapper';
-import RichTextWrapper from 'helpers/RichTextWrapper/RichTextWrapper';
+import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
 export type CardProps = ComponentProps & HztlPageContent.Card;
