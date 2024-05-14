@@ -45,10 +45,14 @@ const LinkWrapper = React.forwardRef(
 
     if (!field) return <></>;
 
-    const handleOnClick = () => {
-      if (!field?.value) return;
+    // Make a deep clone so we don't modify the original object.
+    const asLinkField = structuredClone(
+      // Format field as LinkField for consistency
+      !field.value ? { value: { ...field } } : field
+    ) as LinkField;
 
-      const asLinkField = !field.value ? { value: { ...field } } : (field as LinkField);
+    const handleOnClick = () => {
+      if (!asLinkField?.value) return;
 
       const gtmEventInner = {
         ...gtmEvent,
@@ -59,8 +63,6 @@ const LinkWrapper = React.forwardRef(
       sendGTMEvent(gtmEventInner);
     };
 
-    // Format field as LinkField for consistency
-    const asLinkField = !field.value ? { value: { ...field } } : (field as LinkField);
     const text = suppressLinkText ? '' : asLinkField?.value?.text;
     const target = asLinkField?.value?.target;
 
