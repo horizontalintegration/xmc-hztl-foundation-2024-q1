@@ -1,19 +1,18 @@
 ﻿---
-ID: "19041272-23b1-484f-ae52-4863cbf3ea96"
+ID: "e9e6cf8b-8f63-4454-9a2f-c7fc69a6865d"
 Parent: "3c4928bd-0372-4b80-959e-5be4029b43fd"
 Template: "76da0a8d-fc7e-42b2-af1e-205b49e43f98"
-Path: /sitecore/content/HztlFoundation/SiteAlpha/Presentation/Available Renderings/HztlPageContent
-BranchID: "62a0976c-8a31-4f15-9d7e-711199f4e5bc"
+Path: /sitecore/content/HztlFoundation/SiteAlpha/Presentation/Available Renderings/Hztl Site Structure
+BranchID: "b5be25ac-f240-4559-925c-a00d0de4a77a"
 SharedFields:
 - ID: "715ae6c0-71c8-4744-ab4f-65362d20ad65"
   Hint: Renderings
   Value: |
-    {85CB0456-D361-4936-A03E-8E655F4A1436}
-    {1B5EE0C2-36B4-4C3D-A675-4C7AEFED9404}
-    {98956ACA-6A3A-4B94-85D4-40DDF64D0F85}
+    {F499F675-F235-4E68-BDC0-73C610B481D6}
+    {F499F675-F235-4E68-BDC0-73C610B481D6}
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
-  Value: "{3B1B96DC-D773-41C3-BF29-22D7FE941875}"
+  Value: "{5EFCCC18-2361-4B69-9BB0-0BC4A5B89E9E}"
 Languages:
 - Language: en
   Versions:
@@ -21,22 +20,22 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20240320T141553Z
+      Value: 20240515T123503Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
-        sitecore\pbarron@horizontal.com
+        sitecore\mchaniyara@horizontal.com
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\pbarron@horizontal.com
+        sitecore\mchaniyara@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "cd77886c-3b07-468d-820b-992af2b67768"
+      Value: "104e9406-e177-4f48-a178-72c69bac941b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\mchaniyara@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240515T132030Z
+      Value: 20240515T123503Z
