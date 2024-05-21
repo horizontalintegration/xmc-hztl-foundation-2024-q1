@@ -8,7 +8,7 @@ SharedFields:
 - ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
   Hint: __Thumbnail
   Value: |
-    <image mediaid="{22E05486-A876-48A1-9446-C19AC1D79B43}" />
+    <image mediaid="{476892E7-258F-4108-8EC6-C4A1F3F433C3}" />
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{F558BEC9-C602-4D7A-B9A1-D0411C946EA4}"
@@ -28,26 +28,26 @@ Languages:
           <d
             id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
             <r
-              uid="{B290641A-CB05-4740-9395-3669DEB5D7EC}"
+              uid="{43523D3C-C1FA-4C2C-A5F5-97D0F41A9CA3}"
               p:before="*"
+              s:ds="{10011FB7-DF1B-45E6-A0AF-6454A5A36076}"
+              s:id="{98956ACA-6A3A-4B94-85D4-40DDF64D0F85}"
+              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames=%7B36155BE9-9FDA-4CC0-B8FD-D330A96C6457%7D&amp;Styles&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=3"
+              s:ph="/headless-main/sxa-main-layout/hztl-headless-hero-{412E5CF5-82BA-407A-975D-F429AF22A5E5}-0" />
+            <r
+              uid="{5C74C284-44D0-4F73-8D98-5C23638BADDF}"
+              p:after="r[@uid='{43523D3C-C1FA-4C2C-A5F5-97D0F41A9CA3}']"
               s:ds="local:/Data/Card 1"
               s:id="{85CB0456-D361-4936-A03E-8E655F4A1436}"
               s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames=%7B155858D9-5D20-4268-A847-DC707C8077BF%7D&amp;Styles&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=2"
-              s:ph="/hztl-headless-main/cardlist-1" />
+              s:ph="hztl-headless-main-content" />
             <r
-              uid="{2B790194-98A7-4C27-A5AB-04F17FB0CD40}"
-              p:after="r[@uid='{B290641A-CB05-4740-9395-3669DEB5D7EC}']"
-              s:ds="local:/Data/Card 2"
-              s:id="{85CB0456-D361-4936-A03E-8E655F4A1436}"
-              s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames=%7B155858D9-5D20-4268-A847-DC707C8077BF%7D&amp;Styles&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=3"
-              s:ph="/hztl-headless-main/cardlist-1" />
-            <r
-              uid="{1A1F1D27-805F-4BBA-894C-3E2EEF31F50A}"
+              uid="{ABEF89EE-3FDF-41D2-AD06-DFCA92E4253E}"
               p:after="*[1=2]"
               s:ds="local:/Data/CardList 1"
               s:id="{1B5EE0C2-36B4-4C3D-A675-4C7AEFED9404}"
               s:par="CSSStyles&amp;DynamicPlaceholderId=1"
-              s:ph="hztl-headless-main" />
+              s:ph="hztl-headless-main-content" />
           </d>
         </r>
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
@@ -66,14 +66,14 @@ Languages:
         sitecore\dly@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c29048ef-dcab-4e7e-aeed-6584852ea4f1"
+      Value: "e955c612-2e88-4ee4-917d-219881cfd6ca"
     - ID: "9c063550-df49-46a3-99c6-f830a981a018"
       Hint: Title
       Value: Home
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\pbarron@horizontal.com
+        sitecore\mchaniyara@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240409T191432Z
+      Value: 20240515T132204Z
