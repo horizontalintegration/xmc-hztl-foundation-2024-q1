@@ -39,6 +39,9 @@ const AccordionItem = (props: { handleToggle: any; active: any; accordionItem: a
         <div
           className={`a-accordion-toggle p-3 ${active === id ? 'active' : ''}`}
           onClick={() => handleToggle(id)}
+          aria-expanded={`${active === id ? 'true' : 'false'}`}
+          tabIndex={0}
+          id={`tab-accordion-${id}`}
         >
           <h5 className="a-accordion-title">{header}</h5>
           <i className="fa fa-chevron-down a-accordion-icon"></i>
