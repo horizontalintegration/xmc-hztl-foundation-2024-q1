@@ -6,15 +6,16 @@ import {
   Field,
   LinkField,
   ImageField,
+  Text,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
   CardImage: ImageField;
-  CardEyebrow: Field<string>;
-  CardTitle: Field<string>;
-  CardText: Field<string>;
-  CardText2: Field<string>;
-  CardLink: LinkField;
+  Eyebrow: Field<string>;
+  Heading: Field<string>;
+  SubHeading: Field<string>;
+  Description: Field<string>;
+  CardLink1: LinkField;
   CardLink2: LinkField;
 }
 
@@ -62,9 +63,9 @@ export const Default = (props: CardProps): JSX.Element => {
               <div className="flex justify-center items-center text-center md:text-left w-[300px] md:w-[450px] h-auto md:h-[315px] p-[40px]">
                 <div>
                   <div>
-                    <JssRichText
+                    <Text
                       className="font-mordern text-[12px] font-[400] not-italic leading-normal mb-[8px]"
-                      field={props.fields.CardEyebrow}
+                      field={props.fields.Eyebrow}
                       tag="h6"
                       editable
                     />
@@ -72,7 +73,7 @@ export const Default = (props: CardProps): JSX.Element => {
                   <div>
                     <JssRichText
                       className="font-mordern text-[36px] font-[700] not-italic leading-normal mb-[8px]"
-                      field={props.fields.CardTitle}
+                      field={props.fields.Heading}
                       tag="h1"
                       editable
                     />
@@ -80,7 +81,7 @@ export const Default = (props: CardProps): JSX.Element => {
                   <div>
                     <JssRichText
                       className="font-mordern text-[20px] font-[700] not-italic leading-normal mb-[8px]"
-                      field={props.fields.CardText}
+                      field={props.fields.SubHeading}
                       tag="h3"
                       editable
                     />
@@ -88,7 +89,7 @@ export const Default = (props: CardProps): JSX.Element => {
                   <div>
                     <JssRichText
                       className="font-mordern text-[16px] font-[400] not-italic leading-[24px] mb-[8px]"
-                      field={props.fields.CardText2}
+                      field={props.fields.Description}
                       tag="p"
                       editable
                     />
@@ -96,7 +97,7 @@ export const Default = (props: CardProps): JSX.Element => {
                   <div className="flex gap-[8px] flex-wrap justify-center md:justify-normal">
                     <JssLink
                       className="w-[140px] h-[48px] px-[16px] py-[12px] rounded-[4px] bg-[#2F2D2E] text-center text-[#FFF] font-mordern text-[14px] font-[700] not-italic leading-normal"
-                      field={props.fields.CardLink}
+                      field={props.fields.CardLink1}
                     />
                     <JssLink
                       className="w-[150px] h-[48px] p-[12px] rounded-[4px] border-[1px] border-[#2F2D2E] text-center text-[#2F2D2E] font-mordern text-[16px] font-[700] not-italic leading-normal"

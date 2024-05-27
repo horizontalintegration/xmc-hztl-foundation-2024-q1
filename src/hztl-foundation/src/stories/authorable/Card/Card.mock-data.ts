@@ -4,29 +4,29 @@ const defaultData: CardProps = {
   rendering: { componentName: 'Default' },
   params: {},
   fields: {
-    CardEyebrow: {
+    Eyebrow: {
       value: 'Eyebrow',
     },
     CardImage: {
-      value:{
-        src:"https://dummyimage.com/48x48/000/fff",
-        alt:'Image Alt text',
-        title:'Image title',
-        width:48,
-        height:48,
-      }
+      value: {
+        src: 'https://dummyimage.com/48x48/000/fff',
+        alt: 'Image Alt text',
+        title: 'Image title',
+        width: 48,
+        height: 48,
+      },
     },
-    CardTitle: {
+    Heading: {
       value: 'Services',
     },
-    CardText: {
+    SubHeading: {
       value: 'Subheading',
     },
-    CardText2: {
+    Description: {
       value:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
-    CardLink: {
+    CardLink1: {
       value: {
         href: 'https://www.horizontaldigital.com',
         text: 'Learn More',
