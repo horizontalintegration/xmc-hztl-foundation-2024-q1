@@ -33,18 +33,18 @@ const AccordionItem = (props: { handleToggle: any; active: any; accordionItem: a
   const { header, id, text } = accordionItem;
 
   return (
-    <div className="a-accordion-card">
+    <div className="accordion-card">
       {/* header */}
-      <div className="a-accordion-header">
+      <div className="accordion-header">
         <div
-          className={`a-accordion-toggle p-3 ${active === id ? 'active' : ''}`}
+          className={`accordion-toggle p-3 ${active === id ? 'active' : ''}`}
           onClick={() => handleToggle(id)}
           aria-expanded={`${active === id ? 'true' : 'false'}`}
           tabIndex={0}
           id={`tab-accordion-${id}`}
         >
-          <h5 className="a-accordion-title">{header}</h5>
-          <i className="fa fa-chevron-down a-accordion-icon"></i>
+          <h5 className="accordion-title">{header}</h5>
+          <i className="fa fa-chevron-down accordion-icon"></i>
         </div>
       </div>
       {/* content */}
@@ -55,7 +55,7 @@ const AccordionItem = (props: { handleToggle: any; active: any; accordionItem: a
           active === id ? { height: accordionContent?.current?.scrollHeight } : { height: '0px' }
         }
       >
-        <div className="a-accordion-body">
+        <div className="accordion-body">
           <p className="mb-0">{text}</p>
         </div>
       </div>
