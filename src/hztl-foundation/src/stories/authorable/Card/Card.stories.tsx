@@ -5,22 +5,22 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import Card, { CardProps } from './Card';
+import { Default, CardProps } from '../../../components/authorable/shared/hztl-page-content/Card';
 import defaultData from './Card.mock-data';
 
-const meta: Meta<typeof Card> = {
+const meta: Meta<typeof Default> = {
   title: 'Authorable/General/Card',
-  component: Card,
+  component: Default,
   argTypes: {},
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Card>;
+type Story = StoryObj<typeof Default>;
 
-export const Default: Story = {
+export const Card: Story = {
   render: (args) => {
-    return <Card {...(expandObj({ ...args }) as CardProps)} />;
+    return <Default {...(expandObj({ ...args }) as CardProps)} />;
   },
   args: {
     ...flattenObj(defaultData),
