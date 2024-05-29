@@ -9,17 +9,17 @@ const defaultData: CardProps = {
     },
     CardImage: {
       value: {
-        src: 'https://dummyimage.com/48x48/000/fff',
+        src: 'https://dummyimage.com/450x299/000/fff',
         alt: 'Image Alt text',
         title: 'Image title',
-        width: 48,
-        height: 48,
+        width: 450,
+        height: 299,
       },
     },
     Heading: {
       value: 'Services',
     },
-    SubHeading: {
+    Subheading: {
       value: 'Subheading',
     },
     Description: {
