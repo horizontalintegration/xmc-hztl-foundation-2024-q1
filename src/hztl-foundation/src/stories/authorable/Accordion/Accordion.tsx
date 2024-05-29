@@ -2,28 +2,28 @@
 // Temporary adding this disabled rule until fix the types
 
 import React, { useRef, useState } from 'react';
-import './accordion.css';
+import './accordion.scss';
 
 const accordionItems = [
   {
     id: 1,
     header: 'Accordion #1',
-    text: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
+    text: `The text is thought to have been used to mockup fonts for a specimen book. The Lorem ipsum text was later popularized in the 1960s for typesetting and has evolved into a digital placeholder of choice for many graphic designers and software developers. The text is thought to have been used to mockup fonts for a specimen book. The Lorem ipsum text was later popularized in the 1960s for typesetting and has evolved into a digital placeholder of choice for many graphic designers and software developers.`,
   },
   {
     id: 2,
     header: 'Accordion #2',
-    text: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.`,
+    text: `The text is thought to have been used to mockup fonts for a specimen book. The Lorem ipsum text was later popularized in the 1960s for typesetting and has evolved into a digital placeholder of choice for many graphic designers and software developers.`,
   },
   {
     id: 3,
     header: 'Accordion #3',
-    text: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.`,
+    text: `The text is thought to have been used to mockup fonts for a specimen book. The Lorem ipsum text was later popularized in the 1960s for typesetting and has evolved into a digital placeholder of choice for many graphic designers and software developers. The text is thought to have been used to mockup fonts for a specimen book.`,
   },
   {
     id: 4,
     header: 'Accordion #4',
-    text: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.`,
+    text: `The text is thought to have been used to mockup fonts for a specimen book.`,
   },
 ];
 
@@ -35,22 +35,22 @@ const AccordionItem = (props: { handleToggle: any; active: any; accordionItem: a
   return (
     <div className="accordion-card">
       {/* header */}
-      <div className="accordion-header">
+      <button className="accordion-header">
         <div
           className={`accordion-toggle p-3 ${active === id ? 'active' : ''}`}
           onClick={() => handleToggle(id)}
-          aria-expanded={`${active === id ? 'true' : 'false'}`}
+          aria-expanded={active === id ? true : false}
           tabIndex={0}
           id={`tab-accordion-${id}`}
         >
-          <h5 className="accordion-title">{header}</h5>
+          <h3 className="accordion-title">{header}</h3>
           <i className="fa fa-chevron-down accordion-icon"></i>
         </div>
-      </div>
+      </button>
       {/* content */}
       <div
         ref={accordionContent}
-        className={`a-collapse ${active === id ? 'show' : ''}`}
+        className={`accordion-collapse ${active === id ? 'show' : ''}`}
         style={
           active === id ? { height: accordionContent?.current?.scrollHeight } : { height: '0px' }
         }

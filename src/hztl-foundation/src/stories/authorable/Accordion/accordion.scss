@@ -1,0 +1,53 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css);
+
+a,
+a:hover,
+a:focus {
+  @apply no-underline transition-[0.5s];
+  outline: none;
+}
+
+.accordion-toggle {
+  @apply flex items-center cursor-pointer justify-between transition-[0.3s];
+}
+
+.accordion-toggle.active .accordion-icon {
+  @apply rotate-180 text-[#2F2D2E];
+}
+
+.accordion-card {
+  @apply overflow-hidden border-t-[#2F2D2E] border-t border-solid last:mb-0 last:border-b-[#2F2D2E] last:border-b last:border-solid;
+}
+
+.accordion-header {
+  @apply w-full;
+}
+
+.accordion-title {
+  @apply text-xl font-normal leading-5;
+}
+
+.accordion-toggle.active .accordion-title {
+  @apply text-[#2F2D2E] text-xl font-bold leading-[normal];
+}
+
+.accordion-icon {
+  @apply relative text-[#2F2D2E] transition-[0.35s] text-xs top-0.5;
+}
+
+.accordion-body {
+  @apply flex-auto min-h-[1px] p-[24px];
+}
+
+.accordion-body p {
+  @apply text-[#2F2D2E] text-lg font-normal leading-[22px] p-[16px];
+
+}
+
+.accordion-collapse {
+  @apply relative h-0 overflow-hidden transition-[height] duration-[0.35s] ease-[ease];
+
+  .show {
+    @apply h-auto;
+  }
+}
