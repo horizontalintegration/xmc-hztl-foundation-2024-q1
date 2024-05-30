@@ -33,30 +33,40 @@ const AccordionItem = (props: { handleToggle: any; active: any; accordionItem: a
   const { header, id, text } = accordionItem;
 
   return (
-    <div className="accordion-card">
+    <div className="overflow-hidden border-t-[#2F2D2E] border-t border-solid last:mb-0 last:border-b-[#2F2D2E] last:border-b last:border-solid">
       {/* header */}
-      <button className="accordion-header">
-        <div
-          className={`accordion-toggle p-3 ${active === id ? 'active' : ''}`}
-          onClick={() => handleToggle(id)}
-          aria-expanded={active === id ? true : false}
-          tabIndex={0}
-          id={`tab-accordion-${id}`}
+      <button
+        className="w-full flex items-center cursor-pointer justify-between transition-[0.3s] p-3"
+        onClick={() => handleToggle(id)}
+        aria-expanded={active === id ? true : false}
+        tabIndex={0}
+        id={`tab-accordion-${id}`}
+      >
+        <h3
+          className={`${
+            active === id ? 'active text-[#2F2D2E] text-xl font-bold leading-[normal]' : ''
+          } text-xl font-normal leading-5`}
         >
-          <h3 className="accordion-title">{header}</h3>
-          <i className="fa fa-chevron-down accordion-icon"></i>
-        </div>
+          {header}
+        </h3>
+        <i
+          className={`${
+            active === id ? 'active rotate-180 text-[#2F2D2E]' : ''
+          } fa fa-chevron-down relative text-[#2F2D2E] transition-[0.35s] text-xs top-0.5`}
+        ></i>
       </button>
       {/* content */}
       <div
         ref={accordionContent}
-        className={`accordion-collapse ${active === id ? 'show' : ''}`}
+        className={`accordion-collapse relative h-0 overflow-hidden transition-[height] duration-[0.35s] ease-[ease] ${
+          active === id ? 'show h-auto' : ''
+        }`}
         style={
           active === id ? { height: accordionContent?.current?.scrollHeight } : { height: '0px' }
         }
       >
-        <div className="accordion-body">
-          <p className="mb-0">{text}</p>
+        <div className="flex-auto min-h-[1px] p-[24px]">
+          <p className="mb-0 text-[#2F2D2E] text-lg font-normal leading-[22px] p-[16px]">{text}</p>
         </div>
       </div>
     </div>
