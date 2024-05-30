@@ -24,7 +24,7 @@ const defaultData: CardProps = {
     },
     Description: {
       value:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        '<p>Lorem ipsum dolor sit amet, consectetur<br> adipiscing elit, sed do eiusmod tempor incididunt<br> ut labore et dolore magna aliqua.</p>',
     },
     CardLink1: {
       value: {
