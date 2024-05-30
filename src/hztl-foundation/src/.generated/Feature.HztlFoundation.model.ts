@@ -36,6 +36,11 @@ export namespace HztlPageContent {
             CardLink1?: LinkField;
 
             /**
+            * Represents the CardLink2 field (ebf65880-3433-4f9c-82fe-33400ef39565).
+            */
+            CardLink2?: LinkField;
+
+            /**
             * Represents the Description field (06cc0659-30f3-4acd-8d70-acd3b71a021e).
             */
             Description?: Field<string>;
@@ -74,6 +79,13 @@ export namespace HztlPageContent {
             * Represents the CardLink1 field (c9d402e1-0e1c-4b9b-9f72-0c66f4249145).
             */
             CardLink1?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the CardLink2 field (ebf65880-3433-4f9c-82fe-33400ef39565).
+            */
+            CardLink2?: {
                 jsonValue: LinkField
             };
 
