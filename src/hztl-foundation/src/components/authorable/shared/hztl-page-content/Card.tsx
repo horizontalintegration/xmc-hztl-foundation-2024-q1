@@ -28,46 +28,36 @@ export const Default = (props: CardProps): JSX.Element => {
                 <ImageWrapper field={props?.fields?.CardImage} />
               </div>
               <div className="text-center md:text-left p-[40px] m-auto">
-                <div>
-                  <div>
-                    <PlainTextWrapper
-                      className="font-modern text-[#2F2D2E] text-[12px] font-[400] not-italic leading-normal mb-[8px] opacity-[0.8]"
-                      field={props?.fields?.Eyebrow}
-                      tag="h6"
-                      editable
-                    />
-                  </div>
-                  <div>
-                    <RichTextWrapper
-                      className="font-modern text-[#2F2D2E] text-[36px] font-[700] not-italic leading-normal mb-[8px]"
-                      field={props?.fields?.Heading}
-                      tag="h2"
-                    />
-                  </div>
-                  <div>
-                    <RichTextWrapper
-                      className="font-modern text-[#2F2D2E] text-[20px] font-[700] not-italic leading-normal mb-[8px] opacity-[0.8]"
-                      field={props?.fields?.Subheading}
-                      tag="div"
-                    />
-                  </div>
-                  <div>
-                    <RichTextWrapper
-                      className="font-modern text-[#2F2D2E] text-[16px] font-[400] not-italic leading-[24px] mb-[8px] opacity-[0.9]"
-                      field={props?.fields?.Description}
-                      tag="p"
-                    />
-                  </div>
-                  <div className="flex gap-[8px] flex-wrap justify-center md:justify-normal">
-                    <LinkWrapper
-                      className="flex items-center justify-center px-[16px] py-[12px] rounded-[4px] bg-[#2F2D2E] text-center text-[#FFF] font-modern text-[14px] font-[700] not-italic leading-normal"
-                      field={props?.fields?.CardLink1}
-                    />
-                    <LinkWrapper
-                      className="flex items-center justify-center p-[12px] rounded-[4px] border-[1px] border-[#2F2D2E] text-center text-[#2F2D2E] font-modern text-[16px] font-[700] not-italic leading-normal"
-                      field={props?.fields?.CardLink2}
-                    />
-                  </div>
+                <PlainTextWrapper
+                  className="font-modern text-[#2F2D2E] text-[12px] font-[400] not-italic leading-normal mb-[8px] opacity-[0.8]"
+                  field={props?.fields?.Eyebrow}
+                  tag="h6"
+                  editable
+                />
+                <RichTextWrapper
+                  className="font-modern text-[#2F2D2E] text-[36px] font-[700] not-italic leading-normal mb-[8px]"
+                  field={props?.fields?.Heading}
+                  tag="h2"
+                />
+                <RichTextWrapper
+                  className="font-modern text-[#2F2D2E] text-[20px] font-[700] not-italic leading-normal mb-[8px] opacity-[0.8]"
+                  field={props?.fields?.Subheading}
+                  tag="div"
+                />
+                <RichTextWrapper
+                  className="font-modern text-[#2F2D2E] text-[16px] font-[400] not-italic leading-[24px] mb-[8px] opacity-[0.9]"
+                  field={props?.fields?.Description}
+                  tag="p"
+                />
+                <div className="flex gap-[8px] flex-wrap justify-center md:justify-normal">
+                  <LinkWrapper
+                    className="flex items-center justify-center px-[16px] py-[12px] rounded-[4px] bg-[#2F2D2E] text-center text-[#FFF] font-modern text-[14px] font-[700] not-italic leading-normal"
+                    field={props?.fields?.CardLink1}
+                  />
+                  <LinkWrapper
+                    className="flex items-center justify-center p-[12px] rounded-[4px] border-[1px] border-[#2F2D2E] text-center text-[#2F2D2E] font-modern text-[16px] font-[700] not-italic leading-normal"
+                    field={props?.fields?.CardLink2}
+                  />
                 </div>
               </div>
             </div>
