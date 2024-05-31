@@ -8,7 +8,7 @@ SharedFields:
 - ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
   Hint: __Thumbnail
   Value: |
-    <image mediaid="{476892E7-258F-4108-8EC6-C4A1F3F433C3}" />
+    <image mediaid="{096CEDDB-3522-47BA-A0E2-3DF5B130B29E}" />
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{F558BEC9-C602-4D7A-B9A1-D0411C946EA4}"
@@ -43,10 +43,17 @@ Languages:
               s:ph="hztl-headless-main-content" />
             <r
               uid="{ABEF89EE-3FDF-41D2-AD06-DFCA92E4253E}"
-              p:after="*[1=2]"
+              p:after="r[@uid='{5C74C284-44D0-4F73-8D98-5C23638BADDF}']"
               s:ds="local:/Data/CardList 1"
               s:id="{1B5EE0C2-36B4-4C3D-A675-4C7AEFED9404}"
               s:par="CSSStyles&amp;DynamicPlaceholderId=1"
+              s:ph="hztl-headless-main-content" />
+            <r
+              uid="{DDEE9111-E342-45E1-ABCC-777984330880}"
+              p:after="*[1=2]"
+              s:ds="{E87C5CE7-D12B-4924-944F-BDAE69792E84}"
+              s:id="{AB05F41A-E2BE-4E42-8446-A215D02BC6A2}"
+              s:par="openMultipleAccordionAtSameTime&amp;GridParameters&amp;FieldNames&amp;Styles&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=4"
               s:ph="hztl-headless-main-content" />
           </d>
         </r>
@@ -66,14 +73,14 @@ Languages:
         sitecore\dly@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e955c612-2e88-4ee4-917d-219881cfd6ca"
+      Value: "fd4476b6-c69f-4a2b-b73e-28f1de3fddda"
     - ID: "9c063550-df49-46a3-99c6-f830a981a018"
       Hint: Title
       Value: Home
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\mchaniyara@horizontal.com
+        sitecore\asavalagi@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240515T132204Z
+      Value: 20240529T134720Z
