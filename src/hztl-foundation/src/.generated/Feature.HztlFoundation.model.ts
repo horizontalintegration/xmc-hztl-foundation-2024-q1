@@ -21,6 +21,122 @@ import { HztlSiteStructure as FeatureHztlFoundationHztlSiteStructure } from "./F
 export namespace HztlPageContent {
 
     /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion
+    */
+    export type Accordion =  {
+        fields?: { 
+            /**
+            * Represents the Text field (5151f09c-75b1-4c5b-9fdf-9f66e9743a88).
+            */
+            accordionList?: Item[];
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion
+    */
+    export type AccordionJson =  {
+        
+            /**
+            * Represents the Text field (5151f09c-75b1-4c5b-9fdf-9f66e9743a88).
+            */
+            accordionList?: {
+                jsonValue: Item[]
+            };
+
+
+    }
+}
+export namespace HztlPageContent.RenderingParameters {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Accordion
+    */
+    export type Accordion =  {
+        fields?: { 
+            /**
+            * Represents the Open Multiple Accordion At Same Time field (228ce8c6-03e5-4aa6-9874-c3bd39aebcd0).
+            */
+            openMultipleAccordionAtSameTime?: Field<boolean>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Accordion
+    */
+    export type AccordionJson =  {
+        
+            /**
+            * Represents the Open Multiple Accordion At Same Time field (228ce8c6-03e5-4aa6-9874-c3bd39aebcd0).
+            */
+            openMultipleAccordionAtSameTime?: {
+                jsonValue: Field<boolean>
+            };
+
+
+    }
+}
+export namespace HztlPageContent {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion Folder
+    */
+    export type AccordionFolder =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion Folder
+    */
+    export type AccordionFolderJson =  {
+        
+
+    }
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion Item
+    */
+    export type AccordionItem =  {
+        fields?: { 
+            /**
+            * Represents the Content field (261f0553-7346-4ebd-bdeb-82f737716e7e).
+            */
+            content?: Field<string>;
+
+            /**
+            * Represents the Heading field (bc2e4823-4876-46fe-ac5a-89df86792ac5).
+            */
+            heading?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion Item
+    */
+    export type AccordionItemJson =  {
+        
+            /**
+            * Represents the Content field (261f0553-7346-4ebd-bdeb-82f737716e7e).
+            */
+            content?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Heading field (bc2e4823-4876-46fe-ac5a-89df86792ac5).
+            */
+            heading?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
+
+    /**
     * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Card
     */
     export type Card =  {
@@ -34,6 +150,11 @@ export namespace HztlPageContent {
             * Represents the CardLink1 field (c9d402e1-0e1c-4b9b-9f72-0c66f4249145).
             */
             CardLink1?: LinkField;
+
+            /**
+            * Represents the CardLink2 field (ebf65880-3433-4f9c-82fe-33400ef39565).
+            */
+            CardLink2?: LinkField;
 
             /**
             * Represents the Description field (06cc0659-30f3-4acd-8d70-acd3b71a021e).
@@ -74,6 +195,13 @@ export namespace HztlPageContent {
             * Represents the CardLink1 field (c9d402e1-0e1c-4b9b-9f72-0c66f4249145).
             */
             CardLink1?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the CardLink2 field (ebf65880-3433-4f9c-82fe-33400ef39565).
+            */
+            CardLink2?: {
                 jsonValue: LinkField
             };
 
@@ -466,6 +594,36 @@ export namespace SiteStructure {
 
 export namespace HztlPageContent.Constants {
 
+    export const Accordion = {
+        TemplateId: "2c50e47d-31a4-4fff-85ff-eff1fb1f8038",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.RenderingParameters.Constants {
+
+    export const Accordion = {
+        TemplateId: "7a436cb9-473e-4270-99b3-d301964d7689",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.Constants {
+
+    export const AccordionFolder = {
+        TemplateId: "d27b8710-9ec7-4b87-adf1-b117a8a45d2f",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const AccordionItem = {
+        TemplateId: "17df4652-d9f8-4916-b09e-fc809a260891",
+    
+        BaseTemplateIds: [
+        ]
+    }
     export const Card = {
         TemplateId: "3a7d27e5-b935-46da-b8fb-fe1e260957d8",
     
