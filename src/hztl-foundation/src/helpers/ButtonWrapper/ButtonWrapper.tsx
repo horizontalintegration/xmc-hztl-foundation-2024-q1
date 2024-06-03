@@ -45,7 +45,7 @@ const ButtonWrapper = React.forwardRef<HTMLButtonElement, IButtonWrapper>(
       <button
         ref={ref}
         className={twMerge(
-          'flex items-center justify-center',
+          'flex items-center justify-center font-modern',
           buttonAlignmentStyles[iconAlignment],
           className
         )}
