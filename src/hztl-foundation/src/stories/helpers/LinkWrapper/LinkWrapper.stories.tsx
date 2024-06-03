@@ -26,7 +26,7 @@ type Story = StoryObj<typeof LinkWrapper>;
 
 export const Default: Story = {
   render: (args) => {
-    return <LinkWrapper {...(expandObj({ ...args }) as any)} />;
+    return <LinkWrapper {...expandObj({ ...args })} />;
   },
   args: {
     ...flattenObj(defaultData),
