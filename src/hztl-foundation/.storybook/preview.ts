@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react';
+import './storybook-override.css'
 import 'assets/app.css';
 
 const preview: Preview = {
