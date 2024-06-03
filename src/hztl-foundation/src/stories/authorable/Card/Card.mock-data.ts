@@ -31,6 +31,7 @@ const defaultData: CardProps = {
         href: 'https://www.horizontaldigital.com',
         text: 'Learn More',
         linktype: 'external',
+        target: '_blank',
       },
     },
     CardLink2: {
