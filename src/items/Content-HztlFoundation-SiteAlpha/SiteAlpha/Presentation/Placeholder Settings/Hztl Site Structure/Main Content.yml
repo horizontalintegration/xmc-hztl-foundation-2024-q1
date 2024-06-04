@@ -9,7 +9,7 @@ SharedFields:
   Value: "hztl-headless-main-content"
 - ID: "e391b526-d0c5-439d-803e-17512eae6222"
   Hint: Allowed Controls
-  Value: "{1B5EE0C2-36B4-4C3D-A675-4C7AEFED9404}"
+  Value: 
 Languages:
 - Language: en
   Versions:
@@ -28,11 +28,11 @@ Languages:
         sitecore\dly@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "05291ded-259e-49e9-801c-49080d29feea"
+      Value: "6385fa1e-9119-470f-9016-a75b19155eb3"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\dly@horizontal.com
+        sitecore\asavalagi@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240409T202716Z
+      Value: 20240531T124629Z
