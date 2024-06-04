@@ -5,14 +5,13 @@ import { GtmEvent } from 'lib/utils/gtm-utils';
 
 interface RequiredButtonProps {
   id: string;
-  ariaLabel: string;
   title: string;
 }
 
 type IconAlignment = 'left' | 'right' | 'top' | 'bottom';
 
-export interface IButtonWrapper
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'id' | 'title' | 'ariaLable'>,
+export interface ButtonWrapperProps
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'id' | 'title'>,
     RequiredButtonProps,
     PropsWithChildren {
   icon?: ReactElement;
@@ -20,7 +19,7 @@ export interface IButtonWrapper
   gtmEvent?: GtmEvent;
 }
 
-const ButtonWrapper = React.forwardRef<HTMLButtonElement, IButtonWrapper>(
+const ButtonWrapper = React.forwardRef<HTMLButtonElement, ButtonWrapperProps>(
   ({ className, icon, iconAlignment = 'right', gtmEvent, children, ...props }, ref) => {
     const buttonAlignmentStyles: Record<IconAlignment, string> = {
       left: 'flex-row-reverse',

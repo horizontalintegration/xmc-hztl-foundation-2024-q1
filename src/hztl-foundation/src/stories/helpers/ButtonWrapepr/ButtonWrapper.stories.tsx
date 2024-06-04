@@ -5,10 +5,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import ButtonWrapper, { IButtonWrapper } from 'helpers/ButtonWrapper/ButtonWrapper';
+import ButtonWrapper, { ButtonWrapperProps } from 'helpers/ButtonWrapper/ButtonWrapper';
 import defaultData, { secondaryData } from './ButtonWrapper.mock-data';
 
-const meta: Meta<IButtonWrapper> = {
+const meta: Meta<ButtonWrapperProps> = {
   title: 'Helpers/A11y/Button Wrapper',
   component: ButtonWrapper,
   argTypes: {
@@ -18,7 +18,7 @@ const meta: Meta<IButtonWrapper> = {
 
 export default meta;
 
-type Story = StoryObj<IButtonWrapper>;
+type Story = StoryObj<ButtonWrapperProps>;
 
 export const Default: Story = {
   render: (args) => {
