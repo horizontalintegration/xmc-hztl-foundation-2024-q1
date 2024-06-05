@@ -5,7 +5,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import ButtonWrapper, { ButtonWrapperProps } from 'helpers/ButtonWrapper/ButtonWrapper';
+import ButtonWrapper, {
+  ButtonWrapperProps,
+} from 'helpers/FieldWrappers/ButtonWrapper/ButtonWrapper';
 import defaultData, { secondaryData } from './ButtonWrapper.mock-data';
 
 const meta: Meta<ButtonWrapperProps> = {
