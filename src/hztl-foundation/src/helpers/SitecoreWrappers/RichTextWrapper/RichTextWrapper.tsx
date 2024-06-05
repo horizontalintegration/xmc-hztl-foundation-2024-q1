@@ -25,7 +25,7 @@ const RichTextWrapper = ({ field, editable = true, ...props }: RichTextProps): J
       {...props}
       editable={editable}
       field={updatedField}
-      className="rte"
+      className={`rte ${props?.className}`}
       data-component="helpers/richtextwrapper"
     />
   );

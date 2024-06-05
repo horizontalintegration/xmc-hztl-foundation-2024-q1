@@ -1,8 +1,10 @@
-/* eslint-disable prettier/prettier */
 // Global
 import { GetStaticComponentProps, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql';
 import React from 'react';
+
+// Lib
+
 // Local
 import { BreadcrumbDataType } from './Breadcrumb.types';
 import BreadcrumbQuery from './Breadcrumb.graphql';
@@ -41,7 +43,6 @@ const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
                               title: itm?.Title?.jsonValue?.value,
                             },
                           }}
-                          tabIndex={0}
                           gtmEvent={{
                             event: 'link',
                             type: 'breadcrumb',
@@ -95,4 +96,3 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
     staticProps: result,
   };
 };
-
