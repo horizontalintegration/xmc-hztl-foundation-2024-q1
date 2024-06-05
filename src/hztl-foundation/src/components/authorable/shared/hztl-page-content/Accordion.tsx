@@ -9,44 +9,6 @@ import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.m
 export type AccordionProps = ComponentProps & HztlPageContent.Accordion;
 export type AccordionItem = ItemEx & HztlPageContent.AccordionItem;
 
-// export type AccordionInfo = {
-//   accordionList: AccordionItem[];
-// };
-// export type FieldInfo = {
-//   heading: Field<string>;
-//   content: Field<string>;
-// };
-// export type AccordionItem = {
-//   name: string;
-//   displayName: string;
-//   id: string;
-//   url: string;
-//   fields: FieldInfo;
-// };
-// export type AccordionProps = {
-//   params: any;
-//   uid: string;
-//   componentName: string;
-//   dataSource: string;
-//   fields: AccordionInfo;
-// };
-
-// export type AccordionProps = [
-//   {
-//     fields: {
-//       accordionList: [
-//         {
-//           name: string;
-//           displayName: string;
-//           id: string;
-//           url: string;
-//           fields: { heading: { value: string }; content: { value: string } };
-//         }
-//       ][];
-//     };
-//   }
-// ];
-
 const AccordionDefaultComponent = (props: AccordionProps): JSX.Element => {
   return (
     <div className={`component hero ${props.params.styles}`}>
