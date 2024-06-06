@@ -13,7 +13,7 @@ const defaultData: HeroProps = {
     },
     Image: {
       value: {
-        src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Themes/Wireframe-deprecated/images/wireframe.png?h=750&iar=0&w=1200',
+        src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/placeholder-image.png?h=600&iar=0&w=800',
         alt: 'wireframe',
         width: '1200',
         height: '750',
