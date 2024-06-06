@@ -135,6 +135,26 @@ export namespace HztlPageContent {
 
 
     }
+}
+export namespace HztlPageContent.RenderingParameters {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Breadcrumb
+    */
+    export type Breadcrumb =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Breadcrumb
+    */
+    export type BreadcrumbJson =  {
+        
+
+    }
+}
+export namespace HztlPageContent {
 
     /**
     * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Card
@@ -624,6 +644,18 @@ export namespace HztlPageContent.Constants {
         BaseTemplateIds: [
         ]
     }
+}
+export namespace HztlPageContent.RenderingParameters.Constants {
+
+    export const Breadcrumb = {
+        TemplateId: "621becbf-9a12-4a10-ba04-b2a0ecd6ca91",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.Constants {
+
     export const Card = {
         TemplateId: "3a7d27e5-b935-46da-b8fb-fe1e260957d8",
     

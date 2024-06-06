@@ -47,16 +47,18 @@ export const Default = (props: CardProps): JSX.Element => {
                 <RichTextWrapper
                   className="font-modern text-[#2F2D2E] text-[16px] font-[400] not-italic leading-[24px] mb-[8px] opacity-[0.9]"
                   field={props?.fields?.Description}
-                  tag="p"
+                  tag="div"
                 />
                 <div className="flex gap-[8px] flex-wrap justify-center md:justify-normal">
                   <LinkWrapper
                     className="flex items-center justify-center px-[16px] py-[12px] rounded-[4px] bg-[#2F2D2E] text-center text-[#FFF] font-modern text-[14px] font-[700] not-italic leading-normal"
                     field={props?.fields?.CardLink1}
+                    suppressNewTabIcon={true}
                   />
                   <LinkWrapper
                     className="flex items-center justify-center p-[12px] rounded-[4px] border-[1px] border-[#2F2D2E] text-center text-[#2F2D2E] font-modern text-[16px] font-[700] not-italic leading-normal"
                     field={props?.fields?.CardLink2}
+                    suppressNewTabIcon={true}
                   />
                 </div>
               </div>
