@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, ImageField, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
-import LinkWrapper from 'helpers/LinkWrapper/LinkWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 
 interface Fields {
   Logo: ImageField;
