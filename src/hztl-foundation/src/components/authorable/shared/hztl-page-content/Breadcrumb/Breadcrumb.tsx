@@ -8,7 +8,7 @@ import React from 'react';
 // Local
 import { BreadcrumbDataType } from './Breadcrumb.types';
 import BreadcrumbQuery from './Breadcrumb.graphql';
-import LinkWrapper from 'helpers/LinkWrapper/LinkWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import config from 'temp/config';
 
 const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
