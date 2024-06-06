@@ -52,7 +52,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
                     field={Item?.fields?.heading}
                     tag="h3"
                     className={`${
-                      active === key && 'active text-[#2F2D2E] text-xl font-bold leading-[normal]'
+                      active === key && 'active text-[#2F2D2E] !font-bold leading-[normal]'
                     } text-xl font-normal leading-5`}
                   />
                   <i
