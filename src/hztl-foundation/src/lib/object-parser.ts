@@ -1,19 +1,16 @@
 import { set } from 'lodash';
 
-export const expandObj = (obj: Record<string, unknown>): Record<string, unknown> => {
+export const expandObj = <T>(obj: Record<string, unknown>): T => {
   const expanded = {};
 
   for (const [key, value] of Object.entries(obj)) {
     set(expanded, key, value);
   }
 
-  return expanded;
+  return expanded as T;
 };
 
-export const flattenObj = (
-  obj: Record<string, unknown>,
-  parent?: string
-): Record<string, unknown> => {
+export const flattenObj = <T>(obj: Record<string, unknown>, parent?: string): T => {
   const flattened = {} as Record<string, unknown>;
 
   Object.keys(obj).forEach((key) => {
@@ -27,5 +24,5 @@ export const flattenObj = (
     }
   });
 
-  return flattened;
+  return flattened as T;
 };
