@@ -47,7 +47,7 @@ export const Default = (props: CardProps): JSX.Element => {
                 <RichTextWrapper
                   className="font-modern text-[#2F2D2E] text-[16px] font-[400] not-italic leading-[24px] mb-[8px] opacity-[0.9]"
                   field={props?.fields?.Description}
-                  tag="p"
+                  tag="div"
                 />
                 <div className="flex gap-[8px] flex-wrap justify-center md:justify-normal">
                   <LinkWrapper
