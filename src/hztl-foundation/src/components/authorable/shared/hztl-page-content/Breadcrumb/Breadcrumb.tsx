@@ -1,7 +1,7 @@
 import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import React from 'react';
 import { BreadcrumbDataType } from './Breadcrumb.types';
-import LinkWrapper from 'helpers/LinkWrapper/LinkWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 
 const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
