@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import LinkWrapper from 'helpers/FieldWrappers/LinkWrapper/LinkWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import defaultData from './LinkWrapper.mock-data';
 
 const meta: Meta<typeof LinkWrapper> = {
