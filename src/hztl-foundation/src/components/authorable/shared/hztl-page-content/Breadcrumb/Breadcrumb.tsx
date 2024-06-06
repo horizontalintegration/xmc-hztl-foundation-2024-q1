@@ -1,20 +1,11 @@
-// Global
-import { GetStaticComponentProps, Text } from '@sitecore-jss/sitecore-jss-nextjs';
-import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql';
+import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import React from 'react';
-
-// Lib
-
-// Local
 import { BreadcrumbDataType } from './Breadcrumb.types';
-import BreadcrumbQuery from './Breadcrumb.graphql';
 import LinkWrapper from 'helpers/LinkWrapper/LinkWrapper';
-import config from 'temp/config';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 
 const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
   const { ancestors, Title } = staticProps?.staticProps?.currentPage || {};
-
   const { componentName, dataSource } = staticProps?.rendering || {};
 
   return (
@@ -33,8 +24,9 @@ const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
                   });
                   if (hideBreadcrumb) return;
                   return (
-                    itm?.Title?.jsonValue?.value && (
-                      <li key={index} className={`p-[10px]`}>
+                    itm?.Title?.jsonValue?.value &&
+                    itm?.pageUrl?.link && (
+                      <li key={index} className={`py-[10px] px-[12px]`}>
                         <LinkWrapper
                           field={{
                             value: {
@@ -51,22 +43,26 @@ const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
                           }}
                           className="flex items-center underline"
                         >
-                          <SvgIcon icon={'arrow-right'} className="h-[15px] w-[15px] ml-[10px]" />
+                          <div className="ml-[12px]">
+                            <SvgIcon icon={'arrow-right'} className="w-auto h-auto" />
+                          </div>
                         </LinkWrapper>
                       </li>
                     )
                   );
                 })}
-              <li className={`p-[10px] flex items-center `}>
-                <Text
-                  encode={false}
-                  field={{
-                    value: Title?.jsonValue?.value,
-                  }}
-                  tag="span"
-                />
-                <SvgIcon icon={'arrow-right'} className="h-[15px] w-[15px] ml-[10px]" />
-              </li>
+              {Title?.jsonValue?.value && (
+                <li className={`py-[10px] flex items-center `} aria-current="true">
+                  <Text
+                    encode={false}
+                    field={{
+                      value: Title?.jsonValue?.value,
+                    }}
+                    tag="span"
+                  />
+                  <SvgIcon icon={'arrow-right'} className="w-auto h-auto pl-[12px]" />
+                </li>
+              )}
             </ul>
           </nav>
           <div
@@ -81,18 +77,3 @@ const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
 };
 
 export default Breadcrumb;
-
-export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
-  const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
-    apiKey: config.sitecoreApiKey,
-  });
-  const result = await graphQLClient.request<unknown>(BreadcrumbQuery, {
-    datasource: rendering.dataSource,
-    params: rendering.params,
-    language: layoutData?.sitecore?.context?.language,
-    itemID: layoutData?.sitecore?.route?.itemId,
-  });
-  return {
-    staticProps: result,
-  };
-};

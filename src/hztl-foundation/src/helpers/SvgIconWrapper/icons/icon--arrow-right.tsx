@@ -8,7 +8,7 @@ const IconArrow = (): JSX.Element => {
         strokeMiterlimit="4"
         strokeWidth="128"
         stroke="#000"
-        d="M71.999 64l448.002 447.998-448.002 448.002"
+        d="M384 213.334l298.669 298.666-298.669 298.669"
       ></path>
     </>
   );

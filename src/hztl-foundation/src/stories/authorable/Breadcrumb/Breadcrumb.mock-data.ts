@@ -24,6 +24,9 @@ const BreadCrumbData: BreadcrumbDataType = {
       },
       disabledLinkNames: {
         names: [],
+        pageUrl: {
+          link: '',
+        },
       },
       ancestors: [
         {
@@ -37,6 +40,9 @@ const BreadCrumbData: BreadcrumbDataType = {
           },
           disabledLinkNames: {
             names: [],
+            pageUrl: {
+              link: '',
+            },
           },
         },
       ],
