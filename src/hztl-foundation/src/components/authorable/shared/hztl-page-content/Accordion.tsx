@@ -45,7 +45,6 @@ export const Default = (props: AccordionProps): JSX.Element => {
                   type="button"
                   aria-expanded={active === key ? true : false}
                   aria-controls={`accordion-${key}`}
-                  tabIndex={0}
                   id={`tab-accordion-${key}`}
                 >
                   <Text
