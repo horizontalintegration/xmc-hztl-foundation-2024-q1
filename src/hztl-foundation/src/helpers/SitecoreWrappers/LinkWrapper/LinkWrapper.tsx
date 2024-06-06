@@ -3,7 +3,7 @@ import { Link, LinkProps, LinkField, LinkFieldValue } from '@sitecore-jss/siteco
 import NextLink from 'next/link';
 import { sendGTMEvent } from '@next/third-parties/google';
 import React from 'react';
-
+import structuredClone from '@ungap/structured-clone';
 // Lib
 import useIsEditing from 'lib/hooks/use-is-editing';
 import { GtmEvent } from 'lib/utils/gtm-utils';

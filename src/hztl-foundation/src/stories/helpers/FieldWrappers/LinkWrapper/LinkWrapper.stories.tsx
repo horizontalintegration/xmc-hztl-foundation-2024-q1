@@ -8,11 +8,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import LinkWrapper from 'helpers/LinkWrapper/LinkWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import defaultData from './LinkWrapper.mock-data';
 
 const meta: Meta<typeof LinkWrapper> = {
-  title: 'Helpers/A11y/Link Wrapper',
+  title: 'Helpers/Field Wrappers/Link Wrapper',
   component: LinkWrapper,
   argTypes: {
     'field.value.linktype': { control: 'select', options: ['external'] },
@@ -26,7 +26,7 @@ type Story = StoryObj<typeof LinkWrapper>;
 
 export const Default: Story = {
   render: (args) => {
-    return <LinkWrapper {...(expandObj({ ...args }) as any)} />;
+    return <LinkWrapper {...expandObj({ ...args })} />;
   },
   args: {
     ...flattenObj(defaultData),
