@@ -49,7 +49,7 @@ export const Default = (props: FooterTopProps): JSX.Element => {
                   <div className="text-center md:text-left">
                     <RichTextWrapper
                       className="font-modern text-[#2F2D2E] text-[16px] font-[700] not-italic leading-normal capitalize"
-                      tag="p"
+                      tag="div"
                       field={groupLabel.displayName}
                     />
                     <div className="flex flex-col">
