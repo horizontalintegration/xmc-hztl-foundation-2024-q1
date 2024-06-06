@@ -49,20 +49,20 @@ export const Default = (props: FooterTopProps): JSX.Element => {
                   <div className="text-center md:text-left">
                     <RichTextWrapper
                       className="font-modern text-[#2F2D2E] text-[16px] font-[700] not-italic leading-normal capitalize"
-                      tag="div"
+                      tag="h3"
                       field={groupLabel.displayName}
                     />
-                    <div className="flex flex-col">
+                    <ul className="flex flex-col">
                       {groupLabel.children.map((link, index) => (
-                        <React.Fragment key={index}>
+                        <li className="p-[8px]" key={index}>
                           <LinkWrapper
-                            className="font-modern text-[#2F2D2E] text-[16px] font-[700] not-italic leading-normal capitalize p-[8px]"
+                            className="font-modern text-[#2F2D2E] text-[16px] font-[700] not-italic leading-normal capitalize"
                             suppressNewTabIcon={true}
                             field={link.fields.Link}
                           />
-                        </React.Fragment>
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </React.Fragment>
               ))}
