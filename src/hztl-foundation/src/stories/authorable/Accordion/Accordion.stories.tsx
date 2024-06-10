@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 // Lib
 import { expandObj, flattenObj } from 'lib/object-parser';
+import '../../page.css';
 
 // Local
 import {
