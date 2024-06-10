@@ -6,7 +6,9 @@ Path: /sitecore/templates/Feature/HztlFoundation/SiteStructure/Site Structure Fo
 SharedFields:
 - ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
   Hint: __Masters
-  Value: "{39461909-13B3-4B3E-A306-2C01AA783F5E}"
+  Value: |
+    {39461909-13B3-4B3E-A306-2C01AA783F5E}
+    {B05F1A98-EEC9-4C0B-B29A-E4D1235F06D8}
 Languages:
 - Language: en
   Versions:
@@ -25,11 +27,11 @@ Languages:
         sitecore\dly@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "11e806e9-a2bb-4975-9efb-5712aa88e297"
+      Value: "79457b95-64d5-446a-9ce8-7ed9a13e203b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\dly@horizontal.com
+        sitecore\mchaniyara@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240327T202834Z
+      Value: 20240610T121634Z

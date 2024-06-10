@@ -21,6 +21,142 @@ import { HztlSiteStructure as FeatureHztlFoundationHztlSiteStructure } from "./F
 export namespace HztlPageContent {
 
     /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion
+    */
+    export type Accordion =  {
+        fields?: { 
+            /**
+            * Represents the Text field (5151f09c-75b1-4c5b-9fdf-9f66e9743a88).
+            */
+            accordionList?: Item[];
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion
+    */
+    export type AccordionJson =  {
+        
+            /**
+            * Represents the Text field (5151f09c-75b1-4c5b-9fdf-9f66e9743a88).
+            */
+            accordionList?: {
+                jsonValue: Item[]
+            };
+
+
+    }
+}
+export namespace HztlPageContent.RenderingParameters {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Accordion
+    */
+    export type Accordion =  {
+        fields?: { 
+            /**
+            * Represents the Open Multiple Accordion At Same Time field (228ce8c6-03e5-4aa6-9874-c3bd39aebcd0).
+            */
+            openMultipleAccordionAtSameTime?: Field<boolean>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Accordion
+    */
+    export type AccordionJson =  {
+        
+            /**
+            * Represents the Open Multiple Accordion At Same Time field (228ce8c6-03e5-4aa6-9874-c3bd39aebcd0).
+            */
+            openMultipleAccordionAtSameTime?: {
+                jsonValue: Field<boolean>
+            };
+
+
+    }
+}
+export namespace HztlPageContent {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion Folder
+    */
+    export type AccordionFolder =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion Folder
+    */
+    export type AccordionFolderJson =  {
+        
+
+    }
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion Item
+    */
+    export type AccordionItem =  {
+        fields?: { 
+            /**
+            * Represents the Content field (261f0553-7346-4ebd-bdeb-82f737716e7e).
+            */
+            content?: Field<string>;
+
+            /**
+            * Represents the Heading field (bc2e4823-4876-46fe-ac5a-89df86792ac5).
+            */
+            heading?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion Item
+    */
+    export type AccordionItemJson =  {
+        
+            /**
+            * Represents the Content field (261f0553-7346-4ebd-bdeb-82f737716e7e).
+            */
+            content?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Heading field (bc2e4823-4876-46fe-ac5a-89df86792ac5).
+            */
+            heading?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
+}
+export namespace HztlPageContent.RenderingParameters {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Breadcrumb
+    */
+    export type Breadcrumb =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Breadcrumb
+    */
+    export type BreadcrumbJson =  {
+        
+
+    }
+}
+export namespace HztlPageContent {
+
+    /**
     * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Card
     */
     export type Card =  {
@@ -267,6 +403,11 @@ export namespace SiteStructure.Footer {
             * Represents the Footer Columns field (fad6beb9-19f0-40b9-99bf-8d10903192f9).
             */
             footerColumns?: Item[];
+
+            /**
+            * Represents the Footer Logo field (ee79b5c7-4f16-41e9-9db3-91df531562fd).
+            */
+            footerLogo?: ImageField;
         }
 
     }
@@ -281,6 +422,13 @@ export namespace SiteStructure.Footer {
             */
             footerColumns?: {
                 jsonValue: Item[]
+            };
+
+            /**
+            * Represents the Footer Logo field (ee79b5c7-4f16-41e9-9db3-91df531562fd).
+            */
+            footerLogo?: {
+                jsonValue: ImageField
             };
 
 
@@ -464,6 +612,76 @@ export namespace SiteStructure {
 
     }
 }
+export namespace SiteStructure.Footer {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Social Media
+    */
+    export type SocialMedia =  {
+        fields?: { 
+            /**
+            * Represents the Social Links field (232c2560-a480-46a8-bd23-dbcb38d2aedc).
+            */
+            socialMediaLinks?: Item[];
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Social Media
+    */
+    export type SocialMediaJson =  {
+        
+            /**
+            * Represents the Social Links field (232c2560-a480-46a8-bd23-dbcb38d2aedc).
+            */
+            socialMediaLinks?: {
+                jsonValue: Item[]
+            };
+
+
+    }
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Social Media Item
+    */
+    export type SocialMediaItem =  {
+        fields?: { 
+            /**
+            * Represents the Social Media Link field (889296b7-cee2-4b50-b648-99c604288152).
+            */
+            socialMediaLink?: LinkField;
+
+            /**
+            * Represents the Social Media Logo field (5648e0e7-f035-48f5-aebe-296b8a096192).
+            */
+            socialMediaLogo?: ImageField;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Social Media Item
+    */
+    export type SocialMediaItemJson =  {
+        
+            /**
+            * Represents the Social Media Link field (889296b7-cee2-4b50-b648-99c604288152).
+            */
+            socialMediaLink?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the Social Media Logo field (5648e0e7-f035-48f5-aebe-296b8a096192).
+            */
+            socialMediaLogo?: {
+                jsonValue: ImageField
+            };
+
+
+    }
+}
 
 
 
@@ -476,6 +694,48 @@ export namespace SiteStructure {
  * </auto-generated>
  */ 
 
+export namespace HztlPageContent.Constants {
+
+    export const Accordion = {
+        TemplateId: "2c50e47d-31a4-4fff-85ff-eff1fb1f8038",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.RenderingParameters.Constants {
+
+    export const Accordion = {
+        TemplateId: "7a436cb9-473e-4270-99b3-d301964d7689",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.Constants {
+
+    export const AccordionFolder = {
+        TemplateId: "d27b8710-9ec7-4b87-adf1-b117a8a45d2f",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const AccordionItem = {
+        TemplateId: "17df4652-d9f8-4916-b09e-fc809a260891",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.RenderingParameters.Constants {
+
+    export const Breadcrumb = {
+        TemplateId: "621becbf-9a12-4a10-ba04-b2a0ecd6ca91",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
 export namespace HztlPageContent.Constants {
 
     export const Card = {
@@ -582,6 +842,21 @@ export namespace SiteStructure.Constants {
 
     export const SiteStructureFolder = {
         TemplateId: "7dd48aec-39d7-4ce2-810b-e82171dbe8da",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace SiteStructure.Footer.Constants {
+
+    export const SocialMedia = {
+        TemplateId: "b05f1a98-eec9-4c0b-b29a-e4d1235f06d8",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const SocialMediaItem = {
+        TemplateId: "5e1ae8e0-8f0c-443c-ac85-144f1e47e4af",
     
         BaseTemplateIds: [
         ]

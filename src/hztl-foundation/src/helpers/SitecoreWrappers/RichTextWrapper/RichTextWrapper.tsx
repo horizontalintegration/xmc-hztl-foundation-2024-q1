@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 
 //Local
 import useIsEditing from 'lib/hooks/use-is-editing';
-import { srOnlySpan, newTabIcon } from 'helpers/LinkWrapper/LinkWrapper';
+import { srOnlySpan, newTabIcon } from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 
 const RichTextWrapper = ({ field, editable = true, ...props }: RichTextProps): JSX.Element => {
   const updatedField = useUpdatedRichTextField({ field, editable });
