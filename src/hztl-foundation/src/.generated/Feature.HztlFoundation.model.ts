@@ -403,6 +403,11 @@ export namespace SiteStructure.Footer {
             * Represents the Footer Columns field (fad6beb9-19f0-40b9-99bf-8d10903192f9).
             */
             footerColumns?: Item[];
+
+            /**
+            * Represents the Footer Logo field (ee79b5c7-4f16-41e9-9db3-91df531562fd).
+            */
+            footerLogo?: ImageField;
         }
 
     }
@@ -417,6 +422,13 @@ export namespace SiteStructure.Footer {
             */
             footerColumns?: {
                 jsonValue: Item[]
+            };
+
+            /**
+            * Represents the Footer Logo field (ee79b5c7-4f16-41e9-9db3-91df531562fd).
+            */
+            footerLogo?: {
+                jsonValue: ImageField
             };
 
 
