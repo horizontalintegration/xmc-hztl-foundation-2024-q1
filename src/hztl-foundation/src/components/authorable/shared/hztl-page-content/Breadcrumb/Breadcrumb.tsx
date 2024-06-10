@@ -10,7 +10,7 @@ const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
 
   return (
     <div>
-      <div data-component="authorable/landmarks/breadcrumbs" data-testid="breadcrumbs">
+      <div data-component="authorable/General/breadcrumbs" data-testid="breadcrumbs">
         <div>
           <nav aria-label="Breadcrumb">
             <ul className="md:flex items-center list">
@@ -60,7 +60,6 @@ const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
                     }}
                     tag="span"
                   />
-                  <SvgIcon icon={'arrow-right'} className="w-auto h-auto pl-[12px]" />
                 </li>
               )}
             </ul>

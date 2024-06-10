@@ -1,14 +1,12 @@
 ﻿---
-ID: "7282373f-df0d-4f4e-bc2a-486d387a6201"
-Parent: "7dd48aec-39d7-4ce2-810b-e82171dbe8da"
-Template: "7dd48aec-39d7-4ce2-810b-e82171dbe8da"
-Path: /sitecore/templates/Feature/HztlFoundation/SiteStructure/Site Structure Folder/__Standard Values
+ID: "408c4299-edad-4dd1-b104-72b61a4de673"
+Parent: "b05f1a98-eec9-4c0b-b29a-e4d1235f06d8"
+Template: "b05f1a98-eec9-4c0b-b29a-e4d1235f06d8"
+Path: /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Social Media/__Standard Values
 SharedFields:
 - ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
   Hint: __Masters
-  Value: |
-    {39461909-13B3-4B3E-A306-2C01AA783F5E}
-    {B05F1A98-EEC9-4C0B-B29A-E4D1235F06D8}
+  Value: "{5E1AE8E0-8F0C-443C-AC85-144F1E47E4AF}"
 Languages:
 - Language: en
   Versions:
@@ -16,22 +14,22 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20240327T202818Z
+      Value: 20240610T121509Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
-        sitecore\dly@horizontal.com
+        sitecore\mchaniyara@horizontal.com
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\dly@horizontal.com
+        sitecore\mchaniyara@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "79457b95-64d5-446a-9ce8-7ed9a13e203b"
+      Value: "78cd2a41-6090-4781-a118-1220365b0abe"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\mchaniyara@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240610T121634Z
+      Value: 20240610T121557Z
