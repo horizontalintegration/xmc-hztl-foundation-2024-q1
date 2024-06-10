@@ -612,6 +612,76 @@ export namespace SiteStructure {
 
     }
 }
+export namespace SiteStructure.Footer {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Social Media
+    */
+    export type SocialMedia =  {
+        fields?: { 
+            /**
+            * Represents the Social Links field (232c2560-a480-46a8-bd23-dbcb38d2aedc).
+            */
+            socialMediaLinks?: Item[];
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Social Media
+    */
+    export type SocialMediaJson =  {
+        
+            /**
+            * Represents the Social Links field (232c2560-a480-46a8-bd23-dbcb38d2aedc).
+            */
+            socialMediaLinks?: {
+                jsonValue: Item[]
+            };
+
+
+    }
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Social Media Item
+    */
+    export type SocialMediaItem =  {
+        fields?: { 
+            /**
+            * Represents the Social Media Link field (889296b7-cee2-4b50-b648-99c604288152).
+            */
+            socialMediaLink?: LinkField;
+
+            /**
+            * Represents the Social Media Logo field (5648e0e7-f035-48f5-aebe-296b8a096192).
+            */
+            socialMediaLogo?: ImageField;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Social Media Item
+    */
+    export type SocialMediaItemJson =  {
+        
+            /**
+            * Represents the Social Media Link field (889296b7-cee2-4b50-b648-99c604288152).
+            */
+            socialMediaLink?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the Social Media Logo field (5648e0e7-f035-48f5-aebe-296b8a096192).
+            */
+            socialMediaLogo?: {
+                jsonValue: ImageField
+            };
+
+
+    }
+}
 
 
 
@@ -772,6 +842,21 @@ export namespace SiteStructure.Constants {
 
     export const SiteStructureFolder = {
         TemplateId: "7dd48aec-39d7-4ce2-810b-e82171dbe8da",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace SiteStructure.Footer.Constants {
+
+    export const SocialMedia = {
+        TemplateId: "b05f1a98-eec9-4c0b-b29a-e4d1235f06d8",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const SocialMediaItem = {
+        TemplateId: "5e1ae8e0-8f0c-443c-ac85-144f1e47e4af",
     
         BaseTemplateIds: [
         ]
