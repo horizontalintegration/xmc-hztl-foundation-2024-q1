@@ -29,4 +29,3 @@ export const SocialMedia: Story = {
     ...flattenObj(defaultData),
   },
 };
-

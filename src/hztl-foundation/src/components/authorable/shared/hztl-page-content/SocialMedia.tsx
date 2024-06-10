@@ -51,4 +51,3 @@ export const Default = (props: SocialMediaProps): JSX.Element => {
 
   return <SocialMediaDefaultComponent {...props} />;
 };
-

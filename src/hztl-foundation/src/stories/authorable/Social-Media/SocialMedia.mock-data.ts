@@ -105,4 +105,3 @@ export const noData = {
 };
 
 export default defaultData;
-
