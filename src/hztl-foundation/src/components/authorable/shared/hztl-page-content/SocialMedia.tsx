@@ -1,7 +1,7 @@
 import React from 'react';
 import { ImageFieldValue, LinkFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
-import LinkWrapper from 'helpers/LinkWrapper/LinkWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 
 interface Fields {
   IconList: {
