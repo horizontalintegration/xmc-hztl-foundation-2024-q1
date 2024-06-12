@@ -1,8 +1,11 @@
-import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import { GetStaticComponentProps, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql';
 import React from 'react';
 import { BreadcrumbDataType } from './Breadcrumb.types';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
+import config from 'temp/config';
+import BreadcrumbQuery from './Breadcrumb.graphql';
 
 const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
   const { ancestors, Title } = staticProps?.staticProps?.currentPage || {};
@@ -76,3 +79,18 @@ const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
 };
 
 export default Breadcrumb;
+
+export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
+  const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
+    apiKey: config.sitecoreApiKey,
+  });
+  const result = await graphQLClient.request<unknown>(BreadcrumbQuery, {
+    datasource: rendering.dataSource,
+    params: rendering.params,
+    language: layoutData?.sitecore?.context?.language,
+    itemID: layoutData?.sitecore?.route?.itemId,
+  });
+  return {
+    staticProps: result,
+  };
+};
