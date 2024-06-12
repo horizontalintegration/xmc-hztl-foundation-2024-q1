@@ -391,6 +391,170 @@ export namespace HztlPageContent {
         
 
     }
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel
+    */
+    export type Carousel =  {
+        fields?: { 
+            /**
+            * Represents the Text field (b73437dd-a7cb-40fe-9ffe-f0df3d680b49).
+            */
+            carouselList?: Item[];
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel
+    */
+    export type CarouselJson =  {
+        
+            /**
+            * Represents the Text field (b73437dd-a7cb-40fe-9ffe-f0df3d680b49).
+            */
+            carouselList?: {
+                jsonValue: Item[]
+            };
+
+
+    }
+}
+export namespace HztlPageContent.RenderingParameters {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Carousel
+    */
+    export type Carousel =  {
+        fields?: { 
+            /**
+            * Represents the Disable Auto Loop field (4e9699dd-7b5d-440a-97a8-16013db8994b).
+            */
+            disableAutoLoop?: Field<string>;
+
+            /**
+            * Represents the Disable Auto Rotation field (83103cb9-0209-4b6c-8db2-bdff6c4ff80d).
+            */
+            disableAutoRotation?: Field<boolean>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Carousel
+    */
+    export type CarouselJson =  {
+        
+            /**
+            * Represents the Disable Auto Loop field (4e9699dd-7b5d-440a-97a8-16013db8994b).
+            */
+            disableAutoLoop?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Disable Auto Rotation field (83103cb9-0209-4b6c-8db2-bdff6c4ff80d).
+            */
+            disableAutoRotation?: {
+                jsonValue: Field<boolean>
+            };
+
+
+    }
+}
+export namespace HztlPageContent {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Folder
+    */
+    export type CarouselFolder =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Folder
+    */
+    export type CarouselFolderJson =  {
+        
+
+    }
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Item
+    */
+    export type CarouselItem =  {
+        fields?: { 
+            /**
+            * Represents the Description field (189b2fd9-3888-4053-adce-a294c0a76412).
+            */
+            description?: Field<string>;
+
+            /**
+            * Represents the Image field (148c7427-11a8-40fa-8190-1b09e0fd853b).
+            */
+            image?: ImageField;
+
+            /**
+            * Represents the Primary CTA field (c2af1e8d-7532-4ade-ae5b-f0708b72ef0d).
+            */
+            primaryCTA?: LinkField;
+
+            /**
+            * Represents the Secondary CTA field (439fa51b-a3c5-4fa0-bd3b-4114ba741349).
+            */
+            secondaryCTA?: LinkField;
+
+            /**
+            * Represents the Title field (3acdcafc-bd69-46e1-a32b-377d173f616c).
+            */
+            title?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Item
+    */
+    export type CarouselItemJson =  {
+        
+            /**
+            * Represents the Description field (189b2fd9-3888-4053-adce-a294c0a76412).
+            */
+            description?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Image field (148c7427-11a8-40fa-8190-1b09e0fd853b).
+            */
+            image?: {
+                jsonValue: ImageField
+            };
+
+            /**
+            * Represents the Primary CTA field (c2af1e8d-7532-4ade-ae5b-f0708b72ef0d).
+            */
+            primaryCTA?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the Secondary CTA field (439fa51b-a3c5-4fa0-bd3b-4114ba741349).
+            */
+            secondaryCTA?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the Title field (3acdcafc-bd69-46e1-a32b-377d173f616c).
+            */
+            title?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
 }
 export namespace SiteStructure.Footer {
 
@@ -700,6 +864,36 @@ export namespace HztlPageContent.Constants {
 
     export const CardListFolder = {
         TemplateId: "ba4df361-c4c6-4045-bc3d-608266e63182",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const Carousel = {
+        TemplateId: "7d645e35-f14b-4ad7-872a-5c706b070cfd",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.RenderingParameters.Constants {
+
+    export const Carousel = {
+        TemplateId: "f90e159f-b6d9-4e53-8819-270bb018ee39",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.Constants {
+
+    export const CarouselFolder = {
+        TemplateId: "0cd3b2a0-be95-41bd-85c8-d79110ce5dbf",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const CarouselItem = {
+        TemplateId: "7a137b26-5e9c-4cbb-8731-54b3b6593a4d",
     
         BaseTemplateIds: [
         ]
