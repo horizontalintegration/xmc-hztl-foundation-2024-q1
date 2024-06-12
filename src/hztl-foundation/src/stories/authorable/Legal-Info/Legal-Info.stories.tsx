@@ -26,4 +26,3 @@ export const LegalInfo: Story = {
     ...flattenObj(defaultData),
   },
 };
-
