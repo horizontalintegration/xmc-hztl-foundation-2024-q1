@@ -3,17 +3,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 // Lib
 import { expandObj, flattenObj } from 'lib/object-parser';
-import '../../page.css';
 
 // Local
-import {
-  Default,
-  AccordionProps,
-} from '../../../components/authorable/shared/hztl-page-content/Accordion';
-import defaultData from './Accordion.mock-data';
+import { Default, FooterProps } from 'components/authorable/shared/site-structure/footer/Footer';
+import defaultData from './Footer.mock-data';
 
 const meta: Meta<typeof Default> = {
-  title: 'Authorable/General/Accordion',
+  title: 'Authorable/General/Footer',
   component: Default,
   argTypes: {},
 };
@@ -22,9 +18,9 @@ export default meta;
 
 type Story = StoryObj<typeof Default>;
 
-export const Accordion: Story = {
+export const Footer: Story = {
   render: (args) => {
-    return <Default {...(expandObj({ ...args }) as AccordionProps)} />;
+    return <Default {...(expandObj({ ...args }) as FooterProps)} />;
   },
   args: {
     ...flattenObj(defaultData),

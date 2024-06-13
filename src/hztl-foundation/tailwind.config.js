@@ -10,8 +10,8 @@ module.exports = {
         2: '1.375rem', // 22
         1: '1.188rem', // 19
       },
-      fontFamily: {
-        modern: ['Modern Era', 'sans-serif'],
+      fontFamily:{
+        modern:['Modern Era', 'sans-serif']
       },
     },
   },
