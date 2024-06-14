@@ -4,12 +4,12 @@ import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import { Field, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
-  CopyrightInfo: Field<string>;
-  NavigationMenu: {
+  copyrightText: Field<string>;
+  legalMenu: {
     name: string;
-    displayName: Field<string>;
+    displayName: string;
     fields: {
-      Link: LinkField;
+      legalLink: LinkField;
     };
   }[];
 }
@@ -39,15 +39,15 @@ export const Default = (props: LegalInfoProps): JSX.Element => {
         >
           <RichTextWrapper
             className="font-modern text-[#000] text-[16px] not-italic font-[400] leading-[24px]"
-            field={props?.fields?.CopyrightInfo}
+            field={props?.fields?.copyrightText}
             tag="div"
           />
           <div className="flex">
-            {props?.fields?.NavigationMenu?.map((navLink, index) => (
+            {props?.fields?.legalMenu?.map((navLink, index) => (
               <div key={index} className="flex items-center">
                 <LinkWrapper
                   className="p-[8px] font-modern text-center text-[#2F2D2E] text-[14px] not-italic font-[700] leading-normal"
-                  field={navLink?.fields?.Link}
+                  field={navLink?.fields?.legalLink}
                   suppressNewTabIcon={true}
                 />
                 <div className="h-[30px] w-[1px] bg-[#000]"></div>

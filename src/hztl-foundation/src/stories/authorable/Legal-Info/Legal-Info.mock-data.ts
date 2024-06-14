@@ -4,62 +4,82 @@ const defaultData: LegalInfoProps = {
   rendering: { componentName: 'Default' },
   params: {},
   fields: {
-    CopyrightInfo: {
+    copyrightText: {
       value: 'Copyright lorem ipsum',
     },
-    NavigationMenu: [
+    legalMenu: [
       {
         name: 'Legal Link1',
-        displayName: { value: 'Legal Link' },
+        displayName: 'Legal link1',
         fields: {
-          Link: {
+          legalLink: {
             value: {
-              href: 'https://www.horizontaldigital.com',
-              text: 'Legal Link',
-              linktype: 'external',
-              target: '_blank',
+              text: 'Legal link1',
+              anchor: '',
+              linktype: 'internal',
+              class: '',
+              title: '',
+              target: '',
+              querystring: '',
+              id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+              href: '/',
             },
           },
         },
       },
       {
-        name: 'Legal Link2',
-        displayName: { value: 'Legal Link' },
+        name: 'Legal link2',
+        displayName: 'Legal link2',
         fields: {
-          Link: {
+          legalLink: {
             value: {
-              href: 'https://www.horizontaldigital.com',
-              text: 'Legal Link',
-              linktype: 'external',
-              target: '_blank',
+              text: 'Legal link2',
+              anchor: '',
+              linktype: 'internal',
+              class: '',
+              title: '',
+              target: '',
+              querystring: '',
+              id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+              href: '/',
             },
           },
         },
       },
       {
-        name: 'Legal Link3',
-        displayName: { value: 'Legal Link' },
+        name: 'Legal link3',
+        displayName: 'Legal link3',
         fields: {
-          Link: {
+          legalLink: {
             value: {
-              href: 'https://www.horizontaldigital.com',
-              text: 'Legal Link',
-              linktype: 'external',
-              target: '_blank',
+              text: 'Legal link3',
+              anchor: '',
+              linktype: 'internal',
+              class: '',
+              title: '',
+              target: '',
+              querystring: '',
+              id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+              href: '/',
             },
           },
         },
       },
       {
-        name: 'Legal Link4',
-        displayName: { value: 'Legal Link' },
+        name: 'Legal link4',
+        displayName: 'Legal link4',
         fields: {
-          Link: {
+          legalLink: {
             value: {
-              href: 'https://www.horizontaldigital.com',
-              text: 'Legal Link',
-              linktype: 'external',
-              target: '_blank',
+              text: 'Legal link4',
+              anchor: '',
+              linktype: 'internal',
+              class: '',
+              title: '',
+              target: '',
+              querystring: '',
+              id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+              href: '/',
             },
           },
         },
