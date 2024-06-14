@@ -5,8 +5,9 @@ import { Link } from '@sitecore-jss/sitecore-jss-react';
 import { DropdownMenu, Logo } from './HeaderDesktop';
 
 const HeaderMobile = (props: HeaderProps) => {
-  const { logo, logoLink, navigationList } = props.fields;
-  const { dropdownOpen, setDropdownOpen } = props;
+  const { fields, dropdownOpen, setDropdownOpen } = props;
+  const { logo, logoLink, navigationList } = fields;
+
   const [openMenu, setOpenMenu] = useState(false);
   const toggleHamburger = () => {
     setOpenMenu(!openMenu);

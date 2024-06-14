@@ -10,8 +10,9 @@ import { Link } from '@sitecore-jss/sitecore-jss-react';
 import Image from 'next/image';
 
 const HeaderDesktop = (props: HeaderProps) => {
-  const { logo, logoLink, navigationList } = props.fields;
-  const { dropdownOpen, setDropdownOpen } = props;
+  const { fields, dropdownOpen, setDropdownOpen } = props;
+  const { logo, logoLink, navigationList } = fields;
+
   return (
     <div className="md:block hidden">
       <div className="flex items-center p-4 border-b-2">
