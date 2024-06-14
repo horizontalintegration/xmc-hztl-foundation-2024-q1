@@ -976,6 +976,72 @@ export namespace SiteStructure.Header {
 
     }
 }
+export namespace HztlPageContent {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/RTE
+    */
+    export type Rte =  {
+        fields?: { 
+            /**
+            * Represents the Text field (a536de85-0e9e-4041-9736-aa7cc093984d).
+            */
+            text?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/RTE
+    */
+    export type RteJson =  {
+        
+            /**
+            * Represents the Text field (a536de85-0e9e-4041-9736-aa7cc093984d).
+            */
+            text?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
+}
+export namespace HztlPageContent.RenderingParameters {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/RTE
+    */
+    export type Rte =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/RTE
+    */
+    export type RteJson =  {
+        
+
+    }
+}
+export namespace HztlPageContent {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/RTE Folder
+    */
+    export type RteFolder =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/RTE Folder
+    */
+    export type RteFolderJson =  {
+        
+
+    }
+}
 export namespace SiteStructure {
 
     /**
@@ -1284,6 +1350,33 @@ export namespace SiteStructure.Header.Constants {
     }
     export const NavigationGroup = {
         TemplateId: "7b95a120-283b-474a-a839-6e06409c23a9",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.Constants {
+
+    export const Rte = {
+        TemplateId: "0effe34a-636f-4288-ba3b-0af056aad42b",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.RenderingParameters.Constants {
+
+    export const Rte = {
+        TemplateId: "0ce03778-0d61-4fb0-a95e-61e7236201ed",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.Constants {
+
+    export const RteFolder = {
+        TemplateId: "4a82d02b-9a50-409a-8c0a-b9213eee735d",
     
         BaseTemplateIds: [
         ]
