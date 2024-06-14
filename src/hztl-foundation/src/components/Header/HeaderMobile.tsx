@@ -1,14 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { useState } from 'react';
-import { LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
-import {
-  HeaderProps,
-  LogoInterface,
-  MegaMenuCategoryInterface,
-  NavigationItem,
-} from './headerInterface';
+import { HeaderProps, NavigationItem } from './headerInterface';
 import { Link } from '@sitecore-jss/sitecore-jss-react';
-import Image from 'next/image';
+import { DropdownMenu, Logo } from './HeaderDesktop';
 
 const HeaderMobile = (props: HeaderProps) => {
   const { logo, logoLink, navigationList } = props.fields;
@@ -43,26 +37,12 @@ const HeaderMobile = (props: HeaderProps) => {
 };
 export default HeaderMobile;
 
-const Logo = ({ logo, logoLink }: { logo: LogoInterface; logoLink: LinkField }) => (
-  <div className="flex items-center">
-    <Link field={logoLink}>
-      <Image
-        src={logo.src}
-        alt={logo.alt}
-        width={parseInt(logo.width)}
-        height={parseInt(logo.height)}
-        className="w-20 h-14"
-      />
-    </Link>
-  </div>
-);
 interface NavItemInterface extends NavigationItem {
   onClick: () => void;
   dropdownOpen: number | null;
   index: number;
 }
 const NavItem = (props: NavItemInterface) => {
-  console.log(props);
   const isList = props.fields.megaMenuList.length > 0;
   return (
     <div className="relative group px-4 py-3">
@@ -89,32 +69,11 @@ const NavItem = (props: NavItemInterface) => {
         </div>
       )}
       {props.fields.megaMenuList.length > 0 && props.dropdownOpen === props.index && (
-        <DropdownMenu categories={props.fields.megaMenuList} />
+        <DropdownMenu categories={props.fields.megaMenuList} type="mobile" />
       )}
     </div>
   );
 };
-
-const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInterface[] }) => (
-  <div className="bg-grayscale-w-200 flex justify-start -mx-[24px] mt-3">
-    <div className="flex flex-col justify-center gap-6 py-3 px-10">
-      {categories.map((category, index) => (
-        <div className="text-start" key={index}>
-          <label className="font-bold text-lg mb-2">{category.displayName}</label>
-          <ul>
-            {category.fields.megaMenuLinks.map((item, i) => (
-              <li className="mb-2" key={i}>
-                <Link field={item.fields.link} className="text-blue-600 hover:underline">
-                  {item.displayName}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-  </div>
-);
 
 const BurgurIcon = ({ toggleHamburger }: { toggleHamburger: () => void }) => {
   return (
@@ -140,4 +99,3 @@ const BurgurIcon = ({ toggleHamburger }: { toggleHamburger: () => void }) => {
     </li>
   );
 };
-

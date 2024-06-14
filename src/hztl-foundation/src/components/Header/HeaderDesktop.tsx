@@ -29,14 +29,17 @@ const HeaderDesktop = (props: HeaderProps) => {
         </nav>
       </div>
       {dropdownOpen !== null && navigationList[dropdownOpen].fields.megaMenuList.length > 0 && (
-        <DropdownMenu categories={navigationList[dropdownOpen].fields.megaMenuList} />
+        <DropdownMenu
+          categories={navigationList[dropdownOpen].fields.megaMenuList}
+          type="desktop"
+        />
       )}
     </div>
   );
 };
 export default HeaderDesktop;
 
-const Logo = ({ logo, logoLink }: { logo: LogoInterface; logoLink: LinkField }) => (
+export const Logo = ({ logo, logoLink }: { logo: LogoInterface; logoLink: LinkField }) => (
   <div className="flex items-center">
     <Link field={logoLink}>
       <Image
@@ -81,24 +84,39 @@ const NavItem = (props: NavItemInterface) => {
   );
 };
 
-const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInterface[] }) => (
-  <div className="bg-grayscale-w-200 flex justify-center">
-    <div className="container mx-auto flex justify-center gap-6 p-10">
-      {categories.map((category, index) => (
-        <div className="text-start" key={index}>
-          <label className="font-bold text-lg mb-2">{category.displayName}</label>
-          <ul>
-            {category.fields.megaMenuLinks.map((item, i) => (
-              <li className="mb-2" key={i}>
-                <Link field={item.fields.link} className="text-blue-600 hover:underline">
-                  {item.displayName}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+export const DropdownMenu = ({
+  categories,
+  type,
+}: {
+  categories: MegaMenuCategoryInterface[];
+  type: 'mobile' | 'desktop';
+}) => {
+  return (
+    <div
+      className={`bg-grayscale-w-200 flex ${
+        type === 'mobile' ? '-mx-[24px] mt-3 justify-start' : 'justify-center'
+      }`}
+    >
+      <div
+        className={`flex justify-center gap-6 ${
+          type === 'mobile' ? 'flex-col py-3 px-10' : 'container mx-auto p-10'
+        }`}
+      >
+        {categories.map((category, index) => (
+          <div className="text-start" key={index}>
+            <label className="font-bold text-lg mb-2">{category.displayName}</label>
+            <ul>
+              {category.fields.megaMenuLinks.map((item, i) => (
+                <li className="mb-2" key={i}>
+                  <Link field={item.fields.link} className="text-blue-600 hover:underline">
+                    {item.displayName}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
     </div>
-  </div>
-);
-
+  );
+};
