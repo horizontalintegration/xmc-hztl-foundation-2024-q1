@@ -391,6 +391,170 @@ export namespace HztlPageContent {
         
 
     }
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel
+    */
+    export type Carousel =  {
+        fields?: { 
+            /**
+            * Represents the Text field (b73437dd-a7cb-40fe-9ffe-f0df3d680b49).
+            */
+            carouselList?: Item[];
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel
+    */
+    export type CarouselJson =  {
+        
+            /**
+            * Represents the Text field (b73437dd-a7cb-40fe-9ffe-f0df3d680b49).
+            */
+            carouselList?: {
+                jsonValue: Item[]
+            };
+
+
+    }
+}
+export namespace HztlPageContent.RenderingParameters {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Carousel
+    */
+    export type Carousel =  {
+        fields?: { 
+            /**
+            * Represents the Disable Auto Loop field (4e9699dd-7b5d-440a-97a8-16013db8994b).
+            */
+            disableAutoLoop?: Field<boolean>;
+
+            /**
+            * Represents the Disable Auto Rotation field (83103cb9-0209-4b6c-8db2-bdff6c4ff80d).
+            */
+            disableAutoRotation?: Field<boolean>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Carousel
+    */
+    export type CarouselJson =  {
+        
+            /**
+            * Represents the Disable Auto Loop field (4e9699dd-7b5d-440a-97a8-16013db8994b).
+            */
+            disableAutoLoop?: {
+                jsonValue: Field<boolean>
+            };
+
+            /**
+            * Represents the Disable Auto Rotation field (83103cb9-0209-4b6c-8db2-bdff6c4ff80d).
+            */
+            disableAutoRotation?: {
+                jsonValue: Field<boolean>
+            };
+
+
+    }
+}
+export namespace HztlPageContent {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Folder
+    */
+    export type CarouselFolder =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Folder
+    */
+    export type CarouselFolderJson =  {
+        
+
+    }
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Item
+    */
+    export type CarouselItem =  {
+        fields?: { 
+            /**
+            * Represents the Description field (189b2fd9-3888-4053-adce-a294c0a76412).
+            */
+            description?: Field<string>;
+
+            /**
+            * Represents the Image field (148c7427-11a8-40fa-8190-1b09e0fd853b).
+            */
+            image?: ImageField;
+
+            /**
+            * Represents the Primary CTA field (c2af1e8d-7532-4ade-ae5b-f0708b72ef0d).
+            */
+            primaryCTA?: LinkField;
+
+            /**
+            * Represents the Secondary CTA field (439fa51b-a3c5-4fa0-bd3b-4114ba741349).
+            */
+            secondaryCTA?: LinkField;
+
+            /**
+            * Represents the Title field (3acdcafc-bd69-46e1-a32b-377d173f616c).
+            */
+            title?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Item
+    */
+    export type CarouselItemJson =  {
+        
+            /**
+            * Represents the Description field (189b2fd9-3888-4053-adce-a294c0a76412).
+            */
+            description?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Image field (148c7427-11a8-40fa-8190-1b09e0fd853b).
+            */
+            image?: {
+                jsonValue: ImageField
+            };
+
+            /**
+            * Represents the Primary CTA field (c2af1e8d-7532-4ade-ae5b-f0708b72ef0d).
+            */
+            primaryCTA?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the Secondary CTA field (439fa51b-a3c5-4fa0-bd3b-4114ba741349).
+            */
+            secondaryCTA?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the Title field (3acdcafc-bd69-46e1-a32b-377d173f616c).
+            */
+            title?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
 }
 export namespace SiteStructure.Footer {
 
@@ -456,6 +620,60 @@ export namespace SiteStructure.Footer {
             * Represents the Column Links field (e2ba8384-6ddd-4513-82ac-abd0e087c430).
             */
             columnLinks?: {
+                jsonValue: Item[]
+            };
+
+
+    }
+}
+export namespace SiteStructure.Header {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Header/Header
+    */
+    export type Header =  {
+        fields?: { 
+            /**
+            * Represents the Logo field (ca3d785b-2bc3-41f3-a528-70d0c709ec89).
+            */
+            logo?: ImageField;
+
+            /**
+            * Represents the Logo Link field (35d83a50-8086-48e8-88a0-63cdbd4a6bdf).
+            */
+            logoLink?: LinkField;
+
+            /**
+            * Represents the Navigation List field (d250b2fd-502b-423b-b355-b0a067345f7c).
+            */
+            navigationList?: Item[];
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Header/Header
+    */
+    export type HeaderJson =  {
+        
+            /**
+            * Represents the Logo field (ca3d785b-2bc3-41f3-a528-70d0c709ec89).
+            */
+            logo?: {
+                jsonValue: ImageField
+            };
+
+            /**
+            * Represents the Logo Link field (35d83a50-8086-48e8-88a0-63cdbd4a6bdf).
+            */
+            logoLink?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the Navigation List field (d250b2fd-502b-423b-b355-b0a067345f7c).
+            */
+            navigationList?: {
                 jsonValue: Item[]
             };
 
@@ -591,6 +809,100 @@ export namespace HztlSiteStructure.RenderingParameters {
     */
     export type MainLayoutJson =  {
         
+
+    }
+}
+export namespace SiteStructure.Header {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Header/Mega Menu Group
+    */
+    export type MegaMenuGroup =  {
+        fields?: { 
+            /**
+            * Represents the Mega Menu Links field (b4a35c51-f674-4101-821d-e6069590013d).
+            */
+            megaMenuLinks?: Item[];
+
+            /**
+            * Represents the Mega Menu Title field (2f52f5ae-00bd-46ee-804b-4505a60984fc).
+            */
+            megaMenuTitle?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Header/Mega Menu Group
+    */
+    export type MegaMenuGroupJson =  {
+        
+            /**
+            * Represents the Mega Menu Links field (b4a35c51-f674-4101-821d-e6069590013d).
+            */
+            megaMenuLinks?: {
+                jsonValue: Item[]
+            };
+
+            /**
+            * Represents the Mega Menu Title field (2f52f5ae-00bd-46ee-804b-4505a60984fc).
+            */
+            megaMenuTitle?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Header/Navigation Group
+    */
+    export type NavigationGroup =  {
+        fields?: { 
+            /**
+            * Represents the Mega Menu List field (0a0188a9-97df-4022-afe5-6aa703e207b5).
+            */
+            megaMenuList?: Item[];
+
+            /**
+            * Represents the Navigation Link field (23bf11d2-b48b-4e45-a721-c16dedd7f034).
+            */
+            navigationLink?: LinkField;
+
+            /**
+            * Represents the Navigation Title field (a1f1758f-eb43-4a9f-8f67-7ec880210d6e).
+            */
+            navigationTitle?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Header/Navigation Group
+    */
+    export type NavigationGroupJson =  {
+        
+            /**
+            * Represents the Mega Menu List field (0a0188a9-97df-4022-afe5-6aa703e207b5).
+            */
+            megaMenuList?: {
+                jsonValue: Item[]
+            };
+
+            /**
+            * Represents the Navigation Link field (23bf11d2-b48b-4e45-a721-c16dedd7f034).
+            */
+            navigationLink?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the Navigation Title field (a1f1758f-eb43-4a9f-8f67-7ec880210d6e).
+            */
+            navigationTitle?: {
+                jsonValue: Field<string>
+            };
+
 
     }
 }
@@ -786,6 +1098,36 @@ export namespace HztlPageContent.Constants {
         BaseTemplateIds: [
         ]
     }
+    export const Carousel = {
+        TemplateId: "7d645e35-f14b-4ad7-872a-5c706b070cfd",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.RenderingParameters.Constants {
+
+    export const Carousel = {
+        TemplateId: "f90e159f-b6d9-4e53-8819-270bb018ee39",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.Constants {
+
+    export const CarouselFolder = {
+        TemplateId: "0cd3b2a0-be95-41bd-85c8-d79110ce5dbf",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const CarouselItem = {
+        TemplateId: "7a137b26-5e9c-4cbb-8731-54b3b6593a4d",
+    
+        BaseTemplateIds: [
+        ]
+    }
 }
 export namespace SiteStructure.Footer.Constants {
 
@@ -797,6 +1139,15 @@ export namespace SiteStructure.Footer.Constants {
     }
     export const FooterColumn = {
         TemplateId: "08d755a3-a6fa-4f8b-b574-414077d83a52",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace SiteStructure.Header.Constants {
+
+    export const Header = {
+        TemplateId: "fe3931aa-09c3-4b59-b08b-96d1003c3e78",
     
         BaseTemplateIds: [
         ]
@@ -833,6 +1184,21 @@ export namespace HztlSiteStructure.RenderingParameters.Constants {
 
     export const MainLayout = {
         TemplateId: "6413fe87-e29d-4ee6-a4ef-d1a5c659a2b1",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace SiteStructure.Header.Constants {
+
+    export const MegaMenuGroup = {
+        TemplateId: "a7c5aa3a-f9f5-4a91-821a-6c519b481628",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const NavigationGroup = {
+        TemplateId: "7b95a120-283b-474a-a839-6e06409c23a9",
     
         BaseTemplateIds: [
         ]
