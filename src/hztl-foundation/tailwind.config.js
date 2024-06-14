@@ -13,7 +13,11 @@ module.exports = {
       fontFamily:{
         modern:['Modern Era', 'sans-serif']
       },
+      colors: {
+        "grayscale-w-200":"#EAE8E8"
+      }
     },
   },
   plugins: [],
+  
 };
