@@ -794,6 +794,76 @@ export namespace HztlPageContent {
 
     }
 }
+export namespace SiteStructure.Footer {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Legal Info
+    */
+    export type LegalInfo =  {
+        fields?: { 
+            /**
+            * Represents the Copyright field (351f41d7-3a14-4f63-9cc3-f06a10be3fcc).
+            */
+            copyrightText?: Field<string>;
+
+            /**
+            * Represents the Legal Menu field (c736444f-ee7d-4e28-b584-c7da3a5d10ce).
+            */
+            legalMenu?: Item[];
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Legal Info
+    */
+    export type LegalInfoJson =  {
+        
+            /**
+            * Represents the Copyright field (351f41d7-3a14-4f63-9cc3-f06a10be3fcc).
+            */
+            copyrightText?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Legal Menu field (c736444f-ee7d-4e28-b584-c7da3a5d10ce).
+            */
+            legalMenu?: {
+                jsonValue: Item[]
+            };
+
+
+    }
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Legal Nav Item
+    */
+    export type LegalNavItem =  {
+        fields?: { 
+            /**
+            * Represents the Legal Link field (e71cb8ed-41c2-4c97-8c46-da3232132ab9).
+            */
+            legalLink?: LinkField;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Legal Nav Item
+    */
+    export type LegalNavItemJson =  {
+        
+            /**
+            * Represents the Legal Link field (e71cb8ed-41c2-4c97-8c46-da3232132ab9).
+            */
+            legalLink?: {
+                jsonValue: LinkField
+            };
+
+
+    }
+}
 export namespace HztlSiteStructure.RenderingParameters {
 
     /**
@@ -1175,6 +1245,21 @@ export namespace HztlPageContent.Constants {
 
     export const HeroFolder = {
         TemplateId: "fcd9b72d-9922-426f-a0de-9546d030279d",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace SiteStructure.Footer.Constants {
+
+    export const LegalInfo = {
+        TemplateId: "a4277859-8d5f-4726-98e6-d950db4bd18d",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const LegalNavItem = {
+        TemplateId: "88f0ec99-a718-42f4-a136-0f80996b81cb",
     
         BaseTemplateIds: [
         ]
