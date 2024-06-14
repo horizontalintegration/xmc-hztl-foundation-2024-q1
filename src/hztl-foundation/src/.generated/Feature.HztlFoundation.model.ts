@@ -794,6 +794,76 @@ export namespace HztlPageContent {
 
     }
 }
+export namespace SiteStructure.Footer {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Legal Info
+    */
+    export type LegalInfo =  {
+        fields?: { 
+            /**
+            * Represents the Copyright field (351f41d7-3a14-4f63-9cc3-f06a10be3fcc).
+            */
+            copyrightText?: Field<string>;
+
+            /**
+            * Represents the Legal Menu field (c736444f-ee7d-4e28-b584-c7da3a5d10ce).
+            */
+            legalMenu?: Item[];
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Legal Info
+    */
+    export type LegalInfoJson =  {
+        
+            /**
+            * Represents the Copyright field (351f41d7-3a14-4f63-9cc3-f06a10be3fcc).
+            */
+            copyrightText?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Legal Menu field (c736444f-ee7d-4e28-b584-c7da3a5d10ce).
+            */
+            legalMenu?: {
+                jsonValue: Item[]
+            };
+
+
+    }
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Legal Nav Item
+    */
+    export type LegalNavItem =  {
+        fields?: { 
+            /**
+            * Represents the Legal Link field (e71cb8ed-41c2-4c97-8c46-da3232132ab9).
+            */
+            legalLink?: LinkField;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Legal Nav Item
+    */
+    export type LegalNavItemJson =  {
+        
+            /**
+            * Represents the Legal Link field (e71cb8ed-41c2-4c97-8c46-da3232132ab9).
+            */
+            legalLink?: {
+                jsonValue: LinkField
+            };
+
+
+    }
+}
 export namespace HztlSiteStructure.RenderingParameters {
 
     /**
@@ -903,6 +973,72 @@ export namespace SiteStructure.Header {
                 jsonValue: Field<string>
             };
 
+
+    }
+}
+export namespace HztlPageContent {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/RTE
+    */
+    export type Rte =  {
+        fields?: { 
+            /**
+            * Represents the Text field (a536de85-0e9e-4041-9736-aa7cc093984d).
+            */
+            text?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/RTE
+    */
+    export type RteJson =  {
+        
+            /**
+            * Represents the Text field (a536de85-0e9e-4041-9736-aa7cc093984d).
+            */
+            text?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
+}
+export namespace HztlPageContent.RenderingParameters {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/RTE
+    */
+    export type Rte =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/RTE
+    */
+    export type RteJson =  {
+        
+
+    }
+}
+export namespace HztlPageContent {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/RTE Folder
+    */
+    export type RteFolder =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/RTE Folder
+    */
+    export type RteFolderJson =  {
+        
 
     }
 }
@@ -1180,6 +1316,21 @@ export namespace HztlPageContent.Constants {
         ]
     }
 }
+export namespace SiteStructure.Footer.Constants {
+
+    export const LegalInfo = {
+        TemplateId: "a4277859-8d5f-4726-98e6-d950db4bd18d",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const LegalNavItem = {
+        TemplateId: "88f0ec99-a718-42f4-a136-0f80996b81cb",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
 export namespace HztlSiteStructure.RenderingParameters.Constants {
 
     export const MainLayout = {
@@ -1199,6 +1350,33 @@ export namespace SiteStructure.Header.Constants {
     }
     export const NavigationGroup = {
         TemplateId: "7b95a120-283b-474a-a839-6e06409c23a9",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.Constants {
+
+    export const Rte = {
+        TemplateId: "0effe34a-636f-4288-ba3b-0af056aad42b",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.RenderingParameters.Constants {
+
+    export const Rte = {
+        TemplateId: "0ce03778-0d61-4fb0-a95e-61e7236201ed",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.Constants {
+
+    export const RteFolder = {
+        TemplateId: "4a82d02b-9a50-409a-8c0a-b9213eee735d",
     
         BaseTemplateIds: [
         ]
