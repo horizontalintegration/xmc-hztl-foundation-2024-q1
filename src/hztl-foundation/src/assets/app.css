@@ -28,3 +28,18 @@
     font-weight: 300;
     line-height: 1.2;
 }
+
+.hamburger-lines .line {
+  background-color: black;
+  }
+  .toggle-menu input[type='checkbox']:checked ~ .hamburger-lines .line1 {
+    transform: rotate(45deg);
+  }
+  
+  .toggle-menu input[type='checkbox']:checked ~ .hamburger-lines .line2 {
+    transform: scaleY(0);
+  }
+  
+  .toggle-menu input[type='checkbox']:checked ~ .hamburger-lines .line3 {
+    transform: rotate(-45deg);
+  }
