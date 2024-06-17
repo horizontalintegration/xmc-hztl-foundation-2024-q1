@@ -1,24 +1,10 @@
 import React from 'react';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
-import { Field, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { SiteStructure } from 'src/.generated/Feature.HztlFoundation.model';
+import { ComponentProps } from 'lib/component-props';
 
-interface Fields {
-  copyrightText: Field<string>;
-  legalMenu: {
-    name: string;
-    displayName: string;
-    fields: {
-      legalLink: LinkField;
-    };
-  }[];
-}
-
-export type LegalInfoProps = {
-  rendering: { componentName: string };
-  params: { [key: string]: string };
-  fields: Fields;
-};
+export type LegalInfoProps = ComponentProps & SiteStructure.Footer.LegalInfo;
 
 const LegalInfoDefaultComponent = (props: LegalInfoProps): JSX.Element => (
   <div className={`component legal info ${props?.params?.styles}`}>
@@ -47,7 +33,9 @@ export const Default = (props: LegalInfoProps): JSX.Element => {
               <div key={index} className="flex items-center">
                 <LinkWrapper
                   className="p-[8px] font-modern text-center text-[#2F2D2E] text-[14px] not-italic font-[700] leading-normal"
-                  field={navLink?.fields?.legalLink}
+                  field={{
+                    ...navLink?.fields?.legalLink,
+                  }}
                   suppressNewTabIcon={true}
                 />
                 <div className="h-[30px] w-[1px] bg-[#000]"></div>
