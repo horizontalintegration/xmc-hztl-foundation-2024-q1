@@ -1,24 +1,27 @@
 import React from 'react';
-import { ImageFieldValue, LinkFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ImageField, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import { SiteStructure } from '../../../../.generated/Feature.HztlFoundation.model';
+import { ComponentProps } from 'lib/component-props';
 
-interface Fields {
-  IconList: {
-    Icon: {
-      value: ImageFieldValue;
-    };
-    Link: {
-      value: LinkFieldValue;
-    };
-  }[];
-}
+export type SocialMediaProps = ComponentProps & SiteStructure.Footer.SocialMedia;
+// interface Fields {
+//   socialMediaLinks: {
+//     displayName:string;
+//     name: string;
+//     fields: {
+//       socialMediaLink: LinkField;
+//       socialMediaLogo: ImageField;
+//     };
+//   }[];
+// }
 
-export type SocialMediaProps = {
-  rendering: { componentName: string };
-  params: { [key: string]: string };
-  fields: Fields;
-};
+// export type SocialMediaProps = {
+//   rendering: { componentName: string };
+//   params: { [key: string]: string };
+//   fields: Fields;
+// };
 
 const SocialMediaDefaultComponent = (props: SocialMediaProps): JSX.Element => (
   <div className={`component social media ${props?.params?.styles}`}>
@@ -37,10 +40,10 @@ export const Default = (props: SocialMediaProps): JSX.Element => {
           data-component="authorable/general/social-media"
           className="flex justify-center py-[8px] gap-[16px]"
         >
-          {props?.fields?.IconList.map((icon, index) => (
+          {props?.fields?.socialMediaLinks?.map((icon, index) => (
             <React.Fragment key={index}>
-              <LinkWrapper suppressNewTabIcon={true} field={icon.Link}>
-                <ImageWrapper field={icon.Icon} />
+              <LinkWrapper suppressNewTabIcon={true} field={{...{...icon.fields}.socialMediaLink}}>
+                <ImageWrapper field={{...{...icon.fields}.socialMediaLogo}} />
               </LinkWrapper>
             </React.Fragment>
           ))}

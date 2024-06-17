@@ -4,94 +4,117 @@ const defaultData: SocialMediaProps = {
   rendering: { componentName: 'Default' },
   params: {},
   fields: {
-    IconList: [
+    socialMediaLinks: [
       {
-        Icon: {
-          value: {
-            src: 'https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/instagram-512.png',
-            alt: 'Instagram Icon',
-            title: 'Instagram Icon',
-            width: 24,
-            height: 24,
+        name: 'Facebook',
+        displayName: 'Facebook',
+        fields: {
+          socialMediaLink: {
+            value: {
+              href: 'https://www.horizontaltalent.com/',
+              linktype: 'external',
+              url: 'https://www.horizontaltalent.com/',
+              anchor: '',
+              target: '',
+            },
           },
-        },
-        Link: {
-          value: {
-            href: 'https://www.instagram.com/',
-            linktype: 'external',
-            target: '_blank',
+          socialMediaLogo: {
+            value: {
+              src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/Social-Icons/Social-Icon-SVG/Facebook.svg?h=24&iar=0&w=24',
+              alt: 'facebook',
+              width: '24',
+              height: '24',
+            },
           },
         },
       },
       {
-        Icon: {
-          value: {
-            src: 'https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Facebook_glyph_svg-256.png',
-            alt: 'Facebook Icon',
-            title: 'Facebook Icon',
-            width: 24,
-            height: 24,
+        name: 'Instagram',
+        displayName: 'Instagram',
+        fields: {
+          socialMediaLink: {
+            value: {
+              href: 'https://www.horizontaldigital.com/',
+              linktype: 'external',
+              url: 'https://www.horizontaldigital.com/',
+              anchor: '',
+              target: '',
+            },
           },
-        },
-        Link: {
-          value: {
-            href: 'https://www.facebook.com/',
-            linktype: 'external',
-            target: '_blank',
-          },
-        },
-      },
-      {
-        Icon: {
-          value: {
-            src: 'https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Pinterest_glyph_svg-256.png',
-            alt: 'Pinterest Icon',
-            title: 'Pinterest Icon',
-            width: 24,
-            height: 24,
-          },
-        },
-        Link: {
-          value: {
-            href: 'https://www.pinterest.com/',
-            linktype: 'external',
-            target: '_blank',
+          socialMediaLogo: {
+            value: {
+              src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/Social-Icons/Social-Icon-SVG/Instagram.svg?iar=0',
+              alt: 'Instagram',
+            },
           },
         },
       },
       {
-        Icon: {
-          value: {
-            src: 'https://cdn0.iconfinder.com/data/icons/font-awesome-brands-vol-2/512/tiktok-256.png',
-            alt: 'Tiktok Icon',
-            title: 'Tiktok Icon',
-            width: 24,
-            height: 24,
+        name: 'Pinterest',
+        displayName: 'Pinterest',
+        fields: {
+          socialMediaLink: {
+            value: {
+              href: 'https://www.horizontaldigital.com/',
+              linktype: 'external',
+              url: 'https://www.horizontaldigital.com/',
+              anchor: '',
+              target: '',
+            },
           },
-        },
-        Link: {
-          value: {
-            href: 'https://www.tiktok.com/about',
-            linktype: 'external',
-            target: '_blank',
+          socialMediaLogo: {
+            value: {
+              src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/Social-Icons/Pinterest.png?h=24&iar=0&w=24',
+              alt: 'Pinterest',
+              width: '24',
+              height: '24',
+            },
           },
         },
       },
       {
-        Icon: {
-          value: {
-            src: 'https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Youtube_glyph_svg-256.png',
-            alt: 'Youtube Icon',
-            title: 'Youtube Icon',
-            width: 24,
-            height: 24,
+        name: 'Tiktok',
+        displayName: 'Tiktok',
+        fields: {
+          socialMediaLink: {
+            value: {
+              href: 'https://www.horizontaltalent.com/',
+              linktype: 'external',
+              url: 'https://www.horizontaltalent.com/',
+              anchor: '',
+              target: '',
+            },
+          },
+          socialMediaLogo: {
+            value: {
+              src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/Social-Icons/TikTok---Dark.png?h=24&iar=0&w=24',
+              alt: 'tiktok',
+              width: '24',
+              height: '24',
+            },
           },
         },
-        Link: {
-          value: {
-            href: 'https://www.youtube.com/',
-            linktype: 'external',
-            target: '_blank',
+      },
+      {
+        name: 'Youtube',
+        displayName: 'Youtube',
+        fields: {
+          socialMediaLink: {
+            value: {
+              href: 'https://www.horizontaldigital.com/',
+              linktype: 'external',
+              url: 'https://www.horizontaldigital.com/',
+              anchor: '',
+              target: '',
+            },
+          },
+          socialMediaLogo: {
+            value: {
+              src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/Social-Icons/YouTube.png?h=24&iar=0&w=24',
+              alt: 'Youtube',
+              width: '24',
+              height: '24',
+            },
           },
         },
       },
