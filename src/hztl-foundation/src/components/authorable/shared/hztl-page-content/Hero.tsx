@@ -1,30 +1,15 @@
 import React from 'react';
-import {
-  Image as JssImage,
-  Link as JssLink,
-  RichText as JssRichText,
-  Field,
-  LinkField,
-  ImageField,
-  TextField,
-  Text,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
+import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
+import { ComponentProps } from 'lib/component-props';
+import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 
-interface Fields {
-  Image: ImageField;
-  Heading: TextField;
-  Description: Field<string>;
-  Link1: LinkField;
-  Link2: LinkField;
-}
-
-type HeroProps = {
-  params: { [key: string]: string };
-  fields: Fields;
-};
+export type HeroProps = ComponentProps & HztlPageContent.Hero;
 
 const HeroDefaultComponent = (props: HeroProps): JSX.Element => (
-  <div className={`component hero ${props.params.styles}`}>
+  <div className={`component hero ${props.params?.styles}`}>
     <div className="component-content">
       <span className="is-empty-hint">Hero</span>
     </div>
@@ -34,25 +19,38 @@ const HeroDefaultComponent = (props: HeroProps): JSX.Element => (
 export const Default = (props: HeroProps): JSX.Element => {
   if (props.fields) {
     return (
-      <div className={`component hero ${props.params.styles}`}>
-        <div className="component-content">
-          <div className="hero-content">
-            <div className="field-title">
-              <Text field={props.fields.Heading}></Text>
+      <section className="hero my-8 min-h-[50vh] flex flex-col-reverse md:flex-row justify-center items-center ">
+        <div className="w-full md:w-1/2  flex items-center justify-center">
+          <div className="max-w-[472px] w-fit px-4 py-8">
+            <PlainTextWrapper
+              tag="h2"
+              className="font-modern text-5xl leading-16 font-bold mb-6"
+              field={props.fields?.Heading}
+            />
+            <RichTextWrapper
+              tag="div"
+              className="text-[#2F2D2E] font-normal text-base leading-6 mb-6"
+              field={props.fields?.Description}
+            />
+
+            <div className="flex gap-[8px] flex-wrap justify-center md:justify-normal">
+              <LinkWrapper
+                className="flex items-center justify-center px-16 py-3 rounded-[4px] bg-[#2F2D2E] text-center text-[#FFF] font-modern text-base font-bold leading-normal"
+                field={props.fields?.Link1}
+                suppressNewTabIcon={true}
+              />
+              <LinkWrapper
+                className="flex items-center justify-center px-16 py-3 rounded-[4px] border-[1px] border-[#2F2D2E] text-center text-[#2F2D2E] font-modern text-[16px] font-bold leading-normal"
+                field={props.fields?.Link2}
+                suppressNewTabIcon={true}
+              />
             </div>
-            <div className="field-subtitle">
-              <JssRichText field={props.fields.Description}></JssRichText>
-            </div>
-            <div className="field-links">
-              <JssLink field={props.fields.Link1}></JssLink>
-              <JssLink field={props.fields.Link2}></JssLink>
-            </div>
-          </div>
-          <div className="hero-image">
-            <JssImage field={props.fields.Image}></JssImage>
           </div>
         </div>
-      </div>
+        <div className="w-full md:w-1/2">
+          <ImageWrapper field={props.fields?.Image} />
+        </div>
+      </section>
     );
   }
 

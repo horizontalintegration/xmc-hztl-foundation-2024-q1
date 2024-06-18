@@ -1,0 +1,28 @@
+// Global
+import type { Meta, StoryObj } from '@storybook/react';
+
+// Lib
+import { expandObj, flattenObj } from 'lib/object-parser';
+
+// Local
+import { Default, HeroProps } from '../../../components/authorable/shared/hztl-page-content/Hero';
+import defaultData from './Hero.mock-data';
+
+const meta: Meta<typeof Default> = {
+  title: 'Authorable/General/Hero',
+  component: Default,
+  argTypes: {},
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Default>;
+
+export const Hero: Story = {
+  render: (args) => {
+    return <Default {...(expandObj({ ...args }) as HeroProps)} />;
+  },
+  args: {
+    ...flattenObj(defaultData),
+  },
+};
