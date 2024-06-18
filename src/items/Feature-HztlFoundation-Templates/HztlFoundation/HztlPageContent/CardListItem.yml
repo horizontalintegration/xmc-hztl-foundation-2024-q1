@@ -1,12 +1,12 @@
 ﻿---
-ID: "3a7d27e5-b935-46da-b8fb-fe1e260957d8"
+ID: "d8787bf8-9c9b-4935-a46a-f1d15bf3cc16"
 Parent: "8621c625-cdd3-4a2a-942d-07ae3c04a6c7"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
-Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Card
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardListItem
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: Office/32x32/window_dialog.png
+  Value: office/32x32/elements2.png
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
   Value: |
@@ -14,7 +14,7 @@ SharedFields:
     {44A022DB-56D3-419A-B43B-E27E4D8E9C41}
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 300
+  Value: 550
 Languages:
 - Language: "de-DE"
   Fields:
@@ -62,14 +62,14 @@ Languages:
         sitecore\admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a0f72843-c797-4842-a694-725f6cbeb4f5"
+      Value: "92f9af6d-be30-4614-abd7-6a992f900787"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\asavalagi@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240618T095705Z
+      Value: 20240618T095709Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"

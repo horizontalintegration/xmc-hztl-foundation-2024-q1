@@ -1,8 +1,8 @@
 ﻿---
-ID: "fb848371-e07b-4236-9601-65c30ecf4c39"
-Parent: "32941ae3-7086-4221-a02c-26a60fcbcbae"
+ID: "a57988f3-384b-46e0-a62f-47d53d1c4770"
+Parent: "e17c9a7a-b54c-4fc1-b744-f147f2306336"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardList/Card/CartListText
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardListItem/Data/Heading
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
@@ -31,11 +31,11 @@ Languages:
         sitecore\pbarron@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e31bca00-2c62-4b56-9e84-1fd40d297ed3"
+      Value: "b199e1dc-6b66-4586-9b76-c6b1e448e278"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\pbarron@horizontal.com
+        sitecore\asavalagi@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240312T162946Z
+      Value: 20240618T095723Z
