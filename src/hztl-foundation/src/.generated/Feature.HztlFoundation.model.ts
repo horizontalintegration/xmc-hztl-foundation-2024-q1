@@ -298,24 +298,9 @@ export namespace HztlPageContent {
     export type CardList =  {
         fields?: { 
             /**
-            * Represents the CardListLink field (2f5abe69-579f-4e06-8eb4-709d8a9529bf).
+            * Represents the Card List field (0418e27b-957b-4de8-a13f-40cac199c1e1).
             */
-            CardListLink?: LinkField;
-
-            /**
-            * Represents the CardListLink2 field (d0ad9cc0-515d-4668-8e7a-1bfdae814840).
-            */
-            CardListLink2?: LinkField;
-
-            /**
-            * Represents the CardListTitle field (0418e27b-957b-4de8-a13f-40cac199c1e1).
-            */
-            CardListTitle?: Field<string>;
-
-            /**
-            * Represents the CartListText field (fb848371-e07b-4236-9601-65c30ecf4c39).
-            */
-            CartListText?: Field<string>;
+            cards?: Item[];
         }
 
     }
@@ -326,31 +311,10 @@ export namespace HztlPageContent {
     export type CardListJson =  {
         
             /**
-            * Represents the CardListLink field (2f5abe69-579f-4e06-8eb4-709d8a9529bf).
+            * Represents the Card List field (0418e27b-957b-4de8-a13f-40cac199c1e1).
             */
-            CardListLink?: {
-                jsonValue: LinkField
-            };
-
-            /**
-            * Represents the CardListLink2 field (d0ad9cc0-515d-4668-8e7a-1bfdae814840).
-            */
-            CardListLink2?: {
-                jsonValue: LinkField
-            };
-
-            /**
-            * Represents the CardListTitle field (0418e27b-957b-4de8-a13f-40cac199c1e1).
-            */
-            CardListTitle?: {
-                jsonValue: Field<string>
-            };
-
-            /**
-            * Represents the CartListText field (fb848371-e07b-4236-9601-65c30ecf4c39).
-            */
-            CartListText?: {
-                jsonValue: Field<string>
+            cards?: {
+                jsonValue: Item[]
             };
 
 
@@ -389,6 +353,106 @@ export namespace HztlPageContent {
     */
     export type CardListFolderJson =  {
         
+
+    }
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardListItem
+    */
+    export type CardListItem =  {
+        fields?: { 
+            /**
+            * Represents the Text field (c88ad4f6-b595-4f12-afa5-af57598ac3d5).
+            */
+            CardImage?: ImageField;
+
+            /**
+            * Represents the CardLink1 field (94125146-076d-44bb-806e-53cc0486dc69).
+            */
+            CardLink1?: LinkField;
+
+            /**
+            * Represents the CardLink2 field (0b417653-4247-4a5c-8ba5-2ee97c47d2e5).
+            */
+            CardLink2?: LinkField;
+
+            /**
+            * Represents the Description field (b656ddcf-b3cb-4c78-a387-31b8192b9bc4).
+            */
+            Description?: Field<string>;
+
+            /**
+            * Represents the Eyebrow field (9c897611-b82d-4a2e-a398-043e2199ac8c).
+            */
+            Eyebrow?: Field<string>;
+
+            /**
+            * Represents the Heading field (a57988f3-384b-46e0-a62f-47d53d1c4770).
+            */
+            Heading?: Field<string>;
+
+            /**
+            * Represents the Subheading field (23deeeed-8c90-4939-b7dc-349258f33c06).
+            */
+            Subheading?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardListItem
+    */
+    export type CardListItemJson =  {
+        
+            /**
+            * Represents the Text field (c88ad4f6-b595-4f12-afa5-af57598ac3d5).
+            */
+            CardImage?: {
+                jsonValue: ImageField
+            };
+
+            /**
+            * Represents the CardLink1 field (94125146-076d-44bb-806e-53cc0486dc69).
+            */
+            CardLink1?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the CardLink2 field (0b417653-4247-4a5c-8ba5-2ee97c47d2e5).
+            */
+            CardLink2?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the Description field (b656ddcf-b3cb-4c78-a387-31b8192b9bc4).
+            */
+            Description?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Eyebrow field (9c897611-b82d-4a2e-a398-043e2199ac8c).
+            */
+            Eyebrow?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Heading field (a57988f3-384b-46e0-a62f-47d53d1c4770).
+            */
+            Heading?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Subheading field (23deeeed-8c90-4939-b7dc-349258f33c06).
+            */
+            Subheading?: {
+                jsonValue: Field<string>
+            };
+
 
     }
 
@@ -1230,6 +1294,12 @@ export namespace HztlPageContent.Constants {
 
     export const CardListFolder = {
         TemplateId: "ba4df361-c4c6-4045-bc3d-608266e63182",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const CardListItem = {
+        TemplateId: "d8787bf8-9c9b-4935-a46a-f1d15bf3cc16",
     
         BaseTemplateIds: [
         ]

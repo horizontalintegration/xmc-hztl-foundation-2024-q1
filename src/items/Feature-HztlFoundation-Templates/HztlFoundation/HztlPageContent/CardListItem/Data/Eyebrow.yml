@@ -1,26 +1,27 @@
 ﻿---
-ID: "d0ad9cc0-515d-4668-8e7a-1bfdae814840"
-Parent: "32941ae3-7086-4221-a02c-26a60fcbcbae"
+ID: "9c897611-b82d-4a2e-a398-043e2199ac8c"
+Parent: "e17c9a7a-b54c-4fc1-b744-f147f2306336"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardList/Card/CardListLink2
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardListItem/Data/Eyebrow
 SharedFields:
-- ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
-  Hint: Source
-  Value: "query:$linkableHomes"
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: General Link
+  Value: "Single-Line Text"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 600
+  Value: 200
 Languages:
 - Language: en
+  Fields:
+  - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
+    Hint: Title
+    Value: 
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20240311T165057Z
+      Value: 20240311T165056Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,11 +32,11 @@ Languages:
         sitecore\pbarron@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "db5a655f-14b8-4a6a-950e-39cc50d3c766"
+      Value: "52c24369-4fcd-4798-ba14-11cf9c851a68"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\pbarron@horizontal.com
+        sitecore\asavalagi@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240312T162946Z
+      Value: 20240618T095723Z
