@@ -22,41 +22,41 @@ export const Default = (props: CardProps): JSX.Element => {
     return (
       <div className={`component card ${props?.params?.styles}`} id={id ? id : undefined}>
         <div data-component="authorable/general/card" className="flex justify-center items-center">
-          <div className="mx-auto my-[0px]">
-            <div className="border-[1px] border-[#2F2D2E]">
-              <div className="border-b-[1px] border-[#A7A7A7] flex justify-center items-center">
+          <div className="mx-auto my-0">
+            <div className="border border-[#2F2D2E]">
+              <div className="border-b border-[#A7A7A7] flex justify-center items-center">
                 <ImageWrapper field={props?.fields?.CardImage} />
               </div>
-              <div className="text-center md:text-left p-[40px] m-auto">
+              <div className="text-left p-10 m-auto">
                 <PlainTextWrapper
-                  className="font-modern text-[#2F2D2E] text-[12px] font-[400] not-italic leading-normal mb-[8px] opacity-[0.8]"
+                  className="font-modern text-[#2F2D2E] text-xs font-normal not-italic leading-normal mb-2 opacity-80"
                   field={props?.fields?.Eyebrow}
                   tag="h6"
                   editable
                 />
                 <RichTextWrapper
-                  className="font-modern text-[#2F2D2E] text-[36px] font-[700] not-italic leading-normal mb-[8px]"
+                  className="font-modern text-[#2F2D2E] text-4xl font-bold not-italic leading-normal mb-2"
                   field={props?.fields?.Heading}
                   tag="h2"
                 />
                 <RichTextWrapper
-                  className="font-modern text-[#2F2D2E] text-[20px] font-[700] not-italic leading-normal mb-[8px] opacity-[0.8]"
+                  className="font-modern text-[#2F2D2E] text-xl font-bold not-italic leading-normal mb-2 opacity-80"
                   field={props?.fields?.Subheading}
                   tag="div"
                 />
                 <RichTextWrapper
-                  className="font-modern text-[#2F2D2E] text-[16px] font-[400] not-italic leading-[24px] mb-[8px] opacity-[0.9]"
+                  className="font-modern text-[#2F2D2E] text-base font-normal not-italic leading-[24px] mb-2 opacity-90"
                   field={props?.fields?.Description}
                   tag="div"
                 />
-                <div className="flex gap-[8px] flex-wrap justify-center md:justify-normal">
+                <div className="flex gap-2 flex-wrap justify-normal">
                   <LinkWrapper
-                    className="flex items-center justify-center px-[16px] py-[12px] rounded-[4px] bg-[#2F2D2E] text-center text-[#FFF] font-modern text-[14px] font-[700] not-italic leading-normal"
+                    className="flex items-center justify-center px-4 py-3 rounded bg-[#2F2D2E] text-center text-[#FFF] font-modern text-sm font-bold not-italic leading-normal"
                     field={props?.fields?.CardLink1}
                     suppressNewTabIcon={true}
                   />
                   <LinkWrapper
-                    className="flex items-center justify-center p-[12px] rounded-[4px] border-[1px] border-[#2F2D2E] text-center text-[#2F2D2E] font-modern text-[16px] font-[700] not-italic leading-normal"
+                    className="flex items-center justify-center p-3 rounded border border-[#2F2D2E] text-center text-[#2F2D2E] font-modern text-base font-bold not-italic leading-normal"
                     field={props?.fields?.CardLink2}
                     suppressNewTabIcon={true}
                   />
