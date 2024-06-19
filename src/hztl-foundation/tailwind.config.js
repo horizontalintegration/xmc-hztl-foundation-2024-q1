@@ -3,6 +3,58 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      colors: {
+        gray: '#2F2D2E',
+        primary: '#6CC14C',
+        darkprimary: '#326222',
+        secondary: '#000000',
+        white: '#FFFFFF',
+        black: '#000000',
+        transparent: 'transparent',
+        'light-gray': '#F9F9F9',
+        'dark-gray': '#54585A',
+        'light-black': '#454545',
+        "grayscale-w-200":"#EAE8E8",
+        'error-outline': '#F14343',
+        'error': '#B91515',
+      },
+      fontSize: {
+        // Desktop font sizes
+        xxl: ['3.5rem', '120%'], //56px 67.2px
+        xl: ['3.5rem', '120%'], //56px 67.2px
+        l: ['3rem', '3.5rem'], //48px 60px
+        m: ['1.5rem', '2rem'], //24px 32px
+        s: ['1.125rem', '1.75rem'], //18px 28px
+        xs: ['1rem', '1.25rem'], //16px 20px
+        xxs: ['0.75rem', '1rem'], //12px 16px
+        body: ['0.875rem', '157%'], //14px 21.98px
+        'large-body': ['1.125rem', '133%'], //18px 23.94px
+        button: ['0.875rem', '120%'], //14px 16.8px
+        'text-link': ['0.875rem', '0.875rem'], //14px 14px
+        small: ['0.75rem', '130%'], //12px 15.6px
+        legal: ['0.625rem', '130%'], //10px 13px
+        base: ['1rem', '1.125rem'], //16px 18px
+
+        // Mobile font sizes
+        'sm-xxl': ['2rem', '120%'], //32px 38.4px
+        'sm-xl': ['2rem', '120%'], //32px 38.4px
+        'sm-l': ['2rem', '120%'], //32px 38.4px
+        'sm-m': ['1.5rem', '2rem'], //24px 32px
+        'sm-s': ['1.25rem', '1.75rem'], //20px 28px
+        'sm-xs': ['1rem', '1.25rem'], //16px 20px
+        'sm-xxs': ['0.75rem', '1rem'], //12px 16px
+      },
+      fontFamily:{
+        modern:['Modern Era', 'sans-serif']
+      },
+      fontWeight: {
+        bold: '700',
+        heavy: '600',
+        'semi-bold': '600',
+        medium: '500',
+        regular: '400',
+        'extra-light': '300',
+      },
       lineHeight: {
         20: '4.4rem', // 48
         16: '3.5rem', // 48
@@ -10,12 +62,27 @@ module.exports = {
         2: '1.375rem', // 22
         1: '1.188rem', // 19
       },
-      fontFamily:{
-        modern:['Modern Era', 'sans-serif']
+      screens: {
+        xl: '1488px',
+        lg: '1248px',
+        mml: '1024px',
+        ml: '1008px',
+        mmd: '800px',
+        md: '672px',
+        sm: '375px',
       },
-      colors: {
-        "grayscale-w-200":"#EAE8E8"
-      }
+      spacing: {
+        xxl: '7.5rem', // 120px
+        xl: '5rem', // 80px
+        l: '2.5rem', // 40px
+        ml: '2rem', // 32px
+        m: '1.5rem', // 24px
+        s: '1rem', // 16px
+        xs: '0.75rem', // 12px
+        xxs: '0.5rem', // 8px
+        xxxs: '0.25rem', // 4px
+        0: '0px',
+      },
     },
   },
   plugins: [],
