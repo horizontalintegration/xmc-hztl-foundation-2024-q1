@@ -43,7 +43,7 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
         <header>
           <div id="header">{route && <Placeholder name="headless-header" rendering={route} />}</div>
         </header>
-        <main className="m-auto w-full max-w-screen-xl p-8">
+        <main>
           <div id="content">{route && <Placeholder name="headless-main" rendering={route} />}</div>
         </main>
         <footer>
