@@ -20,7 +20,12 @@ export const Default = (props: SocialMediaProps): JSX.Element => {
 
   if (props?.fields) {
     return (
-      <div className={`component social media ${props?.params?.styles}`} id={id ? id : undefined}>
+      <div
+        className={`component ml:order-2 lg:pt-[1rem] social media ${
+          props?.params?.styles !== undefined ? props?.params?.styles : ''
+        }`}
+        id={id ? id : undefined}
+      >
         <div
           data-component="authorable/general/social-media"
           className="flex pl-8 md:pl-80 py-[8px] gap-[16px]"

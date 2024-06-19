@@ -18,7 +18,10 @@ export const Default = (props: LegalInfoProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
   if (props?.fields) {
     return (
-      <div className={`component legal info ${props?.params?.styles}`} id={id ? id : undefined}>
+      <div
+        className={`component legal info pl-0 lg:pl-[24%] lg:pt-[1rem] ${props?.params?.styles}`}
+        id={id ? id : undefined}
+      >
         <div
           data-component="authorable/general/legal-info"
           className="flex flex-col gap-[8px] pr-80 items-end"
