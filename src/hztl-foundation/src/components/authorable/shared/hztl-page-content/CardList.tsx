@@ -1,11 +1,8 @@
 import React from 'react';
-import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
-import { ItemEx } from 'src/.generated/_.Sitecore.Override';
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 
-export type CardListProps = ComponentProps & HztlPageContent.CardList;
-export type CardListItem = ItemEx & HztlPageContent.CardListItem;
+export type CardListProps = ComponentProps;
 
 export const Default = (props: CardListProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
