@@ -11,10 +11,6 @@ Languages:
     - ID: "05be0e84-140d-4d03-9b12-8c4a9dc2a25b"
       Hint: Heading
       Value: Heading
-    - ID: "1905ebfb-2e4f-4eb7-8a6d-2ac9f436c03d"
-      Hint: Link2
-      Value: |
-        <link text="Click here" anchor="" linktype="internal" class="" title="" target="_blank" querystring="" id="{E9ABAFA1-377C-4577-A419-9A3A8044D435}" />
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20240515T114752Z
@@ -35,15 +31,11 @@ Languages:
         <image mediaid="{72B297F7-0A59-43AF-B694-2DAF432045EB}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "53507444-413b-4d93-bb7d-7e690c296749"
-    - ID: "ad30fb20-9a56-4367-af5b-7c733770a9e2"
-      Hint: Link1
-      Value: |
-        <link text="Click here" anchor="" linktype="internal" class="" title="" target="_blank" querystring="" id="{E9ABAFA1-377C-4577-A419-9A3A8044D435}" />
+      Value: "fbee28b1-468c-4994-a8a6-81e7e1fdad5c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\mchaniyara@horizontal.com
+        sitecore\dhruvi.patel@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240515T114949Z
+      Value: 20240619T081248Z
