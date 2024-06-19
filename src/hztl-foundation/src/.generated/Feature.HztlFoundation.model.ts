@@ -16,6 +16,10 @@ import { HztlPageContent as FeatureHztlFoundationHztlPageContent } from "./Featu
 // @ts-ignore 
 import { SiteStructure as FeatureHztlFoundationSiteStructure } from "./Feature.HztlFoundation.model"
 // @ts-ignore 
+import { GlobalData as FeatureHztlFoundationGlobalData } from "./Feature.HztlFoundation.model"
+// @ts-ignore 
+import { Data as FoundationHztlFoundationData } from "./Foundation.HztlFoundation.model"
+// @ts-ignore 
 import { HztlSiteStructure as FeatureHztlFoundationHztlSiteStructure } from "./Feature.HztlFoundation.model"
 
 export namespace HztlPageContent {
@@ -626,6 +630,24 @@ export namespace SiteStructure.Footer {
 
     }
 }
+export namespace GlobalData {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/Global Data/Global Folder
+    */
+    export type GlobalFolder =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/Global Data/Global Folder
+    */
+    export type GlobalFolderJson =  {
+        
+
+    }
+}
 export namespace SiteStructure.Header {
 
     /**
@@ -685,7 +707,8 @@ export namespace HztlPageContent {
     /**
     * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Hero
     */
-    export type Hero =  {
+    export type Hero = FoundationHztlFoundationData.Cta.Cta1 & 
+FoundationHztlFoundationData.Cta.Cta2 &  {
         fields?: { 
             /**
             * Represents the Text 3 field (72c8e421-0bdd-46ff-a012-3835f6e52060).
@@ -701,16 +724,6 @@ export namespace HztlPageContent {
             * Represents the __Standard Werte field (828b4c29-c92b-420f-8173-be73559bb31b).
             */
             Image?: ImageField;
-
-            /**
-            * Represents the Link field (ad30fb20-9a56-4367-af5b-7c733770a9e2).
-            */
-            Link1?: LinkField;
-
-            /**
-            * Represents the Link field (1905ebfb-2e4f-4eb7-8a6d-2ac9f436c03d).
-            */
-            Link2?: LinkField;
         }
 
     }
@@ -718,7 +731,8 @@ export namespace HztlPageContent {
     /**
     * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Hero
     */
-    export type HeroJson =  {
+    export type HeroJson = FoundationHztlFoundationData.Cta.Cta1Json & 
+FoundationHztlFoundationData.Cta.Cta2Json &  {
         
             /**
             * Represents the Text 3 field (72c8e421-0bdd-46ff-a012-3835f6e52060).
@@ -739,20 +753,6 @@ export namespace HztlPageContent {
             */
             Image?: {
                 jsonValue: ImageField
-            };
-
-            /**
-            * Represents the Link field (ad30fb20-9a56-4367-af5b-7c733770a9e2).
-            */
-            Link1?: {
-                jsonValue: LinkField
-            };
-
-            /**
-            * Represents the Link field (1905ebfb-2e4f-4eb7-8a6d-2ac9f436c03d).
-            */
-            Link2?: {
-                jsonValue: LinkField
             };
 
 
@@ -1280,6 +1280,15 @@ export namespace SiteStructure.Footer.Constants {
         ]
     }
 }
+export namespace GlobalData.Constants {
+
+    export const GlobalFolder = {
+        TemplateId: "1f14ced2-7051-4f4e-9f2c-6a06d28f72f9",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
 export namespace SiteStructure.Header.Constants {
 
     export const Header = {
@@ -1295,6 +1304,8 @@ export namespace HztlPageContent.Constants {
         TemplateId: "4bda55f9-dbec-4f86-85fe-e42132b4dee6",
     
         BaseTemplateIds: [
+            "9f0ffa8c-7984-482c-b150-9a2a350fc691", 
+            "8a050b40-2188-4628-a43f-be392372b1e7", 
         ]
     }
 }

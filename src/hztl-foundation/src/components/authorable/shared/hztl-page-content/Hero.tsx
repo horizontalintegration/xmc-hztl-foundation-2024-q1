@@ -36,12 +36,12 @@ export const Default = (props: HeroProps): JSX.Element => {
             <div className="flex gap-[8px] flex-wrap justify-center md:justify-normal">
               <LinkWrapper
                 className="flex items-center justify-center px-16 py-3 rounded-[4px] bg-[#2F2D2E] text-center text-[#FFF] font-modern text-base font-bold leading-normal"
-                field={props.fields?.Link1}
+                field={props.fields?.cta1Link}
                 suppressNewTabIcon={true}
               />
               <LinkWrapper
                 className="flex items-center justify-center px-16 py-3 rounded-[4px] border-[1px] border-[#2F2D2E] text-center text-[#2F2D2E] font-modern text-[16px] font-bold leading-normal"
-                field={props.fields?.Link2}
+                field={props.fields?.cta2Link}
                 suppressNewTabIcon={true}
               />
             </div>
