@@ -291,34 +291,6 @@ export namespace HztlPageContent {
         
 
     }
-
-    /**
-    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardList
-    */
-    export type CardList =  {
-        fields?: { 
-            /**
-            * Represents the Card List field (0418e27b-957b-4de8-a13f-40cac199c1e1).
-            */
-            cards?: Item[];
-        }
-
-    }
-
-    /**
-    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardList
-    */
-    export type CardListJson =  {
-        
-            /**
-            * Represents the Card List field (0418e27b-957b-4de8-a13f-40cac199c1e1).
-            */
-            cards?: {
-                jsonValue: Item[]
-            };
-
-
-    }
 }
 export namespace HztlPageContent.RenderingParameters {
 
@@ -339,122 +311,6 @@ export namespace HztlPageContent.RenderingParameters {
     }
 }
 export namespace HztlPageContent {
-
-    /**
-    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardList Folder
-    */
-    export type CardListFolder =  {
-        fields?: {         }
-
-    }
-
-    /**
-    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardList Folder
-    */
-    export type CardListFolderJson =  {
-        
-
-    }
-
-    /**
-    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardListItem
-    */
-    export type CardListItem =  {
-        fields?: { 
-            /**
-            * Represents the Text field (c88ad4f6-b595-4f12-afa5-af57598ac3d5).
-            */
-            CardImage?: ImageField;
-
-            /**
-            * Represents the CardLink1 field (94125146-076d-44bb-806e-53cc0486dc69).
-            */
-            CardLink1?: LinkField;
-
-            /**
-            * Represents the CardLink2 field (0b417653-4247-4a5c-8ba5-2ee97c47d2e5).
-            */
-            CardLink2?: LinkField;
-
-            /**
-            * Represents the Description field (b656ddcf-b3cb-4c78-a387-31b8192b9bc4).
-            */
-            Description?: Field<string>;
-
-            /**
-            * Represents the Eyebrow field (9c897611-b82d-4a2e-a398-043e2199ac8c).
-            */
-            Eyebrow?: Field<string>;
-
-            /**
-            * Represents the Heading field (a57988f3-384b-46e0-a62f-47d53d1c4770).
-            */
-            Heading?: Field<string>;
-
-            /**
-            * Represents the Subheading field (23deeeed-8c90-4939-b7dc-349258f33c06).
-            */
-            Subheading?: Field<string>;
-        }
-
-    }
-
-    /**
-    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardListItem
-    */
-    export type CardListItemJson =  {
-        
-            /**
-            * Represents the Text field (c88ad4f6-b595-4f12-afa5-af57598ac3d5).
-            */
-            CardImage?: {
-                jsonValue: ImageField
-            };
-
-            /**
-            * Represents the CardLink1 field (94125146-076d-44bb-806e-53cc0486dc69).
-            */
-            CardLink1?: {
-                jsonValue: LinkField
-            };
-
-            /**
-            * Represents the CardLink2 field (0b417653-4247-4a5c-8ba5-2ee97c47d2e5).
-            */
-            CardLink2?: {
-                jsonValue: LinkField
-            };
-
-            /**
-            * Represents the Description field (b656ddcf-b3cb-4c78-a387-31b8192b9bc4).
-            */
-            Description?: {
-                jsonValue: Field<string>
-            };
-
-            /**
-            * Represents the Eyebrow field (9c897611-b82d-4a2e-a398-043e2199ac8c).
-            */
-            Eyebrow?: {
-                jsonValue: Field<string>
-            };
-
-            /**
-            * Represents the Heading field (a57988f3-384b-46e0-a62f-47d53d1c4770).
-            */
-            Heading?: {
-                jsonValue: Field<string>
-            };
-
-            /**
-            * Represents the Subheading field (23deeeed-8c90-4939-b7dc-349258f33c06).
-            */
-            Subheading?: {
-                jsonValue: Field<string>
-            };
-
-
-    }
 
     /**
     * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel
@@ -1274,12 +1130,6 @@ export namespace HztlPageContent.Constants {
         BaseTemplateIds: [
         ]
     }
-    export const CardList = {
-        TemplateId: "15666f04-9b31-48a4-be10-89485b9a553d",
-    
-        BaseTemplateIds: [
-        ]
-    }
 }
 export namespace HztlPageContent.RenderingParameters.Constants {
 
@@ -1292,18 +1142,6 @@ export namespace HztlPageContent.RenderingParameters.Constants {
 }
 export namespace HztlPageContent.Constants {
 
-    export const CardListFolder = {
-        TemplateId: "ba4df361-c4c6-4045-bc3d-608266e63182",
-    
-        BaseTemplateIds: [
-        ]
-    }
-    export const CardListItem = {
-        TemplateId: "d8787bf8-9c9b-4935-a46a-f1d15bf3cc16",
-    
-        BaseTemplateIds: [
-        ]
-    }
     export const Carousel = {
         TemplateId: "7d645e35-f14b-4ad7-872a-5c706b070cfd",
     
