@@ -59,15 +59,15 @@ export const Default = (props: AccordionProps): JSX.Element => {
 
   if (props.fields) {
     return (
-      <div>
+      <div className="accordion my-8">
         {props?.fields?.accordionList?.map((Item: AccordionItem, key: number) => {
           return (
             <React.Fragment key={key}>
-              <div className="component-content overflow-hidden border-t-[#2F2D2E] border-t border-solid last:mb-0 last:border-b-[#2F2D2E] last:border-b last:border-solid">
+              <div className="component-content overflow-hidden border-t-gray border-t border-solid last:mb-0 last:border-b-gray last:border-b last:border-solid">
                 <div className="hero-content">
                   {/* header */}
                   <button
-                    className="w-full flex items-center cursor-pointer justify-between transition-[0.3s] p-3"
+                    className="w-full flex items-center cursor-pointer justify-between transition-[0.3s] p-xs"
                     onClick={() => handleAccordionClick(key, openMultipleAccordionAtSameTime)}
                     type="button"
                     aria-expanded={activeIndexes.includes(key)}
@@ -78,14 +78,13 @@ export const Default = (props: AccordionProps): JSX.Element => {
                       field={Item?.fields?.heading}
                       tag="h3"
                       className={`${
-                        activeIndexes.includes(key) &&
-                        'active text-[#2F2D2E] !font-bold leading-[normal]'
-                      } text-xl font-normal leading-5`}
+                        activeIndexes.includes(key) && 'active text-gray !font-bold'
+                      } text-s font-normal leading-5`}
                     />
                     <i
                       className={`${
-                        activeIndexes.includes(key) ? 'active rotate-180 text-[#2F2D2E]' : ''
-                      } fa fa-chevron-down relative text-[#2F2D2E] transition-[0.35s] text-xs top-0.5`}
+                        activeIndexes.includes(key) ? 'active rotate-180 text-gray' : ''
+                      } fa fa-chevron-down relative text-gray transition-[0.35s] text-xs top-0.5`}
                     ></i>
                   </button>
                   <div
@@ -97,10 +96,10 @@ export const Default = (props: AccordionProps): JSX.Element => {
                       activeIndexes.includes(key) ? 'max-h-screen' : 'max-h-0'
                     }`}
                   >
-                    <div className="flex-auto min-h-[1px] p-[24px]">
+                    <div className="flex-auto min-h-[1px] p-xs">
                       <JssRichText
                         field={Item?.fields?.content}
-                        className="mb-0 text-[#2F2D2E] text-lg font-normal leading-[22px] p-[16px]"
+                        className="mb-0 text-gray text-s font-normal p-s"
                         aria-required="true"
                       ></JssRichText>
                     </div>
