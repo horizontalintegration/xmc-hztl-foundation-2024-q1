@@ -1,0 +1,35 @@
+﻿---
+ID: "08943cf9-6a90-4f5c-bc4e-a89a7363fac3"
+Parent: "f3b7cbd9-68c6-4b63-b73c-ac94c3d5f510"
+Template: "d2923fee-da4e-49be-830c-e27764dfa269"
+Path: /sitecore/content/HztlFoundation/Global/Enums/CTA Icon Alignment/Left
+SharedFields:
+- ID: "f917c951-1f75-4d62-b14a-bc6888d7eeca"
+  Hint: Value
+  Value: left
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20240618T075511Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\dhruvi.patel@horizontal.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\dhruvi.patel@horizontal.com
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "7be8ec53-d760-4040-bcf0-712a011894f1"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\dhruvi.patel@horizontal.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20240618T075515Z

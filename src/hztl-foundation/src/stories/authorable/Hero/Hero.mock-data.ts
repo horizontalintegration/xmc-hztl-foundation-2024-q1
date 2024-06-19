@@ -19,32 +19,6 @@ const defaultData: HeroProps = {
         height: '750',
       },
     },
-    Link1: {
-      value: {
-        text: 'Click here',
-        anchor: '',
-        linktype: 'internal',
-        class: '',
-        title: '',
-        target: '_blank',
-        querystring: '',
-        id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
-        href: '/',
-      },
-    },
-    Link2: {
-      value: {
-        text: 'Click here',
-        anchor: '',
-        linktype: 'internal',
-        class: '',
-        title: '',
-        target: '_blank',
-        querystring: '',
-        id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
-        href: '/',
-      },
-    },
   },
 };
 

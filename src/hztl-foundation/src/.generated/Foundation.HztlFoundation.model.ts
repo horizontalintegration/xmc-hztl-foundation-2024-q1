@@ -14,6 +14,184 @@ import { ComponentProps } from '../lib/component-props';
 // @ts-ignore 
 import { Data as FoundationHztlFoundationData } from "./Foundation.HztlFoundation.model"
 
+export namespace Data.Cta {
+
+    /**
+    * Represents the template /sitecore/templates/Foundation/HztlFoundation/Data/CTA/CTA1
+    */
+    export type Cta1 =  {
+        fields?: { 
+            /**
+            * Represents the CTA 1 Icon field (f1e6e280-8e43-4f67-8619-40d1f774f8f3).
+            */
+            cta1Icon?: Item;
+
+            /**
+            * Represents the CTA 1 Icon Alignment field (bbb10caa-6243-4026-8cfe-99b139c69bd3).
+            */
+            cta1IconAlignment?: Item;
+
+            /**
+            * Represents the CTA 1 Link field (a0fd42c3-9121-45bb-bf22-0222bb7b8200).
+            */
+            cta1Link?: LinkField;
+
+            /**
+            * Represents the CTA 1 Style field (8edc2a93-1a6d-4aba-bb23-f6d236f7251c).
+            */
+            cta1Style?: Item;
+
+            /**
+            * Represents the CTA 1 Text field (30385836-f4f5-49b2-b10d-435c9bec9573).
+            */
+            cta1Text?: Field<string>;
+
+            /**
+            * Represents the CTA 1 Title field (ba575511-18db-4404-ad54-c08da9d116c6).
+            */
+            cta1Title?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Foundation/HztlFoundation/Data/CTA/CTA1
+    */
+    export type Cta1Json =  {
+        
+            /**
+            * Represents the CTA 1 Icon field (f1e6e280-8e43-4f67-8619-40d1f774f8f3).
+            */
+            cta1Icon?: {
+                jsonValue: Item
+            };
+
+            /**
+            * Represents the CTA 1 Icon Alignment field (bbb10caa-6243-4026-8cfe-99b139c69bd3).
+            */
+            cta1IconAlignment?: {
+                jsonValue: Item
+            };
+
+            /**
+            * Represents the CTA 1 Link field (a0fd42c3-9121-45bb-bf22-0222bb7b8200).
+            */
+            cta1Link?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the CTA 1 Style field (8edc2a93-1a6d-4aba-bb23-f6d236f7251c).
+            */
+            cta1Style?: {
+                jsonValue: Item
+            };
+
+            /**
+            * Represents the CTA 1 Text field (30385836-f4f5-49b2-b10d-435c9bec9573).
+            */
+            cta1Text?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the CTA 1 Title field (ba575511-18db-4404-ad54-c08da9d116c6).
+            */
+            cta1Title?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
+
+    /**
+    * Represents the template /sitecore/templates/Foundation/HztlFoundation/Data/CTA/CTA2
+    */
+    export type Cta2 =  {
+        fields?: { 
+            /**
+            * Represents the CTA 2 Icon field (7d569b34-ea8d-4a24-a625-3d820d8d4667).
+            */
+            cta2Icon?: Item;
+
+            /**
+            * Represents the CTA 2 Icon Alignment field (5e457c36-4a8a-4ff9-9bb3-c6a174889945).
+            */
+            cta2IconAlignment?: Item;
+
+            /**
+            * Represents the CTA 2 Link field (567a9f0d-2cf2-4162-91b2-b33cf5ff9595).
+            */
+            cta2Link?: LinkField;
+
+            /**
+            * Represents the CTA 2 Style field (2c08df2d-d694-4f27-8fc1-2d788b88e1f7).
+            */
+            cta2Style?: Item;
+
+            /**
+            * Represents the CTA 2 Text field (e86f4627-ea90-4c5a-b160-1e184b3ac43d).
+            */
+            cta2Text?: Field<string>;
+
+            /**
+            * Represents the CTA 2 Title field (75c3f8ca-0c14-43ab-9e1a-ae04cc7c5622).
+            */
+            cta2Title?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Foundation/HztlFoundation/Data/CTA/CTA2
+    */
+    export type Cta2Json =  {
+        
+            /**
+            * Represents the CTA 2 Icon field (7d569b34-ea8d-4a24-a625-3d820d8d4667).
+            */
+            cta2Icon?: {
+                jsonValue: Item
+            };
+
+            /**
+            * Represents the CTA 2 Icon Alignment field (5e457c36-4a8a-4ff9-9bb3-c6a174889945).
+            */
+            cta2IconAlignment?: {
+                jsonValue: Item
+            };
+
+            /**
+            * Represents the CTA 2 Link field (567a9f0d-2cf2-4162-91b2-b33cf5ff9595).
+            */
+            cta2Link?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the CTA 2 Style field (2c08df2d-d694-4f27-8fc1-2d788b88e1f7).
+            */
+            cta2Style?: {
+                jsonValue: Item
+            };
+
+            /**
+            * Represents the CTA 2 Text field (e86f4627-ea90-4c5a-b160-1e184b3ac43d).
+            */
+            cta2Text?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the CTA 2 Title field (75c3f8ca-0c14-43ab-9e1a-ae04cc7c5622).
+            */
+            cta2Title?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
+}
 export namespace Data.Links {
 
     /**
@@ -56,6 +234,21 @@ export namespace Data.Links {
  * </auto-generated>
  */ 
 
+export namespace Data.Cta.Constants {
+
+    export const Cta1 = {
+        TemplateId: "9f0ffa8c-7984-482c-b150-9a2a350fc691",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const Cta2 = {
+        TemplateId: "8a050b40-2188-4628-a43f-be392372b1e7",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
 export namespace Data.Links.Constants {
 
     export const GenericLink = {
