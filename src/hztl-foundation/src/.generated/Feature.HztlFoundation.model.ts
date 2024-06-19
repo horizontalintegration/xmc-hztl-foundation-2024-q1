@@ -295,70 +295,6 @@ export namespace HztlPageContent {
         
 
     }
-
-    /**
-    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardList
-    */
-    export type CardList =  {
-        fields?: { 
-            /**
-            * Represents the CardListLink field (2f5abe69-579f-4e06-8eb4-709d8a9529bf).
-            */
-            CardListLink?: LinkField;
-
-            /**
-            * Represents the CardListLink2 field (d0ad9cc0-515d-4668-8e7a-1bfdae814840).
-            */
-            CardListLink2?: LinkField;
-
-            /**
-            * Represents the CardListTitle field (0418e27b-957b-4de8-a13f-40cac199c1e1).
-            */
-            CardListTitle?: Field<string>;
-
-            /**
-            * Represents the CartListText field (fb848371-e07b-4236-9601-65c30ecf4c39).
-            */
-            CartListText?: Field<string>;
-        }
-
-    }
-
-    /**
-    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardList
-    */
-    export type CardListJson =  {
-        
-            /**
-            * Represents the CardListLink field (2f5abe69-579f-4e06-8eb4-709d8a9529bf).
-            */
-            CardListLink?: {
-                jsonValue: LinkField
-            };
-
-            /**
-            * Represents the CardListLink2 field (d0ad9cc0-515d-4668-8e7a-1bfdae814840).
-            */
-            CardListLink2?: {
-                jsonValue: LinkField
-            };
-
-            /**
-            * Represents the CardListTitle field (0418e27b-957b-4de8-a13f-40cac199c1e1).
-            */
-            CardListTitle?: {
-                jsonValue: Field<string>
-            };
-
-            /**
-            * Represents the CartListText field (fb848371-e07b-4236-9601-65c30ecf4c39).
-            */
-            CartListText?: {
-                jsonValue: Field<string>
-            };
-
-
-    }
 }
 export namespace HztlPageContent.RenderingParameters {
 
@@ -379,22 +315,6 @@ export namespace HztlPageContent.RenderingParameters {
     }
 }
 export namespace HztlPageContent {
-
-    /**
-    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardList Folder
-    */
-    export type CardListFolder =  {
-        fields?: {         }
-
-    }
-
-    /**
-    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardList Folder
-    */
-    export type CardListFolderJson =  {
-        
-
-    }
 
     /**
     * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel
@@ -1210,12 +1130,6 @@ export namespace HztlPageContent.Constants {
         BaseTemplateIds: [
         ]
     }
-    export const CardList = {
-        TemplateId: "15666f04-9b31-48a4-be10-89485b9a553d",
-    
-        BaseTemplateIds: [
-        ]
-    }
 }
 export namespace HztlPageContent.RenderingParameters.Constants {
 
@@ -1228,12 +1142,6 @@ export namespace HztlPageContent.RenderingParameters.Constants {
 }
 export namespace HztlPageContent.Constants {
 
-    export const CardListFolder = {
-        TemplateId: "ba4df361-c4c6-4045-bc3d-608266e63182",
-    
-        BaseTemplateIds: [
-        ]
-    }
     export const Carousel = {
         TemplateId: "7d645e35-f14b-4ad7-872a-5c706b070cfd",
     
