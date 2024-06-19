@@ -10,6 +10,19 @@
         "allowedPushOperations": "CreateAndUpdate"
       },
       {
+        "name": "Content-HztlFoundation-Global",
+        "path": "/sitecore/content/HztlFoundation/Global",
+        "scope": "itemAndDescendants",
+        "allowedPushOperations": "createOnly",
+        "rules": [
+          {
+            "path": "/Enums",
+            "scope": "itemAndDescendants",
+            "allowedPushOperations": "createUpdateAndDelete"
+          }
+        ]
+      },
+      {
         "name": "Media-HztlFoundation",
         "path": "/sitecore/media library/Project/HztlFoundation",
         "scope": "SingleItem",
