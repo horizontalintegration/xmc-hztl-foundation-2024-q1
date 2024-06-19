@@ -21,18 +21,18 @@ export const Default = (props: FooterProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
   if (props?.fields) {
     return (
-      <div className={`component footer ${props?.params?.styles}`} id={id ? id : undefined}>
+      <div className={`component footer w-full ${props?.params?.styles}`} id={id ? id : undefined}>
         <div data-component="authorable/general/footer" className="flex flex-col">
-          <div className="p-[40px] pb-[16px] flex justify-center flex-wrap gap-[80px]">
+          <div className="p-8 pb-[16px] m-auto w-full max-w-screen-xl">
+            <div className="flex justify-between flex-wrap">
             <div>
               <ImageWrapper field={props?.fields?.footerLogo} />
             </div>
-            <div className="flex justify-center gap-[80px] flex-wrap">
               {props?.fields?.footerColumns?.map((groupLabel, index) => {
                 const links = groupLabel?.fields?.columnLinks as (Item & Data.Links.GenericLink)[];
                 return (
                   <React.Fragment key={index}>
-                    <div className="text-center md:text-left">
+                    <div className="text-left">
                       <RichTextWrapper
                         className="font-modern text-[#2F2D2E] text-[16px] font-[700] not-italic leading-normal capitalize"
                         tag="h3"

@@ -47,7 +47,7 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
           <div id="content">{route && <Placeholder name="headless-main" rendering={route} />}</div>
         </main>
         <footer>
-          <div id="footer">{route && <Placeholder name="headless-footer" rendering={route} />}</div>
+          <div className="flex justify-between items-center gap-[16px]" id="footer">{route && <Placeholder name="headless-footer" rendering={route} />}</div>
         </footer>
       </div>
     </>
