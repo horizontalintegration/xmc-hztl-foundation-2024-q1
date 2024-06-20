@@ -14,9 +14,9 @@ import { ComponentProps } from '../lib/component-props';
 // @ts-ignore 
 import { HztlPageContent as FeatureHztlFoundationHztlPageContent } from "./Feature.HztlFoundation.model"
 // @ts-ignore 
-import { SiteStructure as FeatureHztlFoundationSiteStructure } from "./Feature.HztlFoundation.model"
-// @ts-ignore 
 import { GlobalData as FeatureHztlFoundationGlobalData } from "./Feature.HztlFoundation.model"
+// @ts-ignore 
+import { SiteStructure as FeatureHztlFoundationSiteStructure } from "./Feature.HztlFoundation.model"
 // @ts-ignore 
 import { Data as FoundationHztlFoundationData } from "./Foundation.HztlFoundation.model"
 // @ts-ignore 
@@ -480,6 +480,48 @@ export namespace HztlPageContent {
 
     }
 }
+export namespace GlobalData {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/Global Data/Country
+    */
+    export type Country =  {
+        fields?: { 
+            /**
+            * Represents the Flag field (6ad8e19e-4264-41b9-80b1-e2b0b0a3f64a).
+            */
+            flag?: ImageField;
+
+            /**
+            * Represents the Name field (a17a2b7a-f531-4b23-a829-9c283763ac9a).
+            */
+            name?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/Global Data/Country
+    */
+    export type CountryJson =  {
+        
+            /**
+            * Represents the Flag field (6ad8e19e-4264-41b9-80b1-e2b0b0a3f64a).
+            */
+            flag?: {
+                jsonValue: ImageField
+            };
+
+            /**
+            * Represents the Name field (a17a2b7a-f531-4b23-a829-9c283763ac9a).
+            */
+            name?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
+}
 export namespace SiteStructure.Footer {
 
     /**
@@ -576,6 +618,11 @@ export namespace SiteStructure.Header {
     export type Header =  {
         fields?: { 
             /**
+            * Represents the Country field (3de6239f-c16f-44d6-aea0-04eaf91ecc76).
+            */
+            country?: Item;
+
+            /**
             * Represents the Logo field (ca3d785b-2bc3-41f3-a528-70d0c709ec89).
             */
             logo?: ImageField;
@@ -589,6 +636,11 @@ export namespace SiteStructure.Header {
             * Represents the Navigation List field (d250b2fd-502b-423b-b355-b0a067345f7c).
             */
             navigationList?: Item[];
+
+            /**
+            * Represents the Search Placeholder field (8e132bdc-18c7-4b27-931f-49c201efef52).
+            */
+            searchPlaceholder?: Field<string>;
         }
 
     }
@@ -598,6 +650,13 @@ export namespace SiteStructure.Header {
     */
     export type HeaderJson =  {
         
+            /**
+            * Represents the Country field (3de6239f-c16f-44d6-aea0-04eaf91ecc76).
+            */
+            country?: {
+                jsonValue: Item
+            };
+
             /**
             * Represents the Logo field (ca3d785b-2bc3-41f3-a528-70d0c709ec89).
             */
@@ -617,6 +676,13 @@ export namespace SiteStructure.Header {
             */
             navigationList?: {
                 jsonValue: Item[]
+            };
+
+            /**
+            * Represents the Search Placeholder field (8e132bdc-18c7-4b27-931f-49c201efef52).
+            */
+            searchPlaceholder?: {
+                jsonValue: Field<string>
             };
 
 
@@ -1168,6 +1234,15 @@ export namespace HztlPageContent.Constants {
     }
     export const CarouselItem = {
         TemplateId: "7a137b26-5e9c-4cbb-8731-54b3b6593a4d",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace GlobalData.Constants {
+
+    export const Country = {
+        TemplateId: "628b007c-334f-40f6-a849-aaa4b566fb74",
     
         BaseTemplateIds: [
         ]
