@@ -43,12 +43,12 @@ export const Default = (props: CarouselProps): JSX.Element => {
             {props?.fields?.carouselList?.map((slide: CarouselItem, key: number) => {
               return (
                 <SplideSlide key={slide.id}>
-                  <div className="relative py-m h-[350px] mx-auto flex justify-center items-center">
+                  <div className="relative py-m w-[350px] ml:w-auto sm:min-h-[350px] sm:h-[80vh] md:h-[350px] mx-auto flex flex-col-reverse md:flex-row justify-center items-center">
                     {/* Slide Content. */}
                     <div className="slide-content z-10 lg:absolute lg:left-[3%] lg:top-1/2 lg:box-border lg:max-w-[70%] lg:-translate-y-1/2 lg:transform lg:bg-opacity-80 lg:p-5 lg:text-left xl:max-w-[50%]">
                       <div className="slide-content-inner">
-                        <div className="relative flex flex-col gap-s p-6 w-[500px] h-[225px]">
-                          <h2 className="text-l capitalize font-bold">
+                        <div className="relative flex flex-col gap-s p-6 sm:w-[11rem] mmd:w-auto h-[225px]">
+                          <h2 className="sm:text-[3rem] mmd:text-l capitalize font-bold">
                             {slide?.fields?.title?.value}
                           </h2>
 
@@ -60,16 +60,16 @@ export const Default = (props: CarouselProps): JSX.Element => {
                           {/* Slide links. */}
                           {slide?.fields?.primaryCTA && (
                             <div className="flex">
-                              <div className="flex flex-row gap-xs" key={key}>
+                              <div className="flex flex-col ml:flex-row gap-xs" key={key}>
                                 <LinkWrapper
                                   field={slide?.fields?.primaryCTA}
                                   aria-label={slide?.fields?.primaryCTA?.value.text}
-                                  className="w-[200px] h-[52px] rounded-[4px] content-center text-center bg-gray text-white text-button font-bold"
+                                  className="w-[8rem] h-[3rem] rounded-[4px] content-center text-center bg-gray text-white text-button font-bold"
                                 ></LinkWrapper>
                                 <LinkWrapper
                                   field={slide?.fields?.secondaryCTA}
                                   aria-label={slide?.fields?.secondaryCTA?.value.text}
-                                  className="w-[200px] h-[52px] rounded-[4px] content-center text-center text-button font-bold border-1 border-gray text-gray"
+                                  className="w-[8rem] h-[3rem] rounded-[4px] content-center text-center text-button font-bold border-1 border-gray text-gray"
                                 ></LinkWrapper>
                               </div>
                             </div>
@@ -100,6 +100,7 @@ export const Default = (props: CarouselProps): JSX.Element => {
             </button>
           </div>
 
+          {/* Progress Bar */}
           <div className="splide__progress">
             <div className="splide__progress__bar" />
           </div>
