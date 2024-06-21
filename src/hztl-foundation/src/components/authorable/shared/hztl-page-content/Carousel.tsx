@@ -1,10 +1,13 @@
-import React, { useRef, useState } from 'react';
-import { RichText as JssRichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import React from 'react';
 import { ItemEx } from '../../../../.generated/_.Sitecore.Override';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/splide/css';
+import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 
 export type CarouselProps = ComponentProps & HztlPageContent.Carousel;
 export type CarouselItem = ItemEx & HztlPageContent.CarouselItem;
@@ -20,72 +23,103 @@ const CarouselDefaultComponent = (props: CarouselProps): JSX.Element => {
 };
 
 export const Default = (props: CarouselProps): JSX.Element => {
-  const [active, setActive] = useState<number>();
-  const accordionContent = useRef<HTMLDivElement>(null);
-
-  const handleToggle = (index: number) => {
-    if (active === index) {
-      setActive(-1);
-    } else {
-      setActive(index);
-    }
-  };
-
   if (props.fields) {
     return (
       <div>
-        {props?.fields?.carouselList?.map((Item: CarouselItem, key: number) => (
-          <React.Fragment key={key}>
-            <div className="component-content overflow-hidden border-t-[#2F2D2E] border-t border-solid last:mb-0 last:border-b-[#2F2D2E] last:border-b last:border-solid">
-              <div className="hero-content">
-                {/* header */}
-                <button
-                  className="w-full flex items-center cursor-pointer justify-between transition-[0.3s] p-3"
-                  onClick={() => handleToggle(key)}
-                  type="button"
-                  aria-expanded={active === key ? true : false}
-                  aria-controls={`accordion-${key}`}
-                  id={`tab-accordion-${key}`}
-                >
-                  <Text
-                    field={Item?.fields?.title}
-                    tag="h3"
-                    className={`${
-                      active === key && 'active text-[#2F2D2E] !font-bold leading-[normal]'
-                    } text-xl font-normal leading-5`}
-                  />
-                  <i
-                    className={`${
-                      active === key ? 'active rotate-180 text-[#2F2D2E]' : ''
-                    } fa fa-chevron-down relative text-[#2F2D2E] transition-[0.35s] text-xs top-0.5`}
-                  ></i>
-                </button>
-                <div
-                  ref={accordionContent}
-                  id={`accordion-${key}`}
-                  aria-labelledby={`tab-accordion-${key}`}
-                  aria-hidden={active === key ? false : true}
-                  className={`accordion-collapse relative h-0 overflow-hidden transition-[height] duration-[0.35s] ease-[ease] ${
-                    active === key ? 'show h-auto' : ''
-                  }`}
-                  style={
-                    active === key
-                      ? { height: accordionContent?.current?.scrollHeight }
-                      : { height: '0px' }
-                  }
-                >
-                  <div className="flex-auto min-h-[1px] p-[24px]">
-                    <JssRichText
-                      field={Item?.fields?.description}
-                      className="mb-0 text-[#2F2D2E] text-lg font-normal leading-[22px] p-[16px]"
-                      aria-required="true"
-                    ></JssRichText>
+        <Splide
+          hasTrack={false}
+          options={{
+            rewind: true,
+            width: '100%',
+            gap: '.01rem',
+            perPage: 1,
+            perMove: 1,
+            pagination: true,
+            autoplay: 'pause',
+            interval: 3000,
+          }}
+        >
+          <SplideTrack>
+            {props?.fields?.carouselList?.map((slide: CarouselItem, key: number) => {
+              return (
+                <SplideSlide key={slide.id}>
+                  <div className="relative py-m h-[350px] mx-auto flex justify-center items-center">
+                    {/* Slide Content. */}
+                    <div className="slide-content z-10 lg:absolute lg:left-[3%] lg:top-1/2 lg:box-border lg:max-w-[70%] lg:-translate-y-1/2 lg:transform lg:bg-opacity-80 lg:p-5 lg:text-left xl:max-w-[50%]">
+                      <div className="slide-content-inner">
+                        <div className="relative flex flex-col gap-s p-6 w-[500px] h-[225px]">
+                          <h2 className="text-l capitalize font-bold">
+                            {slide?.fields?.title?.value}
+                          </h2>
+
+                          {/* Slide description. */}
+                          {slide?.fields?.description && (
+                            <p className="text-xs text-gray">{slide?.fields?.description?.value}</p>
+                          )}
+
+                          {/* Slide links. */}
+                          {slide?.fields?.primaryCTA && (
+                            <div className="flex">
+                              <div className="flex flex-row gap-xs" key={key}>
+                                <LinkWrapper
+                                  field={slide?.fields?.primaryCTA}
+                                  aria-label={slide?.fields?.primaryCTA?.value.text}
+                                  className="w-[200px] h-[52px] rounded-[4px] content-center text-center bg-gray text-white text-button font-bold"
+                                ></LinkWrapper>
+                                <LinkWrapper
+                                  field={slide?.fields?.secondaryCTA}
+                                  aria-label={slide?.fields?.secondaryCTA?.value.text}
+                                  className="w-[200px] h-[52px] rounded-[4px] content-center text-center text-button font-bold border-1 border-gray text-gray"
+                                ></LinkWrapper>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Slide media. */}
+                    <div className="slide-media">
+                      <ImageWrapper field={slide?.fields?.image} className="opacity-50" />
+                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </React.Fragment>
-        ))}
+                </SplideSlide>
+              );
+            })}
+          </SplideTrack>
+
+          <div className="splide__arrows">
+            <button className="splide__arrow splide__arrow--prev icon-hover-focus-rounded !opacity-100 max-lg:!top-auto max-lg:bottom-[100px]">
+              <span className="sr-only">Previous slide</span>
+              <i className="fa fa-chevron-left" aria-hidden="true"></i>
+            </button>
+
+            <button className="splide__arrow splide__arrow--next icon-hover-focus-rounded !opacity-100 max-lg:!top-auto max-lg:bottom-[100px]">
+              <span className="sr-only">Next slide</span>
+              <i className="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div className="splide__progress">
+            <div className="splide__progress__bar" />
+          </div>
+
+          <div className="absolute bottom-1 right-5">
+            <button className="splide__toggle icon-hover-focus-rounded" type="button">
+              {/* Play button */}
+              <span className="splide__toggle__play">
+                <span className="sr-only">Play slideshow</span>
+                <i className="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>
+              </span>
+
+              {/* Pause button */}
+              <span className="splide__toggle__pause">
+                <span className="sr-only">Pause slideshow</span>
+                <i className="fa fa-pause-circle fa-lg" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+        </Splide>
       </div>
     );
   }
