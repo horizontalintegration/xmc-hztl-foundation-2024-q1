@@ -1,10 +1,14 @@
 import React, { useRef, useState } from 'react';
-import { RichText as JssRichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ItemEx } from '../../../../.generated/_.Sitecore.Override';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+
+// Helpers
+import ButtonWrapper from 'helpers/SitecoreWrappers/ButtonWrapper/ButtonWrapper';
+import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
+import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 
 export type AccordionProps = ComponentProps & HztlPageContent.Accordion;
 export type AccordionItem = ItemEx & HztlPageContent.AccordionItem;
@@ -66,42 +70,43 @@ export const Default = (props: AccordionProps): JSX.Element => {
               <div className="component-content overflow-hidden border-t-gray border-t border-solid last:mb-0 last:border-b-gray last:border-b last:border-solid">
                 <div className="hero-content">
                   {/* header */}
-                  <button
+                  <ButtonWrapper
                     className="w-full flex items-center cursor-pointer justify-between transition-[0.3s] p-xs"
                     onClick={() => handleAccordionClick(key, openMultipleAccordionAtSameTime)}
                     type="button"
                     aria-expanded={activeIndexes.includes(key)}
                     aria-controls={`accordion-${key}`}
                     id={`tab-accordion-${key}`}
+                    title={Item?.fields?.heading?.value as string}
                   >
-                    <Text
+                    <PlainTextWrapper
                       field={Item?.fields?.heading}
-                      tag="h3"
+                      tag="p"
                       className={`${
                         activeIndexes.includes(key) && 'active text-gray !font-bold'
-                      } text-s font-normal leading-5`}
+                      } text-m`}
                     />
                     <i
                       className={`${
                         activeIndexes.includes(key) ? 'active rotate-180 text-gray' : ''
                       } fa fa-chevron-down relative text-gray transition-[0.35s] text-xs top-0.5`}
                     ></i>
-                  </button>
+                  </ButtonWrapper>
                   <div
                     ref={accordionContent}
                     id={`accordion-${key}`}
                     aria-labelledby={`tab-accordion-${key}`}
                     aria-hidden={!activeIndexes.includes(key)}
-                    className={`accordion-collapse overflow-hidden transition-[max-height] duration-[0.35s] ease-[ease] ${
+                    className={`accordion-collapse overflow-hidden transition-[max-height] duration-[0.5s] ease-in-out ${
                       activeIndexes.includes(key) ? 'max-h-screen' : 'max-h-0'
                     }`}
                   >
                     <div className="flex-auto min-h-[1px] p-xs">
-                      <JssRichText
+                      <RichTextWrapper
                         field={Item?.fields?.content}
                         className="mb-0 text-gray text-s font-normal p-s"
                         aria-required="true"
-                      ></JssRichText>
+                      ></RichTextWrapper>
                     </div>
                   </div>
                 </div>
