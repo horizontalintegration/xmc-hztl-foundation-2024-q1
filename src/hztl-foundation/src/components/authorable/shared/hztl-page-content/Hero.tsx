@@ -1,14 +1,15 @@
 import React from 'react';
-import { ComponentProps } from 'lib/component-props';
-import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
-
 // Helpers
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
-import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+// import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
+import { ComponentProps } from 'lib/component-props';
+import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
+import { CTAButtonInterface } from 'helpers/Components/CTAButtonWrapper/CtaButtonInterface';
+import CTAButtonWrapper from 'helpers/Components/CTAButtonWrapper';
 
-export type HeroProps = ComponentProps & HztlPageContent.Hero;
+export type HeroProps = ComponentProps & HztlPageContent.Hero & { fields: CTAButtonInterface };
 
 const HeroDefaultComponent = (props: HeroProps): JSX.Element => (
   <div className={`component hero ${props.params?.styles}`}>
@@ -35,9 +36,9 @@ export const Default = (props: HeroProps): JSX.Element => {
               field={props.fields?.Description}
             />
 
-            <div className="flex gap-xxs flex-wrap md:justify-normal">
-              <LinkWrapper
-                className="flex items-center justify-center px-16 py-xs rounded-2 bg-gray text-center text-white font-modern text-base font-bold"
+            <div className="flex gap-[8px] flex-wrap justify-center md:justify-normal">
+              {/* <LinkWrapper
+                className="flex items-center justify-center px-16 py-3 rounded-[4px] bg-[#2F2D2E] text-center text-[#FFF] font-modern text-base font-bold leading-normal"
                 field={props.fields?.cta1Link}
                 suppressNewTabIcon={true}
               />
@@ -45,7 +46,11 @@ export const Default = (props: HeroProps): JSX.Element => {
                 className="flex items-center justify-center px-16 py-xs rounded-2 border-[1px] border-gray text-center text-gray font-modern text-base font-bold"
                 field={props.fields?.cta2Link}
                 suppressNewTabIcon={true}
-              />
+              /> */}
+              <CTAButtonWrapper ctaType="cta1Link" fields={props.fields} />
+              <CTAButtonWrapper ctaType="cta2Link" fields={props.fields} />
+              <CTAButtonWrapper ctaType="cta1Text" fields={props.fields} />
+              <CTAButtonWrapper ctaType="cta2Text" fields={props.fields} />
             </div>
           </div>
         </div>
