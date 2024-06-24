@@ -51,7 +51,7 @@
 
   }
 
-  h3 {
+  h3, .rte-heading {
     color: var(--Black, #2F2D2E);
     /* Display/Header 04 Bold (20) */
     font-family: "Modern Era";
@@ -60,7 +60,7 @@
     font-weight: 700;
     line-height: normal;
   }
-  
+
   p > span {
     color: var(--Black, #2F2D2E);
     font-family: "Modern Era";
