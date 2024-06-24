@@ -9,6 +9,7 @@ import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.m
 import ButtonWrapper from 'helpers/SitecoreWrappers/ButtonWrapper/ButtonWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
+import { SvgIcon } from 'helpers/SvgIconWrapper';
 
 export type AccordionProps = ComponentProps & HztlPageContent.Accordion;
 export type AccordionItem = ItemEx & HztlPageContent.AccordionItem;
@@ -86,11 +87,12 @@ export const Default = (props: AccordionProps): JSX.Element => {
                         activeIndexes.includes(key) && 'active text-gray !font-bold'
                       } text-m`}
                     />
-                    <i
-                      className={`${
-                        activeIndexes.includes(key) ? 'active rotate-180 text-gray' : ''
-                      } fa fa-chevron-down relative text-gray transition-[0.35s] text-xs top-0.5`}
-                    ></i>
+                    <SvgIcon
+                      icon={'cheveron-down'}
+                      className={`w-auto h-auto cheveron-trasnform ${
+                        activeIndexes.includes(key) ? 'rotate-180' : ''
+                      }`}
+                    />
                   </ButtonWrapper>
                   <div
                     ref={accordionContent}
