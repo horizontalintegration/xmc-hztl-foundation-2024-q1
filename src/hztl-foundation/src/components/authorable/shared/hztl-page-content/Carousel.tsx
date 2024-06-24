@@ -6,8 +6,11 @@ import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
 import { Splide, SplideTrack, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/css';
+
+// Helper
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import { SvgIcon } from 'helpers/SvgIconWrapper';
 
 export type CarouselProps = ComponentProps & HztlPageContent.Carousel;
 export type CarouselItem = ItemEx & HztlPageContent.CarouselItem;
@@ -43,7 +46,7 @@ export const Default = (props: CarouselProps): JSX.Element => {
             {props?.fields?.carouselList?.map((slide: CarouselItem, key: number) => {
               return (
                 <SplideSlide key={slide.id}>
-                  <div className="relative py-m w-[350px] ml:w-auto sm:min-h-[350px] sm:h-[80vh] md:h-[350px] mx-auto flex flex-col-reverse md:flex-row justify-center items-center">
+                  <div className="relative py-m w-[350px] mml:w-auto min-h-[500px] sm:h-auto md:h-[500px] mx-auto flex flex-col-reverse md:flex-row justify-center items-center">
                     {/* Slide Content. */}
                     <div className="slide-content z-10 lg:absolute lg:left-[3%] lg:top-1/2 lg:box-border lg:max-w-[70%] lg:-translate-y-1/2 lg:transform lg:bg-opacity-80 lg:p-5 lg:text-left xl:max-w-[50%]">
                       <div className="slide-content-inner">
@@ -60,7 +63,7 @@ export const Default = (props: CarouselProps): JSX.Element => {
                           {/* Slide links. */}
                           {slide?.fields?.primaryCTA && (
                             <div className="flex">
-                              <div className="flex flex-col ml:flex-row gap-xs" key={key}>
+                              <div className="flex flex-col mml:flex-row gap-xs" key={key}>
                                 <LinkWrapper
                                   field={slide?.fields?.primaryCTA}
                                   aria-label={slide?.fields?.primaryCTA?.value.text}
@@ -80,7 +83,7 @@ export const Default = (props: CarouselProps): JSX.Element => {
 
                     {/* Slide media. */}
                     <div className="slide-media">
-                      <ImageWrapper field={slide?.fields?.image} className="opacity-50" />
+                      <ImageWrapper field={slide?.fields?.image} />
                     </div>
                   </div>
                 </SplideSlide>
@@ -89,14 +92,14 @@ export const Default = (props: CarouselProps): JSX.Element => {
           </SplideTrack>
 
           <div className="splide__arrows">
-            <button className="splide__arrow splide__arrow--prev icon-hover-focus-rounded !opacity-100 max-lg:!top-auto max-lg:bottom-[100px]">
+            <button className="splide__arrow splide__arrow--prev icon-hover-focus-rounded max-lg:!top-auto max-lg:bottom-[100px] !bg-transparent">
               <span className="sr-only">Previous slide</span>
-              <i className="fa fa-chevron-left" aria-hidden="true"></i>
+              <SvgIcon icon={'arrow-right'} />
             </button>
 
-            <button className="splide__arrow splide__arrow--next icon-hover-focus-rounded !opacity-100 max-lg:!top-auto max-lg:bottom-[100px]">
+            <button className="splide__arrow splide__arrow--next icon-hover-focus-rounded max-lg:!top-auto max-lg:bottom-[100px] !bg-transparent">
               <span className="sr-only">Next slide</span>
-              <i className="fa fa-chevron-right" aria-hidden="true"></i>
+              <SvgIcon icon={'arrow-right'} />
             </button>
           </div>
 
@@ -110,13 +113,13 @@ export const Default = (props: CarouselProps): JSX.Element => {
               {/* Play button */}
               <span className="splide__toggle__play">
                 <span className="sr-only">Play slideshow</span>
-                <i className="fa fa-play-circle-o fa-lg" aria-hidden="true"></i>
+                <SvgIcon className="h-l w-l" icon={'play'} />
               </span>
 
               {/* Pause button */}
               <span className="splide__toggle__pause">
                 <span className="sr-only">Pause slideshow</span>
-                <i className="fa fa-pause-circle fa-lg" aria-hidden="true"></i>
+                <SvgIcon className="h-l w-l" icon={'pause'} />
               </span>
             </button>
           </div>
