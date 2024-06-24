@@ -14,9 +14,9 @@ import { ComponentProps } from '../lib/component-props';
 // @ts-ignore 
 import { HztlPageContent as FeatureHztlFoundationHztlPageContent } from "./Feature.HztlFoundation.model"
 // @ts-ignore 
-import { SiteStructure as FeatureHztlFoundationSiteStructure } from "./Feature.HztlFoundation.model"
-// @ts-ignore 
 import { GlobalData as FeatureHztlFoundationGlobalData } from "./Feature.HztlFoundation.model"
+// @ts-ignore 
+import { SiteStructure as FeatureHztlFoundationSiteStructure } from "./Feature.HztlFoundation.model"
 // @ts-ignore 
 import { Data as FoundationHztlFoundationData } from "./Foundation.HztlFoundation.model"
 // @ts-ignore 
@@ -479,6 +479,316 @@ export namespace HztlPageContent {
 
 
     }
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CustomForm
+    */
+    export type CustomForm =  {
+        fields?: { 
+            /**
+            * Represents the Acceptance Label field (bd6a10bc-565c-402d-8f15-2fbce5c0301d).
+            */
+            acceptanceLabel?: Field<string>;
+
+            /**
+            * Represents the Description field (264094c6-b6ee-4fff-9b3b-8cb381d3c9d8).
+            */
+            description?: Field<string>;
+
+            /**
+            * Represents the Disclaimer Label field (b6dc1c6b-fc88-481d-8e5e-7caac868db3b).
+            */
+            disclaimerLabel?: Field<string>;
+
+            /**
+            * Represents the Email Label field (b6a49b19-86d0-49b1-8d5a-41858b102efd).
+            */
+            emailLabel?: Field<string>;
+
+            /**
+            * Represents the Email Placeholder field (7f7d6592-001d-4c1d-8284-ebe8dcdd78c5).
+            */
+            emailPlaceholder?: Field<string>;
+
+            /**
+            * Represents the First Name Label field (e2ae4a43-5237-4f92-a2eb-c0c47893a8c0).
+            */
+            firstNameLabel?: Field<string>;
+
+            /**
+            * Represents the First Name Placeholder field (71ecddc5-d8a0-4f01-880e-870fbc5db562).
+            */
+            firstNamePlaceholder?: Field<string>;
+
+            /**
+            * Represents the Inquiry Type Label field (151c9ffb-25f0-444c-bbca-c8bda4cbaca1).
+            */
+            inquiryTypeLabel?: Field<string>;
+
+            /**
+            * Represents the Inquiry Type List field (e73503b2-bb8b-43df-b28c-4fb5b46c0ca3).
+            */
+            inquiryTypeList?: Item[];
+
+            /**
+            * Represents the Last Name Label field (db94f5ab-d35f-4c8c-b5a7-74c6cb2a8f67).
+            */
+            lastNameLabel?: Field<string>;
+
+            /**
+            * Represents the Last Name Placeholder field (bcd1084b-b0e3-42ab-bf2b-b16ecb3fb9c4).
+            */
+            lastNamePlaceholder?: Field<string>;
+
+            /**
+            * Represents the Message Label field (c704a70c-e752-440c-b598-2fabbb97b2ee).
+            */
+            messageLabel?: Field<string>;
+
+            /**
+            * Represents the Message Placeholder field (c6b1a794-01d7-44d3-91e5-cfd78c5a46f3).
+            */
+            messagePlaceholder?: Field<string>;
+
+            /**
+            * Represents the Phone Number Label field (8e0ce4cb-30c9-4645-9ca2-931d2b84b0bb).
+            */
+            phoneNumberLabel?: Field<string>;
+
+            /**
+            * Represents the Phone Number Placeholder field (c2d4972b-85f9-4751-a4b6-9cc777887c88).
+            */
+            phoneNumberPlaceholder?: Field<string>;
+
+            /**
+            * Represents the Primary CTA field (ac298528-bdaf-4eaa-9c96-a69182caf6af).
+            */
+            primaryCTA?: LinkField;
+
+            /**
+            * Represents the Secondary CTA field (9e6e4774-676f-4b8f-a893-19199857c1e5).
+            */
+            secondaryCTA?: LinkField;
+
+            /**
+            * Represents the Title field (3ea2c27e-4bd9-4ef3-9433-c04e4eb7a443).
+            */
+            title?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CustomForm
+    */
+    export type CustomFormJson =  {
+        
+            /**
+            * Represents the Acceptance Label field (bd6a10bc-565c-402d-8f15-2fbce5c0301d).
+            */
+            acceptanceLabel?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Description field (264094c6-b6ee-4fff-9b3b-8cb381d3c9d8).
+            */
+            description?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Disclaimer Label field (b6dc1c6b-fc88-481d-8e5e-7caac868db3b).
+            */
+            disclaimerLabel?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Email Label field (b6a49b19-86d0-49b1-8d5a-41858b102efd).
+            */
+            emailLabel?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Email Placeholder field (7f7d6592-001d-4c1d-8284-ebe8dcdd78c5).
+            */
+            emailPlaceholder?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the First Name Label field (e2ae4a43-5237-4f92-a2eb-c0c47893a8c0).
+            */
+            firstNameLabel?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the First Name Placeholder field (71ecddc5-d8a0-4f01-880e-870fbc5db562).
+            */
+            firstNamePlaceholder?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Inquiry Type Label field (151c9ffb-25f0-444c-bbca-c8bda4cbaca1).
+            */
+            inquiryTypeLabel?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Inquiry Type List field (e73503b2-bb8b-43df-b28c-4fb5b46c0ca3).
+            */
+            inquiryTypeList?: {
+                jsonValue: Item[]
+            };
+
+            /**
+            * Represents the Last Name Label field (db94f5ab-d35f-4c8c-b5a7-74c6cb2a8f67).
+            */
+            lastNameLabel?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Last Name Placeholder field (bcd1084b-b0e3-42ab-bf2b-b16ecb3fb9c4).
+            */
+            lastNamePlaceholder?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Message Label field (c704a70c-e752-440c-b598-2fabbb97b2ee).
+            */
+            messageLabel?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Message Placeholder field (c6b1a794-01d7-44d3-91e5-cfd78c5a46f3).
+            */
+            messagePlaceholder?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Phone Number Label field (8e0ce4cb-30c9-4645-9ca2-931d2b84b0bb).
+            */
+            phoneNumberLabel?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Phone Number Placeholder field (c2d4972b-85f9-4751-a4b6-9cc777887c88).
+            */
+            phoneNumberPlaceholder?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Primary CTA field (ac298528-bdaf-4eaa-9c96-a69182caf6af).
+            */
+            primaryCTA?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the Secondary CTA field (9e6e4774-676f-4b8f-a893-19199857c1e5).
+            */
+            secondaryCTA?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the Title field (3ea2c27e-4bd9-4ef3-9433-c04e4eb7a443).
+            */
+            title?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
+}
+export namespace HztlPageContent.RenderingParameters {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/CustomForm
+    */
+    export type CustomForm =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/CustomForm
+    */
+    export type CustomFormJson =  {
+        
+
+    }
+}
+export namespace HztlPageContent {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CustomForm Folder
+    */
+    export type CustomFormFolder =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CustomForm Folder
+    */
+    export type CustomFormFolderJson =  {
+        
+
+    }
+}
+export namespace GlobalData {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/Global Data/Country
+    */
+    export type Country =  {
+        fields?: { 
+            /**
+            * Represents the Flag field (6ad8e19e-4264-41b9-80b1-e2b0b0a3f64a).
+            */
+            flag?: ImageField;
+
+            /**
+            * Represents the Name field (a17a2b7a-f531-4b23-a829-9c283763ac9a).
+            */
+            name?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/Global Data/Country
+    */
+    export type CountryJson =  {
+        
+            /**
+            * Represents the Flag field (6ad8e19e-4264-41b9-80b1-e2b0b0a3f64a).
+            */
+            flag?: {
+                jsonValue: ImageField
+            };
+
+            /**
+            * Represents the Name field (a17a2b7a-f531-4b23-a829-9c283763ac9a).
+            */
+            name?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
 }
 export namespace SiteStructure.Footer {
 
@@ -576,6 +886,11 @@ export namespace SiteStructure.Header {
     export type Header =  {
         fields?: { 
             /**
+            * Represents the Country field (3de6239f-c16f-44d6-aea0-04eaf91ecc76).
+            */
+            country?: Item;
+
+            /**
             * Represents the Logo field (ca3d785b-2bc3-41f3-a528-70d0c709ec89).
             */
             logo?: ImageField;
@@ -589,6 +904,11 @@ export namespace SiteStructure.Header {
             * Represents the Navigation List field (d250b2fd-502b-423b-b355-b0a067345f7c).
             */
             navigationList?: Item[];
+
+            /**
+            * Represents the Search Placeholder field (8e132bdc-18c7-4b27-931f-49c201efef52).
+            */
+            searchPlaceholder?: Field<string>;
         }
 
     }
@@ -598,6 +918,13 @@ export namespace SiteStructure.Header {
     */
     export type HeaderJson =  {
         
+            /**
+            * Represents the Country field (3de6239f-c16f-44d6-aea0-04eaf91ecc76).
+            */
+            country?: {
+                jsonValue: Item
+            };
+
             /**
             * Represents the Logo field (ca3d785b-2bc3-41f3-a528-70d0c709ec89).
             */
@@ -617,6 +944,13 @@ export namespace SiteStructure.Header {
             */
             navigationList?: {
                 jsonValue: Item[]
+            };
+
+            /**
+            * Represents the Search Placeholder field (8e132bdc-18c7-4b27-931f-49c201efef52).
+            */
+            searchPlaceholder?: {
+                jsonValue: Field<string>
             };
 
 
@@ -1168,6 +1502,39 @@ export namespace HztlPageContent.Constants {
     }
     export const CarouselItem = {
         TemplateId: "7a137b26-5e9c-4cbb-8731-54b3b6593a4d",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const CustomForm = {
+        TemplateId: "83dca12c-29b5-49ce-b0f7-37efb8e93607",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.RenderingParameters.Constants {
+
+    export const CustomForm = {
+        TemplateId: "e58d4e11-a20d-4c45-9205-fd3e9edcdba8",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.Constants {
+
+    export const CustomFormFolder = {
+        TemplateId: "2cbbbe07-514f-4dab-9e0c-49bb0de0b30d",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace GlobalData.Constants {
+
+    export const Country = {
+        TemplateId: "628b007c-334f-40f6-a849-aaa4b566fb74",
     
         BaseTemplateIds: [
         ]
