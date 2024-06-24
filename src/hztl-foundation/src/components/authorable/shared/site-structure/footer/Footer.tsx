@@ -25,9 +25,9 @@ export const Default = (props: FooterProps): JSX.Element => {
         <div data-component="authorable/general/footer" className="flex flex-col">
           <div className="p-8 pb-[16px] m-auto w-full max-w-screen-xl">
             <div className="flex justify-between flex-wrap">
-            <div>
-              <ImageWrapper field={props?.fields?.footerLogo} />
-            </div>
+              <div>
+                <ImageWrapper field={props?.fields?.footerLogo} />
+              </div>
               {props?.fields?.footerColumns?.map((groupLabel, index) => {
                 const links = groupLabel?.fields?.columnLinks as (Item & Data.Links.GenericLink)[];
                 return (
