@@ -19,10 +19,10 @@ const defaultData: CarouselProps = {
           },
           image: {
             value: {
-              src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/Carousel/CarouselImage.png?h=64&iar=0&w=80',
-              alt: 'carousel',
-              width: '80',
-              height: '64',
+              src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/placeholder_gray_16by9.png?h=1080&iar=0&w=1920',
+              alt: 'carousel img',
+              width: '1920',
+              height: '1080',
             },
           },
           primaryCTA: {
@@ -67,10 +67,10 @@ const defaultData: CarouselProps = {
           },
           image: {
             value: {
-              src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/Carousel/carousel1.jpg?h=867&iar=0&w=1920',
+              src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/placeholder_gray_16by9.png?h=1080&iar=0&w=1920',
               alt: 'carousel img',
               width: '1920',
-              height: '867',
+              height: '1080',
             },
           },
           primaryCTA: {
@@ -107,10 +107,10 @@ const defaultData: CarouselProps = {
           },
           image: {
             value: {
-              src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/Carousel/carousel1.jpg?h=867&iar=0&w=1920',
+              src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/placeholder_gray_16by9.png?h=1080&iar=0&w=1920',
               alt: 'carousel img',
               width: '1920',
-              height: '867',
+              height: '1080',
             },
           },
           primaryCTA: {
