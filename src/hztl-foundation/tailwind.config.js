@@ -24,6 +24,7 @@ module.exports = {
         xl: ['3rem', '3.5rem'], //48px 60px
         l: ['2rem', '2rem'], //32px 67.2px
         m: ['1.5rem', '2rem'], //24px 32px
+        'sub-heading': ['1.25rem', '1.52rem'], //20px 24px
         s: ['1.125rem', '1.75rem'], //18px 28px
         xs: ['1rem', '1.25rem'], //16px 20px
         xxs: ['0.75rem', '1rem'], //12px 16px
