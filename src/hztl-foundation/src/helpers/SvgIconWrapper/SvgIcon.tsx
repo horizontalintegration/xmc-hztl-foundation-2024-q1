@@ -13,7 +13,7 @@ import React from 'react';
 
 export type SvgIconSize = 'sm' | 'md' | 'em' | 'lg';
 
-export type IconTypes = undefined | 'arrow-right';
+export type IconTypes = undefined | 'arrow-right' | 'pause' | 'play';
 
 export interface SvgIconProps {
   className?: string;

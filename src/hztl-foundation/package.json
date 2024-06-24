@@ -36,6 +36,7 @@
     "@sitecore-feaas/clientside": "^0.5.12",
     "@sitecore-jss/sitecore-jss-nextjs": "~21.6.0",
     "@sitecore/components": "^1.1.6",
+    "@splidejs/react-splide": "^0.7.12",
     "@ungap/structured-clone": "^1.2.0",
     "autoprefixer": "^10.4.19",
     "bootstrap": "^5.1.3",
