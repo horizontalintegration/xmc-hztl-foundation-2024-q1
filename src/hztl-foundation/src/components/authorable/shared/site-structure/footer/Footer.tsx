@@ -21,41 +21,49 @@ export const Default = (props: FooterProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
   if (props?.fields) {
     return (
-      <div className={`component footer w-full ${props?.params?.styles}`} id={id ? id : undefined}>
+      <div
+        className={`component footer w-full px-0 ${
+          props?.params?.styles !== undefined ? props?.params?.styles : ''
+        }`}
+        id={id ? id : ''}
+      >
         <div data-component="authorable/general/footer" className="flex flex-col">
-          <div className="p-8 pb-[16px] m-auto w-full max-w-screen-xl">
-            <div className="flex justify-between flex-wrap">
+          <div className="p-ml pb-s m-auto w-full max-w-screen-xl">
+            <div className="flex flex-wrap justify-start md:justify-between gap-xl sm:gap-l md:gap-[50px] lg:gap-[62px] xl:gap-[162px] sm:w-[344px] md:w-auto">
               <div>
                 <ImageWrapper field={props?.fields?.footerLogo} />
               </div>
-              {props?.fields?.footerColumns?.map((groupLabel, index) => {
-                const links = groupLabel?.fields?.columnLinks as (Item & Data.Links.GenericLink)[];
-                return (
-                  <React.Fragment key={index}>
-                    <div className="text-left">
-                      <RichTextWrapper
-                        className="font-modern text-[#2F2D2E] text-[16px] font-[700] not-italic leading-normal capitalize"
-                        tag="h3"
-                        field={{ value: groupLabel?.displayName }}
-                      />
-                      <ul className="flex flex-col">
-                        {links?.map((link, index) => (
-                          <li className="p-[8px]" key={index}>
-                            <LinkWrapper
-                              className="font-modern text-[#2F2D2E] text-[16px] font-[700] not-italic leading-normal capitalize"
-                              suppressNewTabIcon={true}
-                              field={link?.fields?.link}
-                            />
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </React.Fragment>
-                );
-              })}
+              <div className="flex justify-between flex-wrap gap-m sm:gap-ml mmd:gap-xl mml:gap-[140px] lg:gap-[204px] xl:gap-[216px] sm:w-[312px] md:w-auto">
+                {props?.fields?.footerColumns?.map((groupLabel, index) => {
+                  const links = groupLabel?.fields?.columnLinks as (Item &
+                    Data.Links.GenericLink)[];
+                  return (
+                    <React.Fragment key={index}>
+                      <div className="text-left">
+                        <RichTextWrapper
+                          className="font-modern text-gray text-xs font-bold capitalize"
+                          tag="h3"
+                          field={{ value: groupLabel?.displayName }}
+                        />
+                        <ul className="flex flex-col">
+                          {links?.map((link, index) => (
+                            <li className="p-xxs" key={index}>
+                              <LinkWrapper
+                                className="font-modern text-gray text-xs font-bold capitalize"
+                                suppressNewTabIcon={true}
+                                field={link?.fields?.link}
+                              />
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </React.Fragment>
+                  );
+                })}
+              </div>
             </div>
           </div>
-          <hr className="w-full border-[1px] border-[#2F2D2e]" />
+          <hr className="w-full border border-gray" />
         </div>
       </div>
     );
