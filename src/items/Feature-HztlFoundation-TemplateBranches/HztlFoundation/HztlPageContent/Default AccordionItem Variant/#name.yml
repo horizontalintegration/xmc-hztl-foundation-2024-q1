@@ -1,8 +1,8 @@
 ﻿---
-ID: "cb39e6ce-ee65-4645-83a9-a7c202ab6d55"
-Parent: "6279af8b-decc-4724-b17f-d31beab2ca49"
+ID: "55e38f33-abb4-4e75-9213-e5dc33cecc84"
+Parent: "cbe46935-f7ba-4299-af40-1fb4d57d6ba8"
 Template: "49c111d0-6867-4798-a724-1f103166e6e9"
-Path: /sitecore/templates/Branches/Feature/HztlFoundation/HztlPageContent/Default Accordion Variant/$name
+Path: /sitecore/templates/Branches/Feature/HztlFoundation/HztlPageContent/Default AccordionItem Variant/$name
 Languages:
 - Language: en
   Versions:
