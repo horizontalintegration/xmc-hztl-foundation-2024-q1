@@ -21,104 +21,113 @@ import { Data as FoundationHztlFoundationData } from './Foundation.HztlFoundatio
 // @ts-ignore
 import { HztlSiteStructure as FeatureHztlFoundationHztlSiteStructure } from './Feature.HztlFoundation.model';
 
-export namespace HztlPageContent {
-  /**
-   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion
-   */
-  export type Accordion = {
-    fields?: {
-      /**
-       * Represents the Text field (5151f09c-75b1-4c5b-9fdf-9f66e9743a88).
-       */
-      accordionList?: Item[];
-    };
-  };
+export namespace HztlPageContent.RenderingParameters {
 
-  /**
-   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion
-   */
-  export type AccordionJson = {
     /**
-     * Represents the Text field (5151f09c-75b1-4c5b-9fdf-9f66e9743a88).
-     */
-    accordionList?: {
-      jsonValue: Item[];
-    };
-  };
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Accordion
+    */
+    export type Accordion =  {
+        fields?: { 
+            /**
+            * Represents the Open Multiple Accordion At Same Time field (228ce8c6-03e5-4aa6-9874-c3bd39aebcd0).
+            */
+            openMultipleAccordionAtSameTime?: Field<boolean>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Accordion
+    */
+    export type AccordionJson =  {
+        
+            /**
+            * Represents the Open Multiple Accordion At Same Time field (228ce8c6-03e5-4aa6-9874-c3bd39aebcd0).
+            */
+            openMultipleAccordionAtSameTime?: {
+                jsonValue: Field<boolean>
+            };
+
+
+    }
+}
+export namespace HztlPageContent {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/AccordionItem
+    */
+    export type AccordionItem =  {
+        fields?: { 
+            /**
+            * Represents the Content field (910b7376-fd3a-447a-8c38-f982811e6084).
+            */
+            content?: Field<string>;
+
+            /**
+            * Represents the Heading field (7002c7ba-11c5-4bb8-ba2e-6f1c4ff2a750).
+            */
+            heading?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/AccordionItem
+    */
+    export type AccordionItemJson =  {
+        
+            /**
+            * Represents the Content field (910b7376-fd3a-447a-8c38-f982811e6084).
+            */
+            content?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Heading field (7002c7ba-11c5-4bb8-ba2e-6f1c4ff2a750).
+            */
+            heading?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
 }
 export namespace HztlPageContent.RenderingParameters {
-  /**
-   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Accordion
-   */
-  export type Accordion = {
-    fields?: {
-      /**
-       * Represents the Open Multiple Accordion At Same Time field (228ce8c6-03e5-4aa6-9874-c3bd39aebcd0).
-       */
-      openMultipleAccordionAtSameTime?: Field<boolean>;
-    };
-  };
 
-  /**
-   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Accordion
-   */
-  export type AccordionJson = {
     /**
-     * Represents the Open Multiple Accordion At Same Time field (228ce8c6-03e5-4aa6-9874-c3bd39aebcd0).
-     */
-    openMultipleAccordionAtSameTime?: {
-      jsonValue: Field<boolean>;
-    };
-  };
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/AccordionItem
+    */
+    export type AccordionItem =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/AccordionItem
+    */
+    export type AccordionItemJson =  {
+        
+
+    }
 }
 export namespace HztlPageContent {
-  /**
-   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion Folder
-   */
-  export type AccordionFolder = {
-    fields?: {};
-  };
-
-  /**
-   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion Folder
-   */
-  export type AccordionFolderJson = {};
-
-  /**
-   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion Item
-   */
-  export type AccordionItem = {
-    fields?: {
-      /**
-       * Represents the Content field (261f0553-7346-4ebd-bdeb-82f737716e7e).
-       */
-      content?: Field<string>;
-
-      /**
-       * Represents the Heading field (bc2e4823-4876-46fe-ac5a-89df86792ac5).
-       */
-      heading?: Field<string>;
-    };
-  };
-
-  /**
-   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Accordion Item
-   */
-  export type AccordionItemJson = {
-    /**
-     * Represents the Content field (261f0553-7346-4ebd-bdeb-82f737716e7e).
-     */
-    content?: {
-      jsonValue: Field<string>;
-    };
 
     /**
-     * Represents the Heading field (bc2e4823-4876-46fe-ac5a-89df86792ac5).
-     */
-    heading?: {
-      jsonValue: Field<string>;
-    };
-  };
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/AccordionItem Folder
+    */
+    export type AccordionItemFolder =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/AccordionItem Folder
+    */
+    export type AccordionItemFolderJson =  {
+        
+
+    }
 }
 export namespace HztlPageContent.RenderingParameters {
   /**
@@ -1224,31 +1233,41 @@ export namespace SiteStructure.Footer {
  * </auto-generated>
  */
 
-export namespace HztlPageContent.Constants {
-  export const Accordion = {
-    TemplateId: '2c50e47d-31a4-4fff-85ff-eff1fb1f8038',
+export namespace HztlPageContent.RenderingParameters.Constants {
 
-    BaseTemplateIds: [],
-  };
+    export const Accordion = {
+        TemplateId: "7a436cb9-473e-4270-99b3-d301964d7689",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.Constants {
+
+    export const AccordionItem = {
+        TemplateId: "22298e17-88e2-46ad-85a8-aa8b77434bf2",
+    
+        BaseTemplateIds: [
+        ]
+    }
 }
 export namespace HztlPageContent.RenderingParameters.Constants {
-  export const Accordion = {
-    TemplateId: '7a436cb9-473e-4270-99b3-d301964d7689',
 
-    BaseTemplateIds: [],
-  };
+    export const AccordionItem = {
+        TemplateId: "82b8c484-3e95-437f-92bb-f58ef08c2684",
+    
+        BaseTemplateIds: [
+        ]
+    }
 }
 export namespace HztlPageContent.Constants {
-  export const AccordionFolder = {
-    TemplateId: 'd27b8710-9ec7-4b87-adf1-b117a8a45d2f',
 
-    BaseTemplateIds: [],
-  };
-  export const AccordionItem = {
-    TemplateId: '17df4652-d9f8-4916-b09e-fc809a260891',
-
-    BaseTemplateIds: [],
-  };
+    export const AccordionItemFolder = {
+        TemplateId: "6e7c7004-0d73-40e9-82ea-2f14d09db64f",
+    
+        BaseTemplateIds: [
+        ]
+    }
 }
 export namespace HztlPageContent.RenderingParameters.Constants {
   export const Breadcrumb = {
