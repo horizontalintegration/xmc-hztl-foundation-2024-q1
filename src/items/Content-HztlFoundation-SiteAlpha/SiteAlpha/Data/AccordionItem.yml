@@ -1,8 +1,8 @@
 ﻿---
-ID: "7d4e9dc3-18f8-45b8-8a20-1ea1362b5d30"
+ID: "3988e5de-580e-49ce-a294-b630e694a293"
 Parent: "5baa29c3-0bb9-4b9a-b28d-cd680cda1fa0"
-Template: "d27b8710-9ec7-4b87-adf1-b117a8a45d2f"
-Path: /sitecore/content/HztlFoundation/SiteAlpha/Data/Accordion
+Template: "6e7c7004-0d73-40e9-82ea-2f14d09db64f"
+Path: /sitecore/content/HztlFoundation/SiteAlpha/Data/AccordionItem
 Languages:
 - Language: en
   Versions:
@@ -10,7 +10,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20240529T133343Z
+      Value: 20240625T090634Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -21,11 +21,11 @@ Languages:
         sitecore\asavalagi@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b33b1160-2cb4-46fd-98e7-4b0d866283ef"
+      Value: "23dfbc70-4bbb-403a-990c-a924c7e897aa"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\asavalagi@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240529T133343Z
+      Value: 20240625T090634Z

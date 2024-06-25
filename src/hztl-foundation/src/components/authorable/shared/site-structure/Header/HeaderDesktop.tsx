@@ -10,6 +10,7 @@ import { Link } from '@sitecore-jss/sitecore-jss-react';
 import Image from 'next/image';
 import SearchInput from 'helpers/Forms/SearchInput';
 import CountrySelector from 'helpers/Forms/CountrySelector';
+import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
 
 const HeaderDesktop = (props: HeaderPropsComponent) => {
   const { fields, dropdownOpen, setDropdownOpen, selectedCountry, setSelectedCountry } = props;
@@ -41,6 +42,13 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
               />
             </div>
             <div>
+              <div>
+                <PreviewSearchBasicWidget
+                  rfkId={'rfkid_101'}
+                  defaultValue=""
+                  defaultItemsPerPage={5}
+                />
+              </div>
               <SearchInput placeholder={fields?.searchPlaceholder?.value} />
             </div>
           </div>
