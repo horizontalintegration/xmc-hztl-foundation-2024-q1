@@ -8,6 +8,7 @@ import {
 } from './headerInterface';
 import { Link } from '@sitecore-jss/sitecore-jss-react';
 import Image from 'next/image';
+import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
 
 const HeaderDesktop = (props: HeaderProps) => {
   const { fields, dropdownOpen, setDropdownOpen } = props;
@@ -27,6 +28,9 @@ const HeaderDesktop = (props: HeaderProps) => {
               dropdownOpen={dropdownOpen}
             />
           ))}
+          <div>
+            <PreviewSearchBasicWidget rfkId={'rfkid_101'} defaultValue="" defaultItemsPerPage={5} />
+          </div>
         </nav>
       </div>
       {dropdownOpen !== null && navigationList[dropdownOpen].fields.megaMenuList.length > 0 && (
