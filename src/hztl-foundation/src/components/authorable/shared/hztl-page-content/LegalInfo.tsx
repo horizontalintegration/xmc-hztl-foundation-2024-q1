@@ -21,7 +21,7 @@ export const Default = (props: LegalInfoProps): JSX.Element => {
       <div className={`component legal info ${props?.params?.styles}`} id={id ? id : undefined}>
         <div
           data-component="authorable/general/legal-info"
-          className="flex flex-col gap-[8px] justify-center items-center"
+          className="flex flex-col gap-xxs justify-center items-center"
         >
           <RichTextWrapper
             className="font-modern text-[#000] text-[16px] not-italic font-[400] leading-[24px]"
