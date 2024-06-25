@@ -1,20 +1,22 @@
+import React from 'react';
 import { GetStaticComponentProps, Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql';
-import React from 'react';
 import { BreadcrumbDataType } from './Breadcrumb.types';
-import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
 import config from 'temp/config';
 import BreadcrumbQuery from './Breadcrumb.graphql';
+
+// Helper
+import { SvgIcon } from 'helpers/SvgIconWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 
 const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
   const { ancestors, Title } = staticProps?.staticProps?.currentPage || {};
   const { componentName, dataSource } = staticProps?.rendering || {};
 
   return (
-    <div>
-      <div data-component="authorable/General/breadcrumbs" data-testid="breadcrumbs">
-        <div>
+    <>
+      {Title?.jsonValue?.value && ancestors.length > 0 && (
+        <div data-component="authorable/General/breadcrumbs" data-testid="breadcrumbs">
           <nav aria-label="Breadcrumb">
             <ul className="md:flex items-center list">
               {ancestors
@@ -29,7 +31,7 @@ const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
                   return (
                     itm?.Title?.jsonValue?.value &&
                     itm?.pageUrl?.link && (
-                      <li key={index} className={`py-[10px] px-[12px]`}>
+                      <li key={index} className={`py-xs px-xs`}>
                         <LinkWrapper
                           field={{
                             value: {
@@ -44,9 +46,9 @@ const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
                             'gtm.element.dataset.gtmDatasourceId': dataSource,
                             'gtm.element.dataset.gtmComponentName': componentName,
                           }}
-                          className="flex items-center underline"
+                          className="flex items-center underline text-xs font-bold"
                         >
-                          <div className="ml-[12px]">
+                          <div className="ml-xs">
                             <SvgIcon icon={'arrow-right'} className="w-auto h-auto" />
                           </div>
                         </LinkWrapper>
@@ -54,8 +56,8 @@ const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
                     )
                   );
                 })}
-              {Title?.jsonValue?.value && (
-                <li className={`py-[10px] flex items-center `} aria-current="true">
+              {Title?.jsonValue?.value && ancestors.length > 0 && (
+                <li className={`py-xs flex items-center`} aria-current="true">
                   <Text
                     encode={false}
                     field={{
@@ -73,8 +75,8 @@ const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
             }}
           ></div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
