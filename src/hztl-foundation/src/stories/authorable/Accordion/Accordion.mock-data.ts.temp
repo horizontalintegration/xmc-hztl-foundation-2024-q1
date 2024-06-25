@@ -16,7 +16,7 @@ const defaultData: AccordionProps = {
         fields: {
           content: {
             value:
-              '<div>&nbsp;</div>\n<p><span>Feature that is amazing<br />\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>\n<ul>\n    <li><span>Benefit of Feature</span></li>\n    <li><span>Benefit of Feature</span></li>\n    <li><span>Benefit of Feature</span></li>\n</ul>',
+              '<div>&nbsp;</div>\n<h3 class="rte-heading"><span>Feature that is amazing</h3><p><br />\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>\n<ul>\n<li><span>Benefit of Feature</span></li>\n<li><span>Benefit of Feature</span></li>\n<li><span>Benefit of Feature</span></li>\n</ul>',
           },
           heading: {
             value: 'Accordion 1',
@@ -31,7 +31,7 @@ const defaultData: AccordionProps = {
         fields: {
           content: {
             value:
-              '<div>&nbsp;</div>\n<p><span>Feature that is amazing<br />\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>\n<ul>\n    <li><span>Benefit of Feature</span></li>\n    <li><span>Benefit of Feature</span></li>\n    <li><span>Benefit of Feature</span></li>\n</ul>',
+              '<div>&nbsp;</div>\n<h3 class="rte-heading"><span>Feature that is amazing</h3><p><br />\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>\n<ul>\n<li><span>Benefit of Feature</span></li>\n<li><span>Benefit of Feature</span></li>\n<li><span>Benefit of Feature</span></li>\n</ul>',
           },
           heading: {
             value: 'Accordion 2',
@@ -46,7 +46,7 @@ const defaultData: AccordionProps = {
         fields: {
           content: {
             value:
-              '<div>&nbsp;</div>\n<p><span>Feature that is amazing<br />\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>\n<ul>\n    <li><span>Benefit of Feature</span></li>\n    <li><span>Benefit of Feature</span></li>\n    <li><span>Benefit of Feature</span></li>\n</ul>',
+              '<div>&nbsp;</div>\n<h3 class="rte-heading"><span>Feature that is amazing</h3><p><br />\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span></p>\n<ul>\n<li><span>Benefit of Feature</span></li>\n<li><span>Benefit of Feature</span></li>\n<li><span>Benefit of Feature</span></li>\n</ul>',
           },
           heading: {
             value: 'Accordion 3',
