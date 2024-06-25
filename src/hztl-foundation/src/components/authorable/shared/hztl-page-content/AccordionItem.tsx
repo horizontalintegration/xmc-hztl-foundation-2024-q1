@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { RichText as JssRichText, Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 
 export type AccordionProps = ComponentProps & HztlPageContent.AccordionItem;
 
@@ -49,7 +50,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
                 role="region"
                 aria-labelledby={'accordion-' + id}
               >
-                <JssRichText
+                <RichTextWrapper
                   field={props?.fields?.content}
                   className="mb-0 text-gray text-s font-normal p-s"
                   aria-required={isOpen}
