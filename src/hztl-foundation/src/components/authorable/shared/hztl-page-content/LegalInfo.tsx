@@ -20,7 +20,7 @@ export const Default = (props: LegalInfoProps): JSX.Element => {
   if (props?.fields) {
     return (
       <div
-        className={`component legal info px-0 xl:m-auto xl:w-1/3 ${
+        className={`component legal info px-0 2xl:m-auto 2xl:w-1/3 ${
           props?.params?.styles !== undefined ? props?.params?.styles : ''
         }`}
         id={id ? id : ''}

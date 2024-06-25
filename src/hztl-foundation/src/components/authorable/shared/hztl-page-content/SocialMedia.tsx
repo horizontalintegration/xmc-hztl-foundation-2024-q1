@@ -21,7 +21,7 @@ export const Default = (props: SocialMediaProps): JSX.Element => {
   if (props?.fields) {
     return (
       <div
-        className={`component social media sm:order-last mmd:order-none px-0 xl:m-auto xl:w-1/4 ${
+        className={`component social media sm:order-last mmd:order-none px-0 2xl:m-auto 2xl:w-1/4 ${
           props?.params?.styles !== undefined ? props?.params?.styles : ''
         }`}
         id={id ? id : ''}
