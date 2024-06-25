@@ -9,7 +9,10 @@
   if you run the app in connected mode while the Sitecore cookies
   are set to edit mode.
 */
-.scChromeData, .scpm { display: none !important; }
+.scChromeData,
+.scpm {
+  display: none !important;
+}
 
 /*
   Styles for default JSS error components
@@ -24,22 +27,57 @@
   Style for default content block
 */
 .contentTitle {
-    font-size: 3.5rem;
-    font-weight: 300;
-    line-height: 1.2;
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.2;
 }
 
 .hamburger-lines .line {
   background-color: black;
-  }
-  .toggle-menu input[type='checkbox']:checked ~ .hamburger-lines .line1 {
-    transform: rotate(45deg);
-  }
-  
-  .toggle-menu input[type='checkbox']:checked ~ .hamburger-lines .line2 {
-    transform: scaleY(0);
-  }
-  
-  .toggle-menu input[type='checkbox']:checked ~ .hamburger-lines .line3 {
-    transform: rotate(-45deg);
-  }
+}
+
+.toggle-menu input[type='checkbox']:checked~.hamburger-lines .line1 {
+  transform: rotate(45deg);
+}
+
+.toggle-menu input[type='checkbox']:checked~.hamburger-lines .line2 {
+  transform: scaleY(0);
+}
+
+.toggle-menu input[type='checkbox']:checked~.hamburger-lines .line3 {
+  transform: rotate(-45deg);
+}
+
+ul {
+  margin: 20px;
+}
+
+ul li {
+  color: inherit;
+  margin-left: 20px;
+  list-style-type: disc;
+
+}
+
+h3,
+.rte-heading {
+  color: var(--Black, #2F2D2E);
+  font-family: "Modern Era";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+p>span {
+  color: var(--Black, #2F2D2E);
+  font-family: "Modern Era";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.splide__pagination__page {
+  border: 1px solid gray !important;
+}
