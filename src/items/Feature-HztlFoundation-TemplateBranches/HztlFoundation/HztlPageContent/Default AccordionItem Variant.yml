@@ -1,45 +1,14 @@
 ﻿---
-ID: "ab05f41a-e2be-4e42-8446-a215d02bc6a2"
-Parent: "85b52ea0-73d5-4f63-9716-5bfa251411f7"
-Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
-Path: /sitecore/layout/Renderings/Feature/HztlFoundation/HztlPageContent/Accordion
-SharedFields:
-- ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
-  Hint: componentName
-  Value: Accordion
-- ID: "069a8361-b1cd-437c-8c32-a3be78941446"
-  Hint: Placeholders
-  Value: "{92A8312E-C936-415A-9D01-7FB07546753A}"
-- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
-  Hint: __Icon
-  Value: office/32x32/update_tree.png
-- ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
-  Hint: Datasource Template
-  Value: 
-- ID: "7d8ae35f-9ed1-43b5-96a2-0a5f040d4e4e"
-  Hint: Open Properties after Add
-  Value: 0
-- ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
-  Hint: __Read Only
-  Value: 
-- ID: "a77e8568-1ab3-44f1-a664-b7c37ec7810d"
-  Hint: Parameters Template
-  Value: "{7A436CB9-473E-4270-99B3-D301964D7689}"
-- ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
-  Hint: Datasource Location
-  Value: 
-- ID: "c39a90ce-0035-41bb-90f6-3c8a6ea87797"
-  Hint: AddFieldEditorButton
-  Value: 
-- ID: "e829c217-5e94-4306-9c48-2634b094fdc2"
-  Hint: OtherProperties
-  Value: IsRenderingsWithDynamicPlaceholders=true
+ID: "cbe46935-f7ba-4299-af40-1fb4d57d6ba8"
+Parent: "a40ebc55-356b-41e5-b028-1965a7aacd1b"
+Template: "35e75c72-4985-4e09-88c3-0eac6cd1e64f"
+Path: /sitecore/templates/Branches/Feature/HztlFoundation/HztlPageContent/Default AccordionItem Variant
 Languages:
 - Language: "de-DE"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Rich Text
+    Value: "Standard Headless-Rich-Text-Variante"
   Versions:
   - Version: 1
     Fields:
@@ -65,35 +34,31 @@ Languages:
       Hint: __Updated
       Value: 20240311T150131Z
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: 
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20211012T120931Z
+      Value: 20211020T134937Z
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\JssImport
+        sitecore\Admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e096d239-d375-4365-b436-3b1bbbcf8b13"
+      Value: "c11625b4-84ab-4c13-9db6-f76fe9e62e2b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\asavalagi@horizontal.com
+        sitecore\pbarron@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240625T090016Z
+      Value: 20240311T154437Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: リッチ テキスト
+    Value: デフォルトのヘッドレスリッチテキストバリアント
   Versions:
   - Version: 1
     Fields:
@@ -122,7 +87,7 @@ Languages:
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: 富文本
+    Value: 默认 Headless 富文本变量
   Versions:
   - Version: 1
     Fields:
