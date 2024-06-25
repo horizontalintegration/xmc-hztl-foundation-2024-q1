@@ -92,9 +92,8 @@ const ButtonWrapper = React.forwardRef<HTMLButtonElement, ButtonWrapperProps>(
             {icon?.fields.Value.value && (
               <SvgIcon
                 icon={icon?.fields.Value.value}
-                className={`${
-                  styeValue === 'primary' ? '!stroke-white' : ' !stroke-black'
-                } w-5 h-5`}
+                size="xs"
+                className={`${styeValue === 'primary' ? '!stroke-white' : ' !stroke-black'}`}
               />
             )}
           </button>

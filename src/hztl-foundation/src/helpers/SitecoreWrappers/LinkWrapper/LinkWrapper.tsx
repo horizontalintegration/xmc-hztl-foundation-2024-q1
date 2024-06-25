@@ -177,8 +177,9 @@ const LinkWrapper = React.forwardRef(
           )}
           {icon?.fields.Value.value && (
             <SvgIcon
+              size="xs"
               icon={icon?.fields.Value.value}
-              className={`${styeValue === 'primary' ? '!stroke-white' : ' !stroke-black'} w-5 h-5`}
+              className={`${styeValue === 'primary' ? '!stroke-white' : ' !stroke-black'}`}
             />
           )}
         </NextLink>
