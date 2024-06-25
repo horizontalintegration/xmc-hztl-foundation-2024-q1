@@ -114,7 +114,7 @@ export const DropdownMenu = ({
               {category.fields.megaMenuLinks.map((item, i) => (
                 <li className="mb-2" key={i}>
                   <Link field={item.fields.link} className="text-blue-600 hover:underline">
-                    {item.id + 'ASDAS'}
+                    {item.displayName}
                   </Link>
                 </li>
               ))}
