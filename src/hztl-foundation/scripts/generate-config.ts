@@ -22,6 +22,9 @@ const defaultConfig: JssConfig = {
   graphQLEndpoint: process.env[`${constantCase('graphQLEndpoint')}`],
   layoutServiceConfigurationName: process.env[`${constantCase('layoutServiceConfigurationName')}`],
   publicUrl: process.env[`${constantCase('publicUrl')}`],
+  sitecoreSearchEnv: process.env[`${constantCase('sitecoreSearchEnv')}`],
+  sitecoreSearchCustomerKey: process.env[`${constantCase('sitecoreSearchCustomerKey')}`],
+  sitecoreSearchApiKey: process.env[`${constantCase('sitecoreSearchApiKey')}`],
 };
 
 generateConfig(defaultConfig);

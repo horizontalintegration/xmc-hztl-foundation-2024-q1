@@ -35,6 +35,8 @@
     "@sitecore-cloudsdk/events": "^0.1.3",
     "@sitecore-feaas/clientside": "^0.5.12",
     "@sitecore-jss/sitecore-jss-nextjs": "~21.6.0",
+    "@sitecore-search/react": "^2.5.1",
+    "@sitecore-search/ui": "^2.5.1",
     "@sitecore/components": "^1.1.6",
     "@ungap/structured-clone": "^1.2.0",
     "autoprefixer": "^10.4.19",
