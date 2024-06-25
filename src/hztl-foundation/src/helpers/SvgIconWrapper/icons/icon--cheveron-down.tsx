@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-const IconCheveronDown = (): JSX.Element => {
+const IconChevronDown = (): JSX.Element => {
   return (
     <>
       <path
@@ -15,4 +15,4 @@ const IconCheveronDown = (): JSX.Element => {
   );
 };
 
-export default IconCheveronDown;
+export default IconChevronDown;

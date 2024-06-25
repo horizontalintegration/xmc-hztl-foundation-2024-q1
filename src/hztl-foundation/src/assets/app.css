@@ -44,6 +44,6 @@
     transform: rotate(-45deg);
   }
 
-.cheveron-trasnform {
+.chevron-transform {
   @apply transition-transform duration-100
 }

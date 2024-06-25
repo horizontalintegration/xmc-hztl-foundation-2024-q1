@@ -12,7 +12,7 @@ const CountrySelector = ({ selectedCountry, setSelectedCountry }: CountrySelecto
       <select
         value={selectedCountry}
         onChange={handleCountryChange}
-        className="block w-full py-2 px-2 border-gray-300 focus:outline-none rounded-md font-semibold text-base focus:border-none sm:text-sm cursor-pointer"
+        className="block w-full p-xxs border-gray-300 focus:outline-none rounded-md font-semibold text-base focus:border-none sm:text-sm cursor-pointer"
       >
         <option value="United States">🇺🇸 United States (English)</option>
         <option value="Canada">🇨🇦 Canada (English)</option>
@@ -23,4 +23,3 @@ const CountrySelector = ({ selectedCountry, setSelectedCountry }: CountrySelecto
 };
 
 export default CountrySelector;
-

@@ -24,7 +24,7 @@ export const Default = (props: CardProps): JSX.Element => {
         <div data-component="authorable/general/card" className="flex justify-center items-center">
           <div className="mx-auto my-[0px]">
             <div className="border-[1px] border-[#2F2D2E]">
-              <div className="border-b-[1px] border-[#A7A7A7] flex justify-center items-center">
+              <div className="border-b border-[#A7A7A7] flex justify-center items-center">
                 <ImageWrapper field={props?.fields?.CardImage} />
               </div>
               <div className="text-center md:text-left p-[40px] m-auto">

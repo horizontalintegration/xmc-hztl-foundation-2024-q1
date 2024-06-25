@@ -15,33 +15,35 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
   const { fields, dropdownOpen, setDropdownOpen, selectedCountry, setSelectedCountry } = props;
   const { logo, logoLink, navigationList } = fields;
   return (
-    <div className="hidden md:block border-b-[1px] border-black fixed top-0 w-full bg-inherit z-[8]">
-      <div className="md:max-w-screen-xl  xl:mx-auto p-s">
-        <div className="flex items-center justify-end gap-s">
-          <div>
-            <CountrySelector
-              selectedCountry={selectedCountry}
-              setSelectedCountry={setSelectedCountry}
-            />
+    <div className="hidden md:block border-b border-black fixed top-0 w-full bg-inherit z-[8]">
+      <div className="md:max-w-screen-xl xl:mx-auto p-s">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center flex-shrink-0">
+            <Logo logo={logo.value} logoLink={logoLink} />
+            <ul className="flex px-s lg:px-xs lg:gap-m gap-xs items-center">
+              {navigationList.map((item, index) => (
+                <NavItem
+                  key={index}
+                  index={index}
+                  {...item}
+                  open={() => setDropdownOpen(index)}
+                  close={() => setDropdownOpen(null)}
+                  dropdownOpen={dropdownOpen}
+                />
+              ))}
+            </ul>
           </div>
-          <div>
-            <SearchInput placeholder={fields?.searchPlaceholder?.value} />
-          </div>
-        </div>
-        <div className="flex items-center mt-xxs">
-          <Logo logo={logo.value} logoLink={logoLink} />
-          <ul className="flex px-s lg:px-xs  md:gap-m gap-xs items-center">
-            {navigationList.map((item, index) => (
-              <NavItem
-                key={index}
-                index={index}
-                {...item}
-                open={() => setDropdownOpen(index)}
-                close={() => setDropdownOpen(null)}
-                dropdownOpen={dropdownOpen}
+          <div className="flex items-center justify-end gap-s">
+            <div>
+              <CountrySelector
+                selectedCountry={selectedCountry}
+                setSelectedCountry={setSelectedCountry}
               />
-            ))}
-          </ul>
+            </div>
+            <div>
+              <SearchInput placeholder={fields?.searchPlaceholder?.value} />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -70,21 +72,21 @@ interface NavItemInterface extends NavigationItem {
 }
 const NavItem = (props: NavItemInterface) => {
   const isList = props.fields.megaMenuList.length > 0;
+
   return (
     <li className="" onMouseEnter={props.open} onMouseLeave={props.close}>
-      {/* <li className="" onClick={props.open}> */}
-      <div className="hover:bg-grayscale-w-200 hover:underline rounded-md cursor-pointer text-center px-s py-xxs">
+      <div className="hover:bg-grayscale-w-200 group rounded-md cursor-pointer text-center px-s py-xxs">
         {!isList ? (
           <Link
             field={props.fields.navigationLink}
-            className="text-black text-s lg:text-m font-semibold hover:text-blue-600"
+            className="text-black text-s lg:text-m font-semibold group-hover:underline"
           >
             {props.displayName}
           </Link>
         ) : (
-          <div className="text-black text-s lg:text-m font-semibold hover:text-blue-600 cursor-pointer">
+          <button className="text-black text-s lg:text-m font-semibold cursor-pointer group-hover:underline">
             {props.displayName}
-          </div>
+          </button>
         )}
       </div>
       {isList && props.index === props.dropdownOpen && (
@@ -96,13 +98,13 @@ const NavItem = (props: NavItemInterface) => {
 
 const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInterface[] }) => {
   return (
-    <div className="absolute left-[0px] w-full z-[9] overflow-hidden border-b-[1px] border-black pt-m lg:pt-[21px] cursor-default">
+    <div className="absolute left-[0px] w-full z-[9] overflow-hidden border-b border-black pt-m lg:pt-[21px] cursor-default">
       <div className="bg-grayscale-w-200">
         <div className="flex items-center justify-between md:max-w-screen-xl xl:mx-auto px-4">
           <div className="w-full my-xxs">
             <div className="gap-y-0 gap-xl md:grid-cols-12 grid">
               {categories.map((category, index) => (
-                <div className="text-start col-span-4 py-[5px] xl:col-span-3" key={index}>
+                <div className="text-start col-span-4 py-xxxs xl:col-span-3" key={index}>
                   <label className="font-bold text-lg mb-xxs">{category.displayName}</label>
                   <ul>
                     {category.fields.megaMenuLinks.map((item, i) => (

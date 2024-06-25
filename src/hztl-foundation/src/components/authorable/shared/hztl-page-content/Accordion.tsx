@@ -88,8 +88,8 @@ export const Default = (props: AccordionProps): JSX.Element => {
                       } text-m`}
                     />
                     <SvgIcon
-                      icon={'cheveron-down'}
-                      className={`w-auto h-auto cheveron-trasnform ${
+                      icon={'chevron-down'}
+                      className={`w-auto h-auto chevron-transform ${
                         activeIndexes.includes(key) ? 'rotate-180' : ''
                       }`}
                     />
