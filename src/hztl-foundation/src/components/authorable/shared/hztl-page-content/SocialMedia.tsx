@@ -20,11 +20,13 @@ export const Default = (props: SocialMediaProps): JSX.Element => {
 
   if (props?.fields) {
     return (
-      <div className={`component social media ${props?.params?.styles}`} id={id ? id : undefined}>
-        <div
-          data-component="authorable/general/social-media"
-          className="flex justify-center py-[8px] gap-[16px]"
-        >
+      <div
+        className={`component social media sm:order-last mmd:order-none px-0 2xl:m-auto 2xl:w-1/4 ${
+          props?.params?.styles !== undefined ? props?.params?.styles : ''
+        }`}
+        id={id ? id : ''}
+      >
+        <div data-component="authorable/general/social-media" className="flex py-xxs gap-s px-ml">
           {props?.fields?.socialMediaLinks?.map((icon, index) => {
             const { socialMediaLink, socialMediaLogo } = icon?.fields;
             return (
