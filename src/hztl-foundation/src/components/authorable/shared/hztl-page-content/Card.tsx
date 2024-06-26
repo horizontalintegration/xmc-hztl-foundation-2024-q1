@@ -21,10 +21,8 @@ export const Default = (props: CardProps): JSX.Element => {
   if (props?.fields) {
     return (
       <div
-        className={`component card ${
-          props?.params?.styles !== undefined ? props?.params?.styles : ''
-        }`}
-        id={id ? id : ''}
+        className={`component w-full mb-4 mml:w-1/3 ${props?.params?.styles}`}
+        id={id ? id : undefined}
       >
         <div data-component="authorable/general/card" className="flex justify-center items-center">
           <div className="mx-auto my-0">
