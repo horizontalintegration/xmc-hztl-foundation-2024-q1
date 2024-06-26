@@ -3,6 +3,10 @@ import { LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { IconTypes } from 'helpers/SvgIconWrapper';
 
 export interface CTAIconInterface {
+  id: string;
+  url: string;
+  name: string;
+  displayName: string;
   fields: {
     Value: {
       value: IconTypes;
@@ -11,6 +15,10 @@ export interface CTAIconInterface {
 }
 
 export interface CTAAlignmentInterface {
+  id: string;
+  url: string;
+  name: string;
+  displayName: string;
   fields: {
     Value: {
       value: 'left' | 'right' | 'top' | 'bottom';
@@ -19,6 +27,10 @@ export interface CTAAlignmentInterface {
 }
 
 export interface CTAStyleInterface {
+  id: string;
+  url: string;
+  name: string;
+  displayName: string;
   fields: {
     Value: {
       value: string;

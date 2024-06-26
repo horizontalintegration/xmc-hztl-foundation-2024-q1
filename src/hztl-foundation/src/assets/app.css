@@ -47,8 +47,19 @@
 .toggle-menu input[type='checkbox']:checked~.hamburger-lines .line3 {
   transform: rotate(-45deg);
 }
+
 .chevron-transform {
-  @apply transition-transform duration-100
+  @layer transition-transform duration-100
+}
+
+a {
+  font-weight: 600;
+  color: #6BA69E;
+}
+
+a:hover {
+  color: #055164;
+  text-decoration: underline;
 }
 
 ul {

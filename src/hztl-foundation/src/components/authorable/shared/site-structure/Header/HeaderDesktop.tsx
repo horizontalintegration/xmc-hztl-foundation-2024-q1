@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import {
   HeaderPropsComponent,
@@ -8,9 +7,10 @@ import {
 } from './headerInterface';
 import { Link } from '@sitecore-jss/sitecore-jss-react';
 import Image from 'next/image';
-import SearchInput from 'helpers/Forms/SearchInput';
 import CountrySelector from 'helpers/Forms/CountrySelector';
-import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
+// import SearchInput from 'helpers/Forms/SearchInput';
+// import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
+import { SvgIcon } from 'helpers/SvgIconWrapper';
 
 const HeaderDesktop = (props: HeaderPropsComponent) => {
   const { fields, dropdownOpen, setDropdownOpen, selectedCountry, setSelectedCountry } = props;
@@ -42,14 +42,16 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
               />
             </div>
             <div>
-              <div>
-                <PreviewSearchBasicWidget
+              <div className="flex flex-row">
+                {/* temporary disabling these for version 2 enhancement */}
+                {/* <PreviewSearchBasicWidget
                   rfkId={'rfkid_101'}
                   defaultValue=""
                   defaultItemsPerPage={5}
-                />
+                /> */}
+                <SvgIcon icon="outline-search" className="w-s h-s" />
               </div>
-              <SearchInput placeholder={fields?.searchPlaceholder?.value} />
+              {/* <SearchInput placeholder={fields?.searchPlaceholder?.value} /> */}
             </div>
           </div>
         </div>
@@ -82,8 +84,12 @@ const NavItem = (props: NavItemInterface) => {
   const isList = props.fields.megaMenuList.length > 0;
 
   return (
-    <li className="" onMouseEnter={props.open} onMouseLeave={props.close}>
-      <div className="hover:bg-grayscale-w-200 group rounded-md cursor-pointer text-center px-s py-xxs">
+    <li className="list-none" onClick={props.open}>
+      <div
+        className={`hover:bg-grayscale-w-200 group rounded-md cursor-pointer text-center px-s py-xxs ${
+          isList && props.index === props.dropdownOpen && 'bg-grayscale-w-200'
+        }`}
+      >
         {!isList ? (
           <Link
             field={props.fields.navigationLink}
@@ -92,8 +98,9 @@ const NavItem = (props: NavItemInterface) => {
             {props.displayName}
           </Link>
         ) : (
-          <button className="text-black text-s lg:text-m font-semibold cursor-pointer group-hover:underline">
+          <button className="text-black text-s lg:text-m font-semibold cursor-pointer group-hover:underline flex flex-row gap-xs">
             {props.displayName}
+            <SvgIcon className="rotate-90 stroke-black w-s" icon={'arrow-right'} />
           </button>
         )}
       </div>
@@ -116,8 +123,8 @@ const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInterface[] 
                   <label className="font-bold text-lg mb-xxs">{category.displayName}</label>
                   <ul>
                     {category.fields.megaMenuLinks.map((item, i) => (
-                      <li className="mb-xxs" key={i}>
-                        <Link field={item.fields.link} className="text-blue-600 hover:underline">
+                      <li className="list-none -ml-s mb-xxs" key={i}>
+                        <Link field={item.fields.link} className="text-gray hover:underline">
                           {item.displayName}
                         </Link>
                       </li>

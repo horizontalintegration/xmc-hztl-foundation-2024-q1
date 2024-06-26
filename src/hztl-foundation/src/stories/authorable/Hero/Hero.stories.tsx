@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import { Default, HeroProps } from '../../../components/authorable/shared/hztl-page-content/Hero';
+import { Default, HeroProps } from 'components/authorable/shared/hztl-page-content/Hero';
 import defaultData from './Hero.mock-data';
 
 const meta: Meta<typeof Default> = {
@@ -20,9 +20,11 @@ type Story = StoryObj<typeof Default>;
 
 export const Hero: Story = {
   render: (args) => {
-    return <Default {...(expandObj({ ...args }) as HeroProps)} />;
+    const expandedArgs = expandObj({ ...args }) as Record<string, unknown>;
+    return <Default {...(expandedArgs as unknown as HeroProps)} />;
   },
   args: {
-    ...flattenObj(defaultData),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ...flattenObj(defaultData as any),
   },
 };

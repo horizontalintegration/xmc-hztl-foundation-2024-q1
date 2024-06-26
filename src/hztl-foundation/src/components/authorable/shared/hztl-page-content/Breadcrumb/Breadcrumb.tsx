@@ -31,7 +31,7 @@ const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
                   return (
                     itm?.Title?.jsonValue?.value &&
                     itm?.pageUrl?.link && (
-                      <li key={index} className={`py-xs px-xs`}>
+                      <li key={index} className={`py-xs px-xs list-none`}>
                         <LinkWrapper
                           field={{
                             value: {
@@ -49,7 +49,7 @@ const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
                           className="flex items-center underline text-xs font-bold"
                         >
                           <div className="ml-xs">
-                            <SvgIcon icon={'arrow-right'} className="w-auto h-auto" />
+                            <SvgIcon icon={'arrow-right'} className="w-auto h-auto stroke-gray" />
                           </div>
                         </LinkWrapper>
                       </li>
@@ -57,7 +57,7 @@ const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
                   );
                 })}
               {Title?.jsonValue?.value && ancestors.length > 0 && (
-                <li className={`py-xs flex items-center`} aria-current="true">
+                <li className={`py-xs flex items-center list-none -ml-xxxs`} aria-current="true">
                   <Text
                     encode={false}
                     field={{

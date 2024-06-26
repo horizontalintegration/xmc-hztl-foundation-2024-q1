@@ -92,12 +92,12 @@ export const Default = (props: CarouselProps): JSX.Element => {
           </SplideTrack>
 
           <div className="splide__arrows">
-            <button className="splide__arrow splide__arrow--prev icon-hover-focus-rounded max-lg:!top-auto max-lg:bottom-[100px] !bg-transparent">
+            <button className="splide__arrow splide__arrow--prev icon-hover-focus-rounded max-lg:!top-auto max-lg:bottom-[100px] stroke-gray !bg-transparent">
               <span className="sr-only">Previous slide</span>
               <SvgIcon icon={'arrow-right'} />
             </button>
 
-            <button className="splide__arrow splide__arrow--next icon-hover-focus-rounded max-lg:!top-auto max-lg:bottom-[100px] !bg-transparent">
+            <button className="splide__arrow splide__arrow--next icon-hover-focus-rounded max-lg:!top-auto max-lg:bottom-[100px] stroke-gray !bg-transparent">
               <span className="sr-only">Next slide</span>
               <SvgIcon icon={'arrow-right'} />
             </button>
