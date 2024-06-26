@@ -29,7 +29,7 @@ export const Default = (props: CustomFormProps): JSX.Element => {
                 field={props?.fields?.description}
                 tag="div"
               />
-              <div className="flex gap-[8px] flex-wrap justify-center md:justify-normal">
+              <div className="flex gap-xxs flex-wrap justify-center md:justify-normal">
                 <LinkWrapper
                   className="flex items-center justify-center px-[16px] py-[12px] rounded-[4px] bg-[#2F2D2E] text-center text-[#FFF] font-modern text-[14px] font-[700] not-italic leading-normal"
                   field={props?.fields?.primaryCTA}

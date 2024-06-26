@@ -11,9 +11,9 @@ import React from 'react';
  * using the naming scheme 'icon--[name].tsx'
  */
 
-export type SvgIconSize = 'sm' | 'md' | 'em' | 'lg';
+export type SvgIconSize = 'xs' | 'sm' | 'md' | 'em' | 'lg';
 
-export type IconTypes = undefined | 'arrow-right' | 'pause' | 'play';
+export type IconTypes = undefined | 'arrow-right' | 'pause' | 'play' | 'download';
 
 export interface SvgIconProps {
   className?: string;
@@ -22,6 +22,7 @@ export interface SvgIconProps {
 }
 
 const sizeClasses: Record<SvgIconSize, string> = {
+  xs: 'h-4 w-4',
   sm: 'h-8 w-8',
   md: 'h-16 w-16',
   lg: 'h-6 w-6',
