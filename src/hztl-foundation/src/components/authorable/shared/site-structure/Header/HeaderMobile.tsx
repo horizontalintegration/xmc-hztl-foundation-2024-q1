@@ -64,14 +64,14 @@ const NavItem = (props: NavItemInterface) => {
       {!isList ? (
         <Link
           field={props.fields.navigationLink}
-          className="text-black text-s font-semibold hover:text-blue-600"
+          className="text-black text-s gap-xxs !place-items-center font-semibold"
         >
           {props.displayName}
         </Link>
       ) : (
         <button
           onClick={props.onClick}
-          className="text-black text-s font-semibold hover:text-blue-600 cursor-pointer flex items-start justify-between"
+          className="text-black text-s gap-xxs !place-items-center font-semibold cursor-pointer flex items-start justify-between"
         >
           <span>{props.displayName}</span>
           <span className="flex">
@@ -100,8 +100,8 @@ export const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInter
             <label className="font-bold text-lg mb-xxs">{category.displayName}</label>
             <ul>
               {category.fields.megaMenuLinks.map((item, i) => (
-                <li className="mb-xxs" key={i}>
-                  <Link field={item.fields.link} className="text-blue-600 hover:underline">
+                <li className="mb-xxs list-none -ml-s" key={i}>
+                  <Link field={item.fields.link} className="">
                     {item.displayName}
                   </Link>
                 </li>
