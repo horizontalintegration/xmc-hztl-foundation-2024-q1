@@ -1,5 +1,7 @@
 /* eslint-disable prettier/prettier */
+import { ComponentProps } from 'lib/component-props';
 import { LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { SiteStructure } from 'src/.generated/Feature.HztlFoundation.model';
 
 export interface LogoInterface {
   src: string;
@@ -14,9 +16,7 @@ export interface MegaMenuLinkInterface {
   name: string;
   displayName: string;
   fields: {
-    link: {
-      value: LinkField;
-    };
+    link: LinkField;
   };
 }
 
@@ -40,22 +40,47 @@ export interface NavigationItem {
   displayName: string;
   fields: {
     megaMenuList: MegaMenuCategoryInterface[];
-    navigationLink: {
-      value: LinkField;
-    };
+    navigationLink: LinkField;
     navigationTitle: {
       value: string;
     };
   };
 }
-
-export interface HeaderProps {
+export interface HeaderCountry {
+  id: string;
+  url: string;
+  name: string;
+  displayName: string;
   fields: {
-    logo: { value: LogoInterface };
-    logoLink: { value: LinkField };
-    navigationList: NavigationItem[];
+    flag: {
+      value: {
+        src: string;
+        alt: string;
+        width: string;
+        height: string;
+      };
+    };
+    name: {
+      value: string;
+    };
   };
-  setDropdownOpen: (value: number) => void;
-  dropdownOpen: number | null;
 }
 
+export interface CountrySelectorInterface {
+  selectedCountry: string;
+  setSelectedCountry: (value: string) => void;
+}
+
+export type HeaderProps = ComponentProps & {
+  fields: {
+    logo: { value: LogoInterface };
+    logoLink: LinkField;
+    navigationList: NavigationItem[];
+  };
+} & SiteStructure.Header.Header;
+
+export type HeaderPropsComponent = HeaderProps &
+  CountrySelectorInterface & {
+    dropdownOpen: number | null;
+    setDropdownOpen: (value: number | null) => void;
+  };

@@ -48,6 +48,20 @@
   transform: rotate(-45deg);
 }
 
+.chevron-transform {
+  @layer transition-transform duration-100
+}
+
+a {
+  font-weight: 600;
+  color: #6BA69E;
+}
+
+a:hover {
+  color: #055164;
+  text-decoration: underline;
+}
+
 ul {
   margin: 20px;
 }

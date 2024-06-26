@@ -1,0 +1,141 @@
+import { LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  HeaderPropsComponent,
+  LogoInterface,
+  MegaMenuCategoryInterface,
+  NavigationItem,
+} from './headerInterface';
+import { Link } from '@sitecore-jss/sitecore-jss-react';
+import Image from 'next/image';
+import CountrySelector from 'helpers/Forms/CountrySelector';
+// import SearchInput from 'helpers/Forms/SearchInput';
+// import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
+import { SvgIcon } from 'helpers/SvgIconWrapper';
+
+const HeaderDesktop = (props: HeaderPropsComponent) => {
+  const { fields, dropdownOpen, setDropdownOpen, selectedCountry, setSelectedCountry } = props;
+  const { logo, logoLink, navigationList } = fields;
+  return (
+    <div className="hidden md:block border-b border-black fixed top-0 w-full bg-inherit z-[8]">
+      <div className="md:max-w-screen-xl xl:mx-auto p-s">
+        <div className="flex justify-between items-center">
+          <div className="flex items-center flex-shrink-0">
+            <Logo logo={logo.value} logoLink={logoLink} />
+            <ul className="flex px-s lg:px-xs lg:gap-m gap-xs items-center">
+              {navigationList.map((item, index) => (
+                <NavItem
+                  key={index}
+                  index={index}
+                  {...item}
+                  open={() => setDropdownOpen(index)}
+                  close={() => setDropdownOpen(null)}
+                  dropdownOpen={dropdownOpen}
+                />
+              ))}
+            </ul>
+          </div>
+          <div className="flex items-center justify-end gap-s">
+            <div>
+              <CountrySelector
+                selectedCountry={selectedCountry}
+                setSelectedCountry={setSelectedCountry}
+              />
+            </div>
+            <div>
+              <div className="flex flex-row">
+                {/* temporary disabling these for version 2 enhancement */}
+                {/* <PreviewSearchBasicWidget
+                  rfkId={'rfkid_101'}
+                  defaultValue=""
+                  defaultItemsPerPage={5}
+                /> */}
+                <SvgIcon icon="outline-search" className="w-s h-s" />
+              </div>
+              {/* <SearchInput placeholder={fields?.searchPlaceholder?.value} /> */}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default HeaderDesktop;
+
+export const Logo = ({ logo, logoLink }: { logo: LogoInterface; logoLink: LinkField }) => (
+  <div className="flex items-center">
+    <Link field={logoLink.value}>
+      <Image
+        src={logo.src}
+        alt={logo.alt}
+        width={parseInt(logo.width)}
+        height={parseInt(logo.height)}
+        className="w-20 h-14"
+      />
+    </Link>
+  </div>
+);
+interface NavItemInterface extends NavigationItem {
+  open: () => void;
+  close: () => void;
+  dropdownOpen: number | null;
+  index: number;
+}
+const NavItem = (props: NavItemInterface) => {
+  const isList = props.fields.megaMenuList.length > 0;
+
+  return (
+    <li className="list-none" onClick={props.open}>
+      <div
+        className={`hover:bg-grayscale-w-200 group rounded-md cursor-pointer text-center px-s py-xxs ${
+          isList && props.index === props.dropdownOpen && 'bg-grayscale-w-200'
+        }`}
+      >
+        {!isList ? (
+          <Link
+            field={props.fields.navigationLink}
+            className="text-black text-s lg:text-m font-semibold group-hover:underline"
+          >
+            {props.displayName}
+          </Link>
+        ) : (
+          <button className="text-black text-s lg:text-m font-semibold cursor-pointer group-hover:underline flex flex-row gap-xs">
+            {props.displayName}
+            <SvgIcon className="rotate-90 stroke-black w-s" icon={'arrow-right'} />
+          </button>
+        )}
+      </div>
+      {isList && props.index === props.dropdownOpen && (
+        <DropdownMenu categories={props.fields.megaMenuList} />
+      )}
+    </li>
+  );
+};
+
+const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInterface[] }) => {
+  return (
+    <div className="absolute left-[0px] w-full z-[9] overflow-hidden border-b border-black pt-m lg:pt-[21px] cursor-default">
+      <div className="bg-grayscale-w-200">
+        <div className="flex items-center justify-between md:max-w-screen-xl xl:mx-auto px-4">
+          <div className="w-full my-xxs">
+            <div className="gap-y-0 gap-xl md:grid-cols-12 grid">
+              {categories.map((category, index) => (
+                <div className="text-start col-span-4 py-xxxs xl:col-span-3" key={index}>
+                  <label className="font-bold text-lg mb-xxs">{category.displayName}</label>
+                  <ul>
+                    {category.fields.megaMenuLinks.map((item, i) => (
+                      <li className="list-none -ml-s mb-xxs" key={i}>
+                        <Link field={item.fields.link} className="text-gray hover:underline">
+                          {item.displayName}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

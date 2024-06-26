@@ -13,9 +13,7 @@ import defaultData, { secondaryData } from './ButtonWrapper.mock-data';
 const meta: Meta<ButtonWrapperProps> = {
   title: 'Helpers/Field Wrappers/Button Wrapper',
   component: ButtonWrapper,
-  argTypes: {
-    iconAlignment: { control: 'select', options: ['top', 'bottom', 'left', 'right'] },
-  },
+  argTypes: {},
 };
 
 export default meta;

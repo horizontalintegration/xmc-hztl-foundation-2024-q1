@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, PropsWithChildren } from 'react';
+import React, { ButtonHTMLAttributes, PropsWithChildren, forwardRef } from 'react';
 import { sendGTMEvent } from '@next/third-parties/google';
 import { twMerge } from 'tailwind-merge';
 import { GtmEvent } from 'lib/utils/gtm-utils';
@@ -27,7 +27,7 @@ export interface ButtonWrapperProps
   gtmEvent?: GtmEvent;
 }
 
-const ButtonWrapper = React.forwardRef<HTMLButtonElement, ButtonWrapperProps>(
+const ButtonWrapper = forwardRef<HTMLButtonElement, ButtonWrapperProps>(
   ({ className, ctaType, gtmEvent, ...props }, ref) => {
     const buttonAlignmentStyles: Record<IconAlignment, string> = {
       left: 'flex-row-reverse',
@@ -35,6 +35,7 @@ const ButtonWrapper = React.forwardRef<HTMLButtonElement, ButtonWrapperProps>(
       top: 'flex-col-reverse',
       bottom: 'flex-col',
     };
+
     const {
       cta1Icon,
       cta1IconAlignment,
@@ -49,20 +50,20 @@ const ButtonWrapper = React.forwardRef<HTMLButtonElement, ButtonWrapperProps>(
     } = props?.fields || {};
 
     const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-      props.onClick && props.onClick(e);
+      if (props.onClick) {
+        props.onClick(e);
+      }
 
       if (gtmEvent) {
-        const gtmEventInner = {
-          ...gtmEvent,
-        };
-
-        sendGTMEvent(gtmEventInner);
+        sendGTMEvent({ ...gtmEvent });
       }
     };
+
     const buttonClasses = (style: string) =>
       `flex h-14 gap-xxs items-center justify-center px-16 py-xs rounded-md text-center font-modern font-bold leading-normal text-base ${
         style === 'secondary' ? 'border-1 border-gray text-gray' : 'bg-gray text-white'
       }`;
+
     const renderTextButton = (
       icon?: CTAIconInterface,
       iconAlignment?: CTAAlignmentInterface,
@@ -71,34 +72,34 @@ const ButtonWrapper = React.forwardRef<HTMLButtonElement, ButtonWrapperProps>(
       title?: CTATitleInterface,
       handleOnClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
     ) => {
-      const styeValue = style?.fields.Value.value || '';
+      if (!text?.value) return null;
+      const styleValue = style?.fields.Value.value || '';
       const iconAlignmentValue = iconAlignment?.fields.Value.value;
       return (
-        text?.value && (
-          <button
-            title={title?.value}
-            ref={ref}
-            className={twMerge(
-              iconAlignmentValue && buttonAlignmentStyles[iconAlignment?.fields.Value.value],
-              styeValue && buttonClasses(styeValue),
-              className
-            )}
-            type={props.type || 'button'}
-            {...props}
-            onClick={handleOnClick}
-          >
-            {text.value}
-            {icon?.fields.Value.value && (
-              <SvgIcon
-                icon={icon?.fields.Value.value}
-                size="xs"
-                className={`${styeValue === 'primary' ? '!stroke-white' : ' !stroke-black'}`}
-              />
-            )}
-          </button>
-        )
+        <button
+          title={title?.value}
+          ref={ref}
+          className={twMerge(
+            iconAlignmentValue && buttonAlignmentStyles[iconAlignmentValue],
+            styleValue && buttonClasses(styleValue),
+            className
+          )}
+          type={props.type || 'button'}
+          {...props}
+          onClick={handleOnClick}
+        >
+          {text.value}
+          {icon?.fields.Value.value && (
+            <SvgIcon
+              icon={icon?.fields.Value.value}
+              size="xs"
+              className={`${styleValue === 'primary' ? '!stroke-white' : ' !stroke-black'}`}
+            />
+          )}
+        </button>
       );
     };
+
     switch (ctaType) {
       case 'cta1Text':
         return renderTextButton(

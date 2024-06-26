@@ -5,6 +5,7 @@ import { HeaderProps } from './headerInterface';
 
 export const Default = (props: HeaderProps) => {
   const [dropdownOpen, setDropdownOpen] = useState<null | number>(null);
+  const [selectedCountry, setSelectedCountry] = useState('United States');
   const handleDropdownToggle = (index: number) => {
     setDropdownOpen(dropdownOpen === index ? null : index);
   };
@@ -14,8 +15,16 @@ export const Default = (props: HeaderProps) => {
         {...props}
         dropdownOpen={dropdownOpen}
         setDropdownOpen={handleDropdownToggle}
+        selectedCountry={selectedCountry}
+        setSelectedCountry={setSelectedCountry}
       />
-      <HeaderMobile {...props} dropdownOpen={dropdownOpen} setDropdownOpen={handleDropdownToggle} />
+      <HeaderMobile
+        {...props}
+        dropdownOpen={dropdownOpen}
+        setDropdownOpen={handleDropdownToggle}
+        selectedCountry={selectedCountry}
+        setSelectedCountry={setSelectedCountry}
+      />
     </header>
   );
 };
