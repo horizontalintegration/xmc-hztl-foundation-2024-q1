@@ -45,9 +45,9 @@ export const Default = (props: FooterProps): JSX.Element => {
                           tag="h3"
                           field={{ value: groupLabel?.displayName }}
                         />
-                        <ul className="flex flex-col">
+                        <ul className="flex flex-col ml-0">
                           {links?.map((link, index) => (
-                            <li className="p-xxs" key={index}>
+                            <li className="p-xxs ml-0 list-none" key={index}>
                               <LinkWrapper
                                 className="font-modern text-gray text-xs font-bold capitalize"
                                 suppressNewTabIcon={true}
