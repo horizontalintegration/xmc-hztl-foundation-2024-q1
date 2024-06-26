@@ -45,7 +45,7 @@ export interface CommonCTAInterface {
   cta2Title?: CTATitleInterface;
 }
 
-export interface CTAButtonWrapperInterface {
+export interface CTAWrapperInterface {
   fields?: CommonCTAInterface & {
     cta1Link?: LinkField;
     cta2Link?: LinkField;

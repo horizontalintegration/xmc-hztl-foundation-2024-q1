@@ -9,7 +9,7 @@ import useIsEditing from 'lib/hooks/use-is-editing';
 import { GtmEvent } from 'lib/utils/gtm-utils';
 import {
   CTAAlignmentInterface,
-  CTAButtonWrapperInterface,
+  CTAWrapperInterface,
   CTAIconInterface,
   CTAStyleInterface,
   CTATitleInterface,
@@ -21,7 +21,7 @@ import { SvgIcon } from 'helpers/SvgIconWrapper';
  */
 
 export type LinkWrapperProps = Omit<LinkProps, 'field'> &
-  CTAButtonWrapperInterface & {
+  CTAWrapperInterface & {
     className?: string;
     field?: LinkField | LinkFieldValue;
     gtmEvent?: GtmEvent;

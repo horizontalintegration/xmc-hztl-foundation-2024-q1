@@ -6,10 +6,10 @@ import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTex
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
-import { CTAButtonWrapperInterface } from 'src/interfaces/CTAInterface';
+import { CTAWrapperInterface } from 'src/interfaces/CTAInterface';
 import ButtonWrapper from 'helpers/SitecoreWrappers/ButtonWrapper/ButtonWrapper';
 
-export type HeroProps = ComponentProps & HztlPageContent.Hero & CTAButtonWrapperInterface;
+export type HeroProps = ComponentProps & HztlPageContent.Hero & CTAWrapperInterface;
 
 const HeroDefaultComponent = (props: HeroProps): JSX.Element => (
   <div className={`component hero ${props.params?.styles}`}>

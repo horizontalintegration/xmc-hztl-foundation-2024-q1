@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge';
 import { GtmEvent } from 'lib/utils/gtm-utils';
 import {
   CTAAlignmentInterface,
-  CTAButtonWrapperInterface,
+  CTAWrapperInterface,
   CTAIconInterface,
   CTAStyleInterface,
   CTATextInterface,
@@ -22,7 +22,7 @@ type IconAlignment = 'left' | 'right' | 'top' | 'bottom';
 export interface ButtonWrapperProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'id' | 'title'>,
     RequiredButtonProps,
-    CTAButtonWrapperInterface,
+    CTAWrapperInterface,
     PropsWithChildren {
   gtmEvent?: GtmEvent;
 }
@@ -35,7 +35,6 @@ const ButtonWrapper = React.forwardRef<HTMLButtonElement, ButtonWrapperProps>(
       top: 'flex-col-reverse',
       bottom: 'flex-col',
     };
-    if (!props?.fields) return <></>;
     const {
       cta1Icon,
       cta1IconAlignment,
@@ -47,7 +46,7 @@ const ButtonWrapper = React.forwardRef<HTMLButtonElement, ButtonWrapperProps>(
       cta2Style,
       cta2Text,
       cta2Title,
-    } = props?.fields;
+    } = props?.fields || {};
 
     const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       props.onClick && props.onClick(e);
@@ -81,7 +80,7 @@ const ButtonWrapper = React.forwardRef<HTMLButtonElement, ButtonWrapperProps>(
             ref={ref}
             className={twMerge(
               iconAlignmentValue && buttonAlignmentStyles[iconAlignment?.fields.Value.value],
-              buttonClasses(styeValue),
+              styeValue && buttonClasses(styeValue),
               className
             )}
             type={props.type || 'button'}
