@@ -17,6 +17,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
   };
   return (
     <div className="block md:hidden border-b border-black fixed top-0 w-full bg-inherit z-[8]">
+      <div className="h-xs w-full bg-grayscale-w-600"></div>
       <div className="flex justify-between p-s">
         <Logo logo={logo.value} logoLink={logoLink} />
         <div className="flex items-center gap-4">

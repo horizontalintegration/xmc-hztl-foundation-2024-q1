@@ -9,15 +9,37 @@ import { Link } from '@sitecore-jss/sitecore-jss-react';
 import Image from 'next/image';
 import CountrySelector from 'helpers/Forms/CountrySelector';
 // import SearchInput from 'helpers/Forms/SearchInput';
-// import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
+import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { useEffect, useState } from 'react';
 
 const HeaderDesktop = (props: HeaderPropsComponent) => {
   const { fields, dropdownOpen, setDropdownOpen, selectedCountry, setSelectedCountry } = props;
   const { logo, logoLink, navigationList } = fields;
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
     <div className="hidden md:block border-b border-black fixed top-0 w-full bg-inherit z-[8]">
-      <div className="md:max-w-screen-xl xl:mx-auto p-s">
+      <div className="h-m w-full bg-grayscale-w-600"></div>
+      <div
+        className={`md:max-w-screen-xl xl:mx-auto px-s transition-all duration-200 ${
+          isScrolled ? 'py-0' : 'py-s'
+        }`}
+      >
         <div className="flex justify-between items-center">
           <div className="flex items-center flex-shrink-0">
             <Logo logo={logo.value} logoLink={logoLink} />
@@ -41,16 +63,16 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
                 setSelectedCountry={setSelectedCountry}
               />
             </div>
-            <div>
-              <div className="flex flex-row">
-                {/* temporary disabling these for version 2 enhancement */}
-                {/* <PreviewSearchBasicWidget
-                  rfkId={'rfkid_101'}
-                  defaultValue=""
-                  defaultItemsPerPage={5}
-                /> */}
-                <SvgIcon icon="outline-search" className="w-s h-s" />
-              </div>
+            <div className="flex">
+              {/* <div className="flex flex-row"> */}
+              {/* temporary disabling these for version 2 enhancement */}
+              <PreviewSearchBasicWidget
+                rfkId={'rfkid_101'}
+                defaultValue=""
+                defaultItemsPerPage={5}
+              />
+              {/* <SvgIcon icon="outline-search" className="w-s h-s" /> */}
+              {/* </div> */}
               {/* <SearchInput placeholder={fields?.searchPlaceholder?.value} /> */}
             </div>
           </div>
@@ -69,7 +91,6 @@ export const Logo = ({ logo, logoLink }: { logo: LogoInterface; logoLink: LinkFi
         alt={logo.alt}
         width={parseInt(logo.width)}
         height={parseInt(logo.height)}
-        className="w-20 h-14"
       />
     </Link>
   </div>
@@ -82,7 +103,6 @@ interface NavItemInterface extends NavigationItem {
 }
 const NavItem = (props: NavItemInterface) => {
   const isList = props.fields.megaMenuList.length > 0;
-
   return (
     <li className="list-none" onClick={props.open}>
       <div

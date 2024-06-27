@@ -15,6 +15,7 @@ module.exports = {
         'dark-gray': '#54585A',
         'light-black': '#454545',
         "grayscale-w-200":"#EAE8E8",
+        "grayscale-w-600":"#373432",
         'error-outline': '#DF2626',
         'error': '#B91515',
       },
