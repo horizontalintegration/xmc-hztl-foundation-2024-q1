@@ -21,6 +21,7 @@ interface LayoutProps {
 interface RouteFields {
   [key: string]: unknown;
   Title?: Field;
+  Content?: Field;
 }
 
 const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
@@ -38,6 +39,9 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
       <Scripts />
       <Head>
         <title>{fields?.Title?.value?.toString() || 'Page'}</title>
+        {fields?.Title?.value && (
+          <meta content={fields?.Content?.value?.toString()} name="description" />
+        )}
         <link rel="icon" href={`${publicUrl}/favicon.ico`} />
         {headLinks.map((headLink) => (
           <link rel={headLink.rel} key={headLink.href} href={headLink.href} />
