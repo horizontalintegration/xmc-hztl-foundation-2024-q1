@@ -19,25 +19,27 @@ export const defaultData: HeaderProps = {
         href: '/',
       },
     },
-    country: {
-      id: '4dd3a8f6-62eb-448d-8e2a-76de2f533776',
-      url: 'http://localhost/HztlFoundation/Global/Countries/US',
-      name: 'US',
-      displayName: 'US',
-      fields: {
-        flag: {
-          value: {
-            src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/shared/Countries/flag_us.png?h=30&iar=0&w=40',
-            alt: 'us',
-            width: '40',
-            height: '30',
+    country: [
+      {
+        id: '4dd3a8f6-62eb-448d-8e2a-76de2f533776',
+        url: 'http://localhost/HztlFoundation/Global/Countries/US',
+        name: 'US',
+        displayName: 'US',
+        fields: {
+          flag: {
+            value: {
+              src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/shared/Countries/flag_us.png?h=30&iar=0&w=40',
+              alt: 'us',
+              width: '40',
+              height: '30',
+            },
+          },
+          name: {
+            value: 'United States (English)',
           },
         },
-        name: {
-          value: 'United States (English)',
-        },
       },
-    },
+    ],
     logo: {
       value: {
         src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/Header/headerlogo.png?h=58&iar=0&w=90',
@@ -302,4 +304,3 @@ export const noData = {
 };
 
 export default defaultData;
-
