@@ -892,7 +892,7 @@ export namespace SiteStructure.Header {
             /**
             * Represents the Country field (3de6239f-c16f-44d6-aea0-04eaf91ecc76).
             */
-            country?: Item;
+            country?: Item[];
 
             /**
             * Represents the Logo field (ca3d785b-2bc3-41f3-a528-70d0c709ec89).
@@ -926,7 +926,7 @@ export namespace SiteStructure.Header {
             * Represents the Country field (3de6239f-c16f-44d6-aea0-04eaf91ecc76).
             */
             country?: {
-                jsonValue: Item
+                jsonValue: Item[]
             };
 
             /**
@@ -1500,6 +1500,96 @@ export namespace SiteStructure.Footer {
 
     }
 }
+export namespace HztlPageContent {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Video
+    */
+    export type Video =  {
+        fields?: { 
+            /**
+            * Represents the Select Video File field (b8501628-ca79-4ece-a335-96b9737bb2d0).
+            */
+            SelectFile?: FileField;
+
+            /**
+            * Represents the Title field (5730fada-fbf4-45ba-bbeb-8aecc5f19a2b).
+            */
+            Title?: Field<string>;
+
+            /**
+            * Represents the YouTube ID field (afab73e8-9129-47b2-b665-fcc338e6dd38).
+            */
+            YoutubeId?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Video
+    */
+    export type VideoJson =  {
+        
+            /**
+            * Represents the Select Video File field (b8501628-ca79-4ece-a335-96b9737bb2d0).
+            */
+            SelectFile?: {
+                jsonValue: FileField
+            };
+
+            /**
+            * Represents the Title field (5730fada-fbf4-45ba-bbeb-8aecc5f19a2b).
+            */
+            Title?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the YouTube ID field (afab73e8-9129-47b2-b665-fcc338e6dd38).
+            */
+            YoutubeId?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
+}
+export namespace HztlPageContent.RenderingParameters {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Video
+    */
+    export type Video =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Video
+    */
+    export type VideoJson =  {
+        
+
+    }
+}
+export namespace HztlPageContent {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Video Folder
+    */
+    export type VideoFolder =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Video Folder
+    */
+    export type VideoFolderJson =  {
+        
+
+    }
+}
 
 
 
@@ -1833,6 +1923,33 @@ export namespace SiteStructure.Footer.Constants {
     }
     export const SocialMediaItem = {
         TemplateId: "5e1ae8e0-8f0c-443c-ac85-144f1e47e4af",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.Constants {
+
+    export const Video = {
+        TemplateId: "a3b32791-b568-49f1-b923-ceb5a9885fbe",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.RenderingParameters.Constants {
+
+    export const Video = {
+        TemplateId: "c6f82986-4451-4b9e-b4c6-43c9a7eef1bd",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.Constants {
+
+    export const VideoFolder = {
+        TemplateId: "448910ae-0623-4221-888e-397b0dcfd793",
     
         BaseTemplateIds: [
         ]
