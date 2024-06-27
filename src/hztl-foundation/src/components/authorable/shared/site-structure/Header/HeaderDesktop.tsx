@@ -100,7 +100,11 @@ const NavItem = (props: NavItemInterface) => {
         ) : (
           <button className="text-black text-s lg:text-m font-semibold cursor-pointer group-hover:underline flex flex-row gap-xs">
             {props.displayName}
-            <SvgIcon className="rotate-90 stroke-black w-s" icon={'arrow-right'} />
+            {isList && props.index === props.dropdownOpen ? (
+              <SvgIcon className="-rotate-90 stroke-black w-s" icon={'arrow-right'} />
+            ) : (
+              <SvgIcon className="rotate-90 stroke-black w-s" icon={'arrow-right'} />
+            )}
           </button>
         )}
       </div>
