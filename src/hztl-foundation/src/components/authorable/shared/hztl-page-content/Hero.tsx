@@ -1,14 +1,15 @@
 import React from 'react';
-import { ComponentProps } from 'lib/component-props';
-import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
-
 // Helpers
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
+import { ComponentProps } from 'lib/component-props';
+import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
+import { CTAWrapperInterface } from 'src/interfaces/CTAInterface';
+import ButtonWrapper from 'helpers/SitecoreWrappers/ButtonWrapper/ButtonWrapper';
 
-export type HeroProps = ComponentProps & HztlPageContent.Hero;
+export type HeroProps = ComponentProps & HztlPageContent.Hero & CTAWrapperInterface;
 
 const HeroDefaultComponent = (props: HeroProps): JSX.Element => (
   <div className={`component hero ${props.params?.styles}`}>
@@ -35,16 +36,18 @@ export const Default = (props: HeroProps): JSX.Element => {
               field={props.fields?.Description}
             />
 
-            <div className="flex gap-xxs flex-wrap md:justify-normal">
-              <LinkWrapper
-                className="flex items-center justify-center px-16 py-xs rounded-2 bg-gray text-center text-white font-modern text-base font-bold"
-                field={props.fields?.cta1Link}
-                suppressNewTabIcon={true}
+            <div className="flex gap-xxs flex-wrap justify-center md:justify-normal">
+              <LinkWrapper ctaType="cta1Link" fields={props.fields} suppressNewTabIcon={true} />
+              <LinkWrapper ctaType="cta2Link" fields={props.fields} suppressNewTabIcon={true} />
+              <ButtonWrapper
+                ctaType="cta1Text"
+                fields={props.fields}
+                onClick={() => console.log('')}
               />
-              <LinkWrapper
-                className="flex items-center justify-center px-16 py-xs rounded-2 border-[1px] border-gray text-center text-gray font-modern text-base font-bold"
-                field={props.fields?.cta2Link}
-                suppressNewTabIcon={true}
+              <ButtonWrapper
+                ctaType="cta2Text"
+                fields={props.fields}
+                onClick={() => console.log('')}
               />
             </div>
           </div>
