@@ -249,7 +249,7 @@ export const SearchResultsComponent = ({
                         </ArticleCardStyled.Subtitle>
                       )}
                       {a.content_text && (
-                        <ArticleCardStyled.Text>{a.content_text}</ArticleCardStyled.Text>
+                        <ArticleCardStyled.Text>{a.description}</ArticleCardStyled.Text>
                       )}
                     </ArticleCardStyled.Content>
                   </ArticleCardStyled.Root>
