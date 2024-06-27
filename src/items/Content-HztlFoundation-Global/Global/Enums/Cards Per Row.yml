@@ -1,8 +1,8 @@
 ﻿---
-ID: "b192372f-4dfd-4938-816f-99feff5c0e28"
-Parent: "49561e14-e1dd-4b06-b8e0-beaf908016c7"
-Template: "49561e14-e1dd-4b06-b8e0-beaf908016c7"
-Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/CardList/__Standard Values
+ID: "b1ccbd2c-3cb2-4e6c-aa43-0901c3fed6cf"
+Parent: "67353c23-82a7-41da-88cd-c92d6fabb068"
+Template: "0a92feee-0e15-4e81-b044-2ad901b88ddd"
+Path: /sitecore/content/HztlFoundation/Global/Enums/Cards Per Row
 Languages:
 - Language: en
   Versions:
@@ -10,21 +10,22 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20211012T120926Z
+      Value: 20240627T095510Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\asavalagi@horizontal.com
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\JssImport
-    - ID: "79381cc3-c76a-49da-ba7c-3c94aa8ed0f0"
-      Hint: cardsPerRow
-      Value: 3
+        sitecore\asavalagi@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "aeccbb21-f646-41ee-97a3-132d4a2c1062"
+      Value: "2764a8dd-7a81-4286-9336-b78df182f3b6"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\asavalagi@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240627T095543Z
+      Value: 20240627T095510Z
