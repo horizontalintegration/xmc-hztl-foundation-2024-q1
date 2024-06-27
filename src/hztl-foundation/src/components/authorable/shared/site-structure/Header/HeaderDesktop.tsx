@@ -9,7 +9,7 @@ import { Link } from '@sitecore-jss/sitecore-jss-react';
 import Image from 'next/image';
 import CountrySelector from 'helpers/Forms/CountrySelector';
 // import SearchInput from 'helpers/Forms/SearchInput';
-import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
+// import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 import { useEffect, useState } from 'react';
 
@@ -64,15 +64,15 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
               />
             </div>
             <div className="flex">
-              {/* <div className="flex flex-row"> */}
-              {/* temporary disabling these for version 2 enhancement */}
-              <PreviewSearchBasicWidget
+              <div className="flex flex-row hover:bg-light-gray p-s rounded-full cursor-pointer">
+                {/* temporary disabling these for version 2 enhancement */}
+                {/* <PreviewSearchBasicWidget
                 rfkId={'rfkid_101'}
                 defaultValue=""
                 defaultItemsPerPage={5}
-              />
-              {/* <SvgIcon icon="outline-search" className="w-s h-s" /> */}
-              {/* </div> */}
+              /> */}
+                <SvgIcon icon="outline-search" className="w-s h-s" />
+              </div>
               {/* <SearchInput placeholder={fields?.searchPlaceholder?.value} /> */}
             </div>
           </div>
