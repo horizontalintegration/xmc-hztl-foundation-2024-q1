@@ -7,7 +7,7 @@ import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWr
 import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 import { CTAWrapperInterface } from 'src/interfaces/CTAInterface';
-import ButtonWrapper from 'helpers/SitecoreWrappers/ButtonWrapper/ButtonWrapper';
+// import ButtonWrapper from 'helpers/SitecoreWrappers/ButtonWrapper/ButtonWrapper';
 
 export type HeroProps = ComponentProps & HztlPageContent.Hero & CTAWrapperInterface;
 
@@ -39,7 +39,7 @@ export const Default = (props: HeroProps): JSX.Element => {
             <div className="flex gap-xxs flex-wrap justify-center md:justify-normal">
               <LinkWrapper ctaType="cta1Link" fields={props.fields} suppressNewTabIcon={true} />
               <LinkWrapper ctaType="cta2Link" fields={props.fields} suppressNewTabIcon={true} />
-              <ButtonWrapper
+              {/* <ButtonWrapper
                 ctaType="cta1Text"
                 fields={props.fields}
                 onClick={() => console.log('')}
@@ -48,7 +48,7 @@ export const Default = (props: HeroProps): JSX.Element => {
                 ctaType="cta2Text"
                 fields={props.fields}
                 onClick={() => console.log('')}
-              />
+              /> */}
             </div>
           </div>
         </div>

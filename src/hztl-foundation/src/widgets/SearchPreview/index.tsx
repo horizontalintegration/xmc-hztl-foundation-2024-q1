@@ -77,18 +77,22 @@ export const PreviewSearchBasicComponent = ({
   return (
     <PreviewSearchStyled.Root>
       <PreviewSearchStyled.Form
+        className="flex items-center"
         onSubmit={(e) => {
           e.preventDefault();
           const { value: query } = e.currentTarget.elements[0] as HTMLInputElement;
           submitRedirectionHandler && submitRedirectionHandler(query);
         }}
       >
-        <PreviewSearchStyled.Input
-          onChange={keyphraseHandler}
-          autoComplete="off"
-          placeholder="Type to search..."
-          defaultValue={defaultValue ?? '*'}
-        />
+        <div className="relative w-full">
+          <PreviewSearchStyled.Input
+            className="w-full px-4 py-1 border border-black rounded-sm focus:outline-none focus:border-blue-500 max-w-2xl"
+            onChange={keyphraseHandler}
+            autoComplete="off"
+            placeholder="Type to search..."
+            defaultValue={defaultValue ?? '*'}
+          />
+        </div>
       </PreviewSearchStyled.Form>
       <PreviewSearchStyled.Content ref={widgetRef}>
         <Presence present={loading}>
