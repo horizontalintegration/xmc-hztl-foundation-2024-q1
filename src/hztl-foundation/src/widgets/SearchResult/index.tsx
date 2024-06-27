@@ -102,6 +102,7 @@ export const SearchResultsComponent = ({
       keyphrase: defaultKeyphrase,
     },
   });
+  console.log('article :', articles);
   const totalPages = Math.ceil(totalItems / itemsPerPage);
   const selectedSortIndex = sortChoices.findIndex((s) => s.name === sortType);
   const selectedFacetsFromApi = useSearchResultsSelectedFilters();
@@ -242,6 +243,7 @@ export const SearchResultsComponent = ({
                       >
                         <ArticleCardStyled.Span aria-hidden="true"></ArticleCardStyled.Span>
                         <ArticleCardStyled.Title>{a.title || a.name}</ArticleCardStyled.Title>
+                        <ArticleCardStyled.Subtitle>{a.description}</ArticleCardStyled.Subtitle>
                       </ArticleCardStyled.Link>
                       {a.author && (
                         <ArticleCardStyled.Subtitle className="mt-3 text-sm text-gray-500">

@@ -6,7 +6,7 @@ Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Param
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
-  Value: "SXA/16x16/rich-text.png"
+  Value: office/32x32/elements4.png
 - ID: "12c33f3f-86c5-43a5-aeb4-5598cec45116"
   Hint: __Base template
   Value: |
@@ -63,14 +63,14 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b42e2cdf-5a25-4cce-9052-a0f241483581"
+      Value: "61501c7c-c64a-43e3-902f-de49d615e18b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\pbarron@horizontal.com
+        sitecore\asavalagi@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240312T162813Z
+      Value: 20240627T095339Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
