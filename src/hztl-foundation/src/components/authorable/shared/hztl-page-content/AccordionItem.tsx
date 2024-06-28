@@ -5,6 +5,7 @@ import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
+import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 
 export type AccordionProps = ComponentProps & HztlPageContent.AccordionItem;
 
@@ -20,6 +21,7 @@ const AccordionDefaultComponent = (props: AccordionProps): JSX.Element => {
 
 export const Default = (props: AccordionProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
+  const context = useSitecoreContext();
 
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
@@ -44,7 +46,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
                 <i className="fa fa-chevron-down"></i>
               </span>
             </button>
-            {isOpen && (
+            {context?.sitecoreContext?.pageEditing ? (
               <div
                 className="flex-auto min-h-[1px] p-xs"
                 role="region"
@@ -56,6 +58,20 @@ export const Default = (props: AccordionProps): JSX.Element => {
                   aria-required={isOpen}
                 />
               </div>
+            ) : (
+              isOpen && (
+                <div
+                  className="flex-auto min-h-[1px] p-xs"
+                  role="region"
+                  aria-labelledby={'accordion-' + id}
+                >
+                  <RichTextWrapper
+                    field={props?.fields?.content}
+                    className="mb-0 text-gray text-s font-normal p-s"
+                    aria-required={isOpen}
+                  />
+                </div>
+              )
             )}
           </div>
         </div>
