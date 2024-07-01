@@ -8,16 +8,27 @@ import {
 import { Link } from '@sitecore-jss/sitecore-jss-react';
 import Image from 'next/image';
 import CountrySelector from 'helpers/Forms/CountrySelector';
-// import SearchInput from 'helpers/Forms/SearchInput';
-// import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
+import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import useOutsideClick from 'src/hooks/useClickOutside';
 
 const HeaderDesktop = (props: HeaderPropsComponent) => {
-  const { fields, dropdownOpen, setDropdownOpen, selectedCountry, setSelectedCountry } = props;
+  const { fields, selectedCountry, setSelectedCountry } = props;
+  const [dropdownOpen, setDropdownOpen] = useState<null | number>(null);
   const { logo, logoLink, navigationList } = fields;
+  const [showSearch, setShowSearch] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const headerRef = useRef<HTMLDivElement>(null);
+  const isDropdownOpen = dropdownOpen !== null || showSearch;
+  const handleClickOutside = () => {
+    handleDropdownToggle(null);
+    setShowSearch(false);
+  };
+  useOutsideClick(headerRef, isDropdownOpen, handleClickOutside);
+  const handleDropdownToggle = (index: number | null) => {
+    setDropdownOpen(dropdownOpen === index ? null : index);
+  };
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setIsScrolled(true);
@@ -32,51 +43,70 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
   return (
-    <div className="hidden md:block border-b border-black fixed top-0 w-full bg-inherit z-[8]">
-      <div className="h-m w-full bg-grayscale-w-600"></div>
-      <div
-        className={`md:max-w-screen-xl xl:mx-auto px-s transition-all duration-200 ${
-          isScrolled ? 'py-0' : 'py-s'
-        }`}
-      >
-        <div className="flex justify-between items-center">
-          <div className="flex items-center flex-shrink-0">
-            <Logo logo={logo.value} logoLink={logoLink} />
-            <ul className="flex px-s lg:px-xs lg:gap-m gap-xs items-center">
-              {navigationList.map((item, index) => (
-                <NavItem
-                  key={index}
-                  index={index}
-                  {...item}
-                  open={() => setDropdownOpen(index)}
-                  close={() => setDropdownOpen(null)}
-                  dropdownOpen={dropdownOpen}
-                />
-              ))}
-            </ul>
-          </div>
-          <div className="flex items-center justify-end gap-s">
-            <div>
-              <CountrySelector
-                selectedCountry={selectedCountry}
-                setSelectedCountry={setSelectedCountry}
-              />
-            </div>
-            <div className="flex">
-              <div className="flex flex-row hover:bg-light-gray p-s rounded-full cursor-pointer">
-                {/* temporary disabling these for version 2 enhancement */}
-                {/* <PreviewSearchBasicWidget
-                rfkId={'rfkid_101'}
-                defaultValue=""
-                defaultItemsPerPage={5}
-              /> */}
-                <SvgIcon icon="outline-search" className="w-s h-s" />
+    <div className="hidden md:block">
+      {isDropdownOpen && (
+        <div className="shadow-md before:fixed before:left-[0] before:top-[0] before:z-[9] before:h-full before:w-full before:bg-black/[0.5] before:backdrop-blur-sm"></div>
+      )}
+      <div className="fixed top-0 w-full bg-white z-50" ref={headerRef}>
+        <div className="border-b border-black">
+          <div className="h-m w-full bg-grayscale-w-600"></div>
+          <div
+            className={`md:max-w-screen-xl xl:mx-auto px-s transition-all duration-200 ${
+              isScrolled ? 'py-0' : 'py-s'
+            }`}
+          >
+            <div className="flex justify-between items-center">
+              <div className="flex items-center flex-shrink-0">
+                <Logo logo={logo.value} logoLink={logoLink} />
+                <ul className="flex px-s lg:px-xs lg:gap-m gap-xs items-center">
+                  {navigationList.map((item, index) => (
+                    <NavItem
+                      key={index}
+                      index={index}
+                      {...item}
+                      open={() => {
+                        handleDropdownToggle(index);
+                        setShowSearch(false);
+                      }}
+                      close={() => handleDropdownToggle(null)}
+                      dropdownOpen={dropdownOpen}
+                      isScrolled={isScrolled}
+                    />
+                  ))}
+                </ul>
               </div>
-              {/* <SearchInput placeholder={fields?.searchPlaceholder?.value} /> */}
+              <div className="flex items-center justify-end gap-s">
+                <div>
+                  <CountrySelector
+                    selectedCountry={selectedCountry}
+                    setSelectedCountry={setSelectedCountry}
+                  />
+                </div>
+                <div className="flex">
+                  <button
+                    className={`flex flex-row hover:bg-grayscale-w-200 p-s rounded-full cursor-pointer ${
+                      showSearch && 'bg-grayscale-w-200'
+                    }`}
+                    onClick={() => {
+                      handleDropdownToggle(null);
+                      setShowSearch(!showSearch);
+                    }}
+                  >
+                    {/* temporary disabling these for version 2 enhancement */}
+                    <SvgIcon icon="outline-search" className="w-s h-s" />
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        {showSearch && (
+          <div className="w-full px-xs bg-white py-xs shadow-md">
+            <PreviewSearchBasicWidget rfkId={'rfkid_101'} defaultValue="" defaultItemsPerPage={5} />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -100,13 +130,14 @@ interface NavItemInterface extends NavigationItem {
   close: () => void;
   dropdownOpen: number | null;
   index: number;
+  isScrolled: boolean;
 }
 const NavItem = (props: NavItemInterface) => {
   const isList = props.fields.megaMenuList.length > 0;
   return (
     <li className="list-none" onClick={props.open}>
       <div
-        className={`hover:bg-grayscale-w-200 group rounded-md cursor-pointer text-center px-s py-xxs ${
+        className={`hover:bg-grayscale-w-200 group rounded-md cursor-pointer text-center px-xxs lg:px-s lg:py-xxs py-xxxs ${
           isList && props.index === props.dropdownOpen && 'bg-grayscale-w-200'
         }`}
       >
@@ -118,26 +149,36 @@ const NavItem = (props: NavItemInterface) => {
             {props.displayName}
           </Link>
         ) : (
-          <button className="text-black text-s lg:text-m font-semibold cursor-pointer group-hover:underline flex flex-row gap-xs">
+          <button className="text-black text-s lg:text-m font-semibold cursor-pointer group-hover:underline flex items-center flex-row gap-xs">
             {props.displayName}
             {isList && props.index === props.dropdownOpen ? (
-              <SvgIcon className="-rotate-90 stroke-black w-s" icon={'arrow-right'} />
+              <SvgIcon className="-rotate-90 stroke-black w-s h-auto" icon={'arrow-right'} />
             ) : (
-              <SvgIcon className="rotate-90 stroke-black w-s" icon={'arrow-right'} />
+              <SvgIcon className="rotate-90 stroke-black w-s h-auto" icon={'arrow-right'} />
             )}
           </button>
         )}
       </div>
       {isList && props.index === props.dropdownOpen && (
-        <DropdownMenu categories={props.fields.megaMenuList} />
+        <DropdownMenu categories={props.fields.megaMenuList} isScrolled={props.isScrolled} />
       )}
     </li>
   );
 };
 
-const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInterface[] }) => {
+const DropdownMenu = ({
+  categories,
+  isScrolled,
+}: {
+  categories: MegaMenuCategoryInterface[];
+  isScrolled: boolean;
+}) => {
   return (
-    <div className="absolute left-[0px] w-full z-[9] overflow-hidden border-b border-black pt-m lg:pt-[21px] cursor-default">
+    <div
+      className={`absolute transition-all duration-200 left-[0px] w-full z-[9] overflow-hidden border-b border-black ${
+        isScrolled ? 'mt-[21px]' : 'mt-[37px]'
+      } cursor-default`}
+    >
       <div className="bg-grayscale-w-200">
         <div className="flex items-center justify-between md:max-w-screen-xl xl:mx-auto px-4">
           <div className="w-full my-xxs">
