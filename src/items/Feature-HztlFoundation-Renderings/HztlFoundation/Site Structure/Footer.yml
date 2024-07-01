@@ -10,6 +10,50 @@ SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: office/32x32/document_footer.png
+- ID: "17bb046a-a32a-41b3-8315-81217947611b"
+  Hint: ComponentQuery
+  Value: |
+    query {
+      item(path: "{AA125786-A73C-4808-9735-FE389747B563}" language: "en") {
+        id
+        path
+        ... on Footer {
+          footerLogo {
+            jsonValue
+            alt
+          }
+          footerColumns:field(name  : "footerColumns") {
+          ...footerColumns
+          }
+        }
+      }
+    }
+    
+    
+    fragment footerColumns on MultilistField {
+      items: targetItems {
+       id
+       name
+         ... on FooterColumn {
+          columnLinks:field(name  : "columnLinks") {
+          ...columnLinks
+        }
+      }
+    }
+    }
+      
+    fragment columnLinks on MultilistField {
+      items: targetItems {
+       id
+       name
+        ... on GenericLink {
+          link {
+            jsonValue
+          }
+      }
+    }
+    }
+    
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: /sitecore/templates/Feature/HztlFoundation/SiteStructure/Footer/Footer
@@ -34,11 +78,11 @@ Languages:
         sitecore\dly@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c8f1ec97-ba0c-4400-9321-7c6a0257a672"
+      Value: "56ee250b-a2b6-4573-a001-b1298b8927e7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\mchaniyara@horizontal.com
+        sitecore\rmohapatra@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240612T074351Z
+      Value: 20240701T031044Z
