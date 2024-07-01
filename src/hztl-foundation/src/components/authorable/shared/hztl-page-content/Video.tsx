@@ -6,15 +6,24 @@ import ModalWrapper from 'helpers/ModalWrapper/ModalWrapper';
 
 export type VideoProps = ComponentProps & HztlPageContent.Video;
 
+const VideoDefaultComponent = (props: VideoProps): JSX.Element => (
+  <div className={`component video ${props?.params?.styles}`}>
+    <div className="component-content">
+      <span className="is-empty-hint">Video</span>
+    </div>
+  </div>
+);
+
 export const Default = (props: VideoProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  if (!props?.fields) {
+    return <VideoDefaultComponent {...props} />;
+  }
+
   return (
-    <div
-      className={`component rich-text ${props.params.styles.trimEnd()}`}
-      id={id ? id : undefined}
-    >
+    <div className={`component rich-text`} id={id ? id : undefined}>
       <div className="py-spacing-spacing-7 px-spacing-spacing-4 md:px-spacing-spacing-2"></div>
       <button onClick={() => setIsModalOpen(!isModalOpen)}>Click me</button>
       {isModalOpen && (
