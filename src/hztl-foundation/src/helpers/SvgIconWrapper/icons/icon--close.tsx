@@ -11,4 +11,3 @@ const IconClose = (): JSX.Element => {
 };
 
 export default IconClose;
-
