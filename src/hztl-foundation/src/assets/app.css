@@ -49,7 +49,7 @@
 }
 
 .chevron-transform {
-  @layer transition-transform duration-100;
+  @apply transition-transform duration-100;
 }
 
 a {
@@ -95,6 +95,19 @@ p > span {
   border: 1px solid gray !important;
 }
 
+/* Sitecore search */
+.search-wrapper > div:first-of-type {
+  @apply !z-10 md:!px-5 px-0
+}
+.bvfPE{
+  @apply !h-auto 
+}
+.fLNHNB{
+  @apply !flex !flex-col !gap-xs !py-xs !px-m !-mx-xs border-b  !bg-white
+}
+.fquAsK{
+  @apply !w-auto;
+}
 #footer {
   display: flex;
   justify-content: space-between;

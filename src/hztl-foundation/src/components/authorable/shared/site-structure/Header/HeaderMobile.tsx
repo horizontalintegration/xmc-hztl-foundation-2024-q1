@@ -1,53 +1,79 @@
 /* eslint-disable prettier/prettier */
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { HeaderPropsComponent, MegaMenuCategoryInterface, NavigationItem } from './headerInterface';
 import { Link } from '@sitecore-jss/sitecore-jss-react';
 import { Logo } from './HeaderDesktop';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
-import SearchInput from 'helpers/Forms/SearchInput';
 import CountrySelector from 'helpers/Forms/CountrySelector';
+import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
+import useOutsideClick from 'src/hooks/useClickOutside';
 
 const HeaderMobile = (props: HeaderPropsComponent) => {
-  const { fields, dropdownOpen, setDropdownOpen, selectedCountry, setSelectedCountry } = props;
+  const { fields, selectedCountry, setSelectedCountry } = props;
+  const [dropdownOpen, setDropdownOpen] = useState<null | number>(null);
+  const [showSearch, setShowSearch] = useState(false);
   const { logo, logoLink, navigationList } = fields;
-
   const [openMenu, setOpenMenu] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const isDropdownOpen = dropdownOpen !== null || showSearch || openMenu;
+  const handleClickOutside = () => {
+    handleDropdownToggle(null);
+    setShowSearch(false);
+    setOpenMenu(false);
+  };
+  useOutsideClick(headerRef, isDropdownOpen, handleClickOutside);
+  const handleDropdownToggle = (index: number | null) => {
+    setDropdownOpen(dropdownOpen === index ? null : index);
+  };
   const toggleHamburger = () => {
     setOpenMenu(!openMenu);
   };
-  return (
-    <div className="block md:hidden border-b border-black fixed top-0 w-full bg-inherit z-[8]">
-      <div className="h-xs w-full bg-grayscale-w-600"></div>
-      <div className="flex justify-between p-s">
-        <Logo logo={logo.value} logoLink={logoLink} />
-        <div className="flex items-center gap-4">
-          <CountrySelector
-            selectedCountry={selectedCountry}
-            setSelectedCountry={setSelectedCountry}
-          />
-          <BurgurIcon toggleHamburger={toggleHamburger} />
-        </div>
-      </div>
 
-      {openMenu && (
-        <div className="absolute bg-white w-full border-b border-black mt-px">
-          <div className="p-xxs">
-            <SearchInput placeholder={fields?.searchPlaceholder?.value} />
-          </div>
-          <nav className="flex flex-col gap-xxxs">
-            {navigationList &&
-              navigationList.map((item, index) => (
-                <NavItem
-                  key={index}
-                  index={index}
-                  {...item}
-                  onClick={() => setDropdownOpen(index)}
-                  dropdownOpen={dropdownOpen}
-                />
-              ))}
-          </nav>
-        </div>
+  return (
+    <div className="block md:hidden">
+      {isDropdownOpen && (
+        <div className="shadow-md before:fixed before:left-[0] before:top-[0] before:z-[9] before:h-full before:w-full before:bg-black/[0.5] before:backdrop-blur-sm"></div>
       )}
+      <div
+        className="fixed top-0 w-full bg-inherit z-50 border-b border-black bg-white"
+        ref={headerRef}
+      >
+        <div className="h-xs w-full bg-grayscale-w-600"></div>
+        <div className="flex justify-between p-s">
+          <Logo logo={logo.value} logoLink={logoLink} />
+          <div className="flex items-center gap-4">
+            <CountrySelector
+              selectedCountry={selectedCountry}
+              setSelectedCountry={setSelectedCountry}
+            />
+            <BurgurIcon toggleHamburger={toggleHamburger} openMenu={openMenu} />
+          </div>
+        </div>
+
+        {openMenu && (
+          <div className="absolute bg-white w-full border-b border-black mt-px">
+            <div className="p-xxs bg-white search-wrapper">
+              <PreviewSearchBasicWidget
+                rfkId={'rfkid_101'}
+                defaultValue=""
+                defaultItemsPerPage={5}
+              />
+            </div>
+            <nav className="flex flex-col gap-xxxs">
+              {navigationList &&
+                navigationList.map((item, index) => (
+                  <NavItem
+                    key={index}
+                    index={index}
+                    {...item}
+                    onClick={() => handleDropdownToggle(index)}
+                    dropdownOpen={dropdownOpen}
+                  />
+                ))}
+            </nav>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
@@ -115,23 +141,28 @@ export const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInter
   );
 };
 
-const BurgurIcon = ({ toggleHamburger }: { toggleHamburger: () => void }) => {
+const BurgurIcon = ({
+  toggleHamburger,
+  openMenu,
+}: {
+  toggleHamburger: () => void;
+  openMenu: boolean;
+}) => {
   return (
     <li className="toggle-menu relative mt-0 flex w-s items-center justify-center">
       <input
-        className="checkbox absolute right-[0px] z-[2] block h-m w-m opacity-0 cursor-pointer"
+        className="checkbox absolute right-[0px] z-[2] block h-m w-[17px] opacity-0 cursor-pointer"
         type="checkbox"
+        checked={openMenu}
         onClick={() => toggleHamburger()}
       />
-      <div className="hamburger-lines absolute right-0 z-[1] flex h-xs w-s flex-col justify-between">
+      <div className="hamburger-lines absolute right-0 z-[1] flex h-xs w-[17px] flex-col justify-between">
         <span
-          className={`line line1 block h-0.5 w-full origin-[1px_1.5px]  duration-300 ease-in-out text-black`}
+          className={`line line1 block h-0.5 w-full origin-[1px_1.5px]  duration-300 ease-in-out `}
         ></span>
+        <span className={`line line2 block h-0.5 w-full  duration-100 ease-in-out `}></span>
         <span
-          className={`line line2 block h-0.5 w-full  duration-100 ease-in-out text-black`}
-        ></span>
-        <span
-          className={`line line3 block h-0.5 w-full origin-[2px_1px]  duration-300 ease-in-out text-black`}
+          className={`line line3 block h-0.5 w-full origin-[2px_1px]  duration-300 ease-in-out `}
         ></span>
       </div>
     </li>
