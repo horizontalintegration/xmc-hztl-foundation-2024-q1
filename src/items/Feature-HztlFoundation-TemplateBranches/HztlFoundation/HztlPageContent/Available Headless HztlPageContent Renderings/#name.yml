@@ -17,6 +17,7 @@ SharedFields:
     {E0F9706B-ED5D-4ACE-BE4D-4ED5CBE969A4}
     {286D51EF-1A33-4920-9009-569A66A27629}
     {F32A895A-7441-46EB-9E05-B82C86115CE0}
+    {51E59991-8711-4229-AA31-1E24AF4C9045}
 Languages:
 - Language: en
   Versions:
@@ -31,11 +32,11 @@ Languages:
         sitecore\admin
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "166d2f65-b040-4636-a090-0c2ccc8508f3"
+      Value: "67d28ceb-4a5a-4304-847e-f5f1a8bc416b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\asavalagi@horizontal.com
+        sitecore\dkakade@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240626T101217Z
+      Value: 20240627T111408Z
