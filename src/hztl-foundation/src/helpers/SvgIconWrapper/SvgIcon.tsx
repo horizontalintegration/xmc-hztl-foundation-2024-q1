@@ -20,7 +20,8 @@ export type IconTypes =
   | 'play'
   | 'download'
   | 'chevron-down'
-  | 'outline-search';
+  | 'outline-search'
+  | 'close';
 
 export interface SvgIconProps {
   className?: string;
