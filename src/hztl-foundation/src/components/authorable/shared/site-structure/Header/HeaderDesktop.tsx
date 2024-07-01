@@ -46,7 +46,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
 
   return (
     <div className="hidden md:block">
-      {(dropdownOpen || showSearch) && (
+      {isDropdownOpen && (
         <div className="shadow-md before:fixed before:left-[0] before:top-[0] before:z-[9] before:h-full before:w-full before:bg-black/[0.5] before:backdrop-blur-sm"></div>
       )}
       <div className="fixed top-0 w-full bg-white z-50" ref={headerRef}>

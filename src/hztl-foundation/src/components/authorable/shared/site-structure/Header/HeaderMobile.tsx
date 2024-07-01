@@ -31,7 +31,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
 
   return (
     <div className="block md:hidden">
-      {(dropdownOpen || showSearch || openMenu) && (
+      {isDropdownOpen && (
         <div className="shadow-md before:fixed before:left-[0] before:top-[0] before:z-[9] before:h-full before:w-full before:bg-black/[0.5] before:backdrop-blur-sm"></div>
       )}
       <div
