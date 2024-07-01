@@ -6,6 +6,7 @@ import { WidgetDataType, usePreviewSearch, widget } from '@sitecore-search/react
 import { Presence, PreviewSearch } from '@sitecore-search/ui';
 
 import { ArticleCardStyled, LoaderAnimation, LoaderContainer, PreviewSearchStyled } from './styled';
+import { SvgIcon } from 'helpers/SvgIconWrapper';
 
 type ArticleModel = {
   id: string;
@@ -86,17 +87,23 @@ export const PreviewSearchBasicComponent = ({
       >
         <div className="relative w-full">
           <PreviewSearchStyled.Input
-            className="w-full px-4 py-1 border border-black rounded-sm focus:outline-none focus:border-blue-500 max-w-2xl"
+            className="!w-full !pl-xs pr-s  py-1 border border-black rounded-sm focus:outline-none focus:border-blue-500"
             onChange={keyphraseHandler}
             autoComplete="off"
             placeholder="Type to search..."
             defaultValue={defaultValue ?? '*'}
           />
+          <div
+            // type="submit"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+          >
+            <SvgIcon icon="outline-search" className="w-s h-s" />
+          </div>
         </div>
       </PreviewSearchStyled.Form>
       <PreviewSearchStyled.Content ref={widgetRef}>
         <Presence present={loading}>
-          <LoaderContainer>
+          <LoaderContainer className="mt-3">
             <LoaderAnimation
               aria-busy={loading}
               aria-hidden={!loading}
@@ -125,24 +132,31 @@ export const PreviewSearchBasicComponent = ({
                     </LoaderAnimation>
                   </LoaderContainer>
                 </Presence>
-                {!loading &&
+
+                {!loading && articles.length > 0 ? (
                   articles.map((article, index) => (
-                    <PreviewSearchStyled.Item key={article.id} asChild>
-                      <PreviewSearchStyled.Link
-                        href={article.url}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          // onItemClick is for tracking purposes.
-                          onItemClick({ id: article.id, index, sourceId: article.source_id });
-                          itemRedirectionHandler && itemRedirectionHandler(article);
-                        }}
-                      >
-                        <ArticleCardStyled.Root>
-                          <ArticleCardStyled.Name>{article.name}</ArticleCardStyled.Name>
-                        </ArticleCardStyled.Root>
-                      </PreviewSearchStyled.Link>
-                    </PreviewSearchStyled.Item>
-                  ))}
+                    <div key={article.id} className="flex">
+                      <PreviewSearchStyled.Item asChild>
+                        <PreviewSearchStyled.Link
+                          href={article.url}
+                          onClick={() => {
+                            // onItemClick is for tracking purposes.
+                            onItemClick({ id: article.id, index, sourceId: article.source_id });
+                            itemRedirectionHandler && itemRedirectionHandler(article);
+                          }}
+                        >
+                          <ArticleCardStyled.Root>
+                            <ArticleCardStyled.Name>{article.name}</ArticleCardStyled.Name>
+                          </ArticleCardStyled.Root>
+                        </PreviewSearchStyled.Link>
+                      </PreviewSearchStyled.Item>
+                    </div>
+                  ))
+                ) : (
+                  <ArticleCardStyled.Root>
+                    <ArticleCardStyled.Name>No Result Found</ArticleCardStyled.Name>
+                  </ArticleCardStyled.Root>
+                )}
               </PreviewSearchStyled.Items>
             )}
           </PreviewSearch.Results>
