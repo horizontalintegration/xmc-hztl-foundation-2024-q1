@@ -54,13 +54,13 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
           <div className="h-m w-full bg-grayscale-w-600"></div>
           <div
             className={`md:max-w-screen-xl xl:mx-auto px-s transition-all duration-200 ${
-              isScrolled ? 'py-0' : 'py-s'
+              isScrolled ? 'py-0' : 'py-xxs'
             }`}
           >
             <div className="flex justify-between items-center">
               <div className="flex items-center flex-shrink-0">
                 <Logo logo={logo.value} logoLink={logoLink} />
-                <ul className="flex px-s lg:px-xs lg:gap-m gap-xs items-center">
+                <ul className="flex items-center">
                   {navigationList.map((item, index) => (
                     <NavItem
                       key={index}
@@ -135,7 +135,7 @@ interface NavItemInterface extends NavigationItem {
 const NavItem = (props: NavItemInterface) => {
   const isList = props.fields.megaMenuList.length > 0;
   return (
-    <li className="list-none" onClick={props.open}>
+    <li className="list-none ml-xs" onClick={() => isList && props.open()}>
       <div
         className={`hover:bg-grayscale-w-200 group rounded-md cursor-pointer text-center px-xxs lg:px-s lg:py-xxs py-xxxs ${
           isList && props.index === props.dropdownOpen && 'bg-grayscale-w-200'
@@ -144,18 +144,20 @@ const NavItem = (props: NavItemInterface) => {
         {!isList ? (
           <Link
             field={props.fields.navigationLink}
-            className="text-black text-s lg:text-m font-semibold group-hover:underline"
+            className="text-black text-xs lg:text-s font-semibold group-hover:underline"
           >
             {props.displayName}
           </Link>
         ) : (
-          <button className="text-black text-s lg:text-m font-semibold cursor-pointer group-hover:underline flex items-center flex-row gap-xs">
-            {props.displayName}
-            {isList && props.index === props.dropdownOpen ? (
-              <SvgIcon className="-rotate-90 stroke-black w-s h-auto" icon={'arrow-right'} />
-            ) : (
-              <SvgIcon className="rotate-90 stroke-black w-s h-auto" icon={'arrow-right'} />
-            )}
+          <button className="text-black text-xs lg:text-s font-semibold cursor-pointer group-hover:underline ">
+            <div className="flex items-center flex-row gap-xs">
+              {props.displayName}
+              {isList && props.index === props.dropdownOpen ? (
+                <SvgIcon className="-rotate-90 stroke-black w-s h-auto" icon={'arrow-right'} />
+              ) : (
+                <SvgIcon className="rotate-90 stroke-black w-s h-auto" icon={'arrow-right'} />
+              )}
+            </div>
           </button>
         )}
       </div>
@@ -176,7 +178,7 @@ const DropdownMenu = ({
   return (
     <div
       className={`absolute transition-all duration-200 left-[0px] w-full z-[9] overflow-hidden border-b border-black ${
-        isScrolled ? 'mt-[21px]' : 'mt-[37px]'
+        isScrolled ? 'mt-[21px]' : 'mt-[29px]'
       } cursor-default`}
     >
       <div className="bg-grayscale-w-200">
