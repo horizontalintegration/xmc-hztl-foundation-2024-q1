@@ -14,9 +14,9 @@ import { ComponentProps } from '../lib/component-props';
 // @ts-ignore 
 import { HztlPageContent as FeatureHztlFoundationHztlPageContent } from "./Feature.HztlFoundation.model"
 // @ts-ignore 
-import { GlobalData as FeatureHztlFoundationGlobalData } from "./Feature.HztlFoundation.model"
-// @ts-ignore 
 import { SiteStructure as FeatureHztlFoundationSiteStructure } from "./Feature.HztlFoundation.model"
+// @ts-ignore 
+import { GlobalData as FeatureHztlFoundationGlobalData } from "./Feature.HztlFoundation.model"
 // @ts-ignore 
 import { Data as FoundationHztlFoundationData } from "./Foundation.HztlFoundation.model"
 // @ts-ignore 
@@ -482,6 +482,60 @@ export namespace HztlPageContent {
 
     }
 }
+export namespace SiteStructure {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Country
+    */
+    export type Country =  {
+        fields?: { 
+            /**
+            * Represents the External Link field (ee755587-05b7-4030-b77d-43773b88c2e0).
+            */
+            "External Link"?: LinkField;
+
+            /**
+            * Represents the Language field (20c793bb-17e1-4802-acae-aedb7a2270e3).
+            */
+            Language?: Item;
+
+            /**
+            * Represents the Name field (327bba46-c458-4f87-bd89-8b6e3d35c1ba).
+            */
+            Name?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Country
+    */
+    export type CountryJson =  {
+        
+            /**
+            * Represents the External Link field (ee755587-05b7-4030-b77d-43773b88c2e0).
+            */
+            "External Link"?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the Language field (20c793bb-17e1-4802-acae-aedb7a2270e3).
+            */
+            Language?: {
+                jsonValue: Item
+            };
+
+            /**
+            * Represents the Name field (327bba46-c458-4f87-bd89-8b6e3d35c1ba).
+            */
+            Name?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
+}
 export namespace GlobalData {
 
     /**
@@ -521,6 +575,24 @@ export namespace GlobalData {
                 jsonValue: Field<string>
             };
 
+
+    }
+}
+export namespace SiteStructure {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Country Folder
+    */
+    export type CountryFolder =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Country Folder
+    */
+    export type CountryFolderJson =  {
+        
 
     }
 }
@@ -1048,6 +1120,52 @@ export namespace HztlPageContent {
     * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Hero Folder
     */
     export type HeroFolderJson =  {
+        
+
+    }
+}
+export namespace SiteStructure {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/LanguageSwitcher
+    */
+    export type LanguageSwitcher =  {
+        fields?: { 
+            /**
+            * Represents the Select Country field (7c6b448d-7b02-465d-8fa5-32a1471dc7c6).
+            */
+            SelectCountry?: Item[];
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/SiteStructure/LanguageSwitcher
+    */
+    export type LanguageSwitcherJson =  {
+        
+            /**
+            * Represents the Select Country field (7c6b448d-7b02-465d-8fa5-32a1471dc7c6).
+            */
+            SelectCountry?: {
+                jsonValue: Item[]
+            };
+
+
+    }
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/LanguageSwitcher Folder
+    */
+    export type LanguageSwitcherFolder =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/SiteStructure/LanguageSwitcher Folder
+    */
+    export type LanguageSwitcherFolderJson =  {
         
 
     }
@@ -1716,10 +1834,28 @@ export namespace HztlPageContent.Constants {
         ]
     }
 }
+export namespace SiteStructure.Constants {
+
+    export const Country = {
+        TemplateId: "3a41b186-2dd6-4b7e-a3fb-12ea2d751259",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
 export namespace GlobalData.Constants {
 
     export const Country = {
         TemplateId: "628b007c-334f-40f6-a849-aaa4b566fb74",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace SiteStructure.Constants {
+
+    export const CountryFolder = {
+        TemplateId: "2b7654d4-a80b-4bd9-9fc4-aebaa4955f03",
     
         BaseTemplateIds: [
         ]
@@ -1809,6 +1945,21 @@ export namespace HztlPageContent.Constants {
 
     export const HeroFolder = {
         TemplateId: "fcd9b72d-9922-426f-a0de-9546d030279d",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace SiteStructure.Constants {
+
+    export const LanguageSwitcher = {
+        TemplateId: "b9de3ccf-bd7a-4254-9924-cefdd85bbd58",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const LanguageSwitcherFolder = {
+        TemplateId: "c15c26ea-03c2-412c-b4c8-311f65c95373",
     
         BaseTemplateIds: [
         ]
