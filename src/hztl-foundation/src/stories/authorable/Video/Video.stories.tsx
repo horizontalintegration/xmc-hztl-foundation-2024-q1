@@ -3,17 +3,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 // Lib
 import { expandObj, flattenObj } from 'lib/object-parser';
-import '../../page.css';
 
 // Local
-import {
-  Default,
-  AccordionProps,
-} from '../../../components/authorable/shared/hztl-page-content/Accordion';
-import defaultData from './Accordion.mock-data';
+import { Default, VideoProps } from '../../../components/authorable/shared/hztl-page-content/Video';
+import defaultData from './Video.mock-data';
 
 const meta: Meta<typeof Default> = {
-  title: 'Authorable/General/Accordion',
+  title: 'Authorable/General/Video',
   component: Default,
   argTypes: {},
 };
@@ -22,9 +18,9 @@ export default meta;
 
 type Story = StoryObj<typeof Default>;
 
-export const Accordion: Story = {
+export const Video: Story = {
   render: (args) => {
-    return <Default {...(expandObj({ ...args }) as AccordionProps)} />;
+    return <Default {...(expandObj({ ...args }) as VideoProps)} />;
   },
   args: {
     ...flattenObj(defaultData),

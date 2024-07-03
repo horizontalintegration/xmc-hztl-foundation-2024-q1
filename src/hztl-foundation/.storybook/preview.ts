@@ -11,6 +11,18 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    tags: ['autodocs'],
+    html: {
+      prettier: {
+        tabWidth: 2,
+        useTabs: false,
+        htmlWhitespaceSensitivity: 'ignore',
+      },
+      highlighter: {
+        showLineNumbers: true,
+        wrapLines: false,
+      },
+    },
   },
 };
 

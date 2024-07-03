@@ -79,8 +79,4 @@ export type HeaderProps = ComponentProps & {
   };
 } & SiteStructure.Header.Header;
 
-export type HeaderPropsComponent = HeaderProps &
-  CountrySelectorInterface & {
-    dropdownOpen: number | null;
-    setDropdownOpen: (value: number | null) => void;
-  };
+export type HeaderPropsComponent = HeaderProps & CountrySelectorInterface;
