@@ -11,7 +11,7 @@ SharedFields:
 - ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
   Hint: __Thumbnail
   Value: |
-    <image mediaid="{C3A56145-B2BF-4543-8190-C666914CB576}" />
+    <image mediaid="{82AC0A9A-DA6B-4870-9DFA-95096597C1F7}" />
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
@@ -29,12 +29,19 @@ SharedFields:
           s:ccb="Clear on publish" />
         <r
           uid="{BB574494-0CC2-41AE-9330-82CA020A2AC3}"
-          p:after="*[1=2]"
+          p:after="r[@uid='{BAD3FEF1-63E2-4EB2-A873-5933B7383D88}']"
           s:ds=""
           s:id="{1DEB067F-0BB1-405E-94F5-2ABB537A6160}"
           s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames=%7BD183F6A5-3EDC-4742-B00F-390896BE93AC%7D&amp;Styles=%7BBC5AFAFA-EC2E-4E18-B0D3-390B8964A265%7D%7C%7B835E5CC1-3C94-400C-9837-4AD8F7D34FE5%7D&amp;NavigationRoot=%7BE9ABAFA1-377C-4577-A419-9A3A8044D435%7D&amp;LevelFrom=%7B1BB88840-5FB3-4353-AD8D-81136F6FF75A%7D&amp;LevelTo=%7B1BB88840-5FB3-4353-AD8D-81136F6FF75A%7D&amp;Filter&amp;Flattened&amp;AddRoot=1&amp;SerializerFieldNames&amp;RenderingIdentifier&amp;CSSStyles"
           s:ph="headless-header"
           s:ccb="Clear on publish" />
+        <r
+          uid="{00B936CB-9922-41A6-92A0-0E385BB62022}"
+          p:after="*[1=2]"
+          s:ds="local:/Data/Lang"
+          s:id="{E027C0BC-3772-4238-9414-456E8C53C37D}"
+          s:par="CSSStyles"
+          s:ph="headless-header" />
       </d>
     </r>
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
@@ -58,11 +65,11 @@ Languages:
         sitecore\dly@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "814251ef-b5a2-41af-a850-74f5a74450e2"
+      Value: "565b9ce1-e4d4-4532-960b-fdb5d0f5f57e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\mchaniyara@horizontal.com
+        sitecore\dkakade@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240612T074547Z
+      Value: 20240703T091936Z
