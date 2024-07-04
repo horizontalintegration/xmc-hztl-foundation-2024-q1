@@ -4,7 +4,6 @@ import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql'
 import { BreadcrumbDataType } from './Breadcrumb.types';
 import config from 'temp/config';
 import BreadcrumbQuery from './Breadcrumb.graphql';
-import { edit } from '@sitecore-jss/sitecore-jss';
 
 // Helper
 import { SvgIcon } from 'helpers/SvgIconWrapper';
