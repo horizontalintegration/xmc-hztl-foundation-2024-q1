@@ -4,6 +4,7 @@ import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql'
 import { BreadcrumbDataType } from './Breadcrumb.types';
 import config from 'temp/config';
 import BreadcrumbQuery from './Breadcrumb.graphql';
+import { edit } from '@sitecore-jss/sitecore-jss';
 
 // Helper
 import { SvgIcon } from 'helpers/SvgIconWrapper';
@@ -86,13 +87,20 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
   const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
     apiKey: config.sitecoreApiKey,
   });
-  const result = await graphQLClient.request<unknown>(BreadcrumbQuery, {
-    datasource: rendering.dataSource,
-    params: rendering.params,
-    language: layoutData?.sitecore?.context?.language,
-    itemID: layoutData?.sitecore?.route?.itemId,
-  });
-  return {
-    staticProps: result,
-  };
+
+  if (
+    layoutData?.sitecore?.context?.pageState == 'normal' ||
+    layoutData?.sitecore?.context?.pageState == 'preview'
+  ) {
+    const result = await graphQLClient.request<unknown>(BreadcrumbQuery, {
+      datasource: rendering.dataSource,
+      params: rendering.params,
+      language: layoutData?.sitecore?.context?.language,
+      itemID: layoutData?.sitecore?.route?.itemId,
+    });
+    return {
+      staticProps: result,
+    };
+  }
+  return 'Component is not available in Experience Editor';
 };
