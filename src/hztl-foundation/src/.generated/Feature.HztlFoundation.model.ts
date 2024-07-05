@@ -490,9 +490,19 @@ export namespace GlobalData {
     export type Country =  {
         fields?: { 
             /**
+            * Represents the External Link field (601e2dfe-f313-4952-8654-b6b98f8695a6).
+            */
+            externalLink?: LinkField;
+
+            /**
             * Represents the Flag field (6ad8e19e-4264-41b9-80b1-e2b0b0a3f64a).
             */
             flag?: ImageField;
+
+            /**
+            * Represents the Language field (69f06655-321b-4926-ad73-304f2e52e2f5).
+            */
+            language?: Item;
 
             /**
             * Represents the Name field (a17a2b7a-f531-4b23-a829-9c283763ac9a).
@@ -508,10 +518,24 @@ export namespace GlobalData {
     export type CountryJson =  {
         
             /**
+            * Represents the External Link field (601e2dfe-f313-4952-8654-b6b98f8695a6).
+            */
+            externalLink?: {
+                jsonValue: LinkField
+            };
+
+            /**
             * Represents the Flag field (6ad8e19e-4264-41b9-80b1-e2b0b0a3f64a).
             */
             flag?: {
                 jsonValue: ImageField
+            };
+
+            /**
+            * Represents the Language field (69f06655-321b-4926-ad73-304f2e52e2f5).
+            */
+            language?: {
+                jsonValue: Item
             };
 
             /**
@@ -1508,6 +1532,11 @@ export namespace HztlPageContent {
     export type Video =  {
         fields?: { 
             /**
+            * Represents the Parameters field (cc9ff798-2632-4dd7-8232-d0ed4eec610a).
+            */
+            Parameters?: Field<string>;
+
+            /**
             * Represents the Select Video File field (b8501628-ca79-4ece-a335-96b9737bb2d0).
             */
             SelectFile?: FileField;
@@ -1530,6 +1559,13 @@ export namespace HztlPageContent {
     */
     export type VideoJson =  {
         
+            /**
+            * Represents the Parameters field (cc9ff798-2632-4dd7-8232-d0ed4eec610a).
+            */
+            Parameters?: {
+                jsonValue: Field<string>
+            };
+
             /**
             * Represents the Select Video File field (b8501628-ca79-4ece-a335-96b9737bb2d0).
             */

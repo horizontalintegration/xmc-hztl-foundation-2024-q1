@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // Global
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -9,7 +10,7 @@ import '../../page.css';
 import {
   Default,
   AccordionProps,
-} from '../../../components/authorable/shared/hztl-page-content/Accordion';
+} from 'components/authorable/shared/hztl-page-content/AccordionItem';
 import defaultData from './Accordion.mock-data';
 
 const meta: Meta<typeof Default> = {
@@ -30,3 +31,4 @@ export const Accordion: Story = {
     ...flattenObj(defaultData),
   },
 };
+
