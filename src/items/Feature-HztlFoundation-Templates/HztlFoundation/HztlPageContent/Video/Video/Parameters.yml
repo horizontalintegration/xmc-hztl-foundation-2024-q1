@@ -1,18 +1,15 @@
 ﻿---
-ID: "20c793bb-17e1-4802-acae-aedb7a2270e3"
-Parent: "4baca0db-7550-4ddd-92be-6122e78737c0"
+ID: "cc9ff798-2632-4dd7-8232-d0ed4eec610a"
+Parent: "6d686b0e-3cb3-4bc4-8622-2bcb2f11e829"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/HztlFoundation/SiteStructure/Country/Country Detail/Language
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Video/Video/Parameters
 SharedFields:
-- ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
-  Hint: Source
-  Value: /sitecore/system/Languages
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: Droplink
+  Value: Name Value List
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 200
+  Value: 900
 Languages:
 - Language: en
   Versions:
@@ -20,7 +17,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20240703T071957Z
+      Value: 20240704T122903Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -31,11 +28,11 @@ Languages:
         sitecore\dkakade@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "595ff854-e59f-4a70-b748-25eea1d1b5a1"
+      Value: "8e0a7cc4-2968-48b0-beac-bd181cd3cea8"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\dkakade@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240703T075241Z
+      Value: 20240704T122903Z
