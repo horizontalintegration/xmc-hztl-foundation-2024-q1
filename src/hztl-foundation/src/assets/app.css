@@ -97,13 +97,13 @@ p > span {
 
 /* Sitecore search */
 .search-wrapper > div:first-of-type {
-  @apply !z-10 md:!px-5 px-0
+  @apply !z-10 md:!px-5 !px-0
 }
 .bvfPE{
   @apply !h-auto 
 }
 .fLNHNB{
-  @apply !flex !flex-col !gap-xs !py-xs !px-m !-mx-xs border-b  !bg-white
+  @apply !flex !flex-col !gap-xs !py-xs !px-m !-mx-xs !border-b  !bg-white
 }
 .fquAsK{
   @apply !w-auto;
