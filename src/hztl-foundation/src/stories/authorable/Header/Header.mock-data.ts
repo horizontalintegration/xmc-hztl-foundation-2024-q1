@@ -21,21 +21,176 @@ export const defaultData: HeaderProps = {
     },
     country: [
       {
-        id: '4dd3a8f6-62eb-448d-8e2a-76de2f533776',
-        url: 'http://localhost/HztlFoundation/Global/Countries/US',
-        name: 'US',
-        displayName: 'US',
+        id: '67b567a2-8c3d-4669-88be-ae6b46164601',
+        url: '/Data/Countries/Canada',
+        name: 'Canada',
+        displayName: 'Canada',
         fields: {
-          flag: {
+          Name: {
+            value: 'Canada',
+          },
+          'External Link': {
             value: {
-              src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/shared/Countries/flag_us.png?h=30&iar=0&w=40',
-              alt: 'us',
-              width: '40',
-              height: '30',
+              href: 'https://www.sitecore.com/fr-ca',
+              linktype: 'external',
+              url: 'https://www.sitecore.com/fr-ca',
+              anchor: '',
+              target: '_blank',
             },
           },
-          name: {
-            value: 'United States (English)',
+          Language: {
+            id: '3dcac570-acbe-44d4-9078-056bd68a8525',
+            url: 'http://localhost/sitecore/login/sitecore/system/Languages/fr-CA',
+            name: 'fr-CA',
+            displayName: 'fr-CA',
+            fields: {
+              'Base Culture': {
+                value: '',
+              },
+              'Fallback Region Display Name': {
+                value: '',
+              },
+              Charset: {
+                value: 'iso-8859-1',
+              },
+              'Code page': {
+                value: '65001',
+              },
+              Dictionary: {
+                value: '',
+              },
+              Encoding: {
+                value: 'utf-8',
+              },
+              'Fallback Language': {
+                value: '',
+              },
+              Iso: {
+                value: 'fr',
+              },
+              'Regional Iso Code': {
+                value: 'fr-CA',
+              },
+              'WorldLingo Language Identifier': {
+                value: '',
+              },
+            },
+          },
+        },
+      },
+      {
+        id: '0e7359d7-5f27-41cb-8372-8caf31f6a52e',
+        url: '/Data/Countries/Mexico',
+        name: 'Mexico',
+        displayName: 'Mexico',
+        fields: {
+          Name: {
+            value: 'Mexico',
+          },
+          'External Link': {
+            value: {
+              href: 'https://www.sitecore.com/es-MX',
+              linktype: 'external',
+              url: 'https://www.sitecore.com/es-MX',
+              anchor: '',
+              target: '_blank',
+            },
+          },
+          Language: {
+            id: 'd32d7385-bae5-4edb-8597-dd02ca8cab11',
+            url: 'http://localhost/sitecore/login/sitecore/system/Languages/es-MX',
+            name: 'es-MX',
+            displayName: 'es-MX',
+            fields: {
+              'Base Culture': {
+                value: '',
+              },
+              'Fallback Region Display Name': {
+                value: '',
+              },
+              Charset: {
+                value: 'iso-8859-1',
+              },
+              'Code page': {
+                value: '65001',
+              },
+              Dictionary: {
+                value: '',
+              },
+              Encoding: {
+                value: 'utf-8',
+              },
+              'Fallback Language': {
+                value: '',
+              },
+              Iso: {
+                value: 'es',
+              },
+              'Regional Iso Code': {
+                value: 'es-MX',
+              },
+              'WorldLingo Language Identifier': {
+                value: '',
+              },
+            },
+          },
+        },
+      },
+      {
+        id: '4e5cabf6-7492-4d14-b293-d2dec2cfa6e5',
+        url: '/Data/Countries/United-States',
+        name: 'United States',
+        displayName: 'United States',
+        fields: {
+          Name: {
+            value: 'United States',
+          },
+          'External Link': {
+            value: {
+              href: 'https://www.sitecore.com/',
+              linktype: 'external',
+              url: 'https://www.sitecore.com/',
+              anchor: '',
+              target: '_blank',
+            },
+          },
+          Language: {
+            id: 'af584191-45c9-4201-8740-5409f4cf8bdd',
+            url: 'http://localhost/sitecore/login/sitecore/system/Languages/en',
+            name: 'en',
+            displayName: 'en',
+            fields: {
+              'Base Culture': {
+                value: '',
+              },
+              'Fallback Region Display Name': {
+                value: '',
+              },
+              Charset: {
+                value: '',
+              },
+              'Code page': {
+                value: '',
+              },
+              Dictionary: {
+                value: 'en-US.tdf',
+              },
+              Encoding: {
+                value: '',
+              },
+              'Fallback Language': {
+                value: '',
+              },
+              Iso: {
+                value: 'en',
+              },
+              'Regional Iso Code': {
+                value: '',
+              },
+              'WorldLingo Language Identifier': {
+                value: '',
+              },
+            },
           },
         },
       },
