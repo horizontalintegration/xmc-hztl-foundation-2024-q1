@@ -5,12 +5,11 @@ import React from 'react';
 const CountrySelector = ({
   selectedCountry,
   setSelectedCountry,
-  countryData,
-}: CountrySelectorInterface) => {
+}: // countryData,
+CountrySelectorInterface) => {
   const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCountry(event.target.value);
   };
-  console.log(countryData);
 
   return (
     <div className="relative inline-block text-left">
