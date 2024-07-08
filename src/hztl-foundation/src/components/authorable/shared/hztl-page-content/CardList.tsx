@@ -13,7 +13,7 @@ export const Default = (props: CardListProps): JSX.Element => {
     <div className={`row component column-splitter`} id={id ? id : undefined}>
       <div>
         <div className="row">
-          <Placeholder name={phKey} rendering={props.rendering} />
+          <Placeholder name={phKey} rendering={props.rendering} cardsPerRow={cardsPerRow} />
         </div>
       </div>
     </div>
