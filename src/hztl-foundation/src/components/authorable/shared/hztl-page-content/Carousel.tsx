@@ -12,7 +12,7 @@ import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 
-export type CarouselProps = ComponentProps & HztlPageContent.Carousel;
+export type CarouselProps = ComponentProps & HztlPageContent.CarouselOld;
 export type CarouselItem = ItemEx & HztlPageContent.CarouselItem;
 
 const CarouselDefaultComponent = (props: CarouselProps): JSX.Element => {

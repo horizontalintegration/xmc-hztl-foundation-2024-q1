@@ -1,8 +1,8 @@
 ﻿---
-ID: "dc91594d-e136-4a35-89bf-ee06367e09b6"
-Parent: "e934c35a-965e-4e8a-9555-e846a910368b"
-Template: "e934c35a-965e-4e8a-9555-e846a910368b"
-Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Carousel/__Standard Values
+ID: "19868e6c-6819-4554-b9cc-562109ad3379"
+Parent: "5baa29c3-0bb9-4b9a-b28d-cd680cda1fa0"
+Template: "347730f0-15bd-4c30-a39d-9d7e42f1601e"
+Path: /sitecore/content/HztlFoundation/SiteAlpha/Data/CarouselItem
 Languages:
 - Language: en
   Versions:
@@ -10,18 +10,22 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20211012T120926Z
+      Value: 20240709T103807Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\vthakur@horizontal.com
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\JssImport
+        sitecore\vthakur@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "f95a94b1-6f79-4af0-bbe2-cb8e74a3e632"
+      Value: "521bd79a-c4e5-4f06-804d-e4d00274a85b"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240709T095446Z
+      Value: 20240709T103807Z

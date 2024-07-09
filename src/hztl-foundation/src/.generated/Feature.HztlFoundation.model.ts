@@ -319,97 +319,25 @@ export namespace HztlPageContent.RenderingParameters {
 export namespace HztlPageContent {
 
     /**
-    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Folder-Old
     */
-    export type Carousel =  {
-        fields?: { 
-            /**
-            * Represents the Text field (b73437dd-a7cb-40fe-9ffe-f0df3d680b49).
-            */
-            carouselList?: Item[];
-        }
-
-    }
-
-    /**
-    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel
-    */
-    export type CarouselJson =  {
-        
-            /**
-            * Represents the Text field (b73437dd-a7cb-40fe-9ffe-f0df3d680b49).
-            */
-            carouselList?: {
-                jsonValue: Item[]
-            };
-
-
-    }
-}
-export namespace HztlPageContent.RenderingParameters {
-
-    /**
-    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Carousel
-    */
-    export type Carousel =  {
-        fields?: { 
-            /**
-            * Represents the Disable Auto Loop field (4e9699dd-7b5d-440a-97a8-16013db8994b).
-            */
-            disableAutoLoop?: Field<boolean>;
-
-            /**
-            * Represents the Disable Auto Rotation field (83103cb9-0209-4b6c-8db2-bdff6c4ff80d).
-            */
-            disableAutoRotation?: Field<boolean>;
-        }
-
-    }
-
-    /**
-    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Carousel
-    */
-    export type CarouselJson =  {
-        
-            /**
-            * Represents the Disable Auto Loop field (4e9699dd-7b5d-440a-97a8-16013db8994b).
-            */
-            disableAutoLoop?: {
-                jsonValue: Field<boolean>
-            };
-
-            /**
-            * Represents the Disable Auto Rotation field (83103cb9-0209-4b6c-8db2-bdff6c4ff80d).
-            */
-            disableAutoRotation?: {
-                jsonValue: Field<boolean>
-            };
-
-
-    }
-}
-export namespace HztlPageContent {
-
-    /**
-    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Folder
-    */
-    export type CarouselFolder =  {
+    export type CarouselFolderOld =  {
         fields?: {         }
 
     }
 
     /**
-    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Folder
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Folder-Old
     */
-    export type CarouselFolderJson =  {
+    export type CarouselFolderOldJson =  {
         
 
     }
 
     /**
-    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Item
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Item-Old
     */
-    export type CarouselItem =  {
+    export type CarouselItemOld =  {
         fields?: { 
             /**
             * Represents the Description field (189b2fd9-3888-4053-adce-a294c0a76412).
@@ -440,9 +368,9 @@ export namespace HztlPageContent {
     }
 
     /**
-    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Item
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Item-Old
     */
-    export type CarouselItemJson =  {
+    export type CarouselItemOldJson =  {
         
             /**
             * Represents the Description field (189b2fd9-3888-4053-adce-a294c0a76412).
@@ -479,6 +407,190 @@ export namespace HztlPageContent {
                 jsonValue: Field<string>
             };
 
+
+    }
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel-Old
+    */
+    export type CarouselOld =  {
+        fields?: { 
+            /**
+            * Represents the Text field (b73437dd-a7cb-40fe-9ffe-f0df3d680b49).
+            */
+            carouselList?: Item[];
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel-Old
+    */
+    export type CarouselOldJson =  {
+        
+            /**
+            * Represents the Text field (b73437dd-a7cb-40fe-9ffe-f0df3d680b49).
+            */
+            carouselList?: {
+                jsonValue: Item[]
+            };
+
+
+    }
+}
+export namespace HztlPageContent.RenderingParameters {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Carousel-Old
+    */
+    export type CarouselOld =  {
+        fields?: { 
+            /**
+            * Represents the Disable Auto Loop field (40ccdc74-269d-4590-ba85-ec94aa13350c).
+            */
+            disableAutoLoop?: Field<boolean>;
+
+            /**
+            * Represents the Disable Auto Rotation field (c26a0d3b-072f-45de-b47f-9bf4a3d6abdb).
+            */
+            disableAutoRotation?: Field<boolean>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Carousel-Old
+    */
+    export type CarouselOldJson =  {
+        
+            /**
+            * Represents the Disable Auto Loop field (40ccdc74-269d-4590-ba85-ec94aa13350c).
+            */
+            disableAutoLoop?: {
+                jsonValue: Field<boolean>
+            };
+
+            /**
+            * Represents the Disable Auto Rotation field (c26a0d3b-072f-45de-b47f-9bf4a3d6abdb).
+            */
+            disableAutoRotation?: {
+                jsonValue: Field<boolean>
+            };
+
+
+    }
+}
+export namespace HztlPageContent {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CarouselItem
+    */
+    export type CarouselItem =  {
+        fields?: { 
+            /**
+            * Represents the Description field (b07416fc-a4ad-409c-aee0-ce9a3738ac25).
+            */
+            description?: Field<string>;
+
+            /**
+            * Represents the Image field (fe5c4981-4e9d-4d1c-8c33-969f4a24badb).
+            */
+            image?: ImageField;
+
+            /**
+            * Represents the Primary CTA field (298e7b0d-fa2f-40ec-8ccc-4d9a6da34ae9).
+            */
+            primaryCTA?: LinkField;
+
+            /**
+            * Represents the Secondary CTA field (94f16d95-4102-4898-b7c3-71e1652b00c6).
+            */
+            secondaryCTA?: LinkField;
+
+            /**
+            * Represents the Title field (6e6c78dc-d4fc-472f-b29f-75a0498b8632).
+            */
+            title?: Field<string>;
+        }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CarouselItem
+    */
+    export type CarouselItemJson =  {
+        
+            /**
+            * Represents the Description field (b07416fc-a4ad-409c-aee0-ce9a3738ac25).
+            */
+            description?: {
+                jsonValue: Field<string>
+            };
+
+            /**
+            * Represents the Image field (fe5c4981-4e9d-4d1c-8c33-969f4a24badb).
+            */
+            image?: {
+                jsonValue: ImageField
+            };
+
+            /**
+            * Represents the Primary CTA field (298e7b0d-fa2f-40ec-8ccc-4d9a6da34ae9).
+            */
+            primaryCTA?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the Secondary CTA field (94f16d95-4102-4898-b7c3-71e1652b00c6).
+            */
+            secondaryCTA?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the Title field (6e6c78dc-d4fc-472f-b29f-75a0498b8632).
+            */
+            title?: {
+                jsonValue: Field<string>
+            };
+
+
+    }
+}
+export namespace HztlPageContent.RenderingParameters {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/CarouselItem
+    */
+    export type CarouselItem =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/CarouselItem
+    */
+    export type CarouselItemJson =  {
+        
+
+    }
+}
+export namespace HztlPageContent {
+
+    /**
+    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CarouselItem Folder
+    */
+    export type CarouselItemFolder =  {
+        fields?: {         }
+
+    }
+
+    /**
+    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CarouselItem Folder
+    */
+    export type CarouselItemFolderJson =  {
+        
 
     }
 }
@@ -1532,9 +1644,14 @@ export namespace HztlPageContent {
     export type Video =  {
         fields?: { 
             /**
-            * Represents the Parameters field (cc9ff798-2632-4dd7-8232-d0ed4eec610a).
+            * Represents the Auto Play field (cc9ff798-2632-4dd7-8232-d0ed4eec610a).
             */
-            Parameters?: Field<string>;
+            AutoPlay?: Field<boolean>;
+
+            /**
+            * Represents the Loop field (78172cff-d1e4-4d25-b975-571720c4d851).
+            */
+            Loop?: Field<boolean>;
 
             /**
             * Represents the Select Video File field (b8501628-ca79-4ece-a335-96b9737bb2d0).
@@ -1560,10 +1677,17 @@ export namespace HztlPageContent {
     export type VideoJson =  {
         
             /**
-            * Represents the Parameters field (cc9ff798-2632-4dd7-8232-d0ed4eec610a).
+            * Represents the Auto Play field (cc9ff798-2632-4dd7-8232-d0ed4eec610a).
             */
-            Parameters?: {
-                jsonValue: Field<string>
+            AutoPlay?: {
+                jsonValue: Field<boolean>
+            };
+
+            /**
+            * Represents the Loop field (78172cff-d1e4-4d25-b975-571720c4d851).
+            */
+            Loop?: {
+                jsonValue: Field<boolean>
             };
 
             /**
@@ -1721,7 +1845,19 @@ export namespace HztlPageContent.RenderingParameters.Constants {
 }
 export namespace HztlPageContent.Constants {
 
-    export const Carousel = {
+    export const CarouselFolderOld = {
+        TemplateId: "0cd3b2a0-be95-41bd-85c8-d79110ce5dbf",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const CarouselItemOld = {
+        TemplateId: "7a137b26-5e9c-4cbb-8731-54b3b6593a4d",
+    
+        BaseTemplateIds: [
+        ]
+    }
+    export const CarouselOld = {
         TemplateId: "7d645e35-f14b-4ad7-872a-5c706b070cfd",
     
         BaseTemplateIds: [
@@ -1730,8 +1866,8 @@ export namespace HztlPageContent.Constants {
 }
 export namespace HztlPageContent.RenderingParameters.Constants {
 
-    export const Carousel = {
-        TemplateId: "f90e159f-b6d9-4e53-8819-270bb018ee39",
+    export const CarouselOld = {
+        TemplateId: "e934c35a-965e-4e8a-9555-e846a910368b",
     
         BaseTemplateIds: [
         ]
@@ -1739,14 +1875,26 @@ export namespace HztlPageContent.RenderingParameters.Constants {
 }
 export namespace HztlPageContent.Constants {
 
-    export const CarouselFolder = {
-        TemplateId: "0cd3b2a0-be95-41bd-85c8-d79110ce5dbf",
+    export const CarouselItem = {
+        TemplateId: "2c75ef66-7cd8-43c4-90e2-ef4e44e337a9",
     
         BaseTemplateIds: [
         ]
     }
+}
+export namespace HztlPageContent.RenderingParameters.Constants {
+
     export const CarouselItem = {
-        TemplateId: "7a137b26-5e9c-4cbb-8731-54b3b6593a4d",
+        TemplateId: "dcea063a-de0e-408d-b98d-7c820e7f4238",
+    
+        BaseTemplateIds: [
+        ]
+    }
+}
+export namespace HztlPageContent.Constants {
+
+    export const CarouselItemFolder = {
+        TemplateId: "347730f0-15bd-4c30-a39d-9d7e42f1601e",
     
         BaseTemplateIds: [
         ]
