@@ -36,20 +36,20 @@
   background-color: black;
 }
 
-.toggle-menu input[type='checkbox']:checked ~ .hamburger-lines .line1 {
+.toggle-menu input[type='checkbox']:checked~.hamburger-lines .line1 {
   transform: rotate(45deg);
 }
 
-.toggle-menu input[type='checkbox']:checked ~ .hamburger-lines .line2 {
+.toggle-menu input[type='checkbox']:checked~.hamburger-lines .line2 {
   transform: scaleY(0);
 }
 
-.toggle-menu input[type='checkbox']:checked ~ .hamburger-lines .line3 {
+.toggle-menu input[type='checkbox']:checked~.hamburger-lines .line3 {
   transform: rotate(-45deg);
 }
 
 .chevron-transform {
-  @apply transition-transform duration-100;
+  @layer transition-transform duration-100;
 }
 
 a {
@@ -82,7 +82,7 @@ h3,
   line-height: normal;
 }
 
-p > span {
+p>span {
   color: var(--Black, #2f2d2e);
   font-family: 'Modern Era';
   font-size: 18px;
@@ -96,18 +96,22 @@ p > span {
 }
 
 /* Sitecore search */
-.search-wrapper > div:first-of-type {
-  @apply !z-10 md:!px-5 px-0
+.search-wrapper>div:first-of-type {
+  @layer !z-10 md: !px-5 px-0
 }
-.bvfPE{
-  @apply !h-auto 
+
+.bvfPE {
+  @layer !h-auto
 }
-.fLNHNB{
-  @apply !flex !flex-col !gap-xs !py-xs !px-m !-mx-xs border-b  !bg-white
+
+.fLNHNB {
+  @layer !flex !flex-col !gap-xs !py-xs !px-m !-mx-xs border-b !bg-white
 }
-.fquAsK{
-  @apply !w-auto;
+
+.fquAsK {
+  @layer !w-auto;
 }
+
 #footer {
   display: flex;
   justify-content: space-between;
@@ -125,4 +129,3 @@ p > span {
     margin-bottom: 45px;
   }
 }
-

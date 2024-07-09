@@ -8,13 +8,18 @@ export type VideoWrapperProps = ComponentProps & HztlPageContent.Video;
 const VideoWrapper = (props: VideoWrapperProps): JSX.Element => {
   const uploadedVideoLink = props?.fields?.SelectFile?.value?.src;
   const videoLink = props?.fields?.Title?.value;
-  const youtubeData = props?.fields?.YoutubeId?.value;
-  const youtubeUrl = `https://www.youtube.com/embed/${youtubeData}`;
+  const youtubeData = props?.fields?.YoutubeId?.value || '';
+  const autoPlayParameter = props?.fields || '';
+  const loopParameter = props?.fields || '';
+  const youtubeUrl = `https://www.youtube.com/embed/${youtubeData}?&loop=${
+    loopParameter ? 1 : 0
+  }&autoplay=${autoPlayParameter ? 1 : 0}`;
 
+  console.log('autoPlayParameter', autoPlayParameter);
   return (
-    <>
+    <div tabIndex={0}>
       {uploadedVideoLink ? (
-        <video width={900} height={500} controls preload="none">
+        <video width={900} height={500} controls>
           <source src={uploadedVideoLink} type="video/mp4" />
           <source src={uploadedVideoLink} type="video/ogg" />
           Your browser does not support the video tag.
@@ -22,7 +27,7 @@ const VideoWrapper = (props: VideoWrapperProps): JSX.Element => {
       ) : (
         <iframe
           id={'videoId.value'}
-          name="ytwrapper"
+          name="youtubeVideo"
           width={900}
           height={500}
           src={youtubeUrl}
@@ -31,7 +36,7 @@ const VideoWrapper = (props: VideoWrapperProps): JSX.Element => {
           allowFullScreen
         ></iframe>
       )}
-    </>
+    </div>
   );
 };
 

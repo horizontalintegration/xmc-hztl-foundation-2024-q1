@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
-import VideoWrapper from 'helpers/VideoWrapper/VideoWrapper';
-import ModalWrapper from 'helpers/ModalWrapper/ModalWrapper';
+import VideoWrapper from 'helpers/SitecoreWrappers/VideoWrapper/VideoWrapper';
+import ModalWrapper from 'helpers/SitecoreWrappers/ModalWrapper/ModalWrapper';
 
 export type VideoProps = ComponentProps & HztlPageContent.Video;
 
@@ -25,13 +25,19 @@ export const Default = (props: VideoProps): JSX.Element => {
   return (
     <div className={`component rich-text`} id={id ? id : undefined}>
       <div className="py-spacing-spacing-7 px-spacing-spacing-4 md:px-spacing-spacing-2"></div>
-      <button onClick={() => setIsModalOpen(!isModalOpen)}>Click me</button>
+      <button
+        className="flex h-14 gap-xxs items-center justify-center px-16 py-xs rounded-md text-center font-modern font-bold leading-normal text-base bg-gray text-white"
+        onClick={() => setIsModalOpen(!isModalOpen)}
+      >
+        Launch Video
+      </button>
       {isModalOpen && (
         <ModalWrapper
           isModalOpen={isModalOpen}
           handleClose={() => setIsModalOpen(false)}
           size="large"
           closeIconClasses="mt-xs mb-xxxs mr-s text-black"
+          modalLabel={props?.fields?.Title?.value as unknown as string}
         >
           <VideoWrapper {...props} />
         </ModalWrapper>

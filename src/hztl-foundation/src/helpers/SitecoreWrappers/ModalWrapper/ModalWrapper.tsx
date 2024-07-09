@@ -189,7 +189,7 @@ const ModalWrapper = ({
 
   return (
     <div
-      id={modalLabel ?? ''}
+      id={modalLabel || 'Modal'}
       style={{
         ...getAnimationCss(),
       }}
@@ -206,13 +206,13 @@ const ModalWrapper = ({
       onClick={handleOverlayClick}
       aria-modal="true"
       role="dialog"
-      aria-label={modalLabel ?? ''}
-      tabIndex={-1}
+      aria-label={modalLabel || 'Modal'}
+      // tabIndex={-1}
       ref={modalWrapperRef}
     >
       <div
         ref={modalContentRef}
-        tabIndex={0}
+        tabIndex={-1}
         style={
           ((isMobile && mobileAnimationStyle) || (!isMobile && desktopAnimationStyle)) &&
           size === 'extra-large'
@@ -228,14 +228,16 @@ const ModalWrapper = ({
       >
         <div className="flex h-[40px] w-full justify-end">
           <button
+            role="button"
+            // tabIndex={0}
+            aria-label="close button"
             className={classNames(closeIconClasses || 'mt-m mr-m')}
             onClick={(e) => {
               e.preventDefault();
               handleClose();
             }}
           >
-            {/* <SvgIcon icon="close" size="lg" /> */}
-            <SvgIcon icon={'close'} />
+            <SvgIcon aria-label="close button" aria-hidden="true" icon={'close'} />
           </button>
         </div>
         <div
@@ -249,14 +251,16 @@ const ModalWrapper = ({
         </div>
         {displayCloseBar && (
           <button
+            role="button"
+            // tabIndex={0}
+            aria-label="close button"
             onClick={(e) => {
               e.preventDefault();
               handleClose();
             }}
             className="sticky bottom-0 z-10 mt-auto flex w-full items-center justify-center gap-xxxs border-t border-gray bg-white py-2.5 md:bg-primary"
           >
-            <span className="font-serif text-button font-bold">Close</span>
-            <SvgIcon icon={'close'} />
+            <SvgIcon aria-label="close button" aria-hidden="true" icon={'close'} />
           </button>
         )}
       </div>
