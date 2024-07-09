@@ -1,8 +1,12 @@
 ﻿---
-ID: "1634566b-73e2-432a-ab53-184a5eafb6ce"
-Parent: "41b2db51-fb84-4bc8-982e-0395743adcae"
-Template: "a87a00b1-e6db-45ab-8b54-636fec3b5523"
-Path: /sitecore/system/Settings/Feature/HztlFoundation/Hztl Site Structure/Hztl Site Structure Headless Site Setup/Rendering Variants
+ID: "78b6fa83-16cd-4810-b526-70952b577777"
+Parent: "b1ccbd2c-3cb2-4e6c-aa43-0901c3fed6cf"
+Template: "d2923fee-da4e-49be-830c-e27764dfa269"
+Path: /sitecore/content/HztlFoundation/Global/Enums/Cards Per Row/4
+SharedFields:
+- ID: "f917c951-1f75-4d62-b14a-bc6888d7eeca"
+  Hint: Value
+  Value: 4
 Languages:
 - Language: en
   Versions:
@@ -10,22 +14,22 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20240702T131118Z
+      Value: 20240627T095526Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
-        sitecore\dkakade@horizontal.com
+        sitecore\asavalagi@horizontal.com
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
-        sitecore\dkakade@horizontal.com
+        sitecore\asavalagi@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "072aa2d9-b851-4b2e-9585-43feada7faa6"
+      Value: "0968e480-3198-4b48-a15f-2c8dfd0dcebb"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\dkakade@horizontal.com
+        sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240702T131118Z
+      Value: 20240708T120900Z
