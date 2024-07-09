@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-import { LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { IconTypes } from 'helpers/SvgIconWrapper';
 
 export interface CTAIconInterface {
@@ -58,11 +57,5 @@ export interface CommonCTAInterface {
 }
 
 export interface CTAWrapperInterface {
-  fields?: CommonCTAInterface & {
-    cta1Link?: LinkField;
-    cta2Link?: LinkField;
-    cta1Text?: CTATextInterface;
-    cta2Text?: CTATextInterface;
-  };
-  ctaType?: 'cta1Link' | 'cta2Link' | 'cta1Text' | 'cta2Text';
+  fields?: CommonCTAInterface;
 }

@@ -1,127 +1,167 @@
-import React, { ButtonHTMLAttributes, PropsWithChildren, forwardRef } from 'react';
+// Global
 import { sendGTMEvent } from '@next/third-parties/google';
-import { twMerge } from 'tailwind-merge';
+import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import { tv } from 'tailwind-variants';
+
+// Lib
 import { GtmEvent } from 'lib/utils/gtm-utils';
-import {
-  CTAAlignmentInterface,
-  CTAWrapperInterface,
-  CTAIconInterface,
-  CTAStyleInterface,
-  CTATextInterface,
-  CTATitleInterface,
-} from 'src/interfaces/CTAInterface';
+
+// Local
 import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { CTAIconInterface } from 'interfaces/CTAInterface';
 
-interface RequiredButtonProps {
-  id?: string;
-  title?: string;
-}
+type ButtonVariant = 'link' | 'primary' | 'secondary' | 'tertiary';
 
-type IconAlignment = 'left' | 'right' | 'top' | 'bottom';
+type IconAlignment = 'left' | 'right' | undefined;
 
-export interface ButtonWrapperProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'id' | 'title'>,
-    RequiredButtonProps,
-    CTAWrapperInterface,
-    PropsWithChildren {
+export type ButtonWrapperProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  className?: string;
   gtmEvent?: GtmEvent;
-}
+  iconAlignment?: IconAlignment;
+  iconField?: CTAIconInterface;
+  id?: string;
+  isDisabled?: boolean;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  variant?: ButtonVariant;
+  text: string;
+  title?: string;
+  type?: string;
+};
 
-const ButtonWrapper = forwardRef<HTMLButtonElement, ButtonWrapperProps>(
-  ({ className, ctaType, gtmEvent, ...props }, ref) => {
-    const buttonAlignmentStyles: Record<IconAlignment, string> = {
-      left: 'flex-row-reverse',
-      right: 'flex-row',
-      top: 'flex-col-reverse',
-      bottom: 'flex-col',
-    };
+const tailwindVariant = tv({
+  slots: {
+    base: [
+      'bg-black',
+      'flex',
+      'font-modern',
+      'gap-xxs',
+      'items-center',
+      'justify-center',
+      'leading-normal',
+      'py-4',
+      'px-8',
+      'rounded',
+      'text-white',
+      'active:bg-gray',
+      'active:text-white',
+      'disabled:bg-mild-gray',
+      'disabled:text-dark-gray',
+      'focus:bg-light-gray',
+      'focus:outline',
+      'focus:outline-4',
+      'focus:outline-black',
+      'focus:-outline-offset-4',
+      'focus:!text-black',
+      'hover:bg-dark-gray',
+    ],
+    icon: [],
+  },
+  variants: {
+    iconAlignment: {
+      left: {
+        icon: ['flex-row-reverse'],
+      },
+      right: {
+        icon: ['flex-row'],
+      },
+    },
+    variant: {
+      link: {
+        base: [
+          'bg-transparent',
+          'text-dark-blue',
+          'active:bg-transparent',
+          'active:text-light-green',
+          'disabled:bg-transparent',
+          'disabled:text-mild-gray',
+          'disabled:no-underline',
+          'focus:bg-transparent',
+          'hover:bg-transparent',
+          'hover:underline',
+        ],
+      },
+      primary: {
+        base: [],
+      },
+      secondary: {
+        base: [
+          'bg-white',
+          'border',
+          'border-black',
+          'text-black',
+          'active:border-gray',
+          'disabled:border-none',
+          'hover:bg-black',
+          'hover:text-white',
+        ],
+      },
+      tertiary: {
+        base: ['bg-white', 'text-black', 'focus:bg-white', 'hover:bg-mild-gray'],
+      },
+    },
+  },
+});
 
-    const {
-      cta1Icon,
-      cta1IconAlignment,
-      cta1Style,
-      cta1Text,
-      cta1Title,
-      cta2Icon,
-      cta2IconAlignment,
-      cta2Style,
-      cta2Text,
-      cta2Title,
-    } = props?.fields || {};
+const ButtonWrapper = forwardRef<HTMLButtonElement>(
+  (
+    {
+      className,
+      gtmEvent,
+      iconAlignment = 'right',
+      iconField,
+      id,
+      isDisabled,
+      onClick,
+      variant = 'primary',
+      text,
+      title,
+      type = 'button',
+      ...props
+    }: ButtonWrapperProps,
+    ref
+  ): JSX.Element | null => {
+    const { base, icon } = tailwindVariant({
+      className: className,
+      iconAlignment: iconAlignment,
+      variant: variant,
+    });
+
+    /*
+     * EVENT HANDLERS
+     */
 
     const handleOnClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-      if (props.onClick) {
-        props.onClick(e);
-      }
-
       if (gtmEvent) {
         sendGTMEvent({ ...gtmEvent });
       }
+
+      if (onClick) {
+        onClick(e);
+      }
     };
 
-    const buttonClasses = (style: string) =>
-      `flex h-14 gap-xxs items-center justify-center px-16 py-xs rounded-md text-center font-modern font-bold leading-normal text-base ${
-        style === 'secondary' ? 'border-1 border-gray text-gray' : 'bg-gray text-white'
-      }`;
+    /*
+     * RENDERING
+     */
 
-    const renderTextButton = (
-      icon?: CTAIconInterface,
-      iconAlignment?: CTAAlignmentInterface,
-      style?: CTAStyleInterface,
-      text?: CTATextInterface,
-      title?: CTATitleInterface,
-      handleOnClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
-    ) => {
-      if (!text?.value) return null;
-      const styleValue = style?.fields.Value.value || '';
-      const iconAlignmentValue = iconAlignment?.fields.Value.value;
-      return (
-        <button
-          title={title?.value}
-          ref={ref}
-          className={twMerge(
-            iconAlignmentValue && buttonAlignmentStyles[iconAlignmentValue],
-            styleValue && buttonClasses(styleValue),
-            className
-          )}
-          type={props.type || 'button'}
-          {...props}
-          onClick={handleOnClick}
-        >
-          {text.value}
-          {icon?.fields.Value.value && (
-            <SvgIcon
-              icon={icon?.fields.Value.value}
-              size="xs"
-              className={`${styleValue === 'primary' ? '!stroke-white' : ' !stroke-black'}`}
-            />
-          )}
-        </button>
-      );
-    };
+    // If no content is present, don't print
+    if (!text) return <></>;
 
-    switch (ctaType) {
-      case 'cta1Text':
-        return renderTextButton(
-          cta1Icon,
-          cta1IconAlignment,
-          cta1Style,
-          cta1Text,
-          cta1Title,
-          handleOnClick
-        );
-      case 'cta2Text':
-        return renderTextButton(
-          cta2Icon,
-          cta2IconAlignment,
-          cta2Style,
-          cta2Text,
-          cta2Title,
-          handleOnClick
-        );
-      default:
-        return null;
-    }
+    return (
+      <button
+        aria-label={props['aria-label'] ? props['aria-label'] : text}
+        className={base()}
+        disabled={isDisabled}
+        id={id}
+        onClick={handleOnClick}
+        ref={ref}
+        title={title || text}
+        type={type}
+      >
+        {text}
+        {iconField && <SvgIcon className={icon()} icon={iconField?.fields.Value.value} size="xs" />}
+      </button>
+    );
   }
 );
 

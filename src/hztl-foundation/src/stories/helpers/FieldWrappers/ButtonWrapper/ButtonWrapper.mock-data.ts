@@ -1,15 +1,33 @@
 const defaultData = {
+  className: '',
+  iconAlignment: 'right',
   id: 'buttonId',
-  children: 'Primary',
-  icon: '',
-  title: 'title',
-  className: 'bg-[#2F2D2E] py-3 px-4 text-white rounded',
+  isDisabled: false,
+  onClick: undefined,
+  variant: 'primary',
+  text: 'Button Text',
+  title: 'Button Title',
+  type: 'button',
 };
 
-export const secondaryData = {
+export const disabledData = {
   ...defaultData,
-  children: 'Secondary',
-  className: 'py-3 px-4 rounded border border-[#2F2D2E]',
+  isDisabled: true,
+};
+
+export const styleLinkData = {
+  ...defaultData,
+  variant: 'link',
+};
+
+export const styleSecondaryData = {
+  ...defaultData,
+  variant: 'secondary',
+};
+
+export const styleTertiaryData = {
+  ...defaultData,
+  variant: 'tertiary',
 };
 
 export default defaultData;
