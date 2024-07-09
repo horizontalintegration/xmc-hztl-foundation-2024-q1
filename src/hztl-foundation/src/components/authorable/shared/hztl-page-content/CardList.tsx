@@ -6,7 +6,6 @@ export type CardListProps = ComponentProps;
 
 export const Default = (props: CardListProps): JSX.Element => {
   const { cardsPerRow } = props?.params || {};
-  console.log('cardsPerRow :', cardsPerRow);
   const id = props?.params?.RenderingIdentifier;
   const phKey = `cardlist`;
   return (
