@@ -3,6 +3,7 @@ import { CardProps } from '../../../components/authorable/shared/hztl-page-conte
 const defaultData: CardProps = {
   rendering: { componentName: 'Default' },
   params: {},
+  cardsPerRow: '3',
   fields: {
     Eyebrow: {
       value: 'Eyebrow',
