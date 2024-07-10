@@ -1,21 +1,10 @@
 ﻿---
-ID: "c26a0d3b-072f-45de-b47f-9bf4a3d6abdb"
-Parent: "6631cf83-f570-4ade-9965-3b8f29ddc142"
-Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: "/sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Carousel-Old/Carousel Rendering Data/disableAutoRotation"
-SharedFields:
-- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
-  Hint: Type
-  Value: Checkbox
-- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
-  Hint: __Sortorder
-  Value: 100
+ID: "6631cf83-f570-4ade-9965-3b8f29ddc142"
+Parent: "e934c35a-965e-4e8a-9555-e846a910368b"
+Template: "e269fbb5-3750-427a-9149-7aa950b49301"
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Carousel/Carousel Rendering Data
 Languages:
 - Language: en
-  Fields:
-  - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
-    Hint: Title
-    Value: Disable Auto Rotation
   Versions:
   - Version: 1
     Fields:
@@ -32,7 +21,7 @@ Languages:
         sitecore\asavalagi@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "fe604132-01f7-4559-8134-665e8c8a310f"
+      Value: "c117c0cf-4f00-442b-ac94-be6f1bc01977"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |

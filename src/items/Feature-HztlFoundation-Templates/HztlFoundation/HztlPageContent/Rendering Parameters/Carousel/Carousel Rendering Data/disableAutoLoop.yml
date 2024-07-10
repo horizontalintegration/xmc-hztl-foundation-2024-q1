@@ -1,20 +1,27 @@
 ﻿---
-ID: "0be2f588-e111-4b13-bda3-0f448536ebe6"
-Parent: "7d645e35-f14b-4ad7-872a-5c706b070cfd"
-Template: "7d645e35-f14b-4ad7-872a-5c706b070cfd"
-Path: "/sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel-Old/__Standard Values"
+ID: "40ccdc74-269d-4590-ba85-ec94aa13350c"
+Parent: "6631cf83-f570-4ade-9965-3b8f29ddc142"
+Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Carousel/Carousel Rendering Data/disableAutoLoop
 SharedFields:
-- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
-  Hint: __Masters
-  Value: "{7A137B26-5E9C-4CBB-8731-54B3B6593A4D}"
+- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
+  Hint: Type
+  Value: Checkbox
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 200
 Languages:
 - Language: en
+  Fields:
+  - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
+    Hint: Title
+    Value: Disable Auto Loop
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20240529T133222Z
+      Value: 20240612T125250Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -25,11 +32,11 @@ Languages:
         sitecore\asavalagi@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "78171217-8447-4f64-86e0-7801bdf867d3"
+      Value: "898b2a34-2988-4803-b32c-9dcd2c02afce"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\asavalagi@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240612T122603Z
+      Value: 20240613T083856Z
