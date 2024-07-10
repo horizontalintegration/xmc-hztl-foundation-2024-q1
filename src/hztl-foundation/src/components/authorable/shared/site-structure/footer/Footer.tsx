@@ -10,9 +10,7 @@ interface LinkItem {
   id: string;
   name: string;
   link: {
-    jsonValue: {
-      value: LinkField;
-    };
+    jsonValue: LinkField;
   };
 }
 
