@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { ComponentProps } from 'lib/component-props';
-import { LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Item, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SiteStructure } from 'src/.generated/Feature.HztlFoundation.model';
 
 export interface LogoInterface {
@@ -69,6 +69,7 @@ export interface HeaderCountry {
 export interface CountrySelectorInterface {
   selectedCountry: string;
   setSelectedCountry: (value: string) => void;
+  countryData?: Item[];
 }
 
 export type HeaderProps = ComponentProps & {
