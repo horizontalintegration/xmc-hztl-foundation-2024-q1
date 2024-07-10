@@ -1,24 +1,24 @@
 ﻿---
-ID: "148c7427-11a8-40fa-8190-1b09e0fd853b"
-Parent: "6934f3b1-f1af-43d5-9053-61d9c407afd6"
+ID: "298e7b0d-fa2f-40ec-8ccc-4d9a6da34ae9"
+Parent: "06bebffb-6023-45a3-9fce-e85f3b2e3b8b"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Item/Data/image
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CarouselItem/Data/primaryCTA
 SharedFields:
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: "query:$siteMedia"
+  Value: "query:$xaRichTextProfile"
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: Image
+  Value: General Link
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 300
+  Value: 400
 Languages:
 - Language: en
   Fields:
   - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
     Hint: Title
-    Value: Image
+    Value: Primary CTA
   Versions:
   - Version: 1
     Fields:
@@ -35,11 +35,11 @@ Languages:
         sitecore\asavalagi@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ac8abdbe-37e7-424e-b71f-4fb3859a9b0f"
+      Value: "a73b9aa7-b364-4c5e-a8f3-b45d76111f12"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\asavalagi@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240612T124748Z
+      Value: 20240612T124804Z

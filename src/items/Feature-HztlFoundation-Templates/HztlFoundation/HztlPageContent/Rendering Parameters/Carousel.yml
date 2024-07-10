@@ -1,5 +1,5 @@
 ﻿---
-ID: "f90e159f-b6d9-4e53-8819-270bb018ee39"
+ID: "e934c35a-965e-4e8a-9555-e846a910368b"
 Parent: "d4cb4753-35ea-4b59-84b7-05f00c544426"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
 Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Carousel
@@ -19,7 +19,7 @@ SharedFields:
   Value: 0
 - ID: "f7d48a55-2158-4f02-9356-756654404f73"
   Hint: __Standard values
-  Value: "{2B3AD18B-3689-4090-8C2F-1C3D2ED9D3A6}"
+  Value: "{DC91594D-E136-4A35-89BF-EE06367E09B6}"
 Languages:
 - Language: "de-DE"
   Fields:
@@ -63,14 +63,14 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1d3164e9-46fa-4487-812f-9aef041b5c4b"
+      Value: "8bba5a94-f42e-4881-a5fb-d43fb20a6fae"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\asavalagi@horizontal.com
+        sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240612T125202Z
+      Value: 20240709T095446Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
