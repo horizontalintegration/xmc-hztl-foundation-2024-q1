@@ -28,7 +28,7 @@ const VideoWrapper = (props: VideoWrapperProps): JSX.Element => {
         <iframe
           id={'videoId.value'}
           name="youtubeVideo"
-          width={900}
+          width={'100%'}
           height={500}
           src={youtubeUrl}
           title={videoLink}
