@@ -1,13 +1,51 @@
 import React from 'react';
-import { Item } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ImageFieldValue, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import { SiteStructure } from 'src/.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
-import { Data } from 'src/.generated/Foundation.HztlFoundation.model';
 
-export type FooterProps = ComponentProps & SiteStructure.Footer.Footer;
+interface LinkItem {
+  id: string;
+  name: string;
+  link: {
+    jsonValue: {
+      value: LinkField;
+    };
+  };
+}
+
+interface FooterColumn {
+  id: string;
+  name: string;
+  columnLinks: {
+    items: LinkItem[];
+  };
+}
+
+interface FooterLogo {
+  jsonValue: {
+    value: ImageFieldValue;
+  };
+  alt: string;
+}
+
+interface Item {
+  id: string;
+  path: string;
+  footerLogo: FooterLogo;
+  footerColumns: {
+    items: FooterColumn[];
+  };
+}
+
+export type FooterProps = ComponentProps &
+  SiteStructure.Footer.Footer & {
+    fields: {
+      data: { item: Item };
+    };
+  };
 
 const FooterDefaultComponent = (props: FooterProps): JSX.Element => (
   <div className={`component footer ${props?.params?.styles}`}>
@@ -19,8 +57,8 @@ const FooterDefaultComponent = (props: FooterProps): JSX.Element => (
 
 export const Default = (props: FooterProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
-  const footerColumns = props?.rendering?.fields?.data?.item?.footerColumns.items;
-  const footerLogo = props?.rendering?.fields?.data?.item.footerLogo;
+  const footerColumns = props?.fields?.data?.item?.footerColumns.items;
+  const footerLogo = props?.fields?.data?.item.footerLogo;
   if (props?.fields) {
     return (
       <div
@@ -37,7 +75,7 @@ export const Default = (props: FooterProps): JSX.Element => {
               </div>
               <div className="flex justify-between flex-wrap gap-m sm:gap-ml mmd:gap-xl mml:gap-[140px] lg:gap-[204px] xl:gap-[216px] sm:w-[312px] md:w-auto">
                 {footerColumns?.map((groupLabel, index) => {
-                  const links = groupLabel?.columnLinks.items as (Item & Data.Links.GenericLink)[];
+                  const links = groupLabel?.columnLinks?.items;
                   return (
                     <React.Fragment key={index}>
                       <div className="text-left">
