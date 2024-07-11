@@ -64,5 +64,4 @@ export interface CTAWrapperInterface {
     cta1Text?: CTATextInterface;
     cta2Text?: CTATextInterface;
   };
-  ctaType?: 'cta1Link' | 'cta2Link' | 'cta1Text' | 'cta2Text';
 }

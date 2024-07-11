@@ -22,6 +22,7 @@ import { SvgIcon } from 'helpers/SvgIconWrapper';
 
 export type LinkWrapperProps = Omit<LinkProps, 'field'> &
   CTAWrapperInterface & {
+    ctaType?: 'cta1Link' | 'cta2Link';
     className?: string;
     field?: LinkField | LinkFieldValue;
     gtmEvent?: GtmEvent;
@@ -99,7 +100,7 @@ const LinkWrapper = React.forwardRef(
     };
     const buttonClasses = (style: string) =>
       `flex h-14 gap-xxs items-center justify-center px-16 py-xs rounded-md text-center font-modern font-bold leading-normal text-base ${
-        style === 'secondary' ? 'border-1 border-gray text-gray' : 'bg-gray text-white'
+        style === 'secondary' ? 'border border-gray text-gray' : 'bg-gray text-white'
       }`;
     const { href, querystring, anchor } = value;
 

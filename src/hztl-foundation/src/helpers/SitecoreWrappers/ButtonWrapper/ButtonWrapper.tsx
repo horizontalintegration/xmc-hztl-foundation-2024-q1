@@ -15,6 +15,7 @@ import { SvgIcon } from 'helpers/SvgIconWrapper';
 interface RequiredButtonProps {
   id?: string;
   title?: string;
+  ctaType?: 'cta1Text' | 'cta2Text';
 }
 
 type IconAlignment = 'left' | 'right' | 'top' | 'bottom';
@@ -29,6 +30,7 @@ export interface ButtonWrapperProps
 
 const ButtonWrapper = forwardRef<HTMLButtonElement, ButtonWrapperProps>(
   ({ className, ctaType, gtmEvent, ...props }, ref) => {
+    console.log(props);
     const buttonAlignmentStyles: Record<IconAlignment, string> = {
       left: 'flex-row-reverse',
       right: 'flex-row',
@@ -61,7 +63,7 @@ const ButtonWrapper = forwardRef<HTMLButtonElement, ButtonWrapperProps>(
 
     const buttonClasses = (style: string) =>
       `flex h-14 gap-xxs items-center justify-center px-16 py-xs rounded-md text-center font-modern font-bold leading-normal text-base ${
-        style === 'secondary' ? 'border-1 border-gray text-gray' : 'bg-gray text-white'
+        style === 'secondary' ? 'border border-gray text-gray' : 'bg-gray text-white'
       }`;
 
     const renderTextButton = (
@@ -120,7 +122,7 @@ const ButtonWrapper = forwardRef<HTMLButtonElement, ButtonWrapperProps>(
           handleOnClick
         );
       default:
-        return null;
+        return <div>sdfs</div>;
     }
   }
 );

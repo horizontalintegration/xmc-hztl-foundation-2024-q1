@@ -9,7 +9,7 @@ import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
-import defaultData from './LinkWrapper.mock-data';
+import defaultData, { secondaryData } from './LinkWrapper.mock-data';
 
 const meta: Meta<typeof LinkWrapper> = {
   title: 'Helpers/Field Wrappers/Link Wrapper',
@@ -30,5 +30,14 @@ export const Default: Story = {
   },
   args: {
     ...flattenObj(defaultData),
+  },
+};
+
+export const Secondary: Story = {
+  render: (args) => {
+    return <LinkWrapper {...expandObj({ ...args })} />;
+  },
+  args: {
+    ...flattenObj(secondaryData),
   },
 };
