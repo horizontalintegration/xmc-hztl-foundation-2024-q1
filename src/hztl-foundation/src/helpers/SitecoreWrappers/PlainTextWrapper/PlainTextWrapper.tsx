@@ -14,12 +14,15 @@ const PlainTextWrapper = ({ field, editable = true, ...props }: TextProps): JSX.
   // We should only render if it has a value, or if we are editing
   const shouldRender = hasValue || (isEditing && editable);
 
-  if (!shouldRender) {
-    return <></>;
-  }
+  if (!shouldRender) return <></>;
 
   return (
-    <Text {...props} editable={editable} field={field} data-component="helpers/plaintextwrapper" />
+    <Text
+      {...props}
+      data-component="helpers/fieldwrappers/plaintextwrapper"
+      editable={editable}
+      field={field}
+    />
   );
 };
 
