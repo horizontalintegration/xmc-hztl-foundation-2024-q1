@@ -15,7 +15,7 @@ export const Default = (props: CardListProps): JSX.Element => {
           <Placeholder
             name={phKey}
             rendering={props.rendering}
-            cardsPerRow={parseInt('cardsPerRow')}
+            cardsPerRow={parseInt(cardsPerRow)}
           />
         </div>
       </div>
