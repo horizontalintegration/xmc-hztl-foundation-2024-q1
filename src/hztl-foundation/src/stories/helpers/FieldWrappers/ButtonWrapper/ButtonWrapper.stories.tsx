@@ -22,7 +22,7 @@ const meta: Meta<ButtonWrapperProps> = {
       defaultValue: 'right',
       description: "The alignment parameter for the button's icon.",
     },
-    isDisabled: { defaultValue: false, description: 'The enabled/disabled flag for the button.' },
+    disabled: { defaultValue: false, description: 'The enabled/disabled flag for the button.' },
     id: { description: 'The unique identifier for the link.' },
     onClick: { description: 'The handler function for the "onClick" event.' },
     ctaVariant: {
