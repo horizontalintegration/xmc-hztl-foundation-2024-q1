@@ -9,7 +9,7 @@ import BreadcrumbQuery from './Breadcrumb.graphql';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 
-const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
+export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
   const { ancestors, Title } = staticProps?.staticProps?.currentPage || {};
   const { componentName, dataSource } = staticProps?.rendering || {};
 
@@ -80,8 +80,6 @@ const Breadcrumb = (staticProps: BreadcrumbDataType): JSX.Element => {
     </>
   );
 };
-
-export default Breadcrumb;
 
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
   const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {

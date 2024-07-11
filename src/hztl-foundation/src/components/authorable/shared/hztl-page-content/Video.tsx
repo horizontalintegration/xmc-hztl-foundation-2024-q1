@@ -1,7 +1,8 @@
-import React from 'react';
-import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+import React, { useState } from 'react';
 import { ComponentProps } from 'lib/component-props';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+import VideoWrapper from 'helpers/SitecoreWrappers/VideoWrapper/VideoWrapper';
+import ModalWrapper from 'helpers/SitecoreWrappers/ModalWrapper/ModalWrapper';
 
 export type VideoProps = ComponentProps & HztlPageContent.Video;
 
@@ -15,32 +16,32 @@ const VideoDefaultComponent = (props: VideoProps): JSX.Element => (
 
 export const Default = (props: VideoProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  if (props?.fields) {
-    return (
-      <div
-        className={`${props?.params?.styles !== undefined ? props?.params?.styles : ''}`}
-        data-component="authorable/general/video"
-        id={id ? id : ''}
-      >
-        <div className="flex py-xxs gap-s px-ml">
-          <div className="p-6 bg-[#B2B2B2]">
-            <div className="px-20 py-11 bg-white">
-              <div className="text-right">
-                <SvgIcon icon={'close'} className="inline-block w-auto h-auto stroke-black" />
-              </div>
-              <div>
-                <video className="w-auto" controls preload="none">
-                  <source src={props?.fields?.SelectFile?.value?.src} type="video/mp4" />
-                  <source src={props?.fields?.SelectFile?.value?.src} type="video/ogg" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+  if (!props?.fields) {
+    return <VideoDefaultComponent {...props} />;
   }
-  return <VideoDefaultComponent {...props} />;
+
+  return (
+    <div className={`component rich-text`} id={id ? id : undefined}>
+      <div className="py-spacing-spacing-7 px-spacing-spacing-4 md:px-spacing-spacing-2"></div>
+      <button
+        className="flex h-14 gap-xxs items-center justify-center px-16 py-xs rounded-md text-center font-modern font-bold leading-normal text-base bg-gray text-white"
+        onClick={() => setIsModalOpen(!isModalOpen)}
+      >
+        Launch Video
+      </button>
+      {isModalOpen && (
+        <ModalWrapper
+          isModalOpen={isModalOpen}
+          handleClose={() => setIsModalOpen(false)}
+          size="large"
+          closeIconClasses="mt-xs mb-xxxs mr-s text-black"
+          modalLabel={props?.fields?.Title?.value as unknown as string}
+        >
+          <VideoWrapper {...props} />
+        </ModalWrapper>
+      )}
+    </div>
+  );
 };

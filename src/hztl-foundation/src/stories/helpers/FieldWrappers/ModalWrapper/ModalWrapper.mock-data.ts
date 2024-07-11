@@ -1,4 +1,4 @@
-import { VideoProps } from '../../../components/authorable/shared/hztl-page-content/Video';
+import { VideoProps } from '../../../../components/authorable/shared/hztl-page-content/Video';
 
 const defaultData: VideoProps = {
   rendering: { componentName: 'Default' },
@@ -25,7 +25,7 @@ const defaultData: VideoProps = {
       },
     },
     Title: {
-      value: 'This is a video component',
+      value: 'This is a Modal component containing video',
     },
   },
 };

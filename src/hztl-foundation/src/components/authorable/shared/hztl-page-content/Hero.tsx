@@ -7,6 +7,7 @@ import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWr
 import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 import { CTAWrapperInterface } from 'src/interfaces/CTAInterface';
+
 // import ButtonWrapper from 'helpers/SitecoreWrappers/ButtonWrapper/ButtonWrapper';
 
 export type HeroProps = ComponentProps & HztlPageContent.Hero & CTAWrapperInterface;

@@ -1,10 +1,10 @@
 import { BreadcrumbDataType } from 'components/authorable/shared/hztl-page-content/Breadcrumb/Breadcrumb.types';
 
 // Realistically this is going to have a lot more data from Sitecore or XM Cloud, but this is a good example mock data set.
-const BreadCrumbData: BreadcrumbDataType = {
+const defaultData: BreadcrumbDataType = {
   rendering: {
     uid: 'f29a1f60-e8b8-446d-ab82-f56bca7201f2',
-    componentName: 'Breadcrumb',
+    componentName: 'Default',
     dataSource: '',
     params: {
       GridParameters: 'col-12',
@@ -55,4 +55,4 @@ export const noData = {
   params: [],
 };
 
-export default BreadCrumbData;
+export default defaultData;
