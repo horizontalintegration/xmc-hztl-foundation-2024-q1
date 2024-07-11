@@ -45,7 +45,7 @@ export function parseStyleParams<TElement extends string = DefaultElement>(
   params: ComponentParams,
   validElements?: TElement[]
 ): ComponentStyleParams<TElement> {
-  const selectedStylesString = params.Styles ?? '';
+  const selectedStylesString = params.Styles?.trim() ?? '';
 
   const result: ComponentStyleParams<TElement> = {};
 

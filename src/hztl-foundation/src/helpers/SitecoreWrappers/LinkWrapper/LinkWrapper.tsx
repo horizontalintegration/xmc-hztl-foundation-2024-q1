@@ -8,13 +8,13 @@ import React, { forwardRef } from 'react';
 // Lib
 import useIsEditing from 'lib/hooks/use-is-editing';
 import { GtmEvent } from 'lib/utils/gtm-utils';
-// import { StyleParamRecord } from 'lib/utils/style-param-utils';
+
 import { CtaProps, ctaTailwindVariant } from '../ButtonWrapper/ButtonWrapper';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 
 const INTERNAL_LINK_REGEX = /^\/|^\#/g;
 
-const NEW_TAB_ICON = (
+export const NEW_TAB_ICON = (
   <span className="svg-icon inline-flex align-middle -ml-3 h-6 w-6">
     <svg
       aria-hidden="true"
@@ -42,31 +42,6 @@ export type LinkWrapperProps = Omit<LinkProps, 'field'> &
     suppressNewTabIcon?: boolean;
   };
 
-// const tailwindVariant = ctaTailwindVariant;
-
-// const tailwindVariant = tv({
-//   base: [
-//     'flex',
-//     'font-modern',
-//     'font-normal',
-//     'gap-xxs',
-//     'items-center',
-//     'justify-center',
-//     'leading-normal',
-//     'no-underline',
-//     'rounded',
-//     'text-green',
-//     'underline-offset-4',
-//     'w-fit',
-//     'active:text-dark-green',
-//     'disabled:text-extralight-gray',
-//     'focus:ring-1',
-//     'focus:ring-medium-gray',
-//     'hover:text-green',
-//     'hover:underline',
-//   ],
-// });
-
 const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
   (
     {
@@ -78,9 +53,6 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
       showLinkTextWithChildrenPresent = true,
       srOnlyText,
       suppressNewTabIcon = true,
-      ctaVariant = 'link',
-      ctaIcon,
-      ctaIconAlignment = 'right',
       ...props
     }: LinkWrapperProps,
     ref
@@ -90,6 +62,11 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
     if (!field) {
       return <></>;
     }
+
+    const ctaIcon = props.ctaIcon ?? props.ctaStyle?.['cta-icon'].value;
+    const ctaVariant = props.ctaVariant ?? props.ctaStyle?.['cta-variant'].value ?? 'link';
+    const ctaIconAlignment =
+      props.ctaIconAlignment ?? props.ctaStyle?.['cta-icon-alignment'].value ?? 'right';
 
     const fieldValue = { ...((field as LinkField)?.value ?? (field as LinkFieldValue)) };
 
@@ -107,10 +84,6 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
       iconAlignment: ctaIconAlignment,
       variant: ctaVariant,
     });
-
-    // const css = tailwindVariant({
-    //   class: className,
-    // });
 
     /*
      * EVENT HANDLERS
@@ -142,6 +115,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
           ref={ref}
           showLinkTextWithChildrenPresent={showLinkTextWithChildrenPresent}
         >
+          {/* We cannot render this is edit mode */}
           {/* {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />} */}
         </Link>
       );

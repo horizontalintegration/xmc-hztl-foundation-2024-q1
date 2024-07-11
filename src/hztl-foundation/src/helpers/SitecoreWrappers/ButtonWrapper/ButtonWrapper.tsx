@@ -8,10 +8,12 @@ import { GtmEvent } from 'lib/utils/gtm-utils';
 
 // Local
 import { SvgIcon } from 'helpers/SvgIconWrapper';
-// import { CTAIconInterface } from 'interfaces/CTAInterface';
 import { CtaIconPositions, CtaIcons, CtaVariants } from 'lib/utils/style-param-utils';
 
+import { StyleParamRecord } from 'lib/utils/style-param-utils';
+
 export type CtaProps = {
+  ctaStyle?: StyleParamRecord;
   ctaIcon?: CtaIcons;
   ctaIconAlignment?: CtaIconPositions;
   ctaVariant?: CtaVariants;
@@ -21,13 +23,8 @@ export type ButtonWrapperProps = ButtonHTMLAttributes<HTMLButtonElement> &
   CtaProps & {
     className?: string;
     gtmEvent?: GtmEvent;
-    id?: string;
-    isDisabled?: boolean;
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-
     text: string;
-    title?: string;
-    type?: string;
   };
 
 export const ctaTailwindVariant = tv({
@@ -106,23 +103,14 @@ export const ctaTailwindVariant = tv({
 
 const ButtonWrapper = forwardRef<HTMLButtonElement>(
   (
-    {
-      className,
-      gtmEvent,
-      ctaVariant = 'primary',
-      ctaIcon,
-      ctaIconAlignment = 'right',
-      id,
-      isDisabled,
-      onClick,
-
-      text,
-      title,
-      type = 'button',
-      ...props
-    }: ButtonWrapperProps,
+    { className, gtmEvent, onClick, text, ...props }: ButtonWrapperProps,
     ref
   ): JSX.Element | null => {
+    const ctaIcon = props.ctaIcon ?? props.ctaStyle?.['cta-icon'].value;
+    const ctaVariant = props.ctaVariant ?? props.ctaStyle?.['cta-variant'].value ?? 'primary';
+    const ctaIconAlignment =
+      props.ctaIconAlignment ?? props.ctaStyle?.['cta-icon-alignment'].value ?? 'right';
+
     const { base, icon } = ctaTailwindVariant({
       className: className,
       iconAlignment: ctaIconAlignment,
@@ -151,16 +139,7 @@ const ButtonWrapper = forwardRef<HTMLButtonElement>(
     if (!text) return <></>;
 
     return (
-      <button
-        aria-label={props['aria-label'] ? props['aria-label'] : text}
-        className={base()}
-        disabled={isDisabled}
-        id={id}
-        onClick={handleOnClick}
-        ref={ref}
-        title={title || text}
-        type={type}
-      >
+      <button className={base()} onClick={handleOnClick} ref={ref} {...props}>
         {text}
         {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />}
       </button>

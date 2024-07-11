@@ -6,11 +6,10 @@ import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTex
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
-import { CTAWrapperInterface } from 'src/interfaces/CTAInterface';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
 import { withStandardComponentWrapper } from 'helpers/HOC';
 
-export type HeroProps = ComponentProps & HztlPageContent.Hero & CTAWrapperInterface;
+export type HeroProps = ComponentProps & HztlPageContent.Hero;
 
 const Hero = (props: HeroProps): JSX.Element => {
   const parsedParams = parseStyleParams(props.params, ['cta-1', 'cta-2']);
