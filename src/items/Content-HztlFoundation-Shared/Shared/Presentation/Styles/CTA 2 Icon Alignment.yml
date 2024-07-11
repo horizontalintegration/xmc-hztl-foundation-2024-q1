@@ -1,15 +1,15 @@
 ﻿---
-ID: "4d80f01e-bd62-4274-9217-f7337729920b"
-Parent: "90962fec-cd2c-4449-a1d2-9c94aaf21749"
-Template: "d2a6884c-04d5-4089-a64e-d27ca9d68d4c"
-Path: /sitecore/content/HztlFoundation/SiteAlpha/Presentation/Placeholder Settings/Partial Design/Header
+ID: "f388195a-2ef3-48ab-a725-be68996a4e55"
+Parent: "6ea08977-9b72-4d1f-aa47-057829ac3f6a"
+Template: "c6dc7393-15bb-4cd7-b798-ab63e77ebac4"
+Path: /sitecore/content/HztlFoundation/Shared/Presentation/Styles/CTA 2 Icon Alignment
 SharedFields:
-- ID: "7256bdab-1fd2-49dd-b205-cb4873d2917c"
-  Hint: Placeholder Key
-  Value: "sxa-header"
-- ID: "e391b526-d0c5-439d-803e-17512eae6222"
-  Hint: Allowed Controls
-  Value: "{519BC820-7DC4-4C65-8E59-A1B158A3502B}"
+- ID: "62ca1c9e-71a4-465f-835e-55bda7bb270b"
+  Hint: Type
+  Value: droplist
+- ID: "c91e098f-a65c-4625-b166-0ed004adaa75"
+  Hint: AllowEmpty
+  Value: 
 Languages:
 - Language: en
   Versions:
@@ -17,7 +17,7 @@ Languages:
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20240129T193505Z
+      Value: 20240709T233406Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -28,11 +28,11 @@ Languages:
         sitecore\dly@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "b116fc9f-12a4-41d6-8f84-f347c979fd4a"
+      Value: "944cbf1e-46a4-4733-8f6c-d2aa5042b54c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\dly@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240709T223717Z
+      Value: 20240710T150809Z

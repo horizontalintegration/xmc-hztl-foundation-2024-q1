@@ -8,27 +8,29 @@ import { GtmEvent } from 'lib/utils/gtm-utils';
 
 // Local
 import { SvgIcon } from 'helpers/SvgIconWrapper';
-import { CTAIconInterface } from 'interfaces/CTAInterface';
+// import { CTAIconInterface } from 'interfaces/CTAInterface';
+import { CtaIconPositions, CtaIcons, CtaVariants } from 'lib/utils/style-param-utils';
 
-type ButtonVariant = 'link' | 'primary' | 'secondary' | 'tertiary';
-
-type IconAlignment = 'left' | 'right' | undefined;
-
-export type ButtonWrapperProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  className?: string;
-  gtmEvent?: GtmEvent;
-  iconAlignment?: IconAlignment;
-  iconField?: CTAIconInterface;
-  id?: string;
-  isDisabled?: boolean;
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  variant?: ButtonVariant;
-  text: string;
-  title?: string;
-  type?: string;
+export type CtaProps = {
+  ctaIcon?: CtaIcons;
+  ctaIconAlignment?: CtaIconPositions;
+  ctaVariant?: CtaVariants;
 };
 
-const tailwindVariant = tv({
+export type ButtonWrapperProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  CtaProps & {
+    className?: string;
+    gtmEvent?: GtmEvent;
+    id?: string;
+    isDisabled?: boolean;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+
+    text: string;
+    title?: string;
+    type?: string;
+  };
+
+export const ctaTailwindVariant = tv({
   slots: {
     base: [
       'bg-black',
@@ -107,12 +109,13 @@ const ButtonWrapper = forwardRef<HTMLButtonElement>(
     {
       className,
       gtmEvent,
-      iconAlignment = 'right',
-      iconField,
+      ctaVariant = 'primary',
+      ctaIcon,
+      ctaIconAlignment = 'right',
       id,
       isDisabled,
       onClick,
-      variant = 'primary',
+
       text,
       title,
       type = 'button',
@@ -120,10 +123,10 @@ const ButtonWrapper = forwardRef<HTMLButtonElement>(
     }: ButtonWrapperProps,
     ref
   ): JSX.Element | null => {
-    const { base, icon } = tailwindVariant({
+    const { base, icon } = ctaTailwindVariant({
       className: className,
-      iconAlignment: iconAlignment,
-      variant: variant,
+      iconAlignment: ctaIconAlignment,
+      variant: ctaVariant,
     });
 
     /*
@@ -159,7 +162,7 @@ const ButtonWrapper = forwardRef<HTMLButtonElement>(
         type={type}
       >
         {text}
-        {iconField && <SvgIcon className={icon()} icon={iconField?.fields.Value.value} size="xs" />}
+        {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />}
       </button>
     );
   }

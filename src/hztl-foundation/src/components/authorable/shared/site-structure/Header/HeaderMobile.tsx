@@ -1,18 +1,18 @@
 /* eslint-disable prettier/prettier */
 import { useRef, useState } from 'react';
 import { HeaderPropsComponent, MegaMenuCategoryInterface, NavigationItem } from './headerInterface';
-import { Link } from '@sitecore-jss/sitecore-jss-react';
 import { Logo } from './HeaderDesktop';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 import CountrySelector from 'helpers/Forms/CountrySelector';
 import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
 import useOutsideClick from 'src/hooks/useClickOutside';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 
 const HeaderMobile = (props: HeaderPropsComponent) => {
   const { fields, selectedCountry, setSelectedCountry } = props;
   const [dropdownOpen, setDropdownOpen] = useState<null | number>(null);
   const [showSearch, setShowSearch] = useState(false);
-  const { logo, logoLink, navigationList } = fields;
   const [openMenu, setOpenMenu] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
   const isDropdownOpen = dropdownOpen !== null || showSearch || openMenu;
@@ -29,6 +29,16 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
     setOpenMenu(!openMenu);
   };
 
+  if (!fields) {
+    return (
+      <div className={`component header-mobile ${props.params?.styles}`}>
+        <div className="component-content">
+          <span className="is-empty-hint">Mobile Header</span>
+        </div>
+      </div>
+    );
+  }
+  const { logo, logoLink, navigationList } = fields;
   return (
     <div className="block md:hidden">
       {isDropdownOpen && (
@@ -40,7 +50,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
       >
         <div className="h-xs w-full bg-grayscale-w-600"></div>
         <div className="flex justify-between p-s">
-          <Logo logo={logo.value} logoLink={logoLink} />
+          <Logo logo={logo} logoLink={logoLink} />
           <div className="flex items-center gap-4">
             <CountrySelector
               selectedCountry={selectedCountry}
@@ -89,12 +99,12 @@ const NavItem = (props: NavItemInterface) => {
   return (
     <div className="relative group px-s py-xs">
       {!isList ? (
-        <Link
+        <LinkWrapper
           field={props.fields.navigationLink}
           className="text-black text-s gap-xxs !place-items-center font-semibold"
         >
-          {props.displayName}
-        </Link>
+          <PlainTextWrapper field={props.fields.navigationTitle} />
+        </LinkWrapper>
       ) : (
         <button
           onClick={props.onClick}
@@ -128,9 +138,7 @@ export const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInter
             <ul>
               {category.fields.megaMenuLinks.map((item, i) => (
                 <li className="mb-xxs list-none -ml-s" key={i}>
-                  <Link field={item.fields.link} className="">
-                    {item.displayName}
-                  </Link>
+                  <LinkWrapper field={item.fields.link} className=""></LinkWrapper>
                 </li>
               ))}
             </ul>

@@ -1,17 +1,17 @@
 /* eslint-disable prettier/prettier */
-import { IconTypes } from 'helpers/SvgIconWrapper';
+// import { IconTypes } from 'helpers/SvgIconWrapper';
 
-export interface CTAIconInterface {
-  id: string;
-  url: string;
-  name: string;
-  displayName: string;
-  fields: {
-    Value: {
-      value: IconTypes;
-    };
-  };
-}
+// export interface CTAIconInterface {
+//   id: string;
+//   url: string;
+//   name: string;
+//   displayName: string;
+//   fields: {
+//     Value: {
+//       value: IconTypes;
+//     };
+//   };
+// }
 
 export interface CTAAlignmentInterface {
   id: string;

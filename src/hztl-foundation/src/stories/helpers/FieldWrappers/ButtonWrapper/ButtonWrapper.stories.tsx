@@ -18,14 +18,14 @@ import defaultData, {
 const meta: Meta<ButtonWrapperProps> = {
   argTypes: {
     className: { description: 'Can be used to apply custom Tailwind CSS selectors to a link.' },
-    iconAlignment: {
+    ctaIconAlignment: {
       defaultValue: 'right',
       description: "The alignment parameter for the button's icon.",
     },
     isDisabled: { defaultValue: false, description: 'The enabled/disabled flag for the button.' },
     id: { description: 'The unique identifier for the link.' },
     onClick: { description: 'The handler function for the "onClick" event.' },
-    variant: {
+    ctaVariant: {
       control: 'select',
       defaultValue: 'primary',
       description: 'The variant of the button.',
