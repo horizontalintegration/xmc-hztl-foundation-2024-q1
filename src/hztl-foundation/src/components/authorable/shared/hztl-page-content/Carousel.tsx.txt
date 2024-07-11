@@ -50,8 +50,8 @@ export const Default = (props: CarouselProps): JSX.Element => {
                     {/* Slide Content. */}
                     <div className="slide-content z-10 lg:absolute lg:left-[3%] lg:top-1/2 lg:box-border lg:max-w-[70%] lg:-translate-y-1/2 lg:transform lg:bg-opacity-80 lg:p-5 lg:text-left xl:max-w-[50%]">
                       <div className="slide-content-inner">
-                        <div className="relative flex flex-col gap-s p-6 sm:w-[11rem] mmd:w-auto h-[225px]">
-                          <h2 className="sm:text-[3rem] mmd:text-l capitalize font-bold">
+                        <div className="relative flex flex-col gap-s p-6 sm:w-44 mmd:w-auto h-[225px]">
+                          <h2 className="sm:text-5xl mmd:text-l capitalize font-bold">
                             {slide?.fields?.title?.value}
                           </h2>
 
@@ -67,12 +67,12 @@ export const Default = (props: CarouselProps): JSX.Element => {
                                 <LinkWrapper
                                   field={slide?.fields?.primaryCTA}
                                   aria-label={slide?.fields?.primaryCTA?.value.text}
-                                  className="w-[8rem] h-[3rem] rounded-[4px] content-center text-center bg-gray text-white text-button font-bold"
+                                  className="w-32 h-12 rounded content-center text-center bg-gray text-white text-button font-bold"
                                 ></LinkWrapper>
                                 <LinkWrapper
                                   field={slide?.fields?.secondaryCTA}
                                   aria-label={slide?.fields?.secondaryCTA?.value.text}
-                                  className="w-[8rem] h-[3rem] rounded-[4px] content-center text-center text-button font-bold border-1 border-gray text-gray"
+                                  className="w-32 h-12 rounded content-center text-center text-button font-bold border-1 border-gray text-gray"
                                 ></LinkWrapper>
                               </div>
                             </div>

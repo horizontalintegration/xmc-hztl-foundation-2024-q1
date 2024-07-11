@@ -21,22 +21,22 @@ export const Default = (props: CustomFormProps): JSX.Element => {
     return (
       <div className={`component card ${props?.params?.styles}`} id={id ? id : undefined}>
         <div data-component="authorable/general/card" className="flex justify-center items-center">
-          <div className="mx-auto my-[0px]">
-            <div className="border-[1px] border-[#2F2D2E]">
+          <div className="mx-auto my-0">
+            <div className="border border-gray">
               <Text field={props?.fields?.title} tag="h3" />
               <RichTextWrapper
-                className="font-modern text-[#2F2D2E] text-[16px] font-[400] not-italic leading-[24px] mb-[8px] opacity-[0.9]"
+                className="font-modern text-gray text-base font-normal not-italic leading-6 mb-2 opacity-90"
                 field={props?.fields?.description}
                 tag="div"
               />
               <div className="flex gap-xxs flex-wrap justify-center md:justify-normal">
                 <LinkWrapper
-                  className="flex items-center justify-center px-[16px] py-[12px] rounded-[4px] bg-[#2F2D2E] text-center text-[#FFF] font-modern text-[14px] font-[700] not-italic leading-normal"
+                  className="flex items-center justify-center px-4 py-3 rounded bg-gray text-center text-white font-modern text-sm font-bold not-italic leading-normal"
                   field={props?.fields?.primaryCTA}
                   suppressNewTabIcon={true}
                 />
                 <LinkWrapper
-                  className="flex items-center justify-center p-[12px] rounded-[4px] border-[1px] border-[#2F2D2E] text-center text-[#2F2D2E] font-modern text-[16px] font-[700] not-italic leading-normal"
+                  className="flex items-center justify-center p-3 rounded border border-gray text-center text-gray font-modern text-base font-bold not-italic leading-normal"
                   field={props?.fields?.secondaryCTA}
                   suppressNewTabIcon={true}
                 />

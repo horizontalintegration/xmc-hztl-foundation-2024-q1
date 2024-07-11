@@ -54,7 +54,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
   return (
     <div className="hidden md:block">
       {isDropdownOpen && (
-        <div className="shadow-md before:fixed before:left-[0] before:top-[0] before:z-[9] before:h-full before:w-full before:bg-black/[0.5] before:backdrop-blur-sm"></div>
+        <div className="shadow-md before:fixed before:left-0 before:top-0 before:z-[9] before:h-full before:w-full before:bg-black/50 before:backdrop-blur-sm"></div>
       )}
       <div className="fixed top-0 w-full bg-white z-50" ref={headerRef}>
         <div className="border-b border-black">
@@ -180,7 +180,7 @@ const DropdownMenu = ({
 }) => {
   return (
     <div
-      className={`absolute transition-all duration-200 left-[0px] w-full z-[9] overflow-hidden border-b border-black ${
+      className={`absolute transition-all duration-200 left-0 w-full z-[9] overflow-hidden border-b border-black ${
         isScrolled ? 'mt-[21px]' : 'mt-[29px]'
       } cursor-default`}
     >
