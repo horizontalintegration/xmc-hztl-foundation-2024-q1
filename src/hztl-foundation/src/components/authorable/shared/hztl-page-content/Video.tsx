@@ -19,12 +19,11 @@ export const Default = (props: VideoProps): JSX.Element => {
   if (props?.fields) {
     return (
       <div
-        className={`component video ${
-          props?.params?.styles !== undefined ? props?.params?.styles : ''
-        }`}
+        className={`${props?.params?.styles !== undefined ? props?.params?.styles : ''}`}
+        data-component="authorable/general/video"
         id={id ? id : ''}
       >
-        <div data-component="authorable/general/video" className="flex py-xxs gap-s px-ml">
+        <div className="flex py-xxs gap-s px-ml">
           <div className="p-6 bg-[#B2B2B2]">
             <div className="px-20 py-11 bg-white">
               <div className="text-right">

@@ -59,7 +59,7 @@ export const Default = (props: CardProps): JSX.Element => {
                     suppressNewTabIcon={true}
                   />
                   <LinkWrapper
-                    className="flex items-center justify-center p-xs rounded border-[1px] border-gray text-center text-gray font-modern text-xs font-bold"
+                    className="flex items-center justify-center p-xs rounded border border-gray text-center text-gray font-modern text-xs font-bold"
                     field={props?.fields?.CardLink2}
                     suppressNewTabIcon={true}
                   />
