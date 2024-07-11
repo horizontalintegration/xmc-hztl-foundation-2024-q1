@@ -6,7 +6,7 @@ import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.m
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import { ComponentProps } from 'lib/component-props';
 
-export type CardProps = ComponentProps & HztlPageContent.Card & { cardsPerRow?: string };
+export type CardProps = ComponentProps & HztlPageContent.Card & { cardsPerRow?: number };
 
 const CardDefaultComponent = (props: CardProps): JSX.Element => (
   <div className={`component card ${props?.params?.styles}`}>
@@ -18,6 +18,7 @@ const CardDefaultComponent = (props: CardProps): JSX.Element => (
 
 export const Default = (props: CardProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
+
   if (props?.fields) {
     return (
       <div
