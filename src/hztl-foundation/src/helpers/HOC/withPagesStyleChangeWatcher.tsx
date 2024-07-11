@@ -13,7 +13,7 @@ export function withPagesStyleChangeWatcher<P extends ComponentProps>(
 ) {
   const WatcherComponent: React.ComponentType<P> = (props: P) => {
     const ref = useRef<HTMLDivElement>(null);
-    const [styles, setStyles] = useState(props.params.Styles);
+    const [styles, setStyles] = useState(props.params?.Styles ?? '');
 
     const context = useSitecoreContext();
 
@@ -45,12 +45,14 @@ export function withPagesStyleChangeWatcher<P extends ComponentProps>(
       return <Component {...props} />;
     }
 
-    // Update the Styles param from the current state before rendering
-    props.params.Styles = styles;
+    if (props.params) {
+      // Update the Styles param from the current state before rendering
+      props.params.Styles = styles;
 
-    // Also update the params on the rendering item, in case that is being used
-    if (props.rendering.params) {
-      props.rendering.params.Styles = styles;
+      // Also update the params on the rendering item, in case that is being used
+      if (props.rendering.params) {
+        props.rendering.params.Styles = styles;
+      }
     }
 
     return (

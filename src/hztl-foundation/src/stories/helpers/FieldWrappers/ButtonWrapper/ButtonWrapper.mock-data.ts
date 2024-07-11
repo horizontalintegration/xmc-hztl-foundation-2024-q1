@@ -4,7 +4,7 @@ const defaultData = {
   id: 'buttonId',
   isDisabled: false,
   onClick: undefined,
-  variant: 'primary',
+  ctaVariant: 'primary',
   text: 'Button Text',
   title: 'Button Title',
   type: 'button',
@@ -17,17 +17,17 @@ export const disabledData = {
 
 export const styleLinkData = {
   ...defaultData,
-  variant: 'link',
+  ctaVariant: 'link',
 };
 
 export const styleSecondaryData = {
   ...defaultData,
-  variant: 'secondary',
+  ctaVariant: 'secondary',
 };
 
 export const styleTertiaryData = {
   ...defaultData,
-  variant: 'tertiary',
+  ctaVariant: 'tertiary',
 };
 
 export default defaultData;

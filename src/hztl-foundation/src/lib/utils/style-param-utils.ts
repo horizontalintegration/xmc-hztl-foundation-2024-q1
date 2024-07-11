@@ -38,10 +38,10 @@ import {
  * e.g. with the above style, you can use `result.cta1.ctaVariant` and would get the correct typing.
  */
 export function parseStyleParams<TElement extends string = DefaultElement>(
-  params: ComponentParams,
+  params: ComponentParams | undefined,
   validElements?: TElement[]
 ): ComponentStyleParams<TElement> {
-  const selectedStylesString = params.Styles?.trim() ?? '';
+  const selectedStylesString = params?.Styles?.trim() ?? '';
 
   const result: ComponentStyleParams<TElement> = {};
 

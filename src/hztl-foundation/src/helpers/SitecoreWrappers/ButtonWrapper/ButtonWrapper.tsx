@@ -59,10 +59,10 @@ export const ctaTailwindVariant = tv({
   variants: {
     iconAlignment: {
       left: {
-        icon: ['flex-row-reverse'],
+        base: ['flex-row-reverse'],
       },
       right: {
-        icon: ['flex-row'],
+        base: ['flex-row'],
       },
     },
     variant: {
