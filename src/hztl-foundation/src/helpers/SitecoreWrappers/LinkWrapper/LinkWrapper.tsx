@@ -2,7 +2,6 @@
 import { sendGTMEvent } from '@next/third-parties/google';
 import { Link, LinkProps, LinkField, LinkFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
 import NextLink from 'next/link';
-// import { tv } from 'tailwind-variants';
 import React, { forwardRef } from 'react';
 
 // Lib
@@ -11,26 +10,7 @@ import { GtmEvent } from 'lib/utils/gtm-utils';
 
 import { CtaProps, ctaTailwindVariant } from '../ButtonWrapper/ButtonWrapper';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
-
-const INTERNAL_LINK_REGEX = /^\/|^\#/g;
-
-export const NEW_TAB_ICON = (
-  <span className="svg-icon inline-flex align-middle -ml-3 h-6 w-6">
-    <svg
-      aria-hidden="true"
-      className="inline ml-2 -mt-1 h-em w-em"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z"
-        clipRule="evenodd"
-        fillRule="evenodd"
-      ></path>
-    </svg>
-  </span>
-);
+import structuredClone from '@ungap/structured-clone';
 
 export type LinkWrapperProps = Omit<LinkProps, 'field'> &
   CtaProps & {
@@ -52,7 +32,11 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
       gtmEvent,
       showLinkTextWithChildrenPresent = true,
       srOnlyText,
-      suppressNewTabIcon = true,
+      suppressNewTabIcon,
+      ctaStyle,
+      ctaVariant,
+      ctaIconAlignment,
+      ctaIcon,
       ...props
     }: LinkWrapperProps,
     ref
@@ -63,22 +47,24 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
       return <></>;
     }
 
-    const ctaIcon = props.ctaIcon ?? props.ctaStyle?.['cta-icon'].value;
-    const ctaVariant = props.ctaVariant ?? props.ctaStyle?.['cta-variant'].value ?? 'link';
-    const ctaIconAlignment =
-      props.ctaIconAlignment ?? props.ctaStyle?.['cta-icon-alignment'].value ?? 'right';
+    ctaIcon = ctaIcon ?? ctaStyle?.ctaIcon;
+    ctaVariant = ctaVariant ?? ctaStyle?.ctaVariant ?? 'link';
+    ctaIconAlignment = ctaIconAlignment ?? ctaStyle?.ctaIconAlignment ?? 'right';
 
-    const fieldValue = { ...((field as LinkField)?.value ?? (field as LinkFieldValue)) };
+    // Clone the object so we don't modify the original.
+    // This addresses some edge cases issues when the same link is rendered more than once
+    // and we're modifying the link.  While it may not always be needed, it's safer to include
+    const clonedField = structuredClone(field);
 
-    const { anchor, querystring, target, text, title } = fieldValue;
+    // Standardize the field because it can either be LinkField or LinkFieldValue
+    const fieldValue: LinkFieldValue = {
+      ...((clonedField as LinkField)?.value ?? (clonedField as LinkFieldValue)),
+    };
 
-    let { href } = fieldValue;
+    const { href, anchor, querystring, target, title } = fieldValue;
 
-    // Force lowercase links for internal urls
-    if (href?.startsWith('/')) {
-      href = href?.toLocaleLowerCase();
-    }
-    fieldValue.href = href;
+    const text = !showLinkTextWithChildrenPresent && children ? '' : fieldValue.text;
+
     const { base, icon } = ctaTailwindVariant({
       className: className,
       iconAlignment: ctaIconAlignment,
@@ -109,11 +95,12 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
     if (isEditing && editable)
       return (
         <Link
+          {...props}
           className={base()}
           field={field}
           internalLinkMatcher={INTERNAL_LINK_REGEX}
+          showLinkTextWithChildrenPresent={false}
           ref={ref}
-          showLinkTextWithChildrenPresent={showLinkTextWithChildrenPresent}
         >
           {/* We cannot render this is edit mode */}
           {/* {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />} */}
@@ -121,11 +108,11 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
       );
 
     // If no content is present, don't print
-    if (!anchor && !href && !showLinkTextWithChildrenPresent && !text) return <></>;
+    if (!anchor && !href && !text) return <></>;
 
     return (
       <NextLink
-        aria-label={props['aria-label'] ? props['aria-label'] : text}
+        {...props}
         className={base()}
         data-component="helpers/sitecorewrappers/linkwrapper"
         href={{ pathname: href, query: querystring, hash: anchor }}
@@ -134,7 +121,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
         target={target}
         title={title || text}
       >
-        {showLinkTextWithChildrenPresent && text ? <span>{text}</span> : null}
+        <span>{text}</span>
         {children}
         {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />}
         {(target === '_blank' || srOnlyText) && (
@@ -154,3 +141,23 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
 LinkWrapper.displayName = 'LinkWrapper';
 
 export default LinkWrapper;
+
+const INTERNAL_LINK_REGEX = /^\/|^\#/g;
+
+export const NEW_TAB_ICON = (
+  <span className="svg-icon inline-flex align-middle -ml-3 h-6 w-6">
+    <svg
+      aria-hidden="true"
+      className="inline ml-2 -mt-1 h-em w-em"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z"
+        clipRule="evenodd"
+        fillRule="evenodd"
+      ></path>
+    </svg>
+  </span>
+);

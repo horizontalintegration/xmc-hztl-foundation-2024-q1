@@ -13,10 +13,6 @@ SharedFields:
   Value: "{3071762E-7654-4CC8-94AE-0A1C41B09FC5}"
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: Card List
   Versions:
   - Version: 1
     Fields:
@@ -33,11 +29,11 @@ Languages:
         sitecore\pbarron@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "1e208e76-90d8-4de8-908d-4e97ae9710a2"
+      Value: "fad5c849-9a21-4f42-bf6b-7439fa60c7b5"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\pbarron@horizontal.com
+        sitecore\dly@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240320T142653Z
+      Value: 20240711T212122Z

@@ -8,23 +8,24 @@ import { GtmEvent } from 'lib/utils/gtm-utils';
 
 // Local
 import { SvgIcon } from 'helpers/SvgIconWrapper';
-import { CtaIconPositions, CtaIcons, CtaVariants } from 'lib/utils/style-param-utils';
+import { CtaIconAlignments, CtaIcons, CtaVariants } from 'lib/utils/style-param-utils.config';
 
 import { StyleParamRecord } from 'lib/utils/style-param-utils';
 
 export type CtaProps = {
   ctaStyle?: StyleParamRecord;
   ctaIcon?: CtaIcons;
-  ctaIconAlignment?: CtaIconPositions;
+  ctaIconAlignment?: CtaIconAlignments;
   ctaVariant?: CtaVariants;
 };
 
 export type ButtonWrapperProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  CtaProps & {
+  CtaProps &
+  React.PropsWithChildren & {
     className?: string;
     gtmEvent?: GtmEvent;
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    text: string;
+    text?: string;
   };
 
 export const ctaTailwindVariant = tv({
@@ -101,15 +102,14 @@ export const ctaTailwindVariant = tv({
   },
 });
 
-const ButtonWrapper = forwardRef<HTMLButtonElement>(
+const ButtonWrapper = forwardRef<HTMLButtonElement, ButtonWrapperProps>(
   (
-    { className, gtmEvent, onClick, text, ...props }: ButtonWrapperProps,
+    { className, gtmEvent, onClick, text, children, ...props }: ButtonWrapperProps,
     ref
   ): JSX.Element | null => {
-    const ctaIcon = props.ctaIcon ?? props.ctaStyle?.['cta-icon'].value;
-    const ctaVariant = props.ctaVariant ?? props.ctaStyle?.['cta-variant'].value ?? 'primary';
-    const ctaIconAlignment =
-      props.ctaIconAlignment ?? props.ctaStyle?.['cta-icon-alignment'].value ?? 'right';
+    const ctaIcon = props.ctaIcon ?? props.ctaStyle?.ctaIcon;
+    const ctaVariant = props.ctaVariant ?? props.ctaStyle?.ctaVariant ?? 'primary';
+    const ctaIconAlignment = props.ctaIconAlignment ?? props.ctaStyle?.ctaIconAlignment ?? 'right';
 
     const { base, icon } = ctaTailwindVariant({
       className: className,
@@ -136,11 +136,12 @@ const ButtonWrapper = forwardRef<HTMLButtonElement>(
      */
 
     // If no content is present, don't print
-    if (!text) return <></>;
+    if (!text && !children) return <></>;
 
     return (
       <button className={base()} onClick={handleOnClick} ref={ref} {...props}>
         {text}
+        {children}
         {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />}
       </button>
     );

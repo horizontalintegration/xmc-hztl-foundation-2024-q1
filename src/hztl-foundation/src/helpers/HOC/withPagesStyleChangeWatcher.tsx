@@ -27,9 +27,8 @@ export function withPagesStyleChangeWatcher<P extends ComponentProps>(
       const observer = new MutationObserver((mutations) => {
         mutations.forEach((mu) => {
           if (mu.type === 'attributes' && mu.attributeName === 'class') {
-            // Ignore the 'component' class which is the first one.
-            const [, ...classes] = ref.current?.classList.value.split(' ') ?? [];
-            setStyles(classes.join(' '));
+            // Ignore the 'component' class.
+            setStyles(ref.current?.classList.value.replace('component ', '') ?? '');
           }
         });
       });

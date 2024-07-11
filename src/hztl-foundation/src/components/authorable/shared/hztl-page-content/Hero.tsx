@@ -12,7 +12,7 @@ import { withStandardComponentWrapper } from 'helpers/HOC';
 export type HeroProps = ComponentProps & HztlPageContent.Hero;
 
 const Hero = (props: HeroProps): JSX.Element => {
-  const parsedParams = parseStyleParams(props.params, ['cta-1', 'cta-2']);
+  const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
   return (
     <section className="hero my-ml min-h-[50vh] flex flex-col-reverse md:flex-row justify-center items-center">
@@ -33,16 +33,12 @@ const Hero = (props: HeroProps): JSX.Element => {
             <LinkWrapper
               field={props.fields?.cta1Link}
               suppressNewTabIcon={true}
-              ctaIcon={parsedParams['cta-1']?.['cta-icon'].value}
-              ctaIconAlignment={parsedParams['cta-1']?.['cta-icon-alignment'].value}
-              ctaVariant={parsedParams['cta-1']?.['cta-variant'].value}
+              ctaStyle={styles.cta1}
             />
             <LinkWrapper
               field={props.fields?.cta2Link}
               suppressNewTabIcon={true}
-              ctaIcon={parsedParams['cta-2']?.['cta-icon'].value}
-              ctaIconAlignment={parsedParams['cta-2']?.['cta-icon-alignment'].value}
-              ctaVariant={parsedParams['cta-2']?.['cta-variant'].value}
+              ctaStyle={styles.cta2}
             />
           </div>
         </div>
