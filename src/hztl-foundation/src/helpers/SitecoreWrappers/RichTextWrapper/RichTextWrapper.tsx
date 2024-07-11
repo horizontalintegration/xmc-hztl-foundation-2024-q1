@@ -3,29 +3,27 @@ import { RichText, RichTextField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { RichTextProps } from '@sitecore-jss/sitecore-jss-nextjs/types/components/RichText';
 import React, { useEffect, useState } from 'react';
 
-//Local
+// Local
 import useIsEditing from 'lib/hooks/use-is-editing';
 
 const RichTextWrapper = ({ field, editable = true, ...props }: RichTextProps): JSX.Element => {
-  const updatedField = useUpdatedRichTextField({ field, editable });
   const isEditing = useIsEditing() && editable;
+  const updatedField = useUpdatedRichTextField({ field, editable });
 
   const hasValue = !!updatedField?.value;
 
   // We should only render if it has a value, or if we are editing
   const shouldRender = hasValue || isEditing;
 
-  if (!shouldRender) {
-    return <></>;
-  }
+  if (!shouldRender) return <></>;
 
   return (
     <RichText
       {...props}
+      className={`rte ${props?.className}`}
+      data-component="helpers/fieldwrappers/richtextwrapper"
       editable={editable}
       field={updatedField}
-      className={`rte ${props?.className}`}
-      data-component="helpers/richtextwrapper"
     />
   );
 };
