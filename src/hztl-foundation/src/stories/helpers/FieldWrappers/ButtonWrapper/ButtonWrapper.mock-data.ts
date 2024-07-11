@@ -1,8 +1,8 @@
 const defaultData = {
   className: '',
-  iconAlignment: 'right',
+  ctaIconAlignment: 'right',
   id: 'buttonId',
-  isDisabled: false,
+  disabled: false,
   onClick: undefined,
   ctaVariant: 'primary',
   text: 'Button Text',
@@ -12,7 +12,7 @@ const defaultData = {
 
 export const disabledData = {
   ...defaultData,
-  isDisabled: true,
+  disabled: true,
 };
 
 export const styleLinkData = {
