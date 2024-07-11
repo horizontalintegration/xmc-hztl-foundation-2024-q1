@@ -1,8 +1,8 @@
 ﻿---
-ID: "6934f3b1-f1af-43d5-9053-61d9c407afd6"
-Parent: "7a137b26-5e9c-4cbb-8731-54b3b6593a4d"
+ID: "06bebffb-6023-45a3-9fce-e85f3b2e3b8b"
+Parent: "2c75ef66-7cd8-43c4-90e2-ef4e44e337a9"
 Template: "e269fbb5-3750-427a-9149-7aa950b49301"
-Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel Item/Data
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CarouselItem/Data
 Languages:
 - Language: en
   Versions:

@@ -1,5 +1,5 @@
 ﻿---
-ID: "2fc05e62-0d10-4152-b811-71de37e6c08e"
+ID: "bb2ce578-8961-4b4e-b9bb-382c8453f27d"
 Parent: "85b52ea0-73d5-4f63-9716-5bfa251411f7"
 Template: "04646a89-996f-4ee7-878a-ffdbf1f0ef0d"
 Path: /sitecore/layout/Renderings/Feature/HztlFoundation/HztlPageContent/Carousel
@@ -7,12 +7,15 @@ SharedFields:
 - ID: "037fe404-dd19-4bf7-8e30-4dadf68b27b0"
   Hint: componentName
   Value: Carousel
+- ID: "069a8361-b1cd-437c-8c32-a3be78941446"
+  Hint: Placeholders
+  Value: "{C9C5F1B0-92FE-4D78-9B98-623A2C856061}"
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
   Value: office/32x32/elements.png
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
-  Value: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Carousel
+  Value: 
 - ID: "7d8ae35f-9ed1-43b5-96a2-0a5f040d4e4e"
   Hint: Open Properties after Add
   Value: 0
@@ -21,10 +24,10 @@ SharedFields:
   Value: 
 - ID: "a77e8568-1ab3-44f1-a664-b7c37ec7810d"
   Hint: Parameters Template
-  Value: "{F90E159F-B6D9-4E53-8819-270BB018EE39}"
+  Value: "{E934C35A-965E-4E8A-9555-E846A910368B}"
 - ID: "b5b27af1-25ef-405c-87ce-369b3a004016"
   Hint: Datasource Location
-  Value: "query:$site/*[@@name='Data']/*[@@templatename='Carousel Folder']|query:$sharedSites/*[@@name='Data']/*[@@templatename='Carousel Folder']"
+  Value: 
 - ID: "c39a90ce-0035-41bb-90f6-3c8a6ea87797"
   Hint: AddFieldEditorButton
   Value: 
@@ -78,14 +81,14 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5ebd310e-d10d-4440-93ad-647a9981057f"
+      Value: "7b704805-3090-40f0-8f7c-ba7e1a2dcecc"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\asavalagi@horizontal.com
+        sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240612T122631Z
+      Value: 20240709T115902Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"

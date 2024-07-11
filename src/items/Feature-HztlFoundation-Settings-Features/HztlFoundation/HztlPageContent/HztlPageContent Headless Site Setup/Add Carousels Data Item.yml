@@ -12,7 +12,7 @@ SharedFields:
   Value: Carousel
 - ID: "e62c28f0-9d3b-46e2-8bec-a5e120542499"
   Hint: Template
-  Value: "{0CD3B2A0-BE95-41BD-85C8-D79110CE5DBF}"
+  Value: "{347730F0-15BD-4C30-A39D-9D7E42F1601E}"
 Languages:
 - Language: en
   Versions:
@@ -31,11 +31,11 @@ Languages:
         sitecore\asavalagi@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "58633490-c3e3-4ac6-a7bc-4db23f69a5f6"
+      Value: "a8b20af3-7993-49b0-8782-829e094345d9"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\asavalagi@horizontal.com
+        sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240612T122610Z
+      Value: 20240709T131942Z

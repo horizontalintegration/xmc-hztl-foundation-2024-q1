@@ -5,24 +5,24 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { flattenObj } from 'lib/object-parser';
 
 // Local
-import BreadCrumbData from './Breadcrumb.mock-data';
-import Breadcrumb from 'components/authorable/shared/hztl-page-content/Breadcrumb/Breadcrumb';
+import defaultData from './Breadcrumb.mock-data';
+import { Default } from 'components/authorable/shared/hztl-page-content/Breadcrumb/Breadcrumb';
 
-const meta: Meta<typeof Breadcrumb> = {
+const meta: Meta<typeof Default> = {
   title: 'Authorable/General/Breadcrumb',
-  component: Breadcrumb,
+  component: Default,
   argTypes: {},
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Breadcrumb>;
+type Story = StoryObj<typeof Default>;
 
-export const Default: Story = {
+export const Breadcrumb: Story = {
   render: () => {
-    return <Breadcrumb {...BreadCrumbData} />;
+    return <Default {...defaultData} />;
   },
   args: {
-    ...flattenObj(BreadCrumbData),
+    ...flattenObj(defaultData),
   },
 };
