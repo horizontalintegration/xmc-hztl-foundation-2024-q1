@@ -1,7 +1,7 @@
 import { FooterProps } from 'components/authorable/site-structure/footer/Footer';
 
 export const defaultData: FooterProps = {
-  rendering: { componentName: 'Default' },
+  rendering: { componentName: 'Default', dataSource: 'Storybook' },
   params: {},
   fields: {
     footerLogo: {

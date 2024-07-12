@@ -4,11 +4,12 @@
     "paths": {
       "assets/*": ["src/assets/*"],
       "components/*": ["src/components/*"],
-      "helpers/*": ["src/helpers/*"],
-      "lib/*": ["src/lib/*"],
-      "temp/*": ["src/temp/*"],
       "graphql-types": ["node_modules/@types/graphql-let/__generated__/__types__"],
-      "react": ["node_modules/@types/react"]
+      "helpers/*": ["src/helpers/*"],
+      "interfaces/*": ["src/interfaces/*"],
+      "lib/*": ["src/lib/*"],
+      "react": ["node_modules/@types/react"],
+      "temp/*": ["src/temp/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

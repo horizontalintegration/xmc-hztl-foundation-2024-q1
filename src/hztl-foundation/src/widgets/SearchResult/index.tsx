@@ -50,8 +50,8 @@ const buildRangeLabel = (min: number | undefined, max: number | undefined): stri
   return typeof min === 'undefined'
     ? `< $${max}`
     : typeof max === 'undefined'
-    ? ` > $${min}`
-    : `$${min} - $${max}`;
+      ? ` > $${min}`
+      : `$${min} - $${max}`;
 };
 const searchSourceIds = ['1019809'];
 

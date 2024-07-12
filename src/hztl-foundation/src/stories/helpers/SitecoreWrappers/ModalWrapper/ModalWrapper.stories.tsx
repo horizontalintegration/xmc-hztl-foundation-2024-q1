@@ -5,7 +5,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import { Default, VideoProps } from '../../../../components/authorable/hztl-page-content/Video';
+import {
+  Default,
+  VideoProps,
+} from '../../../../components/authorable/shared/hztl-page-content/Video';
 import defaultData from './ModalWrapper.mock-data';
 
 const meta: Meta<typeof Default> = {

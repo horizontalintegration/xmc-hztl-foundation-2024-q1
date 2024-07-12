@@ -5,6 +5,8 @@ import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import { HztlPageContent } from '../../../.generated/Feature.HztlFoundation.model';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import { ComponentProps } from 'lib/component-props';
+import { withStandardComponentWrapper } from 'helpers/HOC';
+import { parseStyleParams } from 'lib/utils/style-param-utils';
 
 export type CardProps = ComponentProps & HztlPageContent.Card & { cardsPerRow?: string };
 
@@ -16,9 +18,10 @@ const CardDefaultComponent = (props: CardProps): JSX.Element => (
   </div>
 );
 
-export const Default = (props: CardProps): JSX.Element => {
+const Card = (props: CardProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
   if (props?.fields) {
+    const parsedParams = parseStyleParams(props.params, ['cta1', 'cta2']);
     return (
       <div
         className={`component w-full mb-4 mml:w-1/${props?.cardsPerRow}`}
@@ -56,12 +59,12 @@ export const Default = (props: CardProps): JSX.Element => {
                   <LinkWrapper
                     className="flex items-center justify-center px-s py-xs rounded bg-gray text-center text-white font-modern text-button font-bold"
                     field={props?.fields?.CardLink1}
-                    suppressNewTabIcon={true}
+                    ctaStyle={parsedParams.cta1}
                   />
                   <LinkWrapper
                     className="flex items-center justify-center p-xs rounded border border-gray text-center text-gray font-modern text-xs font-bold"
                     field={props?.fields?.CardLink2}
-                    suppressNewTabIcon={true}
+                    ctaStyle={parsedParams.cta2}
                   />
                 </div>
               </div>
@@ -74,3 +77,5 @@ export const Default = (props: CardProps): JSX.Element => {
 
   return <CardDefaultComponent {...props} />;
 };
+
+export const Default = withStandardComponentWrapper(Card);

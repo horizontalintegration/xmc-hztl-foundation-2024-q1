@@ -5,7 +5,7 @@ const defaultData: BreadcrumbDataType = {
   rendering: {
     uid: 'f29a1f60-e8b8-446d-ab82-f56bca7201f2',
     componentName: 'Default',
-    dataSource: '',
+    dataSource: 'Storybook',
     params: {
       GridParameters: 'col-12',
       FieldNames: 'Default',

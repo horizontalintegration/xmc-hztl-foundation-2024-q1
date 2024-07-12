@@ -1,7 +1,7 @@
 import { LegalInfoProps } from '../../../components/authorable/hztl-page-content/LegalInfo';
 
 const defaultData: LegalInfoProps = {
-  rendering: { componentName: 'Default' },
+  rendering: { componentName: 'Default', dataSource: 'Storybook' },
   params: {},
   fields: {
     copyrightText: {
