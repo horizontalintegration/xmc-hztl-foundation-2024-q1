@@ -1,7 +1,7 @@
 import { CarouselProps } from 'components/authorable/shared/hztl-page-content/Carousel';
 
 const defaultData: CarouselProps = {
-  rendering: { componentName: 'Default' },
+  rendering: { componentName: 'Default', dataSource: 'Storybook' },
   params: {
     DynamicPlaceholderId: '1',
     FieldNames: 'Default',

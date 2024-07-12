@@ -12,7 +12,7 @@ export type AccordionProps = ComponentProps & HztlPageContent.AccordionItem;
 const AccordionDefaultComponent = (props: AccordionProps): JSX.Element => {
   return (
     /* TODO: Remove non-tailwind classes */
-    <div className={`component hero ${props.params.styles}`}>
+    <div className={`component hero ${props.params?.styles}`}>
       <div className="component-content">
         <span className="is-empty-hint">Accordion Item</span>
       </div>

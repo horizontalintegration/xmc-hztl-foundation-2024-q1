@@ -7,7 +7,7 @@
         "name": "Content-HztlFoundation-SiteAlpha",
         "path": "/sitecore/content/HztlFoundation/SiteAlpha",
         "scope": "ItemAndDescendants",
-        "allowedPushOperations": "CreateAndUpdate",
+        "allowedPushOperations": "CreateUpdateAndDelete",
         "rules": [
           {
             "path": "/Home/Data",
@@ -23,12 +23,12 @@
             "path": "/Media",
             "scope": "SingleItem",
             "allowedPushOperations": "CreateAndUpdate"
-          },          
+          },
           {
             "path": "/Data",
             "scope": "ItemAndChildren",
             "allowedPushOperations": "CreateAndUpdate"
-          },      
+          },
           {
             "path": "/Dictionary",
             "scope": "ItemAndDescendants",
@@ -37,9 +37,9 @@
           {
             "path": "/Presentation",
             "scope": "ItemAndDescendants",
-            "allowedPushOperations": "CreateAndUpdate"
+            "allowedPushOperations": "CreateUpdateAndDelete"
           },
-          
+
           {
             "path": "/Settings",
             "scope": "ItemAndDescendants",

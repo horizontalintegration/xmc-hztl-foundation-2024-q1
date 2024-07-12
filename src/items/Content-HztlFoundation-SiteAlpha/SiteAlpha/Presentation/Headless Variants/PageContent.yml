@@ -13,10 +13,6 @@ SharedFields:
   Value: "{01E7C00F-89F4-4D2F-AEDF-F79DB531842E}"
 Languages:
 - Language: en
-  Fields:
-  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
-    Hint: __Display name
-    Value: Page Content
   Versions:
   - Version: 1
     Fields:
@@ -33,11 +29,11 @@ Languages:
         sitecore\dly@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "98ab1163-aa6b-482a-95f8-38d0aac492d5"
+      Value: "be46d15d-6b13-48fd-811b-6fb337a87458"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\dly@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240129T193501Z
+      Value: 20240711T212220Z

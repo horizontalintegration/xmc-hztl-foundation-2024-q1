@@ -1,32 +1,47 @@
 const defaultData = {
-  className: 'underline hover:no-underline',
+  className: '',
+  editable: false,
   field: {
     value: {
-      href: 'https://www.horizontaldigital.com',
-      text: 'Link with new tab screen reader text',
-      linktype: 'external',
-      target: '_blank',
+      href: 'https://www.example.com',
+      linktype: undefined,
+      target: '_self',
+      text: 'Link with screen reader text that opens in the current tab',
+      title: undefined,
     },
   },
-  suppressNewTabIcon: false,
-  suppressLinkText: false,
   srOnlyText: 'Only screen readers can access this text',
+  suppressNewTabIcon: true,
 };
 
-export const internalLink = {
+export const emailLink = {
+  ...defaultData,
+  field: {
+    value: {
+      href: 'mailto:example@example.com',
+      text: 'example@example.com',
+    },
+  },
+  suppressNewTabIcon: true,
+};
+
+export const externalLink = {
   ...defaultData,
   field: {
     value: {
       ...defaultData.field.value,
-      target: undefined,
+      linktype: 'external',
+      target: '_blank',
+      text: 'Link with screen reader text that opens in a new tab',
     },
   },
+  suppressNewTabIcon: false,
 };
 
-export const suppressIconAndText = {
+export const linkWithChildren = {
   ...defaultData,
-  suppressNewTabIcon: true,
-  suppressLinkText: true,
+  children: 'Image',
+  showLinkTextWithChildrenPresent: false,
 };
 
 export const noContent = {
@@ -34,16 +49,6 @@ export const noContent = {
     value: {},
   },
   suppressLinkText: false,
-};
-
-export const fieldAsLinkFieldValue = {
-  ...defaultData,
-  field: {
-    href: 'https://www.horizontaldigital.com',
-    text: 'Link Text',
-    linktype: 'external',
-    target: '_blank',
-  },
 };
 
 export default defaultData;

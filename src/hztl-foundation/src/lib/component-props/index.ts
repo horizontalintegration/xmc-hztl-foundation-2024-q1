@@ -9,7 +9,7 @@ import {
  */
 export type ComponentProps = {
   rendering: ComponentRendering;
-  params: ComponentParams;
+  params?: ComponentParams;
 };
 
 /**
