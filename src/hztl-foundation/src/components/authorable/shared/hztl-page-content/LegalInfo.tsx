@@ -20,15 +20,13 @@ export const Default = (props: LegalInfoProps): JSX.Element => {
   if (props?.fields) {
     return (
       <div
-        className={`component legal info py-m px-0 2xl:m-auto 2xl:w-1/3 ${
+        className={`py-m px-0 2xl:m-auto 2xl:w-1/3 ${
           props?.params?.styles !== undefined ? props?.params?.styles : ''
         }`}
+        data-component="authorable/general/legal-info"
         id={id ? id : ''}
       >
-        <div
-          data-component="authorable/general/legal-info"
-          className="flex flex-col gap-xxs text-center lg:text-left items-center ml:items-end px-ml lg:px-ml"
-        >
+        <div className="flex flex-col gap-xxs text-center lg:text-left items-center ml:items-end px-ml lg:px-ml">
           <RichTextWrapper
             className="font-modern text-black text-xs font-regular"
             field={props?.fields?.copyrightText}
