@@ -161,7 +161,8 @@ const BurgurIcon = ({
       <input
         className="checkbox absolute right-[0px] z-[2] block h-m w-[17px] opacity-0 cursor-pointer"
         type="checkbox"
-        checked={openMenu}
+        // checked={openMenu}
+        defaultChecked={openMenu}
         onClick={() => toggleHamburger()}
       />
       <div className="hamburger-lines absolute right-0 z-[1] flex h-xs w-[17px] flex-col justify-between">
