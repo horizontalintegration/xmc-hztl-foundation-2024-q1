@@ -91,20 +91,21 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
      * RENDERING
      */
 
-    // In experience editor, do not pass any children but retain basic styling so that double components do not appear when using <Link>
     if (isEditing && editable)
       return (
-        <Link
-          {...props}
-          className={base()}
-          field={field}
-          internalLinkMatcher={INTERNAL_LINK_REGEX}
-          showLinkTextWithChildrenPresent={false}
-          ref={ref}
-        >
-          {/* We cannot render this is edit mode */}
-          {/* {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />} */}
-        </Link>
+        // Adding the CSS classes to a wrapping div so we can include the icon
+        <div className={base()}>
+          <Link
+            {...props}
+            field={field}
+            internalLinkMatcher={INTERNAL_LINK_REGEX}
+            showLinkTextWithChildrenPresent={false}
+            ref={ref}
+          />
+          {/* When in edit mode we cannot render anything inside the Link tag (cause duplicate link), 
+          but we can rendering it outside of the link and move the styling to a parent div */}
+          {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />}
+        </div>
       );
 
     // If no content is present, don't print
