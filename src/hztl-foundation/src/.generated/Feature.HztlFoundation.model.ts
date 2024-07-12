@@ -18,8 +18,6 @@ import { GlobalData as FeatureHztlFoundationGlobalData } from "./Feature.HztlFou
 // @ts-ignore 
 import { SiteStructure as FeatureHztlFoundationSiteStructure } from "./Feature.HztlFoundation.model"
 // @ts-ignore 
-import { Data as FoundationHztlFoundationData } from "./Foundation.HztlFoundation.model"
-// @ts-ignore 
 import { HztlSiteStructure as FeatureHztlFoundationHztlSiteStructure } from "./Feature.HztlFoundation.model"
 
 export namespace HztlPageContent.RenderingParameters {
@@ -292,12 +290,7 @@ export namespace HztlPageContent.RenderingParameters {
     * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/CardList
     */
     export type CardList =  {
-        fields?: { 
-            /**
-            * Represents the Cards Per Row field (79381cc3-c76a-49da-ba7c-3c94aa8ed0f0).
-            */
-            cardsPerRow?: Field<string>;
-        }
+        fields?: {         }
 
     }
 
@@ -306,13 +299,6 @@ export namespace HztlPageContent.RenderingParameters {
     */
     export type CardListJson =  {
         
-            /**
-            * Represents the Cards Per Row field (79381cc3-c76a-49da-ba7c-3c94aa8ed0f0).
-            */
-            cardsPerRow?: {
-                jsonValue: Field<string>
-            };
-
 
     }
 
@@ -977,9 +963,18 @@ export namespace HztlPageContent {
     /**
     * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Hero
     */
-    export type Hero = FoundationHztlFoundationData.Cta.Cta1 & 
-FoundationHztlFoundationData.Cta.Cta2 &  {
+    export type Hero =  {
         fields?: { 
+            /**
+            * Represents the CTA 1 Link field (a0fd42c3-9121-45bb-bf22-0222bb7b8200).
+            */
+            cta1Link?: LinkField;
+
+            /**
+            * Represents the CTA 2 Link field (567a9f0d-2cf2-4162-91b2-b33cf5ff9595).
+            */
+            cta2Link?: LinkField;
+
             /**
             * Represents the Text 3 field (72c8e421-0bdd-46ff-a012-3835f6e52060).
             */
@@ -1001,9 +996,22 @@ FoundationHztlFoundationData.Cta.Cta2 &  {
     /**
     * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Hero
     */
-    export type HeroJson = FoundationHztlFoundationData.Cta.Cta1Json & 
-FoundationHztlFoundationData.Cta.Cta2Json &  {
+    export type HeroJson =  {
         
+            /**
+            * Represents the CTA 1 Link field (a0fd42c3-9121-45bb-bf22-0222bb7b8200).
+            */
+            cta1Link?: {
+                jsonValue: LinkField
+            };
+
+            /**
+            * Represents the CTA 2 Link field (567a9f0d-2cf2-4162-91b2-b33cf5ff9595).
+            */
+            cta2Link?: {
+                jsonValue: LinkField
+            };
+
             /**
             * Represents the Text 3 field (72c8e421-0bdd-46ff-a012-3835f6e52060).
             */
@@ -1827,8 +1835,6 @@ export namespace HztlPageContent.Constants {
         TemplateId: "4bda55f9-dbec-4f86-85fe-e42132b4dee6",
     
         BaseTemplateIds: [
-            "9f0ffa8c-7984-482c-b150-9a2a350fc691", 
-            "8a050b40-2188-4628-a43f-be392372b1e7", 
         ]
     }
 }

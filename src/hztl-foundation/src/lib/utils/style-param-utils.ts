@@ -1,10 +1,11 @@
 import { ComponentParams } from '@sitecore-jss/sitecore-jss-nextjs';
 import {
   StyleProperties,
-  CtaIconAlignments,
-  CtaIcons,
-  CtaVariants,
   StylePropertyValues,
+  GetValueType,
+  GetStyleProperties,
+  ValidElements,
+  DefaultElement,
 } from './style-param-utils.config';
 
 /**
@@ -37,7 +38,7 @@ import {
  * @returns an object that encapsultes the styles in this rendering.
  * e.g. with the above style, you can use `result.cta1.ctaVariant` and would get the correct typing.
  */
-export function parseStyleParams<TElement extends string = DefaultElement>(
+export function parseStyleParams<TElement extends ValidElements = DefaultElement>(
   params: ComponentParams | undefined,
   validElements?: TElement[]
 ): ComponentStyleParams<TElement> {
@@ -76,30 +77,27 @@ export function parseStyleParams<TElement extends string = DefaultElement>(
       );
     }
 
+    const typedValue = value as GetValueType<TElement, typeof styleType>;
     result[targetElement] = {
       ...result[targetElement],
-      [styleType]: value as GetValueType<typeof styleType>,
+      [styleType]: typedValue,
     };
   });
 
   return result;
 }
 
-type DefaultElement = 'default';
-
 /** Utility "function" to dynamically get the value type based on style type */
-type GetValueType<TStyleProp extends StyleProperties> = TStyleProp extends 'ctaIconAlignment'
-  ? CtaIconAlignments
-  : TStyleProp extends 'ctaIcon'
-    ? CtaIcons
-    : TStyleProp extends 'ctaVariant'
-      ? CtaVariants
-      : string;
 
-export type StyleParamRecord = {
-  [P in StyleProperties]?: GetValueType<P>;
+export type StyleParamRecord<TElement extends ValidElements, TStyleProp extends StyleProperties> = {
+  [P in TStyleProp]?: GetValueType<TElement, P>;
 };
 
-export type ComponentStyleParams<TElement extends string = DefaultElement> = {
-  [P in TElement | DefaultElement]?: StyleParamRecord;
+export type GetStyleParamRecord<TElement extends ValidElements> = StyleParamRecord<
+  TElement,
+  GetStyleProperties<TElement>
+>;
+
+export type ComponentStyleParams<TElement extends ValidElements = DefaultElement> = {
+  [P in TElement | DefaultElement]?: GetStyleParamRecord<P>;
 };
