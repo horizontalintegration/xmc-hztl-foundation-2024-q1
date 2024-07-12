@@ -7,8 +7,8 @@ import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
 import defaultData from './Header.mock-data';
-import { Default } from 'components/authorable/shared/site-structure/Header/Header';
-import { HeaderProps } from 'components/authorable/shared/site-structure/Header/headerInterface';
+import { Default } from 'components/authorable/site-structure/Header/Header';
+import { HeaderProps } from 'components/authorable/site-structure/Header/headerInterface';
 
 const meta: Meta<typeof Default> = {
   title: 'Authorable/General/Header',

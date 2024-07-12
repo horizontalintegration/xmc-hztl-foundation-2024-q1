@@ -3,7 +3,7 @@ import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
-import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+import { HztlPageContent } from '../../../.generated/Feature.HztlFoundation.model';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 

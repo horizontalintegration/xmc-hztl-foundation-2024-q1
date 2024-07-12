@@ -2,7 +2,7 @@ import React from 'react';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
-import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+import { HztlPageContent } from '../../../.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
 
 export type CustomFormProps = ComponentProps & HztlPageContent.CustomForm;

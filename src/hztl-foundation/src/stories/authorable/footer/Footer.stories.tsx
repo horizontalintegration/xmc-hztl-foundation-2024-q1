@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import { Default, FooterProps } from 'components/authorable/shared/site-structure/footer/Footer';
+import { Default, FooterProps } from 'components/authorable/site-structure/footer/Footer';
 import defaultData from './Footer.mock-data';
 
 const meta: Meta<typeof Default> = {

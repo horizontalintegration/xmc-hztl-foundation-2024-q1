@@ -8,7 +8,7 @@ import { expandObj, flattenObj } from 'lib/object-parser';
 import {
   Default,
   SocialMediaProps,
-} from '../../../components/authorable/shared/hztl-page-content/SocialMedia';
+} from '../../../components/authorable/hztl-page-content/SocialMedia';
 import defaultData from './SocialMedia.mock-data';
 
 const meta: Meta<typeof Default> = {

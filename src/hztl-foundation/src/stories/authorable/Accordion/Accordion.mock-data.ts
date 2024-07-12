@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { AccordionProps } from 'components/authorable/shared/hztl-page-content/AccordionItem';
+import { AccordionProps } from 'components/authorable/hztl-page-content/AccordionItem';
 const defaultData: AccordionProps = {
   rendering: { componentName: 'Default' },
   params: {
@@ -16,4 +16,3 @@ const defaultData: AccordionProps = {
 };
 
 export default defaultData;
-

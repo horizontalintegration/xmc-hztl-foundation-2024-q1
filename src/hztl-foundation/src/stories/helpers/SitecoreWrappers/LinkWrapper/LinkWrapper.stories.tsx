@@ -12,7 +12,7 @@ import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import defaultData from './LinkWrapper.mock-data';
 
 const meta: Meta<typeof LinkWrapper> = {
-  title: 'Helpers/Field Wrappers/Link Wrapper',
+  title: 'Helpers/Sitecore Wrappers/Link Wrapper',
   component: LinkWrapper,
   argTypes: {
     'field.value.linktype': { control: 'select', options: ['external'] },

@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import { Default, LegalInfoProps } from 'components/authorable/shared/hztl-page-content/LegalInfo';
+import { Default, LegalInfoProps } from 'components/authorable/hztl-page-content/LegalInfo';
 import defaultData from './Legal-Info.mock-data';
 
 const meta: Meta<typeof Default> = {

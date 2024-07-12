@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import { Default, HeroProps } from 'components/authorable/shared/hztl-page-content/Hero';
+import { Default, HeroProps } from 'components/authorable/hztl-page-content/Hero';
 import defaultData from './Hero.mock-data';
 
 const meta: Meta<typeof Default> = {

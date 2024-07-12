@@ -1,4 +1,4 @@
-import { VideoProps } from '../../../components/authorable/shared/hztl-page-content/Video';
+import { VideoProps } from '../../../components/authorable/hztl-page-content/Video';
 
 const defaultData: VideoProps = {
   rendering: { componentName: 'Default' },

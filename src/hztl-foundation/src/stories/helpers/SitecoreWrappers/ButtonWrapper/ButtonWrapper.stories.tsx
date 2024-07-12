@@ -11,7 +11,7 @@ import ButtonWrapper, {
 import defaultData, { secondaryData } from './ButtonWrapper.mock-data';
 
 const meta: Meta<ButtonWrapperProps> = {
-  title: 'Helpers/Field Wrappers/Button Wrapper',
+  title: 'Helpers/Sitecore Wrappers/Button Wrapper',
   component: ButtonWrapper,
   argTypes: {},
 };

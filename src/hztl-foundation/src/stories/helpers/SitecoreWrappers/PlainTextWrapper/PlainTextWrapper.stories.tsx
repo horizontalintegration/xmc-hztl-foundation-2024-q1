@@ -10,7 +10,7 @@ import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTex
 import defaultData from './PlainTextWrapper.mock-data';
 
 const meta: Meta<typeof PlainTextWrapper> = {
-  title: 'Helpers/Field Wrappers/Plain Text Wrapper',
+  title: 'Helpers/Sitecore Wrappers/Plain Text Wrapper',
   component: PlainTextWrapper,
   argTypes: {
     editable: { control: 'boolean' },

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ComponentProps } from 'lib/component-props';
-import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+import { HztlPageContent } from '../../../.generated/Feature.HztlFoundation.model';
 import VideoWrapper from 'helpers/SitecoreWrappers/VideoWrapper/VideoWrapper';
 import ModalWrapper from 'helpers/SitecoreWrappers/ModalWrapper/ModalWrapper';
 

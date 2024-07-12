@@ -1,5 +1,5 @@
 import React from 'react';
-import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+import { HztlPageContent } from '../../../.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
 import SearchResultsWidget from 'src/widgets/SearchResult';
 import { useSearchParams } from 'next/navigation';

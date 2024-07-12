@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentProps } from 'lib/component-props';
-import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+import { HztlPageContent } from '../../../.generated/Feature.HztlFoundation.model';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 
 export type RTEProps = ComponentProps & HztlPageContent.Rte;

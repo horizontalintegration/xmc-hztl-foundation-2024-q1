@@ -1,4 +1,4 @@
-import { SocialMediaProps } from '../../../components/authorable/shared/hztl-page-content/SocialMedia';
+import { SocialMediaProps } from '../../../components/authorable/hztl-page-content/SocialMedia';
 
 const defaultData: SocialMediaProps = {
   rendering: { componentName: 'Default' },

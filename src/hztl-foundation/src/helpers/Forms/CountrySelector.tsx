@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { CountrySelectorInterface } from 'components/authorable/shared/site-structure/Header/headerInterface';
+import { CountrySelectorInterface } from 'components/authorable/site-structure/Header/headerInterface';
 import React from 'react';
 
 const CountrySelector = ({

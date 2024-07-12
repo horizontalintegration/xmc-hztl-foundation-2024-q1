@@ -1,4 +1,4 @@
-import { CardProps } from '../../../components/authorable/shared/hztl-page-content/Card';
+import { CardProps } from '../../../components/authorable/hztl-page-content/Card';
 
 const defaultData: CardProps = {
   rendering: { componentName: 'Default' },

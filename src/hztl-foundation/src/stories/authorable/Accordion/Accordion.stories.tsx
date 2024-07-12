@@ -7,10 +7,7 @@ import { expandObj, flattenObj } from 'lib/object-parser';
 import '../../page.css';
 
 // Local
-import {
-  Default,
-  AccordionProps,
-} from 'components/authorable/shared/hztl-page-content/AccordionItem';
+import { Default, AccordionProps } from 'components/authorable/hztl-page-content/AccordionItem';
 import defaultData from './Accordion.mock-data';
 
 const meta: Meta<typeof Default> = {
@@ -31,4 +28,3 @@ export const Accordion: Story = {
     ...flattenObj(defaultData),
   },
 };
-

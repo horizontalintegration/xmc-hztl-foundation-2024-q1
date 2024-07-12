@@ -1,4 +1,4 @@
-import { HeroProps } from '../../../components/authorable/shared/hztl-page-content/Hero';
+import { HeroProps } from '../../../components/authorable/hztl-page-content/Hero';
 
 const defaultData: HeroProps = {
   rendering: { componentName: 'Default' },

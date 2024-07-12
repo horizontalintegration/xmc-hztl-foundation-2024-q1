@@ -2,7 +2,7 @@ import React from 'react';
 import { ImageField, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
-import { SiteStructure } from '../../../../.generated/Feature.HztlFoundation.model';
+import { SiteStructure } from '../../../.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
 
 export type SocialMediaProps = ComponentProps & SiteStructure.Footer.SocialMedia;

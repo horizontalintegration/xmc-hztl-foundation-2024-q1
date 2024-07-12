@@ -104,7 +104,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
           </div>
         </div>
         {showSearch && (
-          <div className="w-full px-xs bg-white py-xs shadow-md">
+          <div className="!w-full px-xs bg-white py-xs shadow-md">
             <PreviewSearchBasicWidget rfkId={'rfkid_101'} defaultValue="" defaultItemsPerPage={5} />
           </div>
         )}

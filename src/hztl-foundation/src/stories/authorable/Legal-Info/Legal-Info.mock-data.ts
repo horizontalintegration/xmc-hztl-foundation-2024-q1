@@ -1,4 +1,4 @@
-import { LegalInfoProps } from '../../../components/authorable/shared/hztl-page-content/LegalInfo';
+import { LegalInfoProps } from '../../../components/authorable/hztl-page-content/LegalInfo';
 
 const defaultData: LegalInfoProps = {
   rendering: { componentName: 'Default' },

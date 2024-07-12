@@ -6,7 +6,7 @@ import { flattenObj } from 'lib/object-parser';
 
 // Local
 import defaultData from './Breadcrumb.mock-data';
-import { Default } from 'components/authorable/shared/hztl-page-content/Breadcrumb/Breadcrumb';
+import { Default } from 'components/authorable/hztl-page-content/Breadcrumb/Breadcrumb';
 
 const meta: Meta<typeof Default> = {
   title: 'Authorable/General/Breadcrumb',

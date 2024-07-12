@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { HeaderProps } from 'components/authorable/shared/site-structure/Header/headerInterface';
+import { HeaderProps } from 'components/authorable/site-structure/Header/headerInterface';
 
 export const defaultData: HeaderProps = {
   rendering: { componentName: 'Default' },
