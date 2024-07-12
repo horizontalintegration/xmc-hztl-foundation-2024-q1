@@ -5,6 +5,7 @@ import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import { ComponentProps } from 'lib/component-props';
+import classNames from 'classnames';
 
 export type CardProps = ComponentProps & HztlPageContent.Card & { cardsPerRow?: number };
 
@@ -15,14 +16,21 @@ const CardDefaultComponent = (props: CardProps): JSX.Element => (
     </div>
   </div>
 );
-
 export const Default = (props: CardProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
-
+  const { cardsPerRow } = props;
+  const gridClass = classNames({
+    'mml:w-1/1': cardsPerRow === 1,
+    'mml:w-1/2': cardsPerRow === 2,
+    'mml:w-1/3': cardsPerRow === 3,
+    'mml:w-1/4': cardsPerRow === 4,
+    'mml:w-1/5': cardsPerRow === 5,
+    'mml:w-1/6': cardsPerRow === 6,
+  });
   if (props?.fields) {
     return (
       <div
-        className={`component w-full mb-4 flex mml:w-1/${props?.cardsPerRow}`}
+        className={`component w-full mb-4 flex ${gridClass}`}
         id={id ? id : undefined}
         data-component="authorable/general/card"
       >
