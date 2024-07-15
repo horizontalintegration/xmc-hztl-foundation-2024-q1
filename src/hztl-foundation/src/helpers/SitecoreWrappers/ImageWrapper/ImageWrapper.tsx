@@ -58,7 +58,7 @@ const ImageWrapper = ({
   if (!isNormalMode || !isValidDomain) {
     return (
       <JSSImage
-        data-component="helpers/general/imagewrapper"
+        data-component="helpers/hztl-page-content/imagewrapper"
         field={newField}
         editable={editable}
       />
@@ -100,13 +100,13 @@ const ImageWrapper = ({
   if (!nextImageProps.width && !nextImageProps.fill)
     return (
       <JSSImage
-        data-component="helpers/general/imagewrapper"
+        data-component="helpers/hztl-page-content/imagewrapper"
         {...nextImageProps}
         field={newField}
       />
     );
 
-  return <Image data-component="helpers/general/imagewrapper" {...nextImageProps} />;
+  return <Image data-component="helpers/hztl-page-content/imagewrapper" {...nextImageProps} />;
 };
 
 export default ImageWrapper;

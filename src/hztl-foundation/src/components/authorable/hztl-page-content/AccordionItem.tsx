@@ -34,7 +34,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
     return (
       <div
         className="overflow-hidden border-t-gray border-t border-solid"
-        data-component="authorable/general/accordion"
+        data-component="authorable/hztl-page-content/accordion"
       >
         <div>
           <button

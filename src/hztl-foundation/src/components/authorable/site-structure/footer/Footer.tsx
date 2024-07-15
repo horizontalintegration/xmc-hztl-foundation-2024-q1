@@ -27,7 +27,7 @@ export const Default = (props: FooterProps): JSX.Element => {
         }`}
         id={id ? id : ''}
       >
-        <div data-component="authorable/general/footer" className="flex flex-col">
+        <div data-component="authorable/hztl-page-content/footer" className="flex flex-col">
           <div className="p-ml pb-s m-auto w-full max-w-screen-xl">
             <div className="flex flex-wrap justify-start md:justify-between gap-xl sm:gap-l md:gap-[50px] lg:gap-[62px] xl:gap-[162px] sm:w-[344px] md:w-auto">
               <div>

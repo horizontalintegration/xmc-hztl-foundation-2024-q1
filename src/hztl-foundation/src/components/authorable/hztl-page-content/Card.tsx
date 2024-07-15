@@ -27,7 +27,10 @@ const Card = (props: CardProps): JSX.Element => {
         className={`component w-full mb-4 mml:w-1/${props?.cardsPerRow}`}
         id={id ? id : undefined}
       >
-        <div data-component="authorable/general/card" className="flex justify-center items-center">
+        <div
+          data-component="authorable/hztl-page-content/card"
+          className="flex justify-center items-center"
+        >
           <div className="mx-auto my-0">
             <div className="border border-gray">
               <div className="border-b border-dark-gray flex justify-center items-center">

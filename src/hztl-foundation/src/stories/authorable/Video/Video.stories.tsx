@@ -9,7 +9,7 @@ import { Default, VideoProps } from '../../../components/authorable/hztl-page-co
 import defaultData from './Video.mock-data';
 
 const meta: Meta<typeof Default> = {
-  title: 'Authorable/General/Video',
+  title: 'Authorable/hztl-page-content/Video',
   component: Default,
   argTypes: {},
 };

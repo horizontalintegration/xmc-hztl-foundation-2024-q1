@@ -11,7 +11,7 @@ import { Default } from 'components/authorable/site-structure/Header/Header';
 import { HeaderProps } from 'components/authorable/site-structure/Header/headerInterface';
 
 const meta: Meta<typeof Default> = {
-  title: 'Authorable/General/Header',
+  title: 'Authorable/hztl-page-content/Header',
   component: Default,
   argTypes: {},
 };

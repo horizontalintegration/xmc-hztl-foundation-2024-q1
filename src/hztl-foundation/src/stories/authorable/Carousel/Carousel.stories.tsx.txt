@@ -13,7 +13,7 @@ import {
 import defaultData from './Carousel.mock-data';
 
 const meta: Meta<typeof Default> = {
-  title: 'Authorable/General/Carousel',
+  title: 'Authorable/hztl-page-content/Carousel',
   component: Default,
   argTypes: {},
 };

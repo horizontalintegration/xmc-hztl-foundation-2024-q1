@@ -1,13 +1,14 @@
 // Global
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 // Lib
-import { expandObj, flattenObj } from 'lib/object-parser';
+import { expandObj, flattenObj } from '../../../../lib/object-parser';
 
 // Local
 import ButtonWrapper, {
   ButtonWrapperProps,
-} from 'helpers/SitecoreWrappers/ButtonWrapper/ButtonWrapper';
+} from '../../../../helpers/SitecoreWrappers/ButtonWrapper/ButtonWrapper';
 import defaultData, {
   disabledData,
   styleLinkData,

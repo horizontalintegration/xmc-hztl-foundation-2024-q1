@@ -23,7 +23,7 @@ export const Default = (props: LegalInfoProps): JSX.Element => {
         className={`py-m px-0 2xl:m-auto 2xl:w-1/3 ${
           props?.params?.styles !== undefined ? props?.params?.styles : ''
         }`}
-        data-component="authorable/general/legal-info"
+        data-component="authorable/hztl-page-content/legal-info"
         id={id ? id : ''}
       >
         <div className="flex flex-col gap-xxs text-center lg:text-left items-center ml:items-end px-ml lg:px-ml">

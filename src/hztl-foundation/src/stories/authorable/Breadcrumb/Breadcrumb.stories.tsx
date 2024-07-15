@@ -9,7 +9,7 @@ import defaultData from './Breadcrumb.mock-data';
 import { Default } from 'components/authorable/hztl-page-content/Breadcrumb/Breadcrumb';
 
 const meta: Meta<typeof Default> = {
-  title: 'Authorable/General/Breadcrumb',
+  title: 'Authorable/hztl-page-content/Breadcrumb',
   component: Default,
   argTypes: {},
 };

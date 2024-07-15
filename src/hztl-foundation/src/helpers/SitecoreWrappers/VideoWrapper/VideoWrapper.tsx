@@ -19,7 +19,7 @@ const VideoWrapper = (props: VideoWrapperProps): JSX.Element => {
   return (
     <div tabIndex={0}>
       {uploadedVideoLink ? (
-        <video width={900} height={500} controls>
+        <video width={'100%'} height={500} controls>
           <source src={uploadedVideoLink} type="video/mp4" />
           <source src={uploadedVideoLink} type="video/ogg" />
           Your browser does not support the video tag.

@@ -1,12 +1,15 @@
 // Global
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 // Lib
-import { expandObj, flattenObj } from 'lib/object-parser';
+import { expandObj, flattenObj } from '../../../../lib/object-parser';
 
 // Local
-import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
-import LinkWrapper, { LinkWrapperProps } from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import ImageWrapper from '../../../../helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
+import LinkWrapper, {
+  LinkWrapperProps,
+} from '../../../../helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import defaultData, { emailLink, externalLink, linkWithChildren } from './LinkWrapper.mock-data';
 
 const meta: Meta<LinkWrapperProps> = {

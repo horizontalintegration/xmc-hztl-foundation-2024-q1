@@ -9,7 +9,7 @@ import { Default, HeroProps } from 'components/authorable/hztl-page-content/Hero
 import defaultData from './Hero.mock-data';
 
 const meta: Meta<typeof Default> = {
-  title: 'Authorable/General/Hero',
+  title: 'Authorable/hztl-page-content/Hero',
   component: Default,
   argTypes: {},
 };

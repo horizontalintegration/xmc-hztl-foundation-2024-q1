@@ -11,7 +11,7 @@ import { Default, AccordionProps } from 'components/authorable/hztl-page-content
 import defaultData from './Accordion.mock-data';
 
 const meta: Meta<typeof Default> = {
-  title: 'Authorable/General/Accordion',
+  title: 'Authorable/hztl-page-content/Accordion',
   component: Default,
   argTypes: {},
 };

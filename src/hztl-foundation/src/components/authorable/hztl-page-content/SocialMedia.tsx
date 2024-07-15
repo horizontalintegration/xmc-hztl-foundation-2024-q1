@@ -24,7 +24,7 @@ export const Default = (props: SocialMediaProps): JSX.Element => {
         className={`sm:order-last mmd:order-none px-0 2xl:m-auto 2xl:w-1/4 ${
           props?.params?.styles !== undefined ? props?.params?.styles : ''
         }`}
-        data-component="authorable/general/social-media"
+        data-component="authorable/hztl-page-content/social-media"
         id={id ? id : ''}
       >
         <div className="flex py-xxs gap-s px-ml">

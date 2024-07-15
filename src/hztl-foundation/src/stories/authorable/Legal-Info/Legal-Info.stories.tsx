@@ -9,7 +9,7 @@ import { Default, LegalInfoProps } from 'components/authorable/hztl-page-content
 import defaultData from './Legal-Info.mock-data';
 
 const meta: Meta<typeof Default> = {
-  title: 'Authorable/General/Legal-Info',
+  title: 'Authorable/hztl-page-content/Legal-Info',
   component: Default,
   argTypes: {},
 };

@@ -9,7 +9,7 @@ import { Default, CardProps } from '../../../components/authorable/hztl-page-con
 import defaultData from './Card.mock-data';
 
 const meta: Meta<typeof Default> = {
-  title: 'Authorable/General/Card',
+  title: 'Authorable/hztl-page-content/Card',
   component: Default,
   argTypes: {},
 };

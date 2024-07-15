@@ -20,7 +20,10 @@ export const Default = (props: CustomFormProps): JSX.Element => {
   if (props?.fields) {
     return (
       <div className={`component card ${props?.params?.styles}`} id={id ? id : undefined}>
-        <div data-component="authorable/general/card" className="flex justify-center items-center">
+        <div
+          data-component="authorable/hztl-page-content/card"
+          className="flex justify-center items-center"
+        >
           <div className="mx-auto my-0">
             <div className="border border-gray">
               <Text field={props?.fields?.title} tag="h3" />

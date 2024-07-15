@@ -9,7 +9,7 @@ import { Default, FooterProps } from 'components/authorable/site-structure/foote
 import defaultData from './Footer.mock-data';
 
 const meta: Meta<typeof Default> = {
-  title: 'Authorable/General/Footer',
+  title: 'Authorable/hztl-page-content/Footer',
   component: Default,
   argTypes: {},
 };
