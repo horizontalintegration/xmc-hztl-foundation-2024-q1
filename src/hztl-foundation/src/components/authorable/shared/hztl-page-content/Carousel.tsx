@@ -15,7 +15,6 @@ export type CarouselProps = ComponentProps & HztlPageContent.CarouselItem;
 
 export const Default = (props: CarouselProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
-  console.log(props);
   const phKey = `carousel`;
   return (
     <div id={id ? id : undefined}>
