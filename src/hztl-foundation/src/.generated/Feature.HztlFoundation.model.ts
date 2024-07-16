@@ -1567,6 +1567,20 @@ export namespace HztlPageContent {
             };
 
             /**
+            * Represents the Modal Popup field (63902d6a-ce74-4da9-9e28-a0aa20941447).
+            */
+            ModalPopup?: {
+                jsonValue: Field<boolean>
+            };
+
+            /**
+            * Represents the RTE field (134d9bd4-2c2a-4e9e-bab2-db2d28b95e91).
+            */
+            RTE?: {
+                jsonValue: Field<string>
+            };
+
+            /**
             * Represents the Select Video File field (b8501628-ca79-4ece-a335-96b9737bb2d0).
             */
             SelectFile?: {
