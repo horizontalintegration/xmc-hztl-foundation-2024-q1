@@ -5,9 +5,7 @@ import React, { useEffect, useState } from 'react';
 
 // Local
 import useIsEditing from 'lib/hooks/use-is-editing';
-
-// Local
-import { srOnlySpan, newTabIcon } from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import { NEW_TAB_ICON } from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 
 const RichTextWrapper = ({ field, editable = true, ...props }: RichTextProps): JSX.Element => {
   const isEditing = useIsEditing() && editable;
@@ -56,7 +54,7 @@ function useUpdatedRichTextField({ field, editable = true }: RichTextProps) {
       // Set to open in new tab
       a.setAttribute('target', '_blank');
       // Add Screen Reader text and new tab icon
-      a.innerHTML = `${a.innerHTML}${srOnlySpan} ${newTabIcon}`;
+      a.innerHTML = `${a.innerHTML}<span className="sr-only"> (Opens in a new tab)</span> ${NEW_TAB_ICON}`;
     });
 
     // Update the content

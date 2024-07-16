@@ -2,7 +2,7 @@
 import { HeaderProps } from 'components/authorable/shared/site-structure/Header/headerInterface';
 
 export const defaultData: HeaderProps = {
-  rendering: { componentName: 'Default' },
+  rendering: { componentName: 'Default', dataSource: 'Storybook' },
   params: {},
   fields: {
     searchPlaceholder: { value: 'Search' },

@@ -1,22 +1,18 @@
-import { LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
-import {
-  HeaderPropsComponent,
-  LogoInterface,
-  MegaMenuCategoryInterface,
-  NavigationItem,
-} from './headerInterface';
-import { Link } from '@sitecore-jss/sitecore-jss-react';
-import Image from 'next/image';
+import { ImageField, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { HeaderPropsComponent, MegaMenuCategoryInterface, NavigationItem } from './headerInterface';
 import CountrySelector from 'helpers/Forms/CountrySelector';
 import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 import { useEffect, useRef, useState } from 'react';
 import useOutsideClick from 'src/hooks/useClickOutside';
+import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 
 const HeaderDesktop = (props: HeaderPropsComponent) => {
   const { fields, selectedCountry, setSelectedCountry } = props;
   const [dropdownOpen, setDropdownOpen] = useState<null | number>(null);
-  const { logo, logoLink, navigationList } = fields;
+
   const [showSearch, setShowSearch] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -44,10 +40,21 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
     };
   }, []);
 
+  if (!fields) {
+    return (
+      <div className={`component header-desktop ${props.params?.styles}`}>
+        <div className="component-content">
+          <span className="is-empty-hint">Desktop Header</span>
+        </div>
+      </div>
+    );
+  }
+  const { logo, logoLink, navigationList } = fields;
+
   return (
     <div className="hidden md:block">
       {isDropdownOpen && (
-        <div className="shadow-md before:fixed before:left-[0] before:top-[0] before:z-[9] before:h-full before:w-full before:bg-black/[0.5] before:backdrop-blur-sm"></div>
+        <div className="shadow-md before:fixed before:left-0 before:top-0 before:z-[9] before:h-full before:w-full before:bg-black/50 before:backdrop-blur-sm"></div>
       )}
       <div className="fixed top-0 w-full bg-white z-50" ref={headerRef}>
         <div className="border-b border-black">
@@ -59,7 +66,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
           >
             <div className="flex justify-between items-center">
               <div className="flex items-center flex-shrink-0">
-                <Logo logo={logo.value} logoLink={logoLink} />
+                <Logo logo={logo} logoLink={logoLink} />
                 <ul className="flex items-center">
                   {navigationList.map((item, index) => (
                     <NavItem
@@ -114,16 +121,11 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
 };
 export default HeaderDesktop;
 
-export const Logo = ({ logo, logoLink }: { logo: LogoInterface; logoLink: LinkField }) => (
+export const Logo = ({ logo, logoLink }: { logo: ImageField; logoLink: LinkField }) => (
   <div className="flex items-center">
-    <Link field={logoLink.value}>
-      <Image
-        src={logo.src}
-        alt={logo.alt}
-        width={parseInt(logo.width)}
-        height={parseInt(logo.height)}
-      />
-    </Link>
+    <LinkWrapper field={logoLink.value}>
+      <ImageWrapper field={logo} />
+    </LinkWrapper>
   </div>
 );
 interface NavItemInterface extends NavigationItem {
@@ -143,16 +145,16 @@ const NavItem = (props: NavItemInterface) => {
         }`}
       >
         {!isList ? (
-          <Link
+          <LinkWrapper
             field={props.fields.navigationLink}
             className="text-black text-xs lg:text-s font-semibold group-hover:underline"
           >
-            {props.displayName}
-          </Link>
+            <PlainTextWrapper field={props.fields.navigationTitle} />
+          </LinkWrapper>
         ) : (
           <button className="text-black text-xs lg:text-s font-semibold cursor-pointer group-hover:underline ">
             <div className="flex items-center flex-row gap-xs">
-              {props.displayName}
+              <PlainTextWrapper field={props.fields.navigationTitle} />
               {isList && props.index === props.dropdownOpen ? (
                 <SvgIcon className="-rotate-90 stroke-black w-s h-auto" icon={'arrow-right'} />
               ) : (
@@ -178,7 +180,7 @@ const DropdownMenu = ({
 }) => {
   return (
     <div
-      className={`absolute transition-all duration-200 left-[0px] w-full z-[9] overflow-hidden border-b border-black ${
+      className={`absolute transition-all duration-200 left-0 w-full z-[9] overflow-hidden border-b border-black ${
         isScrolled ? 'mt-[21px]' : 'mt-[29px]'
       } cursor-default`}
     >
@@ -192,9 +194,10 @@ const DropdownMenu = ({
                   <ul>
                     {category.fields.megaMenuLinks.map((item, i) => (
                       <li className="list-none -ml-s mb-xxs" key={i}>
-                        <Link field={item.fields.link} className="text-gray hover:underline">
-                          {item.displayName}
-                        </Link>
+                        <LinkWrapper
+                          field={item.fields.link}
+                          className="text-gray hover:underline"
+                        />
                       </li>
                     ))}
                   </ul>

@@ -26,6 +26,7 @@ services:
       JSS_EDITING_SECRET: ${JSS_EDITING_SECRET}
       SITECORE_API_KEY: "${SITECORE_API_KEY_xmcloudpreview}"
       DISABLE_SSG_FETCH: ${DISABLE_SSG_FETCH}
+      GRAPH_QL_ENDPOINT: "http://cm/sitecore/api/graph/edge"
     depends_on:
       - cm
       - nodejs

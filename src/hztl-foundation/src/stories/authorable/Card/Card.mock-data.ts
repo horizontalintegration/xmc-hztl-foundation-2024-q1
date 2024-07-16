@@ -1,7 +1,7 @@
 import { CardProps } from '../../../components/authorable/shared/hztl-page-content/Card';
 
 const defaultData: CardProps = {
-  rendering: { componentName: 'Default' },
+  rendering: { componentName: 'Default', dataSource: 'Storybook' },
   params: {},
   cardsPerRow: '3',
   fields: {

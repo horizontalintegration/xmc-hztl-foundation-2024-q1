@@ -2,7 +2,7 @@ const IconArrow = (): JSX.Element => {
   return (
     <>
       <path
-        fill="none"
+        // fill="none"
         strokeLinejoin="round"
         strokeLinecap="round"
         strokeMiterlimit="4"

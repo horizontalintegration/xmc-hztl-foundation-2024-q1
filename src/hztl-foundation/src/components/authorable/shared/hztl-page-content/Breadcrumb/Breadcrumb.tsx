@@ -71,6 +71,7 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
           </nav>
           <div
             style={{
+              // TODO: Extract this to the Tailwind config.
               background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.00) -4.17%, #FFF 104.17%)',
             }}
           ></div>

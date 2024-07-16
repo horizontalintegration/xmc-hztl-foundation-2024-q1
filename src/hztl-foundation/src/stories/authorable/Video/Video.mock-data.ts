@@ -1,7 +1,7 @@
 import { VideoProps } from '../../../components/authorable/shared/hztl-page-content/Video';
 
 const defaultData: VideoProps = {
-  rendering: { componentName: 'Default' },
+  rendering: { componentName: 'Default', dataSource: 'Storybook' },
   params: {
     GridParameters: 'basis-full',
     DynamicPlaceholderId: '12',

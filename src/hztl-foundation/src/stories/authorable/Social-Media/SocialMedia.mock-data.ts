@@ -1,7 +1,7 @@
 import { SocialMediaProps } from '../../../components/authorable/shared/hztl-page-content/SocialMedia';
 
 const defaultData: SocialMediaProps = {
-  rendering: { componentName: 'Default' },
+  rendering: { componentName: 'Default', dataSource: 'Storybook' },
   params: {},
   fields: {
     socialMediaLinks: [

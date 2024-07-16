@@ -1,204 +1,164 @@
 // Global
+import { sendGTMEvent } from '@next/third-parties/google';
 import { Link, LinkProps, LinkField, LinkFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
 import NextLink from 'next/link';
-import { sendGTMEvent } from '@next/third-parties/google';
-import React from 'react';
-import structuredClone from '@ungap/structured-clone';
+import React, { forwardRef } from 'react';
+
 // Lib
 import useIsEditing from 'lib/hooks/use-is-editing';
 import { GtmEvent } from 'lib/utils/gtm-utils';
-import {
-  CTAAlignmentInterface,
-  CTAWrapperInterface,
-  CTAIconInterface,
-  CTAStyleInterface,
-  CTATitleInterface,
-} from 'src/interfaces/CTAInterface';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
 
-/**
- * This component adds some needed accessibility updates to the JSS Link component
- */
+import { CtaProps, ctaTailwindVariant } from '../ButtonWrapper/ButtonWrapper';
+import { SvgIcon } from 'helpers/SvgIconWrapper';
+import structuredClone from '@ungap/structured-clone';
 
 export type LinkWrapperProps = Omit<LinkProps, 'field'> &
-  CTAWrapperInterface & {
+  CtaProps & {
     className?: string;
     field?: LinkField | LinkFieldValue;
     gtmEvent?: GtmEvent;
-    srOnlyText?: string;
-    suppressLinkText?: boolean;
-    suppressNewTabIcon?: boolean;
     ignoreEE?: boolean;
+    srOnlyText?: string;
+    suppressNewTabIcon?: boolean;
   };
 
-export const srOnlySpan = '<span class="sr-only"> (Opens in a new tab)</span>';
-export const newTabIcon = `<span class="svg-icon inline-flex align-middle -ml-3 h-6 w-6"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="inline ml-2 -mt-1 h-em w-em"><path fill-rule="evenodd" d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z" clip-rule="evenodd"></path></svg></span>`;
-
-const INTERNAL_LINK_REGEX = /^\/|^\#/g;
-type IconAlignment = 'left' | 'right' | 'top' | 'bottom';
-const LinkWrapper = React.forwardRef(
-  ({
-    className,
-    ctaType,
-    gtmEvent,
-    ref,
-    field,
-    srOnlyText,
-    suppressLinkText,
-    suppressNewTabIcon,
-    ignoreEE,
-    children,
-    showLinkTextWithChildrenPresent = true,
-    ...props
-  }: LinkWrapperProps): JSX.Element | null => {
+const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
+  (
+    {
+      children,
+      className,
+      editable = true,
+      field,
+      gtmEvent,
+      showLinkTextWithChildrenPresent = true,
+      srOnlyText,
+      suppressNewTabIcon,
+      ctaStyle,
+      ctaVariant,
+      ctaIconAlignment,
+      ctaIcon,
+      ...props
+    }: LinkWrapperProps,
+    ref
+  ): JSX.Element | null => {
     const isEditing = useIsEditing();
-    const {
-      cta1Icon,
-      cta1IconAlignment,
-      cta1Style,
-      cta1Link,
-      cta1Title,
-      cta2Icon,
-      cta2IconAlignment,
-      cta2Style,
-      cta2Link,
-      cta2Title,
-    } = props.fields || {};
-    // Make a deep clone so we don't modify the original object.
-    const linkData = cta1Link || field;
-    const asLinkField = structuredClone(
-      // Format field as LinkField for consistency
-      !linkData?.value ? { value: { ...linkData } } : linkData
-    ) as LinkField;
+
+    if (!field) {
+      return <></>;
+    }
+
+    ctaIcon = ctaIcon ?? ctaStyle?.ctaIcon;
+    ctaVariant = ctaVariant ?? ctaStyle?.ctaVariant ?? 'link';
+    ctaIconAlignment = ctaIconAlignment ?? ctaStyle?.ctaIconAlignment ?? 'right';
+
+    // Clone the object so we don't modify the original.
+    // This addresses some edge cases issues when the same link is rendered more than once
+    // and we're modifying the link.  While it may not always be needed, it's safer to include
+    const clonedField = structuredClone(field);
+
+    // Standardize the field because it can either be LinkField or LinkFieldValue
+    const fieldValue: LinkFieldValue = {
+      ...((clonedField as LinkField)?.value ?? (clonedField as LinkFieldValue)),
+    };
+
+    const { href, anchor, querystring, target, title } = fieldValue;
+
+    const text = !showLinkTextWithChildrenPresent && children ? '' : fieldValue.text;
+
+    const { base, icon } = ctaTailwindVariant({
+      className: className,
+      iconAlignment: ctaIconAlignment,
+      variant: ctaVariant,
+    });
+
+    /*
+     * EVENT HANDLERS
+     */
+
     const handleOnClick = () => {
-      if (!asLinkField?.value) return;
+      if (!field?.value) return;
 
       const gtmEventInner = {
         ...gtmEvent,
-        'gtm.element.dataset.gtmLinkName': asLinkField?.value?.text || asLinkField?.value?.title,
-        'gtm.element.dataset.gtmLinkUrl': asLinkField?.value?.href,
+        'gtm.element.dataset.gtmLinkName': text || title,
+        'gtm.element.dataset.gtmLinkUrl': href,
       };
 
       sendGTMEvent(gtmEventInner);
     };
 
-    const text = suppressLinkText ? '' : asLinkField?.value?.text;
-    const target = asLinkField?.value?.target;
+    /*
+     * RENDERING
+     */
 
-    const value = asLinkField.value;
-
-    if (value.href?.startsWith('/')) {
-      // Force lowercase links for internal urls
-      value.href = value.href?.toLocaleLowerCase();
-    }
-    const buttonAlignmentStyles: Record<IconAlignment, string> = {
-      left: 'flex-row-reverse',
-      right: 'flex-row',
-      top: 'flex-col-reverse',
-      bottom: 'flex-col',
-    };
-    const buttonClasses = (style: string) =>
-      `flex h-14 gap-xxs items-center justify-center px-16 py-xs rounded-md text-center font-modern font-bold leading-normal text-base ${
-        style === 'secondary' ? 'border-1 border-gray text-gray' : 'bg-gray text-white'
-      }`;
-    const { href, querystring, anchor } = value;
-
-    // In experience editor, do not pass any children but retain basic styling so that double components do not appear when using <Link>
-    if (isEditing && !ignoreEE) {
+    if (isEditing && editable)
       return (
-        <Link
-          className={`${className}  ${
-            ctaType &&
-            buttonClasses(
-              ctaType === 'cta1Link'
-                ? `${cta1Style?.fields.Value.value}`
-                : `${cta2Style?.fields.Value.value}`
-            )
-          }`}
-          field={asLinkField}
-          internalLinkMatcher={INTERNAL_LINK_REGEX}
-          ref={typeof ref !== 'string' ? ref : null}
-          showLinkTextWithChildrenPresent={showLinkTextWithChildrenPresent}
-          {...props}
-        />
+        // Adding the CSS classes to a wrapping div so we can include the icon
+        <div className={base()}>
+          <Link
+            {...props}
+            field={field}
+            internalLinkMatcher={INTERNAL_LINK_REGEX}
+            showLinkTextWithChildrenPresent={false}
+            ref={ref}
+          />
+          {/* When in edit mode we cannot render anything inside the Link tag (cause duplicate link), 
+          but we can rendering it outside of the link and move the styling to a parent div */}
+          {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />}
+        </div>
       );
-    }
 
     // If no content is present, don't print
-    if (
-      !suppressLinkText &&
-      !asLinkField.value.text &&
-      !asLinkField.value.href &&
-      !asLinkField.value.anchor
-    )
-      return <></>;
-    const renderLinkButton = (
-      link?: LinkField,
-      icon?: CTAIconInterface,
-      iconAlignment?: CTAAlignmentInterface,
-      style?: CTAStyleInterface,
-      title?: CTATitleInterface
-    ) => {
-      const styeValue = style?.fields.Value.value;
-      const iconAlignmentValue = iconAlignment?.fields.Value.value;
-      return link?.value?.href ? (
-        <NextLink
-          title={title?.value}
-          target={link?.value.target}
-          className={`${className} ${
-            iconAlignmentValue && buttonAlignmentStyles[iconAlignmentValue]
-          } ${styeValue && buttonClasses(styeValue)}`}
-          aria-label={props['aria-label'] ? props['aria-label'] : text}
-          data-component="helpers/a11y/linkwrapper"
-          href={{ pathname: href, query: querystring, hash: anchor }}
-          key="link"
-          // Sitecore's Link field explicitly strips out the locale.  We want to keep it.
-          // locale={false}
-          onClick={() => handleOnClick()}
-          ref={typeof ref !== 'string' ? ref : null}
-          {...props}
-        >
-          {showLinkTextWithChildrenPresent && text ? (
-            <span dangerouslySetInnerHTML={{ __html: text }} />
-          ) : null}{' '}
-          {children}
-          {(target === '_blank' || srOnlyText) && (
-            <>
-              <span className="sr-only">
-                {srOnlyText && srOnlyText}
-                {/* Preserve a single space character before SR Tab Text */}
-                {target === '_blank' && ' (Opens in a new tab)'}
-              </span>
-              {/* Icon Goes Here */}
-              {!suppressNewTabIcon && target === '_blank' && (
-                <span dangerouslySetInnerHTML={{ __html: newTabIcon }} />
-              )}
-            </>
-          )}
-          {icon?.fields.Value.value && (
-            <SvgIcon
-              size="xs"
-              icon={icon?.fields.Value.value}
-              className={`${styeValue === 'primary' ? '!stroke-white' : ' !stroke-black'}`}
-            />
-          )}
-        </NextLink>
-      ) : (
-        <></>
-      );
-    };
+    if (!anchor && !href && !text) return <></>;
 
-    switch (ctaType) {
-      case 'cta1Link':
-        return renderLinkButton(cta1Link, cta1Icon, cta1IconAlignment, cta1Style, cta1Title);
-      case 'cta2Link':
-        return renderLinkButton(cta2Link, cta2Icon, cta2IconAlignment, cta2Style, cta2Title);
-      default:
-        return renderLinkButton(asLinkField);
-    }
+    return (
+      <NextLink
+        {...props}
+        className={base()}
+        data-component="helpers/sitecorewrappers/linkwrapper"
+        href={{ pathname: href, query: querystring, hash: anchor }}
+        onClick={() => handleOnClick()}
+        ref={ref}
+        target={target}
+        title={title || text}
+      >
+        <span>{text}</span>
+        {children}
+        {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />}
+        {(target === '_blank' || srOnlyText) && (
+          <>
+            <span className="sr-only">
+              {/* Preserve a single space character before SR Tab Text */}
+              {`${srOnlyText}${target === '_blank' && ' (Opens in a new tab)'}`}
+            </span>
+            {!suppressNewTabIcon && target === '_blank' && NEW_TAB_ICON}
+          </>
+        )}
+      </NextLink>
+    );
   }
 );
 
 LinkWrapper.displayName = 'LinkWrapper';
 
 export default LinkWrapper;
+
+const INTERNAL_LINK_REGEX = /^\/|^\#/g;
+
+export const NEW_TAB_ICON = (
+  <span className="svg-icon inline-flex align-middle -ml-3 h-6 w-6">
+    <svg
+      aria-hidden="true"
+      className="inline ml-2 -mt-1 h-em w-em"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z"
+        clipRule="evenodd"
+        fillRule="evenodd"
+      ></path>
+    </svg>
+  </span>
+);

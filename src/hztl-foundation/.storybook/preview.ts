@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react';
-import './storybook-override.css'
+import './storybook-override.css';
 import 'assets/app.css';
+import { componentGlobalWrapper, i18nWrapper } from './decorators';
 
 const preview: Preview = {
   parameters: {
@@ -25,7 +26,9 @@ const preview: Preview = {
     },
   },
 
-  tags: ['autodocs']
+  tags: ['autodocs'],
 };
+
+export const decorators = [componentGlobalWrapper, i18nWrapper];
 
 export default preview;

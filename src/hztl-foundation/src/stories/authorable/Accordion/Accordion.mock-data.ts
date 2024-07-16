@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { AccordionProps } from 'components/authorable/shared/hztl-page-content/AccordionItem';
 const defaultData: AccordionProps = {
-  rendering: { componentName: 'Default' },
+  rendering: { componentName: 'Default', dataSource: 'Storybook' },
   params: {
     DynamicPlaceholderId: '1',
     FieldNames: 'Default',
@@ -16,4 +16,3 @@ const defaultData: AccordionProps = {
 };
 
 export default defaultData;
-

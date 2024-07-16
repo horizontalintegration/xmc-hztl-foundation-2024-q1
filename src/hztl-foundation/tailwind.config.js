@@ -4,20 +4,27 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        gray: '#2F2D2E', // Charcoal
-        primary: '#6BA69E', // Teal
+        black: '#2F2D2E',
         darkprimary: '#055164', // Dark Blue
+        error: '#B91515',
+        gray: '#A7A7A7', // Charcoal
+        green: '#4CAF4F',
+        primary: '#6BA69E', // Teal
         secondary: '#F8A997', // Salmon
-        white: '#FFFFFF',
-        black: '#000000',
         transparent: 'transparent',
-        'light-gray': '#F9F9F9',
-        'dark-gray': '#54585A',
-        'light-black': '#454545',
-        "grayscale-w-200":"#EAE8E8",
-        "grayscale-w-600":"#373432",
+        white: '#FFFFFF',
+        'dark-blue': '#065264',
+        'dark-gray': '#666666',
+        'dark-green': '#388E3B',
         'error-outline': '#DF2626',
-        'error': '#B91515',
+        'extralight-gray': '#ABBED1',
+        'grayscale-w-200': '#EAE8E8',
+        'grayscale-w-600': '#373432',
+        'light-black': '#454545',
+        'light-gray': '#E2E2E2',
+        'light-green': '#7FC3BA',
+        'medium-gray': '#89939E',
+        'mild-gray': '#F2F2F2',
       },
       fontSize: {
         // Desktop font sizes
@@ -46,8 +53,8 @@ module.exports = {
         'sm-xs': ['1rem', '1.25rem'], //16px 20px
         'sm-xxs': ['0.75rem', '1rem'], //12px 16px
       },
-      fontFamily:{
-        modern:['Modern Era', 'sans-serif']
+      fontFamily: {
+        modern: ['Modern Era', 'sans-serif'],
       },
       fontWeight: {
         bold: '700',

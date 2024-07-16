@@ -4,10 +4,10 @@ const IconChevronDown = (): JSX.Element => {
     <>
       <path
         fill="none"
-        stroke-linejoin="round"
-        stroke-linecap="round"
-        stroke-miterlimit="4"
-        stroke-width="85.3333"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+        strokeMiterlimit="4"
+        strokeWidth="85.3333"
         stroke="#000"
         d="M1021.219 302.854l-488.006 488.006-488.006-488.006"
       ></path>

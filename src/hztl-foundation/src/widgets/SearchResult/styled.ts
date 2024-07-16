@@ -163,7 +163,9 @@ const ArticleRootStyled = styled(ArticleCard.Root)`
     transition-property: all;
     transition-timing-function: linear;
     transition-duration: 300ms;
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    box-shadow:
+      0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
     transform: scaleX(1.05) scaleY(1.05);
   }
 `;

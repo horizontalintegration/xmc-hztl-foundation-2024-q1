@@ -1,14 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { ComponentProps } from 'lib/component-props';
-import { Item, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ImageField, Item, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SiteStructure } from 'src/.generated/Feature.HztlFoundation.model';
-
-export interface LogoInterface {
-  src: string;
-  alt: string;
-  width: string;
-  height: string;
-}
 
 export interface MegaMenuLinkInterface {
   id: string;
@@ -74,7 +67,7 @@ export interface CountrySelectorInterface {
 
 export type HeaderProps = ComponentProps & {
   fields: {
-    logo: { value: LogoInterface };
+    logo: ImageField;
     logoLink: LinkField;
     navigationList: NavigationItem[];
   };

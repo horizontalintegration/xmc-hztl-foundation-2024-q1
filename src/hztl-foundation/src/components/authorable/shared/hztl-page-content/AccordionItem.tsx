@@ -11,7 +11,8 @@ export type AccordionProps = ComponentProps & HztlPageContent.AccordionItem;
 
 const AccordionDefaultComponent = (props: AccordionProps): JSX.Element => {
   return (
-    <div className={`component hero ${props.params.styles}`}>
+    /* TODO: Remove non-tailwind classes */
+    <div className={`component hero ${props.params?.styles}`}>
       <div className="component-content">
         <span className="is-empty-hint">Accordion Item</span>
       </div>
@@ -31,24 +32,39 @@ export const Default = (props: AccordionProps): JSX.Element => {
 
   if (props.fields) {
     return (
-      <React.Fragment>
-        <div className="component-content overflow-hidden border-t-gray border-t border-solid">
-          <div className="hero-content">
-            <button
-              className="w-full flex items-center cursor-pointer justify-between transition-[0.3s] p-xs"
-              type="button"
-              aria-expanded={isOpen}
-              id={'accordion-' + id}
-              onClick={toggleAccordion}
+      <div
+        className="overflow-hidden border-t-gray border-t border-solid"
+        data-component="authorable/general/accordion"
+      >
+        <div>
+          <button
+            className="w-full flex items-center cursor-pointer justify-between duration-300 p-xs"
+            type="button"
+            aria-expanded={isOpen}
+            id={'accordion-' + id}
+            onClick={toggleAccordion}
+          >
+            <Text field={props?.fields?.heading} tag="h3" />
+            <span className={`transition-transform transform ${isOpen ? 'rotate-180' : ''}`}>
+              <i className="fa fa-chevron-down"></i>
+            </span>
+          </button>
+          {context?.sitecoreContext?.pageEditing ? (
+            <div
+              className="flex-auto min-h-px p-xs"
+              role="region"
+              aria-labelledby={'accordion-' + id}
             >
-              <Text field={props?.fields?.heading} tag="h3" />
-              <span className={`transition-transform transform ${isOpen ? 'rotate-180' : ''}`}>
-                <i className="fa fa-chevron-down"></i>
-              </span>
-            </button>
-            {context?.sitecoreContext?.pageEditing ? (
+              <RichTextWrapper
+                field={props?.fields?.content}
+                className="mb-0 text-gray text-s font-normal p-s"
+                aria-required={isOpen}
+              />
+            </div>
+          ) : (
+            isOpen && (
               <div
-                className="flex-auto min-h-[1px] p-xs"
+                className="flex-auto min-h-px p-xs"
                 role="region"
                 aria-labelledby={'accordion-' + id}
               >
@@ -58,24 +74,10 @@ export const Default = (props: AccordionProps): JSX.Element => {
                   aria-required={isOpen}
                 />
               </div>
-            ) : (
-              isOpen && (
-                <div
-                  className="flex-auto min-h-[1px] p-xs"
-                  role="region"
-                  aria-labelledby={'accordion-' + id}
-                >
-                  <RichTextWrapper
-                    field={props?.fields?.content}
-                    className="mb-0 text-gray text-s font-normal p-s"
-                    aria-required={isOpen}
-                  />
-                </div>
-              )
-            )}
-          </div>
+            )
+          )}
         </div>
-      </React.Fragment>
+      </div>
     );
   }
   return <AccordionDefaultComponent {...props} />;
