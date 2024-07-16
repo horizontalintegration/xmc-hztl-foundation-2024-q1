@@ -1525,6 +1525,11 @@ export namespace HztlPageContent {
             AutoPlay?: Field<boolean>;
 
             /**
+            * Represents the Description field (134d9bd4-2c2a-4e9e-bab2-db2d28b95e91).
+            */
+            Description?: Field<string>;
+
+            /**
             * Represents the Launch Video Label field (7309f54e-30f9-4f91-9b3f-823d19c0d02c).
             */
             LaunchVideoLabel?: Field<string>;
@@ -1535,14 +1540,9 @@ export namespace HztlPageContent {
             Loop?: Field<boolean>;
 
             /**
-            * Represents the Modal Popup field (63902d6a-ce74-4da9-9e28-a0aa20941447).
+            * Represents the Open In Modal field (63902d6a-ce74-4da9-9e28-a0aa20941447).
             */
-            ModalPopup?: Field<boolean>;
-
-            /**
-            * Represents the RTE field (134d9bd4-2c2a-4e9e-bab2-db2d28b95e91).
-            */
-            RTE?: Field<string>;
+            OpenInModal?: Field<boolean>;
 
             /**
             * Represents the Select Video File field (b8501628-ca79-4ece-a335-96b9737bb2d0).
@@ -1575,6 +1575,13 @@ export namespace HztlPageContent {
             };
 
             /**
+            * Represents the Description field (134d9bd4-2c2a-4e9e-bab2-db2d28b95e91).
+            */
+            Description?: {
+                jsonValue: Field<string>
+            };
+
+            /**
             * Represents the Launch Video Label field (7309f54e-30f9-4f91-9b3f-823d19c0d02c).
             */
             LaunchVideoLabel?: {
@@ -1589,17 +1596,10 @@ export namespace HztlPageContent {
             };
 
             /**
-            * Represents the Modal Popup field (63902d6a-ce74-4da9-9e28-a0aa20941447).
+            * Represents the Open In Modal field (63902d6a-ce74-4da9-9e28-a0aa20941447).
             */
-            ModalPopup?: {
+            OpenInModal?: {
                 jsonValue: Field<boolean>
-            };
-
-            /**
-            * Represents the RTE field (134d9bd4-2c2a-4e9e-bab2-db2d28b95e91).
-            */
-            RTE?: {
-                jsonValue: Field<string>
             };
 
             /**
