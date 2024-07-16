@@ -1525,9 +1525,24 @@ export namespace HztlPageContent {
             AutoPlay?: Field<boolean>;
 
             /**
+            * Represents the Launch Video Label field (7309f54e-30f9-4f91-9b3f-823d19c0d02c).
+            */
+            LaunchVideoLabel?: Field<string>;
+
+            /**
             * Represents the Loop field (78172cff-d1e4-4d25-b975-571720c4d851).
             */
             Loop?: Field<boolean>;
+
+            /**
+            * Represents the Modal Popup field (63902d6a-ce74-4da9-9e28-a0aa20941447).
+            */
+            ModalPopup?: Field<boolean>;
+
+            /**
+            * Represents the RTE field (134d9bd4-2c2a-4e9e-bab2-db2d28b95e91).
+            */
+            RTE?: Field<string>;
 
             /**
             * Represents the Select Video File field (b8501628-ca79-4ece-a335-96b9737bb2d0).
