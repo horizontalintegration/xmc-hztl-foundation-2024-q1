@@ -1575,6 +1575,13 @@ export namespace HztlPageContent {
             };
 
             /**
+            * Represents the Launch Video Label field (7309f54e-30f9-4f91-9b3f-823d19c0d02c).
+            */
+            LaunchVideoLabel?: {
+                jsonValue: Field<string>
+            };
+
+            /**
             * Represents the Loop field (78172cff-d1e4-4d25-b975-571720c4d851).
             */
             Loop?: {
