@@ -49,7 +49,8 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
       </div>
     );
   }
-  const { logo, logoLink, navigationList } = fields;
+  const graphqlData = fields.data.item;
+  const { logo, logoLink, navigationList } = graphqlData;
 
   return (
     <div className="hidden md:block">
@@ -66,9 +67,9 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
           >
             <div className="flex justify-between items-center">
               <div className="flex items-center flex-shrink-0">
-                <Logo logo={logo} logoLink={logoLink} />
+                <Logo logo={logo.jsonValue} logoLink={logoLink.jsonValue} />
                 <ul className="flex items-center">
-                  {navigationList.map((item, index) => (
+                  {navigationList?.items?.map((item, index) => (
                     <NavItem
                       key={index}
                       index={index}
@@ -123,7 +124,7 @@ export default HeaderDesktop;
 
 export const Logo = ({ logo, logoLink }: { logo: ImageField; logoLink: LinkField }) => (
   <div className="flex items-center">
-    <LinkWrapper field={logoLink.value}>
+    <LinkWrapper field={logoLink?.value}>
       <ImageWrapper field={logo} />
     </LinkWrapper>
   </div>
@@ -136,7 +137,8 @@ interface NavItemInterface extends NavigationItem {
   isScrolled: boolean;
 }
 const NavItem = (props: NavItemInterface) => {
-  const isList = props.fields.megaMenuList.length > 0;
+  const isList = props?.megaMenuList.items.length > 0;
+  console.log(props?.megaMenuList.items);
   return (
     <li className="list-none ml-xs" onClick={() => isList && props.open()}>
       <div
@@ -146,16 +148,16 @@ const NavItem = (props: NavItemInterface) => {
       >
         {!isList ? (
           <LinkWrapper
-            field={props.fields.navigationLink}
+            field={props?.navigationLink.jsonValue}
             className="text-black text-xs lg:text-s font-semibold group-hover:underline"
             ctaVariant="link"
           >
-            <PlainTextWrapper field={props.fields.navigationTitle} />
+            <PlainTextWrapper field={props?.navigationTitle.jsonValue} />
           </LinkWrapper>
         ) : (
           <button className="text-black text-xs lg:text-s font-semibold cursor-pointer group-hover:underline ">
             <div className="flex items-center flex-row gap-xs">
-              <PlainTextWrapper field={props.fields.navigationTitle} />
+              <PlainTextWrapper field={props.navigationTitle.jsonValue} />
               {isList && props.index === props.dropdownOpen ? (
                 <SvgIcon className="-rotate-90 stroke-black w-s h-auto" icon={'arrow-right'} />
               ) : (
@@ -166,7 +168,7 @@ const NavItem = (props: NavItemInterface) => {
         )}
       </div>
       {isList && props.index === props.dropdownOpen && (
-        <DropdownMenu categories={props.fields.megaMenuList} isScrolled={props.isScrolled} />
+        <DropdownMenu categories={props.megaMenuList.items} isScrolled={props.isScrolled} />
       )}
     </li>
   );
@@ -179,6 +181,7 @@ const DropdownMenu = ({
   categories: MegaMenuCategoryInterface[];
   isScrolled: boolean;
 }) => {
+  console.log(categories, 'this is category');
   return (
     <div
       className={`absolute transition-all duration-200 left-0 w-full z-[9] overflow-hidden border-b border-black ${
@@ -191,12 +194,12 @@ const DropdownMenu = ({
             <div className="gap-y-0 gap-xl md:grid-cols-12 grid">
               {categories.map((category, index) => (
                 <div className="text-start col-span-4 py-xxxs xl:col-span-3" key={index}>
-                  <label className="font-bold text-lg mb-xxs">{category.displayName}</label>
+                  <label className="font-bold text-lg mb-xxs">{category.name}</label>
                   <ul>
-                    {category.fields.megaMenuLinks.map((item, i) => (
+                    {category.megaMenuLinks.items.map((item, i) => (
                       <li className="list-none -ml-s mb-xxs" key={i}>
                         <LinkWrapper
-                          field={item.fields.link}
+                          field={item.link.jsonValue}
                           className="text-gray hover:underline"
                         />
                       </li>
