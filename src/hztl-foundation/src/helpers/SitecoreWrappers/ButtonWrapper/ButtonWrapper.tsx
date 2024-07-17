@@ -14,7 +14,7 @@ import {
   CtaIcons,
   CtaStyleProperties,
   CtaVariants,
-} from 'lib/utils/style-param-utils.config';
+} from 'lib/utils/style-param-utils/modules/ctas';
 
 import { StyleParamRecord } from 'lib/utils/style-param-utils';
 

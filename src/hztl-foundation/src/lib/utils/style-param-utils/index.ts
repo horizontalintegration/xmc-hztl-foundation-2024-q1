@@ -3,14 +3,12 @@ import {
   StyleProperties,
   StylePropertyValues,
   GetValueType,
-  GetStyleProperties,
   ValidElements,
-  DefaultElement,
-} from './style-param-utils.config';
+  GetStyleParamRecord,
+} from './config';
 
 /**
- * This function parses and looks for styles matching the format `[element?]:[styleType]:[value]`.  `element` is optional, 
- * and will be set as 'default' if missing.
+ * This function parses and looks for styles matching the format `[element?]:[styleType]:[value]`. 
  * @example
  *    // Assuming you have styles coming back from sitecore like
  *    props.params.Styles === 'cta1:ctaVariant:primary cta1:ctaIcon:arrow-right cta2:ctaVariant:secondary cardsPerRow:1'
@@ -38,7 +36,7 @@ import {
  * @returns an object that encapsultes the styles in this rendering.
  * e.g. with the above style, you can use `result.cta1.ctaVariant` and would get the correct typing.
  */
-export function parseStyleParams<TElement extends ValidElements = DefaultElement>(
+export function parseStyleParams<TElement extends ValidElements>(
   params: ComponentParams | undefined,
   validElements?: TElement[]
 ): ComponentStyleParams<TElement> {
@@ -50,20 +48,15 @@ export function parseStyleParams<TElement extends ValidElements = DefaultElement
     const split = rawValue.split(':');
 
     // This is not one of our styles
-    if (split.length < 2) {
+    if (split.length != 3) {
       return;
     }
-    const hasTargetElement = split.length === 3;
 
-    const targetElement: TElement | DefaultElement = hasTargetElement
-      ? (split[0] as TElement)
-      : 'default';
+    const targetElement: TElement = split[0] as TElement;
 
-    const styleType = hasTargetElement
-      ? (split[1] as StyleProperties)
-      : (split[0] as StyleProperties);
+    const styleType = split[1] as StyleProperties;
 
-    const value = hasTargetElement ? split[2] : split[1];
+    const value = split[2];
 
     if (!StylePropertyValues.includes(styleType)) {
       console.warn(
@@ -71,7 +64,7 @@ export function parseStyleParams<TElement extends ValidElements = DefaultElement
       );
     }
 
-    if (validElements && targetElement !== 'default' && !validElements.includes(targetElement)) {
+    if (validElements && !validElements.includes(targetElement)) {
       console.warn(
         `Unknown target element ${targetElement}, expected one of ${JSON.stringify(validElements)}`
       );
@@ -87,17 +80,42 @@ export function parseStyleParams<TElement extends ValidElements = DefaultElement
   return result;
 }
 
-/** Utility "function" to dynamically get the value type based on style type */
-
-export type StyleParamRecord<TElement extends ValidElements, TStyleProp extends StyleProperties> = {
-  [P in TStyleProp]?: GetValueType<TElement, P>;
+/**
+ * Strongly typed version of styles divided into elements.
+ * @example
+ * // CtaAndCards1 and CtaAndCards2 are the same
+ * type CtaAndCards1 = ComponentStyleParams<'cta1' | 'cards'>;
+ * type CtaAndCards2 = {
+ *  cta1: {
+ *    ctaIcon: CtaIcons;
+ *    ctaIconAlignment: CtaIconAlignments;
+ *    ctaVariant: CtaVariants;
+ *  };
+ *  cards: {
+ *    cardsPerRow: CardListCardsPerRows;
+ *  };
+ * };
+ */
+export type ComponentStyleParams<TElement extends ValidElements> = {
+  [P in TElement]?: GetStyleParamRecord<P>;
 };
 
-export type GetStyleParamRecord<TElement extends ValidElements> = StyleParamRecord<
-  TElement,
-  GetStyleProperties<TElement>
->;
-
-export type ComponentStyleParams<TElement extends ValidElements = DefaultElement> = {
-  [P in TElement | DefaultElement]?: GetStyleParamRecord<P>;
+/**
+ * Strongly typed version of styles for a specific element and set of styles
+ * @example
+ * // CtaStyles1 and CtaStyles2 are the same
+ * type CtaStyles1 = StyleParamRecord<'cta1', 'ctaIcon' | 'ctaIconAlignment' | 'ctaVariant'>;
+ * type CtaStyles2 = {
+ *    ctaIcon: CtaIcons;
+ *    ctaIconAlignment: CtaIconAlignments;
+ *    ctaVariant: CtaVariants;
+ * };
+ * // CardStyles1 and CardStyles2 are the same
+ * type CardStyles1 = StyleParamRecord<'cards', 'cardsPerRow'>;
+ * type CardStyles2 = {
+ *    cardsPerRow: CardListCardsPerRows;
+ * };
+ */
+export type StyleParamRecord<TElement extends ValidElements, TStyleProp extends StyleProperties> = {
+  [P in TStyleProp]?: GetValueType<TElement, P>;
 };
