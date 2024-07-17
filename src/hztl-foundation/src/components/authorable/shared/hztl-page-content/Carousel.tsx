@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 
 // Lib
@@ -71,4 +70,3 @@ export const Default = (props: CarouselProps): JSX.Element => {
     </div>
   );
 };
-

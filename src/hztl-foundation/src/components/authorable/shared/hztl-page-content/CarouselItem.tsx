@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import { ItemEx } from '../../../../.generated/_.Sitecore.Override';
 // Lib
@@ -75,4 +74,3 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
 };
 
 export const Default = withStandardComponentWrapper(CarouselItem);
-
