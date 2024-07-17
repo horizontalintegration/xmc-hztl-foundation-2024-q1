@@ -8,9 +8,7 @@ export interface MegaMenuLinkInterface {
   url: string;
   name: string;
   displayName: string;
-  fields: {
-    link: LinkField;
-  };
+  link: { jsonValue: LinkField };
 }
 
 export interface MegaMenuCategoryInterface {
@@ -18,12 +16,12 @@ export interface MegaMenuCategoryInterface {
   url: string;
   name: string;
   displayName: string;
-  fields: {
-    megaMenuTitle: {
+  megaMenuTitle: {
+    jsonValue: {
       value: string;
     };
-    megaMenuLinks: MegaMenuLinkInterface[];
   };
+  megaMenuLinks: { items: MegaMenuLinkInterface[] };
 }
 
 export interface NavigationItem {
@@ -31,10 +29,10 @@ export interface NavigationItem {
   url: string;
   name: string;
   displayName: string;
-  fields: {
-    megaMenuList: MegaMenuCategoryInterface[];
-    navigationLink: LinkField;
-    navigationTitle: {
+  megaMenuList: { items: MegaMenuCategoryInterface[] };
+  navigationLink: { jsonValue: LinkField };
+  navigationTitle: {
+    jsonValue: {
       value: string;
     };
   };
@@ -67,9 +65,13 @@ export interface CountrySelectorInterface {
 
 export type HeaderProps = ComponentProps & {
   fields: {
-    logo: ImageField;
-    logoLink: LinkField;
-    navigationList: NavigationItem[];
+    data: {
+      item: {
+        logo: { jsonValue: ImageField };
+        logoLink: { jsonValue: LinkField };
+        navigationList: { items: NavigationItem[] };
+      };
+    };
   };
 } & SiteStructure.Header.Header;
 
