@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 // Global
 import type { Meta, StoryObj } from '@storybook/react';
 

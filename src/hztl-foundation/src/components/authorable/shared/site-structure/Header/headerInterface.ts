@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { ComponentProps } from 'lib/component-props';
 import { ImageField, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SiteStructure } from 'src/.generated/Feature.HztlFoundation.model';

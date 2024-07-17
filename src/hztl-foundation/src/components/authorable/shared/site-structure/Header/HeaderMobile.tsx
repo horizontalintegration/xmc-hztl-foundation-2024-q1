@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { useRef, useState } from 'react';
 import { HeaderPropsComponent, MegaMenuCategoryInterface, NavigationItem } from './headerInterface';
 import { Logo } from './HeaderDesktop';
