@@ -1,4 +1,4 @@
-import { ImageField, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ImageField, Link, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { HeaderPropsComponent, MegaMenuCategoryInterface, NavigationItem } from './headerInterface';
 import CountrySelector from 'helpers/Forms/CountrySelector';
 import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
@@ -10,7 +10,8 @@ import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 
 const HeaderDesktop = (props: HeaderPropsComponent) => {
-  const { fields, selectedCountry, setSelectedCountry } = props;
+  const { HeaderData, selectedCountry, setSelectedCountry } = props;
+  const { item } = HeaderData;
   const [dropdownOpen, setDropdownOpen] = useState<null | number>(null);
 
   const [showSearch, setShowSearch] = useState(false);
@@ -40,7 +41,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
     };
   }, []);
 
-  if (!fields) {
+  if (!item) {
     return (
       <div className={`component header-desktop ${props.params?.styles}`}>
         <div className="component-content">
@@ -49,8 +50,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
       </div>
     );
   }
-  const graphqlData = fields?.data?.item;
-  const { logo, logoLink, navigationList } = graphqlData;
+  const { logo, logoLink, navigationList } = item;
 
   return (
     <div className="hidden md:block">
@@ -88,7 +88,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
               <div className="flex items-center justify-end gap-s">
                 <div>
                   <CountrySelector
-                    countryData={props.fields.country}
+                    countryData={item.country.targetItems}
                     selectedCountry={selectedCountry}
                     setSelectedCountry={setSelectedCountry}
                   />
@@ -146,12 +146,12 @@ const NavItem = (props: NavItemInterface) => {
         }`}
       >
         {!isList ? (
-          <LinkWrapper
+          <Link
             field={props?.navigationLink.jsonValue}
             className="text-black text-xs lg:text-s font-semibold group-hover:underline"
           >
             <PlainTextWrapper field={props?.navigationTitle.jsonValue} />
-          </LinkWrapper>
+          </Link>
         ) : (
           <button className="text-black text-xs lg:text-s font-semibold cursor-pointer group-hover:underline ">
             <div className="flex items-center flex-row gap-xs">
@@ -195,9 +195,9 @@ const DropdownMenu = ({
                   <ul>
                     {category.megaMenuLinks.items.map((item, i) => (
                       <li className="list-none -ml-s mb-xxs" key={i}>
-                        <LinkWrapper
+                        <Link
                           field={item.link.jsonValue}
-                          className="text-gray hover:underline"
+                          className="text-grayscale-w-600 hover:underline"
                         />
                       </li>
                     ))}

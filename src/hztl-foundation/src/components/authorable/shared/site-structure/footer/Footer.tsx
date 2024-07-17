@@ -1,10 +1,18 @@
 import React from 'react';
-import { ImageFieldValue, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import {
+  GetStaticComponentProps,
+  ImageFieldValue,
+  LinkField,
+} from '@sitecore-jss/sitecore-jss-nextjs';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import { SiteStructure } from 'src/.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
+import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql';
+import config from 'temp/config';
+import FooterQuery from './Footer.graphql';
+import { Item } from '@sitecore-search/ui/dist/esm/basePrimitives/FacetValueList';
 
 interface LinkItem {
   id: string;
@@ -39,11 +47,7 @@ interface Item {
 }
 
 export type FooterProps = ComponentProps &
-  SiteStructure.Footer.Footer & {
-    fields: {
-      data: { item: Item };
-    };
-  };
+  SiteStructure.Footer.Footer & { FooterData: { item: Item } };
 
 const FooterDefaultComponent = (props: FooterProps): JSX.Element => (
   <div className={`component footer ${props?.params?.styles}`}>
@@ -55,9 +59,11 @@ const FooterDefaultComponent = (props: FooterProps): JSX.Element => (
 
 export const Default = (props: FooterProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
-  const footerColumns = props?.fields?.data?.item?.footerColumns.items;
-  const footerLogo = props?.fields?.data?.item.footerLogo;
-  if (props?.fields) {
+  const { item } = props?.FooterData;
+  const footerColumns = item?.footerColumns.items;
+  const footerLogo = item?.footerLogo;
+
+  if (item) {
     return (
       <div
         className={`component footer w-full px-0 ${
@@ -107,4 +113,24 @@ export const Default = (props: FooterProps): JSX.Element => {
   }
 
   return <FooterDefaultComponent {...props} />;
+};
+
+export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
+  const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
+    apiKey: config.sitecoreApiKey,
+  });
+
+  if (
+    layoutData?.sitecore?.context?.pageState == 'normal' ||
+    layoutData?.sitecore?.context?.pageState == 'preview'
+  ) {
+    const result = await graphQLClient.request<unknown>(FooterQuery, {
+      datasource: rendering.dataSource,
+      params: rendering.params,
+      language: layoutData?.sitecore?.context?.language,
+      itemID: layoutData?.sitecore?.route?.itemId,
+    });
+    return { FooterData: result };
+  }
+  return 'Component is not available in Experience Editor';
 };

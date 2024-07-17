@@ -1,33 +1,62 @@
 /* eslint-disable prettier/prettier */
 import { CountrySelectorInterface } from 'components/authorable/shared/site-structure/Header/headerInterface';
-import React from 'react';
+import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
+import { useRef, useState } from 'react';
+import useOutsideClick from 'src/hooks/useClickOutside';
 
 const CountrySelector = ({
+  countryData,
   selectedCountry,
   setSelectedCountry,
-}: // countryData,
-CountrySelectorInterface) => {
-  const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCountry(event.target.value);
+}: CountrySelectorInterface) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const selectedCountryData = countryData?.find(
+    (item) => item?.language?.jsonValue?.name === selectedCountry && item.name
+  );
+  const selectRef = useRef<HTMLDivElement>(null);
+  const handleClickOutside = () => {
+    setDropdownOpen(false);
   };
-
+  useOutsideClick(selectRef, dropdownOpen, handleClickOutside);
   return (
-    <div className="relative inline-block text-left">
-      <select
-        value={selectedCountry}
-        onChange={handleCountryChange}
+    <div className="relative block text-left mr-4" ref={selectRef}>
+      <button
+        type="button"
         className="block w-full p-xxs border-gray-300 focus:outline-none rounded-md font-semibold text-base focus:border-none sm:text-sm cursor-pointer"
+        onClick={() => setDropdownOpen(!dropdownOpen)}
       >
-        {/* {countryData &&
-          countryData?.map((item) => (
-            <option key={item.id} value={item.name}>
-              {item.displayName}
-            </option>
-          ))} */}
-        <option value="United States">🇺🇸 United States (English)</option>
-        <option value="Canada">🇨🇦 Canada (English)</option>
-        <option value="Mexico">🇲🇽 Mexico (Spanish)</option>
-      </select>
+        {selectedCountryData && (
+          <div className="flex items-center">
+            <ImageWrapper
+              field={{
+                value: { ...selectedCountryData.flag.jsonValue.value, width: '20', height: '20' },
+              }}
+            />
+            <span className="ml-3 block font-normal truncate">{selectedCountryData.name}</span>
+          </div>
+        )}
+      </button>
+      {dropdownOpen && (
+        <div className="absolute mt-1 rounded-md shadow-lg bg-white z-10">
+          <ul className="max-h-60 m-0 py-1 text-base overflow-auto focus:outline-none sm:text-sm">
+            {countryData &&
+              countryData.map((item) => (
+                <li
+                  key={item.language.jsonValue.id}
+                  className="cursor-pointer select-none relative list-none ml-0 px-4 hover:text-slate-500"
+                  onClick={() => setSelectedCountry(item.language.jsonValue.name)}
+                >
+                  <div className="flex items-center py-2  pr-9">
+                    <ImageWrapper
+                      field={{ value: { ...item.flag.jsonValue.value, width: '20', height: '20' } }}
+                    />
+                    <span className="ml-3 block font-normal">{item.name}</span>
+                  </div>
+                </li>
+              ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

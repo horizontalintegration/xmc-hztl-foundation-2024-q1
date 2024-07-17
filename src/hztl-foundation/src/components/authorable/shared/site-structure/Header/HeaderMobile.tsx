@@ -10,7 +10,8 @@ import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 
 const HeaderMobile = (props: HeaderPropsComponent) => {
-  const { fields, selectedCountry, setSelectedCountry } = props;
+  const { HeaderData, selectedCountry, setSelectedCountry } = props;
+  const { item } = HeaderData;
   const [dropdownOpen, setDropdownOpen] = useState<null | number>(null);
   const [showSearch, setShowSearch] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
@@ -29,7 +30,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
     setOpenMenu(!openMenu);
   };
 
-  if (!fields) {
+  if (!item) {
     return (
       <div className={`component header-mobile ${props.params?.styles}`}>
         <div className="component-content">
@@ -38,8 +39,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
       </div>
     );
   }
-  const graphqlData = fields?.data?.item;
-  const { logo, logoLink, navigationList } = graphqlData;
+  const { logo, logoLink, navigationList } = item;
   return (
     <div className="block md:hidden">
       {isDropdownOpen && (
