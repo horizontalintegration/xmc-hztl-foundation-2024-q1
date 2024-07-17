@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderDesktop from './HeaderDesktop';
 import HeaderMobile from './HeaderMobile';
 import { HeaderProps } from './headerInterface';
@@ -7,18 +7,20 @@ import { GetStaticComponentProps } from '@sitecore-jss/sitecore-jss-nextjs';
 import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql';
 import config from 'temp/config';
 
-export const Default = (HeaderData: HeaderProps) => {
-  const [selectedCountry, setSelectedCountry] = useState('United States');
-
+export const Default = (props: HeaderProps) => {
+  const [selectedCountry, setSelectedCountry] = useState('');
+  useEffect(() => {
+    setSelectedCountry(props.HeaderData?.item.country.targetItems?.[0].language.jsonValue.name);
+  }, [props.HeaderData?.item.country.targetItems?.[0].language.jsonValue.name]);
   return (
     <header className="bg-white w-full">
       <HeaderDesktop
-        {...HeaderData}
+        {...props}
         selectedCountry={selectedCountry}
         setSelectedCountry={setSelectedCountry}
       />
       <HeaderMobile
-        {...HeaderData}
+        {...props}
         selectedCountry={selectedCountry}
         setSelectedCountry={setSelectedCountry}
       />
@@ -41,9 +43,7 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
       language: layoutData?.sitecore?.context?.language,
       itemID: layoutData?.sitecore?.route?.itemId,
     });
-    return {
-      HeaderData: result,
-    };
+    return { HeaderData: result };
   }
   return 'Component is not available in Experience Editor';
 };
