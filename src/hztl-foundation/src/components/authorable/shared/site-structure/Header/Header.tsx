@@ -9,9 +9,10 @@ import config from 'temp/config';
 
 export const Default = (props: HeaderProps) => {
   const [selectedCountry, setSelectedCountry] = useState('');
+  const defaultCountry = props.HeaderData?.item.country.targetItems?.[0].language.jsonValue.name;
   useEffect(() => {
-    setSelectedCountry(props.HeaderData?.item.country.targetItems?.[0].language.jsonValue.name);
-  }, [props.HeaderData?.item.country.targetItems?.[0].language.jsonValue.name]);
+    setSelectedCountry(defaultCountry);
+  }, [defaultCountry]);
   return (
     <header className="bg-white w-full">
       <HeaderDesktop
