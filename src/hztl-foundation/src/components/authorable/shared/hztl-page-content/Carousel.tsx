@@ -1,5 +1,3 @@
-import React from 'react';
-
 // Lib
 import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';

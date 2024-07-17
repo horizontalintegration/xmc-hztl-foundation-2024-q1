@@ -1,4 +1,3 @@
-import React from 'react';
 import { ItemEx } from '../../../../.generated/_.Sitecore.Override';
 // Lib
 import { SplideSlide } from '@splidejs/react-splide';
