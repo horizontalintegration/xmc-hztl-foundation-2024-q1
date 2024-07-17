@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { CountrySelectorInterface } from 'components/authorable/shared/site-structure/Header/headerInterface';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import { useRef, useState } from 'react';
@@ -44,7 +43,10 @@ const CountrySelector = ({
                 <li
                   key={item.language.jsonValue.id}
                   className="cursor-pointer select-none relative list-none ml-0 px-4 hover:text-slate-500"
-                  onClick={() => setSelectedCountry(item.language.jsonValue.name)}
+                  onClick={() => {
+                    setSelectedCountry(item.language.jsonValue.name);
+                    setDropdownOpen(false);
+                  }}
                 >
                   <div className="flex items-center py-2  pr-9">
                     <ImageWrapper

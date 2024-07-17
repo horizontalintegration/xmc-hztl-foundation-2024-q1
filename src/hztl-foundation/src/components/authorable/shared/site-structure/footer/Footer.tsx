@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   GetStaticComponentProps,
   ImageFieldValue,
@@ -13,6 +12,7 @@ import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql'
 import config from 'temp/config';
 import FooterQuery from './Footer.graphql';
 import { Item } from '@sitecore-search/ui/dist/esm/basePrimitives/FacetValueList';
+import React from 'react';
 
 interface LinkItem {
   id: string;
