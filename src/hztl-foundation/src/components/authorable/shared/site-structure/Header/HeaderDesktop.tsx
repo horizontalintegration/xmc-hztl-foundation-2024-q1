@@ -138,7 +138,6 @@ interface NavItemInterface extends NavigationItem {
 }
 const NavItem = (props: NavItemInterface) => {
   const isList = props?.megaMenuList.items.length > 0;
-  console.log(props?.megaMenuList.items);
   return (
     <li className="list-none ml-xs" onClick={() => isList && props.open()}>
       <div

@@ -7,7 +7,7 @@ import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
 import defaultData from './Header.mock-data';
-import { Default } from 'components/authorable/shared/site-structure/Header/Header';
+import { Default } from 'components/authorable/shared/site-structure/Header/HeaderGraphql';
 import { HeaderProps } from 'components/authorable/shared/site-structure/Header/headerInterface';
 
 const meta: Meta<typeof Default> = {
