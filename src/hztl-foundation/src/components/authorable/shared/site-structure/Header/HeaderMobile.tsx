@@ -38,7 +38,8 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
       </div>
     );
   }
-  const { logo, logoLink, navigationList } = fields;
+  const graphqlData = fields?.data?.item;
+  const { logo, logoLink, navigationList } = graphqlData;
   return (
     <div className="block md:hidden">
       {isDropdownOpen && (
@@ -50,7 +51,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
       >
         <div className="h-xs w-full bg-grayscale-w-600"></div>
         <div className="flex justify-between p-s">
-          <Logo logo={logo} logoLink={logoLink} />
+          <Logo logo={logo.jsonValue} logoLink={logoLink.jsonValue} />
           <div className="flex items-center gap-4">
             <CountrySelector
               selectedCountry={selectedCountry}
@@ -70,8 +71,8 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
               />
             </div>
             <nav className="flex flex-col gap-xxxs">
-              {navigationList &&
-                navigationList.map((item, index) => (
+              {navigationList.items &&
+                navigationList.items.map((item, index) => (
                   <NavItem
                     key={index}
                     index={index}
@@ -95,22 +96,22 @@ interface NavItemInterface extends NavigationItem {
   index: number;
 }
 const NavItem = (props: NavItemInterface) => {
-  const isList = props.fields.megaMenuList.length > 0;
+  const isList = props.megaMenuList.items.length > 0;
   return (
     <div className="relative group px-s py-xs">
       {!isList ? (
         <LinkWrapper
-          field={props.fields.navigationLink}
+          field={props.navigationLink.jsonValue}
           className="text-black text-s gap-xxs !place-items-center font-semibold"
         >
-          <PlainTextWrapper field={props.fields.navigationTitle} />
+          <PlainTextWrapper field={props.navigationTitle.jsonValue} />
         </LinkWrapper>
       ) : (
         <button
           onClick={props.onClick}
           className="text-black text-s gap-xxs !place-items-center font-semibold cursor-pointer flex items-start justify-between"
         >
-          <span>{props.displayName}</span>
+          <span>{props.name}</span>
           <span className="flex">
             <SvgIcon
               icon={'chevron-down'}
@@ -121,8 +122,8 @@ const NavItem = (props: NavItemInterface) => {
           </span>
         </button>
       )}
-      {props.fields.megaMenuList.length > 0 && props.dropdownOpen === props.index && (
-        <DropdownMenu categories={props.fields.megaMenuList} />
+      {props.megaMenuList.items.length > 0 && props.dropdownOpen === props.index && (
+        <DropdownMenu categories={props.megaMenuList.items} />
       )}
     </div>
   );
@@ -134,11 +135,11 @@ export const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInter
       <div className="gap-m flex flex-col py-xs px-l justify-center">
         {categories.map((category, index) => (
           <div className="text-start" key={index}>
-            <label className="font-bold text-lg mb-xxs">{category.displayName}</label>
+            <label className="font-bold text-lg mb-xxs">{category.name}</label>
             <ul>
-              {category.fields.megaMenuLinks.map((item, i) => (
+              {category.megaMenuLinks.items.map((item, i) => (
                 <li className="mb-xxs list-none -ml-s" key={i}>
-                  <LinkWrapper field={item.fields.link} className=""></LinkWrapper>
+                  <LinkWrapper field={item.link.jsonValue} className=""></LinkWrapper>
                 </li>
               ))}
             </ul>

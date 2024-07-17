@@ -49,7 +49,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
       </div>
     );
   }
-  const graphqlData = fields.data.item;
+  const graphqlData = fields?.data?.item;
   const { logo, logoLink, navigationList } = graphqlData;
 
   return (
@@ -180,7 +180,6 @@ const DropdownMenu = ({
   categories: MegaMenuCategoryInterface[];
   isScrolled: boolean;
 }) => {
-  console.log(categories, 'this is category');
   return (
     <div
       className={`absolute transition-all duration-200 left-0 w-full z-[9] overflow-hidden border-b border-black ${
