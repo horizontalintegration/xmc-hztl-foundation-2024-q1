@@ -292,12 +292,7 @@ export namespace HztlPageContent.RenderingParameters {
     * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/CardList
     */
     export type CardList =  {
-        fields?: { 
-            /**
-            * Represents the Cards Per Row field (79381cc3-c76a-49da-ba7c-3c94aa8ed0f0).
-            */
-            cardsPerRow?: Field<string>;
-        }
+        fields?: {         }
 
     }
 
@@ -305,13 +300,6 @@ export namespace HztlPageContent.RenderingParameters {
     * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/CardList
     */
     export type CardListJson =  {
-        
-            /**
-            * Represents the Cards Per Row field (79381cc3-c76a-49da-ba7c-3c94aa8ed0f0).
-            */
-            cardsPerRow?: {
-                jsonValue: Field<string>
-            };
 
 
     }

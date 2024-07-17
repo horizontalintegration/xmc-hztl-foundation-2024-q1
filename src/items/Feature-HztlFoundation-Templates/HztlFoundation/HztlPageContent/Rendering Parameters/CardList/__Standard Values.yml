@@ -15,9 +15,6 @@ Languages:
       Hint: __Created by
       Value: |
         sitecore\JssImport
-    - ID: "79381cc3-c76a-49da-ba7c-3c94aa8ed0f0"
-      Hint: cardsPerRow
-      Value: 3
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
       Value: "aeccbb21-f646-41ee-97a3-132d4a2c1062"

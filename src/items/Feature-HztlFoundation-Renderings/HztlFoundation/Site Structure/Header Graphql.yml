@@ -9,92 +9,7 @@ SharedFields:
   Value: HeaderGraphql
 - ID: "17bb046a-a32a-41b3-8315-81217947611b"
   Hint: ComponentQuery
-  Value: |
-    query($language: String!) {
-      item(path: "{4502DACB-0F69-49EC-A840-0AF3C6BB9DE0}", language: $language) {
-        id
-        path
-        ... on Header {
-          logo {
-            jsonValue
-            alt
-          }
-          logoLink {
-            jsonValue
-          }
-          searchPlaceholder {
-            jsonValue
-          }
-          navigationList: field(name: "navigationList") {
-            ...navigationList
-          }
-          country {
-            targetItems {
-              ... on Country {
-                name
-                flag {
-                  jsonValue
-                }
-                language: field(name: "language") {
-                  jsonValue
-                  ... on LookupField {
-                    targetItem {
-                      name: field(name: "Iso") {
-                        jsonValue
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    
-    fragment navigationList on MultilistField {
-      items: targetItems {
-        id
-        name
-        ... on NavigationGroup {
-          navigationTitle {
-            jsonValue
-          }
-          navigationLink {
-            jsonValue
-          }
-          megaMenuList: field(name: "megaMenuList") {
-            ...megaMenuList
-          }
-        }
-      }
-    }
-    
-    fragment megaMenuList on MultilistField {
-      items: targetItems {
-        id
-        name
-        ... on MegaMenuGroup {
-          megaMenuTitle {
-            jsonValue
-          }
-          megaMenuLinks: field(name: "megaMenuLinks") {
-            ... on MultilistField {
-              items: targetItems {
-                id
-                name
-                ... on GenericLink {
-                  link {
-                    jsonValue
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    
+  Value: 
 - ID: "1a7c85e5-dc0b-490d-9187-bb1dbcb4c72f"
   Hint: Datasource Template
   Value: /sitecore/templates/Feature/HztlFoundation/SiteStructure/Header/Header
@@ -119,11 +34,11 @@ Languages:
         sitecore\dhruvi.patel@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e7457b7c-9b28-4c5c-8851-a7764d638be4"
+      Value: "0b34b368-7ead-4032-90dd-778e90e97b82"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240715T133122Z
+      Value: 20240717T100937Z
