@@ -10,7 +10,7 @@ import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWr
 import defaultData from './RichTextWrapper.mock-data';
 
 const meta: Meta<typeof RichTextWrapper> = {
-  title: 'Helpers/SitecoreWrappers/Rich Text Wrapper',
+  title: 'Helpers/Sitecore Wrappers/Rich Text Wrapper',
   component: RichTextWrapper,
   argTypes: {
     editable: { control: 'boolean' },
