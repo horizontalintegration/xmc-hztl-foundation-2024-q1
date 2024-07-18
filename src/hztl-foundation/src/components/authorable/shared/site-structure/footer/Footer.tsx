@@ -1,11 +1,11 @@
 import {
   GetStaticComponentProps,
   ImageFieldValue,
+  Link,
   LinkField,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
-import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import { SiteStructure } from 'src/.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
 import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql';
@@ -91,9 +91,8 @@ export const Default = (props: FooterProps): JSX.Element => {
                         <ul className="flex flex-col">
                           {links?.map((link, index) => (
                             <li className="p-xxs list-none -ml-m" key={index}>
-                              <LinkWrapper
+                              <Link
                                 className="font-modern text-gray text-xs font-bold capitalize"
-                                suppressNewTabIcon={true}
                                 field={link?.link?.jsonValue}
                               />
                             </li>

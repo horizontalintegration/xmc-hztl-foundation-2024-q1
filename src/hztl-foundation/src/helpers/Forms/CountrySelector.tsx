@@ -1,5 +1,6 @@
 import { CountrySelectorInterface } from 'components/authorable/shared/site-structure/Header/headerInterface';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
+import { SvgIcon } from 'helpers/SvgIconWrapper';
 import { useRef, useState } from 'react';
 import useOutsideClick from 'src/hooks/useClickOutside';
 
@@ -32,6 +33,13 @@ const CountrySelector = ({
               }}
             />
             <span className="ml-3 block font-normal truncate">{selectedCountryData.name}</span>
+            <span className="ml-3">
+              {dropdownOpen ? (
+                <SvgIcon className="-rotate-90 stroke-black w-s h-auto" icon={'arrow-right'} />
+              ) : (
+                <SvgIcon className="rotate-90 stroke-black w-s h-auto" icon={'arrow-right'} />
+              )}
+            </span>
           </div>
         )}
       </button>
@@ -42,7 +50,7 @@ const CountrySelector = ({
               countryData.map((item) => (
                 <li
                   key={item.language.jsonValue.id}
-                  className="cursor-pointer select-none relative list-none ml-0 px-4 hover:text-slate-500"
+                  className={`cursor-pointer select-none relative list-none ml-0 px-4 hover:text-slate-500 ${selectedCountryData?.language.jsonValue.name === item?.language.jsonValue.name ? 'bg-slate-300' : ''}`}
                   onClick={() => {
                     setSelectedCountry(item.language.jsonValue.name);
                     setDropdownOpen(false);
