@@ -5,8 +5,8 @@ import { SvgIcon } from 'helpers/SvgIconWrapper';
 import CountrySelector from 'helpers/Forms/CountrySelector';
 import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
 import useOutsideClick from 'src/hooks/useClickOutside';
-import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
+import { Link } from '@sitecore-jss/sitecore-jss-nextjs';
 
 const HeaderMobile = (props: HeaderPropsComponent) => {
   const { HeaderData, selectedCountry, setSelectedCountry } = props;
@@ -40,7 +40,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
   }
   const { logo, logoLink, navigationList } = item;
   return (
-    <div className="block md:hidden">
+    <div className="block mmd:hidden">
       {isDropdownOpen && (
         <div className="shadow-md before:fixed before:left-[0] before:top-[0] before:z-[9] before:h-full before:w-full before:bg-black/[0.5] before:backdrop-blur-sm"></div>
       )}
@@ -99,12 +99,12 @@ const NavItem = (props: NavItemInterface) => {
   return (
     <div className="relative group px-s py-xs">
       {!isList ? (
-        <LinkWrapper
+        <Link
           field={props.navigationLink.jsonValue}
           className="text-black text-s gap-xxs !place-items-center font-semibold"
         >
           <PlainTextWrapper field={props.navigationTitle.jsonValue} />
-        </LinkWrapper>
+        </Link>
       ) : (
         <button
           onClick={props.onClick}
@@ -138,7 +138,7 @@ export const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInter
             <ul>
               {category.megaMenuLinks.items.map((item, i) => (
                 <li className="mb-xxs list-none -ml-s" key={i}>
-                  <LinkWrapper field={item.link.jsonValue} className=""></LinkWrapper>
+                  <Link field={item.link.jsonValue} className=""></Link>
                 </li>
               ))}
             </ul>

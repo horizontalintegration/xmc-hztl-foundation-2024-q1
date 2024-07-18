@@ -6,7 +6,6 @@ import { SvgIcon } from 'helpers/SvgIconWrapper';
 import { useEffect, useRef, useState } from 'react';
 import useOutsideClick from 'src/hooks/useClickOutside';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
-import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 
 const HeaderDesktop = (props: HeaderPropsComponent) => {
@@ -53,7 +52,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
   const { logo, logoLink, navigationList } = item;
 
   return (
-    <div className="hidden md:block">
+    <div className="hidden mmd:block">
       {isDropdownOpen && (
         <div className="shadow-md before:fixed before:left-0 before:top-0 before:z-[9] before:h-full before:w-full before:bg-black/50 before:backdrop-blur-sm"></div>
       )}
@@ -66,7 +65,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
             }`}
           >
             <div className="flex justify-between items-center">
-              <div className="flex items-center flex-shrink-0">
+              <div className="flex items-center flex-shrink-0 px-3">
                 <Logo logo={logo.jsonValue} logoLink={logoLink.jsonValue} />
                 <ul className="flex items-center">
                   {navigationList?.items?.map((item, index) => (
@@ -124,9 +123,9 @@ export default HeaderDesktop;
 
 export const Logo = ({ logo, logoLink }: { logo: ImageField; logoLink: LinkField }) => (
   <div className="flex items-center">
-    <LinkWrapper field={logoLink?.value}>
+    <Link field={logoLink?.value}>
       <ImageWrapper field={logo} />
-    </LinkWrapper>
+    </Link>
   </div>
 );
 interface NavItemInterface extends NavigationItem {
