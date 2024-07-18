@@ -8,8 +8,10 @@ import { ComponentProps } from 'lib/component-props';
 import { withStandardComponentWrapper } from 'helpers/HOC';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
 import { tv } from 'tailwind-variants';
+import { CardListCardsPerRows } from 'lib/utils/style-param-utils/modules/cards';
 
-export type CardProps = ComponentProps & HztlPageContent.Card & { cardsPerRow?: CardsPerRow };
+export type CardProps = ComponentProps &
+  HztlPageContent.Card & { cardsPerRow?: CardListCardsPerRows };
 
 const CardDefaultComponent = (props: CardProps): JSX.Element => (
   <div className={`component card ${props?.params?.styles}`}>
@@ -18,8 +20,6 @@ const CardDefaultComponent = (props: CardProps): JSX.Element => (
     </div>
   </div>
 );
-
-type CardsPerRow = '1' | '2' | '3' | '4' | undefined;
 
 const tailwindVariants = tv({
   slots: {
