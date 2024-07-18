@@ -8,9 +8,11 @@ import { withDatasourceCheck } from '@sitecore-jss/sitecore-jss-nextjs';
  * @returns The wrapped component with added functionality
  */
 export function withStandardComponentWrapper<P extends ComponentProps>(
-  Component: React.ComponentType<P>
+  Component: React.ComponentType<P>,
+  hasDataSource = true
 ) {
-  const WrappedComponent = withPagesStyleChangeWatcher(withDatasourceCheck()(Component));
+  const WithDataSourceComponent = hasDataSource ? withDatasourceCheck()(Component) : Component;
+  const WrappedComponent = withPagesStyleChangeWatcher(WithDataSourceComponent);
 
   return WrappedComponent;
 }

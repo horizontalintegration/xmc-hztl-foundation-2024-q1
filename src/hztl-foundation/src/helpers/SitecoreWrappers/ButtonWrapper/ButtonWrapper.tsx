@@ -8,12 +8,18 @@ import { GtmEvent } from 'lib/utils/gtm-utils';
 
 // Local
 import { SvgIcon } from 'helpers/SvgIconWrapper';
-import { CtaIconAlignments, CtaIcons, CtaVariants } from 'lib/utils/style-param-utils.config';
+import {
+  CtaElements,
+  CtaIconAlignments,
+  CtaIcons,
+  CtaStyleProperties,
+  CtaVariants,
+} from 'lib/utils/style-param-utils/modules/ctas';
 
 import { StyleParamRecord } from 'lib/utils/style-param-utils';
 
 export type CtaProps = {
-  ctaStyle?: StyleParamRecord;
+  ctaStyle?: StyleParamRecord<CtaElements, CtaStyleProperties>;
   ctaIcon?: CtaIcons;
   ctaIconAlignment?: CtaIconAlignments;
   ctaVariant?: CtaVariants;
