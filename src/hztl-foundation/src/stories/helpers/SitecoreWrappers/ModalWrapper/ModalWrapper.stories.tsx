@@ -9,7 +9,7 @@ import { Default, VideoProps } from 'components/authorable/shared/hztl-page-cont
 import defaultData from './ModalWrapper.mock-data';
 
 const meta: Meta<typeof Default> = {
-  title: 'Helpers/SitecoreWrappers/ModalWrapper',
+  title: 'Helpers/Sitecore Wrappers/ModalWrapper',
   component: Default,
   argTypes: {},
 };

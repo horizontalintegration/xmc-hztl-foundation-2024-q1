@@ -42,7 +42,7 @@ const meta: Meta<ButtonWrapperProps> = {
   },
   parameters: { controls: { sort: 'requiredFirst' } },
   tags: ['autodocs'],
-  title: 'Helpers/SitecoreWrappers/Button Wrapper',
+  title: 'Helpers/Sitecore Wrappers/Button Wrapper',
 };
 
 export default meta;

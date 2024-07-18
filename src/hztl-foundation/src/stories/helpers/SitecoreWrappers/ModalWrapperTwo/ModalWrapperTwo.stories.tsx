@@ -68,7 +68,7 @@ const meta: Meta<ModalWrapperTwoProps> = {
   } as any,
   parameters: { controls: { sort: 'requiredFirst' } },
   tags: ['autodocs'],
-  title: 'Helpers/Field Wrappers/Modal Wrapper Two',
+  title: 'Helpers/Sitecore Wrappers/Modal Wrapper Two',
 };
 
 export default meta;
