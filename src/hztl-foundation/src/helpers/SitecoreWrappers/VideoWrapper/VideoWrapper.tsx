@@ -15,7 +15,6 @@ const VideoWrapper = (props: VideoWrapperProps): JSX.Element => {
     loopParameter ? 1 : 0
   }&autoplay=${autoPlayParameter ? 1 : 0}`;
 
-  console.log('autoPlayParameter', autoPlayParameter);
   return (
     <div tabIndex={0}>
       {uploadedVideoLink ? (
