@@ -22,7 +22,7 @@ const CountrySelector = ({
     <div className="relative block text-left mr-4" ref={selectRef}>
       <button
         type="button"
-        className="block w-full p-xxs border-gray-300 focus:outline-none rounded-md font-semibold text-base focus:border-none sm:text-sm cursor-pointer"
+        className="block w-full p-xxs border-gray-300 rounded-md font-semibold text-base focus:border-none sm:text-sm cursor-pointer"
         onClick={() => setDropdownOpen(!dropdownOpen)}
       >
         {selectedCountryData && (
