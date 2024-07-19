@@ -22,6 +22,7 @@ const CountrySelector = ({
     <div className="relative block text-left mr-4" ref={selectRef}>
       <button
         type="button"
+        aria-label="Country Select"
         className="block w-full p-xxs border-gray-300 rounded-md font-semibold text-base focus:border-none sm:text-sm cursor-pointer"
         onClick={() => setDropdownOpen(!dropdownOpen)}
       >
