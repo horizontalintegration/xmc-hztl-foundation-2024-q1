@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './_react-modal.css';
 @import './_rte.css';
 
 /*
@@ -97,15 +98,15 @@ p > span {
 
 /* Sitecore search */
 .search-wrapper > div:first-of-type {
-  @apply !z-10 md:!px-5 !px-0
+  @apply !z-10 md:!px-5 !px-0;
 }
-.bvfPE{
-  @apply !h-auto 
+.bvfPE {
+  @apply !h-auto;
 }
-.fLNHNB{
-  @apply !flex !flex-col !gap-xs !py-xs !px-m !-mx-xs !border-b  !bg-white
+.fLNHNB {
+  @apply !flex !flex-col !gap-xs !py-xs !px-m !-mx-xs !border-b  !bg-white;
 }
-.fquAsK{
+.fquAsK {
   @apply !w-auto;
 }
 #footer {
@@ -125,4 +126,3 @@ p > span {
     margin-bottom: 45px;
   }
 }
-
