@@ -6,7 +6,7 @@ import CountrySelector from 'helpers/Forms/CountrySelector';
 import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
 import useOutsideClick from 'src/hooks/useClickOutside';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
-import { Link } from '@sitecore-jss/sitecore-jss-nextjs';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 
 const HeaderMobile = (props: HeaderPropsComponent) => {
   const { HeaderData, selectedCountry, setSelectedCountry } = props;
@@ -99,12 +99,12 @@ const NavItem = (props: NavItemInterface) => {
   return (
     <div className="relative group px-s py-xs">
       {!isList ? (
-        <Link
+        <LinkWrapper
           field={props.navigationLink.jsonValue}
           className="text-black text-s gap-xxs !place-items-center font-semibold"
         >
           <PlainTextWrapper field={props.navigationTitle.jsonValue} />
-        </Link>
+        </LinkWrapper>
       ) : (
         <button
           onClick={props.onClick}
@@ -134,11 +134,11 @@ export const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInter
       <div className="gap-m flex flex-col py-xs px-l justify-center">
         {categories.map((category, index) => (
           <div className="text-start" key={index}>
-            <label className="font-bold text-lg mb-xxs">{category.name}</label>
+            <h2 className="font-bold text-lg mb-xxs">{category.name}</h2>
             <ul>
               {category.megaMenuLinks.items.map((item, i) => (
                 <li className="mb-xxs list-none -ml-s" key={i}>
-                  <Link field={item.link.jsonValue} className=""></Link>
+                  <LinkWrapper field={item.link.jsonValue} className=""></LinkWrapper>
                 </li>
               ))}
             </ul>
@@ -158,22 +158,22 @@ const BurgurIcon = ({
 }) => {
   return (
     <li className="toggle-menu relative mt-0 flex w-s items-center justify-center">
-      <input
-        className="checkbox absolute right-[0px] z-[2] block h-m w-[17px] opacity-0 cursor-pointer"
-        type="checkbox"
-        // checked={openMenu}
-        defaultChecked={openMenu}
+      <button
+        className="hamburger-button absolute right-0 z-[2] block h-m w-[17px] cursor-pointer"
+        aria-label="Toggle Menu"
+        aria-expanded={openMenu}
         onClick={() => toggleHamburger()}
-      />
-      <div className="hamburger-lines absolute right-0 z-[1] flex h-xs w-[17px] flex-col justify-between">
-        <span
-          className={`line line1 block h-0.5 w-full origin-[1px_1.5px]  duration-300 ease-in-out `}
-        ></span>
-        <span className={`line line2 block h-0.5 w-full  duration-100 ease-in-out `}></span>
-        <span
-          className={`line line3 block h-0.5 w-full origin-[2px_1px]  duration-300 ease-in-out `}
-        ></span>
-      </div>
+      >
+        <div className="hamburger-lines absolute right-0 z-[1] flex h-xs w-[17px] flex-col justify-between">
+          <span
+            className={`line line1 block h-0.5 w-full origin-[1px_1.5px] duration-300 ease-in-out`}
+          ></span>
+          <span className={`line line2 block h-0.5 w-full duration-100 ease-in-out`}></span>
+          <span
+            className={`line line3 block h-0.5 w-full origin-[2px_1px] duration-300 ease-in-out`}
+          ></span>
+        </div>
+      </button>
     </li>
   );
 };

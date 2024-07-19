@@ -1,4 +1,4 @@
-import { ImageField, Link, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ImageField, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { HeaderPropsComponent, MegaMenuCategoryInterface, NavigationItem } from './headerInterface';
 import CountrySelector from 'helpers/Forms/CountrySelector';
 import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import useOutsideClick from 'src/hooks/useClickOutside';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 
 const HeaderDesktop = (props: HeaderPropsComponent) => {
   const { HeaderData, selectedCountry, setSelectedCountry } = props;
@@ -67,7 +68,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
             <div className="flex justify-between items-center">
               <div className="flex items-center flex-shrink-0 px-3">
                 <Logo logo={logo.jsonValue} logoLink={logoLink.jsonValue} />
-                <ul className="flex items-center">
+                <ul className="flex items-center" role="presentation">
                   {navigationList?.items?.map((item, index) => (
                     <NavItem
                       key={index}
@@ -77,7 +78,6 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
                         handleDropdownToggle(index);
                         setShowSearch(false);
                       }}
-                      close={() => handleDropdownToggle(null)}
                       dropdownOpen={dropdownOpen}
                       isScrolled={isScrolled}
                     />
@@ -123,14 +123,13 @@ export default HeaderDesktop;
 
 export const Logo = ({ logo, logoLink }: { logo: ImageField; logoLink: LinkField }) => (
   <div className="flex items-center">
-    <Link field={logoLink?.value}>
+    <LinkWrapper field={logoLink?.value}>
       <ImageWrapper field={logo} />
-    </Link>
+    </LinkWrapper>
   </div>
 );
 interface NavItemInterface extends NavigationItem {
   open: () => void;
-  close: () => void;
   dropdownOpen: number | null;
   index: number;
   isScrolled: boolean;
@@ -138,21 +137,28 @@ interface NavItemInterface extends NavigationItem {
 const NavItem = (props: NavItemInterface) => {
   const isList = props?.megaMenuList.items.length > 0;
   return (
-    <li className="list-none ml-xs" onClick={() => isList && props.open()}>
+    <li className="list-none ml-xs" role="presentation">
       <div
         className={`hover:bg-grayscale-w-200 group rounded-md cursor-pointer text-center px-xxs lg:px-s lg:py-xxs py-xxxs ${
           isList && props.index === props.dropdownOpen && 'bg-grayscale-w-200'
         }`}
       >
         {!isList ? (
-          <Link
+          <LinkWrapper
+            role="menuitem"
+            aria-haspopup="false"
             field={props?.navigationLink.jsonValue}
             className="text-black text-xs lg:text-s font-semibold group-hover:underline"
           >
             <PlainTextWrapper field={props?.navigationTitle.jsonValue} />
-          </Link>
+          </LinkWrapper>
         ) : (
-          <button className="text-black text-xs lg:text-s font-semibold cursor-pointer group-hover:underline ">
+          <button
+            onClick={() => isList && props.open()}
+            className="text-black text-xs lg:text-s font-semibold cursor-pointer group-hover:underline"
+            role="menuitem"
+            aria-haspopup="true"
+          >
             <div className="flex items-center flex-row gap-xs">
               <PlainTextWrapper field={props.navigationTitle.jsonValue} />
               {isList && props.index === props.dropdownOpen ? (
@@ -189,12 +195,20 @@ const DropdownMenu = ({
           <div className="w-full my-xxs">
             <div className="gap-y-0 gap-xl md:grid-cols-12 grid">
               {categories.map((category, index) => (
-                <div className="text-start col-span-4 py-xxxs xl:col-span-3" key={index}>
-                  <label className="font-bold text-lg mb-xxs">{category.name}</label>
+                <div
+                  className="text-start col-span-4 py-xxxs xl:col-span-3"
+                  key={index}
+                  role="group"
+                  aria-labelledby={`secondary-menu-${index + 1}`}
+                >
+                  <h2 className="font-bold text-lg mb-xxs" id={`secondary-menu-${index + 1}`}>
+                    {category.name}
+                  </h2>
                   <ul>
                     {category.megaMenuLinks.items.map((item, i) => (
-                      <li className="list-none -ml-s mb-xxs" key={i}>
-                        <Link
+                      <li className="list-none -ml-s mb-xxs" key={i} role="presentation">
+                        <LinkWrapper
+                          role="menuitem"
                           field={item.link.jsonValue}
                           className="text-grayscale-w-600 hover:underline"
                         />

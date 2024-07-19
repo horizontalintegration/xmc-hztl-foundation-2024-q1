@@ -1,19 +1,16 @@
 import {
   GetStaticComponentProps,
   ImageFieldValue,
-  Link,
   LinkField,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import { SiteStructure } from 'src/.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
-import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql';
-import config from 'temp/config';
 import FooterQuery from './Footer.graphql';
-import { Item } from '@sitecore-search/ui/dist/esm/basePrimitives/FacetValueList';
 import React from 'react';
-
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import graphQLClientFactory from 'lib/graphql-client-factory';
 interface LinkItem {
   id: string;
   name: string;
@@ -91,7 +88,7 @@ export const Default = (props: FooterProps): JSX.Element => {
                         <ul className="flex flex-col">
                           {links?.map((link, index) => (
                             <li className="p-xxs list-none -ml-m" key={index}>
-                              <Link
+                              <LinkWrapper
                                 className="font-modern text-gray text-xs font-bold capitalize"
                                 field={link?.link?.jsonValue}
                               />
@@ -115,10 +112,7 @@ export const Default = (props: FooterProps): JSX.Element => {
 };
 
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
-  const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
-    apiKey: config.sitecoreApiKey,
-  });
-
+  const graphQLClient = graphQLClientFactory({});
   if (
     layoutData?.sitecore?.context?.pageState == 'normal' ||
     layoutData?.sitecore?.context?.pageState == 'preview'

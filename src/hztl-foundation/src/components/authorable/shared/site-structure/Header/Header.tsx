@@ -4,8 +4,7 @@ import HeaderMobile from './HeaderMobile';
 import { HeaderProps } from './headerInterface';
 import HeaderQuery from './Header.graphql';
 import { GetStaticComponentProps } from '@sitecore-jss/sitecore-jss-nextjs';
-import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql';
-import config from 'temp/config';
+import graphqlClientFactory from 'lib/graphql-client-factory';
 
 export const Default = (props: HeaderProps) => {
   const [selectedCountry, setSelectedCountry] = useState('');
@@ -30,10 +29,7 @@ export const Default = (props: HeaderProps) => {
 };
 
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
-  const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
-    apiKey: config.sitecoreApiKey,
-  });
-
+  const graphQLClient = graphqlClientFactory({});
   if (
     layoutData?.sitecore?.context?.pageState == 'normal' ||
     layoutData?.sitecore?.context?.pageState == 'preview'

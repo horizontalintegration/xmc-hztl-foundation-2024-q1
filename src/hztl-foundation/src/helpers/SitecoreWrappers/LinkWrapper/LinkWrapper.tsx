@@ -94,7 +94,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
     if (isEditing && editable)
       return (
         // Adding the CSS classes to a wrapping div so we can include the icon
-        <div className={base()}>
+        <div className={`${base()}`}>
           <Link
             {...props}
             field={field}
@@ -114,7 +114,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
     return (
       <NextLink
         {...props}
-        className={base()}
+        className={`${base()}`}
         data-component="helpers/sitecorewrappers/linkwrapper"
         href={{ pathname: href, query: querystring, hash: anchor }}
         onClick={() => handleOnClick()}
