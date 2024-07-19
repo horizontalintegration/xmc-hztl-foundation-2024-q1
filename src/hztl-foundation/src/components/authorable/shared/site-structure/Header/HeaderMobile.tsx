@@ -69,7 +69,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
                 defaultItemsPerPage={5}
               />
             </div>
-            <nav className="flex flex-col gap-xxxs">
+            <ul className="flex flex-col gap-xxxs m-0" role="presentation">
               {navigationList.items &&
                 navigationList.items.map((item, index) => (
                   <NavItem
@@ -80,7 +80,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
                     dropdownOpen={dropdownOpen}
                   />
                 ))}
-            </nav>
+            </ul>
           </div>
         )}
       </div>
@@ -97,9 +97,11 @@ interface NavItemInterface extends NavigationItem {
 const NavItem = (props: NavItemInterface) => {
   const isList = props.megaMenuList.items.length > 0;
   return (
-    <div className="relative group px-s py-xs">
+    <li className="relative group px-s py-xs list-none m-0" role="presentation">
       {!isList ? (
         <LinkWrapper
+          role="menuitem"
+          aria-haspopup="false"
           field={props.navigationLink.jsonValue}
           className="text-black text-s gap-xxs !place-items-center font-semibold"
         >
@@ -107,6 +109,8 @@ const NavItem = (props: NavItemInterface) => {
         </LinkWrapper>
       ) : (
         <button
+          role="menuitem"
+          aria-haspopup="true"
           onClick={props.onClick}
           className="text-black text-s gap-xxs !place-items-center font-semibold cursor-pointer flex items-start justify-between"
         >
@@ -124,7 +128,7 @@ const NavItem = (props: NavItemInterface) => {
       {props.megaMenuList.items.length > 0 && props.dropdownOpen === props.index && (
         <DropdownMenu categories={props.megaMenuList.items} />
       )}
-    </div>
+    </li>
   );
 };
 
@@ -133,12 +137,19 @@ export const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInter
     <div className="bg-grayscale-w-200 flex -mx-m mt-xs justify-start">
       <div className="gap-m flex flex-col py-xs px-l justify-center">
         {categories.map((category, index) => (
-          <div className="text-start" key={index}>
-            <h2 className="font-bold text-lg mb-xxs">{category.name}</h2>
+          <div
+            className="text-start"
+            key={index}
+            role="group"
+            aria-labelledby={`secondary-menu-${index + 1}`}
+          >
+            <h2 className="font-bold text-lg mb-xxs" id={`secondary-menu-${index + 1}`}>
+              {category.name}
+            </h2>
             <ul>
               {category.megaMenuLinks.items.map((item, i) => (
-                <li className="mb-xxs list-none -ml-s" key={i}>
-                  <LinkWrapper field={item.link.jsonValue} className=""></LinkWrapper>
+                <li className="mb-xxs list-none -ml-s" key={i} role="presentation">
+                  <LinkWrapper field={item.link.jsonValue} role="menuitem"></LinkWrapper>
                 </li>
               ))}
             </ul>
