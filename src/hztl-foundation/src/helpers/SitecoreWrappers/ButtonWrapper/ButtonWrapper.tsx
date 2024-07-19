@@ -157,7 +157,7 @@ const ButtonWrapper = forwardRef<HTMLButtonElement, ButtonWrapperProps>(
     if (!text && !children) return <></>;
 
     return (
-      <button className={base()} onClick={handleOnClick} ref={ref} {...props}>
+      <button className={base()} onClick={handleOnClick} ref={ref}>
         {text}
         {children}
         {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />}
