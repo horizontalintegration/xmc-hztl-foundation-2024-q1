@@ -1,8 +1,10 @@
 import { FooterProps } from 'components/authorable/shared/site-structure/footer/Footer';
 
 export const defaultData: FooterProps = {
-  rendering: { componentName: 'Default' },
-  params: {},
+  rendering: {
+    componentName: 'Default',
+    dataSource: 'Storybook',
+  },
   FooterData: {
     item: {
       id: 'AA125786A73C48089735FE389747B563',
