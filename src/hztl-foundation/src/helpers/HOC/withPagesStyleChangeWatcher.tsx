@@ -24,6 +24,7 @@ export function withPagesStyleChangeWatcher<P extends ComponentProps>(
         return;
       }
 
+      // Watch for changes to css classes on our target element
       const observer = new MutationObserver((mutations) => {
         mutations.forEach((mu) => {
           if (mu.type === 'attributes' && mu.attributeName === 'class') {
@@ -35,6 +36,7 @@ export function withPagesStyleChangeWatcher<P extends ComponentProps>(
 
       observer.observe(ref.current, { attributes: true });
 
+      // Disconnect this component is disposed
       return () => {
         observer.disconnect();
       };
