@@ -14,7 +14,10 @@ export const Default = (props: SearchResultProps): JSX.Element => {
   };
   const id = props?.params?.RenderingIdentifier;
   return (
-    <div className={`w-full mb-4 mml:w-1/3 ${props?.params?.styles}`} id={id ? id : undefined}>
+    <div
+      className={`component w-full mb-4 mml:w-1/3 ${props?.params?.styles}`}
+      id={id ? id : undefined}
+    >
       <SearchResultsWidget
         rfkId="rfkid_102"
         defaultKeyphrase={useKeyphrase()}

@@ -15,7 +15,11 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
   return (
     <>
       {Title?.jsonValue?.value && ancestors.length > 0 && (
-        <div data-component="authorable/General/breadcrumbs" data-testid="breadcrumbs">
+        <div
+          data-component="authorable/General/breadcrumbs"
+          data-testid="breadcrumbs"
+          className="component"
+        >
           <nav aria-label="Breadcrumb">
             <ul className="md:flex items-center list">
               {ancestors

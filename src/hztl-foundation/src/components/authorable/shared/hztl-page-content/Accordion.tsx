@@ -44,7 +44,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
   // };
 
   return (
-    <div className="accordion my-8 border-b-gray border-b border-solid">
+    <div className="component accordion my-8 border-b-gray border-b border-solid">
       <Placeholder name={phKey} rendering={props.rendering} />
     </div>
   );

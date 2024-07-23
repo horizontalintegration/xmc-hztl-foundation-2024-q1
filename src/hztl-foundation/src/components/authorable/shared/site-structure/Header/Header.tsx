@@ -13,7 +13,7 @@ export const Default = (props: HeaderProps) => {
     setSelectedCountry(defaultCountry);
   }, [defaultCountry]);
   return (
-    <header className="bg-white w-full">
+    <header className="component bg-white w-full">
       <HeaderDesktop
         {...props}
         selectedCountry={selectedCountry}

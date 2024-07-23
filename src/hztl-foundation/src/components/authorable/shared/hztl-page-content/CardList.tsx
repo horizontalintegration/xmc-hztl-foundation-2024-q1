@@ -12,7 +12,7 @@ const CardList = (props: CardListProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
   const phKey = `cardlist`;
   return (
-    <div className={`row column-splitter`} id={id ? id : undefined}>
+    <div className={`component row column-splitter`} id={id ? id : undefined}>
       <div>
         <div className="row">
           <Placeholder
