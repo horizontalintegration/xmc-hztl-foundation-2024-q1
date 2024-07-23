@@ -14,7 +14,7 @@ export const Default = (props: CarouselProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
   const phKey = `carousel`;
   return (
-    <div id={id ? id : undefined}>
+    <div id={id ? id : undefined} className="component">
       <Splide
         hasTrack={false}
         options={{

@@ -15,7 +15,7 @@ const Hero = (props: HeroProps): JSX.Element => {
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
   return (
-    <section className="hero my-ml min-h-[50vh] flex flex-col-reverse md:flex-row justify-center items-center">
+    <section className="component hero my-ml min-h-[50vh] flex flex-col-reverse md:flex-row justify-center items-center">
       <div className="w-full md:w-1/2 flex items-center justify-center">
         <div className="max-w-[472px] w-fit px-s py-ml">
           <PlainTextWrapper
