@@ -8,12 +8,15 @@ import graphqlClientFactory from 'lib/graphql-client-factory';
 
 export const Default = (props: HeaderProps) => {
   const [selectedCountry, setSelectedCountry] = useState('');
-  const defaultCountry = props.HeaderData?.item.country.targetItems?.[0].language.jsonValue.name;
+  const defaultCountry =
+    props?.HeaderData?.item?.country?.targetItems?.[0]?.language?.jsonValue?.name;
   useEffect(() => {
-    setSelectedCountry(defaultCountry);
+    if (defaultCountry) {
+      setSelectedCountry(defaultCountry);
+    }
   }, [defaultCountry]);
   return (
-    <header className="component bg-white w-full">
+    <header className="component bg-white w-full p-0">
       <HeaderDesktop
         {...props}
         selectedCountry={selectedCountry}
