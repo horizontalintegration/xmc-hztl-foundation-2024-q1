@@ -87,7 +87,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
               <div className="flex items-center justify-end gap-s">
                 <div>
                   <CountrySelector
-                    countryData={item.country.targetItems}
+                    countryData={item?.country?.targetItems}
                     selectedCountry={selectedCountry}
                     setSelectedCountry={setSelectedCountry}
                   />
