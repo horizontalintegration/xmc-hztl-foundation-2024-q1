@@ -19,10 +19,10 @@ const config: StorybookConfig = {
     name: '@storybook/nextjs',
     options: {},
   },
-  docs: {},
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-  typescript: {
-    reactDocgen: 'react-docgen-typescript',
+  docs: {
+    autodocs: 'tag',
   },
+  staticDirs: ['../public', '../src/stories/assets'],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
 };
 export default config;
