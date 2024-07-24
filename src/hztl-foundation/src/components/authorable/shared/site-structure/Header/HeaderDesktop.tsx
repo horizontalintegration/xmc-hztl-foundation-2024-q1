@@ -148,6 +148,7 @@ const NavItem = (props: NavItemInterface) => {
           <LinkWrapper
             field={props.fields.navigationLink}
             className="text-black text-xs lg:text-s font-semibold group-hover:underline"
+            ctaVariant="link"
           >
             <PlainTextWrapper field={props.fields.navigationTitle} />
           </LinkWrapper>
