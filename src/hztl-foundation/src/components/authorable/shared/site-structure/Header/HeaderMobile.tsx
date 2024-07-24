@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { useRef, useState } from 'react';
 import { HeaderPropsComponent, MegaMenuCategoryInterface, NavigationItem } from './headerInterface';
 import { Logo } from './HeaderDesktop';
@@ -6,11 +5,12 @@ import { SvgIcon } from 'helpers/SvgIconWrapper';
 import CountrySelector from 'helpers/Forms/CountrySelector';
 import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
 import useOutsideClick from 'src/hooks/useClickOutside';
-import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 
 const HeaderMobile = (props: HeaderPropsComponent) => {
-  const { fields, selectedCountry, setSelectedCountry } = props;
+  const { HeaderData, selectedCountry, setSelectedCountry } = props;
+  const { item } = HeaderData;
   const [dropdownOpen, setDropdownOpen] = useState<null | number>(null);
   const [showSearch, setShowSearch] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
@@ -29,7 +29,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
     setOpenMenu(!openMenu);
   };
 
-  if (!fields) {
+  if (!item) {
     return (
       <div className={`component header-mobile ${props.params?.styles}`}>
         <div className="component-content">
@@ -38,9 +38,9 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
       </div>
     );
   }
-  const { logo, logoLink, navigationList } = fields;
+  const { logo, logoLink, navigationList } = item;
   return (
-    <div className="block md:hidden">
+    <div className="block mmd:hidden">
       {isDropdownOpen && (
         <div className="shadow-md before:fixed before:left-[0] before:top-[0] before:z-[9] before:h-full before:w-full before:bg-black/[0.5] before:backdrop-blur-sm"></div>
       )}
@@ -50,7 +50,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
       >
         <div className="h-xs w-full bg-grayscale-w-600"></div>
         <div className="flex justify-between p-s">
-          <Logo logo={logo} logoLink={logoLink} />
+          <Logo logo={logo.jsonValue} logoLink={logoLink.jsonValue} />
           <div className="flex items-center gap-4">
             <CountrySelector
               selectedCountry={selectedCountry}
@@ -69,9 +69,9 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
                 defaultItemsPerPage={5}
               />
             </div>
-            <nav className="flex flex-col gap-xxxs">
-              {navigationList &&
-                navigationList.map((item, index) => (
+            <ul className="flex flex-col gap-xxxs m-0" role="presentation">
+              {navigationList.items &&
+                navigationList.items.map((item, index) => (
                   <NavItem
                     key={index}
                     index={index}
@@ -80,7 +80,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
                     dropdownOpen={dropdownOpen}
                   />
                 ))}
-            </nav>
+            </ul>
           </div>
         )}
       </div>
@@ -95,22 +95,26 @@ interface NavItemInterface extends NavigationItem {
   index: number;
 }
 const NavItem = (props: NavItemInterface) => {
-  const isList = props.fields.megaMenuList.length > 0;
+  const isList = props.megaMenuList.items.length > 0;
   return (
-    <div className="relative group px-s py-xs">
+    <li className="relative group px-s py-xs list-none m-0" role="presentation">
       {!isList ? (
         <LinkWrapper
-          field={props.fields.navigationLink}
+          role="menuitem"
+          aria-haspopup="false"
+          field={props.navigationLink.jsonValue}
           className="text-black text-s gap-xxs !place-items-center font-semibold"
         >
-          <PlainTextWrapper field={props.fields.navigationTitle} />
+          <PlainTextWrapper field={props.navigationTitle.jsonValue} />
         </LinkWrapper>
       ) : (
         <button
+          role="menuitem"
+          aria-haspopup="true"
           onClick={props.onClick}
           className="text-black text-s gap-xxs !place-items-center font-semibold cursor-pointer flex items-start justify-between"
         >
-          <span>{props.displayName}</span>
+          <span>{props.name}</span>
           <span className="flex">
             <SvgIcon
               icon={'chevron-down'}
@@ -121,10 +125,10 @@ const NavItem = (props: NavItemInterface) => {
           </span>
         </button>
       )}
-      {props.fields.megaMenuList.length > 0 && props.dropdownOpen === props.index && (
-        <DropdownMenu categories={props.fields.megaMenuList} />
+      {props.megaMenuList.items.length > 0 && props.dropdownOpen === props.index && (
+        <DropdownMenu categories={props.megaMenuList.items} />
       )}
-    </div>
+    </li>
   );
 };
 
@@ -133,12 +137,19 @@ export const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInter
     <div className="bg-grayscale-w-200 flex -mx-m mt-xs justify-start">
       <div className="gap-m flex flex-col py-xs px-l justify-center">
         {categories.map((category, index) => (
-          <div className="text-start" key={index}>
-            <label className="font-bold text-lg mb-xxs">{category.displayName}</label>
+          <div
+            className="text-start"
+            key={index}
+            role="group"
+            aria-labelledby={`secondary-menu-${index + 1}`}
+          >
+            <h2 className="font-bold text-lg mb-xxs" id={`secondary-menu-${index + 1}`}>
+              {category.name}
+            </h2>
             <ul>
-              {category.fields.megaMenuLinks.map((item, i) => (
-                <li className="mb-xxs list-none -ml-s" key={i}>
-                  <LinkWrapper field={item.fields.link} className=""></LinkWrapper>
+              {category.megaMenuLinks.items.map((item, i) => (
+                <li className="mb-xxs list-none -ml-s" key={i} role="presentation">
+                  <LinkWrapper field={item.link.jsonValue} role="menuitem"></LinkWrapper>
                 </li>
               ))}
             </ul>
@@ -158,22 +169,22 @@ const BurgurIcon = ({
 }) => {
   return (
     <li className="toggle-menu relative mt-0 flex w-s items-center justify-center">
-      <input
-        className="checkbox absolute right-[0px] z-[2] block h-m w-[17px] opacity-0 cursor-pointer"
-        type="checkbox"
-        // checked={openMenu}
-        defaultChecked={openMenu}
+      <button
+        className="hamburger-button absolute right-0 z-[2] block h-m w-[17px] cursor-pointer"
+        aria-label="Toggle Menu"
+        aria-expanded={openMenu}
         onClick={() => toggleHamburger()}
-      />
-      <div className="hamburger-lines absolute right-0 z-[1] flex h-xs w-[17px] flex-col justify-between">
-        <span
-          className={`line line1 block h-0.5 w-full origin-[1px_1.5px]  duration-300 ease-in-out `}
-        ></span>
-        <span className={`line line2 block h-0.5 w-full  duration-100 ease-in-out `}></span>
-        <span
-          className={`line line3 block h-0.5 w-full origin-[2px_1px]  duration-300 ease-in-out `}
-        ></span>
-      </div>
+      >
+        <div className="hamburger-lines absolute right-0 z-[1] flex h-xs w-[17px] flex-col justify-between">
+          <span
+            className={`line line1 block h-0.5 w-full origin-[1px_1.5px] duration-300 ease-in-out`}
+          ></span>
+          <span className={`line line2 block h-0.5 w-full duration-100 ease-in-out`}></span>
+          <span
+            className={`line line3 block h-0.5 w-full origin-[2px_1px] duration-300 ease-in-out`}
+          ></span>
+        </div>
+      </button>
     </li>
   );
 };

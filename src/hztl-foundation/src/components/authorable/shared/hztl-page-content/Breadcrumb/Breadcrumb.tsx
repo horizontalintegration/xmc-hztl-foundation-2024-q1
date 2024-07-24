@@ -1,13 +1,12 @@
 import React from 'react';
 import { GetStaticComponentProps, Text } from '@sitecore-jss/sitecore-jss-nextjs';
-import { GraphQLRequestClient } from '@sitecore-jss/sitecore-jss-nextjs/graphql';
 import { BreadcrumbDataType } from './Breadcrumb.types';
-import config from 'temp/config';
 import BreadcrumbQuery from './Breadcrumb.graphql';
 
 // Helper
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import graphqlClientFactory from 'lib/graphql-client-factory';
 
 export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
   const { ancestors, Title } = staticProps?.staticProps?.currentPage || {};
@@ -16,7 +15,11 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
   return (
     <>
       {Title?.jsonValue?.value && ancestors.length > 0 && (
-        <div data-component="authorable/General/breadcrumbs" data-testid="breadcrumbs">
+        <div
+          data-component="authorable/General/breadcrumbs"
+          data-testid="breadcrumbs"
+          className="component"
+        >
           <nav aria-label="Breadcrumb">
             <ul className="md:flex items-center list">
               {ancestors
@@ -82,10 +85,7 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
 };
 
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
-  const graphQLClient = new GraphQLRequestClient(config.graphQLEndpoint, {
-    apiKey: config.sitecoreApiKey,
-  });
-
+  const graphQLClient = graphqlClientFactory({});
   if (
     layoutData?.sitecore?.context?.pageState == 'normal' ||
     layoutData?.sitecore?.context?.pageState == 'preview'
