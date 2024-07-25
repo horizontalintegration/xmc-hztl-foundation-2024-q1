@@ -66,23 +66,23 @@ const Card = (props: CardProps): JSX.Element => {
               </div>
               <div className="text-left p-l m-auto">
                 <PlainTextWrapper
-                  className="font-modern text-gray text-xxs font-regular mb-xxs opacity-80"
+                  className="font-modern text-black text-xxs font-regular mb-xxs opacity-80"
                   field={props?.fields?.Eyebrow}
                   tag="h6"
                   editable
                 />
                 <RichTextWrapper
-                  className="font-modern text-gray text-4xl font-bold mb-xxs"
+                  className="font-modern text-black text-4xl font-bold mb-xxs"
                   field={props?.fields?.Heading}
                   tag="h2"
                 />
                 <RichTextWrapper
-                  className="font-modern text-gray text-m font-bold mb-xxs opacity-80"
+                  className="font-modern text-black text-m font-bold mb-xxs opacity-80"
                   field={props?.fields?.Subheading}
                   tag="div"
                 />
                 <RichTextWrapper
-                  className="font-modern text-gray text-xs font-regular mb-xxs opacity-90"
+                  className="font-modern text-black text-xs font-regular mb-xxs opacity-90"
                   field={props?.fields?.Description}
                   tag="div"
                 />
@@ -93,7 +93,7 @@ const Card = (props: CardProps): JSX.Element => {
                     ctaStyle={styles.cta1}
                   />
                   <LinkWrapper
-                    className="flex items-center justify-center p-xs rounded border border-gray text-center text-gray font-modern text-xs font-bold"
+                    className="flex items-center justify-center p-xs rounded border border-gray text-center text-black font-modern text-xs font-bold"
                     field={props?.fields?.CardLink2}
                     ctaStyle={styles.cta2}
                   />
