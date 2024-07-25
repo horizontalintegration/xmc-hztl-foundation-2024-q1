@@ -49,7 +49,7 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                             'gtm.element.dataset.gtmDatasourceId': dataSource,
                             'gtm.element.dataset.gtmComponentName': componentName,
                           }}
-                          className="flex items-center underline text-xs font-bold"
+                          className="flex text-black items-center underline text-xs font-bold"
                         >
                           <div className="ml-xs">
                             <SvgIcon icon={'arrow-right'} className="w-auto h-auto stroke-gray" />

@@ -9,6 +9,7 @@ import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
+import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 
 export type CarouselItemProps = ComponentProps & ItemEx & HztlPageContent.CarouselItem;
 
@@ -37,7 +38,10 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
 
                 {/* Slide description. */}
                 {props?.fields?.description && (
-                  <p className="text-xs text-gray">{props?.fields?.description?.value}</p>
+                  <RichTextWrapper
+                    field={props?.fields?.description}
+                    className="text-xs text-gray"
+                  />
                 )}
 
                 {/* Slide links. */}
