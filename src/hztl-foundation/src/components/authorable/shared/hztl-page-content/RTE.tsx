@@ -16,7 +16,7 @@ export const Default = (props: RTEProps): JSX.Element => {
 
   return (
     <div
-      className={`rich-text ${props.params?.styles.trimEnd()}`}
+      className={`component rich-text ${props.params?.styles.trimEnd()}`}
       data-component="authorable/rte"
       id={id ? id : undefined}
     >

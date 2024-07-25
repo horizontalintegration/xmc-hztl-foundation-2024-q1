@@ -4,452 +4,483 @@ import { HeaderProps } from 'components/authorable/shared/site-structure/Header/
 export const defaultData: HeaderProps = {
   rendering: { componentName: 'Default', dataSource: 'Storybook' },
   params: {},
-  fields: {
-    searchPlaceholder: { value: 'Search' },
-    logoLink: {
-      value: {
-        text: '',
-        anchor: '',
-        linktype: 'internal',
-        class: '',
-        title: '',
-        target: '|Custom',
-        querystring: '',
-        id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
-        href: '/',
-      },
-    },
-    country: [
-      {
-        id: '67b567a2-8c3d-4669-88be-ae6b46164601',
-        url: '/Data/Countries/Canada',
-        name: 'Canada',
-        displayName: 'Canada',
-        fields: {
-          Name: {
-            value: 'Canada',
-          },
-          'External Link': {
-            value: {
-              href: 'https://www.sitecore.com/fr-ca',
-              linktype: 'external',
-              url: 'https://www.sitecore.com/fr-ca',
-              anchor: '',
-              target: '_blank',
-            },
-          },
-          Language: {
-            id: '3dcac570-acbe-44d4-9078-056bd68a8525',
-            url: 'http://localhost/sitecore/login/sitecore/system/Languages/fr-CA',
-            name: 'fr-CA',
-            displayName: 'fr-CA',
-            fields: {
-              'Base Culture': {
-                value: '',
-              },
-              'Fallback Region Display Name': {
-                value: '',
-              },
-              Charset: {
-                value: 'iso-8859-1',
-              },
-              'Code page': {
-                value: '65001',
-              },
-              Dictionary: {
-                value: '',
-              },
-              Encoding: {
-                value: 'utf-8',
-              },
-              'Fallback Language': {
-                value: '',
-              },
-              Iso: {
-                value: 'fr',
-              },
-              'Regional Iso Code': {
-                value: 'fr-CA',
-              },
-              'WorldLingo Language Identifier': {
-                value: '',
-              },
-            },
+  HeaderData: {
+    item: {
+      logo: {
+        jsonValue: {
+          value: {
+            src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/Header/logo-placeholder.png?h=45&iar=0&w=60',
+            alt: 'Horizontal Digital',
+            width: '60',
+            height: '45',
           },
         },
       },
-      {
-        id: '0e7359d7-5f27-41cb-8372-8caf31f6a52e',
-        url: '/Data/Countries/Mexico',
-        name: 'Mexico',
-        displayName: 'Mexico',
-        fields: {
-          Name: {
-            value: 'Mexico',
-          },
-          'External Link': {
-            value: {
-              href: 'https://www.sitecore.com/es-MX',
-              linktype: 'external',
-              url: 'https://www.sitecore.com/es-MX',
-              anchor: '',
-              target: '_blank',
-            },
-          },
-          Language: {
-            id: 'd32d7385-bae5-4edb-8597-dd02ca8cab11',
-            url: 'http://localhost/sitecore/login/sitecore/system/Languages/es-MX',
-            name: 'es-MX',
-            displayName: 'es-MX',
-            fields: {
-              'Base Culture': {
-                value: '',
-              },
-              'Fallback Region Display Name': {
-                value: '',
-              },
-              Charset: {
-                value: 'iso-8859-1',
-              },
-              'Code page': {
-                value: '65001',
-              },
-              Dictionary: {
-                value: '',
-              },
-              Encoding: {
-                value: 'utf-8',
-              },
-              'Fallback Language': {
-                value: '',
-              },
-              Iso: {
-                value: 'es',
-              },
-              'Regional Iso Code': {
-                value: 'es-MX',
-              },
-              'WorldLingo Language Identifier': {
-                value: '',
-              },
-            },
+      logoLink: {
+        jsonValue: {
+          value: {
+            text: '',
+            anchor: '',
+            linktype: 'internal',
+            class: '',
+            title: '',
+            target: '',
+            querystring: '',
+            id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+            href: '/',
           },
         },
       },
-      {
-        id: '4e5cabf6-7492-4d14-b293-d2dec2cfa6e5',
-        url: '/Data/Countries/United-States',
-        name: 'United States',
-        displayName: 'United States',
-        fields: {
-          Name: {
-            value: 'United States',
-          },
-          'External Link': {
-            value: {
-              href: 'https://www.sitecore.com/',
-              linktype: 'external',
-              url: 'https://www.sitecore.com/',
-              anchor: '',
-              target: '_blank',
-            },
-          },
-          Language: {
-            id: 'af584191-45c9-4201-8740-5409f4cf8bdd',
-            url: 'http://localhost/sitecore/login/sitecore/system/Languages/en',
-            name: 'en',
-            displayName: 'en',
-            fields: {
-              'Base Culture': {
-                value: '',
-              },
-              'Fallback Region Display Name': {
-                value: '',
-              },
-              Charset: {
-                value: '',
-              },
-              'Code page': {
-                value: '',
-              },
-              Dictionary: {
-                value: 'en-US.tdf',
-              },
-              Encoding: {
-                value: '',
-              },
-              'Fallback Language': {
-                value: '',
-              },
-              Iso: {
-                value: 'en',
-              },
-              'Regional Iso Code': {
-                value: '',
-              },
-              'WorldLingo Language Identifier': {
-                value: '',
+      //***To be used in the search***//
+      // searchPlaceholder?: {
+      //   jsonValue: {
+      //     value: 'Search',
+      //   },
+      // },
+      navigationList: {
+        items: [
+          {
+            id: 'C66695A69283458A817B779BAAD2B4CB',
+            name: 'Services',
+            navigationTitle: {
+              jsonValue: {
+                value: 'Services',
               },
             },
-          },
-        },
-      },
-    ],
-    logo: {
-      value: {
-        src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/Header/headerlogo.png?h=58&iar=0&w=90',
-        alt: 'header logo',
-        width: '90',
-        height: '58',
-      },
-    },
-    navigationList: [
-      {
-        id: 'c66695a6-9283-458a-817b-779baad2b4cb',
-        url: '/Data/Site-Structure/Header/Products',
-        name: 'Products',
-        displayName: 'Products',
-        fields: {
-          megaMenuList: [],
-          navigationLink: {
-            value: {
-              href: '',
-            },
-          },
-          navigationTitle: {
-            value: '',
-          },
-        },
-      },
-      {
-        id: '333b5dd6-87cc-4f01-bdfa-ff106333a26d',
-        url: '/Data/Site-Structure/Header/Articles',
-        name: 'Articles',
-        displayName: 'Articles',
-        fields: {
-          megaMenuList: [
-            {
-              id: '4875973c-5019-4316-9037-b64965fba072',
-              url: '/Data/Site-Structure/Header/Articles/Category-1',
-              name: 'Category 1',
-              displayName: 'Category 1',
-              fields: {
-                megaMenuLinks: [
-                  {
-                    id: '1394a488-9591-4d53-ba7e-54a2eba896fd',
-                    url: '/Data/Site-Structure/Header/Articles/Category-1/Link1',
-                    name: 'Link1',
-                    displayName: 'Link1',
-                    fields: {
-                      link: {
-                        value: {
-                          text: 'Link1',
-                          anchor: '',
-                          linktype: 'internal',
-                          class: '',
-                          title: '',
-                          target: '|Custom',
-                          querystring: '',
-                          id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
-                          href: '/',
-                        },
-                      },
-                    },
-                  },
-                  {
-                    id: '9067a7fa-8f7c-47ab-949a-53a7ec71ac33',
-                    url: '/Data/Site-Structure/Header/Articles/Category-1/Link2',
-                    name: 'Link2',
-                    displayName: 'Link2',
-                    fields: {
-                      link: {
-                        value: {
-                          href: '',
-                          text: 'Link2',
-                          anchor: '',
-                          linktype: 'internal',
-                          class: '',
-                          title: '',
-                          target: '|Custom',
-                          querystring: '',
-                          id: '{E6FBDACF-CDDB-4C2A-BE21-685D34C6E638}',
-                        },
-                      },
-                    },
-                  },
-                  {
-                    id: 'a9fea5e7-7c0c-43a3-b3c6-8fa98356386c',
-                    url: '/Data/Site-Structure/Header/Articles/Category-1/Link3',
-                    name: 'Link3',
-                    displayName: 'Link3',
-                    fields: {
-                      link: {
-                        value: {
-                          text: 'Link3',
-                          anchor: '',
-                          linktype: 'internal',
-                          class: '',
-                          title: '',
-                          target: '|Custom',
-                          querystring: '',
-                          id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
-                          href: '/',
-                        },
-                      },
-                    },
-                  },
-                ],
-                megaMenuTitle: {
-                  value: 'Category 1',
+            navigationLink: {
+              jsonValue: {
+                value: {
+                  text: '',
+                  anchor: '',
+                  linktype: 'internal',
+                  class: '',
+                  title: '',
+                  target: '',
+                  querystring: '',
+                  id: '{0E789CBB-8DE4-4B66-AC09-69B1A4359003}',
+                  href: '/Services',
                 },
               },
             },
-            {
-              id: 'ce259d3d-4d1d-4ad9-99fa-45e8d9266878',
-              url: '/Data/Site-Structure/Header/Articles/Category-2',
-              name: 'Category 2',
-              displayName: 'Category 2',
-              fields: {
-                megaMenuLinks: [
-                  {
-                    id: 'a8b6db46-6e05-4762-9bde-808502d7cbae',
-                    url: '/Data/Site-Structure/Header/Articles/Category-2/Link1',
-                    name: 'Link1',
-                    displayName: 'Link1',
-                    fields: {
-                      link: {
-                        value: {
-                          text: 'Link1',
-                          anchor: '',
-                          linktype: 'internal',
-                          class: '',
-                          title: '',
-                          target: '|Custom',
-                          querystring: '',
-                          id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
-                          href: '/',
-                        },
-                      },
-                    },
-                  },
-                  {
-                    id: '21e9f7ff-6765-42a6-acbf-f0f18acf0b53',
-                    url: '/Data/Site-Structure/Header/Articles/Category-2/Link2',
-                    name: 'Link2',
-                    displayName: 'Link2',
-                    fields: {
-                      link: {
-                        value: {
-                          href: '',
-                          text: 'Link2',
-                          anchor: '',
-                          linktype: 'internal',
-                          class: '',
-                          title: '',
-                          target: '|Custom',
-                          querystring: '',
-                          id: '{E6FBDACF-CDDB-4C2A-BE21-685D34C6E638}',
-                        },
-                      },
-                    },
-                  },
-                  {
-                    id: '59244927-eee2-4b07-b8a7-d086ecdc1a5e',
-                    url: '/Data/Site-Structure/Header/Articles/Category-2/Link3',
-                    name: 'Link3',
-                    displayName: 'Link3',
-                    fields: {
-                      link: {
-                        value: {
-                          text: 'Link3',
-                          anchor: '',
-                          linktype: 'internal',
-                          class: '',
-                          title: '',
-                          target: '|Custom',
-                          querystring: '',
-                          id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
-                          href: '/',
-                        },
-                      },
-                    },
-                  },
-                ],
-                megaMenuTitle: {
-                  value: 'Category 2',
+            megaMenuList: {
+              items: [],
+            },
+            url: '',
+            displayName: '',
+          },
+          {
+            id: '333B5DD687CC4F01BDFAFF106333A26D',
+            name: 'Work',
+            navigationTitle: {
+              jsonValue: {
+                value: 'Work',
+              },
+            },
+            navigationLink: {
+              jsonValue: {
+                value: {
+                  text: '',
+                  anchor: '',
+                  linktype: 'internal',
+                  class: '',
+                  title: '',
+                  target: '|Custom',
+                  querystring: '',
+                  id: '{17215E7D-7E44-45A8-A5E5-E9411CBCF28D}',
+                  href: '/Work',
                 },
               },
             },
-          ],
-          navigationLink: {
-            value: {
-              text: '',
-              anchor: '',
-              linktype: 'internal',
-              class: '',
-              title: '',
-              target: '|Custom',
-              querystring: '',
-              id: '{7A588F45-CCEF-42DF-AF57-A64A59C89083}',
-              href: '/Carousel-Page',
+            megaMenuList: {
+              items: [
+                {
+                  id: '4875973C501943169037B64965FBA072',
+                  name: 'Category 1',
+                  megaMenuTitle: {
+                    jsonValue: {
+                      value: 'Category 1',
+                    },
+                  },
+                  megaMenuLinks: {
+                    items: [
+                      {
+                        id: '1394A48895914D53BA7E54A2EBA896FD',
+                        name: 'Link1',
+                        link: {
+                          jsonValue: {
+                            value: {
+                              text: 'Link1',
+                              anchor: '',
+                              linktype: 'internal',
+                              class: '',
+                              title: 'Link1',
+                              target: '',
+                              querystring: '',
+                              id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+                              href: '/',
+                            },
+                          },
+                        },
+                        url: '',
+                        displayName: '',
+                      },
+                      {
+                        id: '9067A7FA8F7C47AB949A53A7EC71AC33',
+                        name: 'Link2',
+                        link: {
+                          jsonValue: {
+                            value: {
+                              text: 'Link2',
+                              anchor: '',
+                              linktype: 'internal',
+                              class: '',
+                              title: '',
+                              target: '',
+                              querystring: '',
+                              id: '{0E789CBB-8DE4-4B66-AC09-69B1A4359003}',
+                              href: '/Services',
+                            },
+                          },
+                        },
+                        url: '',
+                        displayName: '',
+                      },
+                      {
+                        id: 'A9FEA5E77C0C43A3B3C68FA98356386C',
+                        name: 'Link3',
+                        link: {
+                          jsonValue: {
+                            value: {
+                              text: 'Link3',
+                              anchor: '',
+                              linktype: 'internal',
+                              class: '',
+                              title: '',
+                              target: '|Custom',
+                              querystring: '',
+                              id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+                              href: '/',
+                            },
+                          },
+                        },
+                        url: '',
+                        displayName: '',
+                      },
+                    ],
+                  },
+                  url: '',
+                  displayName: '',
+                },
+                {
+                  id: 'CE259D3D4D1D4AD999FA45E8D9266878',
+                  name: 'Category 2',
+                  megaMenuTitle: {
+                    jsonValue: {
+                      value: 'Category 2',
+                    },
+                  },
+                  megaMenuLinks: {
+                    items: [
+                      {
+                        id: 'A8B6DB466E0547629BDE808502D7CBAE',
+                        name: 'Link1',
+                        link: {
+                          jsonValue: {
+                            value: {
+                              text: 'Link1',
+                              anchor: '',
+                              linktype: 'internal',
+                              class: '',
+                              title: '',
+                              target: '|Custom',
+                              querystring: '',
+                              id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+                              href: '/',
+                            },
+                          },
+                        },
+                        url: '',
+                        displayName: '',
+                      },
+                      {
+                        id: '21E9F7FF676542A6ACBFF0F18ACF0B53',
+                        name: 'Link2',
+                        link: {
+                          jsonValue: {
+                            value: {
+                              href: '',
+                              text: 'Link2',
+                              anchor: '',
+                              linktype: 'internal',
+                              class: '',
+                              title: '',
+                              target: '|Custom',
+                              querystring: '',
+                              id: '{E6FBDACF-CDDB-4C2A-BE21-685D34C6E638}',
+                            },
+                          },
+                        },
+                        url: '',
+                        displayName: '',
+                      },
+                      {
+                        id: '59244927EEE24B07B8A7D086ECDC1A5E',
+                        name: 'Link3',
+                        link: {
+                          jsonValue: {
+                            value: {
+                              text: 'Link3',
+                              anchor: '',
+                              linktype: 'internal',
+                              class: '',
+                              title: '',
+                              target: '|Custom',
+                              querystring: '',
+                              id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+                              href: '/',
+                            },
+                          },
+                        },
+                        url: '',
+                        displayName: '',
+                      },
+                    ],
+                  },
+                  url: '',
+                  displayName: '',
+                },
+              ],
+            },
+            url: '',
+            displayName: '',
+          },
+          {
+            id: '469F54C045B24FD2866764AAC54CFA76',
+            name: 'About Us',
+            navigationTitle: {
+              jsonValue: {
+                value: 'About Us',
+              },
+            },
+            navigationLink: {
+              jsonValue: {
+                value: {
+                  linktype: 'internal',
+                  id: '72ef333d-7bcb-466f-adb5-55b41989ee0a',
+                  anchor: '',
+                  querystring: '',
+                  target: '',
+                  class: '',
+                  text: '',
+                  title: '',
+                  href: '/About-Us',
+                },
+              },
+            },
+            megaMenuList: {
+              items: [],
+            },
+            url: '',
+            displayName: '',
+          },
+          {
+            id: 'AF18415D498145B4A2A8738FA72AA167',
+            name: 'Contact Us',
+            navigationTitle: {
+              jsonValue: {
+                value: 'Contact Us',
+              },
+            },
+            navigationLink: {
+              jsonValue: {
+                value: {
+                  text: '',
+                  anchor: '',
+                  linktype: 'internal',
+                  class: '',
+                  title: '',
+                  target: '',
+                  querystring: '',
+                  id: '{D30D13EC-CC3D-4970-8710-075332066E1B}',
+                  href: '/Contact-Us',
+                },
+              },
+            },
+            megaMenuList: {
+              items: [],
+            },
+            url: '',
+            displayName: '',
+          },
+          {
+            id: 'EE0E9CEA6DCB47C483D88865C2C602E6',
+            name: 'Card List',
+            navigationTitle: {
+              jsonValue: {
+                value: 'Card List',
+              },
+            },
+            navigationLink: {
+              jsonValue: {
+                value: {
+                  text: '',
+                  anchor: '',
+                  linktype: 'internal',
+                  class: '',
+                  title: '',
+                  target: '',
+                  querystring: '',
+                  id: '{7D31BB28-DBA7-4679-A69B-F9A05CA7BE38}',
+                  href: '/Work/CardList-Page',
+                },
+              },
+            },
+            megaMenuList: {
+              items: [],
+            },
+            url: '',
+            displayName: '',
+          },
+        ],
+      },
+      //***To be used in the language selector***//
+      country: {
+        targetItems: [
+          {
+            name: 'US',
+            flag: {
+              jsonValue: {
+                value: {
+                  src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/shared/Countries/flag_us.png?h=30&iar=0&w=40',
+                  alt: 'us',
+                  width: '40',
+                  height: '30',
+                },
+              },
+            },
+            language: {
+              jsonValue: {
+                id: 'af584191-45c9-4201-8740-5409f4cf8bdd',
+                url: '/en/sitecore/system/Languages/en',
+                name: 'en',
+                displayName: 'en',
+                fields: {
+                  Dictionary: {
+                    value: 'en-US.tdf',
+                  },
+                  Iso: {
+                    value: 'en',
+                  },
+                },
+              },
+              targetItem: {
+                name: {
+                  jsonValue: {
+                    value: 'en',
+                  },
+                },
+              },
             },
           },
-          navigationTitle: {
-            value: 'Articles',
-          },
-        },
-      },
-      {
-        id: '469f54c0-45b2-4fd2-8667-64aac54cfa76',
-        url: '/Data/Site-Structure/Header/About-Us',
-        name: 'About Us',
-        displayName: 'About Us',
-        fields: {
-          megaMenuList: [],
-          navigationLink: {
-            value: {
-              linktype: 'internal',
-              id: '{7A588F45-CCEF-42DF-AF57-A64A59C89083}',
-              anchor: '',
-              querystring: '',
-              target: '',
-              class: '',
-              text: '',
-              title: '',
-              href: '/Carousel-Page',
+          {
+            name: 'Mexico',
+            flag: {
+              jsonValue: {
+                value: {
+                  src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/shared/Countries/icons8-mexico-48.png?h=48&iar=0&w=48',
+                  alt: 'Mexico',
+                  width: '48',
+                  height: '48',
+                },
+              },
+            },
+            language: {
+              jsonValue: {
+                id: 'bf231c92-697e-42a8-802e-a7159871f9c6',
+                url: '/en/sitecore/system/Languages/es-MX',
+                name: 'es-MX',
+                displayName: 'es-MX',
+                fields: {
+                  'Regional Iso Code': {
+                    value: 'es-MX',
+                  },
+                  Charset: {
+                    value: 'iso-8859-1',
+                  },
+                  Encoding: {
+                    value: 'utf-8',
+                  },
+                  'Fallback Language': {
+                    value: 'en',
+                  },
+                  'Code page': {
+                    value: '65001',
+                  },
+                  Iso: {
+                    value: 'es',
+                  },
+                },
+              },
+              targetItem: {
+                name: {
+                  jsonValue: {
+                    value: 'es',
+                  },
+                },
+              },
             },
           },
-          navigationTitle: {
-            value: 'About Us',
-          },
-        },
-      },
-      {
-        id: 'af18415d-4981-45b4-a2a8-738fa72aa167',
-        url: '/Data/Site-Structure/Header/Support',
-        name: 'Support',
-        displayName: 'Support',
-        fields: {
-          megaMenuList: [],
-          navigationLink: {
-            value: {
-              text: '',
-              anchor: '',
-              linktype: 'internal',
-              class: '',
-              title: '',
-              target: '|Custom',
-              querystring: '',
-              id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
-              href: '/',
+          {
+            name: 'Canada',
+            flag: {
+              jsonValue: {
+                value: {
+                  src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/shared/Countries/icons8-canada-48.png?h=48&iar=0&w=48',
+                  alt: 'flag_canada',
+                  width: '48',
+                  height: '48',
+                },
+              },
+            },
+            language: {
+              jsonValue: {
+                id: 'aaa125bd-e0b3-4663-ae2d-01d7d90e5a82',
+                url: '/en/sitecore/system/Languages/fr-CA',
+                name: 'fr-CA',
+                displayName: 'fr-CA',
+                fields: {
+                  'Regional Iso Code': {
+                    value: 'fr-CA',
+                  },
+                  Charset: {
+                    value: 'iso-8859-1',
+                  },
+                  Encoding: {
+                    value: 'utf-8',
+                  },
+                  'Fallback Language': {
+                    value: 'en',
+                  },
+                  'Code page': {
+                    value: '65001',
+                  },
+                  Iso: {
+                    value: 'fr',
+                  },
+                },
+              },
+              targetItem: {
+                name: {
+                  jsonValue: {
+                    value: 'fr',
+                  },
+                },
+              },
             },
           },
-          navigationTitle: {
-            value: 'Support',
-          },
-        },
+        ],
       },
-    ],
+    },
   },
 };
 

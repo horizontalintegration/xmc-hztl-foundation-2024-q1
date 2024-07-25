@@ -54,7 +54,7 @@ function useUpdatedRichTextField({ field, editable = true }: RichTextProps) {
       // Set to open in new tab
       a.setAttribute('target', '_blank');
       // Add Screen Reader text and new tab icon
-      a.innerHTML = `${a.innerHTML}<span className="sr-only"> (Opens in a new tab)</span> ${NEW_TAB_ICON}`;
+      a.innerHTML = `${a.innerHTML}<span class="sr-only"> (Opens in a new tab)</span> ${NEW_TAB_ICON}`;
     });
 
     // Update the content

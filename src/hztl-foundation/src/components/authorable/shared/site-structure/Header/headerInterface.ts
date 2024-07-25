@@ -1,6 +1,5 @@
-/* eslint-disable prettier/prettier */
 import { ComponentProps } from 'lib/component-props';
-import { ImageField, Item, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { ImageField, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { SiteStructure } from 'src/.generated/Feature.HztlFoundation.model';
 
 export interface MegaMenuLinkInterface {
@@ -8,9 +7,7 @@ export interface MegaMenuLinkInterface {
   url: string;
   name: string;
   displayName: string;
-  fields: {
-    link: LinkField;
-  };
+  link: { jsonValue: LinkField };
 }
 
 export interface MegaMenuCategoryInterface {
@@ -18,12 +15,12 @@ export interface MegaMenuCategoryInterface {
   url: string;
   name: string;
   displayName: string;
-  fields: {
-    megaMenuTitle: {
+  megaMenuTitle: {
+    jsonValue: {
       value: string;
     };
-    megaMenuLinks: MegaMenuLinkInterface[];
   };
+  megaMenuLinks: { items: MegaMenuLinkInterface[] };
 }
 
 export interface NavigationItem {
@@ -31,45 +28,55 @@ export interface NavigationItem {
   url: string;
   name: string;
   displayName: string;
-  fields: {
-    megaMenuList: MegaMenuCategoryInterface[];
-    navigationLink: LinkField;
-    navigationTitle: {
+  megaMenuList: { items: MegaMenuCategoryInterface[] };
+  navigationLink: { jsonValue: LinkField };
+  navigationTitle: {
+    jsonValue: {
       value: string;
     };
   };
 }
 export interface HeaderCountry {
-  id: string;
-  url: string;
   name: string;
-  displayName: string;
-  fields: {
-    flag: {
-      value: {
-        src: string;
-        alt: string;
-        width: string;
-        height: string;
+  flag: {
+    jsonValue: ImageField;
+  };
+  language: {
+    jsonValue: {
+      id: string;
+      url: string;
+      name: string;
+      displayName: string;
+      fields: {
+        [key: string]: {
+          value: string;
+        };
       };
     };
-    name: {
-      value: string;
-    };
+    targetItem?: {
+      name: {
+        jsonValue: {
+          value: string;
+        };
+      };
+    } | null;
   };
 }
 
 export interface CountrySelectorInterface {
   selectedCountry: string;
   setSelectedCountry: (value: string) => void;
-  countryData?: Item[];
+  countryData?: HeaderCountry[];
 }
 
 export type HeaderProps = ComponentProps & {
-  fields: {
-    logo: ImageField;
-    logoLink: LinkField;
-    navigationList: NavigationItem[];
+  HeaderData: {
+    item: {
+      logo: { jsonValue: ImageField };
+      logoLink: { jsonValue: LinkField };
+      navigationList: { items: NavigationItem[] };
+      country: { targetItems: HeaderCountry[] };
+    };
   };
 } & SiteStructure.Header.Header;
 

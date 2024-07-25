@@ -94,7 +94,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
     if (isEditing && editable)
       return (
         // Adding the CSS classes to a wrapping div so we can include the icon
-        <div className={base()}>
+        <div className={`${base()}`}>
           <Link
             {...props}
             field={field}
@@ -114,7 +114,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
     return (
       <NextLink
         {...props}
-        className={base()}
+        className={`${base()}`}
         data-component="helpers/sitecorewrappers/linkwrapper"
         href={{ pathname: href, query: querystring, hash: anchor }}
         onClick={() => handleOnClick()}
@@ -145,11 +145,10 @@ export default LinkWrapper;
 
 const INTERNAL_LINK_REGEX = /^\/|^\#/g;
 
-export const NEW_TAB_ICON = (
-  <span className="svg-icon inline-flex align-middle -ml-3 h-6 w-6">
+export const NEW_TAB_ICON = `<span class="svg-icon inline-flex align-middle -ml-3 h-6 w-6">
     <svg
       aria-hidden="true"
-      className="inline ml-2 -mt-1 h-em w-em"
+      class="inline ml-2 -mt-1 h-em w-em"
       fill="currentColor"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
@@ -160,5 +159,4 @@ export const NEW_TAB_ICON = (
         fillRule="evenodd"
       ></path>
     </svg>
-  </span>
-);
+  </span>`;
