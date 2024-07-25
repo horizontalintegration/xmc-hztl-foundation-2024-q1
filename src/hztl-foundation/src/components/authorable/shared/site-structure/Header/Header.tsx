@@ -33,17 +33,11 @@ export const Default = (props: HeaderProps) => {
 
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
   const graphQLClient = graphqlClientFactory({});
-  if (
-    layoutData?.sitecore?.context?.pageState == 'normal' ||
-    layoutData?.sitecore?.context?.pageState == 'preview'
-  ) {
-    const result = await graphQLClient.request<unknown>(HeaderQuery, {
-      datasource: rendering.dataSource,
-      params: rendering.params,
-      language: layoutData?.sitecore?.context?.language,
-      itemID: layoutData?.sitecore?.route?.itemId,
-    });
-    return { HeaderData: result };
-  }
-  return 'Component is not available in Experience Editor';
+  const result = await graphQLClient.request<unknown>(HeaderQuery, {
+    datasource: rendering.dataSource,
+    params: rendering.params,
+    language: layoutData?.sitecore?.context?.language,
+    itemID: layoutData?.sitecore?.route?.itemId,
+  });
+  return { HeaderData: result };
 };
