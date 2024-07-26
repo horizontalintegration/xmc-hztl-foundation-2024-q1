@@ -126,3 +126,282 @@ p > span {
   }
 }
 
+/* Style guide */
+
+.h1{
+  color: var(--Black, var(--Primary, #2F2D2E));
+  /* Header 01 Mobile (36) */
+  font-family: "Modern Era";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.h2{
+  color: var(--Black, var(--Primary, #2F2D2E));
+  /* Header 02 Mobile (24) */
+  font-family: "Modern Era";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.h3{
+  color: var(--Black, var(--Primary, #2F2D2E));
+  /* Header 03 Mobile (20) */
+  font-family: "Modern Era";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.h4,
+.h5,
+.h6{
+  color: var(--Black, var(--Primary, #2F2D2E));
+  /* Header 04 Mobile (18) */
+  font-family: "Modern Era";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.body{
+  color: var(--Black, var(--Primary, #2F2D2E));
+  /* Display/Body (16) */
+  font-family: "Modern Era";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.body-small{
+  color: var(--Black, var(--Primary, #2F2D2E));
+  /* Display/Body Small (14) */
+  font-family: "Modern Era";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.cta{
+  color: var(--Black, var(--Primary, #2F2D2E));
+  /* CTA/CTA (16) */
+  font-family: "Modern Era";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+
+.cta-underline{
+  color: var(--Black, var(--Primary, #2F2D2E));
+  /* CTA/CTA Underline (16) */
+  font-family: "Modern Era";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-transform: capitalize;
+}
+
+.cta-small{
+  color: var(--Black, var(--Primary, #2F2D2E));
+  /* Display/Body Small (14) */
+  font-family: "Modern Era";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.cta-small-underline{
+  color: var(--Black, var(--Primary, #2F2D2E));
+  /* CTA/CTA Small (14) */
+  font-family: "Modern Era";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration-line: underline;    
+}
+
+.small{
+  color: var(--Black, var(--Primary, #2F2D2E));
+
+  /* Display/Small (12) */
+  font-family: "Modern Era";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.xsmall{
+  color: var(--Black, var(--Primary, #2F2D2E));
+
+  /* Display/XSmall (10) */
+  font-family: "Modern Era";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.xxsmall{
+  color: var(--Black, var(--Primary, #2F2D2E));
+
+  /* Display/XXSmall (8) */
+  font-family: "Modern Era";
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+@media (max-width: 891px) {
+  .h1{
+    color: var(--Black, var(--Primary, #2F2D2E));
+    /* Display/Header 01 (48) */
+    font-family: "Modern Era";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+  
+  .h2{
+    color: var(--Black, var(--Primary, #2F2D2E));
+    /* Display/Header 02 (36) */
+    font-family: "Modern Era";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  
+  .h3{
+    color: var(--Black, var(--Primary, #2F2D2E));
+    /* Display/Header 03 (24) */
+    font-family: "Modern Era";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  
+  .h4,
+  .h5,
+  .h6{
+    color: var(--Black, var(--Primary, #2F2D2E));
+    /* Display/Header 04 Bold (20) */
+    font-family: "Modern Era";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  
+  .body{
+    color: var(--Black, var(--Primary, #2F2D2E));
+    /* Display/Body (16) */
+    font-family: "Modern Era";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+  }
+  
+  .body-small{
+    color: var(--Black, var(--Primary, #2F2D2E));
+    /* Display/Body Small (14) */
+    font-family: "Modern Era";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .cta{
+    color: var(--Black, var(--Primary, #2F2D2E));
+    /* CTA/CTA (16) */
+    font-family: "Modern Era";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+  
+  .cta-underline{
+    color: var(--Black, var(--Primary, #2F2D2E));
+    /* CTA/CTA Underline (16) */
+    font-family: "Modern Era";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-transform: capitalize;
+  }
+  
+  .cta-small{
+    color: var(--Black, var(--Primary, #2F2D2E));
+    /* CTA/CTA Small (14) */
+    font-family: "Modern Era";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+  
+  .cta-small-underline{
+    color: var(--Black, var(--Primary, #2F2D2E));
+    /* CTA/CTA Small (14) */
+    font-family: "Modern Era";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+  }
+  
+  .small{
+    color: var(--Black, var(--Primary, #2F2D2E));
+    /* Display/Small (12) */
+    font-family: "Modern Era";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .xsmall{
+    color: var(--Black, var(--Primary, #2F2D2E));
+    /* Display/XSmall (10) */
+    font-family: "Modern Era";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .xxsmall{
+    color: var(--Black, var(--Primary, #2F2D2E));
+    /* Display/XXSmall (8) */
+    font-family: "Modern Era";
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }  
+}
