@@ -113,17 +113,11 @@ export const Default = (props: FooterProps): JSX.Element => {
 
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
   const graphQLClient = graphQLClientFactory({});
-  if (
-    layoutData?.sitecore?.context?.pageState == 'normal' ||
-    layoutData?.sitecore?.context?.pageState == 'preview'
-  ) {
-    const result = await graphQLClient.request<unknown>(FooterQuery, {
-      datasource: rendering.dataSource,
-      params: rendering.params,
-      language: layoutData?.sitecore?.context?.language,
-      itemID: layoutData?.sitecore?.route?.itemId,
-    });
-    return { FooterData: result };
-  }
-  return 'Component is not available in Experience Editor';
+  const result = await graphQLClient.request<unknown>(FooterQuery, {
+    datasource: rendering.dataSource,
+    params: rendering.params,
+    language: layoutData?.sitecore?.context?.language,
+    itemID: layoutData?.sitecore?.route?.itemId,
+  });
+  return { FooterData: result };
 };
