@@ -66,7 +66,6 @@ export const PreviewSearchBasicComponent = ({
       itemsPerPage: defaultItemsPerPage,
     },
   });
-
   const loading = isLoading || isFetching;
   const keyphraseHandler = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -132,7 +131,6 @@ export const PreviewSearchBasicComponent = ({
                     </LoaderAnimation>
                   </LoaderContainer>
                 </Presence>
-
                 {!loading && articles.length > 0 ? (
                   articles.map((article, index) => (
                     <div key={article.id} className="flex">
