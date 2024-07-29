@@ -5,12 +5,12 @@ import 'videojs-youtube';
 import Player from 'video.js/dist/types/player';
 import 'video.js/dist/video-js.css';
 
-type Source = {
+export type Source = {
   src: string;
   type: string;
 };
 
-type Track = {
+export type Track = {
   isDefault: boolean;
   kind: string;
   label: string;
@@ -48,6 +48,10 @@ export type VideoWrapperProps = {
   subtitles?: Track[];
   width?: number | string;
 };
+
+/*
+ * RENDERING
+ */
 
 const VideoJS = (props: VideoJSProps) => {
   const playerRef = React.useRef<Player | null>(null);

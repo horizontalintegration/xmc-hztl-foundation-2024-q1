@@ -1,47 +1,128 @@
-import React, { useState } from 'react';
+// Global
+import React from 'react';
+
+// Lib
 import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
-import VideoWrapper from 'helpers/SitecoreWrappers/VideoWrapper/VideoWrapper';
-import ModalWrapper from 'helpers/SitecoreWrappers/ModalWrapper/ModalWrapper';
 
-export type VideoProps = ComponentProps & HztlPageContent.Video;
+// Local
+import ModalWrapper, { ModalWrapperProps } from 'helpers/GenericWrappers/ModalWrapper/ModalWrapper';
+import VideoWrapper, { Source, Track } from 'helpers/GenericWrappers/VideoWrapper/VideoWrapper';
+import ButtonWrapper, {
+  ButtonWrapperProps,
+} from 'helpers/SitecoreWrappers/ButtonWrapper/ButtonWrapper';
 
-const VideoDefaultComponent = (props: VideoProps): JSX.Element => (
-  <div className={`component video ${props?.params?.styles}`}>
-    <div className="component-content">
-      <span className="is-empty-hint">Video</span>
-    </div>
-  </div>
-);
+export type VideoProps = ComponentProps &
+  HztlPageContent.Video & {
+    fields?: {
+      Captions?: {
+        value: Track[];
+      };
+      Cta?: ButtonWrapperProps;
+      Controls?: {
+        value: boolean;
+      };
+      Fluid?: {
+        value: boolean;
+      };
+      Height: {
+        value: number | string;
+      };
+      Modal?: ModalWrapperProps;
+      Muted?: {
+        value: boolean;
+      };
+      OpenInModal: {
+        value: boolean;
+      };
+      Poster?: {
+        value: string;
+      };
+      Sources: {
+        value: Source[];
+      };
+      Subtitles?: {
+        value: Track[];
+      };
+      Width: {
+        value: number | string;
+      };
+    };
+  };
 
-export const Default = (props: VideoProps): JSX.Element => {
-  const id = props?.params?.RenderingIdentifier;
-  const [isModalOpen, setIsModalOpen] = useState(false);
+/*
+ * RENDERING
+ */
 
-  if (!props?.fields) {
-    return <VideoDefaultComponent {...props} />;
-  }
+const RenderVideoPlayer = (props: VideoProps): JSX.Element => {
+  const {
+    AutoPlay,
+    Captions,
+    Controls,
+    Fluid,
+    Height,
+    Loop,
+    Muted,
+    Poster,
+    Sources,
+    Subtitles,
+    Width,
+  } = props?.fields || {};
 
   return (
-    <div className={`component rich-text`} id={id ? id : undefined}>
-      <div className="py-spacing-spacing-7 px-spacing-spacing-4 md:px-spacing-spacing-2"></div>
-      <button
-        className="flex h-14 gap-xxs items-center justify-center px-16 py-xs rounded-md text-center font-modern font-bold leading-normal text-base bg-gray text-white"
-        onClick={() => setIsModalOpen(!isModalOpen)}
-      >
-        Launch Video
-      </button>
-      {isModalOpen && (
-        <ModalWrapper
-          isModalOpen={isModalOpen}
-          handleClose={() => setIsModalOpen(false)}
-          size="large"
-          closeIconClasses="mt-xs mb-xxxs mr-s text-black"
-          modalLabel={props?.fields?.Title?.value as unknown as string}
-        >
-          <VideoWrapper {...props} />
-        </ModalWrapper>
-      )}
+    <VideoWrapper
+      autoplay={AutoPlay?.value}
+      captions={Captions?.value}
+      controls={Controls?.value}
+      fluid={Fluid?.value}
+      height={Height?.value}
+      loop={Loop?.value}
+      muted={Muted?.value}
+      poster={Poster?.value}
+      sources={Sources?.value || []}
+      subtitles={Subtitles?.value}
+      width={Width?.value}
+    />
+  );
+};
+
+const RenderVideoPlayerModal = (props: VideoProps): JSX.Element => {
+  const { Cta, Modal } = props?.fields || {};
+
+  return (
+    <ModalWrapper
+      content={<RenderVideoPlayer {...props} />}
+      id={Modal?.id || ''}
+      label={Modal?.label || ''}
+      size={Modal?.size}
+      title={Modal?.title}
+      trigger={
+        <ButtonWrapper
+          ctaVariant={Cta?.ctaVariant}
+          id={Cta?.id}
+          text={Cta?.text}
+          title={Cta?.title}
+          type={Cta?.type}
+        />
+      }
+    />
+  );
+};
+
+const Video = (props: VideoProps): JSX.Element => {
+  const { OpenInModal } = props?.fields || {};
+
+  if (props?.fields && OpenInModal?.value === true) return <RenderVideoPlayerModal {...props} />;
+
+  if (props?.fields && OpenInModal?.value === false) return <RenderVideoPlayer {...props} />;
+
+  return (
+    <div className="component video">
+      <div className="component-content">
+        <span className="is-empty-hint">Video</span>
+      </div>
     </div>
   );
 };
+
+export default Video;

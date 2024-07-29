@@ -1,4 +1,4 @@
-import { ModalWrapperProps } from 'helpers/SitecoreWrappers/ModalWrapper/ModalWrapper';
+import { ModalWrapperProps } from 'helpers/GenericWrappers/ModalWrapper/ModalWrapper';
 
 /*
  * Mock Modal Data
