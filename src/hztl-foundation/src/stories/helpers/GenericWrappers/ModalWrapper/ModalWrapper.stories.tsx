@@ -5,14 +5,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
+import VideoWrapper from 'helpers/GenericWrappers/VideoWrapper/VideoWrapper';
 import ButtonWrapper from 'helpers/SitecoreWrappers/ButtonWrapper/ButtonWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
-import VideoWrapper from 'helpers/SitecoreWrappers/VideoWrapper/VideoWrapper';
 
 // Local
-import ModalWrapper, {
-  ModalWrapperProps,
-} from 'helpers/SitecoreWrappers/ModalWrapper/ModalWrapper';
+import ModalWrapper, { ModalWrapperProps } from 'helpers/GenericWrappers/ModalWrapper/ModalWrapper';
 import defaultData, {
   embeddedVideoData,
   modalWithAnchorAsTriggerData,
@@ -90,7 +88,7 @@ const meta: Meta<ModalWrapperProps> = {
   } as any,
   parameters: { controls: { sort: 'requiredFirst' } },
   tags: ['autodocs'],
-  title: 'Helpers/Sitecore Wrappers/Modal Wrapper',
+  title: 'Helpers/Generic Wrappers/Modal Wrapper',
 };
 
 export default meta;

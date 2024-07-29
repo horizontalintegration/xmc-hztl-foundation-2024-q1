@@ -5,9 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import VideoWrapper, {
-  VideoWrapperProps,
-} from 'helpers/SitecoreWrappers/VideoWrapper/VideoWrapper';
+import VideoWrapper, { VideoWrapperProps } from 'helpers/GenericWrappers/VideoWrapper/VideoWrapper';
 import defaultData, {
   videoWithA11yFeatures,
   videoWithYouTubeSource,
@@ -62,7 +60,7 @@ const meta: Meta<VideoWrapperProps> = {
   } as any,
   parameters: { controls: { sort: 'requiredFirst' } },
   tags: ['autodocs'],
-  title: 'Helpers/Sitecore Wrappers/Video Wrapper',
+  title: 'Helpers/Generic Wrappers/Video Wrapper',
 };
 
 export default meta;

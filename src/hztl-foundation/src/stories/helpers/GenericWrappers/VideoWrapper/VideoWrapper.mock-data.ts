@@ -1,4 +1,4 @@
-import { VideoWrapperProps } from 'helpers/SitecoreWrappers/VideoWrapper/VideoWrapper';
+import { VideoWrapperProps } from 'helpers/GenericWrappers/VideoWrapper/VideoWrapper';
 
 const defaultData: VideoWrapperProps = {
   autoplay: false,
