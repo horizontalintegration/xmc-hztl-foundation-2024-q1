@@ -86,6 +86,7 @@ const meta: Meta<ModalWrapperProps> = {
     },
     /* eslint-disable  @typescript-eslint/no-explicit-any */
   } as any,
+  component: ModalWrapper,
   parameters: { controls: { sort: 'requiredFirst' } },
   tags: ['autodocs'],
   title: 'Helpers/Generic Wrappers/Modal Wrapper',

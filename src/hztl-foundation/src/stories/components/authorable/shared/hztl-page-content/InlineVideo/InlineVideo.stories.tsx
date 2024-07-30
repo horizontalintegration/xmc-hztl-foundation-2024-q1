@@ -5,70 +5,67 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import VideoWrapper, { VideoWrapperProps } from 'helpers/GenericWrappers/VideoWrapper/VideoWrapper';
-import defaultData, {
-  videoWithA11yFeatures,
-  videoWithYouTubeSource,
-} from './VideoWrapper.mock-data';
+import InlineVideo, {
+  InlineVideoProps,
+} from 'components/authorable/shared/hztl-page-content/InlineVideo';
+import defaultData from './InlineVideo.mock-data';
 
-const meta: Meta<VideoWrapperProps> = {
+const meta: Meta<InlineVideoProps> = {
   argTypes: {
-    autoplay: {
-      defaultValue: false,
+    'fields.Video.value.autoplay': {
       description: 'A flag indicating wether or not the video should begin playing automatically.',
     },
-    captions: {
+    'fields.Video.value.captions': {
       description:
         'An array of URIs indicating localized caption data to be loaded into the player.',
     },
-    controls: {
+    'fields.Video.value.controls': {
       defaultValue: true,
       description: 'A flag indicating wether or not to show the playback controls.',
     },
-    fluid: {
+    'fields.Video.value.fluid': {
       description:
         "A flag indicating wether or not the player will size to fit its container at the video's intrinsic aspect ratio.",
     },
-    height: {
+    'fields.Video.value.height': {
       description: 'A value indicating the desired height of the video player.',
-      if: { arg: 'fluid', truthy: false },
+      if: { arg: 'fields.Video.value.fluid', truthy: false },
     },
-    loop: {
+    'fields.Video.value.loop': {
       defaultValue: false,
       description:
         'A flag indicating wether or not the video will loop automatically once playback has ended.',
     },
-    muted: {
+    'fields.Video.value.muted': {
       defaultValue: false,
       description: 'A flag indicated wether or not the video player is muted.',
     },
-    poster: {
+    'fields.Video.value.poster': {
+      defaultValue: false,
       description:
         'A URI represenging a poster image of the video asset to be loaded into the player.',
     },
-    sources: {
+    'fields.Video.value.sources': {
       description:
         'An array of URIs and asset types representing a video asset to be loaded into the player.',
     },
-    subtitles: {
+    'fields.Video.value.subtitles': {
       description:
         'An array of URIs indicating localized caption data to be loaded into the player.',
     },
-    width: {
+    'fields.Video.value.width': {
       description: 'A value indicating the desired height of the video player.',
-      if: { arg: 'fluid', truthy: false },
+      if: { arg: 'fields.Video.value.fluid', truthy: false },
     },
     /* eslint-disable  @typescript-eslint/no-explicit-any */
   } as any,
-  component: VideoWrapper,
-  parameters: { controls: { sort: 'requiredFirst' } },
-  tags: ['autodocs'],
-  title: 'Helpers/Generic Wrappers/Video Wrapper',
+  component: InlineVideo,
+  title: 'Components/Authorable/Shared/hztl-page-content/Inline Video',
 };
 
 export default meta;
 
-type Story = StoryObj<VideoWrapperProps>;
+type Story = StoryObj<InlineVideoProps>;
 
 export const Default: Story = {
   args: {
@@ -76,26 +73,6 @@ export const Default: Story = {
   },
   name: 'Default',
   render: (args) => {
-    return <VideoWrapper {...expandObj({ ...args })} />;
-  },
-};
-
-export const VideoWithA11yFeatures: Story = {
-  args: {
-    ...flattenObj(videoWithA11yFeatures),
-  },
-  name: 'Video with A11y Features',
-  render: (args) => {
-    return <VideoWrapper {...expandObj({ ...args })} />;
-  },
-};
-
-export const VideoWithYouTubeSource: Story = {
-  args: {
-    ...flattenObj(videoWithYouTubeSource),
-  },
-  name: 'Video with YouTube Source',
-  render: (args) => {
-    return <VideoWrapper {...expandObj({ ...args })} />;
+    return <InlineVideo {...(expandObj({ ...args }) as InlineVideoProps)} />;
   },
 };
