@@ -69,6 +69,7 @@ const meta: Meta<ModalWrapperProps> = {
     },
     trigger: {
       control: 'select',
+      defaultValue: 'Button',
       description: "A `ReactNode` representing the content of the modal's trigger.",
       mapping: {
         Anchor: <a>A text link that opens a modal.</a>,
