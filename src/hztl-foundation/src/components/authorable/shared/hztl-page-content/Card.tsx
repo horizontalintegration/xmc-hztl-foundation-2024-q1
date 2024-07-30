@@ -9,6 +9,7 @@ import { withStandardComponentWrapper } from 'helpers/HOC';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
 import { tv } from 'tailwind-variants';
 import { CardListCardsPerRows } from 'lib/utils/style-param-utils/modules/cards';
+import clsx from 'clsx';
 
 export type CardProps = ComponentProps &
   HztlPageContent.Card & { cardsPerRow?: CardListCardsPerRows };
@@ -23,7 +24,47 @@ const CardDefaultComponent = (props: CardProps): JSX.Element => (
 
 const tailwindVariants = tv({
   slots: {
+    base: ['w-full', 'mb-4'],
     columnClasses: [],
+    wrapper: ['flex', 'justify-center', 'items-center'],
+    content: ['mx-auto', 'my-0'],
+    inner: ['border', 'border-gray'],
+    imageWrapper: ['border-b', 'border-dark-gray', 'flex', 'justify-center', 'items-center'],
+    contentWrapper: ['text-left', 'p-l', 'm-auto'],
+    cardText: ['font-modern', 'text-black'],
+    eyebrowText: ['text-xxs', 'font-regular', 'mb-xxs', 'opacity-80'],
+    headingText: ['text-4xl', 'font-bold', 'mb-xxs'],
+    subHeadingText: ['text-m', 'font-bold', 'mb-xxs', 'opacity-80'],
+    descriptionText: ['text-xs', 'font-regular', 'mb-xxs', 'opacity-90'],
+    ctaWrapper: ['flex', 'gap-xxs', 'flex-wrap', 'justify-normal'],
+    ctaButton1: [
+      'flex',
+      'items-center',
+      'justify-center',
+      'px-s',
+      'py-xs',
+      'rounded',
+      'bg-gray',
+      'text-center',
+      'text-white',
+      'font-modern',
+      'text-button',
+      'font-bold',
+    ],
+    ctaButton2: [
+      'flex',
+      'items-center',
+      'justify-center',
+      'p-xs',
+      'rounded',
+      'border',
+      'border-gray',
+      'text-center',
+      'text-black',
+      'font-modern',
+      'text-xs',
+      'font-bold',
+    ],
   },
   variants: {
     cardsPerRow: {
@@ -48,52 +89,68 @@ const Card = (props: CardProps): JSX.Element => {
   if (props?.fields) {
     const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
-    const { columnClasses } = tailwindVariants({
+    const {
+      base,
+      columnClasses,
+      wrapper,
+      content,
+      inner,
+      imageWrapper,
+      contentWrapper,
+      eyebrowText,
+      cardText,
+      headingText,
+      subHeadingText,
+      descriptionText,
+      ctaWrapper,
+      ctaButton1,
+      ctaButton2,
+    } = tailwindVariants({
       cardsPerRow: props.cardsPerRow,
     });
 
     return (
       <div
         data-component="authorable/general/card"
-        className={`w-full mb-4 ${columnClasses()}`}
+        className={clsx(base(), columnClasses())}
         id={id ? id : undefined}
       >
-        <div className="flex justify-center items-center">
-          <div className="mx-auto my-0">
-            <div className="border border-gray">
-              <div className="border-b border-dark-gray flex justify-center items-center">
+        <div className={wrapper()}>
+          <div className={content()}>
+            <div className={inner()}>
+              <div className={imageWrapper()}>
                 <ImageWrapper field={props?.fields?.CardImage} />
               </div>
-              <div className="text-left p-l m-auto">
+              <div className={contentWrapper()}>
                 <PlainTextWrapper
-                  className="font-modern text-black text-xxs font-regular mb-xxs opacity-80"
+                  className={clsx(cardText(), eyebrowText())}
                   field={props?.fields?.Eyebrow}
                   tag="h6"
                   editable
                 />
                 <RichTextWrapper
-                  className="font-modern text-black text-4xl font-bold mb-xxs"
+                  className={clsx(cardText(), headingText())}
                   field={props?.fields?.Heading}
                   tag="h2"
                 />
                 <RichTextWrapper
-                  className="font-modern text-black text-m font-bold mb-xxs opacity-80"
+                  className={clsx(cardText(), subHeadingText())}
                   field={props?.fields?.Subheading}
                   tag="div"
                 />
                 <RichTextWrapper
-                  className="font-modern text-black text-xs font-regular mb-xxs opacity-90"
+                  className={clsx(cardText(), descriptionText())}
                   field={props?.fields?.Description}
                   tag="div"
                 />
-                <div className="flex gap-xxs flex-wrap justify-normal">
+                <div className={ctaWrapper()}>
                   <LinkWrapper
-                    className="flex items-center justify-center px-s py-xs rounded bg-gray text-center text-white font-modern text-button font-bold"
+                    className={ctaButton1()}
                     field={props?.fields?.CardLink1}
                     ctaStyle={styles.cta1}
                   />
                   <LinkWrapper
-                    className="flex items-center justify-center p-xs rounded border border-gray text-center text-black font-modern text-xs font-bold"
+                    className={ctaButton2()}
                     field={props?.fields?.CardLink2}
                     ctaStyle={styles.cta2}
                   />
