@@ -49,33 +49,22 @@ export const modalWithVideoData: ModalWrapperProps = {
  */
 
 export const embeddedVideoData = {
-  rendering: { componentName: 'Default' },
-  params: {
-    GridParameters: 'basis-full',
-    DynamicPlaceholderId: '2845070A-AEBD-4B45-A59D-88269B081212',
-    FieldNames: 'Default',
-  },
-  fields: {
-    SelectFile: {
-      value: {
-        src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/placeholder-video.mp4',
-        name: 'placeholder-video',
-        displayName: 'placeholder-video',
-        title: '',
-        keywords: '',
-        description: '',
-        extension: 'mp4',
-        mimeType: 'video/mp4',
-        size: '528057',
-      },
+  autoplay: false,
+  captions: [],
+  controls: true,
+  fluid: true,
+  height: 'auto',
+  loop: false,
+  muted: false,
+  poster: './assets/videos/oceans.png',
+  sources: [
+    {
+      src: './assets/videos/oceans.mp4',
+      type: 'video/mp4',
     },
-    Title: {
-      value: 'Video Modal Demo',
-    },
-    YoutubeId: {
-      value: 'ENytl8FzTEg',
-    },
-  },
+  ],
+  subtitles: [],
+  width: '600px',
 };
 
 export default defaultData;
