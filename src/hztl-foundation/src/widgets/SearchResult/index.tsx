@@ -571,11 +571,12 @@ export const SearchResultsWithInputComponent = ({
         )}
         {totalItems <= 0 && !isFetching && (
           <>
-            <section className="flex flex-col flex-none relative gap-4 mr-8 w-[25%] font-modern">
+            <section className="flex flex-col flex-none relative gap-4 mr-8 w-full md:w-[25%] font-modern">
               <div className="relative block w-full my-4">
                 <input
                   onChange={(e) => keyphraseChangeFn(e)}
                   className="peer border rounded w-full p-2 pr-[25px] focus:outline-indigo-500"
+                  value={searchText}
                 />
                 <MagnifyingGlassIcon className="absolute right-[5px] top-[10px] w-[20px] h-[20px] text-gray-400 peer-focus:text-indigo-500" />
               </div>
