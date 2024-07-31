@@ -573,7 +573,7 @@ export const SearchResultsWithInputComponent = ({
           <>
             <section className="flex flex-col flex-none relative gap-4 mr-8 w-full md:w-[25%] font-modern">
               <div className="relative block w-full my-4">
-              <form id="searchSubmit" onSubmit={onHandle}>
+                <form id="searchSubmit" onSubmit={onHandle}>
                   <input
                     onChange={(e) => keyphraseChangeFn(e)}
                     className="peer border rounded w-full p-2 pr-[25px] focus:outline-indigo-500"
@@ -600,4 +600,3 @@ const SearchResultsWithInputWidget = widget(
 );
 
 export default SearchResultsWithInputWidget;
-

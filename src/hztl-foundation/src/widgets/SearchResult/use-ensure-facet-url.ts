@@ -110,4 +110,3 @@ export function urlToFacet(hash: string) {
   }
   return facets;
 }
-
