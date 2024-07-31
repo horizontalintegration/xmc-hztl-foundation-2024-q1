@@ -9,17 +9,6 @@ import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 
 export type AccordionProps = ComponentProps & HztlPageContent.AccordionItem;
 
-const AccordionDefaultComponent = (props: AccordionProps): JSX.Element => {
-  return (
-    /* TODO: Remove non-tailwind classes */
-    <div className={`component hero ${props.params?.styles}`}>
-      <div className="component-content">
-        <span className="is-empty-hint">Accordion Item</span>
-      </div>
-    </div>
-  );
-};
-
 export const Default = (props: AccordionProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   const context = useSitecoreContext();
@@ -57,9 +46,10 @@ export const Default = (props: AccordionProps): JSX.Element => {
             >
               <RichTextWrapper
                 field={props?.fields?.content}
-                className="mb-0 text-gray text-s font-normal p-s"
+                className="mb-0 text-black text-s font-normal p-s"
                 aria-required={isOpen}
               />
+              {props?.fields?.content?.value}
             </div>
           ) : (
             isOpen && (
@@ -70,7 +60,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
               >
                 <RichTextWrapper
                   field={props?.fields?.content}
-                  className="mb-0 text-gray text-s font-normal p-s"
+                  className="mb-0 text-black text-s font-normal p-s"
                   aria-required={isOpen}
                 />
               </div>
@@ -80,5 +70,5 @@ export const Default = (props: AccordionProps): JSX.Element => {
       </div>
     );
   }
-  return <AccordionDefaultComponent {...props} />;
+  return <></>;
 };
