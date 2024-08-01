@@ -1,7 +1,7 @@
 // Global
 import dynamic from 'next/dynamic';
-import classnames from 'classnames';
 import React from 'react';
+import { tv } from 'tailwind-variants';
 
 /**
  * Standardize SVG icons on a 48x48 grid to allow
@@ -10,8 +10,6 @@ import React from 'react';
  * Icon contents should be stored in the icons subdirectory
  * using the naming scheme 'icon--[name].tsx'
  */
-
-export type SvgIconSize = 'xs' | 'sm' | 'md' | 'em' | 'lg';
 
 export type IconTypes =
   | undefined
@@ -23,26 +21,33 @@ export type IconTypes =
   | 'outline-search'
   | 'close';
 
+export type SvgIconSize = 'xs' | 'sm' | 'md' | 'em' | 'lg';
+
 export interface SvgIconProps {
   className?: string;
   icon: IconTypes;
   size?: SvgIconSize;
 }
 
-const sizeClasses: Record<SvgIconSize, string> = {
-  xs: 'h-4 w-4',
-  sm: 'h-8 w-8',
-  md: 'h-16 w-16',
-  lg: 'h-6 w-6',
-  em: 'h-em w-em',
-};
+const svgIconClasses = tv({
+  base: [],
+  variants: {
+    size: {
+      xs: ['h-4', 'w-4'],
+      sm: ['h-8', 'w-8'],
+      md: ['h-16', 'w-16'],
+      lg: ['h-6', 'w-6'],
+      em: ['h-em', 'w-em'],
+    },
+  },
+});
 
 const SvgIcon = ({ icon, size = 'sm', className }: SvgIconProps): JSX.Element => {
   const IconContent = dynamic(() => import(`./icons/icon--${icon}`));
 
   return (
     <svg
-      className={classnames(sizeClasses[size], className)}
+      className={svgIconClasses({ className, size })}
       fill="currentColor"
       viewBox="0 -960 960 960"
       xmlns="http://www.w3.org/2000/svg"
