@@ -9,7 +9,6 @@ import { withStandardComponentWrapper } from 'helpers/HOC';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
 import { tv } from 'tailwind-variants';
 import { CardListCardsPerRows } from 'lib/utils/style-param-utils/modules/cards';
-import clsx from 'clsx';
 
 export type CardProps = ComponentProps &
   HztlPageContent.Card & { cardsPerRow?: CardListCardsPerRows };
@@ -112,7 +111,7 @@ const Card = (props: CardProps): JSX.Element => {
     return (
       <div
         data-component="authorable/general/card"
-        className={clsx(base(), columnClasses())}
+        className={`${base()} ${columnClasses()}`}
         id={id ? id : undefined}
       >
         <div className={wrapper()}>
@@ -123,23 +122,23 @@ const Card = (props: CardProps): JSX.Element => {
               </div>
               <div className={contentWrapper()}>
                 <PlainTextWrapper
-                  className={clsx(cardText(), eyebrowText())}
+                  className={`${cardText()} ${eyebrowText()}`}
                   field={props?.fields?.Eyebrow}
                   tag="h6"
                   editable
                 />
                 <RichTextWrapper
-                  className={clsx(cardText(), headingText())}
+                  className={`${cardText()} ${headingText()}`}
                   field={props?.fields?.Heading}
                   tag="h2"
                 />
                 <RichTextWrapper
-                  className={clsx(cardText(), subHeadingText())}
+                  className={`${cardText()} ${subHeadingText()}`}
                   field={props?.fields?.Subheading}
                   tag="div"
                 />
                 <RichTextWrapper
-                  className={clsx(cardText(), descriptionText())}
+                  className={`${cardText()} ${descriptionText()}`}
                   field={props?.fields?.Description}
                   tag="div"
                 />
