@@ -1,23 +1,22 @@
+// Global
 import {
   GetStaticComponentProps,
   ImageFieldValue,
   LinkField,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
-import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
-import { SiteStructure } from 'src/.generated/Feature.HztlFoundation.model';
-import { ComponentProps } from 'lib/component-props';
-import FooterQuery from './Footer.graphql';
 import React from 'react';
-import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import { tv } from 'tailwind-variants';
+
+// Lib
+import { ComponentProps } from 'lib/component-props';
 import graphQLClientFactory from 'lib/graphql-client-factory';
-interface LinkItem {
-  id: string;
-  name: string;
-  link: {
-    jsonValue: LinkField;
-  };
-}
+import { SiteStructure } from 'src/.generated/Feature.HztlFoundation.model';
+
+// Local
+import FooterQuery from './Footer.graphql';
+import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 
 interface FooterColumn {
   id: string;
@@ -43,72 +42,139 @@ interface Item {
   };
 }
 
+interface LinkItem {
+  id: string;
+  name: string;
+  link: {
+    jsonValue: LinkField;
+  };
+}
+
 export type FooterProps = ComponentProps &
   SiteStructure.Footer.Footer & { FooterData: { item: Item } };
 
-const FooterDefaultComponent = (props: FooterProps): JSX.Element => (
-  <div className={`component footer ${props?.params?.styles}`}>
-    <div className="component-content">
-      <span className="is-empty-hint">Footer</span>
+const footerStyles = tv({
+  slots: {
+    base: ['component', 'footer', 'px-0', 'w-full'],
+    columnContainer: [
+      'flex-wrap',
+      'flex',
+      'gap-xl',
+      'justify-start',
+      'lg:gap-[62px]',
+      'md:gap-[50px]',
+      'md:justify-between',
+      'md:w-auto',
+      'sm:gap-l',
+      'sm:w-[344px]',
+      'xl:gap-[162px]',
+    ],
+    columnContent: [
+      'flex justify-between',
+      'flex-wrap',
+      'gap-m',
+      'lg:gap-[204px]',
+      'md:w-auto',
+      'mmd:gap-xl',
+      'mml:gap-[140px]',
+      'sm:gap-ml',
+      'sm:w-[312px]',
+      'xl:gap-[216px]',
+    ],
+    contentColumn: ['m-auto', 'max-w-screen-xl', 'p-ml', 'pb-s', 'w-full'],
+    contentContainer: ['flex', 'flex-col'],
+    hRule: ['border border-gray', 'w-full'],
+    isEmptyHint: ['is-empty-hint'],
+    linkColumnContainer: ['text-left'],
+    linkColumnList: ['flex', 'flex-col'],
+    linkColumnListItem: ['list-none -ml-m', 'p-xxs'],
+    linkColumnListItemLink: ['capitalize', 'font-bold', 'font-modern', 'text-gray', 'text-xs'],
+    linkColumnTitle: ['capitalize', 'font-bold', 'font-modern', 'text-gray', 'text-xs'],
+  },
+});
+
+const FooterDefaultComponent = (props: FooterProps): JSX.Element => {
+  const { styles } = props?.params || {};
+
+  const { base, isEmptyHint } = footerStyles();
+
+  return (
+    <div className={base({ className: styles })}>
+      <span className={isEmptyHint()}>Footer</span>
     </div>
-  </div>
-);
+  );
+};
 
 export const Default = (props: FooterProps): JSX.Element => {
-  const id = props?.params?.RenderingIdentifier;
-  const { item } = props?.FooterData;
-  const footerColumns = item?.footerColumns.items;
-  const footerLogo = item?.footerLogo;
+  const { item } = props?.FooterData || {};
+  const { footerColumns, footerLogo } = item || {};
+  const { RenderingIdentifier, styles } = props?.params || {};
 
-  if (item) {
-    return (
-      <div
-        className={`component footer w-full px-0 ${
-          props?.params?.styles !== undefined ? props?.params?.styles : ''
-        }`}
-        id={id ? id : ''}
-      >
-        <div data-component="authorable/general/footer" className="flex flex-col">
-          <div className="p-ml pb-s m-auto w-full max-w-screen-xl">
-            <div className="flex flex-wrap justify-start md:justify-between gap-xl sm:gap-l md:gap-[50px] lg:gap-[62px] xl:gap-[162px] sm:w-[344px] md:w-auto">
-              <div>
-                <ImageWrapper field={{ value: footerLogo?.jsonValue.value }} />
-              </div>
-              <div className="flex justify-between flex-wrap gap-m sm:gap-ml mmd:gap-xl mml:gap-[140px] lg:gap-[204px] xl:gap-[216px] sm:w-[312px] md:w-auto">
-                {footerColumns?.map((groupLabel, index) => {
-                  const links = groupLabel?.columnLinks?.items;
-                  return (
-                    <React.Fragment key={index}>
-                      <div className="text-left">
-                        <RichTextWrapper
-                          className="font-modern text-gray text-xs font-bold capitalize"
-                          tag="h3"
-                          field={{ value: groupLabel?.name }}
-                        />
-                        <ul className="flex flex-col">
-                          {links?.map((link, index) => (
-                            <li className="p-xxs list-none -ml-m" key={index}>
-                              <LinkWrapper
-                                className="font-modern text-gray text-xs font-bold capitalize"
-                                field={link?.link?.jsonValue}
-                              />
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </React.Fragment>
-                  );
-                })}
-              </div>
+  /*
+   * Tailwind Variants
+   */
+
+  const {
+    base,
+    columnContainer,
+    columnContent,
+    contentColumn,
+    contentContainer,
+    hRule,
+    linkColumnContainer,
+    linkColumnList,
+    linkColumnListItem,
+    linkColumnListItemLink,
+    linkColumnTitle,
+  } = footerStyles();
+
+  if (!item) return <FooterDefaultComponent {...props} />;
+
+  /*
+   * RENDERING
+   */
+
+  return (
+    <div className={base({ className: styles })} id={RenderingIdentifier || ''}>
+      <div className={contentContainer()} data-component="authorable/shared/site-structure/footer">
+        <div className={contentColumn()}>
+          <div className={columnContainer()}>
+            <div>
+              <ImageWrapper field={{ value: footerLogo?.jsonValue.value }} />
+            </div>
+            <div className={columnContent()}>
+              {footerColumns?.items?.map((footerColumn) => {
+                const links = footerColumn?.columnLinks?.items;
+
+                return (
+                  <React.Fragment key={footerColumn?.id}>
+                    <div className={linkColumnContainer()}>
+                      <RichTextWrapper
+                        className={linkColumnTitle()}
+                        field={{ value: footerColumn?.name }}
+                        tag="h3"
+                      />
+                      <ul className={linkColumnList()}>
+                        {links?.map((link) => (
+                          <li className={linkColumnListItem()} key={link?.id}>
+                            <LinkWrapper
+                              className={linkColumnListItemLink()}
+                              field={link?.link?.jsonValue}
+                            />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </React.Fragment>
+                );
+              })}
             </div>
           </div>
-          <hr className="w-full border border-gray" />
         </div>
+        <hr className={hRule()} />
       </div>
-    );
-  }
-
-  return <FooterDefaultComponent {...props} />;
+    </div>
+  );
 };
 
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
