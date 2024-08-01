@@ -18,7 +18,7 @@ SharedFields:
   Value: 0
 - ID: "9c6106ea-7a5a-48e2-8cad-f0f693b1e2d4"
   Hint: __Read Only
-  Value: 0
+  Value: 
 - ID: "a77e8568-1ab3-44f1-a664-b7c37ec7810d"
   Hint: Parameters Template
   Value: "{C3ED0731-9D2B-4EC8-9494-760921CADD37}"
@@ -27,10 +27,10 @@ SharedFields:
   Value: "query:$site/*[@@name='Data']/*[@@templatename='Card Folder']|query:$sharedSites/*[@@name='Data']/*[@@templatename='Card Folder']"
 - ID: "c39a90ce-0035-41bb-90f6-3c8a6ea87797"
   Hint: AddFieldEditorButton
-  Value: 0
+  Value: 
 - ID: "e829c217-5e94-4306-9c48-2634b094fdc2"
   Hint: OtherProperties
-  Value: IsAutoDatasourceRendering=true&IsRenderingsWithDynamicPlaceholders=true
+  Value: IsRenderingsWithDynamicPlaceholders=true
 Languages:
 - Language: "de-DE"
   Fields:
@@ -78,14 +78,14 @@ Languages:
         sitecore\JssImport
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a8a9a249-c235-43d3-9e63-995b9eaf59f4"
+      Value: "473ca667-bac7-4e01-940e-91af6ae2812e"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\pbarron@horizontal.com
+        sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240311T162815Z
+      Value: 20240801T060545Z
 - Language: "ja-JP"
   Fields:
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
