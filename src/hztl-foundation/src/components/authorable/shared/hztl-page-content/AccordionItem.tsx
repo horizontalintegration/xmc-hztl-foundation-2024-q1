@@ -27,7 +27,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
       >
         <div>
           <button
-            className="w-full flex items-center cursor-pointer justify-between duration-300 p-xs"
+            className="w-full font-bold text-sub-heading flex items-center cursor-pointer justify-between duration-300 p-xs"
             type="button"
             aria-expanded={isOpen}
             id={'accordion-' + id}
@@ -46,7 +46,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
             >
               <RichTextWrapper
                 field={props?.fields?.content}
-                className="mb-0 text-black text-s font-normal p-s"
+                className="mb-0 text-s font-normal p-s"
                 aria-required={isOpen}
               />
               {props?.fields?.content?.value}
@@ -60,7 +60,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
               >
                 <RichTextWrapper
                   field={props?.fields?.content}
-                  className="mb-0 text-black text-s font-normal p-s"
+                  className="mb-0 text-s font-normal p-s"
                   aria-required={isOpen}
                 />
               </div>

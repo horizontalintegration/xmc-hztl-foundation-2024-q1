@@ -45,7 +45,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
 
   return (
     <>
-      {props?.rendering?.placeholders?.accordion.length !== 0 && (
+      {props?.rendering?.placeholders?.accordion?.length !== 0 && (
         <div className="component accordion my-8 border-b-gray border-b border-solid">
           <Placeholder name={phKey} rendering={props.rendering} />
         </div>
