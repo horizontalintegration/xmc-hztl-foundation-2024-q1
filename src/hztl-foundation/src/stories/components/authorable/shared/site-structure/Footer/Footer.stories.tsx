@@ -9,9 +9,9 @@ import { Default } from 'components/authorable/shared/site-structure/Footer/Foot
 import defaultData from './Footer.mock-data';
 
 const meta: Meta<typeof Default> = {
-  title: 'Components/Authorable/shared/site-structure/Footer',
-  component: Default,
   argTypes: {},
+  component: Default,
+  title: 'Components/Authorable/shared/site-structure/Footer',
 };
 
 export default meta;
@@ -19,10 +19,10 @@ export default meta;
 type Story = StoryObj<typeof Default>;
 
 export const Footer: Story = {
-  render: () => {
-    return <Default {...defaultData} />;
-  },
   args: {
     ...flattenObj(defaultData),
+  },
+  render: () => {
+    return <Default {...defaultData} />;
   },
 };

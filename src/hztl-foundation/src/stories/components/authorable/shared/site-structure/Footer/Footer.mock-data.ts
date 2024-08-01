@@ -293,8 +293,8 @@ export const defaultData: FooterProps = {
 };
 
 export const noData = {
-  rnder: {},
   params: [],
+  rnder: {},
 };
 
 export default defaultData;

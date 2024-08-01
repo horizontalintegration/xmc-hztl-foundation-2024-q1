@@ -179,11 +179,13 @@ export const Default = (props: FooterProps): JSX.Element => {
 
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
   const graphQLClient = graphQLClientFactory({});
+
   const result = await graphQLClient.request<unknown>(FooterQuery, {
     datasource: rendering.dataSource,
-    params: rendering.params,
-    language: layoutData?.sitecore?.context?.language,
     itemID: layoutData?.sitecore?.route?.itemId,
+    language: layoutData?.sitecore?.context?.language,
+    params: rendering.params,
   });
+
   return { FooterData: result };
 };
