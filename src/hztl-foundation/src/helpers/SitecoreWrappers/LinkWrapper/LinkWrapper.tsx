@@ -101,7 +101,9 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
             internalLinkMatcher={INTERNAL_LINK_REGEX}
             showLinkTextWithChildrenPresent={false}
             ref={ref}
-          />
+          >
+            {children}
+          </Link>
           {/* When in edit mode we cannot render anything inside the Link tag (cause duplicate link), 
           but we can rendering it outside of the link and move the styling to a parent div */}
           {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />}
