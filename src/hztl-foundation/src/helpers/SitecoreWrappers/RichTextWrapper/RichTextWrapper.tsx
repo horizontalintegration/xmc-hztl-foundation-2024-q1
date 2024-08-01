@@ -6,6 +6,22 @@ import React, { useEffect, useState } from 'react';
 // Local
 import useIsEditing from 'lib/hooks/use-is-editing';
 
+const NEW_TAB_ICON_STRING = `<span class="svg-icon inline-flex align-middle -ml-3 h-6 w-6">
+    <svg
+      aria-hidden="true"
+      class="inline ml-2 -mt-1 h-em w-em"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z"
+        clipRule="evenodd"
+        fillRule="evenodd"
+      ></path>
+    </svg>
+  </span>`;
+
 const RichTextWrapper = ({ field, editable = true, ...props }: RichTextProps): JSX.Element => {
   const isEditing = useIsEditing() && editable;
   const updatedField = useUpdatedRichTextField({ field, editable });
@@ -64,19 +80,3 @@ function useUpdatedRichTextField({ field, editable = true }: RichTextProps) {
 }
 
 export default RichTextWrapper;
-
-const NEW_TAB_ICON_STRING = `<span class="svg-icon inline-flex align-middle -ml-3 h-6 w-6">
-    <svg
-      aria-hidden="true"
-      class="inline ml-2 -mt-1 h-em w-em"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z"
-        clipRule="evenodd"
-        fillRule="evenodd"
-      ></path>
-    </svg>
-  </span>`;
