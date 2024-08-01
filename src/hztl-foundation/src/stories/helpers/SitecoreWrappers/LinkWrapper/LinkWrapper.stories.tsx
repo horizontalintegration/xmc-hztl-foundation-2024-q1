@@ -64,7 +64,7 @@ const meta: Meta<LinkWrapperProps> = {
   } as any,
   parameters: { controls: { sort: 'requiredFirst' } },
   tags: ['autodocs'],
-  title: 'Helpers/SitecoreWrappers/Link Wrapper',
+  title: 'Helpers/Sitecore Wrappers/Link Wrapper',
 };
 
 export default meta;

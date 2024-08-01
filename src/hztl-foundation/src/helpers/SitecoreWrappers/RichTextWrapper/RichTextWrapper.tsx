@@ -3,29 +3,43 @@ import { RichText, RichTextField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { RichTextProps } from '@sitecore-jss/sitecore-jss-nextjs/types/components/RichText';
 import React, { useEffect, useState } from 'react';
 
-//Local
+// Local
 import useIsEditing from 'lib/hooks/use-is-editing';
 
+const NEW_TAB_ICON_STRING = `<span class="svg-icon inline-flex align-middle -ml-3 h-6 w-6">
+    <svg
+      aria-hidden="true"
+      class="inline ml-2 -mt-1 h-em w-em"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z"
+        clipRule="evenodd"
+        fillRule="evenodd"
+      ></path>
+    </svg>
+  </span>`;
+
 const RichTextWrapper = ({ field, editable = true, ...props }: RichTextProps): JSX.Element => {
-  const updatedField = useUpdatedRichTextField({ field, editable });
   const isEditing = useIsEditing() && editable;
+  const updatedField = useUpdatedRichTextField({ field, editable });
 
   const hasValue = !!updatedField?.value;
 
   // We should only render if it has a value, or if we are editing
   const shouldRender = hasValue || isEditing;
 
-  if (!shouldRender) {
-    return <></>;
-  }
+  if (!shouldRender) return <></>;
 
   return (
     <RichText
       {...props}
+      className={`rte ${props?.className}`}
+      data-component="helpers/fieldwrappers/richtextwrapper"
       editable={editable}
       field={updatedField}
-      className={`rte ${props?.className}`}
-      data-component="helpers/richtextwrapper"
     />
   );
 };
@@ -66,19 +80,3 @@ function useUpdatedRichTextField({ field, editable = true }: RichTextProps) {
 }
 
 export default RichTextWrapper;
-
-const NEW_TAB_ICON_STRING = `<span class="svg-icon inline-flex align-middle -ml-3 h-6 w-6">
-    <svg
-      aria-hidden="true"
-      class="inline ml-2 -mt-1 h-em w-em"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z"
-        clipRule="evenodd"
-        fillRule="evenodd"
-      ></path>
-    </svg>
-  </span>`;
