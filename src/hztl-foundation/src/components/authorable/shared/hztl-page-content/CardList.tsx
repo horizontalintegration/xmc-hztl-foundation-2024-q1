@@ -23,12 +23,14 @@ const CardList = (props: CardListProps): JSX.Element => {
   const phKey = `cardlist`;
   return (
     <div data-component="authorable/general/cardList" className={base()} id={id ? id : undefined}>
-      <div className={wrapper()}>
-        <Placeholder
-          name={phKey}
-          rendering={props.rendering}
-          cardsPerRow={styles.cards?.cardsPerRow}
-        />
+      <div>
+        <div className={wrapper()}>
+          <Placeholder
+            name={phKey}
+            rendering={props.rendering}
+            cardsPerRow={styles.cards?.cardsPerRow}
+          />
+        </div>
       </div>
     </div>
   );
