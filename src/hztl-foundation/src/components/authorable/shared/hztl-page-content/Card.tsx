@@ -9,17 +9,10 @@ import { withStandardComponentWrapper } from 'helpers/HOC';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
 import { tv } from 'tailwind-variants';
 import { CardListCardsPerRows } from 'lib/utils/style-param-utils/modules/cards';
+import MissingDataSource from 'helpers/EditingHelpText/MissingDataSource';
 
 export type CardProps = ComponentProps &
   HztlPageContent.Card & { cardsPerRow?: CardListCardsPerRows };
-
-const CardDefaultComponent = (props: CardProps): JSX.Element => (
-  <div className={`component card ${props?.params?.styles}`}>
-    <div className="component-content">
-      <span className="is-empty-hint">Card</span>
-    </div>
-  </div>
-);
 
 const tailwindVariants = tv({
   slots: {
@@ -162,7 +155,7 @@ const Card = (props: CardProps): JSX.Element => {
     );
   }
 
-  return <CardDefaultComponent {...props} />;
+  return <MissingDataSource {...props} />;
 };
 
 export const Default = withStandardComponentWrapper(Card);

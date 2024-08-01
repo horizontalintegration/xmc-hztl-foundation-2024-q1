@@ -6,19 +6,29 @@ import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import { tv } from 'tailwind-variants';
+import MissingDataSource from 'helpers/EditingHelpText/MissingDataSource';
 
 export type AccordionProps = ComponentProps & HztlPageContent.AccordionItem;
 
-const AccordionDefaultComponent = (props: AccordionProps): JSX.Element => {
-  return (
-    /* TODO: Remove non-tailwind classes */
-    <div className={`component hero ${props.params?.styles}`}>
-      <div className="component-content">
-        <span className="is-empty-hint">Accordion Item</span>
-      </div>
-    </div>
-  );
-};
+const tailwindVariants = tv({
+  slots: {
+    base: ['overflow-hidden', 'border-t-gray', 'border-t', 'border-solid'],
+    buttonWrapper: [
+      'w-full',
+      'flex',
+      'items-center',
+      'cursor-pointer',
+      'justify-between',
+      'duration-300',
+      'p-xs',
+    ],
+    iconWrapper: ['transition-transform', 'transform'],
+    iconStyles: ['fa', 'fa-chevron-down'],
+    contentContainer: ['flex-auto', 'min-h-px', 'p-xs'],
+    richTextWrapper: ['mb-0', 'text-gray', 'text-s', 'font-normal', 'p-s'],
+  },
+});
 
 export const Default = (props: AccordionProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,49 +38,40 @@ export const Default = (props: AccordionProps): JSX.Element => {
     setIsOpen(!isOpen);
   };
 
+  const { base, buttonWrapper, iconWrapper, iconStyles, contentContainer, richTextWrapper } =
+    tailwindVariants();
   const id = props?.rendering?.uid;
 
   if (props.fields) {
     return (
-      <div
-        className="overflow-hidden border-t-gray border-t border-solid"
-        data-component="authorable/general/accordion"
-      >
+      <div className={base()} data-component="authorable/general/accordion">
         <div>
           <button
-            className="w-full flex items-center cursor-pointer justify-between duration-300 p-xs"
+            className={buttonWrapper()}
             type="button"
             aria-expanded={isOpen}
             id={'accordion-' + id}
             onClick={toggleAccordion}
           >
             <Text field={props?.fields?.heading} tag="h3" />
-            <span className={`transition-transform transform ${isOpen ? 'rotate-180' : ''}`}>
-              <i className="fa fa-chevron-down"></i>
+            <span className={`${iconWrapper()} ${isOpen ? 'rotate-180' : ''}`}>
+              <i className={iconStyles()}></i>
             </span>
           </button>
           {context?.sitecoreContext?.pageEditing ? (
-            <div
-              className="flex-auto min-h-px p-xs"
-              role="region"
-              aria-labelledby={'accordion-' + id}
-            >
+            <div className={contentContainer()} role="region" aria-labelledby={'accordion-' + id}>
               <RichTextWrapper
                 field={props?.fields?.content}
-                className="mb-0 text-gray text-s font-normal p-s"
+                className={richTextWrapper()}
                 aria-required={isOpen}
               />
             </div>
           ) : (
             isOpen && (
-              <div
-                className="flex-auto min-h-px p-xs"
-                role="region"
-                aria-labelledby={'accordion-' + id}
-              >
+              <div className={contentContainer()} role="region" aria-labelledby={'accordion-' + id}>
                 <RichTextWrapper
                   field={props?.fields?.content}
-                  className="mb-0 text-gray text-s font-normal p-s"
+                  className={richTextWrapper()}
                   aria-required={isOpen}
                 />
               </div>
@@ -80,5 +81,5 @@ export const Default = (props: AccordionProps): JSX.Element => {
       </div>
     );
   }
-  return <AccordionDefaultComponent {...props} />;
+  return <MissingDataSource {...props} />;
 };

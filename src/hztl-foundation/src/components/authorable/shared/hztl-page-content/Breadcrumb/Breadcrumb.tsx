@@ -7,10 +7,38 @@ import BreadcrumbQuery from './Breadcrumb.graphql';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import graphqlClientFactory from 'lib/graphql-client-factory';
+import { tv } from 'tailwind-variants';
+import MissingDataSource from 'helpers/EditingHelpText/MissingDataSource';
+
+const tailwindVariants = tv({
+  slots: {
+    base: ['component'],
+    listWrapper: ['md:flex', 'items-center', 'list'],
+    listItemLinkWrapper: ['py-xs', 'px-xs', 'list-none'],
+    linkWrapperStyles: ['flex', 'text-black', 'items-center', 'underline', 'text-xs', 'font-bold'],
+    iconWrapper: ['ml-xs'],
+    iconStyles: ['w-auto', 'h-auto', 'stroke-gray'],
+    listItemTextWrapper: ['py-xs flex items-center list-none -ml-xxxs'],
+  },
+});
 
 export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
   const { ancestors, Title } = staticProps?.staticProps?.currentPage || {};
   const { componentName, dataSource } = staticProps?.rendering || {};
+
+  const {
+    base,
+    listWrapper,
+    listItemLinkWrapper,
+    linkWrapperStyles,
+    iconWrapper,
+    iconStyles,
+    listItemTextWrapper,
+  } = tailwindVariants();
+
+  if (!staticProps?.staticProps) {
+    return <MissingDataSource {...staticProps} usesGraphQL={true} />;
+  }
 
   return (
     <>
@@ -18,10 +46,10 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
         <div
           data-component="authorable/General/breadcrumbs"
           data-testid="breadcrumbs"
-          className="component"
+          className={base()}
         >
           <nav aria-label="Breadcrumb">
-            <ul className="md:flex items-center list">
+            <ul className={listWrapper()}>
               {ancestors
                 ?.slice()
                 .reverse()
@@ -34,7 +62,7 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                   return (
                     itm?.Title?.jsonValue?.value &&
                     itm?.pageUrl?.link && (
-                      <li key={index} className={`py-xs px-xs list-none`}>
+                      <li key={index} className={listItemLinkWrapper()}>
                         <LinkWrapper
                           field={{
                             value: {
@@ -49,10 +77,10 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                             'gtm.element.dataset.gtmDatasourceId': dataSource,
                             'gtm.element.dataset.gtmComponentName': componentName,
                           }}
-                          className="flex text-black items-center underline text-xs font-bold"
+                          className={linkWrapperStyles()}
                         >
-                          <div className="ml-xs">
-                            <SvgIcon icon={'arrow-right'} className="w-auto h-auto stroke-gray" />
+                          <div className={iconWrapper()}>
+                            <SvgIcon icon={'arrow-right'} className={iconStyles()} />
                           </div>
                         </LinkWrapper>
                       </li>
@@ -60,7 +88,7 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                   );
                 })}
               {Title?.jsonValue?.value && ancestors.length > 0 && (
-                <li className={`py-xs flex items-center list-none -ml-xxxs`} aria-current="true">
+                <li className={listItemTextWrapper()} aria-current="true">
                   <Text
                     encode={false}
                     field={{

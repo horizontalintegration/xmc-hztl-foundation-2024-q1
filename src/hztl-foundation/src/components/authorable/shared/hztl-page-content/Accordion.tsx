@@ -1,8 +1,15 @@
 import React from 'react';
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
+import { tv } from 'tailwind-variants';
 
 export type AccordionProps = ComponentProps;
+
+const tailwindVariants = tv({
+  slots: {
+    base: ['component', 'accordion', 'my-8', 'border-b-gray', 'border-b', 'border-solid'],
+  },
+});
 
 export const Default = (props: AccordionProps): JSX.Element => {
   // const {
@@ -13,6 +20,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
 
   //const accordionContent = useRef<HTMLDivElement>(null);
   const phKey = `accordion`;
+  const { base } = tailwindVariants();
 
   // Set State
   //const [activeIndexes, setActiveIndexes] = useState<number[]>([expandedFirstAccordionOnPageLoad]);
@@ -44,7 +52,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
   // };
 
   return (
-    <div className="component accordion my-8 border-b-gray border-b border-solid">
+    <div className={base()}>
       <Placeholder name={phKey} rendering={props.rendering} />
     </div>
   );
