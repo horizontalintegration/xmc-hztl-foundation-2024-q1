@@ -47,11 +47,20 @@ export const PreviewSearchBasicComponent = ({
 
   //This hook is responsible for set search default value when component reload
   useEffect(() => {
-    router?.query?.q && setSearchText(router?.query?.q as string);
-    //Added as if user change search queary from URL then it's are showing search result otherwise default one
-    onKeyphraseChange({
-      keyphrase: (router?.query?.q && (router?.query?.q as string)) || '',
-    });
+    
+    const hasWindow = window;
+    
+    if(hasWindow && hasWindow.location.pathname.toLocaleLowerCase() == "/search") {
+      router?.query?.q && setSearchText(router?.query?.q as string);
+      //Added as if user change search queary from URL then search preview showing correct search result otherwise default one
+      onKeyphraseChange({
+        keyphrase: (router?.query?.q && (router?.query?.q as string)) || '',
+      });
+    }
+    else {
+      setSearchText('');
+    }
+    
   }, [router]);
 
   const keyphraseHandler = useCallback(
