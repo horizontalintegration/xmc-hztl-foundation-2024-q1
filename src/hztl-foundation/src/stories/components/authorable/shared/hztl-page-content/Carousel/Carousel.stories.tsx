@@ -1,15 +1,16 @@
+/* eslint-disable prettier/prettier */
 // Global
 import type { Meta, StoryObj } from '@storybook/react';
 
 // Lib
 import { expandObj, flattenObj } from 'lib/object-parser';
-import '../../page.css';
+import '../../../../../page.css';
 
 // Local
 import {
   Default,
-  CarouselProps,
-} from 'components/authorable/shared/hztl-page-content/Carousel';
+  CarouselItemProps,
+} from 'components/authorable/shared/hztl-page-content/CarouselItem';
 import defaultData from './Carousel.mock-data';
 
 const meta: Meta<typeof Default> = {
@@ -24,9 +25,10 @@ type Story = StoryObj<typeof Default>;
 
 export const Carousel: Story = {
   render: (args) => {
-    return <Default {...(expandObj({ ...args }) as CarouselProps)} />;
+    return <Default {...(expandObj({ ...args }) as CarouselItemProps)} />;
   },
   args: {
     ...flattenObj(defaultData),
   },
 };
+

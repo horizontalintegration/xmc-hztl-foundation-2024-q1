@@ -18,10 +18,10 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
         <div
           data-component="authorable/General/breadcrumbs"
           data-testid="breadcrumbs"
-          className="component"
+          className="component px-0 pb-l"
         >
           <nav aria-label="Breadcrumb">
-            <ul className="md:flex items-center list">
+            <ul className="flex md:items-center list !m-0 gap-xs flex-col md:flex-row">
               {ancestors
                 ?.slice()
                 .reverse()
@@ -34,7 +34,7 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                   return (
                     itm?.Title?.jsonValue?.value &&
                     itm?.pageUrl?.link && (
-                      <li key={index} className={`py-xs px-xs list-none`}>
+                      <li key={index} className={`list-none !ml-0`}>
                         <LinkWrapper
                           field={{
                             value: {
@@ -60,7 +60,10 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                   );
                 })}
               {Title?.jsonValue?.value && ancestors.length > 0 && (
-                <li className={`py-xs flex items-center list-none -ml-xxxs`} aria-current="true">
+                <li
+                  className={`flex items-center list-none !ml-0 text-xs font-bold`}
+                  aria-current="true"
+                >
                   <Text
                     encode={false}
                     field={{
