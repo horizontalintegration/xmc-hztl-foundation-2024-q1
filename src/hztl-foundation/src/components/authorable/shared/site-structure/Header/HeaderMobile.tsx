@@ -63,11 +63,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
         {openMenu && (
           <div className="absolute bg-white w-full border-b border-black mt-px">
             <div className="p-xxs bg-white search-wrapper">
-              <PreviewSearchBasicWidget
-                rfkId={'rfkid_101'}
-                defaultValue=""
-                defaultItemsPerPage={5}
-              />
+              <PreviewSearchBasicWidget rfkId={'rfkid_101'} defaultItemsPerPage={5} />
             </div>
             <ul className="flex flex-col gap-xxxs m-0" role="presentation">
               {navigationList.items &&

@@ -12,7 +12,7 @@ export type SearchResultStoreSelectedFacets =
 
 export const useEnsureFacetUrl = (
   actions: SearchResultsWidget['ActionProps'],
-  facets: SearchResponseFacet[],
+  facets: SearchResponseFacet[]
 ) => {
   const router = useRouter();
 
@@ -92,4 +92,3 @@ export function urlToFacet(hash: string) {
   }
   return facets;
 }
-

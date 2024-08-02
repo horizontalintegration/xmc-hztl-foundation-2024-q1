@@ -17,7 +17,6 @@ export const Default = (props: CarouselProps): JSX.Element => {
     <div id={id ? id : undefined} className="component">
       <Splide
         hasTrack={false}
-        
         options={{
           rewind: false,
           width: '100%',
@@ -26,7 +25,7 @@ export const Default = (props: CarouselProps): JSX.Element => {
           perMove: 1,
           pagination: true,
           autoplay: 'pause',
-          
+
           interval: 3000,
         }}
       >
