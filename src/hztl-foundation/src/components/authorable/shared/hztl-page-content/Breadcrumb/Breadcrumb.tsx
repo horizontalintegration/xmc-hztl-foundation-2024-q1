@@ -58,9 +58,10 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
           className={base()}
           data-component="authorable/shared/hztml-page-content/breadcrumb"
           data-testid="breadcrumbs"
+          className="component px-0 pb-l"
         >
           <nav aria-label="Breadcrumb">
-            <ul className={listWrapper()}>
+            <ul className="flex md:items-center list !m-0 gap-xs flex-col md:flex-row">
               {ancestors
                 ?.slice()
                 .reverse()
@@ -76,10 +77,9 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                   const { pageUrl, Title } = itm || {};
 
                   return (
-                    pageUrl?.link &&
-                    Title?.jsonValue?.value && (
-                      // TODO: Replace 'index' as they key with...something else. (At current, no guaranteed unique values are available as part of "itm".)
-                      <li className={listItemLinkWrapper()} key={index}>
+                    itm?.Title?.jsonValue?.value &&
+                    itm?.pageUrl?.link && (
+                      <li key={index} className={`list-none !ml-0`}>
                         <LinkWrapper
                           className={linkWrapperStyles()}
                           field={{
@@ -104,8 +104,11 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                     )
                   );
                 })}
-              {Title?.jsonValue?.value && ancestors.length && (
-                <li aria-current="true" className={listItemTextWrapper()}>
+              {Title?.jsonValue?.value && ancestors.length > 0 && (
+                <li
+                  className={`flex items-center list-none !ml-0 text-xs font-bold`}
+                  aria-current="true"
+                >
                   <Text
                     encode={false}
                     field={{
