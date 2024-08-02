@@ -10,6 +10,7 @@ import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
+import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 
 export type CarouselItemProps = ComponentProps & ItemEx & HztlPageContent.CarouselItem;
 
@@ -32,9 +33,10 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
           <div className="slide-content z-10 lg:absolute lg:left-[3%] lg:top-1/2 lg:box-border lg:max-w-[70%] lg:-translate-y-1/2 lg:transform lg:bg-opacity-80 lg:p-5 lg:text-left xl:max-w-[50%]">
             <div className="slide-content-inner">
               <div className="relative flex flex-col gap-s p-6 sm:w-44 mmd:w-auto h-[225px]">
-                <h2 className="sm:text-5xl mmd:text-l capitalize font-bold">
-                  {props?.fields?.title?.value}
-                </h2>
+                <PlainTextWrapper
+                  className="sm:text-5xl mmd:text-l capitalize font-bold"
+                  field={props?.fields?.title}
+                />
 
                 {/* Slide description. */}
                 {props?.fields?.description && (
