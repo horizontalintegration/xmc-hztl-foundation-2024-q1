@@ -1,7 +1,7 @@
 import { ImageField, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { HeaderPropsComponent, MegaMenuCategoryInterface, NavigationItem } from './headerInterface';
 import CountrySelector from 'helpers/Forms/CountrySelector';
-import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
+import PreviewSearchListComponent from 'src/widgets/SearchPreview';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 import { useEffect, useRef, useState } from 'react';
 import useOutsideClick from 'src/hooks/useClickOutside';
@@ -93,7 +93,8 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
                   />
                 </div>
                 <div className="flex">
-                  <button
+                  <PreviewSearchListComponent rfkId={'rfkid_101'} defaultItemsPerPage={5} />
+                  {/* <button
                     className={`flex flex-row hover:bg-grayscale-w-200 p-s rounded-full cursor-pointer ${
                       showSearch && 'bg-grayscale-w-200'
                     }`}
@@ -103,16 +104,16 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
                     }}
                   >
                     {/* temporary disabling these for version 2 enhancement */}
-                    <SvgIcon icon="outline-search" className="w-s h-s" />
-                  </button>
+                    {/* <SvgIcon icon="outline-search" className="w-s h-s" /> */}
+                  {/* </button> */}
                 </div>
               </div>
             </div>
           </div>
         </div>
         {showSearch && (
-          <div className="w-full px-xs bg-white py-xs shadow-md">
-            <PreviewSearchBasicWidget rfkId={'rfkid_101'} defaultValue="" defaultItemsPerPage={5} />
+          <div className="w-[25%] float-right px-xs bg-white py-xs shadow-md">
+            
           </div>
         )}
       </div>

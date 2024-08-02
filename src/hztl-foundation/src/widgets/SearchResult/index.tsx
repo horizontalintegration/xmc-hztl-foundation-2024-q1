@@ -32,6 +32,8 @@ import {
 import { urlToFacet, useEnsureFacetUrl } from './use-ensure-facet-url';
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import PreviewSearchListComponent from '../SearchPreview';
+import { useRouter } from 'next/router';
 
 type ArticleCardItemCardProps = {
   className?: string;
@@ -430,6 +432,8 @@ export const SearchResultsWithInputComponent = ({
     setSearchText(searchString);
   }, []);
 
+  const router = useSearchParams();
+
   const searchResults = useSearchResults<ArticleModel, InitialState>({
     config: {
       defaultFacetType: 'text',
@@ -438,11 +442,13 @@ export const SearchResultsWithInputComponent = ({
       const hasWindow = typeof window !== 'undefined';
       const hash = hasWindow ? window.location.hash.replace('#', '') : '';
       const facetsFromUrl = urlToFacet(hash);
+      const defaultSearchText = hasWindow && window.location.search.replace('=',' ').split(' ')[1];
+
       return {
         sortType: defaultSortType,
         page: defaultPage,
         itemsPerPage: defaultItemsPerPage,
-        keyphrase: defaultKeyphrase,
+        keyphrase: defaultSearchText || defaultKeyphrase,
         selectedFacets: facetsFromUrl,
       };
     },
@@ -467,7 +473,7 @@ export const SearchResultsWithInputComponent = ({
   const { onKeyphraseChange, onItemClick } = actions;
 
   // Ensure that facets are synced with url
-  useEnsureFacetUrl(actions, facets, commitedSearchText);
+  useEnsureFacetUrl(actions, facets);
 
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
@@ -506,14 +512,15 @@ export const SearchResultsWithInputComponent = ({
           <>
             <section className="flex flex-col flex-none relative md:gap-4 gap-4  mr-8 w-full lg:w-[25%] font-modern">
               <div className="relative block w-full my-4">
-                <form id="searchSubmit" onSubmit={onHandle}>
+                {/* <form id="searchSubmit" onSubmit={onHandle}>
                   <input
                     onChange={(e) => keyphraseChangeFn(e)}
                     className="peer border rounded w-full p-2 pr-[25px] focus:outline-indigo-500"
                     value={searchText}
                   />
                 </form>
-                <MagnifyingGlassIcon className="absolute right-[5px] top-[10px] w-[20px] h-[20px] text-gray-400 peer-focus:text-indigo-500" />
+                <MagnifyingGlassIcon className="absolute right-[5px] top-[10px] w-[20px] h-[20px] text-gray-400 peer-focus:text-indigo-500" /> */}
+                <PreviewSearchListComponent rfkId={'rfkid_101'} defaultItemsPerPage={5} hasShowMoreFunc={true} />
               </div>
               <div className="sort-order flex flex-col gap-4">
                 <h3 className="text-sm md:text-base font-semibold">Refine By</h3>
@@ -573,14 +580,14 @@ export const SearchResultsWithInputComponent = ({
           <>
             <section className="flex flex-col flex-none relative gap-4 mr-8 w-full md:w-[25%] font-modern">
               <div className="relative block w-full my-4">
-              <form id="searchSubmit" onSubmit={onHandle}>
+              {/* <form id="searchSubmit" onSubmit={onHandle}>
                   <input
                     onChange={(e) => keyphraseChangeFn(e)}
                     className="peer border rounded w-full p-2 pr-[25px] focus:outline-indigo-500"
                     value={searchText}
                   />
                 </form>
-                <MagnifyingGlassIcon className="absolute right-[5px] top-[10px] w-[20px] h-[20px] text-gray-400 peer-focus:text-indigo-500" />
+                <MagnifyingGlassIcon className="absolute right-[5px] top-[10px] w-[20px] h-[20px] text-gray-400 peer-focus:text-indigo-500" /> */}
               </div>
             </section>
             <div className="w-full flex justify-center">
