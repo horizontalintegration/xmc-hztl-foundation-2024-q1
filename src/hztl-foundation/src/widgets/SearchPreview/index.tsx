@@ -47,10 +47,10 @@ export const PreviewSearchBasicComponent = ({
 
   //This hook is responsible for set search default value when component reload
   useEffect(() => {
-    setSearchText(router?.query?.q as string);
+    router?.query?.q && setSearchText(router?.query?.q as string);
     //Added as if user change search queary from URL then it's are showing search result otherwise default one
     onKeyphraseChange({
-      keyphrase: router?.query?.q as string,
+      keyphrase: (router?.query?.q && (router?.query?.q as string)) || '',
     });
   }, [router]);
 
@@ -122,19 +122,10 @@ export const PreviewSearchBasicComponent = ({
                 </Presence>
                 {!loading && (
                   <>
-                    {articles.map((article, index) => (
+                    {articles.map((article) => (
                       <PreviewSearch.Item key={article.id} asChild>
                         <a
                           href={article.url}
-                          onClick={(e) => {
-                            //   e.preventDefault();
-                            //   onItemClick({
-                            //     id: article.id,
-                            //     index,
-                            //     sourceId: article.source_id,
-                            //   });
-                            // add redirection or any action
-                          }}
                           className="flex flex-col box-border no-underline w-full text-black"
                         >
                           <ArticleCard.Root className="flex w-full p-2 cursor-pointer">
@@ -186,4 +177,3 @@ const PreviewSearchBasicWidget = widget(
   'content'
 );
 export default PreviewSearchBasicWidget;
-
