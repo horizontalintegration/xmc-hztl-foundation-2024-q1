@@ -1,8 +1,6 @@
 import type { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -11,8 +9,13 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     '@whitespace/storybook-addon-html',
     '@storybook/addon-mdx-gfm',
-    '@chromatic-com/storybook'
+    '@chromatic-com/storybook',
   ],
+
+  env: (config) => ({
+    ...config,
+    IS_STORYBOOK: 'true',
+  }),
 
   framework: {
     name: '@storybook/nextjs',
@@ -20,6 +23,9 @@ const config: StorybookConfig = {
   },
 
   docs: {},
+
+  staticDirs: ['../public', '../src/stories/assets'],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
 
   typescript: {
     reactDocgen: 'react-docgen-typescript'

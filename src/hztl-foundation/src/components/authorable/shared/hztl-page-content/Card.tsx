@@ -60,8 +60,8 @@ const Card = (props: CardProps): JSX.Element => {
       >
         <div className="flex justify-center items-center">
           <div className="mx-auto my-0">
-            <div className="border border-gray">
-              <div className="border-b border-dark-gray flex justify-center items-center">
+            <div className="border !border-dark-gray">
+              <div className="border-b border-gray flex justify-center items-center">
                 <ImageWrapper field={props?.fields?.CardImage} />
               </div>
               <div className="text-left p-l m-auto">

@@ -53,7 +53,7 @@ const meta: Meta<typeof ImageWrapper> = {
   },
   component: ImageWrapper,
   tags: ['autodocs'],
-  title: 'Helpers/SitecoreWrappers/Image Wrapper',
+  title: 'Helpers/Sitecore Wrappers/Image Wrapper',
 };
 
 export default meta;
