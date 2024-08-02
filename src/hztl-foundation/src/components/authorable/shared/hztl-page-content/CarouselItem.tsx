@@ -40,7 +40,7 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
                 {props?.fields?.description && (
                   <RichTextWrapper
                     field={props?.fields?.description}
-                    className="text-xs text-gray"
+                    className="text-xs text-black"
                   />
                 )}
 
