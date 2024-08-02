@@ -17,14 +17,16 @@ export const Default = (props: CarouselProps): JSX.Element => {
     <div id={id ? id : undefined} className="component">
       <Splide
         hasTrack={false}
+        
         options={{
-          rewind: true,
+          rewind: false,
           width: '100%',
           gap: '.01rem',
           perPage: 1,
           perMove: 1,
           pagination: true,
           autoplay: 'pause',
+          
           interval: 3000,
         }}
       >
@@ -49,7 +51,7 @@ export const Default = (props: CarouselProps): JSX.Element => {
           <div className="splide__progress__bar" />
         </div>
 
-        <div className="absolute bottom-1 right-5">
+        <div className="absolute bottom-1 right-5 hidden">
           <button className="splide__toggle icon-hover-focus-rounded" type="button">
             {/* Play button */}
             <span className="splide__toggle__play">

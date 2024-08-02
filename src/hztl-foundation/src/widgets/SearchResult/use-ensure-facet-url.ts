@@ -13,7 +13,6 @@ export type SearchResultStoreSelectedFacets =
 export const useEnsureFacetUrl = (
   actions: SearchResultsWidget['ActionProps'],
   facets: SearchResponseFacet[],
-  commitedSearchText: string
 ) => {
   const router = useRouter();
 
@@ -22,26 +21,10 @@ export const useEnsureFacetUrl = (
   const [prevFacetUrl, setPrevFacetUrl] = useState<string>();
 
   useEffect(() => {
-    if (commitedSearchText) {
-      const quearySearch = 'q=' + commitedSearchText;
-      router.push(
-        {
-          pathname: window.location.pathname,
-          query: quearySearch,
-          hash: '',
-        },
-        undefined,
-        { scroll: false }
-      );
-    }
-  }, [commitedSearchText]);
-
-  useEffect(() => {
     if (prevFacetUrl === undefined) {
       setPrevFacetUrl(router.asPath.split('#')[1] ?? '');
     } else {
       if (prevFacetUrl !== selectedFacetsFromApiUrl) {
-        const quearySearch = 'q=' + commitedSearchText;
         setPrevFacetUrl(selectedFacetsFromApiUrl);
         //searchParams.get('q')
         router.push(
@@ -50,7 +33,7 @@ export const useEnsureFacetUrl = (
             // window.location.search includes the '?' if there is a querystring.
             // This caused extra '?' to be added each time.
             // If there is no querystring, there is no '?' so this issue wasn't caught earlier.
-            query: quearySearch.replace(/^\?/, '') || window.location.search.replace(/^\?/, ''),
+            query: window.location.search.replace(/^\?/, ''),
             hash: selectedFacetsFromApiUrl,
           },
           undefined,
@@ -58,7 +41,7 @@ export const useEnsureFacetUrl = (
         );
       }
     }
-  }, [actions, facets, prevFacetUrl, router, selectedFacetsFromApiUrl, commitedSearchText]);
+  }, [actions, facets, prevFacetUrl, router, selectedFacetsFromApiUrl]);
 };
 
 const FACET_PREFIX = 'f-';
@@ -95,7 +78,6 @@ function facetToUrl(selectedFacets: FacetValue[]) {
 
 export function urlToFacet(hash: string) {
   const query = new URLSearchParams('?' + hash);
-
   const facets: FacetValue[] = [];
 
   for (const [key, value] of query.entries()) {
