@@ -160,9 +160,17 @@ const NavItem = (props: NavItemInterface) => {
             <div className="flex items-center flex-row gap-xs">
               <PlainTextWrapper field={props.navigationTitle.jsonValue} />
               {isList && props.index === props.dropdownOpen ? (
-                <SvgIcon className="-rotate-90 stroke-black w-s h-auto" icon={'arrow-right'} />
+                <SvgIcon
+                  className="-rotate-90 stroke-black w-s h-auto"
+                  icon={'arrow-right'}
+                  size="xs"
+                />
               ) : (
-                <SvgIcon className="rotate-90 stroke-black w-s h-auto" icon={'arrow-right'} />
+                <SvgIcon
+                  className="rotate-90 stroke-black w-s h-auto"
+                  icon={'arrow-right'}
+                  size="xs"
+                />
               )}
             </div>
           </button>

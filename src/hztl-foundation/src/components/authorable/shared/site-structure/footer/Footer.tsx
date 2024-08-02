@@ -70,18 +70,18 @@ export const Default = (props: FooterProps): JSX.Element => {
       >
         <div data-component="authorable/general/footer" className="flex flex-col">
           <div className="p-ml pb-s m-auto w-full max-w-screen-xl">
-            <div className="flex flex-wrap justify-start md:justify-between gap-xl sm:gap-l md:gap-[70px]  sm:w-[344px] md:w-auto">
+            <div className="flex flex-wrap justify-start md:justify-between gap-xl sm:gap-l md:gap-l md:w-auto">
               <div>
                 <ImageWrapper field={{ value: footerLogo?.jsonValue.value }} />
               </div>
-              <div className="flex justify-between flex-wrap gap-m sm:gap-ml mmd:gap-xl mml:gap-[140px]  sm:w-[312px] md:w-auto">
+              <div className="flex justify-between flex-wrap gap-m sm:gap-ml mmd:gap-xl mml:gap-xl md:w-auto">
                 {footerColumns?.map((groupLabel, index) => {
                   const links = groupLabel?.columnLinks?.items;
                   return (
                     <React.Fragment key={index}>
                       <div className="text-left">
                         <RichTextWrapper
-                          className="font-modern text-black text-xs  font-bold capitalize"
+                          className="font-modern text-black text-xs font-bold capitalize"
                           tag="h3"
                           field={{ value: groupLabel?.name }}
                         />
