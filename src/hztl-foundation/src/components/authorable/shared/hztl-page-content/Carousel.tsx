@@ -18,7 +18,7 @@ export const Default = (props: CarouselProps): JSX.Element => {
       <Splide
         hasTrack={false}
         options={{
-          rewind: false,
+          rewind: true,
           width: '100%',
           gap: '.01rem',
           perPage: 1,
@@ -50,7 +50,7 @@ export const Default = (props: CarouselProps): JSX.Element => {
           <div className="splide__progress__bar" />
         </div>
 
-        <div className="absolute bottom-1 right-5 hidden">
+        <div className="absolute bottom-1 right-5">
           <button className="splide__toggle icon-hover-focus-rounded" type="button">
             {/* Play button */}
             <span className="splide__toggle__play">
