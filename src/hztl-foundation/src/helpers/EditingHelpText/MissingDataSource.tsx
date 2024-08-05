@@ -9,14 +9,13 @@ interface MissingDataSourceProps extends ComponentProps {
 // The class names and styles were copied from components they can be removed if not needed
 const tailwindVariants = tv({
   slots: {
-    base: ['component'],
     wrapper: ['component-content'],
     content: ['is-empty-hint'],
   },
 });
 
 const MissingDataSource = (props: MissingDataSourceProps): JSX.Element => {
-  const { base, wrapper, content } = tailwindVariants();
+  const { wrapper, content } = tailwindVariants();
   const isEditing = useIsEditing();
 
   const { usesGraphQL } = props;
@@ -27,7 +26,7 @@ const MissingDataSource = (props: MissingDataSourceProps): JSX.Element => {
   const graphQLComponentText = 'The component uses GraphQL and is unavailable in Pages or EE.';
 
   return (
-    <div className={`${base()} ${renderStyles}`}>
+    <div className={`component ${renderStyles}`}>
       <div className={wrapper()}>
         <span className={content()}>
           {componentName} {'|'}{' '}

@@ -16,18 +16,23 @@ export type CardProps = ComponentProps &
 
 const tailwindVariants = tv({
   slots: {
-    base: ['w-full', 'mb-4'],
     columnClasses: [],
     wrapper: ['flex', 'justify-center', 'items-center'],
     content: ['mx-auto', 'my-0'],
     inner: ['border', '!border-dark-gray'],
     imageWrapper: ['border-b', 'border-dark-gray', 'flex', 'justify-center', 'items-center'],
     contentWrapper: ['text-left', 'p-l', 'm-auto'],
-    cardText: ['font-modern', 'text-black'],
-    eyebrowText: ['text-xxs', 'font-regular', 'mb-xxs', 'opacity-80'],
-    headingText: ['text-4xl', 'font-bold', 'mb-xxs'],
-    subHeadingText: ['text-m', 'font-bold', 'mb-xxs', 'opacity-80'],
-    descriptionText: ['text-xs', 'font-regular', 'mb-xxs', 'opacity-90'],
+    eyebrowText: ['font-modern', 'text-black', 'text-xxs', 'font-regular', 'mb-xxs', 'opacity-80'],
+    headingText: ['font-modern', 'text-black', 'text-4xl', 'font-bold', 'mb-xxs'],
+    subHeadingText: ['font-modern', 'text-black', 'text-m', 'font-bold', 'mb-xxs', 'opacity-80'],
+    descriptionText: [
+      'font-modern',
+      'text-black',
+      'text-xs',
+      'font-regular',
+      'mb-xxs',
+      'opacity-90',
+    ],
     ctaWrapper: ['flex', 'gap-xxs', 'flex-wrap', 'justify-normal'],
     ctaButton1: [
       'flex',
@@ -85,7 +90,6 @@ const Card = (props: CardProps): JSX.Element => {
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
   const {
-    base,
     columnClasses,
     wrapper,
     content,
@@ -93,7 +97,6 @@ const Card = (props: CardProps): JSX.Element => {
     imageWrapper,
     contentWrapper,
     eyebrowText,
-    cardText,
     headingText,
     subHeadingText,
     descriptionText,
@@ -107,7 +110,7 @@ const Card = (props: CardProps): JSX.Element => {
   return (
     <div
       data-component="authorable/general/card"
-      className={`${base()} ${columnClasses()}`}
+      className={`w-full mb-4 ${columnClasses()}`}
       id={id ? id : undefined}
     >
       <div className={wrapper()}>
@@ -118,23 +121,19 @@ const Card = (props: CardProps): JSX.Element => {
             </div>
             <div className={contentWrapper()}>
               <PlainTextWrapper
-                className={`${cardText()} ${eyebrowText()}`}
+                className={eyebrowText()}
                 field={props?.fields?.Eyebrow}
                 tag="h6"
                 editable
               />
+              <RichTextWrapper className={headingText()} field={props?.fields?.Heading} tag="h2" />
               <RichTextWrapper
-                className={`${cardText()} ${headingText()}`}
-                field={props?.fields?.Heading}
-                tag="h2"
-              />
-              <RichTextWrapper
-                className={`${cardText()} ${subHeadingText()}`}
+                className={subHeadingText()}
                 field={props?.fields?.Subheading}
                 tag="div"
               />
               <RichTextWrapper
-                className={`${cardText()} ${descriptionText()}`}
+                className={descriptionText()}
                 field={props?.fields?.Description}
                 tag="div"
               />
