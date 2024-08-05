@@ -8,6 +8,7 @@ import useOutsideClick from 'src/hooks/useClickOutside';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import { useRouter } from 'next/router';
 
 const HeaderDesktop = (props: HeaderPropsComponent) => {
   const { HeaderData, selectedCountry, setSelectedCountry } = props;
@@ -133,19 +134,21 @@ interface NavItemInterface extends NavigationItem {
 }
 const NavItem = (props: NavItemInterface) => {
   const isList = props?.megaMenuList.items.length > 0;
+  const router = useRouter();
+  const isActive = router.asPath === props?.navigationLink?.jsonValue?.value?.href;
   return (
     <li className="list-none ml-xs" role="presentation">
       <div
         className={`hover:bg-grayscale-w-200 group rounded-md cursor-pointer text-center px-xxs lg:px-s lg:py-xxs py-xxxs ${
           isList && props.index === props.dropdownOpen && 'bg-grayscale-w-200'
-        }`}
+        } ${isActive ? '!bg-grayscale-w-400' : ''}`}
       >
         {!isList ? (
           <LinkWrapper
             role="menuitem"
             aria-haspopup="false"
             field={props?.navigationLink.jsonValue}
-            className="text-black text-xs lg:text-s font-semibold group-hover:underline"
+            className={`text-xs lg:text-s font-semibold group-hover:underline ${isActive ? 'text-white' : 'text-black'}`}
             ctaVariant="link"
           >
             <PlainTextWrapper field={props?.navigationTitle.jsonValue} />

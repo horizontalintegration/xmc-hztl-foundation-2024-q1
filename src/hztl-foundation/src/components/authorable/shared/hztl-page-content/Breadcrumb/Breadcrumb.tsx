@@ -106,7 +106,7 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                 })}
               {Title?.jsonValue?.value && ancestors.length > 0 && (
                 <li
-                  className={`flex items-center list-none !ml-0 text-xs font-bold`}
+                  className={`flex items-center list-none !ml-0 text-xs text-dark-gray`}
                   aria-current="true"
                 >
                   <Text
