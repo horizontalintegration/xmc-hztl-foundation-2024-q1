@@ -25,7 +25,6 @@ const tailwindVariants = tv({
       'duration-300',
       'p-xs',
     ],
-    iconWrapper: ['transition-transform', 'transform'],
     iconStyles: ['fa', 'fa-chevron-down'],
     contentContainer: ['flex-auto', 'min-h-px', 'p-xs'],
     richTextWrapper: ['mb-0', 'text-s', 'font-normal', 'p-s'],
@@ -44,8 +43,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
     return <MissingDataSource {...props} />;
   }
 
-  const { base, buttonWrapper, iconWrapper, iconStyles, contentContainer, richTextWrapper } =
-    tailwindVariants();
+  const { base, buttonWrapper, iconStyles, contentContainer, richTextWrapper } = tailwindVariants();
   const id = props?.rendering?.uid;
 
   return (
@@ -59,7 +57,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
           onClick={toggleAccordion}
         >
           <Text field={props?.fields?.heading} tag="h3" />
-          <span className={`${iconWrapper()} ${isOpen ? 'rotate-180' : ''}`}>
+          <span className={`transition-transform transform ${isOpen ? 'rotate-180' : ''}`}>
             <i className={iconStyles()}></i>
           </span>
         </button>
