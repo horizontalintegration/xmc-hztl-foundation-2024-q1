@@ -52,7 +52,7 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                           className="flex text-black items-center underline text-xs font-bold"
                         >
                           <div className="ml-xs">
-                            <SvgIcon icon={'arrow-right'} className="w-auto h-auto stroke-gray" />
+                            <SvgIcon className="stroke-black" icon="arrow-right" size="xs" />
                           </div>
                         </LinkWrapper>
                       </li>
@@ -61,7 +61,7 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                 })}
               {Title?.jsonValue?.value && ancestors.length > 0 && (
                 <li
-                  className={`flex items-center list-none !ml-0 text-xs font-bold`}
+                  className={`flex items-center list-none !ml-0 text-xs text-dark-gray`}
                   aria-current="true"
                 >
                   <Text

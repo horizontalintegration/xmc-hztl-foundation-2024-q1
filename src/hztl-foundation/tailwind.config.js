@@ -19,6 +19,7 @@ module.exports = {
         'error-outline': '#DF2626',
         'extralight-gray': '#ABBED1',
         'grayscale-w-200': '#EAE8E8',
+        'grayscale-w-400': '#787779',
         'grayscale-w-600': '#373432',
         'light-black': '#454545',
         'light-gray': '#E2E2E2',

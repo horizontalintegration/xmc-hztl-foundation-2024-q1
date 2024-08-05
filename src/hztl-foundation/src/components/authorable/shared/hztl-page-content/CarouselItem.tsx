@@ -28,13 +28,14 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
   if (props.fields) {
     return (
       <SplideSlide key={props.id}>
-        <div className="relative py-m w-[350px] mml:w-auto min-h-[500px] sm:h-auto md:h-[500px] mx-auto flex flex-col-reverse md:flex-row justify-center items-center">
+        <div className="relative py-m mmd:w-[85%] w-[80%] min-h-[500px] sm:h-auto mx-auto flex flex-col-reverse mmd:flex-row mmd:justify-center mmd:items-center items-start">
           {/* Slide Content. */}
-          <div className="slide-content z-10 lg:absolute lg:left-[3%] lg:top-1/2 lg:box-border lg:max-w-[70%] lg:-translate-y-1/2 lg:transform lg:bg-opacity-80 lg:p-5 lg:text-left xl:max-w-[50%]">
-            <div className="slide-content-inner">
-              <div className="relative flex flex-col gap-s p-6 sm:w-44 mmd:w-auto h-[225px]">
+          <div className="slide-content flex-1">
+            <div className="slide-content-inner flex justify-center">
+              <div className="relative flex flex-col gap-s p-6 w-auto">
                 <PlainTextWrapper
-                  className="sm:text-5xl mmd:text-l capitalize font-bold"
+                  tag="h2"
+                  className="md:text-5xl text-3xl capitalize font-bold"
                   field={props?.fields?.title}
                 />
 
@@ -49,7 +50,7 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
                 {/* Slide links. */}
                 {props?.fields?.primaryCTA && (
                   <div className="flex">
-                    <div className="flex flex-col mml:flex-row gap-xs">
+                    <div className="flex md:flex-row flex-col gap-xs">
                       <LinkWrapper
                         field={props?.fields?.primaryCTA}
                         aria-label={props?.fields?.primaryCTA?.value.text}
@@ -68,7 +69,7 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
           </div>
 
           {/* Slide media. */}
-          <div className="slide-media">
+          <div className="slide-media flex-1">
             <ImageWrapper field={props?.fields?.image} />
           </div>
         </div>

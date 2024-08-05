@@ -35,8 +35,8 @@ const svgIconClasses = tv({
     size: {
       xs: ['h-4', 'w-4'],
       sm: ['h-8', 'w-8'],
-      md: ['h-16', 'w-16'],
-      lg: ['h-6', 'w-6'],
+      md: ['!h-16', '!w-16'],
+      lg: ['!h-24', '!w-24'],
       em: ['h-em', 'w-em'],
     },
   },

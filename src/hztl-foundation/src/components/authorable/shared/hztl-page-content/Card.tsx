@@ -55,50 +55,46 @@ const Card = (props: CardProps): JSX.Element => {
     return (
       <div
         data-component="authorable/general/card"
-        className={`w-full mb-4 ${columnClasses()}`}
+        className={`w-full mb-4 flex ${columnClasses()}`}
         id={id ? id : undefined}
       >
-        <div className="flex justify-center items-center">
-          <div className="mx-auto my-0">
-            <div className="border !border-dark-gray">
-              <div className="border-b border-gray flex justify-center items-center">
-                <ImageWrapper field={props?.fields?.CardImage} />
-              </div>
-              <div className="text-left p-l m-auto">
-                <PlainTextWrapper
-                  className="font-modern text-black text-xxs font-regular mb-xxs opacity-80"
-                  field={props?.fields?.Eyebrow}
-                  tag="h6"
-                  editable
-                />
-                <RichTextWrapper
-                  className="font-modern text-black text-4xl font-bold mb-xxs"
-                  field={props?.fields?.Heading}
-                  tag="h2"
-                />
-                <RichTextWrapper
-                  className="font-modern text-black text-m font-bold mb-xxs opacity-80"
-                  field={props?.fields?.Subheading}
-                  tag="div"
-                />
-                <RichTextWrapper
-                  className="font-modern text-black text-xs font-regular mb-xxs opacity-90"
-                  field={props?.fields?.Description}
-                  tag="div"
-                />
-                <div className="flex gap-xxs flex-wrap justify-normal">
-                  <LinkWrapper
-                    className="flex items-center justify-center px-s py-xs rounded bg-gray text-center text-white font-modern text-button font-bold"
-                    field={props?.fields?.CardLink1}
-                    ctaStyle={styles.cta1}
-                  />
-                  <LinkWrapper
-                    className="flex items-center justify-center p-xs rounded border border-gray text-center text-black font-modern text-xs font-bold"
-                    field={props?.fields?.CardLink2}
-                    ctaStyle={styles.cta2}
-                  />
-                </div>
-              </div>
+        <div className="border !border-dark-gray flex flex-col">
+          <div className="border-b border-dark-gray flex justify-center items-center">
+            <ImageWrapper field={props?.fields?.CardImage} />
+          </div>
+          <div className="text-left p-l flex flex-col h-full">
+            <PlainTextWrapper
+              className="font-modern text-black text-xxs font-regular mb-xxs opacity-80"
+              field={props?.fields?.Eyebrow}
+              tag="h6"
+              editable
+            />
+            <RichTextWrapper
+              className="font-modern text-black text-4xl font-bold mb-xxs"
+              field={props?.fields?.Heading}
+              tag="h2"
+            />
+            <RichTextWrapper
+              className="font-modern text-black text-m font-bold mb-xxs opacity-80"
+              field={props?.fields?.Subheading}
+              tag="div"
+            />
+            <RichTextWrapper
+              className="font-modern text-black text-xs font-regular mb-xxs opacity-90"
+              field={props?.fields?.Description}
+              tag="div"
+            />
+            <div className="flex gap-xxs flex-wrap justify-normal mt-auto">
+              <LinkWrapper
+                className="flex items-center justify-center px-s py-xs rounded bg-gray text-center text-white font-modern text-button font-bold"
+                field={props?.fields?.CardLink1}
+                ctaStyle={styles.cta1}
+              />
+              <LinkWrapper
+                className="flex items-center justify-center p-xs rounded border border-gray text-center text-black font-modern text-xs font-bold"
+                field={props?.fields?.CardLink2}
+                ctaStyle={styles.cta2}
+              />
             </div>
           </div>
         </div>
