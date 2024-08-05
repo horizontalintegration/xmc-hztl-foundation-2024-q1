@@ -1,27 +1,43 @@
-# XM Cloud Starter Kit (Next JS)
+# HZTL Solutions Squad
 
-## QUICK START
+Welcome to the HZTL Solutions Squad Site. This project aims to provide comprehensive training resources to improve web accessibility and provide starter components for faster development.
 
-1. In an ADMIN terminal:
+## Live Site
+[Visit the live site](https://hztl-accessibility.vercel.app/)
 
-    ```ps1
-    .\init.ps1 -InitEnv -LicenseXmlPath "C:\path\to\license.xml" -AdminPassword "DesiredAdminPassword"
+## Live Storybook
+[Visit Storybook](https://hztl-accessibility-storybook.vercel.app/)
+
+## Repository
+[Github Repository](https://bitbucket.org/horizontal/hztl-accessibility/src/main/)
+
+## Branching Strategy
+- **Develop Branch:** If you want to contribute, please branch off from the `develop` branch.
+- **Main Branch:** The `main` branch is the production branch.
+
+## Setup
+To get started with the project, follow these steps:
+
+1. Switch to the required Node version:
+    ```bash
+    nvm use 18.19.1 or higher
     ```
 
-2. Restart your terminal and run:
-
-    ```ps1
-    .\up.ps1
+2. Install the dependencies(src/hztl-foundation/src):
+    ```bash
+    npm install
     ```
 
-3. Follow the instructions to [deploy to XM Cloud](#deploy-to-xmcloud)
+3. Start the local development server:
+    ```bash
+    npm run start:connected
+    ```
 
-4. Create Edge token and [query from edge](#query-edge)
+4. Start the Storybook locally:
+    ```bash
+    npm run storybook
+    ```
 
-*** 
+---
 
-## About this Solution
-This solution is designed to help developers learn and get started quickly
-with XMCLoud + SXA.
-
-
+Thank you for contributing to the HZTL Solutions Squad Site. Your efforts help make the web more accessible for everyone and help develop faster!
