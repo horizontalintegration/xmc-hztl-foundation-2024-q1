@@ -8,16 +8,17 @@ import Image, { ImageProps } from 'next/image';
 // Lib
 import useIsNormalMode from 'lib/hooks/use-is-normal-mode';
 import { isValidNextImageDomain } from 'lib/next-config/plugins/images';
+
 /**
  * JSS does not yet support Next Image in Experience Editor
  * This component will switch between the two based on environment
- * which allows us to get the various performance benefits from Next Image
+ * which allows us to get the various performance benefits from Next Image.
  *
- * Note that the images may display slightly differently in
- * Experience Editor as the JSS Image component doesn't have the same layout options
+ * NOTE: Images may display slightly differently in
+ * Experience Editor as the JSS Image component doesn't have the same layout options.
  */
 
-export interface SizedImageField extends ImageField {
+interface SizedImageFieldProps extends ImageField {
   value?: {
     alt?: string;
     height: number | `${number}`;
@@ -29,7 +30,7 @@ export interface SizedImageField extends ImageField {
 export interface ImageWrapperProps {
   className?: string;
   editable?: boolean;
-  field?: SizedImageField | ImageField;
+  field?: SizedImageFieldProps | ImageField;
   layout?: NextImageLayoutOption;
   priority?: boolean;
   sizes?: string;
@@ -46,6 +47,7 @@ const ImageWrapper = ({
   sizes,
 }: ImageWrapperProps): JSX.Element => {
   const { alt, height, src, width } = field?.value || {};
+
   const isNormalMode = useIsNormalMode();
 
   const newSrc = normalizeImageUrl(src);
@@ -54,25 +56,22 @@ const ImageWrapper = ({
 
   const newField = { ...field, value: { ...field?.value, src: newSrc } };
 
+  if (!newSrc) return <></>;
+
   // If we're in edit/preview mode, or the image domain is not valid for NextImage, use JSS image.
   if (!isNormalMode || !isValidDomain) {
     return (
       <JSSImage
-        data-component="helpers/general/imagewrapper"
-        field={newField}
+        data-component="helpers/fieldwrappers/imagewrapper"
         editable={editable}
+        field={newField}
       />
     );
-  }
-
-  if (!newSrc) {
-    return <></>;
   }
 
   const nextImageProps: ImageProps = {
     alt: (alt as string) || '',
     className: className,
-    // layout,
     priority,
     sizes,
     src: newSrc,
@@ -89,24 +88,22 @@ const ImageWrapper = ({
 
   if (layout === 'fill') {
     nextImageProps.fill = true;
-  }
-
-  if (layout !== 'fill') {
+  } else {
     nextImageProps.height = height as number;
     nextImageProps.width = width as number;
   }
 
   // for images that are missing width property.
-  if (!nextImageProps.width && !nextImageProps.fill)
+  if (!nextImageProps.fill && !nextImageProps.width)
     return (
       <JSSImage
-        data-component="helpers/general/imagewrapper"
         {...nextImageProps}
+        data-component="helpers/fieldwrappers/imagewrapper"
         field={newField}
       />
     );
 
-  return <Image data-component="helpers/general/imagewrapper" {...nextImageProps} />;
+  return <Image data-component="helpers/fieldwrappers/imagewrapper" {...nextImageProps} />;
 };
 
 export default ImageWrapper;
@@ -114,8 +111,10 @@ export default ImageWrapper;
 /**
  * To support preview site we normalize media urls to strip out the domain if it is coming from Sitecore.
  */
+
 export function normalizeImageUrl(src: string | undefined) {
   let newSrc = src;
+
   if (src) {
     const publicUrl = new URL(process.env.PUBLIC_URL as string);
 
@@ -126,5 +125,6 @@ export function normalizeImageUrl(src: string | undefined) {
       newSrc = src.replace(imageUrl.origin, '');
     }
   }
+
   return newSrc;
 }
