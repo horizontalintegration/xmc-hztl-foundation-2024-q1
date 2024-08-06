@@ -1,36 +1,55 @@
+// Global
+import { tv } from 'tailwind-variants';
+
+// Lib
 import { ComponentProps } from 'lib/component-props';
 import useIsEditing from 'lib/hooks/use-is-editing';
-import { tv } from 'tailwind-variants';
 
 interface MissingDataSourceProps extends ComponentProps {
   usesGraphQL?: boolean;
 }
 
-// The class names and styles were copied from components they can be removed if not needed
+const GRAPH_QL_COMPONENT_TEXT = 'The component uses GraphQL and is unavailable in Pages or EE.';
+const MISSING_DATASOURCE_TEXT = 'The component data source is missing.';
+
+/*
+ * Tailwind Variants
+ */
+
 const tailwindVariants = tv({
   slots: {
-    wrapper: ['component-content'],
+    base: ['component'],
     content: ['is-empty-hint'],
+    wrapper: ['component-content'],
   },
 });
 
 const MissingDataSource = (props: MissingDataSourceProps): JSX.Element => {
-  const { wrapper, content } = tailwindVariants();
+  const { usesGraphQL } = props;
+  const { styles } = props.params || {};
+  const { componentName } = props?.rendering || {};
+
   const isEditing = useIsEditing();
 
-  const { usesGraphQL } = props;
-  const componentName = props?.rendering?.componentName;
-  const renderStyles = props.params?.styles || '';
+  const extendedTailwindVariants = tv({
+    extend: tailwindVariants,
+    slots: {
+      base: styles,
+    },
+  });
 
-  const missingDataSourceText = 'The component data source is missing.';
-  const graphQLComponentText = 'The component uses GraphQL and is unavailable in Pages or EE.';
+  const { base, wrapper, content } = extendedTailwindVariants();
+
+  /*
+   * Rendering
+   */
 
   return (
-    <div className={`component ${renderStyles}`}>
+    <div className={base()}>
       <div className={wrapper()}>
         <span className={content()}>
           {componentName} {'|'}{' '}
-          {isEditing && usesGraphQL ? graphQLComponentText : missingDataSourceText}
+          {isEditing && usesGraphQL ? GRAPH_QL_COMPONENT_TEXT : MISSING_DATASOURCE_TEXT}
         </span>
       </div>
     </div>

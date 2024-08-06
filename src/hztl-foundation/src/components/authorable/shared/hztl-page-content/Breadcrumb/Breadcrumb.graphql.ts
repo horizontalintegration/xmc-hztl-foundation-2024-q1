@@ -28,4 +28,5 @@ const BreadcrumbQuery = `query($itemID: String!, $language: String!){
       link: path
     }
   }`;
+
 export default BreadcrumbQuery;
