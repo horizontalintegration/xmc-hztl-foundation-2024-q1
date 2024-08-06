@@ -49,30 +49,24 @@ h6 {
 
 p {
   color: var(--Black, var(--Primary, #2F2D2E));
-
-  /* Paragraph/Hero Paragraph Regular */
   font-family: "Modern Era";
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 25px;
-  /* 125% */
 }
 
 body {
   color: var(--Black, var(--Primary, #2F2D2E));
-  /* Display/Body (16) */
   font-family: "Modern Era";
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
-  /* 150% */
 }
 
 .body-small {
   color: var(--Black, var(--Primary, #2F2D2E));
-  /* Display/Body Small (14) */
   font-family: "Modern Era";
   font-size: 14px;
   font-style: normal;
@@ -82,7 +76,6 @@ body {
 
 .cta {
   color: var(--Black, var(--Primary, #2F2D2E));
-  /* CTA/CTA (16) */
   font-family: "Modern Era";
   font-size: 16px;
   font-style: normal;
@@ -93,7 +86,6 @@ body {
 
 .cta-underline {
   color: var(--Black, var(--Primary, #2F2D2E));
-  /* CTA/CTA Underline (16) */
   font-family: "Modern Era";
   font-size: 16px;
   font-style: normal;
@@ -105,7 +97,6 @@ body {
 
 .cta-small {
   color: var(--Black, var(--Primary, #2F2D2E));
-  /* Display/Body Small (14) */
   font-family: "Modern Era";
   font-size: 14px;
   font-style: normal;
@@ -115,7 +106,6 @@ body {
 
 .cta-small-underline {
   color: var(--Black, var(--Primary, #2F2D2E));
-  /* CTA/CTA Small (14) */
   font-family: "Modern Era";
   font-size: 14px;
   font-style: normal;
@@ -126,8 +116,6 @@ body {
 
 .small {
   color: var(--Black, var(--Primary, #2F2D2E));
-
-  /* Display/Small (12) */
   font-family: "Modern Era";
   font-size: 12px;
   font-style: normal;
@@ -137,8 +125,6 @@ body {
 
 .xsmall {
   color: var(--Black, var(--Primary, #2F2D2E));
-
-  /* Display/XSmall (10) */
   font-family: "Modern Era";
   font-size: 10px;
   font-style: normal;
@@ -148,8 +134,6 @@ body {
 
 .xxsmall {
   color: var(--Black, var(--Primary, #2F2D2E));
-
-  /* Display/XXSmall (8) */
   font-family: "Modern Era";
   font-size: 8px;
   font-style: normal;
@@ -184,14 +168,54 @@ strong {
 
 label {
   color: var(--RbA-Black, #000);
-
-  /* AW/Body Copy */
   font-family: "Open Sans";
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
-  /* 157.143% */
+}
+
+button {
+  display: flex;
+  width: 200px;
+  height: 52px;
+  padding: 12px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  background: var(--Black, #2F2D2E);
+  color: var(--White, #FFF);
+  text-align: center;
+
+  /* Normal Text */
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  &:hover {
+    display: flex;
+    width: 200px;
+    height: 52px;
+    padding: 12px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--Black, #2F2D2E);
+    background: var(--White, #FFF);
+    color: var(--Black, var(--Primary, #2F2D2E));
+    text-align: center;
+
+    /* Normal Text */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
 }
 
 input {
@@ -205,29 +229,22 @@ input {
 
   /* css for Input text */
   color: var(--RbA-Dark-Grey, #54585A);
-
-  /* AW/Body Copy */
   font-family: "Open Sans";
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
-  /* 157.143% */
-
   border: 1px solid var(--RbA-Dark-Grey, #54585A);
   background: var(--RbA-White, #FFF);
 }
 
 input::placeholder {
   color: var(--RbA-Dark-Grey, #54585A);
-
-  /* AW/Body Copy */
   font-family: "Open Sans";
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
-  /* 157.143% */
 }
 
 input:focus {
@@ -265,14 +282,11 @@ input:disabled {
 
 input:disabled+label {
   color: var(--AW-Dark-Grey, #686869);
-
-  /* RbA/Body */
   font-family: "Open Sans";
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
-  /* 157.143% */
 }
 
 /* Input tag :- error state */
@@ -290,14 +304,11 @@ input.error {
 /* Label tag:- error state */
 label.error {
   color: var(--Alert, #FF5E5E);
-
-  /* RbA/Body */
   font-family: "Open Sans";
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
-  /* 157.143% */
 }
 
 .error-message {
@@ -307,7 +318,6 @@ label.error {
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
-  /* 183.333% */
 }
 
 .general-message {
@@ -317,7 +327,6 @@ label.error {
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
-  /* 183.333% */
 }
 
 textarea {
@@ -337,8 +346,6 @@ ol {
   padding-top: $extrasmall-margin;
   margin-left: $small-margin;
   display: block;
-  // margin-block-start: 1em;
-  // margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 40px;
@@ -374,16 +381,45 @@ a {
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
-  /* 183.333% */
 
   &:hover {
     color: $rich-content-link-color-active;
   }
 }
 
+blockquote {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+  unicode-bidi: isolate;
+}
+
 cite {
   font-style: italic;
 }
+
+dl {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
+
+  dt {
+    display: block;
+    unicode-bidi: isolate;
+  }
+
+  dd {
+    display: block;
+    margin-inline-start: 40px;
+    unicode-bidi: isolate;
+  }
+}
+
 
 address {
   display: block;
