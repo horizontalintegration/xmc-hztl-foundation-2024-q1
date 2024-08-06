@@ -1,67 +1,73 @@
+// Global
 import React from 'react';
-import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
-import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
-import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
-import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
-import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
-import { ComponentProps } from 'lib/component-props';
-import { withStandardComponentWrapper } from 'helpers/HOC';
-import { parseStyleParams } from 'lib/utils/style-param-utils';
 import { tv } from 'tailwind-variants';
-import { CardListCardsPerRows } from 'lib/utils/style-param-utils/modules/cards';
-import MissingDataSource from 'helpers/EditingHelpText/MissingDataSource';
 
-export type CardProps = ComponentProps &
-  HztlPageContent.Card & { cardsPerRow?: CardListCardsPerRows };
+// Lib
+import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+import { ComponentProps } from 'lib/component-props';
+import { parseStyleParams } from 'lib/utils/style-param-utils';
+import { CardListCardsPerRows } from 'lib/utils/style-param-utils/modules/cards';
+
+// Local
+import MissingDataSource from 'helpers/EditingHelpText/MissingDataSource';
+import { withStandardComponentWrapper } from 'helpers/HOC';
+import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
+import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
+
+/*
+ * Tailwind Variants
+ */
 
 const tailwindVariants = tv({
   slots: {
-    columnClasses: [],
-    wrapper: ['flex', 'justify-center', 'items-center'],
+    columnClasses: ['mb-4', 'w-full'],
     content: ['mx-auto', 'my-0'],
-    inner: ['border', '!border-dark-gray'],
-    imageWrapper: ['border-b', 'border-dark-gray', 'flex', 'justify-center', 'items-center'],
-    contentWrapper: ['text-left', 'p-l', 'm-auto'],
-    eyebrowText: ['font-modern', 'text-black', 'text-xxs', 'font-regular', 'mb-xxs', 'opacity-80'],
-    headingText: ['font-modern', 'text-black', 'text-4xl', 'font-bold', 'mb-xxs'],
-    subHeadingText: ['font-modern', 'text-black', 'text-m', 'font-bold', 'mb-xxs', 'opacity-80'],
-    descriptionText: [
-      'font-modern',
-      'text-black',
-      'text-xs',
-      'font-regular',
-      'mb-xxs',
-      'opacity-90',
-    ],
-    ctaWrapper: ['flex', 'gap-xxs', 'flex-wrap', 'justify-normal'],
+    contentWrapper: ['m-auto', 'p-l', 'text-left'],
+    ctaWrapper: ['flex', 'flex-wrap', 'gap-xxs', 'justify-normal'],
     ctaButton1: [
+      'bg-gray',
       'flex',
+      'font-bold',
+      'font-modern',
       'items-center',
       'justify-center',
       'px-s',
       'py-xs',
       'rounded',
-      'bg-gray',
+      'text-button',
       'text-center',
       'text-white',
-      'font-modern',
-      'text-button',
-      'font-bold',
     ],
     ctaButton2: [
+      'border-gray',
+      'border',
       'flex',
+      'font-bold',
+      'font-modern',
       'items-center',
       'justify-center',
       'p-xs',
       'rounded',
-      'border',
-      'border-gray',
-      'text-center',
       'text-black',
-      'font-modern',
+      'text-center',
       'text-xs',
-      'font-bold',
     ],
+    descriptionText: [
+      'font-modern',
+      'font-regular',
+      'mb-xxs',
+      'opacity-90',
+      'text-black',
+      'text-xs',
+    ],
+    eyebrowText: ['font-modern', 'font-regular', 'mb-xxs', 'opacity-80', 'text-black', 'text-xxs'],
+    headingText: ['font-bold', 'font-modern', 'mb-xxs', 'text-4xl', 'text-black'],
+    imageWrapper: ['border-b', 'border-dark-gray', 'flex', 'items-center', 'justify-center'],
+    inner: ['border', '!border-dark-gray'],
+    subHeadingText: ['font-bold', 'font-modern', 'mb-xxs', 'opacity-80', 'text-black', 'text-m'],
+    wrapper: ['flex', 'items-center', 'justify-center'],
   },
   variants: {
     cardsPerRow: {
@@ -81,73 +87,60 @@ const tailwindVariants = tv({
   },
 });
 
+export type CardProps = ComponentProps &
+  HztlPageContent.Card & { cardsPerRow?: CardListCardsPerRows };
+
 const Card = (props: CardProps): JSX.Element => {
-  if (!props?.fields) {
-    return <MissingDataSource {...props} />;
-  }
-  const id = props?.params?.RenderingIdentifier;
+  const { CardImage, CardLink1, CardLink2, Description, Eyebrow, Heading, Subheading } =
+    props?.fields || {};
+  const { RenderingIdentifier } = props?.params || {};
 
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
   const {
     columnClasses,
-    wrapper,
     content,
-    inner,
-    imageWrapper,
     contentWrapper,
-    eyebrowText,
-    headingText,
-    subHeadingText,
-    descriptionText,
-    ctaWrapper,
     ctaButton1,
     ctaButton2,
+    ctaWrapper,
+    descriptionText,
+    eyebrowText,
+    headingText,
+    imageWrapper,
+    inner,
+    subHeadingText,
+    wrapper,
   } = tailwindVariants({
     cardsPerRow: props.cardsPerRow,
   });
 
+  /*
+   * Rendering
+   */
+
+  if (!props?.fields) <MissingDataSource {...props} />;
+
   return (
     <div
-      data-component="authorable/general/card"
-      className={`w-full mb-4 ${columnClasses()}`}
-      id={id ? id : undefined}
+      className={columnClasses()}
+      data-component="authorable/shared/hztl-page-content/card"
+      id={RenderingIdentifier}
     >
       <div className={wrapper()}>
         <div className={content()}>
           <div className={inner()}>
             <div className={imageWrapper()}>
-              <ImageWrapper field={props?.fields?.CardImage} />
+              <ImageWrapper field={CardImage} />
             </div>
             <div className={contentWrapper()}>
-              <PlainTextWrapper
-                className={eyebrowText()}
-                field={props?.fields?.Eyebrow}
-                tag="h6"
-                editable
-              />
-              <RichTextWrapper className={headingText()} field={props?.fields?.Heading} tag="h2" />
-              <RichTextWrapper
-                className={subHeadingText()}
-                field={props?.fields?.Subheading}
-                tag="div"
-              />
-              <RichTextWrapper
-                className={descriptionText()}
-                field={props?.fields?.Description}
-                tag="div"
-              />
+              <PlainTextWrapper className={eyebrowText()} editable field={Eyebrow} tag="h6" />
+              <RichTextWrapper className={headingText()} field={Heading} tag="h2" />
+              <RichTextWrapper className={subHeadingText()} field={Subheading} tag="div" />
+              <RichTextWrapper className={descriptionText()} field={Description} tag="div" />
               <div className={ctaWrapper()}>
-                <LinkWrapper
-                  className={ctaButton1()}
-                  field={props?.fields?.CardLink1}
-                  ctaStyle={styles.cta1}
-                />
-                <LinkWrapper
-                  className={ctaButton2()}
-                  field={props?.fields?.CardLink2}
-                  ctaStyle={styles.cta2}
-                />
+                <LinkWrapper className={ctaButton1()} ctaStyle={styles.cta1} field={CardLink1} />
+                <LinkWrapper className={ctaButton2()} ctaStyle={styles.cta2} field={CardLink2} />
               </div>
             </div>
           </div>

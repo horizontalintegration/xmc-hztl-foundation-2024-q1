@@ -1,34 +1,47 @@
-import React from 'react';
-import { ComponentProps } from 'lib/component-props';
+// Global
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
-import { parseStyleParams } from 'lib/utils/style-param-utils';
-import { withStandardComponentWrapper } from 'helpers/HOC';
+import React from 'react';
 import { tv } from 'tailwind-variants';
+
+// Lib
+import { ComponentProps } from 'lib/component-props';
+import { parseStyleParams } from 'lib/utils/style-param-utils';
+
+// Local
+import { withStandardComponentWrapper } from 'helpers/HOC';
 
 export type CardListProps = ComponentProps;
 
+/*
+ * Tailwind Variants
+ */
+
 const tailwindVariants = tv({
   slots: {
-    base: ['component', 'row', 'column-splitter'],
+    base: ['column-splitter', 'component', 'row'],
     wrapper: ['row'],
   },
 });
 
 const CardList = (props: CardListProps): JSX.Element => {
+  const { RenderingIdentifier } = props?.params || {};
+
   const styles = parseStyleParams(props.params, ['cards']);
 
   const { base, wrapper } = tailwindVariants();
 
-  const id = props?.params?.RenderingIdentifier;
-  const phKey = `cardlist`;
+  /*
+   * Rendering
+   */
+
   return (
-    <div className={base()} id={id ? id : undefined}>
+    <div className={base()} id={RenderingIdentifier}>
       <div>
         <div className={wrapper()}>
           <Placeholder
-            name={phKey}
-            rendering={props.rendering}
             cardsPerRow={styles.cards?.cardsPerRow}
+            name="cardlist"
+            rendering={props.rendering}
           />
         </div>
       </div>
