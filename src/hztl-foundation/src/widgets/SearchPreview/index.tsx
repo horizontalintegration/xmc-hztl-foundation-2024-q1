@@ -65,7 +65,7 @@ export const PreviewSearchBasicComponent = ({
     }
   }, [router]);
 
-  const routePushToSearch = (pathName: string = '', queary: string = '', hash: string = '') => {
+  const routePushToSearch = (pathName: string, queary: string, hash: string) => {
     router.push(
       {
         pathname: pathName,
@@ -78,7 +78,7 @@ export const PreviewSearchBasicComponent = ({
   };
 
   const onResetText = () => {
-    routePushToSearch(window.location.pathname);
+    routePushToSearch(window.location.pathname, '', '');
     setSearchText('');
     setCommitedSearchText('');
     onKeyPhrase();
@@ -97,7 +97,7 @@ export const PreviewSearchBasicComponent = ({
     if (hasSearchFromSearchPage) {
       setCommitedSearchText(searchText);
     } else {
-      routePushToSearch('search', 'q=' + searchText);
+      routePushToSearch('search', 'q=' + searchText, '');
     }
   };
 
@@ -107,7 +107,7 @@ export const PreviewSearchBasicComponent = ({
       setCommitedSearchText(searchText);
       onKeyPhrase(searchText);
     } else {
-      routePushToSearch('search', 'q=' + searchText);
+      routePushToSearch('search', 'q=' + searchText, '');
     }
   };
 
@@ -132,7 +132,7 @@ export const PreviewSearchBasicComponent = ({
               className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
               onClick={onResetText}
             >
-              <SvgIcon icon="close" />
+              <SvgIcon size="xs" icon="close" />
             </div>
           )}
         </div>
@@ -206,7 +206,7 @@ export const PreviewSearchBasicComponent = ({
                           href={article.url}
                           className="flex flex-col box-border no-underline w-full text-black"
                         >
-                          <div className='p-2'>
+                          <div className="p-2">
                             <ArticleCard.Root className="flex w-full p-2 cursor-pointer gap-x-2">
                               <div className="search-content space-y-2 w-3/4">
                                 <ArticleCard.Title className="w-full overflow-hidden text-base font-normal">
