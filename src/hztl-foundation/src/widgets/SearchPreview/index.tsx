@@ -97,7 +97,7 @@ export const PreviewSearchBasicComponent = ({
             // type="submit"
             className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
           >
-            <SvgIcon icon="outline-search" className="w-s h-s" />
+            <SvgIcon icon="outline-search" className="w-s h-s" size="xs" />
           </div>
         </div>
       </PreviewSearchStyled.Form>
