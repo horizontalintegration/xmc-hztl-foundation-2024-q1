@@ -14,7 +14,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
   const { HeaderData, selectedCountry, setSelectedCountry } = props;
   const { item } = HeaderData;
   const [dropdownOpen, setDropdownOpen] = useState<null | number>(null);
-
+  const router = useRouter();
   const [showSearch, setShowSearch] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -79,6 +79,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
                         handleDropdownToggle(index);
                         setShowSearch(false);
                       }}
+                      router={router.asPath}
                       dropdownOpen={dropdownOpen}
                       isScrolled={isScrolled}
                     />
@@ -105,7 +106,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
                     }}
                   >
                     {/* temporary disabling these for version 2 enhancement */}
-                  {/* <SvgIcon icon="outline-search" className="w-s h-s" /> */}
+                  <SvgIcon icon="outline-search" size="xs" />
                   {/* </button> */}
                 </div>
               </div>
@@ -131,11 +132,27 @@ interface NavItemInterface extends NavigationItem {
   dropdownOpen: number | null;
   index: number;
   isScrolled: boolean;
+  router: string;
 }
 const NavItem = (props: NavItemInterface) => {
+  const [isActive, setIsActive] = useState(false);
   const isList = props?.megaMenuList.items.length > 0;
-  const router = useRouter();
-  const isActive = router.asPath === props?.navigationLink?.jsonValue?.value?.href;
+  const navigationLinks = props?.navigationLink?.jsonValue?.value?.href;
+  useEffect(() => {
+    if (isList) {
+      const hrefValues = props.megaMenuList.items
+        .flatMap((category) => category.megaMenuLinks.items)
+        .map((linkItem) => linkItem.link.jsonValue.value.href)
+        .filter((href) => href);
+      setIsActive(hrefValues.includes(props.router));
+    } else {
+      const _isActive = props.router === navigationLinks;
+      setIsActive(_isActive);
+    }
+  }, [navigationLinks, props.router]);
+  const rotationClass = isList && props.index === props.dropdownOpen ? '-rotate-90' : 'rotate-90';
+  const strokeClass = isActive ? 'stroke-white' : 'stroke-black';
+
   return (
     <li className="list-none ml-xs" role="presentation">
       <div
@@ -156,25 +173,17 @@ const NavItem = (props: NavItemInterface) => {
         ) : (
           <button
             onClick={() => isList && props.open()}
-            className="text-black text-xs lg:text-s font-semibold cursor-pointer group-hover:underline"
+            className={`text-xs lg:text-s font-semibold cursor-pointer group-hover:underline ${isActive ? 'text-white' : 'text-black'}`}
             role="menuitem"
             aria-haspopup="true"
           >
             <div className="flex items-center flex-row gap-xs">
               <PlainTextWrapper field={props.navigationTitle.jsonValue} />
-              {isList && props.index === props.dropdownOpen ? (
-                <SvgIcon
-                  className="-rotate-90 stroke-black w-s h-auto"
-                  icon={'arrow-right'}
-                  size="xs"
-                />
-              ) : (
-                <SvgIcon
-                  className="rotate-90 stroke-black w-s h-auto"
-                  icon={'arrow-right'}
-                  size="xs"
-                />
-              )}
+              <SvgIcon
+                className={`${rotationClass} ${strokeClass} w-s h-auto`}
+                icon="arrow-right"
+                size="xs"
+              />
             </div>
           </button>
         )}

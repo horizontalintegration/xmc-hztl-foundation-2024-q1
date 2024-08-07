@@ -36,9 +36,17 @@ const CountrySelector = ({
             <span className="ml-3 block font-normal truncate">{selectedCountryData.name}</span>
             <span className="ml-3">
               {dropdownOpen ? (
-                <SvgIcon className="-rotate-90 stroke-black w-s h-auto" icon={'arrow-right'} />
+                <SvgIcon
+                  className="-rotate-90 stroke-black w-s h-auto"
+                  icon={'arrow-right'}
+                  size="xs"
+                />
               ) : (
-                <SvgIcon className="rotate-90 stroke-black w-s h-auto" icon={'arrow-right'} />
+                <SvgIcon
+                  className="rotate-90 stroke-black w-s h-auto"
+                  icon={'arrow-right'}
+                  size="xs"
+                />
               )}
             </span>
           </div>

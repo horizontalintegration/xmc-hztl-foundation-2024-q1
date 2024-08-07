@@ -61,7 +61,7 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
           className="component px-0 pb-l"
         >
           <nav aria-label="Breadcrumb">
-            <ul className="flex md:items-center list !m-0 gap-xs flex-col md:flex-row">
+            <ul className="flex flex-wrap md:items-center list !m-0 gap-xs">
               {ancestors
                 ?.slice()
                 .reverse()

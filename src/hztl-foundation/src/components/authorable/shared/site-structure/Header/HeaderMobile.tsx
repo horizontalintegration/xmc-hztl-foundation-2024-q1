@@ -105,6 +105,7 @@ interface NavItemInterface extends NavigationItem {
 }
 const NavItem = (props: NavItemInterface) => {
   const isList = props.megaMenuList.items.length > 0;
+  const rotationClass = isList && props.index === props.dropdownOpen ? '-rotate-90' : 'rotate-90';
   return (
     <li className="relative group px-s py-xs list-none m-0" role="presentation">
       {!isList ? (
@@ -126,10 +127,9 @@ const NavItem = (props: NavItemInterface) => {
           <span>{props.name}</span>
           <span className="flex">
             <SvgIcon
-              icon={'chevron-down'}
-              className={`w-auto h-auto chevron-transform ${
-                props.dropdownOpen === props.index ? 'active rotate-180 text-[#2F2D2E]' : ''
-              }`}
+              className={`${rotationClass} stroke-black w-s h-auto`}
+              icon="arrow-right"
+              size="xs"
             />
           </span>
         </button>
