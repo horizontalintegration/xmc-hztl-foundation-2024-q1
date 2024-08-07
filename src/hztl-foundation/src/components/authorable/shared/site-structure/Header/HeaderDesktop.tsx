@@ -85,14 +85,14 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
                 </ul>
               </div>
               <div className="w-[50%] flex justify-end items-center">
-                <div className="">
+                <div className="w-[50%] flex justify-end">
                   <CountrySelector
                     countryData={item?.country?.targetItems}
                     selectedCountry={selectedCountry}
                     setSelectedCountry={setSelectedCountry}
                   />
                 </div>
-                <div className="flex w-[60%]">
+                <div className="flex w-[50%]">
                   <PreviewSearchListComponent rfkId={'rfkid_101'} defaultItemsPerPage={5} />
                   {/* <button
                     className={`flex flex-row hover:bg-grayscale-w-200 p-s rounded-full cursor-pointer ${

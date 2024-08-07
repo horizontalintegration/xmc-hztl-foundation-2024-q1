@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './_react-modal.css';
 @import './_rte.css';
 
 /*
@@ -33,44 +34,44 @@
 }
 
 .hamburger-lines .line {
-  @apply bg-black;
+  background-color: black;
 }
 
-.toggle-menu .hamburger-button[aria-expanded='true'] .line1 {
-  @apply rotate-45;
+.toggle-menu input[type='checkbox']:checked~.hamburger-lines .line1 {
+  transform: rotate(45deg);
 }
 
-.toggle-menu .hamburger-button[aria-expanded='true'] .line2 {
-  @apply scale-y-0;
+.toggle-menu input[type='checkbox']:checked~.hamburger-lines .line2 {
+  transform: scaleY(0);
 }
 
-.toggle-menu .hamburger-button[aria-expanded='true'] .line3 {
-  @apply -rotate-45;
+.toggle-menu input[type='checkbox']:checked~.hamburger-lines .line3 {
+  transform: rotate(-45deg);
 }
 
 .chevron-transform {
   @apply transition-transform duration-100;
 }
 
-a {
+/* a {
   font-weight: 600;
   color: #6ba69e;
-}
+} */
 
-a:hover {
+/* a:hover {
   color: #055164;
   text-decoration: underline;
-}
+} */
 
-ul {
+/* ul {
   margin: 20px;
-}
+} */
 
-ul li {
+/* ul li {
   color: inherit;
   margin-left: 20px;
   list-style-type: disc;
-}
+} */
 
 h3,
 .rte-heading {
@@ -97,15 +98,15 @@ p>span {
 
 /* Sitecore search */
 .search-wrapper>div:first-of-type {
-  @apply !z-10 md: !px-5 !px-0
+  @apply !z-10 md: !px-5 !px-0;
 }
 
 .bvfPE {
-  @apply !h-auto
+  @apply !h-auto;
 }
 
 .fLNHNB {
-  @apply !flex !flex-col !gap-xs !py-xs !px-m !-mx-xs !border-b !bg-white
+  @apply !flex !flex-col !gap-xs !py-xs !px-m !-mx-xs !border-b !bg-white;
 }
 
 .fquAsK {
