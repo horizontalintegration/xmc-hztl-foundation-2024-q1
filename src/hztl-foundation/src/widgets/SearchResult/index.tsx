@@ -154,24 +154,11 @@ const Filter = () => {
       <div className="flex flex-col mb-2 gap-4">
         <div
           onClick={onClearFilters}
-          className="clear-filter cursor-pointer flex gap-2 text-base font-medium text-black underline text-opacity-75 hover:text-indigo-500 hover:opacity-1 focus:outline-indigo-500"
+          className="clear-filter cursor-pointer flex gap-1 items-center text-base font-medium text-black underline text-opacity-75 hover:text-indigo-500 hover:opacity-1 focus:outline-indigo-500"
         >
           <span className="cursor-pointer">Reset Filters</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 10 10"
-            fill="none"
-          >
-            <path
-              d="M1 9L9 1M1 1L9 9"
-              stroke="#2F2D2E"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
+
+          <SvgIcon size="xs" icon="close" />
         </div>
       </div>
       <div className="flex flex-wrap">
@@ -335,6 +322,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                     height="9"
                     viewBox="0 0 16 9"
                     fill="none"
+                    // className={`transition-transform duration-200 ${activeIndex === fIndex ? '' : 'rotate-180'}`}
                   >
                     <path
                       d="M1 8L8 0.999999L15 8"
@@ -348,7 +336,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
               </AccordionFacets.Header>
             </div>
 
-            <AccordionFacets.Content className="">
+            <AccordionFacets.Content>
               <AccordionFacets.ValueList className="list-none mt-2 flex flex-col justify-start space-y-4">
                 <div className="search-textbox relative w-full">
                   <input
