@@ -4,6 +4,7 @@ import type {
   ActionProp,
   ItemClickedAction,
   SearchResponseFacet,
+  SearchResponseFacetItem,
   SearchResponseSortChoice,
   SearchResultsInitialState,
   SearchResultsStoreState,
@@ -26,6 +27,8 @@ import {
 } from '@sitecore-search/ui';
 import { urlToFacet, useEnsureFacetUrl } from './use-ensure-facet-url';
 import PreviewSearchListComponent from '../SearchPreview';
+import { ChangeEvent, useEffect, useState } from 'react';
+import { SvgIcon } from 'helpers/SvgIconWrapper';
 
 type ArticleCardItemCardProps = {
   className?: string;
@@ -66,6 +69,14 @@ interface ValueFacet {
 }
 type SelectedFacet = RangeFacet | ValueFacet;
 
+interface FacetPaginationItem {
+  label: string;
+  name: string;
+  value: Array<SearchResponseFacetItem>;
+  itemToLoad: number;
+}
+type FacepPagination = FacetPaginationItem;
+
 const DEFAULT_IMG_URL = 'https://placehold.co/500x300?text=No%20Image'; // TODO: Update with corresponding fallback image
 const buildRangeLabel = (min: number | undefined, max: number | undefined): string => {
   return typeof min === 'undefined'
@@ -89,21 +100,39 @@ const ArticleHorizontalItemCard = ({
   return (
     <ArticleCard.Root
       key={article.id}
-      className={`group flex flex-row my-4 flex-nowrap max-h-52 w-full relative space-x-4 ${className}`}
+      className={`group flex flex-row flex-nowrap w-full relative gap-x-6 py-4 ${className}`}
     >
-      <div className="w-[70%] pl-4 grow flex-col gap-2">
-        <ArticleCard.Title className="text-4xl font-bold line-clamp-1">
+      <div className="w-[70%] space-y-2">
+        <span className="text-[12px] font-normal">Eyebrow</span>
+        <ArticleCard.Title className="font-modern text-4xl font-bold line-clamp-1">
           {article.title || 'Headline'}
         </ArticleCard.Title>
-        <ArticleCard.Subtitle className="mt-3 text-gray-500 text-2xl line-clamp-1">
+        <ArticleCard.Subtitle className="mt-3 text-gray-500 text-[20px] font-normal line-clamp-1">
           {article.name || 'Subhead'}
         </ArticleCard.Subtitle>
         {article.description && displayText && (
-          <div className="line-clamp-3 mt-3 text-base">{article.description}</div>
+          <div className="line-clamp-3 text-sm">{article.description}</div>
         )}
-        <a className="underline text-base font-bold cursor-pointer" href={article.url}>
-          Read more
-        </a>
+        <div className="read-more flex items-center gap-2">
+          <a className="underline text-base font-bold cursor-pointer" href={article.url}>
+            Read more
+          </a>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="7"
+            height="12"
+            viewBox="0 0 7 12"
+            fill="none"
+          >
+            <path
+              d="M1 1.33341L5.66667 6.00008L1 10.6667"
+              stroke="#2F2D2E"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
       </div>
       <div className="w-[30%] md:w-1/5 overflow-hidden bg-gray-200 ">
         <ArticleCard.Image
@@ -121,7 +150,7 @@ const Filter = () => {
   const selectedFacetsFromApi = useSearchResultsSelectedFilters();
   const { onRemoveFilter, onClearFilters } = useSearchResultsActions();
   return selectedFacetsFromApi.length > 0 ? (
-    <div className="mb-4">
+    <div>
       <div className="flex flex-col mb-2 gap-4">
         <div
           onClick={onClearFilters}
@@ -218,6 +247,69 @@ const QueryResultsSummary = ({ totalItems }: QueryResultsSummaryProps) => {
 // };
 
 const SearchFacets = ({ facets }: SearchFacetsProps) => {
+  const ITEM_TO_LOAD = 5;
+  const [facetsPagination, setFacetsPagination] = useState<FacepPagination[] | undefined>(
+    undefined
+  );
+
+  useEffect(() => {
+    const facetsPagination: FacepPagination[] = [];
+    facets.map((f) => {
+      const obj = {
+        name: f.name,
+        value: f.value,
+        label: f.label,
+        itemToLoad: ITEM_TO_LOAD,
+      };
+      facetsPagination.push(obj);
+    });
+    setFacetsPagination(facetsPagination);
+  }, [facets]);
+
+  const onShowMore = (index: number) => {
+    setFacetsPagination((prevFacetsPagination) => {
+      if (!prevFacetsPagination) return [];
+
+      const newFacetsPagination = [...prevFacetsPagination];
+      const item = { ...newFacetsPagination[index] };
+      item.itemToLoad = ITEM_TO_LOAD + item.itemToLoad;
+      newFacetsPagination[index] = item;
+
+      return newFacetsPagination;
+    });
+  };
+
+  const onFacetSearch = (e: ChangeEvent<HTMLInputElement>, index: number) => {
+    const facetSearchText = e.target.value;
+    if (facetSearchText) {
+      setFacetsPagination((prevFacetsPagination) => {
+        if (!prevFacetsPagination) return [];
+
+        const newFacetsPagination = [...prevFacetsPagination];
+        const item = { ...newFacetsPagination[index] };
+        const filteredItems = item.value.filter((x) => {
+          return x.text.toLocaleLowerCase().match(facetSearchText.toLocaleLowerCase());
+        });
+        item.value = filteredItems;
+        newFacetsPagination[index] = item;
+
+        return newFacetsPagination;
+      });
+    } else {
+      const facetsPagination: FacepPagination[] = [];
+      facets.map((f) => {
+        const obj = {
+          name: f.name,
+          value: f.value,
+          label: f.label,
+          itemToLoad: ITEM_TO_LOAD,
+        };
+        facetsPagination.push(obj);
+      });
+      setFacetsPagination(facetsPagination);
+    }
+  };
+
   const { onFacetClick } = useSearchResultsActions();
   return (
     <SearchResultsAccordionFacets
@@ -226,45 +318,119 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
       onFacetValueClick={onFacetClick}
       className=""
     >
-      {facets.map((f) => (
-        <AccordionFacets.Facet
-          facetId={f.name}
-          key={f.name}
-          className="block mb-2 pb-4 border-gray-200 w-full border p-4 gap-2 rounded"
-        >
-          <AccordionFacets.Header className="flex">
-            <AccordionFacets.Trigger className="text-sm md:text-base font-semibold focus:outline-indigo-500">
-              {f.label}
-            </AccordionFacets.Trigger>
-          </AccordionFacets.Header>
-          <AccordionFacets.Content className="mt-8">
-            <AccordionFacets.ValueList className="list-none mt-2 flex flex-col space-y-2">
-              {f.value.map((v, index: number) => (
-                <FacetItem
-                  {...{
-                    index,
-                    facetValueId: v.id,
-                  }}
-                  key={v.id}
-                  className="group flex items-center text-sm cursor-pointer w-full"
-                >
-                  <div className="facetlabel justify-between w-11/12">
-                    <AccordionFacets.ItemCheckbox className="form-checkbox flex-none w-5 h-5 border border-gray-300 rounded cursor-pointer transition duration-500 ease-in-out hover:border-heading focus:outline-indigo-500 aria-checked:bg-indigo-500 aria-checked:hover:bg-heading aria-checked:focus:bg-heading">
-                      <AccordionFacets.ItemCheckboxIndicator className="text-white w-5 h-5 ">
-                        <CheckIcon />
-                      </AccordionFacets.ItemCheckboxIndicator>
-                    </AccordionFacets.ItemCheckbox>
-                    <AccordionFacets.ItemLabel className="text-sm ms-1 -mt-0.5">
-                      {v.text}
-                    </AccordionFacets.ItemLabel>
+      {facetsPagination &&
+        facetsPagination.map((f, fIndex: number) => (
+          <AccordionFacets.Facet
+            facetId={f.name}
+            key={f.name}
+            className="mb-2 border-gray-200 w-full border gap-2 rounded px-4 py-4"
+          >
+            <div className="facets-header">
+              <AccordionFacets.Header className="flex">
+                <AccordionFacets.Trigger className="flex items-center justify-between w-full font-normal text-base">
+                  {f.label}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="9"
+                    viewBox="0 0 16 9"
+                    fill="none"
+                  >
+                    <path
+                      d="M1 8L8 0.999999L15 8"
+                      stroke="#2F2D2E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </AccordionFacets.Trigger>
+              </AccordionFacets.Header>
+            </div>
+
+            <AccordionFacets.Content className="">
+              <AccordionFacets.ValueList className="list-none mt-2 flex flex-col justify-start space-y-4">
+                <div className="search-textbox relative w-full">
+                  <input
+                    type="text"
+                    onChange={(e) => onFacetSearch(e, fIndex)}
+                    placeholder="Search"
+                    className="w-full rounded border px-2 h-[48px] border-black"
+                    // Add padding-right to make room for the icon
+                  />
+                  <div className="magnifier-icon absolute top-1/2 right-2 transform -translate-y-1/2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 18 18"
+                      fill="none"
+                    >
+                      <path
+                        d="M15.75 15.75L11.25 11.25M12.75 7.5C12.75 10.3995 10.3995 12.75 7.5 12.75C4.60051 12.75 2.25 10.3995 2.25 7.5C2.25 4.60051 4.60051 2.25 7.5 2.25C10.3995 2.25 12.75 4.60051 12.75 7.5Z"
+                        stroke="#2F2D2E"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                   </div>
-                  <div className="facetcount w-">{v.count && `(${v.count})`}</div>
-                </FacetItem>
-              ))}
-            </AccordionFacets.ValueList>
-          </AccordionFacets.Content>
-        </AccordionFacets.Facet>
-      ))}
+                </div>
+
+                {f.value.slice(0, f.itemToLoad).map((v, index: number) => (
+                  <FacetItem
+                    {...{
+                      index,
+                      facetValueId: v.id,
+                    }}
+                    key={v.id}
+                    className="group flex text-sm cursor-pointer w-full"
+                  >
+                    <div className="facetlabel justify-between w-11/12">
+                      <AccordionFacets.ItemCheckbox className="form-checkbox flex-none w-5 h-5 border border-gray-300 rounded cursor-pointer transition duration-500 ease-in-out hover:border-heading focus:outline-indigo-500 aria-checked:bg-indigo-500 aria-checked:hover:bg-heading aria-checked:focus:bg-heading">
+                        <AccordionFacets.ItemCheckboxIndicator className="text-white w-5 h-5 ">
+                          <CheckIcon />
+                        </AccordionFacets.ItemCheckboxIndicator>
+                      </AccordionFacets.ItemCheckbox>
+                      <AccordionFacets.ItemLabel className="font-normal text-base font-modern ms-1">
+                        {v.text}
+                      </AccordionFacets.ItemLabel>
+                    </div>
+                    <div className="facetcount font-normal text-base text-dark-gray">
+                      {v.count && `(${v.count})`}
+                    </div>
+                  </FacetItem>
+                ))}
+                {!(f.value.length > f.itemToLoad) ||
+                  (f.value.length > ITEM_TO_LOAD && (
+                    <div
+                      onClick={() => {
+                        onShowMore(fIndex);
+                      }}
+                      className="cursor-pointer show-more-facets flex gap-1 items-center w-11/12"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="11"
+                        viewBox="0 0 12 11"
+                        fill="none"
+                      >
+                        <path
+                          d="M6 1V5.5M6 5.5V10M6 5.5H10.5M6 5.5L1.5 5.5"
+                          stroke="#2F2D2E"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      <h2 className="underline">Show more</h2>
+                    </div>
+                  ))}
+              </AccordionFacets.ValueList>
+            </AccordionFacets.Content>
+          </AccordionFacets.Facet>
+        ))}
     </SearchResultsAccordionFacets>
   );
 };
@@ -513,27 +679,29 @@ export const SearchResultsWithInputComponent = ({
                 <PreviewSearchListComponent
                   rfkId={'rfkid_101'}
                   defaultItemsPerPage={5}
-                  hasShowMoreFunc={true}
+                  hasSearchFromSearchPage={true}
                 />
               </div>
               <div className="sort-order flex flex-col gap-4">
-                <h3 className="text-sm md:text-base font-semibold">Refine By</h3>
-                <label className="text-base font-bold" htmlFor="sorting">
-                  Sort
-                </label>
-                <div id="sorting" className="sort-wrapper border rounded px-2">
-                  <SortOrder options={sortChoices} selected={sortType} />
+                <h3 className="font-normal text-lg font-modern">Refine By</h3>
+                <div className="sort gap-1">
+                  <label className="text-base font-bold" htmlFor="sorting">
+                    Sort
+                  </label>
+                  <div id="sorting" className="sort-wrapper border rounded px-2">
+                    <SortOrder options={sortChoices} selected={sortType} />
+                  </div>
                 </div>
               </div>
-              <div className="filter">
-                <Filter />
-              </div>
-              <div className="search-facets">
-                <label htmlFor="facets" className="text-base font-bold">
-                  Filter
-                </label>
-                <SearchFacets facets={facets} />
-              </div>
+              <Filter />
+              {facets.length > 0 && (
+                <div className="search-facets">
+                  <label htmlFor="facets" className="text-base font-bold">
+                    Filter
+                  </label>
+                  <SearchFacets facets={facets} />
+                </div>
+              )}
             </section>
             <section className="flex flex-col flex-[4_1_0%] gap-4 font-modern md:p-4">
               {/* Sort Select */}
@@ -550,7 +718,7 @@ export const SearchResultsWithInputComponent = ({
               </section>
 
               {/* Results */}
-              <div className="w-full">
+              <div className="w-full gap-x-6">
                 {articles.map((a, index) => (
                   <>
                     <ArticleHorizontalItemCard
@@ -573,7 +741,7 @@ export const SearchResultsWithInputComponent = ({
         {totalItems <= 0 && !isFetching && (
           <>
             <section className="flex flex-col flex-none relative gap-4 mr-8 w-full md:w-[25%] font-modern">
-              <div className="relative block w-full my-4">
+              <div className="relative block w-full">
                 {/* <form id="searchSubmit" onSubmit={onHandle}>
                   <input
                     onChange={(e) => keyphraseChangeFn(e)}

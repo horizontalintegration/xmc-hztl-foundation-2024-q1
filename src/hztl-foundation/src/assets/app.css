@@ -53,25 +53,25 @@
   @apply transition-transform duration-100;
 }
 
-a {
+/* a {
   font-weight: 600;
   color: #6ba69e;
-}
+} */
 
-a:hover {
+/* a:hover {
   color: #055164;
   text-decoration: underline;
-}
+} */
 
-ul {
+/* ul {
   margin: 20px;
-}
+} */
 
-ul li {
+/* ul li {
   color: inherit;
   margin-left: 20px;
   list-style-type: disc;
-}
+} */
 
 h3,
 .rte-heading {
