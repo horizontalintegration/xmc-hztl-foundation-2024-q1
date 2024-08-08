@@ -82,3 +82,13 @@ a:hover {
     margin-bottom: 45px;
   }
 }
+
+button[data-state='closed'] .facets-accordian-arrow {
+  transform: rotate(180deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+button[data-state='open'] .facets-accordian-arrow {
+  transform: rotate(0deg);
+  transition: transform 0.2s ease-in-out;
+}
