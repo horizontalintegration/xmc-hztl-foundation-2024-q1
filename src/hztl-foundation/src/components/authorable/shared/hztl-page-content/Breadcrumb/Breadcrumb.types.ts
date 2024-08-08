@@ -1,13 +1,22 @@
 import { ComponentRendering, Field } from '@sitecore-jss/sitecore-jss-nextjs';
 
-export type BreadcrumbInfo = {
-  Title: {
-    jsonValue: Field<string>;
+export type BreadcrumbDataType = {
+  rendering: ComponentRendering;
+  staticProps: {
+    currentPage: BreadcrumbInfo & {
+      ancestors: BreadcrumbInfo[];
+    };
   };
+};
+
+export type BreadcrumbInfo = {
+  disabledLinkNames: NavLinks;
   pageUrl: {
     link: string;
   };
-  disabledLinkNames: NavLinks;
+  Title: {
+    jsonValue: Field<string>;
+  };
 };
 
 export type NavFilter = {
@@ -21,13 +30,4 @@ export type NavLinks = {
   pageUrl: {
     link: string;
   };
-};
-
-export type BreadcrumbDataType = {
-  staticProps: {
-    currentPage: BreadcrumbInfo & {
-      ancestors: BreadcrumbInfo[];
-    };
-  };
-  rendering: ComponentRendering;
 };

@@ -1,76 +1,112 @@
+// Global
+import { Text, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import React, { useState } from 'react';
-import { Text } from '@sitecore-jss/sitecore-jss-nextjs';
+import { tv } from 'tailwind-variants';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+
+// Local
+import MissingDataSource from 'helpers/EditingHelpText/MissingDataSource';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
-import { useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 
 export type AccordionProps = ComponentProps & HztlPageContent.AccordionItem;
 
+const tailwindVariants = tv({
+  slots: {
+    base: ['border-t', 'border-solid', 'border-t-gray', 'overflow-hidden'],
+    buttonWrapper: [
+      'cursor-pointer',
+      'duration-300',
+      'flex',
+      'font-bold',
+      'items-center',
+      'justify-between',
+      'p-xs',
+      'text-sub-heading',
+      'w-full',
+    ],
+    contentContainer: ['flex-auto', 'min-h-px', 'p-xs'],
+    icon: ['fa', 'fa-chevron-down'],
+    iconWrapper: ['transform', 'transition-transform'],
+    richTextWrapper: ['font-normal', 'mb-0', 'p-s', 'text-s'],
+  },
+  variants: {
+    isOpen: {
+      false: {
+        iconWrapper: [],
+      },
+      true: {
+        iconWrapper: ['rotate-180'],
+      },
+    },
+  },
+});
+
 export const Default = (props: AccordionProps): JSX.Element => {
-  const [isOpen, setIsOpen] = useState(false);
+  const { content, heading } = props?.fields || {};
+  const { uid } = props?.rendering || {};
+
   const context = useSitecoreContext();
 
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  };
+  /*
+   * State
+   */
 
-  const id = props?.rendering?.uid;
+  const [isOpen, setIsOpen] = useState(false);
 
-  if (props.fields) {
-    return (
-      <div className="component accordion my-8 border-b-gray border-b border-solid">
-        <div
-          className="overflow-hidden border-t-gray border-t border-solid"
-          data-component="authorable/general/accordion"
-        >
-          <div>
-            <button
-              className="w-full font-bold text-sub-heading flex items-center cursor-pointer justify-between duration-300 p-xs"
-              type="button"
-              aria-expanded={isOpen}
-              id={'accordion-' + id}
-              onClick={toggleAccordion}
-            >
-              <Text field={props?.fields?.heading} tag="h3" />
-              <span className={`transition-transform transform ${isOpen ? 'rotate-180' : ''}`}>
-                <i className="fa fa-chevron-down"></i>
-              </span>
-            </button>
-            {context?.sitecoreContext?.pageEditing ? (
-              <div
-                className="flex-auto min-h-px p-xs"
-                role="region"
-                aria-labelledby={'accordion-' + id}
-              >
-                <RichTextWrapper
-                  field={props?.fields?.content}
-                  className="mb-0 text-s font-normal p-s"
-                  aria-required={isOpen}
-                />
-                {props?.fields?.content?.value}
-              </div>
-            ) : (
-              isOpen && (
-                <div
-                  className="flex-auto min-h-px p-xs"
-                  role="region"
-                  aria-labelledby={'accordion-' + id}
-                >
-                  <RichTextWrapper
-                    field={props?.fields?.content}
-                    className="mb-0 text-s font-normal p-s"
-                    aria-required={isOpen}
-                  />
-                </div>
-              )
-            )}
-          </div>
-        </div>
-      </div>
-    );
+  /*
+   * Convenience Methods
+   */
+
+  const toggleAccordion = () => setIsOpen(!isOpen);
+
+  /*
+   * Rendering
+   */
+
+  if (!props?.fields) {
+    return <MissingDataSource {...props} />;
   }
-  return <></>;
+
+  const { base, buttonWrapper, icon, iconWrapper, contentContainer, richTextWrapper } =
+    tailwindVariants({
+      isOpen,
+    });
+
+  return (
+    <div className={base()} data-component="authorable/shared/hztl-page-content/accordion">
+      <div>
+        <button
+          aria-expanded={isOpen}
+          className={buttonWrapper()}
+          id={`accordion-${uid}`}
+          onClick={toggleAccordion}
+          type="button"
+        >
+          <Text field={heading} tag="h3" />
+          <span className={iconWrapper()}>
+            <i className={icon()} />
+          </span>
+        </button>
+        {context?.sitecoreContext?.pageEditing ? (
+          <div aria-labelledby={`accordion-${uid}`} className={contentContainer()} role="region">
+            <RichTextWrapper aria-required={isOpen} className={richTextWrapper()} field={content} />
+            {content?.value}
+          </div>
+        ) : (
+          isOpen && (
+            <div aria-labelledby={`accordion-${uid}`} className={contentContainer()} role="region">
+              <RichTextWrapper
+                aria-required={isOpen}
+                className={richTextWrapper()}
+                field={content}
+              />
+            </div>
+          )
+        )}
+      </div>
+    </div>
+  );
 };
