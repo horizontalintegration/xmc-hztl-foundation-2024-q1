@@ -580,7 +580,7 @@ export const SearchResultsWithInputComponent = ({
 
   return (
     <div ref={widgetRef}>
-      <div className="flex sm:flex-col md:flex-row relative max-w-full px-4 text-black text-opacity-75 gap-4">
+      <div className="flex sm:flex-col mmd:flex-row relative max-w-full px-4 text-black text-opacity-75 gap-4">
         {isFetching && (
           <div className="w-full h-full fixed top-0 left-0 bottom-0 right-0 z-30 bg-white opacity-50">
             <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] flex flex-col justify-center items-center z-40">
@@ -594,13 +594,13 @@ export const SearchResultsWithInputComponent = ({
               onClick={() => {
                 setMobileFilterToogle(!mobileFilterToogle);
               }}
-              className={`md:hidden flex items-center justify-center w-full border rounded px-2 h-12 gap-2`}
+              className={`mmd:hidden flex items-center justify-center w-full border rounded px-2 h-12 gap-2`}
             >
               <span className="font-medium text-base">Refine By</span>
               <SvgIcon icon="refine" viewBox="0 0 24 24" size="lg" fill="none" />
             </div>
             <section
-              className={`${mobileFilterToogle ? 'block' : 'hidden'} flex-col flex-none relative md:gap-4 gap-4 mr-8 w-full lg:w-[25%] font-modern md:block`}
+              className={`${mobileFilterToogle ? 'block' : 'hidden'} flex-col flex-none relative md:gap-4 gap-4 mr-8 w-full mmd:w-[40%] lg:w-[25%] font-modern mmd:block`}
             >
               <div className="relative block w-full my-4">
                 {/* <form id="searchSubmit" onSubmit={onHandle}>
