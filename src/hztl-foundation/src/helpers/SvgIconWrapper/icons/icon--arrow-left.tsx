@@ -2,7 +2,7 @@ const IconArrow = (): JSX.Element => {
   return (
     <>
       <path
-        d="M1 1.33341L5.66667 6.00008L1 10.6667"
+        d="M8 15L1 8L8 1"
         stroke="#2F2D2E"
         stroke-width="2"
         stroke-linecap="round"

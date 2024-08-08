@@ -62,7 +62,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
               selectedCountry={selectedCountry}
               setSelectedCountry={setSelectedCountry}
             />
-            <BurgurIcon
+            <Hamburger
               toggleHamburger={toggleHamburger}
               toggleSearch={toggleSearch}
               openMenu={openMenu}
@@ -169,7 +169,7 @@ export const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInter
   );
 };
 
-const BurgurIcon = ({
+const Hamburger = ({
   toggleHamburger,
   toggleSearch,
   openMenu,
