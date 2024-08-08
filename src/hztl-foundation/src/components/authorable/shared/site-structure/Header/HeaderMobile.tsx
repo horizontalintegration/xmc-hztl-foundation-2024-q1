@@ -2,14 +2,13 @@ import { useRef, useState } from 'react';
 import { HeaderPropsComponent, MegaMenuCategoryInterface, NavigationItem } from './headerInterface';
 import { Logo } from './HeaderDesktop';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
-import CountrySelector from 'helpers/Forms/CountrySelector';
 import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
 import useOutsideClick from 'src/hooks/useClickOutside';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 
 const HeaderMobile = (props: HeaderPropsComponent) => {
-  const { HeaderData, selectedCountry, setSelectedCountry } = props;
+  const { HeaderData } = props;
   const { item } = HeaderData;
   const [dropdownOpen, setDropdownOpen] = useState<null | number>(null);
   const [showSearch, setShowSearch] = useState(false);
@@ -58,10 +57,6 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
         <div className="flex justify-between p-s">
           <Logo logo={logo.jsonValue} logoLink={logoLink.jsonValue} />
           <div className="flex items-center gap-4">
-            <CountrySelector
-              selectedCountry={selectedCountry}
-              setSelectedCountry={setSelectedCountry}
-            />
             <Hamburger
               toggleHamburger={toggleHamburger}
               toggleSearch={toggleSearch}
@@ -105,6 +100,7 @@ interface NavItemInterface extends NavigationItem {
 }
 const NavItem = (props: NavItemInterface) => {
   const isList = props.megaMenuList.items.length > 0;
+  const rotationClass = isList && props.index === props.dropdownOpen ? '-rotate-90' : 'rotate-90';
   return (
     <li className="relative group px-s py-xs list-none m-0" role="presentation">
       {!isList ? (
@@ -126,10 +122,9 @@ const NavItem = (props: NavItemInterface) => {
           <span>{props.name}</span>
           <span className="flex">
             <SvgIcon
-              icon={'chevron-down'}
-              className={`w-auto h-auto chevron-transform ${
-                props.dropdownOpen === props.index ? 'active rotate-180 text-[#2F2D2E]' : ''
-              }`}
+              className={`${rotationClass} stroke-black w-s h-auto`}
+              icon="arrow-right"
+              size="xs"
             />
           </span>
         </button>

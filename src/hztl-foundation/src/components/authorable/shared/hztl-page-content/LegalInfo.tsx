@@ -36,7 +36,7 @@ export const Default = (props: LegalInfoProps): JSX.Element => {
             {props?.fields?.legalMenu?.map((navLink, index) => (
               <div key={index} className="flex items-center">
                 <LinkWrapper
-                  className="p-xxs font-modern text-center text-gray text-text-link font-bold"
+                  className="p-xxs font-modern text-center text-black text-text-link font-bold"
                   field={{
                     ...navLink?.fields?.legalLink,
                   }}

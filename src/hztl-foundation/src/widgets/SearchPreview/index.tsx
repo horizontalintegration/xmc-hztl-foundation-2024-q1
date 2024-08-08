@@ -148,6 +148,23 @@ export const PreviewSearchBasicComponent = ({
         ref={widgetRef}
         className="flex justify-center pt-0 shadow-[2px_5px_5px_5px_rgba(0,0,0,0.3)] transition-opacity	w-[var(--radix-popover-trigger-width)] bg-white z-10"
       >
+        <div className="relative w-full">
+          <PreviewSearchStyled.Input
+            className="!w-full !pl-xs pr-s  py-1 border border-black rounded-sm focus:outline-none focus:border-blue-500"
+            onChange={keyphraseHandler}
+            autoComplete="off"
+            placeholder="Type to search..."
+            defaultValue={defaultValue ?? '*'}
+          />
+          <div
+            // type="submit"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+          >
+            <SvgIcon icon="outline-search" className="w-s h-s" size="xs" />
+          </div>
+        </div>
+      </PreviewSearchStyled.Form>
+      <PreviewSearchStyled.Content ref={widgetRef}>
         <Presence present={loading}>
           <div className="flex flex-1 items-center">
             <svg
