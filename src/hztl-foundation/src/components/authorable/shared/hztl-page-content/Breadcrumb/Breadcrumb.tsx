@@ -134,9 +134,6 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
 
   const graphQLClient = graphqlClientFactory({});
 
-  if (['normal', 'preview'].includes(pageState || ''))
-    return 'Component is not available in Experience Editor';
-
   const result = await graphQLClient.request<unknown>(BreadcrumbQuery, {
     datasource: rendering.dataSource,
     itemID: layoutData?.sitecore?.route?.itemId,
