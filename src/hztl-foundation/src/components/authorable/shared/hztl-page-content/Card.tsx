@@ -135,9 +135,9 @@ const Card = (props: CardProps): JSX.Element => {
             </div>
             <div className={contentWrapper()}>
               <PlainTextWrapper className={eyebrowText()} editable field={Eyebrow} tag="h6" />
-              <RichTextWrapper className={headingText()} field={Heading} tag="h2" />
-              <RichTextWrapper className={subHeadingText()} field={Subheading} tag="div" />
-              <RichTextWrapper className={descriptionText()} field={Description} tag="div" />
+              <RichTextWrapper className={headingText()} field={Heading} />
+              <RichTextWrapper className={subHeadingText()} field={Subheading} />
+              <RichTextWrapper className={descriptionText()} field={Description} />
               <div className={ctaWrapper()}>
                 <LinkWrapper className={ctaButton1()} ctaStyle={styles.cta1} field={CardLink1} />
                 <LinkWrapper className={ctaButton2()} ctaStyle={styles.cta2} field={CardLink2} />
