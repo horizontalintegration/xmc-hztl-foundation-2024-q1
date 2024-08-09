@@ -132,7 +132,7 @@ export const PreviewSearchBasicComponent = ({
               className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
               onClick={onResetText}
             >
-              <SvgIcon size="lg" icon="close" />
+              <SvgIcon size="xs" viewBox="0 0 12 12" fill="none" icon="close" />
             </div>
           )}
         </div>
@@ -140,7 +140,7 @@ export const PreviewSearchBasicComponent = ({
           onClick={onShowMoreResult}
           className="magnifier-search flex justify-center w-[15%] border-l-0 border-x border-y mx-auto items-center cursor-pointer"
         >
-          <SvgIcon icon="magnifier" size="lg" viewBox="0 0 18 18" fill="none" />
+          <SvgIcon icon="magnifier" size="xs" viewBox="0 0 18 18" fill="none" />
         </div>
       </div>
 

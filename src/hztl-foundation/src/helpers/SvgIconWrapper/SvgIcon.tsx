@@ -63,9 +63,8 @@ const SvgIcon = ({
   return (
     <svg
       className={svgIconClasses({ className, size })}
-      fill="currentColor"
-      // viewBox="0 -960 960 960"
-      viewBox="0 0 1024 1024"
+      fill={fill}
+      viewBox={viewBox}
       xmlns="http://www.w3.org/2000/svg"
     >
       <IconContent />

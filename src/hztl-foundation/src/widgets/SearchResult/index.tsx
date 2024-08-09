@@ -324,7 +324,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                     className="w-full rounded border px-2 h-[48px] border-black"
                   />
                   <div className="magnifier-icon absolute top-1/2 right-2 transform -translate-y-1/2">
-                    <SvgIcon icon="magnifier" size="lg" viewBox="0 0 18 18" fill="none" />
+                    <SvgIcon icon="magnifier" size="xs" viewBox="0 0 18 18" fill="none" />
                   </div>
                 </div>
                 {f.value.slice(0, f.itemToLoad).map((v, index: number) => (
@@ -433,7 +433,7 @@ const SortOrder = ({ options, selected }: SortOrderProps) => {
           {selectedSortIndex > -1 ? options[selectedSortIndex].label : ''}
         </SortSelect.SelectValue>
         {/* <SortSelect.Icon /> */}
-        <SvgIcon icon="sorting" viewBox="0 0 24 24" size="lg" />
+        <SvgIcon icon="sorting" viewBox="0 0 24 24" size="xs" />
       </SortSelect.Trigger>
       <SortSelect.Content className="bg-white shadow-[4px_4px_8px_#CFCFCF] z-[100] absolute top-6 focus-within:border-indigo-500 w-full ">
         <SortSelect.Viewport className="p-1 z-[50000]">
@@ -615,9 +615,11 @@ export const SearchResultsWithInputComponent = ({
                 className={`mmd:hidden flex items-center justify-center w-full border rounded px-2 h-12 gap-2`}
               >
                 <span className="font-medium text-base">Refine By</span>
-                <SvgIcon icon="refine" viewBox="0 0 24 24" size="lg" fill="none" />
+                <SvgIcon icon="refine" viewBox="0 0 24 24" size="xs" fill="none" />
               </div>
-              <div className={`refineby-container ${mobileFilterToogle ? 'block' : 'hidden'} mmd:block`}>
+              <div
+                className={`refineby-container ${mobileFilterToogle ? 'block' : 'hidden'} mmd:block`}
+              >
                 <div className="sort-order flex flex-col gap-4">
                   <h3 className="font-normal text-lg font-modern">Refine By</h3>
                   <div className="sort gap-1">
