@@ -119,7 +119,9 @@ const Card = (props: CardProps): JSX.Element => {
    * Rendering
    */
 
-  if (!props?.fields) <MissingDataSource {...props} />;
+  if (!props?.fields) {
+    return <MissingDataSource {...props} />;
+  }
 
   return (
     <div
