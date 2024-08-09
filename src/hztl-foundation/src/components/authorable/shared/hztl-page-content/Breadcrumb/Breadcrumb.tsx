@@ -51,94 +51,90 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
     return <MissingDataSource {...staticProps} usesGraphQL={true} />;
   }
 
+  if (!Title?.jsonValue?.value || !ancestors.length) {
+    return (
+      <MissingDataSource
+        {...staticProps}
+        experienceEditorText="The title or ancestors data are missing"
+      />
+    );
+  }
+
   return (
-    <>
-      {Title?.jsonValue?.value && ancestors.length && (
-        <div
-          className={base()}
-          data-component="authorable/shared/hztml-page-content/breadcrumb"
-          data-testid="breadcrumbs"
-          className="component px-0 pb-l"
-        >
-          <nav aria-label="Breadcrumb">
-            <ul className="flex flex-wrap md:items-center list !m-0 gap-xs">
-              {ancestors
-                ?.slice()
-                .reverse()
-                .map((itm, index: React.Key | null | undefined) => {
-                  let hideBreadcrumb = false;
+    <div
+      className={base()}
+      data-component="authorable/shared/hztml-page-content/breadcrumb"
+      data-testid="breadcrumbs"
+    >
+      <nav aria-label="Breadcrumb">
+        <ul className={listWrapper()}>
+          {ancestors
+            ?.slice()
+            .reverse()
+            .map((itm, index: React.Key | null | undefined) => {
+              let hideBreadcrumb = false;
 
-                  itm?.disabledLinkNames?.names?.map((disitm) => {
-                    if (disitm?.field?.disabled?.value === 'breadcrumb') hideBreadcrumb = true;
-                  });
+              itm?.disabledLinkNames?.names?.map((disitm) => {
+                if (disitm?.field?.disabled?.value === 'breadcrumb') hideBreadcrumb = true;
+              });
 
-                  if (hideBreadcrumb) return;
+              if (hideBreadcrumb) return;
 
-                  const { pageUrl, Title } = itm || {};
+              const { pageUrl, Title } = itm || {};
 
-                  return (
-                    itm?.Title?.jsonValue?.value &&
-                    itm?.pageUrl?.link && (
-                      <li key={index} className={`list-none !ml-0`}>
-                        <LinkWrapper
-                          className={linkWrapperStyles()}
-                          field={{
-                            value: {
-                              href: pageUrl?.link,
-                              text: Title?.jsonValue?.value,
-                              title: Title?.jsonValue?.value,
-                            },
-                          }}
-                          gtmEvent={{
-                            event: 'link',
-                            type: 'breadcrumb',
-                            'gtm.element.dataset.gtmDatasourceId': dataSource,
-                            'gtm.element.dataset.gtmComponentName': componentName,
-                          }}
-                        >
-                          <div className={iconWrapper()}>
-                            <SvgIcon className={iconStyles()} icon="arrow-right" />
-                          </div>
-                        </LinkWrapper>
-                      </li>
-                    )
-                  );
-                })}
-              {Title?.jsonValue?.value && ancestors.length > 0 && (
-                <li
-                  className={`flex items-center list-none !ml-0 text-xs text-dark-gray`}
-                  aria-current="true"
-                >
-                  <Text
-                    encode={false}
-                    field={{
-                      value: Title?.jsonValue?.value,
-                    }}
-                    tag="span"
-                  />
-                </li>
-              )}
-            </ul>
-          </nav>
-          <div
-            style={{
-              // TODO: Extract this to the Tailwind config.
-              background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.00) -4.17%, #FFF 104.17%)',
-            }}
-          />
-        </div>
-      )}
-    </>
+              return (
+                pageUrl?.link &&
+                Title?.jsonValue?.value && (
+                  // TODO: Replace 'index' as they key with...something else. (At current, no guaranteed unique values are available as part of "itm".)
+                  <li className={listItemLinkWrapper()} key={index}>
+                    <LinkWrapper
+                      className={linkWrapperStyles()}
+                      field={{
+                        value: {
+                          href: pageUrl?.link,
+                          text: Title?.jsonValue?.value,
+                          title: Title?.jsonValue?.value,
+                        },
+                      }}
+                      gtmEvent={{
+                        event: 'link',
+                        type: 'breadcrumb',
+                        'gtm.element.dataset.gtmDatasourceId': dataSource,
+                        'gtm.element.dataset.gtmComponentName': componentName,
+                      }}
+                    >
+                      <div className={iconWrapper()}>
+                        <SvgIcon className={iconStyles()} icon="arrow-right" />
+                      </div>
+                    </LinkWrapper>
+                  </li>
+                )
+              );
+            })}
+
+          <li aria-current="true" className={listItemTextWrapper()}>
+            <Text
+              encode={false}
+              field={{
+                value: Title?.jsonValue?.value,
+              }}
+              tag="span"
+            />
+          </li>
+        </ul>
+      </nav>
+      <div
+        style={{
+          // TODO: Extract this to the Tailwind config.
+          background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.00) -4.17%, #FFF 104.17%)',
+        }}
+      />
+    </div>
   );
 };
 
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
-  const { pageState } = layoutData?.sitecore?.context || {};
-
   const graphQLClient = graphqlClientFactory({});
-
-  if (['normal', 'preview'].includes(pageState || ''))
-    return 'Component is not available in Experience Editor';
 
   const result = await graphQLClient.request<unknown>(BreadcrumbQuery, {
     datasource: rendering.dataSource,
