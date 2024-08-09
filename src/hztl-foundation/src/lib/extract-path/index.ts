@@ -17,7 +17,9 @@ export class PathExtractor {
     if (params === undefined) {
       return '/';
     }
+    /* eslint-disable */
     let path = Array.isArray(params.path) ? params.path.join('/') : params.path ?? '/';
+    /* eslint-enable */
 
     // Ensure leading '/'
     if (!path.startsWith('/')) {
