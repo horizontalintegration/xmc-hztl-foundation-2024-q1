@@ -92,3 +92,39 @@ button[data-state='open'] .facets-accordian-arrow {
   transform: rotate(0deg);
   transition: transform 0.2s ease-in-out;
 }
+
+
+/* Contact US Form */
+.content input[type='checkbox'],
+.content input[type='radio'],
+.rich-text input {
+  width: 20px !important;
+  height: auto !important;
+}
+
+.checkbox-field .form-input-element,
+.radio-field .form-input-element,
+.content input:active,
+.rich-text input:active {
+  padding: 9px !important;
+}
+
+.content input:focus,
+.rich-text input:focus {
+  width: 100%;
+  border: none;
+}
+
+.content button:hover,
+.rich-text button:hover,
+.content button,
+.rich-text button {
+  width: 12em;
+  height: auto;
+  color: black;
+}
+
+.content button:hover {
+  background-color: white !important;
+  padding: 11px 16px !important;
+}

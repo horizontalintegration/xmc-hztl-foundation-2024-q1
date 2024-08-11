@@ -54,7 +54,7 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
                       <LinkWrapper
                         field={props?.fields?.primaryCTA}
                         aria-label={props?.fields?.primaryCTA?.value.text}
-                        className="w-32 h-12 rounded content-center text-center bg-gray text-white text-button font-bold"
+                        className="w-32 h-12 rounded content-center text-center bg-black text-white text-button font-bold"
                       ></LinkWrapper>
                       <LinkWrapper
                         field={props?.fields?.secondaryCTA}
