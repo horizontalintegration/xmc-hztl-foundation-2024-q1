@@ -224,7 +224,7 @@ const DropdownMenu = ({
                   </h2>
                   <ul>
                     {category.megaMenuLinks.items.map((item, i) => (
-                      <li className="list-none -ml-s mb-xxs" key={i} role="presentation">
+                      <li className="list-none mb-xxs" key={i} role="presentation">
                         <LinkWrapper
                           role="menuitem"
                           field={item.link.jsonValue}

@@ -24,15 +24,15 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
   const handleDropdownToggle = (index: number | null) => {
     setDropdownOpen(dropdownOpen === index ? null : index);
   };
-  const toggleHamburger = () => {
-    setShowSearch(false);
-    setOpenMenu(!openMenu);
-  };
+  // const toggleHamburger = () => {
+  //   setShowSearch(false);
+  //   setOpenMenu(!openMenu);
+  // };
 
-  const toggleSearch = () => {
-    setOpenMenu(!openMenu);
-    setShowSearch(true);
-  };
+  // const toggleSearch = () => {
+  //   setOpenMenu(!openMenu);
+  //   setShowSearch(true);
+  // };
 
   if (!item) {
     return (
@@ -169,59 +169,59 @@ export const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInter
   );
 };
 
-const Hamburger = ({
-  toggleHamburger,
-  toggleSearch,
-  openMenu,
-}: {
-  toggleHamburger: () => void;
-  toggleSearch: () => void;
-  openMenu: boolean;
-}) => {
-  return (
-    <ul className="flex justify-center">
-      <li className="toggle-menu relative mt-0 flex w-s items-center justify-center">
-        <button
-          className="hamburger-button items-center align-middle absolute right-0 z-[2] block h-m w-[17px] cursor-pointer"
-          aria-label="Toogle Search"
-          aria-expanded={openMenu}
-          onClick={() => toggleSearch()}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-            <path
-              d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-              stroke="black"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </button>
-      </li>
-      <li className="toggle-menu relative mb-2 flex w-s items-center justify-center">
-        <button
-          className="hamburger-button absolute right-0 z-[2] block h-m w-[17px] cursor-pointer"
-          aria-label="Toggle Menu"
-          aria-expanded={openMenu}
-          onClick={() => toggleHamburger()}
-        >
-          <div className="hamburger-lines absolute right-0 z-[1] flex h-xs w-[17px] flex-col justify-between">
-            <span
-              className={`line line1 block h-0.5 w-full origin-[1px_1.5px] duration-300 ease-in-out`}
-            ></span>
-            <span className={`line line2 block h-0.5 w-full duration-100 ease-in-out`}></span>
-            <span
-              className={`line line3 block h-0.5 w-full origin-[2px_1px] duration-300 ease-in-out`}
-            ></span>
-          </div>
-        </button>
-      </li>
-    </ul>
-  );
-};
+// const Hamburger = ({
+//   toggleHamburger,
+//   toggleSearch,
+//   openMenu,
+// }: {
+//   toggleHamburger: () => void;
+//   toggleSearch: () => void;
+//   openMenu: boolean;
+// }) => {
+//   return (
+//     <ul className="flex justify-center">
+//       <li className="toggle-menu relative mt-0 flex w-s items-center justify-center">
+//         <button
+//           className="hamburger-button items-center align-middle absolute right-0 z-[2] block h-m w-[17px] cursor-pointer"
+//           aria-label="Toogle Search"
+//           aria-expanded={openMenu}
+//           onClick={() => toggleSearch()}
+//         >
+//           <svg
+//             xmlns="http://www.w3.org/2000/svg"
+//             width="24"
+//             height="24"
+//             viewBox="0 0 24 24"
+//             fill="none"
+//           >
+//             <path
+//               d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+//               stroke="black"
+//               stroke-width="2"
+//               stroke-linecap="round"
+//               stroke-linejoin="round"
+//             />
+//           </svg>
+//         </button>
+//       </li>
+//       <li className="toggle-menu relative mb-2 flex w-s items-center justify-center">
+//         <button
+//           className="hamburger-button absolute right-0 z-[2] block h-m w-[17px] cursor-pointer"
+//           aria-label="Toggle Menu"
+//           aria-expanded={openMenu}
+//           onClick={() => toggleHamburger()}
+//         >
+//           <div className="hamburger-lines absolute right-0 z-[1] flex h-xs w-[17px] flex-col justify-between">
+//             <span
+//               className={`line line1 block h-0.5 w-full origin-[1px_1.5px] duration-300 ease-in-out`}
+//             ></span>
+//             <span className={`line line2 block h-0.5 w-full duration-100 ease-in-out`}></span>
+//             <span
+//               className={`line line3 block h-0.5 w-full origin-[2px_1px] duration-300 ease-in-out`}
+//             ></span>
+//           </div>
+//         </button>
+//       </li>
+//     </ul>
+//   );
+// };

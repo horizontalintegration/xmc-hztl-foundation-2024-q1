@@ -112,7 +112,7 @@ button[data-state='open'] .facets-accordian-arrow {
 .content input:focus,
 .rich-text input:focus {
   width: 100%;
-  border: none;
+  border: 2px solid gray;
 }
 
 .content button:hover,
