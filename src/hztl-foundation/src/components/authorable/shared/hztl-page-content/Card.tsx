@@ -9,7 +9,6 @@ import { parseStyleParams } from 'lib/utils/style-param-utils';
 import { CardListCardsPerRows } from 'lib/utils/style-param-utils/modules/cards';
 
 // Local
-import MissingDataSource from 'helpers/EditingHelpText/MissingDataSource';
 import { withStandardComponentWrapper } from 'helpers/HOC';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
@@ -120,7 +119,7 @@ const Card = (props: CardProps): JSX.Element => {
    */
 
   if (!props?.fields) {
-    return <MissingDataSource {...props} />;
+    return <></>;
   }
 
   return (

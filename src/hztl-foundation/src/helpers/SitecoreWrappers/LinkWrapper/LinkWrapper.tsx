@@ -94,7 +94,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
     if (isEditing && editable)
       return (
         // Adding the CSS classes to a wrapping div so we can include the icon
-        <div className={`${base()} ${className}`}>
+        <div className={`${base()} ${className ? className : ''}`}>
           <Link
             {...props}
             field={field}
@@ -116,7 +116,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
     return (
       <NextLink
         {...props}
-        className={`${base()} ${className}`}
+        className={`${base()} ${className ? className : ''}`}
         data-component="helpers/sitecorewrappers/linkwrapper"
         href={{ pathname: href, query: querystring, hash: anchor }}
         onClick={() => handleOnClick()}
@@ -131,7 +131,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
           <>
             <span className="sr-only">
               {/* Preserve a single space character before SR Tab Text */}
-              {`${srOnlyText}${target === '_blank' && ' (Opens in a new tab)'}`}
+              {`${srOnlyText ? srOnlyText : ''}${target === '_blank' && ' (Opens in a new tab)'}`}
             </span>
             {!suppressNewTabIcon && target === '_blank' && NEW_TAB_ICON}
           </>

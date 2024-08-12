@@ -14,7 +14,6 @@ import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
-import MissingDataSource from 'helpers/EditingHelpText/MissingDataSource';
 
 export type CarouselItemProps = ComponentProps & ItemEx & HztlPageContent.CarouselItem;
 
@@ -93,7 +92,7 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
    */
 
   if (!props?.fields) {
-    return <MissingDataSource {...props} />;
+    return <></>;
   }
 
   return (

@@ -10,6 +10,7 @@ import { ComponentProps } from 'lib/component-props';
 // Local
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { withStandardComponentWrapper } from 'helpers/HOC';
 
 export type CarouselProps = ComponentProps & HztlPageContent.CarouselItem;
 
@@ -46,7 +47,7 @@ const tailwindVariants = tv({
   },
 });
 
-export const Default = (props: CarouselProps): JSX.Element => {
+const Carousel = (props: CarouselProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
   const phKey = `carousel`;
 
@@ -124,3 +125,5 @@ export const Default = (props: CarouselProps): JSX.Element => {
     </div>
   );
 };
+
+export const Default = withStandardComponentWrapper(Carousel, false);
