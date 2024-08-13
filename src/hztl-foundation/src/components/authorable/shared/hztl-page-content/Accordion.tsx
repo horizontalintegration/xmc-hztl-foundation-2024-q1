@@ -1,9 +1,5 @@
-// Global
-import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import React from 'react';
-import { tv } from 'tailwind-variants';
-
-// Lib
+import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { ComponentProps } from 'lib/component-props';
 
 // Local
@@ -25,12 +21,13 @@ const Accordion = (props: AccordionProps): JSX.Element => {
   const { base } = tailwindVariants();
 
   return (
-    <Placeholder
-      name="accordion"
-      render={(components) => <div className={base()}>{components}</div>}
-      renderEmpty={() => <></>}
-      rendering={props.rendering}
-    />
+    <>
+      {props?.rendering?.placeholders?.accordion?.length !== 0 && (
+        <div className="component accordion my-8 border-b-gray border-b border-solid">
+          <Placeholder name={phKey} rendering={props.rendering} />
+        </div>
+      )}
+    </>
   );
 };
 

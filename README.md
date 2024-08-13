@@ -1,43 +1,27 @@
-# HZTL Solutions Squad
+# XM Cloud Starter Kit (Next JS)
 
-Welcome to the HZTL Solutions Squad Site. This project serves as a development resource for DX engineers building applications for our clients.
+## QUICK START
 
-## Live Site
-[Visit the live site](https://hztl-foundation-site-alpha.vercel.app/)
+1. In an ADMIN terminal:
 
-## Live Storybook
-[Visit Storybook](https://xmc-hztl-foundation-storybook.vercel.app)
-
-## Repository
-[Github Repository](https://github.com/horizontalintegration/xmc-hztl-foundation-2024-q1)
-
-## Branching Strategy
-- **Develop Branch:** If you want to contribute, please branch off from the `main` branch.
-- **Main Branch:** The `main` branch is the production branch.
-
-## Setup
-To get started with the project, follow these steps:
-
-1. Switch to the required Node version:
-    ```bash
-    nvm use 18.19.1 or higher
+    ```ps1
+    .\init.ps1 -InitEnv -LicenseXmlPath "C:\path\to\license.xml" -AdminPassword "DesiredAdminPassword"
     ```
 
-2. Install the dependencies(src/hztl-foundation/src):
-    ```bash
-    npm install
+2. Restart your terminal and run:
+
+    ```ps1
+    .\up.ps1
     ```
 
-3. Start the local development server:
-    ```bash
-    npm run start:connected
-    ```
+3. Follow the instructions to [deploy to XM Cloud](#deploy-to-xmcloud)
 
-4. Start the Storybook locally:
-    ```bash
-    npm run storybook
-    ```
+4. Create Edge token and [query from edge](#query-edge)
 
----
+*** 
 
-Thank you for contributing to the HZTL Solutions Squad project. Your efforts will help us accelerate development in headless Sitecore implementations!
+## About this Solution
+This solution is designed to help developers learn and get started quickly
+with XMCLoud + SXA.
+
+

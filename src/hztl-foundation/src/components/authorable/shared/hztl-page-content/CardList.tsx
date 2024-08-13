@@ -1,47 +1,24 @@
-// Global
-import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import React from 'react';
-import { tv } from 'tailwind-variants';
-
-// Lib
 import { ComponentProps } from 'lib/component-props';
+import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
-
-// Local
 import { withStandardComponentWrapper } from 'helpers/HOC';
 
 export type CardListProps = ComponentProps;
 
-/*
- * Tailwind Variants
- */
-
-const tailwindVariants = tv({
-  slots: {
-    base: ['column-splitter', 'component', 'row'],
-    wrapper: ['row'],
-  },
-});
-
 const CardList = (props: CardListProps): JSX.Element => {
-  const { RenderingIdentifier } = props?.params || {};
-
   const styles = parseStyleParams(props.params, ['cards']);
 
-  const { base, wrapper } = tailwindVariants();
-
-  /*
-   * Rendering
-   */
-
+  const id = props?.params?.RenderingIdentifier;
+  const phKey = `cardlist`;
   return (
-    <div className={base()} id={RenderingIdentifier}>
+    <div className={`component row column-splitter`} id={id ? id : undefined}>
       <div>
-        <div className={wrapper()}>
+        <div className="row">
           <Placeholder
-            cardsPerRow={styles.cards?.cardsPerRow}
-            name="cardlist"
+            name={phKey}
             rendering={props.rendering}
+            cardsPerRow={styles.cards?.cardsPerRow}
           />
         </div>
       </div>
