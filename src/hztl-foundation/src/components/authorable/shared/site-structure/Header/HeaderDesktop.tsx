@@ -63,7 +63,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
           <div className="h-m w-full bg-grayscale-w-600"></div>
           <div
             className={`md:max-w-screen-xl xl:mx-auto px-s transition-all duration-200 ${
-              isScrolled ? 'py-0' : 'py-xxs'
+              isScrolled ? 'py-xs' : 'py-m'
             }`}
           >
             <div className="flex justify-between items-center w-full">
