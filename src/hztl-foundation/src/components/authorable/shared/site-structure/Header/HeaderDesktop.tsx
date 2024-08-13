@@ -150,7 +150,7 @@ const NavItem = (props: NavItemInterface) => {
       setIsActive(_isActive);
     }
   }, [navigationLinks, props.router]);
-  const rotationClass = isList && props.index === props.dropdownOpen ? '-rotate-90' : 'rotate-90';
+  const rotationClass = isList && props.index === props.dropdownOpen ? 'rotate-0' : 'rotate-180';
   const strokeClass = isActive ? 'stroke-white' : 'stroke-black';
 
   return (
@@ -177,12 +177,14 @@ const NavItem = (props: NavItemInterface) => {
             role="menuitem"
             aria-haspopup="true"
           >
-            <div className="flex items-center flex-row gap-xs">
+            <div className="flex items-center flex-row gap-2">
               <PlainTextWrapper field={props.navigationTitle.jsonValue} />
               <SvgIcon
-                className={`${rotationClass} ${strokeClass} w-s h-auto`}
-                icon="arrow-right"
+                viewBox="0 0 16 9"
+                className={`trasition duration-200 ${rotationClass} ${strokeClass} w-s h-auto`}
+                icon="chevron-up"
                 size="xs"
+                fill="none"
               />
             </div>
           </button>
