@@ -1,4 +1,4 @@
-import { FooterProps } from 'components/authorable/shared/site-structure/Footer/Footer';
+import { FooterProps } from 'components/authorable/shared/site-structure/footer/Footer';
 
 export const defaultData: FooterProps = {
   rendering: {

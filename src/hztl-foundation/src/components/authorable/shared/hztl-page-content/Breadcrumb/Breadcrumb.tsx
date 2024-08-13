@@ -9,7 +9,6 @@ import graphqlClientFactory from 'lib/graphql-client-factory';
 // Local
 import { BreadcrumbDataType } from './Breadcrumb.types';
 import BreadcrumbQuery from './Breadcrumb.graphql';
-import MissingDataSource from 'helpers/EditingHelpText/MissingDataSource';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 
@@ -46,19 +45,6 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
   /*
    * Rendering
    */
-
-  if (!staticProps?.staticProps) {
-    return <MissingDataSource {...staticProps} usesGraphQL={true} />;
-  }
-
-  if (!Title?.jsonValue?.value || !ancestors.length) {
-    return (
-      <MissingDataSource
-        {...staticProps}
-        experienceEditorText="The title or ancestors data are missing"
-      />
-    );
-  }
 
   return (
     <div

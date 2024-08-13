@@ -8,8 +8,8 @@ import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
 
 // Local
-import MissingDataSource from 'helpers/EditingHelpText/MissingDataSource';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
+import { withStandardComponentWrapper } from 'helpers/HOC';
 
 export type AccordionProps = ComponentProps & HztlPageContent.AccordionItem;
 
@@ -44,7 +44,7 @@ const tailwindVariants = tv({
   },
 });
 
-export const Default = (props: AccordionProps): JSX.Element => {
+const AccordionItem = (props: AccordionProps): JSX.Element => {
   const { content, heading } = props?.fields || {};
   const { uid } = props?.rendering || {};
 
@@ -67,7 +67,7 @@ export const Default = (props: AccordionProps): JSX.Element => {
    */
 
   if (!props?.fields) {
-    return <MissingDataSource {...props} />;
+    return <></>;
   }
 
   const { base, buttonWrapper, icon, iconWrapper, contentContainer, richTextWrapper } =
@@ -110,3 +110,5 @@ export const Default = (props: AccordionProps): JSX.Element => {
     </div>
   );
 };
+
+export const Default = withStandardComponentWrapper(AccordionItem);

@@ -6,6 +6,9 @@ import { tv } from 'tailwind-variants';
 // Lib
 import { ComponentProps } from 'lib/component-props';
 
+// Local
+import { withStandardComponentWrapper } from 'helpers/HOC';
+
 export type AccordionProps = ComponentProps;
 
 /*
@@ -18,7 +21,7 @@ const tailwindVariants = tv({
   },
 });
 
-export const Default = (props: AccordionProps): JSX.Element => {
+const Accordion = (props: AccordionProps): JSX.Element => {
   const { base } = tailwindVariants();
 
   return (
@@ -30,3 +33,5 @@ export const Default = (props: AccordionProps): JSX.Element => {
     />
   );
 };
+
+export const Default = withStandardComponentWrapper(Accordion, false);
