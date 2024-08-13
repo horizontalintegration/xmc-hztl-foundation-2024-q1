@@ -21,38 +21,25 @@ export const Default = (props: AccordionProps): JSX.Element => {
 
   if (props.fields) {
     return (
-      <div
-        className="overflow-hidden border-t-gray border-t border-solid"
-        data-component="authorable/general/accordion"
-      >
-        <div>
-          <button
-            className="w-full font-bold text-sub-heading flex items-center cursor-pointer justify-between duration-300 p-xs"
-            type="button"
-            aria-expanded={isOpen}
-            id={'accordion-' + id}
-            onClick={toggleAccordion}
-          >
-            <Text field={props?.fields?.heading} tag="h3" />
-            <span className={`transition-transform transform ${isOpen ? 'rotate-180' : ''}`}>
-              <i className="fa fa-chevron-down"></i>
-            </span>
-          </button>
-          {context?.sitecoreContext?.pageEditing ? (
-            <div
-              className="flex-auto min-h-px p-xs"
-              role="region"
-              aria-labelledby={'accordion-' + id}
+      <div className="component accordion my-8 border-b-gray border-b border-solid">
+        <div
+          className="overflow-hidden border-t-gray border-t border-solid"
+          data-component="authorable/general/accordion"
+        >
+          <div>
+            <button
+              className="w-full font-bold text-sub-heading flex items-center cursor-pointer justify-between duration-300 p-xs"
+              type="button"
+              aria-expanded={isOpen}
+              id={'accordion-' + id}
+              onClick={toggleAccordion}
             >
-              <RichTextWrapper
-                field={props?.fields?.content}
-                className="mb-0 text-s font-normal p-s"
-                aria-required={isOpen}
-              />
-              {props?.fields?.content?.value}
-            </div>
-          ) : (
-            isOpen && (
+              <Text field={props?.fields?.heading} tag="h3" />
+              <span className={`transition-transform transform ${isOpen ? 'rotate-180' : ''}`}>
+                <i className="fa fa-chevron-down"></i>
+              </span>
+            </button>
+            {context?.sitecoreContext?.pageEditing ? (
               <div
                 className="flex-auto min-h-px p-xs"
                 role="region"
@@ -63,14 +50,27 @@ export const Default = (props: AccordionProps): JSX.Element => {
                   className="mb-0 text-s font-normal p-s"
                   aria-required={isOpen}
                 />
+                {props?.fields?.content?.value}
               </div>
-            )
-          )}
+            ) : (
+              isOpen && (
+                <div
+                  className="flex-auto min-h-px p-xs"
+                  role="region"
+                  aria-labelledby={'accordion-' + id}
+                >
+                  <RichTextWrapper
+                    field={props?.fields?.content}
+                    className="mb-0 text-s font-normal p-s"
+                    aria-required={isOpen}
+                  />
+                </div>
+              )
+            )}
+          </div>
         </div>
       </div>
     );
   }
   return <></>;
 };
-
-export const Default = withStandardComponentWrapper(AccordionItem);
