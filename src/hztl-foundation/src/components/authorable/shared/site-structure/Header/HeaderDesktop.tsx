@@ -1,7 +1,7 @@
 import { ImageField, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { HeaderPropsComponent, MegaMenuCategoryInterface, NavigationItem } from './headerInterface';
 import CountrySelector from 'helpers/Forms/CountrySelector';
-import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
+import PreviewSearchListComponent from 'src/widgets/SearchPreview';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 import { useEffect, useRef, useState } from 'react';
 import useOutsideClick from 'src/hooks/useClickOutside';
@@ -65,8 +65,8 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
               isScrolled ? 'py-0' : 'py-xxs'
             }`}
           >
-            <div className="flex justify-between items-center">
-              <div className="flex items-center flex-shrink-0 px-3">
+            <div className="flex justify-between items-center w-full">
+              <div className="w-[50%] flex items-center flex-shrink-0 px-3 ">
                 <Logo logo={logo.jsonValue} logoLink={logoLink.jsonValue} />
                 <ul className="flex items-center" role="presentation">
                   {navigationList?.items?.map((item, index) => (
@@ -84,16 +84,17 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
                   ))}
                 </ul>
               </div>
-              <div className="flex items-center justify-end gap-s">
-                <div>
+              <div className="w-[50%] flex justify-end items-center">
+                <div className="w-[50%] flex justify-end">
                   <CountrySelector
                     countryData={item?.country?.targetItems}
                     selectedCountry={selectedCountry}
                     setSelectedCountry={setSelectedCountry}
                   />
                 </div>
-                <div className="flex">
-                  <button
+                <div className="flex w-[50%]">
+                  <PreviewSearchListComponent rfkId={'rfkid_101'} defaultItemsPerPage={5} />
+                  {/* <button
                     className={`flex flex-row hover:bg-grayscale-w-200 p-s rounded-full cursor-pointer ${
                       showSearch && 'bg-grayscale-w-200'
                     }`}
@@ -103,18 +104,14 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
                     }}
                   >
                     {/* temporary disabling these for version 2 enhancement */}
-                    <SvgIcon icon="outline-search" className="w-s h-s" />
-                  </button>
+                  {/* <SvgIcon icon="outline-search" className="w-s h-s" /> */}
+                  {/* </button> */}
                 </div>
               </div>
             </div>
           </div>
         </div>
-        {showSearch && (
-          <div className="w-full px-xs bg-white py-xs shadow-md">
-            <PreviewSearchBasicWidget rfkId={'rfkid_101'} defaultValue="" defaultItemsPerPage={5} />
-          </div>
-        )}
+        {showSearch && <div className="w-[25%] float-right px-xs bg-white py-xs shadow-md"></div>}
       </div>
     </div>
   );
