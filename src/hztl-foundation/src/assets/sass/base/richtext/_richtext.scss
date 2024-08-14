@@ -203,38 +203,30 @@ button {
   font-weight: 400;
   line-height: normal;
 
-  &:hover {
-    display: flex;
-    width: 200px;
-    height: 52px;
-    padding: 12px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border-radius: 4px;
-    border: 1px solid var(--Black, #2f2d2e);
-    background: var(--White, #fff);
-    color: var(--Black, var(--Primary, #2f2d2e));
-    text-align: center;
+  // &:hover {
+  //   display: flex;
+  //   width: 200px;
+  //   height: 52px;
+  //   padding: 12px 16px;
+  //   justify-content: center;
+  //   align-items: center;
+  //   gap: 8px;
+  //   border-radius: 4px;
+  //   border: 1px solid var(--Black, #2f2d2e);
+  //   background: var(--White, #fff);
+  //   color: var(--Black, var(--Primary, #2f2d2e));
+  //   text-align: center;
 
-    /* Normal Text */
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
+  //   /* Normal Text */
+  //   font-family: Inter;
+  //   font-size: 16px;
+  //   font-style: normal;
+  //   font-weight: 400;
+  //   line-height: normal;
+  // }
 }
 
 input {
-  display: flex;
-  height: 48px;
-  width: 491px;
-  padding: 12px 12px 12px 8px;
-  align-items: center;
-  gap: 90px;
-  align-self: stretch;
-
   /* css for Input text */
   color: var(--RbA-Dark-Grey, #54585a);
   font-family: 'Open Sans';
@@ -255,35 +247,16 @@ input::placeholder {
   line-height: 22px;
 }
 
-input:focus {
-  display: flex;
-  width: 491px;
-  height: 48px;
-  padding: 12px 12px 12px 8px;
-  align-items: center;
-  gap: 90px;
-  flex-shrink: 0;
-  border: 3px solid var(--AW-Andersen-Black, #000);
-}
+// input:focus {
+//   border: 3px solid var(--AW-Andersen-Black, #000);
+// }
 
 input:active {
-  display: flex;
-  height: 48px;
-  padding: 12px 12px 12px 8px;
-  align-items: center;
-  gap: 90px;
-  align-self: stretch;
-  border: 2px solid var(--AW-Andersen-Black, #000);
+  // border: 2px solid var(--AW-Andersen-Black, #000);
   background: var(--AW-White, #fff);
 }
 
 input:disabled {
-  display: flex;
-  height: 48px;
-  padding: 12px 12px 12px 8px;
-  align-items: center;
-  gap: 90px;
-  align-self: stretch;
   border: 1px solid var(--AW-Grey, #c4bfb6);
   background: var(--AW-White, #fff);
 }
@@ -299,12 +272,6 @@ input:disabled + label {
 
 /* Input tag :- error state */
 input.error {
-  display: flex;
-  height: 48px;
-  padding: 12px 12px 12px 8px;
-  align-items: center;
-  gap: 90px;
-  align-self: stretch;
   border: 2px solid var(--Alert, #ff5e5e);
   background: var(--AW-White, #fff);
 }
@@ -497,3 +464,4 @@ table {
     }
   }
 }
+
