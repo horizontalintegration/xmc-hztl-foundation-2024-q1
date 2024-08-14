@@ -37,15 +37,15 @@
   background-color: black;
 }
 
-.toggle-menu input[type='checkbox']:checked~.hamburger-lines .line1 {
+.toggle-menu input[type='checkbox']:checked ~ .hamburger-lines .line1 {
   transform: rotate(45deg);
 }
 
-.toggle-menu input[type='checkbox']:checked~.hamburger-lines .line2 {
+.toggle-menu input[type='checkbox']:checked ~ .hamburger-lines .line2 {
   transform: scaleY(0);
 }
 
-.toggle-menu input[type='checkbox']:checked~.hamburger-lines .line3 {
+.toggle-menu input[type='checkbox']:checked ~ .hamburger-lines .line3 {
   transform: rotate(-45deg);
 }
 
@@ -92,3 +92,4 @@ button[data-state='open'] .facets-accordian-arrow {
   transform: rotate(0deg);
   transition: transform 0.2s ease-in-out;
 }
+
