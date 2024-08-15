@@ -124,7 +124,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
         target={target}
         title={title || text}
       >
-        <span>{text}</span>
+        {text && <span>{text}</span>}
         {children}
         {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />}
         {(target === '_blank' || srOnlyText) && (

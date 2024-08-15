@@ -1,6 +1,6 @@
 import { CountrySelectorInterface } from 'components/authorable/shared/site-structure/Header/headerInterface';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+// import { SvgIcon } from 'helpers/SvgIconWrapper';
 import { useRef, useState } from 'react';
 import useOutsideClick from 'src/hooks/useClickOutside';
 
@@ -34,7 +34,7 @@ const CountrySelector = ({
               }}
             />
             <span className="ml-3 block font-normal truncate">{selectedCountryData.name}</span>
-            <span className="ml-3">
+            {/* <span className="ml-3">
               {dropdownOpen ? (
                 <SvgIcon
                   className="-rotate-90 stroke-black w-s h-auto"
@@ -44,11 +44,11 @@ const CountrySelector = ({
               ) : (
                 <SvgIcon
                   className="rotate-90 stroke-black w-s h-auto"
-                  icon={'arrow-right'}
+                icon={'arrow-right'}
                   size="xs"
                 />
               )}
-            </span>
+            </span> */}
           </div>
         )}
       </button>

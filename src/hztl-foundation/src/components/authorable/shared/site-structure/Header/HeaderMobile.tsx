@@ -45,7 +45,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
   }
   const { logo, logoLink, navigationList } = item;
   return (
-    <div className="block mmd:hidden">
+    <>
       {isDropdownOpen && (
         <div className="shadow-md before:fixed before:left-[0] before:top-[0] before:z-[9] before:h-full before:w-full before:bg-black/[0.5] before:backdrop-blur-sm"></div>
       )}
@@ -56,7 +56,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
         <div className="h-xs w-full bg-grayscale-w-600"></div>
         <div className="flex justify-between p-s">
           <Logo logo={logo.jsonValue} logoLink={logoLink.jsonValue} />
-          <div className="flex items-center gap-4">
+          <div className="flex items-center">
             <Hamburger
               toggleHamburger={toggleHamburger}
               toggleSearch={toggleSearch}
@@ -88,7 +88,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 export default HeaderMobile;
@@ -174,7 +174,7 @@ const Hamburger = ({
   openMenu: boolean;
 }) => {
   return (
-    <ul className="flex justify-center">
+    <ul className="flex w-full h-full justify-center gap-4 items-center">
       <li className="toggle-menu relative mt-0 flex w-s items-center justify-center">
         <button
           className="hamburger-button items-center align-middle absolute right-0 z-[2] block h-m w-[17px] cursor-pointer"
@@ -182,6 +182,7 @@ const Hamburger = ({
           aria-expanded={openMenu}
           onClick={() => toggleSearch()}
         >
+          {/* Todo: Use the SVGIcon helper component */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -192,29 +193,46 @@ const Hamburger = ({
             <path
               d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
               stroke="black"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             />
           </svg>
         </button>
       </li>
       <li className="toggle-menu relative mb-2 flex w-s items-center justify-center">
         <button
-          className="hamburger-button absolute right-0 z-[2] block h-m w-[17px] cursor-pointer"
+          className="hamburger-button absolute right-2 z-[2] block h-m w-[17px] cursor-pointer"
           aria-label="Toggle Menu"
           aria-expanded={openMenu}
           onClick={() => toggleHamburger()}
         >
-          <div className="hamburger-lines absolute right-0 z-[1] flex h-xs w-[17px] flex-col justify-between">
-            <span
-              className={`line line1 block h-0.5 w-full origin-[1px_1.5px] duration-300 ease-in-out`}
-            ></span>
-            <span className={`line line2 block h-0.5 w-full duration-100 ease-in-out`}></span>
-            <span
-              className={`line line3 block h-0.5 w-full origin-[2px_1px] duration-300 ease-in-out`}
-            ></span>
-          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M4.80005 7.99999C4.80005 7.11634 5.51639 6.39999 6.40005 6.39999H25.6C26.4837 6.39999 27.2001 7.11634 27.2001 7.99999C27.2001 8.88365 26.4837 9.59999 25.6 9.59999H6.40005C5.51639 9.59999 4.80005 8.88365 4.80005 7.99999Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M4.80005 16C4.80005 15.1163 5.51639 14.4 6.40005 14.4H25.6C26.4837 14.4 27.2001 15.1163 27.2001 16C27.2001 16.8836 26.4837 17.6 25.6 17.6H6.40005C5.51639 17.6 4.80005 16.8836 4.80005 16Z"
+              fill="black"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M4.80005 24C4.80005 23.1163 5.51639 22.4 6.40005 22.4H25.6C26.4837 22.4 27.2001 23.1163 27.2001 24C27.2001 24.8836 26.4837 25.6 25.6 25.6H6.40005C5.51639 25.6 4.80005 24.8836 4.80005 24Z"
+              fill="black"
+            />
+          </svg>
         </button>
       </li>
     </ul>

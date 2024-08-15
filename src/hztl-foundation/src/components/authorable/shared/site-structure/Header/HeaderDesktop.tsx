@@ -1,14 +1,51 @@
+// Global
 import { ImageField, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/router';
+import { tv } from 'tailwind-variants';
+
+// Lib
+import useOutsideClick from 'src/hooks/useClickOutside';
+
+// Local
 import { HeaderPropsComponent, MegaMenuCategoryInterface, NavigationItem } from './headerInterface';
 import CountrySelector from 'helpers/Forms/CountrySelector';
 import PreviewSearchListComponent from 'src/widgets/SearchPreview';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
-import { useEffect, useRef, useState } from 'react';
-import useOutsideClick from 'src/hooks/useClickOutside';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
-import { useRouter } from 'next/router';
+import styles from './Header.module.css';
+
+/*
+ * Tailwind Variants
+ */
+
+const tailwindVariants = tv({
+  slots: {
+    overlay: [
+      'shadow-md',
+      'before:fixed',
+      'before:left-0',
+      'before:top-0',
+      'before:z-[9]',
+      'before:h-full',
+      'before:w-full',
+      'before:bg-black/50',
+      'before:backdrop-blur-sm',
+    ],
+    base: ['fixed', 'top-0', 'w-full', 'bg-white', 'z-50', 'font-avenir', '!md:text-cyan-700'],
+    wrapper: ['border-color-grayscale-base-black'],
+    divider: ['opacity-100', 'bg-color-grayscale-warm-600', 'transition-all', 'duration-500'],
+    inner: ['flex', 'justify-center', 'p-spacing-spacing-4'],
+    container: ['w-full', 'max-w-screen-xl'],
+    menuWrapper: ['flex', 'justify-between'],
+    menuItems: ['flex items-center lg:gap-spacing-spacing-4 px-spacing-spacing-3 lg:px-10'],
+    languageWrapper: ['flex justify-end items-center'],
+    searchBox: ['w-[25%] float-right px-xs bg-white py-xs shadow-md'],
+    logoWrapper: [''],
+  },
+});
 
 const HeaderDesktop = (props: HeaderPropsComponent) => {
   const { HeaderData, selectedCountry, setSelectedCountry } = props;
@@ -36,67 +73,81 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
   };
 
   useEffect(() => {
+    const handleRouteChange = () => {
+      setDropdownOpen(null);
+      setShowSearch(false);
+    };
+    router.events.on('routeChangeStart', handleRouteChange);
+
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      router.events.off('routeChangeStart', handleRouteChange);
     };
-  }, []);
+  }, [router.events]);
 
-  if (!item) {
-    return (
-      <div className={`component header-desktop ${props.params?.styles}`}>
-        <div className="component-content">
-          <span className="is-empty-hint">Desktop Header</span>
-        </div>
-      </div>
-    );
-  }
+  const {
+    overlay,
+    base,
+    wrapper,
+    divider,
+    inner,
+    container,
+    menuWrapper,
+    menuItems,
+    languageWrapper,
+    searchBox,
+  } = tailwindVariants();
+
   const { logo, logoLink, navigationList } = item;
 
+  /*
+   * Rendering
+   */
+
+  if (!item) {
+    return <></>;
+  }
+
   return (
-    <div className="hidden mmd:block">
-      {isDropdownOpen && (
-        <div className="shadow-md before:fixed before:left-0 before:top-0 before:z-[9] before:h-full before:w-full before:bg-black/50 before:backdrop-blur-sm"></div>
-      )}
-      <div className="fixed top-0 w-full bg-white z-50" ref={headerRef}>
-        <div className="border-b border-black">
-          <div className="h-m w-full bg-grayscale-w-600"></div>
-          <div
-            className={`md:max-w-screen-xl xl:mx-auto px-s transition-all duration-200 ${
-              isScrolled ? 'py-0' : 'py-xxs'
-            }`}
-          >
-            <div className="flex justify-between items-center w-full">
-              <div className="w-[50%] flex items-center flex-shrink-0 px-3 ">
-                <Logo logo={logo.jsonValue} logoLink={logoLink.jsonValue} />
-                <ul className="flex items-center" role="presentation">
-                  {navigationList?.items?.map((item, index) => (
-                    <NavItem
-                      key={index}
-                      index={index}
-                      {...item}
-                      open={() => {
-                        handleDropdownToggle(index);
-                        setShowSearch(false);
-                      }}
-                      router={router.asPath}
-                      dropdownOpen={dropdownOpen}
-                      isScrolled={isScrolled}
-                    />
-                  ))}
-                </ul>
-              </div>
-              <div className="w-[50%] flex justify-end items-center">
-                <div className="w-[50%] flex justify-end">
-                  <CountrySelector
-                    countryData={item?.country?.targetItems}
-                    selectedCountry={selectedCountry}
-                    setSelectedCountry={setSelectedCountry}
-                  />
+    <>
+      {isDropdownOpen && <div className={overlay()}></div>}
+      <div className={base()} ref={headerRef}>
+        <div className={`${wrapper()} ${isDropdownOpen ? 'border-b-2' : 'border-b'}`}>
+          <hr className={` ${divider()} ${isDropdownOpen ? 'h-6' : 'h-3'} `}></hr>
+          <div className={inner()}>
+            <div className={container()}>
+              <div className={menuWrapper()}>
+                <div className="flex">
+                  <Logo logo={logo.jsonValue} logoLink={logoLink.jsonValue} />
+                  <ul className={menuItems()} role="presentation">
+                    {navigationList?.items?.map((item, index) => (
+                      <NavItem
+                        key={index}
+                        index={index}
+                        {...item}
+                        open={() => {
+                          handleDropdownToggle(index);
+                          setShowSearch(false);
+                        }}
+                        router={router.asPath}
+                        dropdownOpen={dropdownOpen}
+                        isScrolled={isScrolled}
+                      />
+                    ))}
+                  </ul>
                 </div>
-                <div className="flex w-[50%]">
-                  <PreviewSearchListComponent rfkId={'rfkid_101'} defaultItemsPerPage={5} />
-                  {/* <button
+                <div className={languageWrapper()}>
+                  <div>
+                    <CountrySelector
+                      countryData={item?.country?.targetItems}
+                      selectedCountry={selectedCountry}
+                      setSelectedCountry={setSelectedCountry}
+                    />
+                  </div>
+                  <div className="flex">
+                    <PreviewSearchListComponent rfkId={'rfkid_101'} defaultItemsPerPage={5} />
+                    {/* <button
                     className={`flex flex-row hover:bg-grayscale-w-200 p-s rounded-full cursor-pointer ${
                       showSearch && 'bg-grayscale-w-200'
                     }`}
@@ -106,16 +157,17 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
                     }}
                   >
                     {/* temporary disabling these for version 2 enhancement */}
-                  {/* <SvgIcon icon="outline-search" size="xs" /> */}
-                  {/* </button> */}
+                    {/* <SvgIcon icon="outline-search" size="xs" /> */}
+                    {/* </button> */}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        {showSearch && <div className="w-[25%] float-right px-xs bg-white py-xs shadow-md"></div>}
+        {showSearch && <div className={searchBox()}></div>}
       </div>
-    </div>
+    </>
   );
 };
 export default HeaderDesktop;
@@ -154,42 +206,37 @@ const NavItem = (props: NavItemInterface) => {
   const strokeClass = isActive ? 'stroke-white' : 'stroke-black';
 
   return (
-    <li className="list-none ml-xs" role="presentation">
-      <div
-        className={`hover:bg-grayscale-w-200 group rounded-md cursor-pointer text-center px-xxs lg:px-s lg:py-xxs py-xxxs ${
-          isList && props.index === props.dropdownOpen && 'bg-grayscale-w-200'
-        } ${isActive ? '!bg-grayscale-w-400' : ''}`}
-      >
-        {!isList ? (
-          <LinkWrapper
-            role="menuitem"
-            aria-haspopup="false"
-            field={props?.navigationLink.jsonValue}
-            className={`text-xs lg:text-s font-semibold group-hover:underline ${isActive ? 'text-white' : 'text-black'}`}
-            ctaVariant="link"
-          >
-            <PlainTextWrapper field={props?.navigationTitle.jsonValue} />
-          </LinkWrapper>
-        ) : (
-          <button
-            onClick={() => isList && props.open()}
-            className={`text-xs lg:text-s font-semibold cursor-pointer group-hover:underline ${isActive ? 'text-white' : 'text-black'}`}
-            role="menuitem"
-            aria-haspopup="true"
-          >
-            <div className="flex items-center flex-row gap-2">
-              <PlainTextWrapper field={props.navigationTitle.jsonValue} />
-              <SvgIcon
-                viewBox="0 0 16 9"
-                className={`trasition duration-200 ${rotationClass} ${strokeClass} w-s h-auto`}
-                icon="chevron-up"
-                size="xs"
-                fill="none"
-              />
-            </div>
-          </button>
-        )}
-      </div>
+    <li>
+      {!isList ? (
+        <LinkWrapper
+          role="menuitem"
+          aria-haspopup="false"
+          field={props?.navigationLink.jsonValue}
+          className={`text-sub-heading font-semibold text-color-grayscale-base-black py-1 px-2 hover:no-underline hover:text-color-grayscale-base-black ${styles.headerLink} ${styles.headerLinkBlack}`}
+          ctaVariant="link"
+        >
+          <PlainTextWrapper field={props?.navigationTitle.jsonValue} />
+        </LinkWrapper>
+      ) : (
+        <button
+          onClick={() => isList && props.open()}
+          className={`text-sub-heading font-semibold text-color-grayscale-base-black py-1 px-2 ${styles.headerLink} ${styles.headerLinkBlack}`}
+          role="menuitem"
+          aria-haspopup="true"
+        >
+          <span className="flex items-center gap-2">
+            <PlainTextWrapper field={props.navigationTitle.jsonValue} />
+            <SvgIcon
+              viewBox="0 0 16 9"
+              className={`trasition duration-200 ${rotationClass} ${strokeClass} !w-xs h-auto`}
+              icon="chevron-up"
+              size="xs"
+              fill="none"
+            />
+          </span>
+        </button>
+      )}
+
       {isList && props.index === props.dropdownOpen && (
         <DropdownMenu categories={props.megaMenuList.items} isScrolled={props.isScrolled} />
       )}
@@ -199,19 +246,14 @@ const NavItem = (props: NavItemInterface) => {
 
 const DropdownMenu = ({
   categories,
-  isScrolled,
 }: {
   categories: MegaMenuCategoryInterface[];
   isScrolled: boolean;
 }) => {
   return (
-    <div
-      className={`absolute transition-all duration-200 left-0 w-full z-[9] overflow-hidden border-b border-black ${
-        isScrolled ? 'mt-[21px]' : 'mt-[29px]'
-      } cursor-default`}
-    >
-      <div className="bg-grayscale-w-200">
-        <div className="flex items-center justify-between md:max-w-screen-xl xl:mx-auto px-4">
+    <div className="absolute transition-all duration-200 left-0 w-full z-[9] overflow-hidden">
+      <div className={`bg-grayscale-w-200 mt-6`}>
+        <div className="flex items-center justify-between max-w-screen-xl xl:mx-auto py-10 px-20">
           <div className="w-full my-xxs">
             <div className="gap-y-0 gap-xl md:grid-cols-12 grid">
               {categories.map((category, index) => (
@@ -224,13 +266,13 @@ const DropdownMenu = ({
                   <h2 className="font-bold text-lg mb-xxs" id={`secondary-menu-${index + 1}`}>
                     {category.name}
                   </h2>
-                  <ul>
+                  <ul className="flex flex-col gap-2 list-none">
                     {category.megaMenuLinks.items.map((item, i) => (
-                      <li className="list-none -ml-s mb-xxs" key={i} role="presentation">
+                      <li key={i} role="presentation">
                         <LinkWrapper
                           role="menuitem"
                           field={item.link.jsonValue}
-                          className="text-grayscale-w-600 hover:underline"
+                          className="font-notoSans text-grayscale-w-600 hover:underline"
                         />
                       </li>
                     ))}
