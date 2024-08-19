@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-h1 {
+.sbdocs-content h1 {
 border-bottom: 5px solid black;
 margin-bottom: 2rem;
 font-size: 36px;
