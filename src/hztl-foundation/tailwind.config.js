@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const figmaVariables = require('./theme-config').theme;
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -19,12 +20,14 @@ module.exports = {
         'error-outline': '#DF2626',
         'extralight-gray': '#ABBED1',
         'grayscale-w-200': '#EAE8E8',
+        'grayscale-w-400': '#787779',
         'grayscale-w-600': '#373432',
         'light-black': '#454545',
         'light-gray': '#E2E2E2',
         'light-green': '#7FC3BA',
         'medium-gray': '#89939E',
         'mild-gray': '#F2F2F2',
+        ...figmaVariables.colors,
       },
       fontSize: {
         // Desktop font sizes
@@ -55,6 +58,7 @@ module.exports = {
       },
       fontFamily: {
         modern: ['Modern Era', 'sans-serif'],
+        ...figmaVariables.typography.fontFamily,
       },
       fontWeight: {
         bold: '700',
@@ -91,6 +95,7 @@ module.exports = {
         xxs: '0.5rem', // 8px
         xxxs: '0.25rem', // 4px
         0: '0px',
+        ...figmaVariables.spacing,
       },
     },
   },

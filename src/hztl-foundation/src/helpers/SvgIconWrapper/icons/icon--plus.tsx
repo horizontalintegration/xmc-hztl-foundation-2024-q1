@@ -1,9 +1,9 @@
-const IconArrow = (): JSX.Element => {
+/* eslint-disable prettier/prettier */
+const IconPlus = (): JSX.Element => {
   return (
     <>
       <path
-        xmlns="http://www.w3.org/2000/svg"
-        d="M1 1.33341L5.66667 6.00008L1 10.6667"
+        d="M6 1V5.5M6 5.5V10M6 5.5H10.5M6 5.5L1.5 5.5"
         stroke="#2F2D2E"
         strokeWidth="2"
         strokeLinecap="round"
@@ -13,4 +13,4 @@ const IconArrow = (): JSX.Element => {
   );
 };
 
-export default IconArrow;
+export default IconPlus;

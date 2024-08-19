@@ -14,42 +14,57 @@ import { tv } from 'tailwind-variants';
 export type IconTypes =
   | undefined
   | 'arrow-right'
+  | 'arrow-left'
   | 'pause'
   | 'play'
   | 'download'
   | 'chevron-down'
+  | 'chevron-up'
   | 'outline-search'
-  | 'close';
+  | 'close'
+  | 'magnifier'
+  | 'sorting'
+  | 'refine'
+  | 'plus';
 
 export type SvgIconSize = 'xs' | 'sm' | 'md' | 'em' | 'lg';
+
+export type SVGFill = 'currentColor' | 'none';
 
 export interface SvgIconProps {
   className?: string;
   icon: IconTypes;
   size?: SvgIconSize;
+  viewBox?: string;
+  fill?: SVGFill;
 }
 
 const svgIconClasses = tv({
   base: [],
   variants: {
     size: {
-      xs: ['h-4', 'w-4'],
-      sm: ['h-8', 'w-8'],
-      md: ['h-16', 'w-16'],
-      lg: ['h-6', 'w-6'],
-      em: ['h-em', 'w-em'],
+      xs: ['!h-4', '!w-4'],
+      sm: ['!h-8', '!w-8'],
+      md: ['!h-16', '!w-16'],
+      lg: ['!h-24', '!w-24'],
+      em: ['!h-em', '!w-em'],
     },
   },
 });
 
-const SvgIcon = ({ icon, size = 'sm', className }: SvgIconProps): JSX.Element => {
+const SvgIcon = ({
+  icon,
+  size = 'sm',
+  className,
+  viewBox = '0 -960 960 960',
+  fill = 'currentColor',
+}: SvgIconProps): JSX.Element => {
   const IconContent = dynamic(() => import(`./icons/icon--${icon}`));
-
   return (
     <svg
       className={svgIconClasses({ className, size })}
-      fill="currentColor"
-      viewBox="0 -960 960 960"
+      fill={fill}
+      viewBox={viewBox}
       xmlns="http://www.w3.org/2000/svg"
     >
       <IconContent />
