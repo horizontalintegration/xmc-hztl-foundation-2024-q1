@@ -18,13 +18,22 @@ import { SvgIcon } from 'helpers/SvgIconWrapper';
 
 const tailwindVariants = tv({
   slots: {
-    base: ['component'],
+    base: ['component', 'p-0'],
     iconStyles: ['h-auto', 'stroke-gray', 'w-auto'],
     iconWrapper: ['ml-xs'],
     linkWrapperStyles: ['flex', 'font-bold', 'items-center', 'text-black', 'text-xs', 'underline'],
-    listItemLinkWrapper: ['list-none', 'px-xs', 'py-xs'],
-    listItemTextWrapper: ['flex', 'items-center', 'list-none', '-ml-xxxs', 'py-xs'],
-    listWrapper: ['items-center', 'list', 'md:flex'],
+    listItemLinkWrapper: ['list-none'],
+    listItemTextWrapper: [
+      'flex',
+      'items-center',
+      'list-none',
+      'md:-ml-xxxs',
+      'my-6',
+      'md:my-0',
+      'md:p-0',
+      'md:py-xs',
+    ],
+    listWrapper: ['flex', 'gap-2', 'items-center', 'list', 'm-xs', 'md:m-0'],
   },
 });
 
@@ -90,7 +99,13 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                       }}
                     >
                       <div className={iconWrapper()}>
-                        <SvgIcon className={iconStyles()} icon="arrow-right" />
+                        <SvgIcon
+                          className={iconStyles()}
+                          icon="arrow-right"
+                          viewBox="0 0 7 12"
+                          size="xs"
+                          fill="none"
+                        />
                       </div>
                     </LinkWrapper>
                   </li>
