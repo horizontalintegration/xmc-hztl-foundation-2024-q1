@@ -25,10 +25,9 @@ const tailwindVariants = tv({
       'max-w-[724px]',
       'py-4',
       'px-spacing-spacing-4',
-      'ml:px-20',
       'items-center',
       'justify-center',
-      'mmd:justify-start',
+      'mmd:justify-end',
     ],
     content: [
       'flex',
