@@ -8,8 +8,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 // Local
 import defaultData from './Header.mock-data';
-import { Default } from 'components/authorable/shared/site-structure/Header/Header';
-import { HeaderProps } from 'components/authorable/shared/site-structure/Header/headerInterface';
+import { Default } from 'components/authorable/shared/site-structure/SiteHeader/Header';
+import { HeaderProps } from 'components/authorable/shared/site-structure/SiteHeader/headerInterface';
 
 const queryClient = new QueryClient();
 

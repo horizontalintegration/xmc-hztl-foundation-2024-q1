@@ -34,14 +34,14 @@ export const Default = (props: HeaderProps) => {
 
   return (
     <header>
-      {isDesktop ? (
-        <HeaderDesktop
+      {!isDesktop ? (
+        <HeaderMobile
           {...props}
           selectedCountry={selectedCountry}
           setSelectedCountry={setSelectedCountry}
         />
       ) : (
-        <HeaderMobile
+        <HeaderDesktop
           {...props}
           selectedCountry={selectedCountry}
           setSelectedCountry={setSelectedCountry}

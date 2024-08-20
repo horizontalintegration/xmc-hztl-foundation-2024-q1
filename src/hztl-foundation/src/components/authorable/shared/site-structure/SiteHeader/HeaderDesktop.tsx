@@ -6,6 +6,7 @@ import { tv } from 'tailwind-variants';
 
 // Lib
 import useOutsideClick from 'src/hooks/useClickOutside';
+import useIsEditing from 'lib/hooks/use-is-editing';
 
 // Local
 import { HeaderPropsComponent, MegaMenuCategoryInterface, NavigationItem } from './headerInterface';
@@ -15,7 +16,6 @@ import { SvgIcon } from 'helpers/SvgIconWrapper';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
-import styles from './Header.module.css';
 
 /*
  * Tailwind Variants
@@ -34,16 +34,47 @@ const tailwindVariants = tv({
       'before:bg-black/50',
       'before:backdrop-blur-sm',
     ],
-    base: ['fixed', 'top-0', 'w-full', 'bg-white', 'z-50', 'font-avenir', '!md:text-cyan-700'],
+    base: ['top-0', 'w-full', 'bg-white', 'z-50', 'font-avenir', '!md:text-cyan-700'],
     wrapper: ['border-color-grayscale-base-black'],
-    divider: ['opacity-100', 'bg-color-grayscale-warm-600', 'transition-all', 'duration-500'],
+    divider: ['h-3', 'opacity-100', 'bg-color-grayscale-warm-600'],
     inner: ['flex', 'justify-center', 'p-spacing-spacing-4'],
     container: ['w-full', 'max-w-screen-xl'],
     menuWrapper: ['flex', 'justify-between'],
-    menuItems: ['flex items-center lg:gap-spacing-spacing-4 px-spacing-spacing-3 lg:px-10'],
-    languageWrapper: ['flex justify-end items-center'],
-    searchBox: ['w-[25%] float-right px-xs bg-white py-xs shadow-md'],
-    logoWrapper: [''],
+    menuItems: [
+      'flex',
+      'items-center',
+      'lg:gap-spacing-spacing-4',
+      'px-spacing-spacing-3',
+      'lg:px-10',
+    ],
+    languageWrapper: ['flex', 'justify-end', 'items-center'],
+    searchBox: ['w-[25%]', 'float-right', 'px-xs', 'bg-white', 'py-xs', 'shadow-md'],
+    buttonItemSublink: ['flex', 'items-center', 'gap-2'],
+    dropDownMenuWrapper: [
+      'absolute',
+      'transition-all',
+      'duration-200',
+      'left-0',
+      'w-full',
+      'z-[9]',
+      'overflow-hidden',
+    ],
+    dropDownMenuInner: ['bg-grayscale-w-200', 'mt-6'],
+    dropDownMenuSection: [
+      'flex',
+      'items-center',
+      'justify-between',
+      'max-w-screen-xl',
+      'xl:mx-auto',
+      'py-10',
+      'px-20',
+    ],
+    dropDownMenuContent: ['w-full', 'my-xxs'],
+    dropDownMenuGrid: ['gap-y-0', 'gap-xl', 'md:grid-cols-12', 'grid'],
+    dropDownMenuCol: ['text-start', 'col-span-4', 'py-xxxs', 'xl:col-span-3'],
+    dropDownMenuColHeading: ['font-bold', 'text-lg', 'mb-xxs'],
+    dropDownMenuColItems: ['flex flex-col', 'gap-2', 'list-none'],
+    dropDownMenuColItemsLink: ['font-notoSans', 'text-grayscale-w-600', 'hover:underline'],
   },
 });
 
@@ -86,6 +117,8 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
     };
   }, [router.events]);
 
+  const isEditing = useIsEditing();
+
   const {
     overlay,
     base,
@@ -112,9 +145,9 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
   return (
     <>
       {isDropdownOpen && <div className={overlay()}></div>}
-      <div className={base()} ref={headerRef}>
+      <div className={`${!isEditing ? 'fixed' : 'relative'} ${base()}`} ref={headerRef}>
         <div className={`${wrapper()} ${isDropdownOpen ? 'border-b-2' : 'border-b'}`}>
-          <hr className={` ${divider()} ${isDropdownOpen ? 'h-6' : 'h-3'} `}></hr>
+          <hr className={divider()}></hr>
           <div className={inner()}>
             <div className={container()}>
               <div className={menuWrapper()}>
@@ -205,6 +238,8 @@ const NavItem = (props: NavItemInterface) => {
   const rotationClass = isList && props.index === props.dropdownOpen ? 'rotate-0' : 'rotate-180';
   const strokeClass = isActive ? 'stroke-white' : 'stroke-black';
 
+  const { buttonItemSublink } = tailwindVariants();
+
   return (
     <li>
       {!isList ? (
@@ -212,7 +247,7 @@ const NavItem = (props: NavItemInterface) => {
           role="menuitem"
           aria-haspopup="false"
           field={props?.navigationLink.jsonValue}
-          className={`text-sub-heading font-semibold text-color-grayscale-base-black py-1 px-2 hover:no-underline hover:text-color-grayscale-base-black ${styles.headerLink} ${styles.headerLinkBlack}`}
+          className="text-sub-heading font-semibold text-color-grayscale-base-black py-1 px-2 hover:no-underline hover:text-color-grayscale-base-black header-link header-link-black"
           ctaVariant="link"
         >
           <PlainTextWrapper field={props?.navigationTitle.jsonValue} />
@@ -220,11 +255,11 @@ const NavItem = (props: NavItemInterface) => {
       ) : (
         <button
           onClick={() => isList && props.open()}
-          className={`text-sub-heading font-semibold text-color-grayscale-base-black py-1 px-2 ${styles.headerLink} ${styles.headerLinkBlack}`}
+          className="text-sub-heading font-semibold text-color-grayscale-base-black py-1 px-2 header-link header-link-black"
           role="menuitem"
           aria-haspopup="true"
         >
-          <span className="flex items-center gap-2">
+          <span className={buttonItemSublink()}>
             <PlainTextWrapper field={props.navigationTitle.jsonValue} />
             <SvgIcon
               viewBox="0 0 16 9"
@@ -250,29 +285,40 @@ const DropdownMenu = ({
   categories: MegaMenuCategoryInterface[];
   isScrolled: boolean;
 }) => {
+  const {
+    dropDownMenuWrapper,
+    dropDownMenuInner,
+    dropDownMenuSection,
+    dropDownMenuContent,
+    dropDownMenuGrid,
+    dropDownMenuCol,
+    dropDownMenuColHeading,
+    dropDownMenuColItems,
+    dropDownMenuColItemsLink,
+  } = tailwindVariants();
   return (
-    <div className="absolute transition-all duration-200 left-0 w-full z-[9] overflow-hidden">
-      <div className={`bg-grayscale-w-200 mt-6`}>
-        <div className="flex items-center justify-between max-w-screen-xl xl:mx-auto py-10 px-20">
-          <div className="w-full my-xxs">
-            <div className="gap-y-0 gap-xl md:grid-cols-12 grid">
+    <div className={dropDownMenuWrapper()}>
+      <div className={dropDownMenuInner()}>
+        <div className={dropDownMenuSection()}>
+          <div className={dropDownMenuContent()}>
+            <div className={dropDownMenuGrid()}>
               {categories.map((category, index) => (
                 <div
-                  className="text-start col-span-4 py-xxxs xl:col-span-3"
+                  className={dropDownMenuCol()}
                   key={index}
                   role="group"
                   aria-labelledby={`secondary-menu-${index + 1}`}
                 >
-                  <h2 className="font-bold text-lg mb-xxs" id={`secondary-menu-${index + 1}`}>
+                  <h2 className={dropDownMenuColHeading()} id={`secondary-menu-${index + 1}`}>
                     {category.name}
                   </h2>
-                  <ul className="flex flex-col gap-2 list-none">
+                  <ul className={dropDownMenuColItems()}>
                     {category.megaMenuLinks.items.map((item, i) => (
                       <li key={i} role="presentation">
                         <LinkWrapper
                           role="menuitem"
                           field={item.link.jsonValue}
-                          className="font-notoSans text-grayscale-w-600 hover:underline"
+                          className={dropDownMenuColItemsLink()}
                         />
                       </li>
                     ))}

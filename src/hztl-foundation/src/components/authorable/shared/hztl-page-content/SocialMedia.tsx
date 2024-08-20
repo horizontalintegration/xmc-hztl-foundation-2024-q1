@@ -1,33 +1,61 @@
-import React from 'react';
+// Global
 import { ImageField, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { tv } from 'tailwind-variants';
+
+// Lib
+import { ComponentProps } from 'lib/component-props';
+import { SiteStructure } from '../../../../.generated/Feature.HztlFoundation.model';
+
+// Local
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
-import { SiteStructure } from '../../../../.generated/Feature.HztlFoundation.model';
-import { ComponentProps } from 'lib/component-props';
 
+// Types
 export type SocialMediaProps = ComponentProps & SiteStructure.Footer.SocialMedia;
 
-const SocialMediaDefaultComponent = (props: SocialMediaProps): JSX.Element => (
-  <div className={`component social media ${props?.params?.styles}`}>
-    <div className="component-content">
-      <span className="is-empty-hint">Social Media</span>
-    </div>
-  </div>
-);
+/*
+ * Tailwind Variants
+ */
+
+const tailwindVariants = tv({
+  slots: {
+    base: ['flex', 'justify-end', 'col-span-2', 'mmd:col-span-1'],
+    wrapper: [
+      'w-full',
+      'flex',
+      'max-w-[724px]',
+      'py-4',
+      'px-spacing-spacing-4',
+      'ml:px-20',
+      'items-center',
+      'justify-center',
+      'mmd:justify-start',
+    ],
+    content: ['flex', 'gap-8'],
+  },
+});
 
 export const Default = (props: SocialMediaProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
 
-  if (props?.fields) {
-    return (
-      <div
-        className={`component sm:order-last mmd:order-none px-0 2xl:m-auto 2xl:w-1/4 ${
-          props?.params?.styles !== undefined ? props?.params?.styles : ''
-        }`}
-        data-component="authorable/general/social-media"
-        id={id ? id : ''}
-      >
-        <div className="flex py-xxs gap-s px-ml">
+  const { base, wrapper, content } = tailwindVariants();
+
+  /*
+   * Rendering
+   */
+
+  if (!props?.fields) {
+    return <></>;
+  }
+
+  return (
+    <div
+      className={`${base()} ${props?.params?.styles !== undefined ? props?.params?.styles : ''}`}
+      data-component="authorable/general/social-media"
+      id={id}
+    >
+      <div className={wrapper()}>
+        <div className={content()}>
           {props?.fields?.socialMediaLinks?.map((icon, index) => {
             const { socialMediaLink, socialMediaLogo } = icon?.fields;
             return (
@@ -42,7 +70,6 @@ export const Default = (props: SocialMediaProps): JSX.Element => {
           })}
         </div>
       </div>
-    );
-  }
-  return <SocialMediaDefaultComponent {...props} />;
+    </div>
+  );
 };
