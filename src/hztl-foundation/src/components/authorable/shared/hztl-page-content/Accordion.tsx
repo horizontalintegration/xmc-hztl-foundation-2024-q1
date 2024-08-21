@@ -22,11 +22,12 @@ const tailwindVariants = tv({
 });
 
 const Accordion = (props: AccordionProps): JSX.Element => {
+  const phKey = `accordion-${props?.params?.DynamicPlaceholderId}`;
   const { base } = tailwindVariants();
 
   return (
     <Placeholder
-      name="accordion"
+      name={phKey}
       render={(components) => <div className={base()}>{components}</div>}
       renderEmpty={() => <></>}
       rendering={props.rendering}

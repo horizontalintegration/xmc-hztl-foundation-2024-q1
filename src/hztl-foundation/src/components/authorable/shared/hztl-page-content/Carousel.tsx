@@ -49,7 +49,7 @@ const tailwindVariants = tv({
 
 const Carousel = (props: CarouselProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
-  const phKey = `carousel`;
+  const phKey = `carousel-${props?.params?.DynamicPlaceholderId}`;
 
   const {
     base,
