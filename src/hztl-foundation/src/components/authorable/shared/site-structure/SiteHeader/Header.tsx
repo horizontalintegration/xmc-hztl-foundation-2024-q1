@@ -1,10 +1,16 @@
+// Global
 import { useEffect, useState } from 'react';
+import { GetStaticComponentProps } from '@sitecore-jss/sitecore-jss-nextjs';
+
+// Lib
+import { useMediaQuery } from 'src/hooks/useMediaQuery';
+import graphqlClientFactory from 'lib/graphql-client-factory';
+
+// Local
+import { HeaderProps } from './headerInterface';
 import HeaderDesktop from './HeaderDesktop';
 import HeaderMobile from './HeaderMobile';
-import { HeaderProps } from './headerInterface';
 import HeaderQuery from './Header.graphql';
-import { GetStaticComponentProps } from '@sitecore-jss/sitecore-jss-nextjs';
-import graphqlClientFactory from 'lib/graphql-client-factory';
 
 export const Default = (props: HeaderProps) => {
   const [selectedCountry, setSelectedCountry] = useState('');
@@ -15,18 +21,32 @@ export const Default = (props: HeaderProps) => {
       setSelectedCountry(defaultCountry);
     }
   }, [defaultCountry]);
+
+  const isDesktop = useMediaQuery('(min-width: 992px)');
+
+  /*
+   * Rendering
+   */
+
+  if (!props) {
+    return <></>;
+  }
+
   return (
-    <header className="component bg-white w-full p-0">
-      <HeaderDesktop
-        {...props}
-        selectedCountry={selectedCountry}
-        setSelectedCountry={setSelectedCountry}
-      />
-      <HeaderMobile
-        {...props}
-        selectedCountry={selectedCountry}
-        setSelectedCountry={setSelectedCountry}
-      />
+    <header>
+      {!isDesktop ? (
+        <HeaderMobile
+          {...props}
+          selectedCountry={selectedCountry}
+          setSelectedCountry={setSelectedCountry}
+        />
+      ) : (
+        <HeaderDesktop
+          {...props}
+          selectedCountry={selectedCountry}
+          setSelectedCountry={setSelectedCountry}
+        />
+      )}
     </header>
   );
 };

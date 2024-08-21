@@ -1,29 +1,72 @@
+// Global
 import React from 'react';
-import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
-import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
-import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
-import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
-import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
-import { ComponentProps } from 'lib/component-props';
-import { withStandardComponentWrapper } from 'helpers/HOC';
-import { parseStyleParams } from 'lib/utils/style-param-utils';
 import { tv } from 'tailwind-variants';
+
+// Lib
+import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+import { ComponentProps } from 'lib/component-props';
+import { parseStyleParams } from 'lib/utils/style-param-utils';
 import { CardListCardsPerRows } from 'lib/utils/style-param-utils/modules/cards';
 
-export type CardProps = ComponentProps &
-  HztlPageContent.Card & { cardsPerRow?: CardListCardsPerRows };
+// Local
+import { withStandardComponentWrapper } from 'helpers/HOC';
+import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
+import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 
-const CardDefaultComponent = (props: CardProps): JSX.Element => (
-  <div className={`component card ${props?.params?.styles}`}>
-    <div className="component-content">
-      <span className="is-empty-hint">Card</span>
-    </div>
-  </div>
-);
+/*
+ * Tailwind Variants
+ */
 
 const tailwindVariants = tv({
   slots: {
-    columnClasses: [],
+    columnClasses: ['mb-4', 'w-full'],
+    content: ['mx-auto', 'my-0'],
+    contentWrapper: ['m-auto', 'p-l', 'text-left'],
+    ctaWrapper: ['flex', 'flex-wrap', 'gap-xxs', 'justify-normal'],
+    ctaButton1: [
+      'bg-gray',
+      'flex',
+      'font-bold',
+      'font-modern',
+      'items-center',
+      'justify-center',
+      'px-s',
+      'py-xs',
+      'rounded',
+      'text-button',
+      'text-center',
+      'text-white',
+    ],
+    ctaButton2: [
+      'border-gray',
+      'border',
+      'flex',
+      'font-bold',
+      'font-modern',
+      'items-center',
+      'justify-center',
+      'p-xs',
+      'rounded',
+      'text-black',
+      'text-center',
+      'text-xs',
+    ],
+    descriptionText: [
+      'font-modern',
+      'font-regular',
+      'mb-xxs',
+      'opacity-90',
+      'text-black',
+      'text-xs',
+    ],
+    eyebrowText: ['font-modern', 'font-regular', 'mb-xxs', 'opacity-80', 'text-black', 'text-xxs'],
+    headingText: ['font-bold', 'font-modern', 'mb-xxs', 'text-4xl', 'text-black'],
+    imageWrapper: ['border-b', 'border-dark-gray', 'flex', 'items-center', 'justify-center'],
+    inner: ['border', '!border-dark-gray'],
+    subHeadingText: ['font-bold', 'font-modern', 'mb-xxs', 'opacity-80', 'text-black', 'text-m'],
+    wrapper: ['flex', 'items-center', 'justify-center'],
   },
   variants: {
     cardsPerRow: {
@@ -43,70 +86,69 @@ const tailwindVariants = tv({
   },
 });
 
+export type CardProps = ComponentProps &
+  HztlPageContent.Card & { cardsPerRow?: CardListCardsPerRows };
+
 const Card = (props: CardProps): JSX.Element => {
-  const id = props?.params?.RenderingIdentifier;
-  if (props?.fields) {
-    const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
+  const { CardImage, CardLink1, CardLink2, Description, Eyebrow, Heading, Subheading } =
+    props?.fields || {};
+  const { RenderingIdentifier } = props?.params || {};
 
-    const { columnClasses } = tailwindVariants({
-      cardsPerRow: props.cardsPerRow,
-    });
+  const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
-    return (
-      <div
-        data-component="authorable/general/card"
-        className={`w-full mb-4 ${columnClasses()}`}
-        id={id ? id : undefined}
-      >
-        <div className="flex justify-center items-center">
-          <div className="mx-auto my-0">
-            <div className="border !border-dark-gray">
-              <div className="border-b border-gray flex justify-center items-center">
-                <ImageWrapper field={props?.fields?.CardImage} />
-              </div>
-              <div className="text-left p-l m-auto">
-                <PlainTextWrapper
-                  className="font-modern text-black text-xxs font-regular mb-xxs opacity-80"
-                  field={props?.fields?.Eyebrow}
-                  tag="h6"
-                  editable
-                />
-                <RichTextWrapper
-                  className="font-modern text-black text-4xl font-bold mb-xxs"
-                  field={props?.fields?.Heading}
-                  tag="h2"
-                />
-                <RichTextWrapper
-                  className="font-modern text-black text-m font-bold mb-xxs opacity-80"
-                  field={props?.fields?.Subheading}
-                  tag="div"
-                />
-                <RichTextWrapper
-                  className="font-modern text-black text-xs font-regular mb-xxs opacity-90"
-                  field={props?.fields?.Description}
-                  tag="div"
-                />
-                <div className="flex gap-xxs flex-wrap justify-normal">
-                  <LinkWrapper
-                    className="flex items-center justify-center px-s py-xs rounded bg-gray text-center text-white font-modern text-button font-bold"
-                    field={props?.fields?.CardLink1}
-                    ctaStyle={styles.cta1}
-                  />
-                  <LinkWrapper
-                    className="flex items-center justify-center p-xs rounded border border-gray text-center text-black font-modern text-xs font-bold"
-                    field={props?.fields?.CardLink2}
-                    ctaStyle={styles.cta2}
-                  />
-                </div>
+  const {
+    columnClasses,
+    content,
+    contentWrapper,
+    ctaButton1,
+    ctaButton2,
+    ctaWrapper,
+    descriptionText,
+    eyebrowText,
+    headingText,
+    imageWrapper,
+    inner,
+    subHeadingText,
+    wrapper,
+  } = tailwindVariants({
+    cardsPerRow: props.cardsPerRow,
+  });
+
+  /*
+   * Rendering
+   */
+
+  if (!props?.fields) {
+    return <></>;
+  }
+
+  return (
+    <div
+      className={columnClasses()}
+      data-component="authorable/shared/hztl-page-content/card"
+      id={RenderingIdentifier}
+    >
+      <div className={wrapper()}>
+        <div className={content()}>
+          <div className={inner()}>
+            <div className={imageWrapper()}>
+              <ImageWrapper field={CardImage} />
+            </div>
+            <div className={contentWrapper()}>
+              <PlainTextWrapper className={eyebrowText()} editable field={Eyebrow} tag="h6" />
+              <RichTextWrapper className={headingText()} field={Heading} />
+              <RichTextWrapper className={subHeadingText()} field={Subheading} />
+              <RichTextWrapper className={descriptionText()} field={Description} />
+              <div className={ctaWrapper()}>
+                <LinkWrapper className={ctaButton1()} ctaStyle={styles.cta1} field={CardLink1} />
+                <LinkWrapper className={ctaButton2()} ctaStyle={styles.cta2} field={CardLink2} />
               </div>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
-
-  return <CardDefaultComponent {...props} />;
+    </div>
+  );
 };
 
 export const Default = withStandardComponentWrapper(Card);

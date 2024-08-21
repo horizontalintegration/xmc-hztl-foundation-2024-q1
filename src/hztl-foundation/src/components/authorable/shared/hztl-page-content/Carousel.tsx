@@ -1,20 +1,77 @@
-// Lib
-import { ComponentProps } from 'lib/component-props';
-import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+// Global
+import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Splide, SplideTrack } from '@splidejs/react-splide';
+import { tv } from 'tailwind-variants';
 import '@splidejs/splide/css';
 
-// Helper
+// Lib
+import { ComponentProps } from 'lib/component-props';
+
+// Local
+import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
-import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
+import { withStandardComponentWrapper } from 'helpers/HOC';
 
 export type CarouselProps = ComponentProps & HztlPageContent.CarouselItem;
 
-export const Default = (props: CarouselProps): JSX.Element => {
+/*
+ * Tailwind Variants
+ */
+
+const tailwindVariants = tv({
+  slots: {
+    base: ['component', 'relative'],
+    slideArrows: ['splide__arrows'],
+    previousButton: [
+      'splide__arrow',
+      'splide__arrow--prev',
+      'icon-hover-focus-rounded',
+      'stroke-gray',
+      '!bg-transparent',
+    ],
+    nextButton: [
+      'splide__arrow',
+      'splide__arrow--next',
+      'icon-hover-focus-rounded',
+      'stroke-gray',
+      '!bg-transparent',
+    ],
+    screenReader: ['sr-only'],
+    progressBarWrapper: ['splide__progress'],
+    progressBarItem: ['splide__progress__bar'],
+    slideControls: ['absolute', 'bottom-1', 'right-5'],
+    slideControlButton: ['splide__toggle', 'icon-hover-focus-rounded'],
+    playButton: ['splide__toggle__play'],
+    pauseButton: ['splide__toggle__pause'],
+    iconStyles: ['h-l', 'w-l'],
+  },
+});
+
+const Carousel = (props: CarouselProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
   const phKey = `carousel`;
+
+  const {
+    base,
+    slideArrows,
+    previousButton,
+    nextButton,
+    screenReader,
+    progressBarWrapper,
+    progressBarItem,
+    slideControls,
+    slideControlButton,
+    playButton,
+    pauseButton,
+    iconStyles,
+  } = tailwindVariants();
+
+  /*
+   * Rendering
+   */
+
   return (
-    <div id={id ? id : undefined} className="component">
+    <div id={id ? id : undefined} className={base()}>
       <Splide
         hasTrack={false}
         options={{
@@ -25,7 +82,6 @@ export const Default = (props: CarouselProps): JSX.Element => {
           perMove: 1,
           pagination: true,
           autoplay: 'pause',
-
           interval: 3000,
         }}
       >
@@ -33,35 +89,35 @@ export const Default = (props: CarouselProps): JSX.Element => {
           <Placeholder name={phKey} rendering={props.rendering} />
         </SplideTrack>
 
-        <div className="splide__arrows">
-          <button className="splide__arrow splide__arrow--prev icon-hover-focus-rounded max-lg:!top-auto max-lg:bottom-[100px] stroke-gray !bg-transparent">
-            <span className="sr-only">Previous slide</span>
-            <SvgIcon icon={'arrow-right'} />
+        <div className={slideArrows()}>
+          <button className={previousButton()}>
+            <span className={screenReader()}>Previous slide</span>
+            <SvgIcon icon={'arrow-right'} size="md" />
           </button>
 
-          <button className="splide__arrow splide__arrow--next icon-hover-focus-rounded max-lg:!top-auto max-lg:bottom-[100px] stroke-gray !bg-transparent">
-            <span className="sr-only">Next slide</span>
-            <SvgIcon icon={'arrow-right'} />
+          <button className={nextButton()}>
+            <span className={screenReader()}>Next slide</span>
+            <SvgIcon icon={'arrow-right'} size="md" />
           </button>
         </div>
 
         {/* Progress Bar */}
-        <div className="splide__progress">
-          <div className="splide__progress__bar" />
+        <div className={progressBarWrapper()}>
+          <div className={progressBarItem()} />
         </div>
 
-        <div className="absolute bottom-1 right-5">
-          <button className="splide__toggle icon-hover-focus-rounded" type="button">
+        <div className={slideControls()}>
+          <button className={slideControlButton()} type="button">
             {/* Play button */}
-            <span className="splide__toggle__play">
-              <span className="sr-only">Play slideshow</span>
-              <SvgIcon className="h-l w-l" icon={'play'} />
+            <span className={playButton()}>
+              <span className={screenReader()}>Play slideshow</span>
+              <SvgIcon className={iconStyles()} icon={'play'} />
             </span>
 
             {/* Pause button */}
-            <span className="splide__toggle__pause">
-              <span className="sr-only">Pause slideshow</span>
-              <SvgIcon className="h-l w-l" icon={'pause'} />
+            <span className={pauseButton()}>
+              <span className={screenReader()}>Pause slideshow</span>
+              <SvgIcon className={iconStyles()} icon={'pause'} />
             </span>
           </button>
         </div>
@@ -69,3 +125,5 @@ export const Default = (props: CarouselProps): JSX.Element => {
     </div>
   );
 };
+
+export const Default = withStandardComponentWrapper(Carousel, false);

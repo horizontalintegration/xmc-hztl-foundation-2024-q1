@@ -324,7 +324,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                     className="w-full rounded border px-2 h-[48px] border-black"
                   />
                   <div className="magnifier-icon absolute top-1/2 right-2 transform -translate-y-1/2">
-                    <SvgIcon icon="magnifier" size="lg" viewBox="0 0 18 18" fill="none" />
+                    <SvgIcon icon="magnifier" size="xs" viewBox="0 0 18 18" fill="none" />
                   </div>
                 </div>
                 {f.value.slice(0, f.itemToLoad).map((v, index: number) => (
@@ -403,7 +403,7 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
                 aria-label={`Page ${page}`}
                 page={page as number}
                 onClick={(e) => e.preventDefault()}
-                className="p-[10px] rounded-2xl cursor-pointer mx-2 data-[current=true]:text-white data-[current=true]:bg-dark-gray data-[current=true]:pointer-events-none data-[current=true]:no-underline"
+                className="py-xxs px-xs rounded-2xl cursor-pointer mx-2 data-[current=true]:text-white data-[current=true]:bg-dark-gray data-[current=true]:pointer-events-none data-[current=true]:no-underline"
               >
                 {page}
               </Pagination.Page>
@@ -433,7 +433,7 @@ const SortOrder = ({ options, selected }: SortOrderProps) => {
           {selectedSortIndex > -1 ? options[selectedSortIndex].label : ''}
         </SortSelect.SelectValue>
         {/* <SortSelect.Icon /> */}
-        <SvgIcon icon="sorting" viewBox="0 0 24 24" size="lg" />
+        <SvgIcon icon="sorting" viewBox="0 0 24 24" size="xs" />
       </SortSelect.Trigger>
       <SortSelect.Content className="bg-white shadow-[4px_4px_8px_#CFCFCF] z-[100] absolute top-6 focus-within:border-indigo-500 w-full ">
         <SortSelect.Viewport className="p-1 z-[50000]">
@@ -580,7 +580,7 @@ export const SearchResultsWithInputComponent = ({
 
   return (
     <div ref={widgetRef}>
-      <div className="flex sm:flex-col md:flex-row relative max-w-full px-4 text-black text-opacity-75 gap-4">
+      <div className="flex sm:flex-col mmd:flex-row relative max-w-full px-4 text-black text-opacity-75 gap-4">
         {isFetching && (
           <div className="w-full h-full fixed top-0 left-0 bottom-0 right-0 z-30 bg-white opacity-50">
             <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] flex flex-col justify-center items-center z-40">
@@ -590,17 +590,8 @@ export const SearchResultsWithInputComponent = ({
         )}
         {totalItems > 0 && (
           <>
-            <div
-              onClick={() => {
-                setMobileFilterToogle(!mobileFilterToogle);
-              }}
-              className={`md:hidden flex items-center justify-center w-full border rounded px-2 h-12 gap-2`}
-            >
-              <span className="font-medium text-base">Refine By</span>
-              <SvgIcon icon="refine" viewBox="0 0 24 24" size="lg" fill="none" />
-            </div>
             <section
-              className={`${mobileFilterToogle ? 'block' : 'hidden'} flex-col flex-none relative md:gap-4 gap-4 mr-8 w-full lg:w-[25%] font-modern md:block`}
+              className={`flex-col flex-none relative md:gap-4 gap-4 mr-8 w-full mmd:w-[40%] lg:w-[25%] font-modern`}
             >
               <div className="relative block w-full my-4">
                 {/* <form id="searchSubmit" onSubmit={onHandle}>
@@ -617,28 +608,41 @@ export const SearchResultsWithInputComponent = ({
                   hasSearchFromSearchPage={true}
                 />
               </div>
-              <div className="sort-order flex flex-col gap-4">
-                <h3 className="font-normal text-lg font-modern">Refine By</h3>
-                <div className="sort gap-1">
-                  <label className="text-base font-bold" htmlFor="sorting">
-                    Sort
-                  </label>
-                  <div id="sorting" className="sort-wrapper border rounded px-2">
-                    <SortOrder options={sortChoices} selected={sortType} />
+              <div
+                onClick={() => {
+                  setMobileFilterToogle(!mobileFilterToogle);
+                }}
+                className={`mmd:hidden flex items-center justify-center w-full border rounded px-2 h-12 gap-2`}
+              >
+                <span className="font-medium text-base">Refine By</span>
+                <SvgIcon icon="refine" viewBox="0 0 24 24" size="xs" fill="none" />
+              </div>
+              <div
+                className={`refineby-container ${mobileFilterToogle ? 'block' : 'hidden'} mmd:block`}
+              >
+                <div className="sort-order flex flex-col gap-4">
+                  <h3 className="font-normal text-lg font-modern">Refine By</h3>
+                  <div className="sort gap-1">
+                    <label className="text-base font-bold" htmlFor="sorting">
+                      Sort
+                    </label>
+                    <div id="sorting" className="sort-wrapper border rounded px-2">
+                      <SortOrder options={sortChoices} selected={sortType} />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="my-4">
-                <Filter />
-              </div>
-              {facets.length > 0 && (
-                <div className="search-facets">
-                  <label htmlFor="facets" className="text-base font-bold">
-                    Filter
-                  </label>
-                  <SearchFacets facets={facets} />
+                <div className="my-4">
+                  <Filter />
                 </div>
-              )}
+                {facets.length > 0 && (
+                  <div className="search-facets">
+                    <label htmlFor="facets" className="text-base font-bold">
+                      Filter
+                    </label>
+                    <SearchFacets facets={facets} />
+                  </div>
+                )}
+              </div>
             </section>
             <section className="flex flex-col flex-[4_1_0%] gap-4 font-modern md:p-4">
               {/* Sort Select */}

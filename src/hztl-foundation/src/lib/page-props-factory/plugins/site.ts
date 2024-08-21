@@ -16,7 +16,7 @@ class SitePlugin implements Plugin {
         ? '/'
         : Array.isArray(context.params.path)
           ? context.params.path.join('/')
-          : context.params.path ?? '/';
+          : (context.params.path ?? '/');
 
     // Get site name (from path)
     const siteData = getSiteRewriteData(path, config.sitecoreSiteName);
