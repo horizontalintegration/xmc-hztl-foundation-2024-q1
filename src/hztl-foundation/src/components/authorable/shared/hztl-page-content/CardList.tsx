@@ -25,8 +25,6 @@ const tailwindVariants = tv({
 
 const CardList = (props: CardListProps): JSX.Element => {
   const phKey = `cardlist-${props?.params?.DynamicPlaceholderId}`;
-  console.log(phKey);
-
   const { RenderingIdentifier } = props?.params || {};
 
   const styles = parseStyleParams(props.params, ['cards']);
