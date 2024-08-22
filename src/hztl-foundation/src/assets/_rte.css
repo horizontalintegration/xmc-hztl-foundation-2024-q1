@@ -88,7 +88,7 @@
 
   .rte b,
   .rte strong {
-    @layer font-bold;
+    @apply font-bold;
   }
 
   .rte ul > li,
@@ -106,55 +106,55 @@
   }
 
   .rte .rte-align-left {
-    @layer text-left;
+    @apply text-left;
   }
 
   .rte .rte-align-center {
-    @layer text-center;
+    @apply text-center;
   }
 
   .rte .rte-align-right {
-    @layer text-right;
+    @apply text-right;
   }
 
   .rte .rte-align-justify {
-    @layer text-justify;
+    @apply text-justify;
   }
 
   .rte .rte-indent-none {
-    @layer pl-0;
+    @apply pl-0;
   }
 
   .rte .rte-indent-1 {
-    @layer pl-10;
+    @apply pl-10;
   }
 
   .rte .rte-indent-2 {
-    @layer pl-20;
+    @apply pl-20;
   }
 
   .rte .rte-indent-3 {
-    @layer pl-32;
+    @apply pl-32;
   }
 
   .rte .rte-indent-4 {
-    @layer pl-40;
+    @apply pl-40;
   }
 
   .rte .rte-indent-5 {
-    @layer pl-48;
+    @apply pl-48;
   }
 
   .rte .rte-indent-6 {
-    @layer pl-60;
+    @apply pl-60;
   }
 
   .rte .rte-indent-7 {
-    @layer pl-72;
+    @apply pl-72;
   }
 
   .rte .rte-indent-8 {
-    @layer pl-80;
+    @apply pl-80;
   }
 
 }
