@@ -3,28 +3,23 @@
 
 @layer components {
   .rte h1 {
-    @layer leading-12 text-3xl sm:text-5xl sm:leading-20;
+    @apply  text-sm-xl sm:text-xl font-bold;
   }
 
   .rte h2 {
-    @layer text-2xl leading-10 sm:text-4xl sm:leading-16;
+    @apply text-sm-l  sm:text-l font-bold;
   }
 
   .rte h3 {
-    @layer text-xl mb-3 leading-6 sm:text-2xl sm:leading-10;
+    @apply text-sm-m sm:text-m font-bold;
   }
 
-  .rte h4 {
-    @layer text-lg leading-4 sm:text-xl sm:leading-8;
-  }
-
-  .rte h5 {
-    @layer text-base leading-1 sm:text-lg sm:leading-4;
-  }
-
+  .rte h4,
+  .rte h5,
   .rte h6 {
-    @layer text-sm leading-1 sm:text-base;
+    @apply text-sm-s sm:text-sub-heading ;
   }
+
 
   .rte h1,
   .rte h2,
