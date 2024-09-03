@@ -22,7 +22,7 @@ import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWr
 const tailwindVariants = tv({
   slots: {
     columnClasses: ['mb-4', 'w-full'],
-    content: ['mx-auto', 'my-0'],
+    content: ['h-full', 'mx-auto', 'my-0'],
     contentWrapper: ['m-auto', 'p-l', 'text-left'],
     ctaWrapper: ['flex', 'flex-wrap', 'gap-xxs', 'justify-normal'],
     ctaButton1: [
@@ -64,9 +64,9 @@ const tailwindVariants = tv({
     eyebrowText: ['font-modern', 'font-regular', 'mb-xxs', 'opacity-80', 'text-black', 'text-xxs'],
     headingText: ['font-bold', 'font-modern', 'mb-xxs', 'text-4xl', 'text-black'],
     imageWrapper: ['border-b', 'border-dark-gray', 'flex', 'items-center', 'justify-center'],
-    inner: ['border', '!border-dark-gray'],
+    inner: ['border', '!border-dark-gray', 'h-full'],
     subHeadingText: ['font-bold', 'font-modern', 'mb-xxs', 'opacity-80', 'text-black', 'text-m'],
-    wrapper: ['flex', 'items-center', 'justify-center'],
+    wrapper: ['flex', 'h-full', 'items-center', 'justify-center'],
   },
   variants: {
     cardsPerRow: {
