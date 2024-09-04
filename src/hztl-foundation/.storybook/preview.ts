@@ -1,7 +1,10 @@
+// Global
 import type { Preview } from '@storybook/react';
-import './storybook-override.css';
-import 'assets/app.css';
+
+// Local
 import { componentGlobalWrapper, i18nWrapper } from './decorators';
+import 'assets/app.css';
+import './storybook-override.css';
 
 const preview: Preview = {
   parameters: {
