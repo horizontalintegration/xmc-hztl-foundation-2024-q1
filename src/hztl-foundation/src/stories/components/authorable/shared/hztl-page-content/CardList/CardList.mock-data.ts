@@ -184,7 +184,6 @@ const defaultData: CardListProps = {
   params: {
     cardsPerRow: '3',
     DynamicPlaceholderId: '1',
-    Styles: 'cards:cardsPerRow:1 cards:cardsPerRow:2 cards:cardsPerRow:3',
   },
   rendering: {
     componentName: 'Card List',
