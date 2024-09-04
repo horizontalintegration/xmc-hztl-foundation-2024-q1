@@ -23,7 +23,7 @@ const tailwindVariants = tv({
   slots: {
     base: ['border', 'border-dark-gray', 'flex', 'flex-col', 'items-center', 'justify-center'],
     body: ['flex', 'flex-col', 'gap-l', 'grow', 'p-l', 'w-full'],
-    bodyContainer: ['grow', 'w-full'],
+    content: ['grow', 'w-full'],
     ctaPrimary: [
       'bg-gray',
       'flex',
@@ -74,7 +74,7 @@ const Card = (props: CardProps): JSX.Element => {
   const {
     base,
     body,
-    bodyContainer,
+    content,
     ctaPrimary,
     ctaSecondary,
     description,
@@ -103,7 +103,7 @@ const Card = (props: CardProps): JSX.Element => {
         <ImageWrapper field={CardImage} />
       </div>
       <div className={body()}>
-        <div className={bodyContainer()}>
+        <div className={content()}>
           <PlainTextWrapper className={eyebrow()} editable field={Eyebrow} tag="h6" />
           <RichTextWrapper className={heading()} field={Heading} />
           <RichTextWrapper className={subheading()} field={Subheading} />
