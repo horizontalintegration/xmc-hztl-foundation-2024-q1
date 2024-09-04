@@ -62,14 +62,14 @@ const cardList = [
   },
   {
     componentName: 'Card',
-    dataSource: '{843DC614-0990-49B0-AF51-D3ECDAFD64CE}',
+    dataSource: '{843DC614-0990-49B0-AF51-D3ECDAFD64CF}',
     params: {
       GridParameters: 'basis-full',
       FieldNames: 'Default',
       Styles: 'cta1:ctaVariant:primary cta2:ctaVariant:secondary',
       DynamicPlaceholderId: '12',
     },
-    uid: 'e638f904-8b30-4a51-9eb9-3008bf26e5b3',
+    uid: 'e638f904-8b30-4a51-9eb9-3008bf26e5b4',
     fields: {
       Eyebrow: {
         value: 'Eyebrow 2',
@@ -121,14 +121,14 @@ const cardList = [
   },
   {
     componentName: 'Card',
-    dataSource: '{843DC614-0990-49B0-AF51-D3ECDAFD64CE}',
+    dataSource: '{843DC614-0990-49B0-AF51-D3ECDAFD64CG}',
     params: {
       GridParameters: 'basis-full',
       FieldNames: 'Default',
       Styles: 'cta1:ctaVariant:primary cta2:ctaVariant:secondary',
       DynamicPlaceholderId: '13',
     },
-    uid: 'e638f904-8b30-4a51-9eb9-3008bf26e5b3',
+    uid: 'e638f904-8b30-4a51-9eb9-3008bf26e5b5',
     fields: {
       Eyebrow: {
         value: 'Eyebrow 3',
