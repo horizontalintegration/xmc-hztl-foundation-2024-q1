@@ -9,9 +9,16 @@ import { Default, CardProps } from 'components/authorable/shared/hztl-page-conte
 import defaultData from './Card.mock-data';
 
 const meta: Meta<typeof Default> = {
-  title: 'Components/Authorable/shared/hztl-page-content/Card',
-  component: Default,
   argTypes: {},
+  component: Default,
+  decorators: [
+    (Story) => (
+      <div className="max-w-[450px]">
+        <Story />
+      </div>
+    ),
+  ],
+  title: 'Components/Authorable/shared/hztl-page-content/Card',
 };
 
 export default meta;
@@ -19,10 +26,10 @@ export default meta;
 type Story = StoryObj<typeof Default>;
 
 export const Card: Story = {
-  render: (args) => {
-    return <Default {...(expandObj({ ...args }) as CardProps)} />;
-  },
   args: {
     ...flattenObj(defaultData),
+  },
+  render: (args) => {
+    return <Default {...(expandObj({ ...args }) as CardProps)} />;
   },
 };

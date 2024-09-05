@@ -9,6 +9,7 @@
       "interfaces/*": ["src/interfaces/*"],
       "lib/*": ["src/lib/*"],
       "react": ["node_modules/@types/react"],
+      "stories/*": ["src/stories/*"],
       "temp/*": ["src/temp/*"]
     },
     "target": "es5",
