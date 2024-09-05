@@ -150,7 +150,7 @@ export const PreviewSearchBasicComponent = ({
       {/* CODE FOR SEARCH RESULTS STARTS HERE */}
       <PreviewSearch.Content
         ref={widgetRef}
-        className="flex justify-center pt-0 shadow-[2px_5px_5px_5px_rgba(0,0,0,0.3)] transition-opacity	w-[var(--radix-popover-trigger-width)] bg-white z-10"
+        className="flex justify-center pt-0 border-x border-b transition-opacity	w-[var(--radix-popover-trigger-width)] bg-white z-10"
       >
         {/* DISPLAY LOADING IF RESULTS ARE STILL NOT READY */}
         <Presence present={loading}>
@@ -201,7 +201,7 @@ export const PreviewSearchBasicComponent = ({
                           className="flex flex-col box-border no-underline w-full text-black"
                         >
                           <div className="p-2">
-                            <ArticleCard.Root className="flex w-full p-2 cursor-pointer gap-x-2">
+                            <ArticleCard.Root className="flex w-full p-2 cursor-pointer gap-x-2 items-center">
                               <div className="search-content space-y-2 w-3/4">
                                 <ArticleCard.Title className="w-full overflow-hidden text-base font-normal">
                                   {'Item Label'}
@@ -213,7 +213,7 @@ export const PreviewSearchBasicComponent = ({
                               <div className=" relative h-[6em] flex justify-center items-center overflow-hidden">
                                 <ArticleCard.Image
                                   src={article.image_url || DEFAULT_IMG_URL}
-                                  className="block w-[24px] h-[24px]"
+                                  className="block w-[50px] h-[50px]"
                                 />
                               </div>
                             </ArticleCard.Root>
