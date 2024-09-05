@@ -6,15 +6,13 @@ import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
 
 // Local
-import VideoWrapper, { VideoWrapperProps } from 'helpers/GenericWrappers/VideoWrapper/VideoWrapper';
+import VideoWrapper from 'helpers/GenericWrappers/VideoWrapper/VideoWrapper';
 
 export type InlineVideoProps = ComponentProps &
   HztlPageContent.Video & {
-    fields?: {
-      Video?: {
-        value: VideoWrapperProps;
-      };
-    };
+    componentName?: string;
+    dataSource?: string;
+    uid?: string;
   };
 
 /*
@@ -22,7 +20,19 @@ export type InlineVideoProps = ComponentProps &
  */
 
 const InlineVideo = (props: InlineVideoProps): JSX.Element => {
-  const { Video } = props?.fields || {};
+  const {
+    autoplay,
+    captions,
+    controls,
+    fluid,
+    height,
+    loop,
+    muted,
+    poster,
+    sources,
+    subtitles,
+    width,
+  } = props?.fields || {};
 
   if (!props?.fields)
     return (
@@ -35,17 +45,17 @@ const InlineVideo = (props: InlineVideoProps): JSX.Element => {
 
   return (
     <VideoWrapper
-      autoplay={Video?.value?.autoplay}
-      captions={Video?.value?.captions}
-      controls={Video?.value?.controls}
-      fluid={Video?.value?.fluid}
-      height={Video?.value?.height}
-      loop={Video?.value?.loop}
-      muted={Video?.value?.muted}
-      poster={Video?.value?.poster}
-      sources={Video?.value?.sources || []}
-      subtitles={Video?.value?.subtitles}
-      width={Video?.value?.width}
+      autoplay={autoplay?.value}
+      captions={captions}
+      controls={controls?.value}
+      fluid={fluid?.value}
+      height={height?.value}
+      loop={loop?.value}
+      muted={muted?.value}
+      poster={poster?.value?.src}
+      sources={sources || []}
+      subtitles={subtitles}
+      width={width?.value}
     />
   );
 };
