@@ -117,34 +117,35 @@ export const PreviewSearchBasicComponent = ({
     <PreviewSearch.Root>
       {/* SEARCH BAR */}
       <div className="search-container w-full flex">
-        <div className="searchinput relative w-[85%]">
+        <div className="searchinput relative w-full">
           <form id="searchSubmit" onSubmit={onHandle}>
             <PreviewSearch.Input
               id="keyword"
-              className="w-full box-border py-2 px-2 focus:outline-solid focus:outline-1 focus:outline-gray-500 border-1"
+              className="w-full box-border py-2 px-2 pr-10 focus:outline-solid focus:outline-1 focus:outline-gray-500 border-1"
               onChange={keyphraseHandler}
               autoComplete="off"
               placeholder="Search"
               value={searchText}
             />
-          </form>
-          {searchText && (
-            <div
-              className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
-              onClick={onResetText}
+            {searchText && (
+              <div
+                className="absolute inset-y-0 right-10 p-3 flex items-center cursor-pointer"
+                onClick={onResetText}
+              >
+                <SvgIcon size="xs" viewBox="0 0 12 12" fill="none" icon="close" />
+              </div>
+            )}
+            <button
+              onClick={onShowMoreResult}
+              role="click to search"
+              className="absolute inset-y-0 right-0 p-3 flex justify-center items-center cursor-pointer border-l"
             >
-              <SvgIcon size="xs" viewBox="0 0 12 12" fill="none" icon="close" />
-            </div>
-          )}
+              <SvgIcon icon="magnifier" size="xs" viewBox="0 0 18 18" fill="none" />
+            </button>
+          </form>
         </div>
-        <button
-          onClick={onShowMoreResult}
-          role='click to search'
-          className="magnifier-search flex justify-center w-[15%] border-l-0 border-x border-y mx-auto items-center cursor-pointer"
-        >
-          <SvgIcon icon="magnifier" size="xs" viewBox="0 0 18 18" fill="none" />
-        </button>
       </div>
+
       {/* SEARCH RESULTS */}
       {/* CODE FOR SEARCH RESULTS STARTS HERE */}
       <PreviewSearch.Content
