@@ -11,7 +11,6 @@ import defaultData from './CardList.mock-data';
 const meta: Meta<CardListProps> = {
   argTypes: {},
   component: Default,
-  tags: ['autodocs'],
   title: 'Components/Authorable/shared/hztl-page-content/Card List',
 };
 

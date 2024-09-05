@@ -6,7 +6,6 @@ import { tv } from 'tailwind-variants';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
-import { CardListCardsPerRows } from 'lib/utils/style-param-utils/modules/cards';
 
 // Local
 import { withStandardComponentWrapper } from 'helpers/HOC';
@@ -62,7 +61,7 @@ const tailwindVariants = tv({
 });
 
 export type CardProps = ComponentProps &
-  HztlPageContent.Card & { cardsPerRow?: CardListCardsPerRows };
+  HztlPageContent.Card & { componentName?: string; dataSource?: string; uid: string };
 
 const Card = (props: CardProps): JSX.Element => {
   const { CardImage, CardLink1, CardLink2, Description, Eyebrow, Heading, Subheading } =
