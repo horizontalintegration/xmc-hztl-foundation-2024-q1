@@ -6,7 +6,6 @@ import { tv } from 'tailwind-variants';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
-import { CardListCardsPerRows } from 'lib/utils/style-param-utils/modules/cards';
 
 // Local
 import { withStandardComponentWrapper } from 'helpers/HOC';
@@ -21,11 +20,10 @@ import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWr
 
 const tailwindVariants = tv({
   slots: {
-    columnClasses: ['mb-4', 'w-full'],
-    content: ['mx-auto', 'my-0'],
-    contentWrapper: ['m-auto', 'p-l', 'text-left'],
-    ctaWrapper: ['flex', 'flex-wrap', 'gap-xxs', 'justify-normal'],
-    ctaButton1: [
+    base: ['border', 'border-dark-gray', 'flex', 'flex-col', 'items-center', 'justify-center'],
+    body: ['flex', 'flex-col', 'gap-l', 'grow', 'p-l', 'w-full'],
+    content: ['grow', 'w-full'],
+    ctaPrimary: [
       'bg-gray',
       'flex',
       'font-bold',
@@ -39,7 +37,7 @@ const tailwindVariants = tv({
       'text-center',
       'text-white',
     ],
-    ctaButton2: [
+    ctaSecondary: [
       'border-gray',
       'border',
       'flex',
@@ -53,41 +51,17 @@ const tailwindVariants = tv({
       'text-center',
       'text-xs',
     ],
-    descriptionText: [
-      'font-modern',
-      'font-regular',
-      'mb-xxs',
-      'opacity-90',
-      'text-black',
-      'text-xs',
-    ],
-    eyebrowText: ['font-modern', 'font-regular', 'mb-xxs', 'opacity-80', 'text-black', 'text-xxs'],
-    headingText: ['font-bold', 'font-modern', 'mb-xxs', 'text-4xl', 'text-black'],
-    imageWrapper: ['border-b', 'border-dark-gray', 'flex', 'items-center', 'justify-center'],
-    inner: ['border', '!border-dark-gray'],
-    subHeadingText: ['font-bold', 'font-modern', 'mb-xxs', 'opacity-80', 'text-black', 'text-m'],
-    wrapper: ['flex', 'items-center', 'justify-center'],
-  },
-  variants: {
-    cardsPerRow: {
-      '1': {
-        columnClasses: ['mml:w-1/1'],
-      },
-      '2': {
-        columnClasses: ['mml:w-1/2'],
-      },
-      '3': {
-        columnClasses: ['mml:w-1/3'],
-      },
-      '4': {
-        columnClasses: ['mml:w-1/4'],
-      },
-    },
+    description: ['font-modern', 'font-regular', 'mb-xxs', 'opacity-90', 'text-black', 'text-xs'],
+    eyebrow: ['font-modern', 'font-regular', 'mb-xxs', 'opacity-80', 'text-black', 'text-xxs'],
+    footer: ['flex', 'flex-wrap', 'gap-xxs', 'justify-normal', 'w-full'],
+    header: ['border-b', 'border-dark-gray'],
+    heading: ['font-bold', 'font-modern', 'mb-xxs', 'text-4xl', 'text-black'],
+    subheading: ['font-bold', 'font-modern', 'mb-xxs', 'opacity-80', 'text-black', 'text-m'],
   },
 });
 
 export type CardProps = ComponentProps &
-  HztlPageContent.Card & { cardsPerRow?: CardListCardsPerRows };
+  HztlPageContent.Card & { componentName?: string; dataSource?: string; uid: string };
 
 const Card = (props: CardProps): JSX.Element => {
   const { CardImage, CardLink1, CardLink2, Description, Eyebrow, Heading, Subheading } =
@@ -97,22 +71,18 @@ const Card = (props: CardProps): JSX.Element => {
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
   const {
-    columnClasses,
+    base,
+    body,
     content,
-    contentWrapper,
-    ctaButton1,
-    ctaButton2,
-    ctaWrapper,
-    descriptionText,
-    eyebrowText,
-    headingText,
-    imageWrapper,
-    inner,
-    subHeadingText,
-    wrapper,
-  } = tailwindVariants({
-    cardsPerRow: props.cardsPerRow,
-  });
+    ctaPrimary,
+    ctaSecondary,
+    description,
+    eyebrow,
+    footer,
+    header,
+    heading,
+    subheading,
+  } = tailwindVariants();
 
   /*
    * Rendering
@@ -124,27 +94,23 @@ const Card = (props: CardProps): JSX.Element => {
 
   return (
     <div
-      className={columnClasses()}
+      className={base()}
       data-component="authorable/shared/hztl-page-content/card"
       id={RenderingIdentifier}
     >
-      <div className={wrapper()}>
+      <div className={header()}>
+        <ImageWrapper field={CardImage} />
+      </div>
+      <div className={body()}>
         <div className={content()}>
-          <div className={inner()}>
-            <div className={imageWrapper()}>
-              <ImageWrapper field={CardImage} />
-            </div>
-            <div className={contentWrapper()}>
-              <PlainTextWrapper className={eyebrowText()} editable field={Eyebrow} tag="h6" />
-              <RichTextWrapper className={headingText()} field={Heading} />
-              <RichTextWrapper className={subHeadingText()} field={Subheading} />
-              <RichTextWrapper className={descriptionText()} field={Description} />
-              <div className={ctaWrapper()}>
-                <LinkWrapper className={ctaButton1()} ctaStyle={styles.cta1} field={CardLink1} />
-                <LinkWrapper className={ctaButton2()} ctaStyle={styles.cta2} field={CardLink2} />
-              </div>
-            </div>
-          </div>
+          <PlainTextWrapper className={eyebrow()} editable field={Eyebrow} tag="h6" />
+          <RichTextWrapper className={heading()} field={Heading} />
+          <RichTextWrapper className={subheading()} field={Subheading} />
+          <RichTextWrapper className={description()} field={Description} />
+        </div>
+        <div className={footer()}>
+          <LinkWrapper className={ctaPrimary()} ctaStyle={styles.cta1} field={CardLink1} />
+          <LinkWrapper className={ctaSecondary()} ctaStyle={styles.cta2} field={CardLink2} />
         </div>
       </div>
     </div>
