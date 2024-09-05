@@ -137,12 +137,13 @@ export const PreviewSearchBasicComponent = ({
             </div>
           )}
         </div>
-        <div
+        <button
           onClick={onShowMoreResult}
+          role='click to search'
           className="magnifier-search flex justify-center w-[15%] border-l-0 border-x border-y mx-auto items-center cursor-pointer"
         >
           <SvgIcon icon="magnifier" size="xs" viewBox="0 0 18 18" fill="none" />
-        </div>
+        </button>
       </div>
       {/* SEARCH RESULTS */}
       {/* CODE FOR SEARCH RESULTS STARTS HERE */}
