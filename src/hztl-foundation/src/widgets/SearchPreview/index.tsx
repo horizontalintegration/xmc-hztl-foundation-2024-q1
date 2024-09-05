@@ -115,6 +115,7 @@ export const PreviewSearchBasicComponent = ({
 
   return (
     <PreviewSearch.Root>
+      {/* SEARCH BAR */}
       <div className="search-container w-full flex">
         <div className="searchinput relative w-[85%]">
           <form id="searchSubmit" onSubmit={onHandle}>
@@ -143,11 +144,13 @@ export const PreviewSearchBasicComponent = ({
           <SvgIcon icon="magnifier" size="xs" viewBox="0 0 18 18" fill="none" />
         </div>
       </div>
-
+      {/* SEARCH RESULTS */}
+      {/* CODE FOR SEARCH RESULTS STARTS HERE */}
       <PreviewSearch.Content
         ref={widgetRef}
         className="flex justify-center pt-0 shadow-[2px_5px_5px_5px_rgba(0,0,0,0.3)] transition-opacity	w-[var(--radix-popover-trigger-width)] bg-white z-10"
       >
+        {/* DISPLAY LOADING IF RESULTS ARE STILL NOT READY */}
         <Presence present={loading}>
           <div className="flex flex-1 items-center">
             <svg
@@ -170,6 +173,7 @@ export const PreviewSearchBasicComponent = ({
                 data-loading={loading}
                 className="flex flex-col w-full"
               >
+                {/* DISPLAY LOADING IF RESULTS ARE STILL NOT READY */}
                 <Presence present={loading}>
                   <div className="flex flex-1 items-center">
                     <svg
@@ -184,8 +188,10 @@ export const PreviewSearchBasicComponent = ({
                     </svg>
                   </div>
                 </Presence>
+                {/* THIS IS THE LIST OF SEARCH RESULTS THAT SHOW UP */}
                 {!loading && (
                   <>
+                    {/* LOOP OVER ALL SEARCH RESULTS TO DISPLAY */}
                     {articles.map((article) => (
                       <PreviewSearch.Item key={article.id} asChild>
                         <a
