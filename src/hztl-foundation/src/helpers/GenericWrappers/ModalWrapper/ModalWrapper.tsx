@@ -41,7 +41,7 @@ Modal.setAppElement(process.env.IS_STORYBOOK ? '#storybook-root' : '#__next');
 const modalWrapperStyles = tv({
   slots: {
     body: [],
-    closeButton: ['h-6', 'w-6'],
+    closeButton: ['h-3', 'w-3'],
     closeButtonIcon: [],
     modal: [
       'absolute',
@@ -173,10 +173,6 @@ const ModalWrapper = (props: ModalWrapperProps): JSX.Element => {
     };
   });
 
-  useEffect(() => {
-    (openOnLoad || !trigger) && handleOnOpenModal();
-  }, [openOnLoad, trigger]);
-
   /*
    * Rendering
    */
@@ -199,7 +195,7 @@ const ModalWrapper = (props: ModalWrapperProps): JSX.Element => {
         className={modal()}
         closeTimeoutMS={300}
         contentLabel={label}
-        data-component="helpers-sitecorewrappers-modalwrappertwo"
+        data-component="helpers/generic-wrappers/modal-wrapper"
         id={`modal-${id}`}
         isOpen={isOpen}
         onAfterClose={handleOnAfterClose}
@@ -223,7 +219,7 @@ const ModalWrapper = (props: ModalWrapperProps): JSX.Element => {
               aria-label="Close Modal Button Icon"
               className={closeButtonIcon()}
               icon="close"
-              size="lg"
+              size="em"
             />
           </button>
         </div>

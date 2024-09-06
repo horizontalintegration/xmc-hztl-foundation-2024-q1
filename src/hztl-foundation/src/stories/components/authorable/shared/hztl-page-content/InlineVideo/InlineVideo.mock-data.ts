@@ -1,7 +1,7 @@
 import { InlineVideoProps } from 'components/authorable/shared/hztl-page-content/InlineVideo';
 
 const defaultData: InlineVideoProps = {
-  componentName: 'Inline Video',
+  componentName: 'InlineVideo',
   dataSource: '{22DFDD15-B06E-4E81-8A4D-A807C3811E8C}',
   fields: {
     autoplay: {
