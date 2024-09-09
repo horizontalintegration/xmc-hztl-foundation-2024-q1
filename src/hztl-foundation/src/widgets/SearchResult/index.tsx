@@ -294,16 +294,19 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
     >
       {facetsPagination &&
         facetsPagination.map((f, fIndex: number) => (
+          // ALL THE CONTENT IN THE FILTER OPTION
           <AccordionFacets.Facet
             facetId={f.name}
             key={fIndex}
             id={f.name + fIndex}
-            className="mb-2 border-gray-200 w-full border gap-2 rounded px-4 py-4"
+            className="mb-2 border-x border-y w-full gap-2 rounded-md"
           >
             <div className="facets-header">
-              <AccordionFacets.Header className="flex">
-                <AccordionFacets.Trigger className="flex items-center justify-between w-full font-normal text-base">
+              <AccordionFacets.Header className="flex px-3 py-1.5">
+                {/* FILTER ITEM TITLE */}
+                <AccordionFacets.Trigger className="flex items-center justify-between w-full text-lg">
                   {f.label}
+                  {/* DROPDOWN/UP ICON */}
                   <SvgIcon
                     className="facets-accordian-arrow"
                     viewBox="0 0 16 9"
@@ -314,8 +317,10 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                 </AccordionFacets.Trigger>
               </AccordionFacets.Header>
             </div>
+            {/* INSIDE OF EACH INDIVIDUAL FILTER ITEM */}
             <AccordionFacets.Content>
-              <AccordionFacets.ValueList className="list-none mt-2 flex flex-col justify-start space-y-4">
+              <AccordionFacets.ValueList className="list-none flex flex-col justify-start space-y-4 p-3">
+                {/* INDIVIDUAL SEARCH BOX */}
                 <div className="search-textbox relative w-full">
                   <input
                     type="text"
@@ -327,6 +332,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                     <SvgIcon icon="magnifier" size="xs" viewBox="0 0 18 18" fill="none" />
                   </div>
                 </div>
+                {/* INDIVIDUAL CHECKBOX + LABEL */}
                 {f.value.slice(0, f.itemToLoad).map((v, index: number) => (
                   <FacetItem
                     {...{
@@ -334,9 +340,10 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                       facetValueId: v.id,
                     }}
                     key={index}
-                    className="group flex text-sm cursor-pointer w-full"
+                    className="group flex text-sm cursor-pointer w-full items-center"
                   >
-                    <div className="facetlabel justify-between w-11/12">
+                    {/* ACTUAL check+label */}
+                    <div className="facetlabel justify-start w-11/12 items-center flex gap-1">
                       <AccordionFacets.ItemCheckbox className="form-checkbox flex-none w-5 h-5 border border-gray-300 rounded cursor-pointer transition duration-500 ease-in-out hover:border-heading focus:outline-indigo-500 aria-checked:bg-indigo-500 aria-checked:hover:bg-heading aria-checked:focus:bg-heading">
                         <AccordionFacets.ItemCheckboxIndicator className="text-white w-5 h-5 ">
                           <CheckIcon />
@@ -346,18 +353,20 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                         {v.text}
                       </AccordionFacets.ItemLabel>
                     </div>
+                    {/* COUNT */}
                     <div className="facetcount font-normal text-base text-dark-gray">
                       {v.count && `(${v.count})`}
                     </div>
                   </FacetItem>
                 ))}
+                {/* INDIVIDUAL SHOW MORE BUTTON */}
                 {!(f.value.length > f.itemToLoad) ||
                   (f.value.length > ITEM_TO_LOAD && (
                     <div
                       onClick={() => {
                         onShowMore(fIndex);
                       }}
-                      className="cursor-pointer show-more-facets flex gap-1 items-center w-11/12"
+                      className="cursor-pointer show-more-facets flex gap-1.5 items-center w-11/12 font-bold"
                     >
                       <SvgIcon icon="plus" fill="none" viewBox="0 0 12 11" size="xs" />
                       <h2 className="underline">Show more</h2>
