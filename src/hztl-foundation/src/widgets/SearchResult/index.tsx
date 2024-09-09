@@ -581,6 +581,7 @@ export const SearchResultsWithInputComponent = ({
   return (
     <div ref={widgetRef}>
       <div className="flex sm:flex-col mmd:flex-row relative max-w-full px-4 text-black text-opacity-75 gap-4">
+        {/* LOADING STATE */}
         {isFetching && (
           <div className="w-full h-full fixed top-0 left-0 bottom-0 right-0 z-30 bg-white opacity-50">
             <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] flex flex-col justify-center items-center z-40">
@@ -602,26 +603,31 @@ export const SearchResultsWithInputComponent = ({
                   />
                 </form>
                 <MagnifyingGlassIcon className="absolute right-[5px] top-[10px] w-[20px] h-[20px] text-gray-400 peer-focus:text-indigo-500" /> */}
+                {/* SEARCH BAR - SAME FOR BOTH MOBILE AND DESKTOP */}
                 <PreviewSearchListComponent
                   rfkId={'rfkid_101'}
                   defaultItemsPerPage={5}
                   hasSearchFromSearchPage={true}
                 />
               </div>
+              {/* REFINE BY CODE */}
               <div
                 onClick={() => {
                   setMobileFilterToogle(!mobileFilterToogle);
                 }}
                 className={`mmd:hidden flex items-center justify-center w-full border rounded px-2 h-12 gap-2`}
               >
+                {/* THIS IS FOR REFINE BY MOBILE */}
                 <span className="font-medium text-base">Refine By</span>
                 <SvgIcon icon="refine" viewBox="0 0 24 24" size="xs" fill="none" />
               </div>
               <div
                 className={`refineby-container ${mobileFilterToogle ? 'block' : 'hidden'} mmd:block`}
               >
+                {/* THIS IS FOR REFINE BY DESKTOP */}
                 <div className="sort-order flex flex-col gap-4">
                   <h3 className="font-normal text-lg font-modern">Refine By</h3>
+                  {/* SORT BY CODE */}
                   <div className="sort gap-1">
                     <label className="text-base font-bold" htmlFor="sorting">
                       Sort
@@ -631,9 +637,11 @@ export const SearchResultsWithInputComponent = ({
                     </div>
                   </div>
                 </div>
+                {/* FILTER CODE */}
                 <div className="my-4">
                   <Filter />
                 </div>
+                {/* FILTER CONTENT */}
                 {facets.length > 0 && (
                   <div className="search-facets">
                     <label htmlFor="facets" className="text-base font-bold">
@@ -644,6 +652,7 @@ export const SearchResultsWithInputComponent = ({
                 )}
               </div>
             </section>
+            {/* RIGHT SIDE SECTION WHICH DISPLAYS RESULTS ON DESKTOP */}
             <section className="flex flex-col flex-[4_1_0%] gap-4 font-modern md:p-4">
               {/* Sort Select */}
               {totalItems > 0 && (
