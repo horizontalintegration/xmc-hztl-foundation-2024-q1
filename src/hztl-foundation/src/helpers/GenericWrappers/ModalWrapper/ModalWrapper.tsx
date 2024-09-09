@@ -126,6 +126,8 @@ const ModalWrapper = (props: ModalWrapperProps): JSX.Element => {
   };
 
   const handleOnCloseModal = () => {
+    history.replaceState('', document.title, window.location.pathname + window.location.search);
+
     setIsOpen(false);
 
     const gtmEventInner = {
@@ -147,10 +149,10 @@ const ModalWrapper = (props: ModalWrapperProps): JSX.Element => {
     return;
   };
 
-  const handleOnRemoteTriggerEvent = (e: CustomEvent) => {
-    const { modalId } = e?.detail || {};
+  const handleOnRemoteTriggerEvent = () => {
+    const { hash } = window?.location;
 
-    if (modalId !== `modal-${id}`) return;
+    if (hash !== `#modal-${id}`) return;
 
     handleOnOpenModal();
   };
@@ -160,18 +162,16 @@ const ModalWrapper = (props: ModalWrapperProps): JSX.Element => {
    */
 
   useEffect(() => {
-    document.addEventListener(
-      'trigger-modal',
-      (e) => handleOnRemoteTriggerEvent(e as CustomEvent),
-      false
-    );
+    window.addEventListener('hashchange', () => handleOnRemoteTriggerEvent());
 
     return () => {
-      document.removeEventListener('trigger-modal', (e) =>
-        handleOnRemoteTriggerEvent(e as CustomEvent)
-      );
+      window.removeEventListener('hashchange', () => handleOnRemoteTriggerEvent());
     };
   });
+
+  useEffect(() => {
+    openOnLoad && handleOnOpenModal();
+  }, [openOnLoad]);
 
   /*
    * Rendering

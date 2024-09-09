@@ -93,17 +93,7 @@ export const Default: Story = {
   render: (args) => {
     return (
       <>
-        <a
-          onClick={() => {
-            document.dispatchEvent(
-              new CustomEvent('trigger-modal', {
-                detail: { modalId: `modal-${defaultData?.uid}` },
-              })
-            );
-          }}
-        >
-          Remote Trigger
-        </a>
+        <a href={`#modal-${defaultData?.uid}`}>Remote Trigger</a>
         <Modal {...(expandObj({ ...args }) as ModalProps)} />
       </>
     );
