@@ -9,10 +9,9 @@ import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 
 // Local
 import ModalWrapper from 'helpers/GenericWrappers/ModalWrapper/ModalWrapper';
-import ButtonWrapper from 'helpers/SitecoreWrappers/ButtonWrapper/ButtonWrapper';
 import useIsEditing from 'lib/hooks/use-is-editing';
 
-export type ModalProps = ComponentProps & HztlPageContent.Modal & {};
+export type ModalProps = ComponentProps & HztlPageContent.Modal;
 
 const TAILWIND_VARIANTS = tv({
   slots: {

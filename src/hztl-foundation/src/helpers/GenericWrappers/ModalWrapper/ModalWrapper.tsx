@@ -8,7 +8,6 @@ import { tv } from 'tailwind-variants';
 import { GtmEvent } from 'lib/utils/gtm-utils';
 
 // Local
-import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 
 type ModalSize = 'extra-large' | 'fluid' | 'large' | 'medium' | 'small' | undefined;
