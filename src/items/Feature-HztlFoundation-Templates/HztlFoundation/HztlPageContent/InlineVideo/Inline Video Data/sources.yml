@@ -9,7 +9,7 @@ SharedFields:
   Value: /sitecore/media library/Project/HztlFoundation/SiteAlpha/Videos
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: File
+  Value: Multilist
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 800
@@ -35,11 +35,11 @@ Languages:
         sitecore\vthakur@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "274da2cc-7c4a-47c6-a9cd-6f7d82bfbb9f"
+      Value: "3d2d6486-a0b6-4780-a86a-2666de25c6c4"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240906T123822Z
+      Value: 20240909T101146Z
