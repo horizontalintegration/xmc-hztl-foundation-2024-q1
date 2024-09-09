@@ -151,7 +151,7 @@ const Filter = () => {
           <button
             key={`${selectedFacet.facetId}${selectedFacet.facetLabel}${selectedFacet.valueLabel}`}
             onClick={() => onRemoveFilter(selectedFacet)}
-            className="bg-black text-ellipsis text-sm text-white bg-gray-400 rounded-md pl-2 pr-7 py-1.5 whitespace-no-wrap max-w-full overflow-hidden relative cursor-pointer 
+            className="bg-black text-ellipsis text-sm text-white bg-gray-400 rounded-lg pl-2.5 pr-7 py-2.5 whitespace-no-wrap max-w-full overflow-hidden relative cursor-pointer 
       before:content-[''] before:-rotate-45 before:absolute before:w-3.5 before:h-0.5 before:right-2 before:top-2/4 before:bg-white 
       after:content-[''] after:rotate-45 after:absolute after:w-3.5 after:h-0.5 after:right-2 after:top-2/4 after:bg-white 
       focus:outline-indigo-500"
@@ -321,7 +321,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
             </div>
             {/* INSIDE OF EACH INDIVIDUAL FILTER ITEM */}
             <AccordionFacets.Content>
-              <AccordionFacets.ValueList className="list-none flex flex-col justify-start space-y-4 px-3 mt-2">
+              <AccordionFacets.ValueList className="list-none flex flex-col justify-start space-y-4 px-3 mt-2 mb-3">
                 {/* INDIVIDUAL SEARCH BOX */}
                 <div className="search-textbox relative w-full">
                   <input
@@ -442,7 +442,7 @@ const SortOrder = ({ options, selected }: SortOrderProps) => {
           {selectedSortIndex > -1 ? options[selectedSortIndex].label : ''}
         </SortSelect.SelectValue>
         {/* <SortSelect.Icon /> */}
-        <SvgIcon icon="sorting" viewBox="0 0 24 24" size="xs" />
+        <SvgIcon icon="sorting" viewBox="0 0 24 24" size="sm" />
       </SortSelect.Trigger>
       <SortSelect.Content className="bg-white shadow-[4px_4px_8px_#CFCFCF] z-[100] absolute top-6 focus-within:border-indigo-500 w-full ">
         <SortSelect.Viewport className="p-1 z-[50000]">
@@ -624,21 +624,21 @@ export const SearchResultsWithInputComponent = ({
                 onClick={() => {
                   setMobileFilterToogle(!mobileFilterToogle);
                 }}
-                className={`mmd:hidden flex items-center justify-center w-full border rounded px-2 h-12 gap-2`}
+                className={`mmd:hidden flex items-center justify-center w-full border rounded px-2 h-12 gap-2 mt-2`}
               >
                 {/* THIS IS FOR REFINE BY MOBILE */}
-                <span className="font-medium text-base">Refine By</span>
+                <span className="text-lg font-semibold mt-2">Refine By</span>
                 <SvgIcon icon="refine" viewBox="0 0 24 24" size="xs" fill="none" />
               </div>
               <div
                 className={`refineby-container ${mobileFilterToogle ? 'block' : 'hidden'} mmd:block`}
               >
                 {/* THIS IS FOR REFINE BY DESKTOP */}
-                <div className="sort-order flex flex-col gap-4">
-                  <h3 className="text-lg font-medium ">Refine By</h3>
+                <div className="sort-order flex flex-col gap-3">
+                  <h3 className="text-lg font-semibold mt-2">Refine By</h3>
                   {/* SORT BY CODE */}
                   <div className="sort gap-1">
-                    <label className="text-base font-bold" htmlFor="sorting">
+                    <label className="text-lg font-extrabold mb-1" htmlFor="sorting">
                       Sort
                     </label>
                     <div id="sorting" className="sort-wrapper border rounded px-2">
@@ -653,7 +653,7 @@ export const SearchResultsWithInputComponent = ({
                 {/* FILTER CONTENT */}
                 {facets.length > 0 && (
                   <div className="search-facets">
-                    <label htmlFor="facets" className="text-base font-bold">
+                    <label htmlFor="facets" className="text-lg font-extrabold mb-1">
                       Filter
                     </label>
                     <SearchFacets facets={facets} />
