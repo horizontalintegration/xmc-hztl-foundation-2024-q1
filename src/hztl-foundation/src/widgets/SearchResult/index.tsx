@@ -140,11 +140,10 @@ const Filter = () => {
       <div className="flex flex-col mb-2 gap-4">
         <div
           onClick={onClearFilters}
-          className="clear-filter cursor-pointer flex gap-1 items-center text-base font-medium text-black underline text-opacity-75 hover:text-indigo-500 hover:opacity-1 focus:outline-indigo-500"
+          className="clear-filter cursor-pointer flex gap-2 items-center text-lg font-extrabold text-black underline text-opacity-75 hover:text-indigo-500 hover:opacity-1 focus:outline-indigo-500"
         >
           <span className="cursor-pointer">Reset Filters</span>
-
-          <SvgIcon size="xs" icon="close" />
+          <SvgIcon size="xs" icon="close" viewBox="0 0 16 10 " />
         </div>
       </div>
       <div className="flex flex-wrap">
@@ -319,7 +318,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
             </div>
             {/* INSIDE OF EACH INDIVIDUAL FILTER ITEM */}
             <AccordionFacets.Content>
-              <AccordionFacets.ValueList className="list-none flex flex-col justify-start space-y-4 p-3">
+              <AccordionFacets.ValueList className="list-none flex flex-col justify-start space-y-4 px-3 mt-2">
                 {/* INDIVIDUAL SEARCH BOX */}
                 <div className="search-textbox relative w-full">
                   <input
@@ -332,7 +331,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                     <SvgIcon icon="magnifier" size="xs" viewBox="0 0 18 18" fill="none" />
                   </div>
                 </div>
-                {/* INDIVIDUAL CHECKBOX + LABEL */}
+                {/* INDIVIDUAL CHECKBOX + LABEL + COUNT */}
                 {f.value.slice(0, f.itemToLoad).map((v, index: number) => (
                   <FacetItem
                     {...{
@@ -340,23 +339,21 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                       facetValueId: v.id,
                     }}
                     key={index}
-                    className="group flex text-sm cursor-pointer w-full items-center"
+                    className="group flex cursor-pointer w-full items-center justify-between text-lg"
                   >
                     {/* ACTUAL check+label */}
-                    <div className="facetlabel justify-start w-11/12 items-center flex gap-1">
+                    <div className="facetlabel justify-start w-11/12 items-center flex gap-2">
                       <AccordionFacets.ItemCheckbox className="form-checkbox flex-none w-5 h-5 border border-gray-300 rounded cursor-pointer transition duration-500 ease-in-out hover:border-heading focus:outline-indigo-500 aria-checked:bg-indigo-500 aria-checked:hover:bg-heading aria-checked:focus:bg-heading">
                         <AccordionFacets.ItemCheckboxIndicator className="text-white w-5 h-5 ">
                           <CheckIcon />
                         </AccordionFacets.ItemCheckboxIndicator>
                       </AccordionFacets.ItemCheckbox>
-                      <AccordionFacets.ItemLabel className="font-normal text-base font-modern ms-1">
+                      <AccordionFacets.ItemLabel className="font-normal text-lg">
                         {v.text}
                       </AccordionFacets.ItemLabel>
                     </div>
                     {/* COUNT */}
-                    <div className="facetcount font-normal text-base text-dark-gray">
-                      {v.count && `(${v.count})`}
-                    </div>
+                    <div className="facetcount pr-1">{v.count && `(${v.count})`}</div>
                   </FacetItem>
                 ))}
                 {/* INDIVIDUAL SHOW MORE BUTTON */}
@@ -366,7 +363,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                       onClick={() => {
                         onShowMore(fIndex);
                       }}
-                      className="cursor-pointer show-more-facets flex gap-1.5 items-center w-11/12 font-bold"
+                      className="cursor-pointer show-more-facets flex gap-2 items-center w-11/12 font-bold text-base p-1 mb-4"
                     >
                       <SvgIcon icon="plus" fill="none" viewBox="0 0 12 11" size="xs" />
                       <h2 className="underline">Show more</h2>
@@ -635,7 +632,7 @@ export const SearchResultsWithInputComponent = ({
               >
                 {/* THIS IS FOR REFINE BY DESKTOP */}
                 <div className="sort-order flex flex-col gap-4">
-                  <h3 className="font-normal text-lg font-modern">Refine By</h3>
+                  <h3 className="text-lg font-medium ">Refine By</h3>
                   {/* SORT BY CODE */}
                   <div className="sort gap-1">
                     <label className="text-base font-bold" htmlFor="sorting">
