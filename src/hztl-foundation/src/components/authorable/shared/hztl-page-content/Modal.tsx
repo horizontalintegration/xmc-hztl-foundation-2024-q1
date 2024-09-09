@@ -46,7 +46,7 @@ const Modal = (props: ModalProps): JSX.Element => {
             <Placeholder name={placeholderKey} rendering={props.rendering} />
           </div>
         </div>
-        <p>ID: {uid}</p>
+        <p>URL Hash: {`#modal-${uid}`}</p>
       </>
     );
   }

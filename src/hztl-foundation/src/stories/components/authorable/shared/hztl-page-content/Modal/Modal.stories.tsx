@@ -90,6 +90,14 @@ export const Default: Story = {
     ...flattenObj(defaultData),
   },
   name: 'Default',
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "The modal component uses a JSS Placeholder to define its content, and listens for changes to the URL hash and a specific hash value to trigger the a given modal to open. In editing mode, the moda's content will be presented inline, and the URL hash value will be presented to the content author.\n\nNOTE: Due to Storybook's use of the iframe tag, the story/canvas must be opened in a new tab to function correctly.",
+      },
+    },
+  },
   render: (args) => {
     return (
       <>
