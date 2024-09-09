@@ -151,7 +151,7 @@ const Filter = () => {
           <button
             key={`${selectedFacet.facetId}${selectedFacet.facetLabel}${selectedFacet.valueLabel}`}
             onClick={() => onRemoveFilter(selectedFacet)}
-            className="bg-black text-ellipsis text-xs font-medium text-white bg-gray-400 rounded-md pl-2 pr-5 py-1.5 m-1 whitespace-no-wrap max-w-full overflow-hidden relative cursor-pointer before:content-[''] before:-rotate-45 before:absolute before:w-2.5 before:h-0.5 before:right-2 before:top-2/4 before:bg-white after:content-[''] after:rotate-45 after:absolute after:w-2.5 after:h-0.5 after:right-2 after:top-2/4 after:bg-white focus:outline-indigo-500"
+            className="bg-black text-ellipsis text-xs font-medium text-white bg-gray-400 rounded-md pl-2 pr-7 py-1.5 whitespace-no-wrap max-w-full overflow-hidden relative cursor-pointer before:content-[''] before:-rotate-45 before:absolute before:w-2.5 before:h-0.5 before:right-2 before:top-2/4 before:bg-white after:content-[''] after:rotate-45 after:absolute after:w-2.5 after:h-0.5 after:right-2 after:top-2/4 after:bg-white focus:outline-indigo-500"
           >
             {buildFacetLabel(selectedFacet)}
           </button>
