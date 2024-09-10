@@ -113,11 +113,11 @@ const ArticleHorizontalItemCard = ({
         {article.description && displayText && (
           <div className="line-clamp-3 text-sm">{article.description}</div>
         )}
-        <div className="read-more flex items-center gap-3">
+        <div className="read-more flex items-center gap-2">
           <a className="underline text-base font-bold cursor-pointer" href={article.url}>
             Read more
           </a>
-          <SvgIcon icon="arrow-right" viewBox="0 0 16 9" size="xs" fill="none" />
+          <SvgIcon icon="arrow-right" viewBox="0 0 16 10" size="xs" fill="none" />
         </div>
       </div>
       <div className="w-[30%] md:w-1/5 overflow-hidden bg-gray-200 ">
@@ -366,9 +366,9 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                       onClick={() => {
                         onShowMore(fIndex);
                       }}
-                      className="cursor-pointer show-more-facets flex gap-2 items-center w-11/12 font-bold text-base p-1 mb-4"
+                      className="cursor-pointer show-more-facets flex gap-2 items-center w-11/12 font-bold text-base p-1"
                     >
-                      <SvgIcon icon="plus" fill="none" viewBox="0 0 12 11" size="xs" />
+                      <SvgIcon icon="plus" fill="none" viewBox="0 0 12 11" size="xxs" />
                       <h2 className="underline">Show more</h2>
                     </div>
                   ))}
@@ -396,9 +396,9 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
     >
       <Pagination.PrevPage
         onClick={(e) => e.preventDefault()}
-        className="cursor-pointer my-0 mx-2 data-[current=true]:hidden hover:text-indigo-500 focus:outline-indigo-500"
+        className="flex items-center cursor-pointer my-0 mx-2 data-[current=true]:hidden hover:text-indigo-500 focus:outline-indigo-500"
       >
-        <SvgIcon icon="arrow-left" size="xs" viewBox="0 0 9 16" fill="none" />
+        <SvgIcon icon="arrow-left" size="xs" viewBox="0 0 16 16" fill="none" />
       </Pagination.PrevPage>
       <Pagination.Pages>
         {(pagination) =>
@@ -412,7 +412,7 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
                 aria-label={`Page ${page}`}
                 page={page as number}
                 onClick={(e) => e.preventDefault()}
-                className="py-xxs px-xs rounded-2xl cursor-pointer mx-2 data-[current=true]:text-white data-[current=true]:bg-dark-gray data-[current=true]:pointer-events-none data-[current=true]:no-underline"
+                className="inline-flex items-center justify-center w-8 h-8 rounded-full p-2 cursor-pointer data-[current=true]:text-white data-[current=true]:bg-dark-gray data-[current=true]:pointer-events-none data-[current=true]:no-underline"
               >
                 {page}
               </Pagination.Page>
@@ -424,9 +424,24 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
       </Pagination.Pages>
       <Pagination.NextPage
         onClick={(e) => e.preventDefault()}
-        className="cursor-pointer my-0 mx-2 data-[current=true]:hidden hover:text-indigo-500 focus:outline-indigo-500"
+        className="flex items-center justify-center cursor-pointer my-0 mx-2 data-[current=true]:hidden hover:text-indigo-500 focus:outline-indigo-500"
       >
-        <SvgIcon icon="arrow-right" size="xs" viewBox="0 0 9 16" fill="none" />
+        {/* <SvgIcon icon="arrow-right" size="xs" viewBox="0 0 16 16" fill="none" /> */}
+        <svg
+          width="9"
+          height="16"
+          viewBox="0 0 9 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.999999 1L8 8L1 15"
+            stroke="#2F2D2E"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
       </Pagination.NextPage>
     </Pagination.Root>
   );
@@ -437,12 +452,12 @@ const SortOrder = ({ options, selected }: SortOrderProps) => {
   const { onSortChange } = useSearchResultsActions();
   return (
     <SortSelect.Root defaultValue={options[selectedSortIndex]?.name} onValueChange={onSortChange}>
-      <SortSelect.Trigger className="cursor-pointer inline-flex items-center bg-transparent h-10 gap-1 border-0 focus:outline-indigo-500 justify-between w-full">
+      <SortSelect.Trigger className="cursor-pointer flex items-center bg-transparent h-10 gap-1 focus:outline-indigo-500 justify-between w-full">
         <SortSelect.SelectValue>
           {selectedSortIndex > -1 ? options[selectedSortIndex].label : ''}
         </SortSelect.SelectValue>
         {/* <SortSelect.Icon /> */}
-        <SvgIcon icon="sorting" viewBox="0 0 24 24" size="sm" />
+        <SvgIcon icon="sorting" viewBox="0 0 24 24" size="xs" />
       </SortSelect.Trigger>
       <SortSelect.Content className="bg-white shadow-[4px_4px_8px_#CFCFCF] z-[100] absolute top-6 focus-within:border-indigo-500 w-full ">
         <SortSelect.Viewport className="p-1 z-[50000]">
@@ -642,7 +657,10 @@ export const SearchResultsWithInputComponent = ({
                     <label className="text-lg font-extrabold mb-1" htmlFor="sorting">
                       Sort
                     </label>
-                    <div id="sorting" className="sort-wrapper border rounded px-2">
+                    <div
+                      id="sorting"
+                      className="sort-wrapper border-x border-y border-slate-500 rounded px-2"
+                    >
                       <SortOrder options={sortChoices} selected={sortType} />
                     </div>
                   </div>
@@ -691,7 +709,7 @@ export const SearchResultsWithInputComponent = ({
                   </>
                 ))}
               </div>
-              <div className="flex flex-col md:flex-row text-xs w-full justify-center">
+              <div className="flex flex-col md:flex-row text-xs w-full justify-center items-center">
                 {/* <ResultsPerPage defaultItemsPerPage={defaultItemsPerPage} /> */}
                 <SearchPagination currentPage={page} totalPages={totalPages} />
               </div>

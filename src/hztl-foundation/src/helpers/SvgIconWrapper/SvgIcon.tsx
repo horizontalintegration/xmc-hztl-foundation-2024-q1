@@ -27,7 +27,7 @@ export type IconTypes =
   | 'refine'
   | 'plus';
 
-export type SvgIconSize = 'xs' | 'sm' | 'md' | 'em' | 'lg';
+export type SvgIconSize = 'xxs' | 'xs' | 'sm' | 'md' | 'em' | 'lg';
 
 export type SVGFill = 'currentColor' | 'none';
 
@@ -43,6 +43,7 @@ const svgIconClasses = tv({
   base: [],
   variants: {
     size: {
+      xxs: ['!h-3', '!w-3'], //added solely for fixing the search and results UI
       xs: ['!h-4', '!w-4'],
       sm: ['!h-8', '!w-8'],
       md: ['!h-16', '!w-16'],
