@@ -107,17 +107,17 @@ const ArticleHorizontalItemCard = ({
         <ArticleCard.Title className="font-modern text-4xl font-bold line-clamp-1">
           {article.title || 'Headline'}
         </ArticleCard.Title>
-        <ArticleCard.Subtitle className="mt-3 text-gray-500 text-[20px] font-normal line-clamp-1">
+        <ArticleCard.Subtitle className="mt-3 font-bold text-[20px] line-clamp-1">
           {article.name || 'Subhead'}
         </ArticleCard.Subtitle>
         {article.description && displayText && (
           <div className="line-clamp-3 text-sm">{article.description}</div>
         )}
-        <div className="read-more flex items-center gap-2">
+        <div className="read-more flex items-center gap-3">
           <a className="underline text-base font-bold cursor-pointer" href={article.url}>
             Read more
           </a>
-          <SvgIcon icon="arrow-right" viewBox="0 0 7 12" size="xs" fill="none" />
+          <SvgIcon icon="arrow-right" viewBox="0 0 16 9" size="xs" fill="none" />
         </div>
       </div>
       <div className="w-[30%] md:w-1/5 overflow-hidden bg-gray-200 ">
@@ -140,7 +140,7 @@ const Filter = () => {
       <div className="flex flex-col mb-2 gap-4">
         <div
           onClick={onClearFilters}
-          className="clear-filter cursor-pointer flex gap-2 items-center text-lg font-extrabold text-black underline text-opacity-75 hover:text-indigo-500 hover:opacity-1 focus:outline-indigo-500"
+          className="clear-filter cursor-pointer flex gap-3 items-center text-lg font-extrabold text-black underline text-opacity-75 hover:text-indigo-500 hover:opacity-1 focus:outline-indigo-500"
         >
           <span className="cursor-pointer">Reset Filters</span>
           <SvgIcon size="xs" icon="close" viewBox="0 0 16 10 " />
@@ -346,9 +346,9 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                   >
                     {/* ACTUAL check+label */}
                     <div className="facetlabel justify-start w-11/12 items-center flex gap-2">
-                      <AccordionFacets.ItemCheckbox className="form-checkbox flex-none w-5 h-5 border border-gray-300 rounded cursor-pointer transition duration-500 ease-in-out hover:border-heading focus:outline-indigo-500 aria-checked:bg-indigo-500 aria-checked:hover:bg-heading aria-checked:focus:bg-heading">
-                        <AccordionFacets.ItemCheckboxIndicator className="text-white w-5 h-5 ">
-                          <CheckIcon />
+                      <AccordionFacets.ItemCheckbox className="form-checkbox flex-none w-5 h-5 border border-gray-300 rounded cursor-pointer transition duration-500 ease-in-out hover:border-heading aria-checked:ring-1 aria-checked:ring-black aria-checked:focus aria-checked:hover:bg-heading aria-checked:focus:bg-heading">
+                        <AccordionFacets.ItemCheckboxIndicator>
+                          <CheckIcon className="w-full h-full" />
                         </AccordionFacets.ItemCheckboxIndicator>
                       </AccordionFacets.ItemCheckbox>
                       <AccordionFacets.ItemLabel className="font-normal text-lg">
