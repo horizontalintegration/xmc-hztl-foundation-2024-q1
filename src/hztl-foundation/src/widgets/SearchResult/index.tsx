@@ -612,6 +612,7 @@ export const SearchResultsWithInputComponent = ({
                   />
                 </form>
                 <MagnifyingGlassIcon className="absolute right-[5px] top-[10px] w-[20px] h-[20px] text-gray-400 peer-focus:text-indigo-500" /> */}
+
                 {/* SEARCH BAR - SAME FOR BOTH MOBILE AND DESKTOP */}
                 <PreviewSearchListComponent
                   rfkId={'rfkid_101'}

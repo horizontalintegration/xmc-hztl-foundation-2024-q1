@@ -132,6 +132,7 @@ export const PreviewSearchBasicComponent = ({
                 className="absolute inset-y-0 right-10 p-3 flex items-center cursor-pointer"
                 onClick={onResetText}
               >
+                {/* HERE IS THE X ICON THAT SHOWS UP TO CLEAR SEARCH */}
                 <SvgIcon size="xs" viewBox="0 0 12 12" fill="none" icon="close" />
               </div>
             )}
@@ -161,7 +162,7 @@ export const PreviewSearchBasicComponent = ({
               focusable="false"
               role="progressbar"
               viewBox="0 0 20 20"
-              className="block fill-red-600 m-auto h-[50px] w-[50px] animate-spin"
+              className="block fill-red-600 m-auto h-[25px] w-[25px] animate-spin p-1"
             >
               <path d="M7.229 1.173a9.25 9.25 0 1 0 11.655 11.412 1.25 1.25 0 1 0-2.4-.698 6.75 6.75 0 1 1-8.506-8.329 1.25 1.25 0 1 0-.75-2.385z" />
             </svg>
