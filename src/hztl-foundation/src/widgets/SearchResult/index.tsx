@@ -140,7 +140,7 @@ const Filter = () => {
       <div className="flex flex-col mb-2 gap-4">
         <div
           onClick={onClearFilters}
-          className="clear-filter cursor-pointer flex gap-3 items-center text-lg font-extrabold text-black underline text-opacity-75 hover:text-indigo-500 hover:opacity-1 focus:outline-indigo-500"
+          className="clear-filter cursor-pointer flex gap-3 items-center text-base font-bold text-black underline text-opacity-75 hover:text-indigo-500 hover:opacity-1 focus:outline-indigo-500"
         >
           <span className="cursor-pointer">Reset Filters</span>
           <SvgIcon size="xs" icon="close" viewBox="0 0 16 10 " />
@@ -306,7 +306,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
             <div className="facets-header">
               <AccordionFacets.Header className="flex px-3 py-1.5">
                 {/* FILTER ITEM TITLE */}
-                <AccordionFacets.Trigger className="flex items-center justify-between w-full text-lg">
+                <AccordionFacets.Trigger className="flex items-center justify-between w-full text-base">
                   {f.label}
                   {/* DROPDOWN/UP ICON */}
                   <SvgIcon
@@ -342,7 +342,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                       facetValueId: v.id,
                     }}
                     key={index}
-                    className="group flex cursor-pointer w-full items-center justify-between text-lg"
+                    className="group flex cursor-pointer w-full items-center justify-between text-base"
                   >
                     {/* ACTUAL check+label */}
                     <div className="facetlabel justify-start w-11/12 items-center flex gap-2">
@@ -351,7 +351,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                           <CheckIcon className="w-full h-full" />
                         </AccordionFacets.ItemCheckboxIndicator>
                       </AccordionFacets.ItemCheckbox>
-                      <AccordionFacets.ItemLabel className="font-normal text-lg">
+                      <AccordionFacets.ItemLabel className="text-base">
                         {v.text}
                       </AccordionFacets.ItemLabel>
                     </div>
@@ -366,10 +366,10 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                       onClick={() => {
                         onShowMore(fIndex);
                       }}
-                      className="cursor-pointer show-more-facets flex gap-2 items-center w-11/12 font-bold text-base p-1"
+                      className="cursor-pointer show-more-facets flex gap-2 items-center w-11/12 font-semibold text-base p-1"
                     >
                       <SvgIcon icon="plus" fill="none" viewBox="0 0 12 11" size="xxs" />
-                      <h2 className="underline">Show more</h2>
+                      <h2 className="underline text-sm">Show more</h2>
                     </div>
                   ))}
               </AccordionFacets.ValueList>
@@ -654,7 +654,7 @@ export const SearchResultsWithInputComponent = ({
                   <h3 className="text-lg font-semibold mt-2">Refine By</h3>
                   {/* SORT BY CODE */}
                   <div className="sort gap-1">
-                    <label className="text-lg font-extrabold mb-1" htmlFor="sorting">
+                    <label className="text-base font-bold mb-1" htmlFor="sorting">
                       Sort
                     </label>
                     <div
@@ -672,7 +672,7 @@ export const SearchResultsWithInputComponent = ({
                 {/* FILTER CONTENT */}
                 {facets.length > 0 && (
                   <div className="search-facets">
-                    <label htmlFor="facets" className="text-lg font-extrabold mb-1">
+                    <label htmlFor="facets" className="text-base font-bold mb-1">
                       Filter
                     </label>
                     <SearchFacets facets={facets} />
