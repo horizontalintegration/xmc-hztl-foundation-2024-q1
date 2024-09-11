@@ -9,7 +9,7 @@ import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.m
 import VideoWrapper, { VideoWrapperProps } from 'helpers/GenericWrappers/VideoWrapper/VideoWrapper';
 
 export type InlineVideoProps = ComponentProps &
-  HztlPageContent.Video & {
+  HztlPageContent.InlineVideo & {
     fields?: {
       Video?: {
         value: VideoWrapperProps;

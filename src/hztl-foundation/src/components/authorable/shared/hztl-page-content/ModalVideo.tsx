@@ -10,7 +10,7 @@ import ModalWrapper, { ModalWrapperProps } from 'helpers/GenericWrappers/ModalWr
 import VideoWrapper, { VideoWrapperProps } from 'helpers/GenericWrappers/VideoWrapper/VideoWrapper';
 
 export type ModalVideoProps = ComponentProps &
-  HztlPageContent.Video & {
+  HztlPageContent.InlineVideo & {
     fields?: {
       Video?: {
         value: VideoWrapperProps;
