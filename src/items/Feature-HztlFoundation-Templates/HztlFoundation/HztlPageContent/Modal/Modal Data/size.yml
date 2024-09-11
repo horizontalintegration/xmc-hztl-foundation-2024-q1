@@ -1,21 +1,24 @@
 ﻿---
-ID: "737891b0-d2c7-4dbc-a090-b140aaf8948a"
+ID: "00a5b2be-d942-469d-b348-1dea6839fbe1"
 Parent: "55673b5f-7a0e-4aa2-b7e9-6932f2acf4e4"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/ModalVideo/Modal Video Data/trigger
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Modal/Modal Data/size
 SharedFields:
+- ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
+  Hint: Source
+  Value: "query:$site/*[@@name='Data']/*[@@templatename='Modal Folder']/*[@@templatename='Modal Size Folder']/*[@@templateid='{48717BE4-BF42-4610-9957-ED26F14E9C0C}']"
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: "Single-Line Text"
+  Value: Droplink
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 600
+  Value: 400
 Languages:
 - Language: en
   Fields:
   - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
     Hint: Title
-    Value: Trigger
+    Value: Modal Size
   Versions:
   - Version: 1
     Fields:
@@ -32,11 +35,11 @@ Languages:
         sitecore\vthakur@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "81cb26d5-5f74-4a82-8df9-f7e52c6665f4"
+      Value: "e92fe166-92bc-47f2-9bbb-13ea414f9a6d"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240906T110100Z
+      Value: 20240911T103357Z

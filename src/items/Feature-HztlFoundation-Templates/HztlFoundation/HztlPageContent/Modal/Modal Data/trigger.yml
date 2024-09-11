@@ -1,36 +1,27 @@
 ﻿---
-ID: "a74df52a-f61d-406c-9540-3a5c9025bf7b"
+ID: "737891b0-d2c7-4dbc-a090-b140aaf8948a"
 Parent: "55673b5f-7a0e-4aa2-b7e9-6932f2acf4e4"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/ModalVideo/Modal Video Data/video
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Modal/Modal Data/trigger
 SharedFields:
-- ID: "074f44ca-359a-4c13-b3aa-4a6be2a675b1"
-  Hint: Validation
-  Value: 
-- ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
-  Hint: Source
-  Value: "query:$site/Data/Video"
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: Droptree
+  Value: "Single-Line Text"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 700
+  Value: 600
 Languages:
 - Language: en
   Fields:
   - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
     Hint: Title
-    Value: Select Video
-  - ID: "b12e4906-b96b-495e-b343-cd2e92dc6347"
-    Hint: ValidationText
-    Value: 
+    Value: Trigger
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20240906T105720Z
+      Value: 20240906T100115Z
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -41,11 +32,11 @@ Languages:
         sitecore\vthakur@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "75497c00-08f8-42f0-8c4d-279091b3be18"
+      Value: "f4a6a112-c537-4034-91b3-8d9ca4c40676"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240906T123350Z
+      Value: 20240911T103357Z

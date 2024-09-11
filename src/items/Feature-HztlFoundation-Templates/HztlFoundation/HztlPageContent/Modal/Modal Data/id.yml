@@ -2,7 +2,7 @@
 ID: "331968d5-bbd9-456f-aadc-1d38f07ccb41"
 Parent: "55673b5f-7a0e-4aa2-b7e9-6932f2acf4e4"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/ModalVideo/Modal Video Data/id
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Modal/Modal Data/id
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
@@ -35,11 +35,11 @@ Languages:
         sitecore\vthakur@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "17bfafe2-679b-4bab-b76c-3be81e28d4ed"
+      Value: "aa4c386c-db5f-4630-a4bf-e22b45162170"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240906T110019Z
+      Value: 20240911T103357Z

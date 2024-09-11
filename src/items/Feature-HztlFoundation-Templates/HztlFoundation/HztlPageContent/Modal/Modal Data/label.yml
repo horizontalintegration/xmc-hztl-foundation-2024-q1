@@ -1,21 +1,21 @@
 ﻿---
-ID: "27706ce8-a10b-489b-ad0c-4bd2e685faaa"
+ID: "abf7dbc9-bb80-4d33-b15d-04188dc6e027"
 Parent: "55673b5f-7a0e-4aa2-b7e9-6932f2acf4e4"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
-Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/ModalVideo/Modal Video Data/openOnLoad
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Modal/Modal Data/label
 SharedFields:
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: Checkbox
+  Value: "Single-Line Text"
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 300
+  Value: 200
 Languages:
 - Language: en
   Fields:
   - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
     Hint: Title
-    Value: Open OnLoad
+    Value: Label
   Versions:
   - Version: 1
     Fields:
@@ -32,11 +32,11 @@ Languages:
         sitecore\vthakur@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7ac728e3-0b3e-49cd-b1f4-547e7cf34603"
+      Value: "4ac19517-0cef-4f8f-8eac-3828e33f4d58"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240906T110038Z
+      Value: 20240911T103357Z

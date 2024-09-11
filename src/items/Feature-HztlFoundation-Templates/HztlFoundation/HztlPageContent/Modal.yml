@@ -2,7 +2,7 @@
 ID: "38df8869-da3e-4248-855c-5b2d232e8e53"
 Parent: "8621c625-cdd3-4a2a-942d-07ae3c04a6c7"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
-Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/ModalVideo
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Modal
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon
