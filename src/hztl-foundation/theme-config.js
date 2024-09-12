@@ -11,7 +11,7 @@ module.exports = {
       'container-width': '1440px',
       'spacing-spacing-3': '12px',
       'spacing-spacing-4': '16px',
-      'spacing-spacing-5': '40px',
+      'spacing-spacing-5': '24px',
     },
     borderRadius: {},
     typography: {
@@ -28,4 +28,3 @@ module.exports = {
     },
   },
 };
-
