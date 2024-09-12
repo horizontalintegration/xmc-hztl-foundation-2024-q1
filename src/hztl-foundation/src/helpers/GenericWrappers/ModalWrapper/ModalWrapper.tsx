@@ -10,7 +10,7 @@ import { GtmEvent } from 'lib/utils/gtm-utils';
 // Local
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 
-type ModalSize = 'extra-large' | 'fluid' | 'large' | 'medium' | 'small' | undefined;
+export type ModalSize = 'extra-large' | 'fluid' | 'large' | 'medium' | 'small' | undefined;
 
 export type ModalWrapperProps = {
   content: ReactNode;

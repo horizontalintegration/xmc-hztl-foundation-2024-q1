@@ -1,4 +1,7 @@
+// Global
 import { ComponentRendering } from '@sitecore-jss/sitecore-jss-nextjs';
+
+// Local
 import { CardListProps } from 'components/authorable/shared/hztl-page-content/CardList';
 import {
   CardA,

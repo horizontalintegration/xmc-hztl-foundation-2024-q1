@@ -8,10 +8,13 @@ import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 
 // Local
-import ModalWrapper from 'helpers/GenericWrappers/ModalWrapper/ModalWrapper';
+import ModalWrapper, { ModalSize } from 'helpers/GenericWrappers/ModalWrapper/ModalWrapper';
 import useIsEditing from 'lib/hooks/use-is-editing';
 
-export type ModalProps = ComponentProps & HztlPageContent.Modal;
+export type ModalProps = ComponentProps &
+  HztlPageContent.Modal & {
+    uid: string;
+  };
 
 const TAILWIND_VARIANTS = tv({
   slots: {
@@ -24,7 +27,8 @@ const TAILWIND_VARIANTS = tv({
  */
 
 const Modal = (props: ModalProps): JSX.Element => {
-  const { id, label, openOnLoad, size, title } = props?.fields || {};
+  const { uid } = props || {};
+  const { label, openOnLoad, size, title } = props?.fields || {};
   const { DynamicPlaceholderId } = props?.params || {};
 
   const isEditing = useIsEditing();
@@ -44,7 +48,7 @@ const Modal = (props: ModalProps): JSX.Element => {
             <Placeholder name={placeholderKey} rendering={props.rendering} />
           </div>
         </div>
-        <p>URL Hash: {`#modal-${id?.value}`}</p>
+        <p>URL Hash: {`#modal-${uid}`}</p>
       </>
     );
   }
@@ -52,10 +56,10 @@ const Modal = (props: ModalProps): JSX.Element => {
   return (
     <ModalWrapper
       content={<Placeholder name={placeholderKey} rendering={props.rendering} />}
-      id={id?.value}
+      id={uid}
       label={label?.value}
       openOnLoad={openOnLoad?.value}
-      size={size?.fields?.value}
+      size={size?.fields?.value as ModalSize}
       title={title?.value}
     />
   );

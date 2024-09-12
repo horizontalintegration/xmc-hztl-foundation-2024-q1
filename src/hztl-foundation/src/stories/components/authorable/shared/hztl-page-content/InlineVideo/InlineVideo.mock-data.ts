@@ -1,6 +1,7 @@
 import { InlineVideoProps } from 'components/authorable/shared/hztl-page-content/InlineVideo';
 
 const defaultData: InlineVideoProps = {
+  componentName: 'InlineVideo',
   fields: {
     autoplay: {
       value: false,
@@ -85,7 +86,10 @@ const defaultData: InlineVideoProps = {
     FieldNames: 'Default',
     GridParameters: 'basis-full',
   },
-  rendering: { componentName: 'Default', dataSource: 'Storybook' },
+  rendering: {
+    componentName: 'Inline Video',
+    dataSource: 'Storybook',
+  },
 };
 
 export const noData = {

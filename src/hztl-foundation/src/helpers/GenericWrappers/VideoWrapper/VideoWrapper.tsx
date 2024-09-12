@@ -5,21 +5,17 @@ import 'videojs-youtube';
 import Player from 'video.js/dist/types/player';
 import 'video.js/dist/video-js.css';
 
-// Lib
-import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
-import { ComponentProps } from 'lib/component-props';
-
 export type Source = {
-  src: string;
-  type: string;
+  src?: string;
+  type?: string;
 };
 
 export type Track = {
-  isDefault: boolean;
-  kind: string;
-  label: string;
-  srclang: string;
-  src: string;
+  isDefault?: boolean;
+  kind?: string;
+  label?: string;
+  srclang?: string;
+  src?: string;
 };
 
 type VideoJSProps = {
@@ -39,7 +35,19 @@ type VideoJSProps = {
   };
 };
 
-export type VideoWrapperProps = ComponentProps & HztlPageContent.VideoWrapperProps;
+export type VideoWrapperProps = {
+  autoplay?: boolean;
+  captions: Track[];
+  controls?: boolean;
+  fluid?: boolean;
+  height?: string;
+  loop?: boolean;
+  muted?: boolean;
+  poster?: string;
+  sources: Source[];
+  subtitles: Track[];
+  width?: string;
+};
 
 /*
  * RENDERING
