@@ -53,13 +53,14 @@ const svgIconClasses = tv({
 });
 
 const SvgIcon = ({
+  className,
+  fill = 'currentColor',
   icon,
   size = 'sm',
-  className,
-  viewBox = '0 -960 960 960',
-  fill = 'currentColor',
+  viewBox = '0 0 24 24',
 }: SvgIconProps): JSX.Element => {
   const IconContent = dynamic(() => import(`./icons/icon--${icon}`));
+
   return (
     <svg
       className={svgIconClasses({ className, size })}

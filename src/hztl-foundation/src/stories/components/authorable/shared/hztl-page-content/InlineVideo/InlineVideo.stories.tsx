@@ -12,104 +12,103 @@ import defaultData from './InlineVideo.mock-data';
 
 const meta: Meta<InlineVideoProps> = {
   argTypes: {
-    'fields.Video.value.autoplay': {
+    'fields.autoplay.value': {
       description: 'A flag indicating wether or not the video should begin playing automatically.',
-      name: 'autoplay',
       table: {
         category: 'fields',
-        subcategory: 'Video',
       },
     },
-    'fields.Video.value.captions': {
+    'fields.captions': {
       description:
         'An array of URIs indicating localized caption data to be loaded into the player.',
-      name: 'captions',
       table: {
         category: 'fields',
-        subcategory: 'Video',
       },
     },
-    'fields.Video.value.controls': {
+    'fields.controls.value': {
       defaultValue: true,
       description: 'A flag indicating wether or not to show the playback controls.',
-      name: 'controls',
       table: {
         category: 'fields',
-        subcategory: 'Video',
       },
     },
-    'fields.Video.value.fluid': {
+    'fields.fluid.value': {
       description:
         "A flag indicating wether or not the player will size to fit its container at the video's intrinsic aspect ratio.",
-      name: 'fluid',
       table: {
         category: 'fields',
-        subcategory: 'Video',
       },
     },
-    'fields.Video.value.height': {
+    'fields.height.value': {
       description: 'A value indicating the desired height of the video player.',
       if: { arg: 'fields.Video.value.fluid', truthy: false },
-      name: 'height',
       table: {
         category: 'fields',
-        subcategory: 'Video',
       },
     },
-    'fields.Video.value.loop': {
+    'fields.loop.value': {
       defaultValue: false,
       description:
         'A flag indicating wether or not the video will loop automatically once playback has ended.',
-      name: 'loop',
       table: {
         category: 'fields',
-        subcategory: 'Video',
       },
     },
-    'fields.Video.value.muted': {
+    'fields.muted.value': {
       defaultValue: false,
       description: 'A flag indicated wether or not the video player is muted.',
-      name: 'muted',
       table: {
         category: 'fields',
-        subcategory: 'Video',
       },
     },
-    'fields.Video.value.poster': {
+    'fields.poster.value.alt': {
+      defaultValue: false,
+      description: 'A value indicating the alternate text for the video.',
+      table: {
+        category: 'fields',
+      },
+    },
+    'fields.poster.value.height': {
+      defaultValue: false,
+      description: "A value indicating the intrinsic height of the video's poster image.",
+      table: {
+        category: 'fields',
+      },
+    },
+    'fields.poster.value.src': {
       defaultValue: false,
       description:
         'A URI represenging a poster image of the video asset to be loaded into the player.',
-      name: 'poster',
       table: {
         category: 'fields',
-        subcategory: 'Video',
       },
     },
-    'fields.Video.value.sources': {
+    'fields.poster.value.width': {
+      defaultValue: false,
+      description: "A value indicating the intrinsic width of the video's poster image.",
+      table: {
+        category: 'fields',
+      },
+    },
+    'fields.sources': {
       description:
         'An array of URIs and asset types representing a video asset to be loaded into the player.',
-      name: 'sources',
       table: {
         category: 'fields',
-        subcategory: 'Video',
       },
     },
-    'fields.Video.value.subtitles': {
+    'fields.subtitles': {
       description:
         'An array of URIs indicating localized caption data to be loaded into the player.',
-      name: 'subtitles',
       table: {
         category: 'fields',
-        subcategory: 'Video',
       },
     },
-    'fields.Video.value.width': {
+    'fields.width.value': {
       description: 'A value indicating the desired height of the video player.',
       if: { arg: 'fields.Video.value.fluid', truthy: false },
-      name: 'width',
       table: {
         category: 'fields',
-        subcategory: 'Video',
       },
     },
     /* eslint-disable  @typescript-eslint/no-explicit-any */

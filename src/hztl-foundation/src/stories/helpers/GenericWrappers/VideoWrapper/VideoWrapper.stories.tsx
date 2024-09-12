@@ -62,7 +62,6 @@ const meta: Meta<VideoWrapperProps> = {
   } as any,
   component: VideoWrapper,
   parameters: { controls: { sort: 'requiredFirst' } },
-  tags: ['autodocs'],
   title: 'Helpers/Generic Wrappers/Video Wrapper',
 };
 
