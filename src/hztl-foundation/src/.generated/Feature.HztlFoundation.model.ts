@@ -127,9 +127,24 @@ export namespace HztlPageContent {
   export type Caption = {
     fields?: {
       /**
-       * Represents the Caption Content field (155dbe7a-82b6-4933-9b55-5ce050b6f685).
+       * Represents the isDefault? field (e48178f9-19be-4e0f-881d-9009c051d70c).
        */
-      CaptionContent?: Field<string>;
+      isDefault?: Field<boolean>;
+
+      /**
+       * Represents the Label field (7e9570fc-a9f7-4a0c-be6b-68889fcad437).
+       */
+      label?: Field<string>;
+
+      /**
+       * Represents the Source field (dbb5123b-b004-47d7-a96c-2e06139c7435).
+       */
+      src?: FileField;
+
+      /**
+       * Represents the Source Language field (b788847d-6e3f-4772-b6d5-67a1330dcf28).
+       */
+      srclang?: Field<string>;
     };
   };
 
@@ -138,9 +153,30 @@ export namespace HztlPageContent {
    */
   export type CaptionJson = {
     /**
-     * Represents the Caption Content field (155dbe7a-82b6-4933-9b55-5ce050b6f685).
+     * Represents the isDefault? field (e48178f9-19be-4e0f-881d-9009c051d70c).
      */
-    CaptionContent?: {
+    isDefault?: {
+      jsonValue: Field<boolean>;
+    };
+
+    /**
+     * Represents the Label field (7e9570fc-a9f7-4a0c-be6b-68889fcad437).
+     */
+    label?: {
+      jsonValue: Field<string>;
+    };
+
+    /**
+     * Represents the Source field (dbb5123b-b004-47d7-a96c-2e06139c7435).
+     */
+    src?: {
+      jsonValue: FileField;
+    };
+
+    /**
+     * Represents the Source Language field (b788847d-6e3f-4772-b6d5-67a1330dcf28).
+     */
+    srclang?: {
       jsonValue: Field<string>;
     };
   };
@@ -1683,9 +1719,24 @@ export namespace HztlPageContent {
   export type Subtitle = {
     fields?: {
       /**
-       * Represents the Subtitle Content field (b0e937ca-1ab1-4398-95c1-dbf44e628ead).
+       * Represents the isDefault ? field (85cd1f33-85cd-4da6-85b0-b213c3a75bd4).
        */
-      SubtitleContent?: Field<string>;
+      isDefault?: Field<boolean>;
+
+      /**
+       * Represents the Label field (f7be5a20-ce79-409b-8a01-b17bc29a055f).
+       */
+      label?: Field<string>;
+
+      /**
+       * Represents the Source field (d5bd3e9f-194b-4174-a0e2-718fe3fc5d50).
+       */
+      src?: FileField;
+
+      /**
+       * Represents the Source Language field (572aa920-c1b1-432d-b048-be263cf743c0).
+       */
+      srclang?: Field<string>;
     };
   };
 
@@ -1694,9 +1745,30 @@ export namespace HztlPageContent {
    */
   export type SubtitleJson = {
     /**
-     * Represents the Subtitle Content field (b0e937ca-1ab1-4398-95c1-dbf44e628ead).
+     * Represents the isDefault ? field (85cd1f33-85cd-4da6-85b0-b213c3a75bd4).
      */
-    SubtitleContent?: {
+    isDefault?: {
+      jsonValue: Field<boolean>;
+    };
+
+    /**
+     * Represents the Label field (f7be5a20-ce79-409b-8a01-b17bc29a055f).
+     */
+    label?: {
+      jsonValue: Field<string>;
+    };
+
+    /**
+     * Represents the Source field (d5bd3e9f-194b-4174-a0e2-718fe3fc5d50).
+     */
+    src?: {
+      jsonValue: FileField;
+    };
+
+    /**
+     * Represents the Source Language field (572aa920-c1b1-432d-b048-be263cf743c0).
+     */
+    srclang?: {
       jsonValue: Field<string>;
     };
   };
