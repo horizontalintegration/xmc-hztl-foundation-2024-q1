@@ -107,7 +107,7 @@ const ArticleHorizontalItemCard = ({
         <ArticleCard.Title className="font-modern text-4xl font-bold line-clamp-1">
           {article.title || 'Headline'}
         </ArticleCard.Title>
-        <ArticleCard.Subtitle className="mt-3 text-gray-500 text-[20px] font-normal line-clamp-1">
+        <ArticleCard.Subtitle className="mt-3 font-bold text-[20px] line-clamp-1">
           {article.name || 'Subhead'}
         </ArticleCard.Subtitle>
         {article.description && displayText && (
@@ -117,7 +117,7 @@ const ArticleHorizontalItemCard = ({
           <a className="underline text-base font-bold cursor-pointer" href={article.url}>
             Read more
           </a>
-          <SvgIcon icon="arrow-right" viewBox="0 0 7 12" size="xs" fill="none" />
+          <SvgIcon icon="arrow-right" viewBox="0 0 16 10" size="xs" fill="none" />
         </div>
       </div>
       <div className="w-[30%] md:w-1/5 overflow-hidden bg-gray-200 ">
@@ -140,11 +140,10 @@ const Filter = () => {
       <div className="flex flex-col mb-2 gap-4">
         <div
           onClick={onClearFilters}
-          className="clear-filter cursor-pointer flex gap-1 items-center text-base font-medium text-black underline text-opacity-75 hover:text-indigo-500 hover:opacity-1 focus:outline-indigo-500"
+          className="clear-filter cursor-pointer flex gap-3 items-center text-base font-bold text-black underline text-opacity-75 hover:text-indigo-500 hover:opacity-1 focus:outline-indigo-500"
         >
           <span className="cursor-pointer">Reset Filters</span>
-
-          <SvgIcon size="xs" icon="close" />
+          <SvgIcon size="xs" icon="close" viewBox="0 0 16 10 " />
         </div>
       </div>
       <div className="flex flex-wrap">
@@ -152,7 +151,10 @@ const Filter = () => {
           <button
             key={`${selectedFacet.facetId}${selectedFacet.facetLabel}${selectedFacet.valueLabel}`}
             onClick={() => onRemoveFilter(selectedFacet)}
-            className="bg-black text-ellipsis text-xs font-medium text-white bg-gray-400 rounded-md pl-2 pr-5 py-1.5 m-1 whitespace-no-wrap max-w-full overflow-hidden relative cursor-pointer before:content-[''] before:-rotate-45 before:absolute before:w-2.5 before:h-0.5 before:right-2 before:top-2/4 before:bg-white after:content-[''] after:rotate-45 after:absolute after:w-2.5 after:h-0.5 after:right-2 after:top-2/4 after:bg-white focus:outline-indigo-500"
+            className="bg-black text-ellipsis text-sm text-white bg-gray-400 rounded-lg pl-2.5 pr-7 py-2.5 whitespace-no-wrap max-w-full overflow-hidden relative cursor-pointer 
+      before:content-[''] before:-rotate-45 before:absolute before:w-3.5 before:h-0.5 before:right-2 before:top-2/4 before:bg-white 
+      after:content-[''] after:rotate-45 after:absolute after:w-3.5 after:h-0.5 after:right-2 after:top-2/4 after:bg-white 
+      focus:outline-indigo-500"
           >
             {buildFacetLabel(selectedFacet)}
           </button>
@@ -294,16 +296,19 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
     >
       {facetsPagination &&
         facetsPagination.map((f, fIndex: number) => (
+          // ALL THE CONTENT IN THE FILTER OPTION
           <AccordionFacets.Facet
             facetId={f.name}
             key={fIndex}
             id={f.name + fIndex}
-            className="mb-2 border-gray-200 w-full border gap-2 rounded px-4 py-4"
+            className="mb-2 border-x border-y w-full gap-2 rounded-md"
           >
             <div className="facets-header">
-              <AccordionFacets.Header className="flex">
-                <AccordionFacets.Trigger className="flex items-center justify-between w-full font-normal text-base">
+              <AccordionFacets.Header className="flex px-3 py-1.5">
+                {/* FILTER ITEM TITLE */}
+                <AccordionFacets.Trigger className="flex items-center justify-between w-full text-base">
                   {f.label}
+                  {/* DROPDOWN/UP ICON */}
                   <SvgIcon
                     className="facets-accordian-arrow"
                     viewBox="0 0 16 9"
@@ -314,8 +319,10 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                 </AccordionFacets.Trigger>
               </AccordionFacets.Header>
             </div>
+            {/* INSIDE OF EACH INDIVIDUAL FILTER ITEM */}
             <AccordionFacets.Content>
-              <AccordionFacets.ValueList className="list-none mt-2 flex flex-col justify-start space-y-4">
+              <AccordionFacets.ValueList className="list-none flex flex-col justify-start space-y-4 px-3 mt-2 mb-3">
+                {/* INDIVIDUAL SEARCH BOX */}
                 <div className="search-textbox relative w-full">
                   <input
                     type="text"
@@ -327,6 +334,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                     <SvgIcon icon="magnifier" size="xs" viewBox="0 0 18 18" fill="none" />
                   </div>
                 </div>
+                {/* INDIVIDUAL CHECKBOX + LABEL + COUNT */}
                 {f.value.slice(0, f.itemToLoad).map((v, index: number) => (
                   <FacetItem
                     {...{
@@ -334,33 +342,34 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                       facetValueId: v.id,
                     }}
                     key={index}
-                    className="group flex text-sm cursor-pointer w-full"
+                    className="group flex cursor-pointer w-full items-center justify-between text-base"
                   >
-                    <div className="facetlabel justify-between w-11/12">
-                      <AccordionFacets.ItemCheckbox className="form-checkbox flex-none w-5 h-5 border border-gray-300 rounded cursor-pointer transition duration-500 ease-in-out hover:border-heading focus:outline-indigo-500 aria-checked:bg-indigo-500 aria-checked:hover:bg-heading aria-checked:focus:bg-heading">
-                        <AccordionFacets.ItemCheckboxIndicator className="text-white w-5 h-5 ">
-                          <CheckIcon />
+                    {/* ACTUAL check+label */}
+                    <div className="facetlabel justify-start w-11/12 items-center flex gap-2">
+                      <AccordionFacets.ItemCheckbox className="form-checkbox flex-none w-5 h-5 border border-gray-300 rounded cursor-pointer transition duration-500 ease-in-out hover:border-heading aria-checked:ring-1 aria-checked:ring-black aria-checked:focus aria-checked:hover:bg-heading aria-checked:focus:bg-heading">
+                        <AccordionFacets.ItemCheckboxIndicator>
+                          <CheckIcon className="w-full h-full" />
                         </AccordionFacets.ItemCheckboxIndicator>
                       </AccordionFacets.ItemCheckbox>
-                      <AccordionFacets.ItemLabel className="font-normal text-base font-modern ms-1">
+                      <AccordionFacets.ItemLabel className="text-base">
                         {v.text}
                       </AccordionFacets.ItemLabel>
                     </div>
-                    <div className="facetcount font-normal text-base text-dark-gray">
-                      {v.count && `(${v.count})`}
-                    </div>
+                    {/* COUNT */}
+                    <div className="facetcount pr-1">{v.count && `(${v.count})`}</div>
                   </FacetItem>
                 ))}
+                {/* INDIVIDUAL SHOW MORE BUTTON */}
                 {!(f.value.length > f.itemToLoad) ||
                   (f.value.length > ITEM_TO_LOAD && (
                     <div
                       onClick={() => {
                         onShowMore(fIndex);
                       }}
-                      className="cursor-pointer show-more-facets flex gap-1 items-center w-11/12"
+                      className="cursor-pointer show-more-facets flex gap-2 items-center w-11/12 font-semibold text-base p-1"
                     >
-                      <SvgIcon icon="plus" fill="none" viewBox="0 0 12 11" size="xs" />
-                      <h2 className="underline">Show more</h2>
+                      <SvgIcon icon="plus" fill="none" viewBox="0 0 12 11" size="xxs" />
+                      <h2 className="underline text-sm">Show more</h2>
                     </div>
                   ))}
               </AccordionFacets.ValueList>
@@ -387,9 +396,9 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
     >
       <Pagination.PrevPage
         onClick={(e) => e.preventDefault()}
-        className="cursor-pointer my-0 mx-2 data-[current=true]:hidden hover:text-indigo-500 focus:outline-indigo-500"
+        className="flex items-center cursor-pointer my-0 mx-2 data-[current=true]:hidden hover:text-indigo-500 focus:outline-indigo-500"
       >
-        <SvgIcon icon="arrow-left" size="xs" viewBox="0 0 9 16" fill="none" />
+        <SvgIcon icon="arrow-left" size="xs" viewBox="0 0 16 16" fill="none" />
       </Pagination.PrevPage>
       <Pagination.Pages>
         {(pagination) =>
@@ -403,7 +412,7 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
                 aria-label={`Page ${page}`}
                 page={page as number}
                 onClick={(e) => e.preventDefault()}
-                className="py-xxs px-xs rounded-2xl cursor-pointer mx-2 data-[current=true]:text-white data-[current=true]:bg-dark-gray data-[current=true]:pointer-events-none data-[current=true]:no-underline"
+                className="inline-flex items-center justify-center w-8 h-8 rounded-full p-2 cursor-pointer data-[current=true]:text-white data-[current=true]:bg-dark-gray data-[current=true]:pointer-events-none data-[current=true]:no-underline"
               >
                 {page}
               </Pagination.Page>
@@ -415,9 +424,24 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
       </Pagination.Pages>
       <Pagination.NextPage
         onClick={(e) => e.preventDefault()}
-        className="cursor-pointer my-0 mx-2 data-[current=true]:hidden hover:text-indigo-500 focus:outline-indigo-500"
+        className="flex items-center justify-center cursor-pointer my-0 mx-2 data-[current=true]:hidden hover:text-indigo-500 focus:outline-indigo-500"
       >
-        <SvgIcon icon="arrow-right" size="xs" viewBox="0 0 9 16" fill="none" />
+        {/* <SvgIcon icon="arrow-right" size="xs" viewBox="0 0 16 16" fill="none" /> */}
+        <svg
+          width="9"
+          height="16"
+          viewBox="0 0 9 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.999999 1L8 8L1 15"
+            stroke="#2F2D2E"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
       </Pagination.NextPage>
     </Pagination.Root>
   );
@@ -428,7 +452,7 @@ const SortOrder = ({ options, selected }: SortOrderProps) => {
   const { onSortChange } = useSearchResultsActions();
   return (
     <SortSelect.Root defaultValue={options[selectedSortIndex]?.name} onValueChange={onSortChange}>
-      <SortSelect.Trigger className="cursor-pointer inline-flex items-center bg-transparent h-10 gap-1 border-0 focus:outline-indigo-500 justify-between w-full">
+      <SortSelect.Trigger className="cursor-pointer flex items-center bg-transparent h-10 gap-1 focus:outline-indigo-500 justify-between w-full">
         <SortSelect.SelectValue>
           {selectedSortIndex > -1 ? options[selectedSortIndex].label : ''}
         </SortSelect.SelectValue>
@@ -581,6 +605,7 @@ export const SearchResultsWithInputComponent = ({
   return (
     <div ref={widgetRef}>
       <div className="flex sm:flex-col mmd:flex-row relative max-w-full px-4 text-black text-opacity-75 gap-4">
+        {/* LOADING STATE */}
         {isFetching && (
           <div className="w-full h-full fixed top-0 left-0 bottom-0 right-0 z-30 bg-white opacity-50">
             <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] flex flex-col justify-center items-center z-40">
@@ -602,41 +627,52 @@ export const SearchResultsWithInputComponent = ({
                   />
                 </form>
                 <MagnifyingGlassIcon className="absolute right-[5px] top-[10px] w-[20px] h-[20px] text-gray-400 peer-focus:text-indigo-500" /> */}
+
+                {/* SEARCH BAR - SAME FOR BOTH MOBILE AND DESKTOP */}
                 <PreviewSearchListComponent
                   rfkId={'rfkid_101'}
                   defaultItemsPerPage={5}
                   hasSearchFromSearchPage={true}
                 />
               </div>
+              {/* REFINE BY CODE */}
               <div
                 onClick={() => {
                   setMobileFilterToogle(!mobileFilterToogle);
                 }}
-                className={`mmd:hidden flex items-center justify-center w-full border rounded px-2 h-12 gap-2`}
+                className={`mmd:hidden flex items-center justify-center w-full border rounded px-2 h-12 gap-2 mt-2`}
               >
-                <span className="font-medium text-base">Refine By</span>
+                {/* THIS IS FOR REFINE BY MOBILE */}
+                <span className="text-lg font-semibold mt-2">Refine By</span>
                 <SvgIcon icon="refine" viewBox="0 0 24 24" size="xs" fill="none" />
               </div>
               <div
                 className={`refineby-container ${mobileFilterToogle ? 'block' : 'hidden'} mmd:block`}
               >
-                <div className="sort-order flex flex-col gap-4">
-                  <h3 className="font-normal text-lg font-modern">Refine By</h3>
+                {/* THIS IS FOR REFINE BY DESKTOP */}
+                <div className="sort-order flex flex-col gap-3">
+                  <h3 className="text-lg font-semibold mt-2">Refine By</h3>
+                  {/* SORT BY CODE */}
                   <div className="sort gap-1">
-                    <label className="text-base font-bold" htmlFor="sorting">
+                    <label className="text-base font-bold mb-1" htmlFor="sorting">
                       Sort
                     </label>
-                    <div id="sorting" className="sort-wrapper border rounded px-2">
+                    <div
+                      id="sorting"
+                      className="sort-wrapper border-x border-y border-slate-500 rounded px-2"
+                    >
                       <SortOrder options={sortChoices} selected={sortType} />
                     </div>
                   </div>
                 </div>
+                {/* FILTER CODE */}
                 <div className="my-4">
                   <Filter />
                 </div>
+                {/* FILTER CONTENT */}
                 {facets.length > 0 && (
                   <div className="search-facets">
-                    <label htmlFor="facets" className="text-base font-bold">
+                    <label htmlFor="facets" className="text-base font-bold mb-1">
                       Filter
                     </label>
                     <SearchFacets facets={facets} />
@@ -644,6 +680,7 @@ export const SearchResultsWithInputComponent = ({
                 )}
               </div>
             </section>
+            {/* RIGHT SIDE SECTION WHICH DISPLAYS RESULTS ON DESKTOP */}
             <section className="flex flex-col flex-[4_1_0%] gap-4 font-modern md:p-4">
               {/* Sort Select */}
               {totalItems > 0 && (
@@ -672,7 +709,7 @@ export const SearchResultsWithInputComponent = ({
                   </>
                 ))}
               </div>
-              <div className="flex flex-col md:flex-row text-xs w-full justify-center">
+              <div className="flex flex-col md:flex-row text-xs w-full justify-center items-center">
                 {/* <ResultsPerPage defaultItemsPerPage={defaultItemsPerPage} /> */}
                 <SearchPagination currentPage={page} totalPages={totalPages} />
               </div>
