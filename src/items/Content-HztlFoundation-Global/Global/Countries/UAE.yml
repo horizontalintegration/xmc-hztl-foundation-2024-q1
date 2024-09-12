@@ -1,0 +1,36 @@
+﻿---
+ID: "8885b443-1b32-44e6-ac6a-f46745b65e35"
+Parent: "dd929dfc-fe81-4ba5-bd07-b9c368ee4d01"
+Template: "628b007c-334f-40f6-a849-aaa4b566fb74"
+Path: /sitecore/content/HztlFoundation/Global/Countries/UAE
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 0
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20240620T114244Z
+    - ID: "69f06655-321b-4926-ad73-304f2e52e2f5"
+      Hint: language
+      Value: 
+    - ID: "6ad8e19e-4264-41b9-80b1-e2b0b0a3f64a"
+      Hint: flag
+      Value: 
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f676aff2-0134-4b55-9d86-040fe02676e6"
+    - ID: "a17a2b7a-f531-4b23-a829-9c283763ac9a"
+      Hint: name
+      Value: UAE (Arabic)
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20240911T101726Z

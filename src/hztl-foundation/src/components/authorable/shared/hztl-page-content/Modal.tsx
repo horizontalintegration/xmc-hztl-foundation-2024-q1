@@ -8,10 +8,13 @@ import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 
 // Local
-import ModalWrapper from 'helpers/GenericWrappers/ModalWrapper/ModalWrapper';
+import ModalWrapper, { ModalSize } from 'helpers/GenericWrappers/ModalWrapper/ModalWrapper';
 import useIsEditing from 'lib/hooks/use-is-editing';
 
-export type ModalProps = ComponentProps & HztlPageContent.Modal;
+export type ModalProps = ComponentProps &
+  HztlPageContent.Modal & {
+    uid: string;
+  };
 
 const TAILWIND_VARIANTS = tv({
   slots: {
@@ -56,7 +59,7 @@ const Modal = (props: ModalProps): JSX.Element => {
       id={uid}
       label={label?.value}
       openOnLoad={openOnLoad?.value}
-      size={size?.value}
+      size={size?.fields?.value as ModalSize}
       title={title?.value}
     />
   );

@@ -2,7 +2,6 @@ import { InlineVideoProps } from 'components/authorable/shared/hztl-page-content
 
 const defaultData: InlineVideoProps = {
   componentName: 'InlineVideo',
-  dataSource: '{22DFDD15-B06E-4E81-8A4D-A807C3811E8C}',
   fields: {
     autoplay: {
       value: false,
@@ -33,15 +32,48 @@ const defaultData: InlineVideoProps = {
     },
     sources: [
       {
-        description: '',
-        displayName: 'placeholder-video',
-        extension: 'mp4',
-        keywords: '',
-        mimeType: 'video/mp4',
+        id: '7eb8cab1-a2ac-4f09-ae0b-64023717a23e',
+        url: './assets/videos/oceans.mp4',
         name: 'placeholder-video',
-        size: '528057',
-        src: './assets/videos/oceans.mp4',
-        title: '',
+        displayName: 'placeholder-video',
+        fields: {
+          Description: {
+            value: '',
+          },
+          Extension: {
+            value: 'mp4',
+          },
+          Keywords: {
+            value: '',
+          },
+          'Mime Type': {
+            value: 'video/mp4',
+          },
+          Size: {
+            value: '528057',
+          },
+          Title: {
+            value: '',
+          },
+          CountryCode: {
+            value: '',
+          },
+          LocationDescription: {
+            value: '',
+          },
+          ZipCode: {
+            value: '',
+          },
+          Blob: {
+            value: '3baf8125-1c01-4c84-ab49-9ea054b76017',
+          },
+          'File Path': {
+            value: '',
+          },
+          Format: {
+            value: '',
+          },
+        },
       },
     ],
     subtitles: [],
@@ -54,8 +86,10 @@ const defaultData: InlineVideoProps = {
     FieldNames: 'Default',
     GridParameters: 'basis-full',
   },
-  rendering: { componentName: 'Default', dataSource: 'Storybook' },
-  uid: '3ccb2dea-b9e1-4580-bb04-e9146b6f1319',
+  rendering: {
+    componentName: 'Inline Video',
+    dataSource: 'Storybook',
+  },
 };
 
 export const noData = {

@@ -4,6 +4,9 @@ Parent: "f291704e-2a60-495e-be8a-ac52ee26ac4f"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
 Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/InlineVideo/Inline Video Data/sources
 SharedFields:
+- ID: "074f44ca-359a-4c13-b3aa-4a6be2a675b1"
+  Hint: Validation
+  Value: 
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
   Value: /sitecore/media library/Project/HztlFoundation/SiteAlpha/Videos
@@ -19,6 +22,9 @@ Languages:
   - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
     Hint: Title
     Value: Select Video Sources
+  - ID: "b12e4906-b96b-495e-b343-cd2e92dc6347"
+    Hint: ValidationText
+    Value: 
   Versions:
   - Version: 1
     Fields:
@@ -35,11 +41,11 @@ Languages:
         sitecore\vthakur@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "3d2d6486-a0b6-4780-a86a-2666de25c6c4"
+      Value: "0d89fca5-af8c-456b-aecc-b9e860ab62f6"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240909T101146Z
+      Value: 20240912T100047Z
