@@ -5,11 +5,12 @@ import { tv } from 'tailwind-variants';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
+import useIsEditing from 'lib/hooks/use-is-editing';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 
 // Local
 import ModalWrapper, { ModalSize } from 'helpers/GenericWrappers/ModalWrapper/ModalWrapper';
-import useIsEditing from 'lib/hooks/use-is-editing';
+import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 
 export type ModalProps = ComponentProps &
   HztlPageContent.Modal & {
@@ -18,7 +19,7 @@ export type ModalProps = ComponentProps &
 
 const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['border', 'flex', 'flex-col', 'gap-5', 'p-5', 'rounded'],
+    base: ['border', 'component', 'flex', 'flex-col', 'gap-5', 'p-5', 'rounded'],
   },
 });
 
@@ -37,13 +38,13 @@ const Modal = (props: ModalProps): JSX.Element => {
 
   if (!props?.fields) return <></>;
 
-  if (isEditing) {
+  if (!isEditing) {
     const { base } = TAILWIND_VARIANTS();
 
     return (
       <>
-        <div className={base()}>
-          <h2>{title?.value}</h2>
+        <div className={base()} data-component="authorable/shared/hztl-page-content/modal">
+          <PlainTextWrapper editable field={title} tag="h2" />
           <div>
             <Placeholder name={placeholderKey} rendering={props.rendering} />
           </div>
@@ -56,6 +57,7 @@ const Modal = (props: ModalProps): JSX.Element => {
   return (
     <ModalWrapper
       content={<Placeholder name={placeholderKey} rendering={props.rendering} />}
+      data-component="authorable/shared/hztl-page-content/modal"
       id={uid}
       label={label?.value}
       openOnLoad={openOnLoad?.value}
