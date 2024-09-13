@@ -155,14 +155,14 @@ export const PreviewSearchBasicComponent = ({
       >
         {/* DISPLAY LOADING IF RESULTS ARE STILL NOT READY */}
         <Presence present={loading}>
-          <div className="flex flex-1 items-center">
+          <div className="flex flex-1 items-center p-4">
             <svg
               aria-busy={loading}
               aria-hidden={!loading}
               focusable="false"
               role="progressbar"
               viewBox="0 0 20 20"
-              className="block fill-red-600 m-auto h-[25px] w-[25px] animate-spin p-1"
+              className="block fill-black-600 m-auto h-[25px] w-[25px] animate-spin"
             >
               <path d="M7.229 1.173a9.25 9.25 0 1 0 11.655 11.412 1.25 1.25 0 1 0-2.4-.698 6.75 6.75 0 1 1-8.506-8.329 1.25 1.25 0 1 0-.75-2.385z" />
             </svg>
