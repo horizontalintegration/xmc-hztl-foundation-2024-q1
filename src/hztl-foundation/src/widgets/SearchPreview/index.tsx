@@ -133,7 +133,7 @@ export const PreviewSearchBasicComponent = ({
                 onClick={onResetText}
               >
                 {/* HERE IS THE X ICON THAT SHOWS UP TO CLEAR SEARCH */}
-                <SvgIcon size="xxs" viewBox="0 0 12 12" fill="none" icon="close" />
+                <SvgIcon size="xxs" viewBox="6 6 12 12" fill="none" icon="close" />
               </div>
             )}
             <button
