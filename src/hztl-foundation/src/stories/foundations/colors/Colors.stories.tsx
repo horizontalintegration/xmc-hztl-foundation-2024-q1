@@ -5,8 +5,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { default as ColorsComponent } from './Colors';
 
 const meta: Meta<typeof ColorsComponent> = {
-  title: 'Foundations/Colors',
-  component: ColorsComponent,
   argTypes: {
     theme: {
       table: {
@@ -14,6 +12,9 @@ const meta: Meta<typeof ColorsComponent> = {
       },
     },
   },
+  component: ColorsComponent,
+  tags: ['!autodocs'],
+  title: 'Foundations/Colors',
 };
 
 export default meta;
@@ -21,7 +22,7 @@ export default meta;
 type Story = StoryObj<typeof ColorsComponent>;
 
 export const Colors: Story = {
-  render: (_, context) => {
-    return <ColorsComponent theme={context.globals.theme} />;
+  render: (_) => {
+    return <ColorsComponent />;
   },
 };

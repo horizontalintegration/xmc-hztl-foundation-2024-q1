@@ -8,9 +8,9 @@ import * as twConfig from '../../../../tailwind.config';
 const Colors = (): JSX.Element => {
   const config = tailwind.config(twConfig.theme);
 
-  // const colors = { ...config?.extend?.colors, ...config.theme.colors };
+  const colors = { ...config?.extend?.colors, ...config.theme.colors };
 
-  const keys = Object.keys(config?.extend?.colors);
+  const keys = Object.keys(colors);
   const parsedExtendedConfig: Record<string, Record<string, number>> = {};
   const regexp = /^(.*)-([0-9]{3})$/g;
 
@@ -25,8 +25,6 @@ const Colors = (): JSX.Element => {
       parsedExtendedConfig[parent][child] = config?.extend?.colors[value];
     }
   });
-
-  const colors = { ...parsedExtendedConfig, ...config.theme.colors };
 
   const renderColor = (label: string, value: string) => (
     <div key={label}>

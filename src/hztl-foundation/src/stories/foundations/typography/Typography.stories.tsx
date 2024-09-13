@@ -5,8 +5,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { default as TypographyComponent } from './Typography';
 
 const meta: Meta<typeof TypographyComponent> = {
-  title: 'Foundations/Typography',
-  component: TypographyComponent,
   argTypes: {
     theme: {
       table: {
@@ -14,6 +12,9 @@ const meta: Meta<typeof TypographyComponent> = {
       },
     },
   },
+  component: TypographyComponent,
+  tags: ['!autodocs'],
+  title: 'Foundations/Typography',
 };
 
 export default meta;
@@ -21,7 +22,7 @@ export default meta;
 type Story = StoryObj<typeof TypographyComponent>;
 
 export const Typography: Story = {
-  render: (_, context) => {
-    return <TypographyComponent theme={context.globals.theme} />;
+  render: (_) => {
+    return <TypographyComponent />;
   },
 };

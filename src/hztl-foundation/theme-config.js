@@ -1,31 +1,25 @@
 module.exports = {
   theme: {
     colors: {
-      'color-grayscale-base-white': '#ffffff',
-      'color-grayscale-base-black': '#000000',
-      'color-grayscale-warm-200': '#EAE8E8',
-      'color-grayscale-warm-400': '#807A77',
-      'color-grayscale-warm-600': '#373432',
-    },
-    spacing: {
-      'container-width': '1440px',
-      'spacing-spacing-3': '12px',
-      'spacing-spacing-4': '16px',
-      'spacing-spacing-5': '40px',
-    },
-    borderRadius: {},
-    typography: {
-      fontFamily: {
-        avenir: 'Avenir Next, sans-serif',
-        notoSans: 'Noto Sans, sans-serif',
+      theme: {
+        black: '#2f2d2e',
+        darkgrey: '#515152',
+        grey: '#787779',
+        lightgrey: '#cfcdc8',
+        bgblack: '#404040',
+        montecarlo: '#7fc3ba',
+        salmon: '#f58466',
+        rosebud: '#f8aa97',
+        darkblue: '#065264',
+        darkgreen: '#2e4e40',
       },
-      fontSize: {},
-      fontWeight: {},
-      lineHeight: {},
-      letterSpacing: {},
-      textTransform: {},
-      textDecoration: {},
+    },
+    fontFamily: {
+      modern: ['Modern Era', 'sans-serif'],
+    },
+    fontSize: {
+      xxs: ['0.625rem', '0.75rem'] /* 10px,  12px*/,
+      xxxs: ['0.5rem', '0.5rem'] /*  8px,   8px*/,
     },
   },
 };
-
