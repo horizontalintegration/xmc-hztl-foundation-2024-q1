@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
 const figmaVariables = require('./theme-config').theme;
+
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
