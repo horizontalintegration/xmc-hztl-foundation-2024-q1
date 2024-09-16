@@ -13,7 +13,7 @@ const meta: Meta<typeof Default> = {
   component: Default,
   decorators: [
     (Story) => (
-      <div className="max-w-[450px]">
+      <div className="max-w-[395px]">
         <Story />
       </div>
     ),

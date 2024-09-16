@@ -8,11 +8,11 @@ const defaultData: CardProps = {
   fields: {
     CardImage: {
       value: {
-        src: 'https://dummyimage.com/450x299/000/fff',
+        src: 'https://dummyimage.com/395x300/000/fff',
         alt: 'Image Alt text',
         title: 'Image title',
-        width: 450,
-        height: 299,
+        width: 395,
+        height: 300,
       },
     },
     CardLink1: {

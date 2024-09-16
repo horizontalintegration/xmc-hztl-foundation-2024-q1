@@ -31,7 +31,7 @@ const tailwindVariants = tv({
     ],
     icon: ['h-auto', 'w-auto'],
     iconContainer: ['ml-3'],
-    linkWrapper: ['flex', 'font-bold', 'items-center', 'text-theme-black', 'text-xs', 'underline'],
+    linkWrapper: ['flex', 'font-bold', 'items-center', 'text-theme-black', 'underline'],
     list: ['flex', 'gap-2', 'items-center', 'list', 'm-3', 'md:m-0'],
     listItem: ['list-none'],
   },

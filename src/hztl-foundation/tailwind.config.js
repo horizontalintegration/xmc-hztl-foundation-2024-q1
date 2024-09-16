@@ -42,13 +42,13 @@ module.exports = {
       },
       fontSize: {
         // Desktop font sizes
-        xxl: ['3.5rem', '120%'], //56px 67.2px // DEPRECATED
-        xl: ['3rem', '3.5rem'], //48px 60px // DEPRECATED
+        // xxl: ['3.5rem', '120%'], //56px 67.2px // DEPRECATED
+        // xl: ['3rem', '3.5rem'], //48px 60px // DEPRECATED
         l: ['2rem', '2rem'], //32px 67.2px // DEPRECATED
         m: ['1.5rem', '2rem'], //24px 32px // DEPRECATED
         'sub-heading': ['1.25rem', '1.52rem'], //20px 24px // DEPRECATED
-        s: ['1.125rem', '1.75rem'], //18px 28px // DEPRECATED
-        xs: ['1rem', '1.25rem'], //16px 20px // DEPRECATED
+        // s: ['1.125rem', '1.75rem'], //18px 28px // DEPRECATED
+        // xs: ['1rem', '1.25rem'], //16px 20px // DEPRECATED
         // xxs: ['0.75rem', '1rem'], //12px 16px // DEPRECATED
         body: ['0.875rem', '157%'], //14px 21.98px // DEPRECATED
         'large-body': ['1.125rem', '133%'], //18px 23.94px // DEPRECATED
@@ -81,13 +81,13 @@ module.exports = {
         regular: '400', // DEPRECATED
         'extra-light': '300', // DEPRECATED
       },
-      lineHeight: {
-        20: '4.4rem', // 48 // DEPRECATED
-        16: '3.5rem', // 48 // DEPRECATED
-        12: '3rem', // 48 // DEPRECATED
-        2: '1.375rem', // 22 // DEPRECATED
-        1: '1.188rem', // 19 // DEPRECATED
-      },
+      // lineHeight: {
+      //   20: '4.4rem', // 48 // DEPRECATED
+      //   16: '3.5rem', // 48 // DEPRECATED
+      //   12: '3rem', // 48 // DEPRECATED
+      //   2: '1.375rem', // 22 // DEPRECATED
+      //   1: '1.188rem', // 19 // DEPRECATED
+      // },
       screens: {
         xl: '1488px', // DEPRECATED
         lg: '1248px', // DEPRECATED
