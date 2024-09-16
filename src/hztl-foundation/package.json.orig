@@ -111,7 +111,10 @@
     "prettier": "^3.3.2",
     "react-syntax-highlighter": "^15.5.0",
     "storybook": "^8.3.0",
+<<<<<<< HEAD
+=======
     "tailwind-config": "^0.1.2",
+>>>>>>> develop
     "tailwindcss": "^3.4.3",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.2",
