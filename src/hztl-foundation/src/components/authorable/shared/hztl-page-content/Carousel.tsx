@@ -18,7 +18,7 @@ export type CarouselProps = ComponentProps & HztlPageContent.CarouselItem;
  * Tailwind Variants
  */
 
-const tailwindVariants = tv({
+const TAILWIND_VARIANTS = tv({
   slots: {
     base: ['component', 'relative'],
     slideArrows: ['splide__arrows'],
@@ -48,76 +48,69 @@ const tailwindVariants = tv({
 });
 
 const Carousel = (props: CarouselProps): JSX.Element => {
-  const id = props?.params?.RenderingIdentifier;
-  const phKey = `carousel-${props?.params?.DynamicPlaceholderId}`;
+  const { DynamicPlaceholderId, RenderingIdentifier } = props?.params || {};
+
+  const phKey = `carousel-${DynamicPlaceholderId}`;
 
   const {
     base,
-    slideArrows,
-    previousButton,
-    nextButton,
-    screenReader,
-    progressBarWrapper,
-    progressBarItem,
-    slideControls,
-    slideControlButton,
-    playButton,
-    pauseButton,
     iconStyles,
-  } = tailwindVariants();
+    nextButton,
+    pauseButton,
+    playButton,
+    previousButton,
+    progressBarItem,
+    progressBarWrapper,
+    screenReader,
+    slideArrows,
+    slideControlButton,
+    slideControls,
+  } = TAILWIND_VARIANTS();
 
   /*
    * Rendering
    */
 
   return (
-    <div id={id ? id : undefined} className={base()}>
+    <div className={base()} id={RenderingIdentifier}>
       <Splide
         hasTrack={false}
         options={{
+          autoplay: 'pause',
+          gap: '.01rem',
+          interval: 3000,
+          pagination: true,
+          perMove: 1,
+          perPage: 1,
           rewind: true,
           width: '100%',
-          gap: '.01rem',
-          perPage: 1,
-          perMove: 1,
-          pagination: true,
-          autoplay: 'pause',
-          interval: 3000,
         }}
       >
         <SplideTrack>
           <Placeholder name={phKey} rendering={props.rendering} />
         </SplideTrack>
-
         <div className={slideArrows()}>
           <button className={previousButton()}>
             <span className={screenReader()}>Previous slide</span>
-            <SvgIcon icon={'arrow-right'} size="md" />
+            <SvgIcon icon="arrow-right" size="md" />
           </button>
-
           <button className={nextButton()}>
             <span className={screenReader()}>Next slide</span>
-            <SvgIcon icon={'arrow-right'} size="md" />
+            <SvgIcon icon="arrow-right" size="md" />
           </button>
         </div>
-
-        {/* Progress Bar */}
         <div className={progressBarWrapper()}>
           <div className={progressBarItem()} />
         </div>
-
         <div className={slideControls()}>
           <button className={slideControlButton()} type="button">
-            {/* Play button */}
             <span className={playButton()}>
               <span className={screenReader()}>Play slideshow</span>
-              <SvgIcon className={iconStyles()} icon={'play'} />
+              <SvgIcon className={iconStyles()} icon="play" />
             </span>
-
-            {/* Pause button */}
             <span className={pauseButton()}>
               <span className={screenReader()}>Pause slideshow</span>
-              <SvgIcon className={iconStyles()} icon={'pause'} />
+              <SvgIcon className={iconStyles()} icon="pause" />
             </span>
           </button>
         </div>

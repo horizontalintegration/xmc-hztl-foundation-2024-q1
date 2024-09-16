@@ -18,7 +18,7 @@ import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWr
  * Tailwind Variants
  */
 
-const tailwindVariants = tv({
+const TAILWIND_VARIANTS = tv({
   slots: {
     base: ['border', 'border-theme-darkgrey', 'flex', 'flex-col', 'items-center', 'justify-center'],
     body: ['flex', 'flex-col', 'grow', 'p-10', 'w-full'],
@@ -90,7 +90,7 @@ const Card = (props: CardProps): JSX.Element => {
     header,
     heading,
     subheading,
-  } = tailwindVariants();
+  } = TAILWIND_VARIANTS();
 
   /*
    * Rendering
