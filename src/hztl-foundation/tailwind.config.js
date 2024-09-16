@@ -1,5 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 
+// Global
+const plugin = require('tailwindcss/plugin');
+
+// Local
 const figmaVariables = require('./theme-config').theme;
 
 module.exports = {
