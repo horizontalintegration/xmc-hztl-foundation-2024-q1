@@ -7,7 +7,7 @@ import { tv } from 'tailwind-variants';
 import { GtmEvent } from 'lib/utils/gtm-utils';
 
 // Local
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { SvgIcon } from 'helpers/SvgIcon';
 import {
   CtaElements,
   CtaIconAlignments,

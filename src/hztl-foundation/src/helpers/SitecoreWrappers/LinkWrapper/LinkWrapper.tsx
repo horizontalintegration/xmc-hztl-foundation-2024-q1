@@ -9,7 +9,7 @@ import useIsEditing from 'lib/hooks/use-is-editing';
 import { GtmEvent } from 'lib/utils/gtm-utils';
 
 import { CtaProps, ctaTailwindVariant } from '../ButtonWrapper/ButtonWrapper';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { SvgIcon } from 'helpers/SvgIcon';
 import structuredClone from '@ungap/structured-clone';
 
 const INTERNAL_LINK_REGEX = /^\/|^\#/g;

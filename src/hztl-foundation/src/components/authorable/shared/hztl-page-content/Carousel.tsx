@@ -1,49 +1,47 @@
 // Global
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Splide, SplideTrack } from '@splidejs/react-splide';
-import { tv } from 'tailwind-variants';
 import '@splidejs/splide/css';
+import { tv } from 'tailwind-variants';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
+import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 
 // Local
-import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
 import { withStandardComponentWrapper } from 'helpers/HOC';
+import { SvgIcon } from 'helpers/SvgIcon';
 
 export type CarouselProps = ComponentProps & HztlPageContent.CarouselItem;
-
-/*
- * Tailwind Variants
- */
 
 const TAILWIND_VARIANTS = tv({
   slots: {
     base: ['component', 'relative'],
-    slideArrows: ['splide__arrows'],
-    previousButton: [
-      'splide__arrow',
-      'splide__arrow--prev',
-      'icon-hover-focus-rounded',
-      'stroke-gray',
-      '!bg-transparent',
-    ],
+    iconStyles: ['h-l', 'w-l'],
     nextButton: [
       'splide__arrow',
       'splide__arrow--next',
-      'icon-hover-focus-rounded',
-      'stroke-gray',
       '!bg-transparent',
+      'icon-hover-focus-rounded',
+      'opacity-50',
     ],
-    screenReader: ['sr-only'],
-    progressBarWrapper: ['splide__progress'],
-    progressBarItem: ['splide__progress__bar'],
-    slideControls: ['absolute', 'bottom-1', 'right-5'],
-    slideControlButton: ['splide__toggle', 'icon-hover-focus-rounded'],
-    playButton: ['splide__toggle__play'],
+    nextButtonIcon: ['fill-theme-black'],
     pauseButton: ['splide__toggle__pause'],
-    iconStyles: ['h-l', 'w-l'],
+    playButton: ['splide__toggle__play'],
+    previousButton: [
+      'splide__arrow',
+      'splide__arrow--prev',
+      '!bg-transparent',
+      'icon-hover-focus-rounded',
+      'opacity-50',
+    ],
+    previousButtonIcon: ['fill-theme-black'],
+    progressBarItem: ['splide__progress__bar'],
+    progressBarWrapper: ['splide__progress'],
+    screenReader: ['sr-only'],
+    slideArrows: ['splide__arrows'],
+    slideControlButton: ['splide__toggle', 'icon-hover-focus-rounded'],
+    slideControls: ['absolute', 'bottom-1', 'right-5'],
   },
 });
 
@@ -56,9 +54,11 @@ const Carousel = (props: CarouselProps): JSX.Element => {
     base,
     iconStyles,
     nextButton,
+    nextButtonIcon,
     pauseButton,
     playButton,
     previousButton,
+    previousButtonIcon,
     progressBarItem,
     progressBarWrapper,
     screenReader,
@@ -77,6 +77,9 @@ const Carousel = (props: CarouselProps): JSX.Element => {
         hasTrack={false}
         options={{
           autoplay: 'pause',
+          classes: {
+            page: 'splide__pagination__page bg-theme-lightgrey border-black h-4 w-4',
+          },
           gap: '.01rem',
           interval: 3000,
           pagination: true,
@@ -92,11 +95,11 @@ const Carousel = (props: CarouselProps): JSX.Element => {
         <div className={slideArrows()}>
           <button className={previousButton()}>
             <span className={screenReader()}>Previous slide</span>
-            <SvgIcon icon="arrow-right" size="md" />
+            <SvgIcon className={previousButtonIcon()} icon="arrow-right" size="md" />
           </button>
           <button className={nextButton()}>
             <span className={screenReader()}>Next slide</span>
-            <SvgIcon icon="arrow-right" size="md" />
+            <SvgIcon className={nextButtonIcon()} icon="arrow-right" size="md" />
           </button>
         </div>
         <div className={progressBarWrapper()}>

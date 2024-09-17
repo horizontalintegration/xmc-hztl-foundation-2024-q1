@@ -10,7 +10,7 @@ import graphqlClientFactory from 'lib/graphql-client-factory';
 import { BreadcrumbDataType } from './Breadcrumb.types';
 import BreadcrumbQuery from './Breadcrumb.graphql';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { SvgIcon } from 'helpers/SvgIcon';
 
 /*
  * Tailwind Variants
@@ -96,8 +96,8 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                           className={icon()}
                           fill="none"
                           icon="arrow-right"
-                          size="xs"
-                          viewBox="0 0 7 12"
+                          size="xxs"
+                          viewBox="0 0 24 24"
                         />
                       </div>
                     </LinkWrapper>

@@ -10,7 +10,7 @@ import { Logo } from './HeaderDesktop';
 import CountrySelector from 'helpers/Forms/CountrySelector';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { SvgIcon } from 'helpers/SvgIcon';
 import useOutsideClick from 'src/hooks/useClickOutside';
 import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
 

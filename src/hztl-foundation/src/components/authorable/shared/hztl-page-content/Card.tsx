@@ -3,7 +3,7 @@ import React from 'react';
 import { tv } from 'tailwind-variants';
 
 // Lib
-import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
 

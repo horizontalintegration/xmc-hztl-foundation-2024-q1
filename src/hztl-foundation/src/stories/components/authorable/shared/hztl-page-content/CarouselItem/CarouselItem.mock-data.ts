@@ -10,7 +10,7 @@ const defaultData: CarouselItemProps = {
     },
     image: {
       value: {
-        src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/placeholder_gray_16by9.png?h=1080&iar=0&w=1920',
+        src: 'https://dummyimage.com/550x310/cfcdc8/2f2d2e',
         alt: 'carousel img',
         width: '1920',
         height: '1080',
@@ -64,7 +64,7 @@ export const carouselItem2: CarouselItemProps = {
     },
     image: {
       value: {
-        src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/placeholder_gray_16by9.png?h=1080&iar=0&w=1920',
+        src: 'https://dummyimage.com/550x310/cfcdc8/2f2d2e',
         alt: 'carousel img',
         width: '1920',
         height: '1080',
@@ -118,7 +118,7 @@ export const carouselItem3: CarouselItemProps = {
     },
     image: {
       value: {
-        src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/placeholder_gray_16by9.png?h=1080&iar=0&w=1920',
+        src: 'https://dummyimage.com/550x310/cfcdc8/2f2d2e',
         alt: 'carousel img',
         width: '1920',
         height: '1080',

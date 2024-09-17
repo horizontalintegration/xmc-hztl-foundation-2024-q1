@@ -3,7 +3,7 @@ import React from 'react';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
-import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 
 // Local
 import ModalWrapper, { ModalWrapperProps } from 'helpers/GenericWrappers/ModalWrapper/ModalWrapper';

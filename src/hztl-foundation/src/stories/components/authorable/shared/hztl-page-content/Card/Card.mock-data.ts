@@ -8,7 +8,7 @@ const defaultData: CardProps = {
   fields: {
     CardImage: {
       value: {
-        src: 'https://dummyimage.com/395x300/000/fff',
+        src: 'https://dummyimage.com/395x300/cfcdc8/2f2d2e',
         alt: 'Image Alt text',
         title: 'Image title',
         width: 395,
@@ -53,7 +53,7 @@ export const CardA: CardProps = {
   fields: {
     CardImage: {
       value: {
-        src: 'https://dummyimage.com/900x600/000/fff',
+        src: 'https://dummyimage.com/900x600/cfcdc8/2f2d2e',
         alt: 'Image Alt text',
         title: 'Image title',
         width: '100%',
@@ -113,7 +113,7 @@ export const CardB: CardProps = {
   fields: {
     CardImage: {
       value: {
-        src: 'https://dummyimage.com/900x600/000/fff',
+        src: 'https://dummyimage.com/900x600/cfcdc8/2f2d2e',
         alt: 'Image Alt text',
         title: 'Image title',
         width: '100%',
@@ -173,7 +173,7 @@ export const CardC: CardProps = {
   fields: {
     CardImage: {
       value: {
-        src: 'https://dummyimage.com/900x600/000/fff',
+        src: 'https://dummyimage.com/900x600/cfcdc8/2f2d2e',
         alt: 'Image Alt text',
         title: 'Image title',
         width: '100%',

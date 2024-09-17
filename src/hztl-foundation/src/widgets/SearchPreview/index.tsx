@@ -8,7 +8,7 @@ import { WidgetDataType, usePreviewSearch, widget } from '@sitecore-search/react
 import { ArticleCard, Presence, PreviewSearch } from '@sitecore-search/ui';
 import { useEnsureSearchUrl } from './use-ensure-search-url';
 import { useRouter } from 'next/router';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { SvgIcon } from 'helpers/SvgIcon';
 
 type ArticleModel = {
   id: string;

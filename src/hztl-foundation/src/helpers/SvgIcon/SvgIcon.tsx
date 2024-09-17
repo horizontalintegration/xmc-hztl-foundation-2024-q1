@@ -33,13 +33,13 @@ export type SVGFill = 'currentColor' | 'none';
 
 export interface SvgIconProps {
   className?: string;
+  fill?: SVGFill;
   icon: IconTypes;
   size?: SvgIconSize;
   viewBox?: string;
-  fill?: SVGFill;
 }
 
-const svgIconClasses = tv({
+const TAILWIND_VARIANTS = tv({
   base: [],
   variants: {
     size: {
@@ -64,7 +64,7 @@ const SvgIcon = ({
 
   return (
     <svg
-      className={svgIconClasses({ className, size })}
+      className={TAILWIND_VARIANTS({ className, size })}
       fill={fill}
       viewBox={viewBox}
       xmlns="http://www.w3.org/2000/svg"
