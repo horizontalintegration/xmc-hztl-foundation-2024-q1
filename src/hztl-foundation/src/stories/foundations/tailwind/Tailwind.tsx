@@ -37,7 +37,8 @@ const Tailwind = (): JSX.Element => {
             </tr>
           </thead>
           <tbody className="">
-            {Object.entries(flattenedConfig).map(([key, value]) => (
+            {/* eslint-disable  @typescript-eslint/no-explicit-any */}
+            {Object.entries(flattenedConfig as any).map(([key, value]) => (
               <tr key={key}>
                 <td className="border border-slate-300 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">
                   {key}
