@@ -3,8 +3,7 @@ import { HeroProps } from 'components/authorable/shared/hztl-page-content/Hero';
 const defaultData: HeroProps = {
   rendering: { componentName: 'Default', dataSource: 'Storybook' },
   params: {
-    Styles:
-      'cta1:ctaVariant:primary cta1:ctaIcon:arrow-right cta1:ctaIconAlignment:right cta2:ctaVariant:secondary cta2:ctaIcon:download cta2:ctaIconAlignment:left ',
+    Styles: 'cta1:ctaVariant:primary cta2:ctaVariant:secondary',
   },
   fields: {
     Image: {

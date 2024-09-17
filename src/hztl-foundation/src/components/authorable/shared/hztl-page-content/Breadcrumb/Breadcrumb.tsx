@@ -12,11 +12,7 @@ import BreadcrumbQuery from './Breadcrumb.graphql';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import { SvgIcon } from 'helpers/SvgIcon';
 
-/*
- * Tailwind Variants
- */
-
-const tailwindVariants = tv({
+const TAILWIND_VARIANTS = tv({
   slots: {
     base: ['component'],
     currentPage: [
@@ -42,7 +38,7 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
   const { componentName, dataSource } = staticProps?.rendering || {};
 
   const { base, currentPage, icon, iconContainer, list, linkWrapper, listItem } =
-    tailwindVariants();
+    TAILWIND_VARIANTS();
 
   /*
    * Rendering
