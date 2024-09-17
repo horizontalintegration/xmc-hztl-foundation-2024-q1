@@ -12,7 +12,7 @@ import {
 import defaultData from './SocialMedia.mock-data';
 
 const meta: Meta<typeof Default> = {
-  title: 'Components/Authorable/shared/hztl-page-content/SocialMedia',
+  title: 'Components/Authorable/shared/hztl-page-content/Social Media',
   component: Default,
   argTypes: {},
 };
