@@ -1,109 +1,105 @@
 // Global
-import React from 'react';
 import {
   GetStaticComponentProps,
   ImageFieldValue,
   LinkField,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import React from 'react';
 import { tv } from 'tailwind-variants';
 
 // Lib
-import { SiteStructure } from 'src/.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
 import graphQLClientFactory from 'lib/graphql-client-factory';
+import { SiteStructure } from 'src/.generated/Feature.HztlFoundation.model';
 
 // Local
-import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
-import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
-import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import FooterQuery from './Footer.graphql';
+import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 
-// Types
-interface LinkItem {
-  id: string;
-  name: string;
-  link: {
-    jsonValue: LinkField;
-  };
-}
-
-interface FooterColumn {
-  id: string;
-  name: string;
-  columnLinks: {
-    items: LinkItem[];
-  };
-}
-
-interface FooterLogo {
-  jsonValue: {
-    value: ImageFieldValue;
-  };
-  alt: string;
-}
-
-interface Item {
-  id: string;
-  path: string;
-  footerLogo: FooterLogo;
-  footerColumns: {
-    items: FooterColumn[];
-  };
-}
-
-/*
- * Tailwind Variants
- */
-
-const tailwindVariants = tv({
+const TAILWIND_VARIANTS = tv({
   slots: {
     base: ['col-span-2'],
+    column: [],
     container: ['m-auto max-w-screen-xl'],
-    wrapper: ['w-full', 'py-10', 'px-spacing-spacing-4', 'ml:px-20'],
     content: [
       'flex',
       'flex-wrap',
+      'gap-20',
       'justify-start',
+      'md:gap-10',
       'md:justify-between',
-      'gap-xl',
-      'sm:gap-l',
-      'md:gap-l',
       'md:w-auto',
+      'sm:gap-10',
     ],
     contentWrapper: ['w-full mmd:w-fit'],
+    divider: ['bg-black', 'w-full', 'opacity-100'],
+    linkWrapper: ['capitalize', 'font-bold', 'font-modern', 'py-2', 'text-theme-black text-xs'],
+    menuItem: ['p-2'],
+    menuList: ['flex', 'flex-col'],
     section: [
       'flex',
-      'justify-between',
       'flex-wrap',
-      'gap-m',
-      'sm:gap-ml',
-      'mmd:gap-xl',
-      'mml:gap-xl',
+      'gap-6',
+      'justify-between',
       'md:w-auto',
+      'mmd:gap-20',
+      'mml:gap-20',
+      'sm:gap-8',
     ],
-    column: [''],
     textWrapper: [
-      'font-modern',
-      'text-black',
-      'text-xs',
-      'font-bold',
       'capitalize',
-      'pt-1.5',
+      'font-bold',
+      'font-modern',
       'pb-3',
+      'pt-1.5',
+      'text-theme-black',
+      'text-xs',
     ],
-    menuList: ['flex', 'flex-col'],
-    menuItem: ['p-2'],
-    linkWrapper: ['font-modern', 'text-black text-xs', 'font-bold', 'capitalize', 'py-2'],
-    divider: ['w-full', 'bg-color-grayscale-base-black', 'opacity-100'],
+    wrapper: ['px-4', 'py-10', 'w-full', 'ml:px-20'],
   },
 });
+
+interface FooterColumn {
+  id: string;
+  columnLinks: {
+    items: LinkItem[];
+  };
+  name: string;
+}
+
+interface FooterLogo {
+  alt: string;
+  jsonValue: {
+    value: ImageFieldValue;
+  };
+}
+
+interface Item {
+  footerColumns: {
+    items: FooterColumn[];
+  };
+  footerLogo: FooterLogo;
+  id: string;
+  path: string;
+}
+
+interface LinkItem {
+  id: string;
+  link: {
+    jsonValue: LinkField;
+  };
+  name: string;
+}
 
 export type FooterProps = ComponentProps &
   SiteStructure.Footer.Footer & { FooterData: { item: Item } };
 
 export const Default = (props: FooterProps): JSX.Element => {
-  const id = props?.params?.RenderingIdentifier;
   const { item } = props?.FooterData;
+  const { RenderingIdentifier } = props?.params || {};
+
   const footerColumns = item?.footerColumns.items;
   const footerLogo = item?.footerLogo;
 
@@ -119,7 +115,7 @@ export const Default = (props: FooterProps): JSX.Element => {
     menuItem,
     linkWrapper,
     divider,
-  } = tailwindVariants();
+  } = TAILWIND_VARIANTS();
 
   /*
    * Rendering
@@ -132,40 +128,38 @@ export const Default = (props: FooterProps): JSX.Element => {
   return (
     <div
       className={`${base()} ${props?.params?.styles !== undefined ? props?.params?.styles : ''}`}
-      id={id}
+      id={RenderingIdentifier}
     >
-      <div data-component="authorable/general/footer">
+      <div data-component="authorable/shared/site-structure/footer">
         <div className={container()}>
           <div className={wrapper()}>
             <div className={content()}>
               <div className={contentWrapper()}>
                 <ImageWrapper field={{ value: footerLogo?.jsonValue.value }} />
               </div>
-              {footerColumns?.map((groupLabel, index) => {
+              {footerColumns?.map((groupLabel: FooterColumn) => {
                 const links = groupLabel?.columnLinks?.items;
+
                 return (
-                  <React.Fragment key={index}>
-                    <div className={column()}>
-                      <RichTextWrapper
-                        className={textWrapper()}
-                        tag="h3"
-                        field={{ value: groupLabel?.name }}
-                      />
-                      <ul className={menuList()}>
-                        {links?.map((link, index) => (
-                          <li className={menuItem()} key={index}>
-                            <LinkWrapper className={linkWrapper()} field={link?.link?.jsonValue} />
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </React.Fragment>
+                  <div className={column()} key={groupLabel?.id}>
+                    <RichTextWrapper
+                      className={textWrapper()}
+                      field={{ value: groupLabel?.name }}
+                      tag="h3"
+                    />
+                    <ul className={menuList()}>
+                      {links?.map((link) => (
+                        <li className={menuItem()} key={link?.link?.jsonValue?.value?.id as string}>
+                          <LinkWrapper className={linkWrapper()} field={link?.link?.jsonValue} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 );
               })}
             </div>
           </div>
         </div>
-
         <hr className={divider()} />
       </div>
     </div>
@@ -180,5 +174,6 @@ export const getStaticProps: GetStaticComponentProps = async (rendering, layoutD
     language: layoutData?.sitecore?.context?.language,
     itemID: layoutData?.sitecore?.route?.itemId,
   });
+
   return { FooterData: result };
 };
