@@ -48,6 +48,7 @@ const modalWrapperStyles = tv({
       'bg-white',
       'border',
       'border-mild-gray',
+      'component',
       'flex',
       'flex-col',
       'gap-5',
