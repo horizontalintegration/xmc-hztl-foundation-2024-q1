@@ -10,13 +10,13 @@ import { GtmEvent } from 'lib/utils/gtm-utils';
 // Local
 import { SvgIcon } from 'helpers/SvgIconWrapper';
 
-type ModalSize = 'extra-large' | 'fluid' | 'large' | 'medium' | 'small' | undefined;
+export type ModalSize = 'extra-large' | 'fluid' | 'large' | 'medium' | 'small' | undefined;
 
 export type ModalWrapperProps = {
   content: ReactNode;
   gtmEvent?: GtmEvent;
-  id: string;
-  label: string;
+  id?: string;
+  label?: string;
   openOnLoad?: boolean;
   size?: ModalSize;
   title?: ReactNode;
@@ -41,13 +41,14 @@ Modal.setAppElement(process.env.IS_STORYBOOK ? '#storybook-root' : '#__next');
 const modalWrapperStyles = tv({
   slots: {
     body: [],
-    closeButton: ['h-6', 'w-6'],
+    closeButton: ['h-3', 'w-3'],
     closeButtonIcon: [],
     modal: [
       'absolute',
       'bg-white',
       'border',
       'border-mild-gray',
+      'component',
       'flex',
       'flex-col',
       'gap-5',
@@ -126,6 +127,8 @@ const ModalWrapper = (props: ModalWrapperProps): JSX.Element => {
   };
 
   const handleOnCloseModal = () => {
+    history.replaceState('', document.title, window.location.pathname + window.location.search);
+
     setIsOpen(false);
 
     const gtmEventInner = {
@@ -147,10 +150,10 @@ const ModalWrapper = (props: ModalWrapperProps): JSX.Element => {
     return;
   };
 
-  const handleOnRemoteTriggerEvent = (e: CustomEvent) => {
-    const { modalId } = e?.detail || {};
+  const handleOnRemoteTriggerEvent = () => {
+    const { hash } = window?.location;
 
-    if (modalId !== `modal-${id}`) return;
+    if (hash !== `#modal-${id}`) return;
 
     handleOnOpenModal();
   };
@@ -160,22 +163,16 @@ const ModalWrapper = (props: ModalWrapperProps): JSX.Element => {
    */
 
   useEffect(() => {
-    document.addEventListener(
-      'trigger-modal',
-      (e) => handleOnRemoteTriggerEvent(e as CustomEvent),
-      false
-    );
+    window.addEventListener('hashchange', () => handleOnRemoteTriggerEvent());
 
     return () => {
-      document.removeEventListener('trigger-modal', (e) =>
-        handleOnRemoteTriggerEvent(e as CustomEvent)
-      );
+      window.removeEventListener('hashchange', () => handleOnRemoteTriggerEvent());
     };
   });
 
   useEffect(() => {
-    (openOnLoad || !trigger) && handleOnOpenModal();
-  }, [openOnLoad, trigger]);
+    openOnLoad && handleOnOpenModal();
+  }, [openOnLoad]);
 
   /*
    * Rendering
@@ -199,7 +196,7 @@ const ModalWrapper = (props: ModalWrapperProps): JSX.Element => {
         className={modal()}
         closeTimeoutMS={300}
         contentLabel={label}
-        data-component="helpers-sitecorewrappers-modalwrappertwo"
+        data-component="helpers/generic-wrappers/modal-wrapper"
         id={`modal-${id}`}
         isOpen={isOpen}
         onAfterClose={handleOnAfterClose}
@@ -223,7 +220,7 @@ const ModalWrapper = (props: ModalWrapperProps): JSX.Element => {
               aria-label="Close Modal Button Icon"
               className={closeButtonIcon()}
               icon="close"
-              size="lg"
+              size="em"
             />
           </button>
         </div>

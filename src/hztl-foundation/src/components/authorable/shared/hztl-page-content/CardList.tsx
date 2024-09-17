@@ -5,47 +5,51 @@ import { tv } from 'tailwind-variants';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
-import { parseStyleParams } from 'lib/utils/style-param-utils';
 
 // Local
 import { withStandardComponentWrapper } from 'helpers/HOC';
 
+type ColCount = '1' | '2' | '3' | '4' | '5' | '6' | undefined;
+
 export type CardListProps = ComponentProps;
 
-/*
- * Tailwind Variants
- */
-
-const tailwindVariants = tv({
+const TAILWIND_VARIANTS = tv({
+  defaultVariants: {
+    colCount: '3',
+  },
   slots: {
-    base: ['column-splitter', 'component', 'row'],
-    wrapper: ['row'],
+    base: ['component', 'gap-6', 'grid', 'grid-cols-none'],
+  },
+  variants: {
+    colCount: {
+      '1': { base: ['mml:grid-cols-1'] },
+      '2': { base: ['mml:grid-cols-2'] },
+      '3': { base: ['mml:grid-cols-3'] },
+      '4': { base: ['mml:grid-cols-4'] },
+      '5': { base: ['mml:grid-cols-5'] },
+      '6': { base: ['mml:grid-cols-6'] },
+    },
   },
 });
 
 const CardList = (props: CardListProps): JSX.Element => {
-  const phKey = `cardlist-${props?.params?.DynamicPlaceholderId}`;
-  const { RenderingIdentifier } = props?.params || {};
+  const { DynamicPlaceholderId, RenderingIdentifier, cardsPerRow } = props?.params || {};
 
-  const styles = parseStyleParams(props.params, ['cards']);
+  const { base } = TAILWIND_VARIANTS({ colCount: cardsPerRow as ColCount });
 
-  const { base, wrapper } = tailwindVariants();
+  const placeholderKey = `cardlist-${DynamicPlaceholderId}`;
 
   /*
    * Rendering
    */
 
   return (
-    <div className={base()} id={RenderingIdentifier}>
-      <div>
-        <div className={wrapper()}>
-          <Placeholder
-            cardsPerRow={styles.cards?.cardsPerRow}
-            name={phKey}
-            rendering={props.rendering}
-          />
-        </div>
-      </div>
+    <div
+      className={base()}
+      data-component="authorable/shared/hztl-page-content/cardlist"
+      id={RenderingIdentifier}
+    >
+      <Placeholder name={placeholderKey} rendering={props.rendering} />
     </div>
   );
 };

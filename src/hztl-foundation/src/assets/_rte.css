@@ -3,28 +3,23 @@
 
 @layer components {
   .rte h1 {
-    @layer leading-12 text-3xl sm:text-5xl sm:leading-20;
+    @apply  text-sm-xl sm:text-xl font-bold;
   }
 
   .rte h2 {
-    @layer text-2xl leading-10 sm:text-4xl sm:leading-16;
+    @apply text-sm-l  sm:text-l font-bold;
   }
 
   .rte h3 {
-    @layer text-xl mb-3 leading-6 sm:text-2xl sm:leading-10;
+    @apply text-sm-m sm:text-m font-bold;
   }
 
-  .rte h4 {
-    @layer text-lg leading-4 sm:text-xl sm:leading-8;
-  }
-
-  .rte h5 {
-    @layer text-base leading-1 sm:text-lg sm:leading-4;
-  }
-
+  .rte h4,
+  .rte h5,
   .rte h6 {
-    @layer text-sm leading-1 sm:text-base;
+    @apply text-sm-s sm:text-sub-heading ;
   }
+
 
   .rte h1,
   .rte h2,
@@ -88,7 +83,7 @@
 
   .rte b,
   .rte strong {
-    @layer font-bold;
+    @apply font-bold;
   }
 
   .rte ul > li,
@@ -106,55 +101,55 @@
   }
 
   .rte .rte-align-left {
-    @layer text-left;
+    @apply text-left;
   }
 
   .rte .rte-align-center {
-    @layer text-center;
+    @apply text-center;
   }
 
   .rte .rte-align-right {
-    @layer text-right;
+    @apply text-right;
   }
 
   .rte .rte-align-justify {
-    @layer text-justify;
+    @apply text-justify;
   }
 
   .rte .rte-indent-none {
-    @layer pl-0;
+    @apply pl-0;
   }
 
   .rte .rte-indent-1 {
-    @layer pl-10;
+    @apply pl-10;
   }
 
   .rte .rte-indent-2 {
-    @layer pl-20;
+    @apply pl-20;
   }
 
   .rte .rte-indent-3 {
-    @layer pl-32;
+    @apply pl-32;
   }
 
   .rte .rte-indent-4 {
-    @layer pl-40;
+    @apply pl-40;
   }
 
   .rte .rte-indent-5 {
-    @layer pl-48;
+    @apply pl-48;
   }
 
   .rte .rte-indent-6 {
-    @layer pl-60;
+    @apply pl-60;
   }
 
   .rte .rte-indent-7 {
-    @layer pl-72;
+    @apply pl-72;
   }
 
   .rte .rte-indent-8 {
-    @layer pl-80;
+    @apply pl-80;
   }
 
 }

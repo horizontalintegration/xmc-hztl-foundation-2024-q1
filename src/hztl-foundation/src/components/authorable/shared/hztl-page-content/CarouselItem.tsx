@@ -5,6 +5,7 @@ import '@splidejs/splide/css';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
+import { parseStyleParams } from 'lib/utils/style-param-utils';
 
 // Local
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
@@ -94,7 +95,7 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
   if (!props?.fields) {
     return <></>;
   }
-
+  const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
   return (
     <SplideSlide>
       <div className={base()}>
@@ -117,11 +118,13 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
                       field={props?.fields?.primaryCTA}
                       aria-label={props?.fields?.primaryCTA?.value.text}
                       className={ctaButton1()}
+                      ctaStyle={styles.cta1}
                     ></LinkWrapper>
                     <LinkWrapper
                       field={props?.fields?.secondaryCTA}
                       aria-label={props?.fields?.secondaryCTA?.value.text}
                       className={ctaButton2()}
+                      ctaStyle={styles.cta2}
                     ></LinkWrapper>
                   </div>
                 </div>

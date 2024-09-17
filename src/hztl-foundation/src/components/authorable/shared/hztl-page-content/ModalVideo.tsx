@@ -10,7 +10,7 @@ import ModalWrapper, { ModalWrapperProps } from 'helpers/GenericWrappers/ModalWr
 import VideoWrapper, { VideoWrapperProps } from 'helpers/GenericWrappers/VideoWrapper/VideoWrapper';
 
 export type ModalVideoProps = ComponentProps &
-  HztlPageContent.Video & {
+  HztlPageContent.InlineVideo & {
     fields?: {
       Video?: {
         value: VideoWrapperProps;
@@ -42,7 +42,7 @@ const ModalVideo = (props: ModalVideoProps): JSX.Element => {
       content={
         <VideoWrapper
           autoplay={Video?.value?.autoplay}
-          captions={Video?.value?.captions}
+          captions={Video?.value?.captions || []}
           controls={Video?.value?.controls}
           fluid={Video?.value?.fluid}
           height={Video?.value?.height}
@@ -50,7 +50,7 @@ const ModalVideo = (props: ModalVideoProps): JSX.Element => {
           muted={Video?.value?.muted}
           poster={Video?.value?.poster}
           sources={Video?.value?.sources || []}
-          subtitles={Video?.value?.subtitles}
+          subtitles={Video?.value?.subtitles || []}
           width={Video?.value?.width}
         />
       }

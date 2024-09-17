@@ -6,15 +6,44 @@ import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
 
 // Local
-import VideoWrapper, { VideoWrapperProps } from 'helpers/GenericWrappers/VideoWrapper/VideoWrapper';
+import VideoWrapper, { Source, Track } from 'helpers/GenericWrappers/VideoWrapper/VideoWrapper';
+
+type RawSource = {
+  displayName?: string;
+  id?: string;
+  name?: string;
+  url?: string;
+  fields?: {
+    Blob?: { value?: string };
+    CountryCode?: { value?: string };
+    Description?: { value?: string };
+    Extension?: { value?: string };
+    'File Path'?: { value?: string };
+    Format?: { value?: string };
+    LocationDescription?: { value?: string };
+    Keywords?: { value?: string };
+    'Mime Type'?: { value?: string };
+    Size?: { value?: string };
+    Title?: { value?: string };
+    ZipCode?: { value?: string };
+  };
+};
+
+type RawTrack = {
+  displayName: string;
+  fields: {
+    CaptionContent: { value: string };
+    Label: { value: string };
+    SrcLang: { value: string };
+  };
+  id: string;
+  name: string;
+  url: string;
+};
 
 export type InlineVideoProps = ComponentProps &
-  HztlPageContent.Video & {
-    fields?: {
-      Video?: {
-        value: VideoWrapperProps;
-      };
-    };
+  HztlPageContent.InlineVideo & {
+    componentName: string;
   };
 
 /*
@@ -22,7 +51,19 @@ export type InlineVideoProps = ComponentProps &
  */
 
 const InlineVideo = (props: InlineVideoProps): JSX.Element => {
-  const { Video } = props?.fields || {};
+  const {
+    autoplay,
+    captions,
+    controls,
+    fluid,
+    height,
+    loop,
+    muted,
+    poster,
+    sources,
+    subtitles,
+    width,
+  } = props?.fields || {};
 
   if (!props?.fields)
     return (
@@ -33,19 +74,43 @@ const InlineVideo = (props: InlineVideoProps): JSX.Element => {
       </div>
     );
 
+  const mappedCaptions: Track[] =
+    captions?.map((caption: RawTrack) => ({
+      isDefault: false,
+      kind: 'captions',
+      label: caption?.fields?.Label?.value,
+      srclang: caption?.fields?.SrcLang?.value,
+      src: caption.url,
+    })) || [];
+
+  const mappedSources: Source[] =
+    sources?.map((source: RawSource) => ({
+      src: source.url,
+      type: source.fields?.['Mime Type']?.value,
+    })) || [];
+
+  const mappedSubtitles: Track[] =
+    subtitles?.map((subtitle: RawTrack) => ({
+      isDefault: false,
+      kind: 'subtitles',
+      label: subtitle?.fields?.Label?.value,
+      srclang: subtitle?.fields?.SrcLang?.value,
+      src: subtitle.url,
+    })) || [];
+
   return (
     <VideoWrapper
-      autoplay={Video?.value?.autoplay}
-      captions={Video?.value?.captions}
-      controls={Video?.value?.controls}
-      fluid={Video?.value?.fluid}
-      height={Video?.value?.height}
-      loop={Video?.value?.loop}
-      muted={Video?.value?.muted}
-      poster={Video?.value?.poster}
-      sources={Video?.value?.sources || []}
-      subtitles={Video?.value?.subtitles}
-      width={Video?.value?.width}
+      autoplay={autoplay?.value}
+      captions={mappedCaptions}
+      controls={controls?.value}
+      fluid={fluid?.value}
+      height={height?.value}
+      loop={loop?.value}
+      muted={muted?.value}
+      poster={poster?.value?.src}
+      sources={mappedSources}
+      subtitles={mappedSubtitles}
+      width={width?.value}
     />
   );
 };
