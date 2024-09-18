@@ -3,17 +3,17 @@ import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Splide, SplideTrack } from '@splidejs/react-splide';
 import { tv } from 'tailwind-variants';
 import '@splidejs/splide/css';
-import { IconContext } from 'react-icons';
+// import { IconContext } from 'react-icons';
 import { AiOutlinePlayCircle } from 'react-icons/ai';
 import { AiOutlinePauseCircle } from 'react-icons/ai';
-import { FaChevronRight } from 'react-icons/fa6';
+// import { FaChevronRight } from 'react-icons/fa6';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
 
 // Local
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+// import { SvgIcon } from 'helpers/SvgIconWrapper';
 import { withStandardComponentWrapper } from 'helpers/HOC';
 
 export type CarouselProps = ComponentProps & HztlPageContent.CarouselItem;
@@ -79,7 +79,7 @@ const Carousel = (props: CarouselProps): JSX.Element => {
     playButton,
     pauseButton,
     pagination,
-    iconStyles,
+    // iconStyles,
   } = tailwindVariants();
 
   /*

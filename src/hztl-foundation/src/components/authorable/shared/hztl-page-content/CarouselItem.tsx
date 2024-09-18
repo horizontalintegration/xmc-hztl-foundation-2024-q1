@@ -54,8 +54,8 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
   const {
     base,
     wrapper,
-    content,
-    inner,
+    // content,
+    // inner,
     heading,
     description,
     ctaWrapper,
