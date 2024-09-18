@@ -11,7 +11,7 @@ import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWr
 
 const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['col-span-2', 'flex', 'justify-start', 'mmd:col-span-1'],
+    base: ['col-span-2', 'flex', 'justify-start', 'md:col-span-1'],
     content: [
       'flex-col',
       'flex',
@@ -19,13 +19,13 @@ const TAILWIND_VARIANTS = tv({
       'items-center',
       'text-center',
       'lg:text-left',
-      'ml:items-end',
+      'lg:items-end',
     ],
-    divider: ['bg-theme-black', 'h-8', 'w-px'],
+    divider: ['bg-theme-black', 'h-full', 'w-px'],
     legalMenuItems: ['flex', 'items-center'],
     legalMenuWrapper: ['flex'],
-    linkWrapper: ['font-bold', 'font-modern', 'p-2', 'text-theme-black', 'text-center', 'text-sm'],
-    textWrapper: ['font-modern', 'font-regular', 'text-theme-black', 'text-xs'],
+    linkWrapper: ['font-bold', 'font-modern', 'px-2', 'text-theme-black', 'text-center', 'text-sm'],
+    textWrapper: ['font-modern', 'font-regular', 'text-theme-black', 'text-base'],
     wrapper: [
       'flex',
       'items-center',
@@ -34,7 +34,7 @@ const TAILWIND_VARIANTS = tv({
       'px-spacing-spacing-4',
       'py-4',
       'w-full',
-      'mmd:justify-end',
+      'md:justify-end',
     ],
   },
 });

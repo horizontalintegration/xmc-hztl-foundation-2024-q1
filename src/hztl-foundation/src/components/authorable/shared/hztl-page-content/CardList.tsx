@@ -22,12 +22,12 @@ const TAILWIND_VARIANTS = tv({
   },
   variants: {
     colCount: {
-      '1': { base: ['mml:grid-cols-1'] },
-      '2': { base: ['mml:grid-cols-2'] },
-      '3': { base: ['mml:grid-cols-3'] },
-      '4': { base: ['mml:grid-cols-4'] },
-      '5': { base: ['mml:grid-cols-5'] },
-      '6': { base: ['mml:grid-cols-6'] },
+      '1': { base: ['lg:grid-cols-1'] },
+      '2': { base: ['lg:grid-cols-2'] },
+      '3': { base: ['lg:grid-cols-3'] },
+      '4': { base: ['lg:grid-cols-4'] },
+      '5': { base: ['lg:grid-cols-5'] },
+      '6': { base: ['lg:grid-cols-6'] },
     },
   },
 });

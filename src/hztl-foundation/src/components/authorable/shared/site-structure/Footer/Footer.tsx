@@ -43,9 +43,9 @@ const TAILWIND_VARIANTS = tv({
       'flex-wrap',
       'gap-6',
       'justify-between',
+      'lg:gap-20',
       'md:w-auto',
-      'mmd:gap-20',
-      'mml:gap-20',
+      'md:gap-20',
       'sm:gap-8',
     ],
     textWrapper: [

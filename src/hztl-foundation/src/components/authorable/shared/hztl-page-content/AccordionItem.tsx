@@ -24,14 +24,14 @@ const tailwindVariants = tv({
       'font-bold',
       'items-center',
       'justify-between',
-      'p-xs',
-      'text-sub-heading',
+      'p-3',
+      'text-xl',
       'w-full',
     ],
-    contentContainer: ['flex-auto', 'min-h-px', 'p-xs'],
+    contentContainer: ['flex-auto', 'min-h-px', 'p-3'],
     icon: ['fa', 'fa-chevron-down'],
     iconWrapper: ['transform', 'transition-transform'],
-    richTextWrapper: ['font-normal', 'mb-0', 'p-s', 'text-s'],
+    richTextWrapper: ['font-normal', 'mb-0', 'p-4', 'text-lg'],
   },
   variants: {
     isOpen: {

@@ -11,8 +11,6 @@ const defaultData: CardProps = {
         src: 'https://dummyimage.com/395x300/cfcdc8/2f2d2e',
         alt: 'Image Alt text',
         title: 'Image title',
-        width: 395,
-        height: 300,
       },
     },
     CardLink1: {
@@ -56,8 +54,6 @@ export const CardA: CardProps = {
         src: 'https://dummyimage.com/900x600/cfcdc8/2f2d2e',
         alt: 'Image Alt text',
         title: 'Image title',
-        width: '100%',
-        height: 'auto',
       },
     },
     CardLink1: {
@@ -116,8 +112,6 @@ export const CardB: CardProps = {
         src: 'https://dummyimage.com/900x600/cfcdc8/2f2d2e',
         alt: 'Image Alt text',
         title: 'Image title',
-        width: '100%',
-        height: 'auto',
       },
     },
     CardLink1: {
@@ -176,8 +170,6 @@ export const CardC: CardProps = {
         src: 'https://dummyimage.com/900x600/cfcdc8/2f2d2e',
         alt: 'Image Alt text',
         title: 'Image title',
-        width: '100%',
-        height: 'auto',
       },
     },
     CardLink1: {

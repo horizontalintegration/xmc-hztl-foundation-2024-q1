@@ -31,7 +31,7 @@ const TAILWIND_VARIANTS = tv({
     contentContainer: ['max-w-[472px]', 'px-4', 'py-8', 'w-fit'],
     ctaContainer: ['flex', 'flex-wrap', 'gap-2', 'justify-center', 'md:justify-normal'],
     description: ['mb-6', 'text-base'],
-    heading: ['font-bold', 'font-modern', 'mb-6', 'text-l'],
+    heading: ['font-bold', 'font-modern', 'mb-6', 'text-5xl', 'md:text-4xl'],
   },
 });
 
@@ -49,7 +49,7 @@ const Hero = (props: HeroProps): JSX.Element => {
     <section className={base()} data-component="authorable/shared/hztml-page-content/hero">
       <div className={columnA()}>
         <div className={contentContainer()}>
-          <PlainTextWrapper className={heading()} field={Heading} tag="h2" />
+          <PlainTextWrapper className={heading()} field={Heading} tag="h1" />
           <RichTextWrapper className={description()} field={Description} tag="div" />
           <div className={ctaContainer()}>
             <LinkWrapper ctaStyle={styles.cta1} field={cta1Link} suppressNewTabIcon={true} />

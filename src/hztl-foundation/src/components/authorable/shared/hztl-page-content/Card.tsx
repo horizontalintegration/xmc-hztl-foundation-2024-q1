@@ -58,7 +58,7 @@ const TAILWIND_VARIANTS = tv({
     ],
     eyebrow: ['font-modern', 'font-regular', 'mb-2', 'opacity-80', 'text-theme-black', 'text-xs'],
     footer: ['flex', 'flex-wrap', 'gap-2', 'justify-normal', 'w-full'],
-    header: ['border-b', 'border-theme-darkgrey'],
+    header: ['border-b', 'border-theme-darkgrey', 'relative', 'w-full'],
     heading: ['font-bold', 'font-modern', 'mb-2', 'text-4xl', 'text-theme-black'],
     subheading: ['font-bold', 'font-modern', 'mb-2', 'opacity-80', 'text-theme-black', 'text-2xl'],
   },
@@ -103,7 +103,7 @@ const Card = (props: CardProps): JSX.Element => {
       id={RenderingIdentifier}
     >
       <div className={header()}>
-        <ImageWrapper field={CardImage} />
+        <ImageWrapper field={CardImage} layout="fill" />
       </div>
       <div className={body()}>
         <div className={content()}>
