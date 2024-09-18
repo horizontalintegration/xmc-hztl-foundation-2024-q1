@@ -69,8 +69,6 @@ module.exports = {
         ...figmaVariables.fontSize,
       },
       fontFamily: {
-        avenir: 'Avenir Next, sans-serif', // DEPRECATED
-        notoSans: 'Noto Sans, sans-serif', // DEPRECATED
         ...figmaVariables.fontFamily,
       },
       fontWeight: {

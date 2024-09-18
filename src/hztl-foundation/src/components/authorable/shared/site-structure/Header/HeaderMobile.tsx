@@ -2,11 +2,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { tv } from 'tailwind-variants';
 
-// Lib
-import { HeaderPropsComponent, MegaMenuCategoryInterface, NavigationItem } from './headerInterface';
-
 // Local
 import { Logo } from './HeaderDesktop';
+import {
+  HeaderPropsComponent,
+  MegaMenuCategoryInterface,
+  NavItemInterface,
+} from './headerInterface';
 import CountrySelector from 'helpers/Forms/CountrySelector';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
@@ -14,69 +16,48 @@ import { SvgIcon } from 'helpers/SvgIcon';
 import useOutsideClick from 'src/hooks/useClickOutside';
 import PreviewSearchBasicWidget from 'src/widgets/SearchPreview';
 
-interface NavItemInterface extends NavigationItem {
-  onClick: () => void;
-  dropdownOpen: number | null;
-  index: number;
-}
-
 const TAILWIND_VARIANTS = tv({
   slots: {
     base: [
       'shadow-md',
-      'before:fixed',
-      'before:left-[0]',
-      'before:top-[0]',
-      'before:z-[9]',
-      'before:h-full',
-      'before:w-full',
-      'before:bg-black/[0.5]',
       'before:backdrop-blur-sm',
+      'before:bg-black/[0.5]',
+      'before:fixed',
+      'before:h-full',
+      'before:left-0',
+      'before:top-0',
+      'before:w-full',
+      'before:z-10',
     ],
-    wrapper: ['fixed', 'top-0', 'w-full', 'bg-inherit', 'z-50', 'bg-white'],
-    divider: ['h-xs', 'w-full', 'bg-grayscale-w-600'],
-    headerSection: ['flex', 'justify-between', 'p-s'],
-    hamburgerWrapper: ['flex', 'items-center'],
-    languageWrapper: ['absolute', 'bg-white', 'w-full', 'border-b', 'border-black'],
-    languageSelection: ['p-spacing-spacing-4', 'bg-grayscale-w-200', 'rounded my-1'],
-    searchWrapper: ['p-xxs', 'bg-white', 'search-wrapper'],
-    menuItems: ['flex', 'flex-col', 'gap-spacing-spacing-4', 'm-0', 'p-spacing-spacing-4'],
-    menuNavItem: ['relative', 'group', 'list-none', 'm-0'],
-    linkWrapper: [
-      'text-black',
-      'text-s',
-      'gap-xxs',
-      '!place-items-center',
-      'font-semibold',
-      'px-spacing-spacing-4',
-    ],
+    divider: ['bg-theme-black', 'h-3', 'w-full'],
     dropDownButton: [
-      'w-full',
-      'text-black',
-      'text-s',
-      'gap-xxs',
-      '!place-items-center',
-      'font-semibold',
       'cursor-pointer',
       'flex',
+      'font-semibold',
+      'gap-2',
       'items-start',
       'justify-between',
-      'px-spacing-spacing-4',
+      '!place-items-center',
+      'px-4',
+      'text-black',
+      'text-lg',
+      'w-full',
     ],
-    dropDownMenuWrapper: ['bg-grayscale-w-200', 'my-spacing-spacing-4'],
-    dropDownMenuGroup: ['px-spacing-spacing-4', 'pt-spacing-spacing-4'],
+    dropDownItem: ['py-4'],
     dropDownItemName: ['font-bold', 'text-lg'],
-    dropDownItem: ['py-spacing-spacing-4'],
-    hamburgerBase: ['flex', 'w-full', 'h-full', 'justify-center', 'gap-4', 'items-center'],
-    hamburgerItem: [
-      'toggle-menu',
-      'relative',
-      'mt-0',
-      'flex',
-      'w-s',
-      'items-center',
-      'justify-center',
-    ],
+    dropDownMenuGroup: ['pt-4', 'px-4'],
+    dropDownMenuWrapper: ['bg-theme-lightgrey', 'my-4'],
+    hamburgerBase: ['flex', 'gap-4', 'h-full', 'items-center', 'justify-center', 'w-full'],
+    hamburgerItem: ['flex', 'items-center', 'justify-center', 'mt-0', 'relative', 'w-4'],
+    hamburgerWrapper: ['flex', 'items-center'],
+    headerSection: ['flex', 'justify-between', 'p-4'],
+    languageSelection: ['bg-theme-lightgrey', 'p-4', 'rounded my-1'],
+    languageWrapper: ['absolute', 'bg-white', 'border-b', 'border-black', 'w-full'],
+    linkWrapper: ['font-semibold', 'gap-2', '!place-items-center', 'px-4', 'text-black', 'text-s'],
+    menuItems: ['flex', 'flex-col', 'gap-4', 'm-0', 'p-4'],
+    menuNavItem: ['group', 'list-none', 'm-0', 'relative'],
+    searchWrapper: ['bg-white', 'p-2'],
+    wrapper: ['bg-white', 'fixed', 'top-0', 'w-full', 'z-50'],
   },
   variants: {
     isOpen: {
@@ -185,6 +166,12 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
 
   useOutsideClick(headerRef, isDropdownOpen, handleClickOutside);
 
+  /*
+   * Rendering
+   */
+
+  if (!item) return <></>;
+
   const {
     base,
     divider,
@@ -197,12 +184,6 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
     wrapper,
   } = TAILWIND_VARIANTS({ isOpen: openMenu });
 
-  /*
-   * Rendering
-   */
-
-  if (!item) return <></>;
-
   const DropdownMenu = ({ categories }: { categories: MegaMenuCategoryInterface[] }) => {
     const { dropDownMenuWrapper, dropDownMenuGroup, dropDownItemName, dropDownItem } =
       TAILWIND_VARIANTS();
@@ -213,7 +194,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
           <div
             aria-labelledby={`secondary-menu-${index + 1}`}
             className={dropDownMenuGroup()}
-            key={index}
+            key={category.id}
             role="group"
           >
             <h2 className={dropDownItemName()} id={`secondary-menu-${index + 1}`}>
@@ -395,7 +376,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
                       {...item}
                       dropdownOpen={dropdownOpen}
                       index={index}
-                      key={index}
+                      key={item.id}
                       onClick={() => handleDropdownToggle(index)}
                     />
                   ))}

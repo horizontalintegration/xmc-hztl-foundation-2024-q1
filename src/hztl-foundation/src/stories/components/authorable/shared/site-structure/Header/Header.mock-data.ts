@@ -1,5 +1,4 @@
-/* eslint-disable prettier/prettier */
-import { HeaderProps } from 'components/authorable/shared/site-structure/SiteHeader/headerInterface';
+import { HeaderProps } from 'components/authorable/shared/site-structure/Header/headerInterface';
 
 export const defaultData: HeaderProps = {
   rendering: { componentName: 'Default', dataSource: 'Storybook' },

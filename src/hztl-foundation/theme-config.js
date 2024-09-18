@@ -15,7 +15,9 @@ module.exports = {
       },
     },
     fontFamily: {
+      avenir: ['Avenir Next', 'sans-serif'],
       modern: ['Modern Era', 'sans-serif'],
+      notoSans: ['Noto Sans', 'sans-serif'],
     },
     fontSize: {
       xxs: ['0.625rem', '0.75rem'] /* 10px,  12px */,
