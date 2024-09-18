@@ -3,6 +3,10 @@ import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Splide, SplideTrack } from '@splidejs/react-splide';
 import { tv } from 'tailwind-variants';
 import '@splidejs/splide/css';
+import { IconContext } from 'react-icons';
+import { AiOutlinePlayCircle } from 'react-icons/ai';
+import { AiOutlinePauseCircle } from 'react-icons/ai';
+import { FaChevronRight } from 'react-icons/fa6';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
@@ -20,30 +24,41 @@ export type CarouselProps = ComponentProps & HztlPageContent.CarouselItem;
 
 const tailwindVariants = tv({
   slots: {
-    base: ['component', 'relative'],
+    base: ['component', 'relative', 'p-2'],
     slideArrows: ['splide__arrows'],
     previousButton: [
       'splide__arrow',
       'splide__arrow--prev',
       'icon-hover-focus-rounded',
-      'stroke-gray',
-      '!bg-transparent',
+      '!opacity-100',
+      'max-lg:!top-auto',
+      'max-lg:bottom-[100px]',
     ],
     nextButton: [
       'splide__arrow',
       'splide__arrow--next',
       'icon-hover-focus-rounded',
-      'stroke-gray',
-      '!bg-transparent',
+      '!opacity-100',
+      'max-lg:!top-auto',
+      'max-lg:bottom-[100px]',
     ],
     screenReader: ['sr-only'],
     progressBarWrapper: ['splide__progress'],
     progressBarItem: ['splide__progress__bar'],
-    slideControls: ['absolute', 'bottom-1', 'right-5'],
+    slideControls: ['absolute', 'bottom-2', 'lg:bottom-8', 'lg:right-14', 'right-6', 'text-gray'],
     slideControlButton: ['splide__toggle', 'icon-hover-focus-rounded'],
     playButton: ['splide__toggle__play'],
     pauseButton: ['splide__toggle__pause'],
     iconStyles: ['h-l', 'w-l'],
+    pagination: [
+      'splide__pagination',
+      '!lg:absolute',
+      '!bottom-6',
+      'lg:!bottom-12',
+      '!left-1/2',
+      'transform',
+      '-translate-x-1/2',
+    ],
   },
 });
 
@@ -63,6 +78,7 @@ const Carousel = (props: CarouselProps): JSX.Element => {
     slideControlButton,
     playButton,
     pauseButton,
+    pagination,
     iconStyles,
   } = tailwindVariants();
 
@@ -88,36 +104,62 @@ const Carousel = (props: CarouselProps): JSX.Element => {
         <SplideTrack>
           <Placeholder name={phKey} rendering={props.rendering} />
         </SplideTrack>
-
         <div className={slideArrows()}>
-          <button className={previousButton()}>
+          <button className={`${previousButton()} !bg-transparent !shadow-none !border-none`}>
             <span className={screenReader()}>Previous slide</span>
-            <SvgIcon icon={'arrow-right'} size="md" />
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="1024"
+              height="1024"
+              viewBox="0 0 1024 1024"
+              className="!h-12 !w-12"
+            >
+              <g id="icomoon-ignore"></g>
+              <path
+                fill="#808080"
+                d="M234.792 994.007c-39.989-39.988-39.989-104.826 0-144.814l337.191-337.193-337.191-337.192c-39.99-39.989-39.99-104.826 0-144.816s104.826-39.989 144.816 0l409.599 409.6c39.991 39.988 39.991 104.826 0 144.814l-409.599 409.6c-39.989 39.991-104.826 39.991-144.816 0z"
+              ></path>
+            </svg>
           </button>
 
-          <button className={nextButton()}>
+          <button className={`${nextButton()} !bg-transparent !shadow-none !border-none`}>
             <span className={screenReader()}>Next slide</span>
-            <SvgIcon icon={'arrow-right'} size="md" />
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              width="1024"
+              height="1024"
+              viewBox="0 0 1024 1024"
+              className="!h-12 !w-12"
+            >
+              <g id="icomoon-ignore"></g>
+              <path
+                fill="#808080"
+                d="M234.792 994.007c-39.989-39.988-39.989-104.826 0-144.814l337.191-337.193-337.191-337.192c-39.99-39.989-39.99-104.826 0-144.816s104.826-39.989 144.816 0l409.599 409.6c39.991 39.988 39.991 104.826 0 144.814l-409.599 409.6c-39.989 39.991-104.826 39.991-144.816 0z"
+              ></path>
+            </svg>
           </button>
         </div>
-
         {/* Progress Bar */}
         <div className={progressBarWrapper()}>
           <div className={progressBarItem()} />
         </div>
-
+        <ul className={pagination()}></ul> {/* Pagination dots */}
         <div className={slideControls()}>
           <button className={slideControlButton()} type="button">
             {/* Play button */}
             <span className={playButton()}>
               <span className={screenReader()}>Play slideshow</span>
-              <SvgIcon className={iconStyles()} icon={'play'} />
+              {/* <SvgIcon className={iconStyles()} icon={'play'} /> */}
+              <AiOutlinePlayCircle size="2.3em" title="Play slideshow" />
             </span>
 
             {/* Pause button */}
             <span className={pauseButton()}>
               <span className={screenReader()}>Pause slideshow</span>
-              <SvgIcon className={iconStyles()} icon={'pause'} />
+              {/* <SvgIcon className={iconStyles()} icon={'pause'} /> */}
+              <AiOutlinePauseCircle size="2.3em" title="Pause slideshow" />
             </span>
           </button>
         </div>
