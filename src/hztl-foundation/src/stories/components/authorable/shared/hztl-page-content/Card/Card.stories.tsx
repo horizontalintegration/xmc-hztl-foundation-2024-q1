@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import { Default, CardProps } from 'components/authorable/shared/hztl-page-content/Card';
+import { CardProps, Default } from 'components/authorable/shared/hztl-page-content/Card';
 import defaultData from './Card.mock-data';
 
 const meta: Meta<typeof Default> = {

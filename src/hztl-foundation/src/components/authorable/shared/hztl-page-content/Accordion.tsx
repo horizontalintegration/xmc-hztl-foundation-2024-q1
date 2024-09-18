@@ -1,5 +1,5 @@
 // Global
-import { Placeholder, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import React from 'react';
 import { tv } from 'tailwind-variants';
 
@@ -18,22 +18,24 @@ const TAILWIND_VARIANTS = tv({
 });
 
 const Accordion = (props: AccordionProps): JSX.Element => {
-  const { DynamicPlaceholderId } = props?.params || {};
+  const { DynamicPlaceholderId, RenderingIdentifier } = props?.params || {};
 
   const phKey = `accordion-${DynamicPlaceholderId}`;
 
-  const context = useSitecoreContext();
+  /*
+   * Rendering
+   */
 
   const { base } = TAILWIND_VARIANTS();
 
   return (
-    <Placeholder
+    <div
+      className={base()}
       data-component="authorable/shared/hztml-page-content/accordion"
-      name={phKey}
-      render={(components) => <div className={base()}>{components}</div>}
-      rendering={props.rendering}
-      {...(context?.sitecoreContext?.pageEditing ? {} : { renderEmpty: () => <></> })}
-    />
+      id={RenderingIdentifier}
+    >
+      <Placeholder name={phKey} rendering={props.rendering} />
+    </div>
   );
 };
 

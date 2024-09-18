@@ -37,7 +37,7 @@ const CardList = (props: CardListProps): JSX.Element => {
 
   const { base } = TAILWIND_VARIANTS({ colCount: cardsPerRow as ColCount });
 
-  const placeholderKey = `cardlist-${DynamicPlaceholderId}`;
+  const phKey = `cardlist-${DynamicPlaceholderId}`;
 
   /*
    * Rendering
@@ -49,7 +49,7 @@ const CardList = (props: CardListProps): JSX.Element => {
       data-component="authorable/shared/hztl-page-content/cardlist"
       id={RenderingIdentifier}
     >
-      <Placeholder name={placeholderKey} rendering={props.rendering} />
+      <Placeholder name={phKey} rendering={props.rendering} />
     </div>
   );
 };

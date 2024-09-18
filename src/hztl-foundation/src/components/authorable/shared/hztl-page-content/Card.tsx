@@ -14,10 +14,6 @@ import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 
-/*
- * Tailwind Variants
- */
-
 const TAILWIND_VARIANTS = tv({
   slots: {
     base: ['border', 'border-theme-darkgrey', 'flex', 'flex-col', 'items-center', 'justify-center'],
@@ -78,6 +74,14 @@ const Card = (props: CardProps): JSX.Element => {
 
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
+  /*
+   * Rendering
+   */
+
+  if (!props?.fields) {
+    return <></>;
+  }
+
   const {
     base,
     body,
@@ -91,14 +95,6 @@ const Card = (props: CardProps): JSX.Element => {
     heading,
     subheading,
   } = TAILWIND_VARIANTS();
-
-  /*
-   * Rendering
-   */
-
-  if (!props?.fields) {
-    return <></>;
-  }
 
   return (
     <div
