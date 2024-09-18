@@ -13,19 +13,20 @@ import { tv } from 'tailwind-variants';
 
 export type IconTypes =
   | undefined
-  | 'arrow-right'
   | 'arrow-left'
-  | 'pause'
-  | 'play'
-  | 'download'
+  | 'arrow-right'
   | 'chevron-down'
   | 'chevron-up'
-  | 'outline-search'
   | 'close'
+  | 'download'
   | 'magnifier'
-  | 'sorting'
+  | 'new-window'
+  | 'outline-search'
+  | 'pause'
+  | 'play'
+  | 'plus'
   | 'refine'
-  | 'plus';
+  | 'sorting';
 
 export type SvgIconSize = 'xxs' | 'xs' | 'sm' | 'md' | 'em' | 'lg';
 
@@ -61,6 +62,8 @@ const SvgIcon = ({
   viewBox = '0 0 24 24',
 }: SvgIconProps): JSX.Element => {
   const IconContent = dynamic(() => import(`./icons/icon--${icon}`));
+
+  if (!icon) return <></>;
 
   return (
     <svg
