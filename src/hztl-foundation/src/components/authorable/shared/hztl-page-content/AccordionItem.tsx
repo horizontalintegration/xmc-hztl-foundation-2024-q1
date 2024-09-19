@@ -10,13 +10,14 @@ import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 // Local
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import { withStandardComponentWrapper } from 'helpers/HOC';
+import { SvgIcon } from 'helpers/SvgIcon';
 
 export type AccordionItemProps = ComponentProps &
   HztlPageContent.AccordionItem & { componentName?: string; dataSource?: string; uid: string };
 
 const tailwindVariants = tv({
   slots: {
-    base: ['border-t', 'border-solid', 'border-t-gray', 'overflow-hidden'],
+    base: ['border-t', 'border-solid', 'border-t-theme-black', 'overflow-hidden'],
     buttonWrapper: [
       'cursor-pointer',
       'duration-300',
@@ -88,7 +89,13 @@ const AccordionItem = (props: AccordionItemProps): JSX.Element => {
         >
           <Text field={heading} tag="h3" />
           <span className={iconWrapper()}>
-            <i className={icon()} />
+            <SvgIcon
+              className={icon()}
+              fill="none"
+              icon="chevron-down"
+              size="xxs"
+              viewBox="0 0 24 24"
+            />
           </span>
         </button>
         {context?.sitecoreContext?.pageEditing ? (
