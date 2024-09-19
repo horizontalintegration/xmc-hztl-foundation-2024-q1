@@ -46,7 +46,7 @@ const tailwindVariants = tv({
     ctaButtons: ['flex'],
     ctaButton1: ['btn', 'lg:btn--inverse', 'mr-4'],
     ctaButton2: ['btn', 'lg:btn--inverse'],
-    slideMedia: ['slide-media'],
+    slideMedia: ['slide-media', 'max-h-[500px]'],
   },
 });
 
