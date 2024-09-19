@@ -254,7 +254,7 @@ const NavItem = (props: NavItemInterface) => {
               fill="none"
               icon="chevron-up"
               size="xs"
-              viewBox="0 0 16 9"
+              viewBox="0 0 24 24"
             />
           </span>
         </button>
