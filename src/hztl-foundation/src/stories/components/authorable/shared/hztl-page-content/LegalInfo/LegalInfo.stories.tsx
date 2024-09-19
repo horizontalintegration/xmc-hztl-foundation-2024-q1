@@ -6,10 +6,10 @@ import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
 import { Default, LegalInfoProps } from 'components/authorable/shared/hztl-page-content/LegalInfo';
-import defaultData from './Legal-Info.mock-data';
+import defaultData from './LegalInfo.mock-data';
 
 const meta: Meta<typeof Default> = {
-  title: 'Components/Authorable/shared/hztl-page-content/Legal-Info',
+  title: 'Components/Authorable/shared/hztl-page-content/Legal Info',
   component: Default,
   argTypes: {},
 };

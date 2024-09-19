@@ -3,7 +3,7 @@ import React from 'react';
 import { tv } from 'tailwind-variants';
 
 // Lib
-import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
 
@@ -14,49 +14,53 @@ import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 
-/*
- * Tailwind Variants
- */
-
-const tailwindVariants = tv({
+const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['border', 'border-dark-gray', 'flex', 'flex-col', 'items-center', 'justify-center'],
-    body: ['flex', 'flex-col', 'gap-l', 'grow', 'p-l', 'w-full'],
+    base: ['border', 'border-theme-darkgrey', 'flex', 'flex-col', 'items-center', 'justify-center'],
+    body: ['flex', 'flex-col', 'grow', 'p-10', 'w-full'],
     content: ['grow', 'w-full'],
     ctaPrimary: [
-      'bg-gray',
+      'bg-theme-black',
       'flex',
       'font-bold',
       'font-modern',
       'items-center',
       'justify-center',
-      'px-s',
-      'py-xs',
+      'px-4',
+      'py-3',
       'rounded',
-      'text-button',
+      'text-sm',
       'text-center',
       'text-white',
     ],
     ctaSecondary: [
-      'border-gray',
       'border',
+      'border-theme-grey',
       'flex',
       'font-bold',
       'font-modern',
       'items-center',
       'justify-center',
-      'p-xs',
+      'p-3',
       'rounded',
-      'text-black',
+      'text-theme-black',
       'text-center',
       'text-xs',
     ],
-    description: ['font-modern', 'font-regular', 'mb-xxs', 'opacity-90', 'text-black', 'text-xs'],
-    eyebrow: ['font-modern', 'font-regular', 'mb-xxs', 'opacity-80', 'text-black', 'text-xxs'],
-    footer: ['flex', 'flex-wrap', 'gap-xxs', 'justify-normal', 'w-full'],
-    header: ['border-b', 'border-dark-gray'],
-    heading: ['font-bold', 'font-modern', 'mb-xxs', 'text-4xl', 'text-black'],
-    subheading: ['font-bold', 'font-modern', 'mb-xxs', 'opacity-80', 'text-black', 'text-m'],
+    description: [
+      'font-modern',
+      'font-regular',
+      'mb-2',
+      'opacity-90',
+      'text-base',
+      'text-theme-black',
+      'leading-6',
+    ],
+    eyebrow: ['font-modern', 'font-regular', 'mb-2', 'opacity-80', 'text-theme-black', 'text-xs'],
+    footer: ['flex', 'flex-wrap', 'gap-2', 'justify-normal', 'w-full'],
+    header: ['border-b', 'border-theme-darkgrey', 'relative', 'w-full'],
+    heading: ['font-bold', 'font-modern', 'mb-2', 'text-4xl', 'text-theme-black'],
+    subheading: ['font-bold', 'font-modern', 'mb-2', 'opacity-80', 'text-theme-black', 'text-2xl'],
   },
 });
 
@@ -70,6 +74,14 @@ const Card = (props: CardProps): JSX.Element => {
 
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
+  /*
+   * Rendering
+   */
+
+  if (!props?.fields) {
+    return <></>;
+  }
+
   const {
     base,
     body,
@@ -82,15 +94,7 @@ const Card = (props: CardProps): JSX.Element => {
     header,
     heading,
     subheading,
-  } = tailwindVariants();
-
-  /*
-   * Rendering
-   */
-
-  if (!props?.fields) {
-    return <></>;
-  }
+  } = TAILWIND_VARIANTS();
 
   return (
     <div
@@ -99,7 +103,7 @@ const Card = (props: CardProps): JSX.Element => {
       id={RenderingIdentifier}
     >
       <div className={header()}>
-        <ImageWrapper field={CardImage} />
+        <ImageWrapper field={CardImage} layout="fill" />
       </div>
       <div className={body()}>
         <div className={content()}>

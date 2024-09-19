@@ -3,23 +3,22 @@
 
 @layer components {
   .rte h1 {
-    @apply  text-sm-xl sm:text-xl font-bold;
+    @apply font-bold text-5xl sm:text-4xl;
   }
 
   .rte h2 {
-    @apply text-sm-l  sm:text-l font-bold;
+    @apply font-bold text-4xl  sm:text-2xl;
   }
 
   .rte h3 {
-    @apply text-sm-m sm:text-m font-bold;
+    @apply text-2xl sm:text-xl font-bold;
   }
 
   .rte h4,
   .rte h5,
   .rte h6 {
-    @apply text-sm-s sm:text-sub-heading ;
+    @apply text-xl sm:text-lg;
   }
-
 
   .rte h1,
   .rte h2,
@@ -151,5 +150,4 @@
   .rte .rte-indent-8 {
     @apply pl-80;
   }
-
 }

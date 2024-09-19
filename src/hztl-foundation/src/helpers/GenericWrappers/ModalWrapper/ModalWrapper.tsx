@@ -8,7 +8,7 @@ import { tv } from 'tailwind-variants';
 import { GtmEvent } from 'lib/utils/gtm-utils';
 
 // Local
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { SvgIcon } from 'helpers/SvgIcon';
 
 export type ModalSize = 'extra-large' | 'fluid' | 'large' | 'medium' | 'small' | undefined;
 

@@ -10,30 +10,26 @@ import graphqlClientFactory from 'lib/graphql-client-factory';
 import { BreadcrumbDataType } from './Breadcrumb.types';
 import BreadcrumbQuery from './Breadcrumb.graphql';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { SvgIcon } from 'helpers/SvgIcon';
 
-/*
- * Tailwind Variants
- */
-
-const tailwindVariants = tv({
+const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['component', 'p-0'],
-    iconStyles: ['h-auto', 'stroke-gray', 'w-auto'],
-    iconWrapper: ['ml-xs'],
-    linkWrapperStyles: ['flex', 'font-bold', 'items-center', 'text-black', 'text-xs', 'underline'],
-    listItemLinkWrapper: ['list-none'],
-    listItemTextWrapper: [
+    base: ['component'],
+    currentPage: [
       'flex',
       'items-center',
       'list-none',
-      'md:-ml-xxxs',
       'my-6',
+      'text-theme-darkgrey',
       'md:my-0',
       'md:p-0',
-      'md:py-xs',
+      'md:py-3',
     ],
-    listWrapper: ['flex', 'gap-2', 'items-center', 'list', 'm-xs', 'md:m-0'],
+    icon: ['h-auto', 'w-auto'],
+    iconContainer: ['ml-3'],
+    linkWrapper: ['flex', 'font-bold', 'items-center', 'text-theme-black', 'underline'],
+    list: ['flex', 'gap-2', 'items-center', 'list', 'm-3', 'md:m-0'],
+    listItem: ['list-none'],
   },
 });
 
@@ -41,15 +37,8 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
   const { ancestors, Title } = staticProps?.staticProps?.currentPage || {};
   const { componentName, dataSource } = staticProps?.rendering || {};
 
-  const {
-    base,
-    iconStyles,
-    iconWrapper,
-    linkWrapperStyles,
-    listItemLinkWrapper,
-    listItemTextWrapper,
-    listWrapper,
-  } = tailwindVariants();
+  const { base, currentPage, icon, iconContainer, list, linkWrapper, listItem } =
+    TAILWIND_VARIANTS();
 
   /*
    * Rendering
@@ -62,7 +51,7 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
       data-testid="breadcrumbs"
     >
       <nav aria-label="Breadcrumb">
-        <ul className={listWrapper()}>
+        <ul className={list()}>
           {ancestors
             ?.slice()
             .reverse()
@@ -81,9 +70,9 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                 pageUrl?.link &&
                 Title?.jsonValue?.value && (
                   // TODO: Replace 'index' as they key with...something else. (At current, no guaranteed unique values are available as part of "itm".)
-                  <li className={listItemLinkWrapper()} key={index}>
+                  <li className={listItem()} key={index}>
                     <LinkWrapper
-                      className={linkWrapperStyles()}
+                      className={linkWrapper()}
                       field={{
                         value: {
                           href: pageUrl?.link,
@@ -98,13 +87,13 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                         'gtm.element.dataset.gtmComponentName': componentName,
                       }}
                     >
-                      <div className={iconWrapper()}>
+                      <div className={iconContainer()}>
                         <SvgIcon
-                          className={iconStyles()}
-                          icon="arrow-right"
-                          viewBox="0 0 7 12"
-                          size="xs"
+                          className={icon()}
                           fill="none"
+                          icon="arrow-right"
+                          size="xxs"
+                          viewBox="0 0 24 24"
                         />
                       </div>
                     </LinkWrapper>
@@ -112,8 +101,7 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                 )
               );
             })}
-
-          <li aria-current="true" className={listItemTextWrapper()}>
+          <li aria-current="true" className={currentPage()}>
             <Text
               encode={false}
               field={{

@@ -1,4 +1,4 @@
-import { FooterProps } from 'components/authorable/shared/site-structure/SiteFooter/Footer';
+import { FooterProps } from 'components/authorable/shared/site-structure/Footer/Footer';
 
 export const defaultData: FooterProps = {
   rendering: {
@@ -106,7 +106,7 @@ export const defaultData: FooterProps = {
                         title: '',
                         target: '',
                         querystring: '',
-                        id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+                        id: '{E9ABAFA1-377C-4577-A419-9A3A8044D4365}',
                         href: '/',
                       },
                     },
@@ -119,7 +119,7 @@ export const defaultData: FooterProps = {
                     jsonValue: {
                       value: {
                         class: '',
-                        id: '{3677269A-E29B-4802-8C2A-4611C266DFD8}',
+                        id: '{3677269A-E29B-4802-8C2A-4611C366DFD8}',
                         querystring: '',
                         anchor: '',
                         target: '',
@@ -146,7 +146,7 @@ export const defaultData: FooterProps = {
                         title: '',
                         target: '',
                         querystring: '',
-                        id: '{E6FBDACF-CDDB-4C2A-BE21-685D34C6E638}',
+                        id: '{E6FBDACF-CDDB-4C2A-BE21-685D95C6E638}',
                       },
                     },
                   },
@@ -172,7 +172,7 @@ export const defaultData: FooterProps = {
                         title: '',
                         target: '',
                         querystring: '',
-                        id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+                        id: '{E9ABAFA1-377C-4577-A419-9A3A8044D446}',
                         href: '/',
                       },
                     },
@@ -251,7 +251,7 @@ export const defaultData: FooterProps = {
                     jsonValue: {
                       value: {
                         class: '',
-                        id: '{3677269A-E29B-4802-8C2A-4611C266DFD8}',
+                        id: '{3677269A-E29B-4802-8C2A-46112266DFD8}',
                         querystring: '',
                         anchor: '',
                         target: '',
@@ -278,7 +278,7 @@ export const defaultData: FooterProps = {
                         title: '',
                         target: '',
                         querystring: '',
-                        id: '{E6FBDACF-CDDB-4C2A-BE21-685D34C6E638}',
+                        id: '{E6FBDACF-CDDB-4C2A-BE21-535D34C6E638}',
                       },
                     },
                   },

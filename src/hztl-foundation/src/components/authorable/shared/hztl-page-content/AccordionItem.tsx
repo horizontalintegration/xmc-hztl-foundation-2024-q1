@@ -5,13 +5,14 @@ import { tv } from 'tailwind-variants';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
-import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
+import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 
 // Local
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import { withStandardComponentWrapper } from 'helpers/HOC';
 
-export type AccordionProps = ComponentProps & HztlPageContent.AccordionItem;
+export type AccordionItemProps = ComponentProps &
+  HztlPageContent.AccordionItem & { componentName?: string; dataSource?: string; uid: string };
 
 const tailwindVariants = tv({
   slots: {
@@ -23,14 +24,14 @@ const tailwindVariants = tv({
       'font-bold',
       'items-center',
       'justify-between',
-      'p-xs',
-      'text-sub-heading',
+      'p-3',
+      'text-xl',
       'w-full',
     ],
-    contentContainer: ['flex-auto', 'min-h-px', 'p-xs'],
+    contentContainer: ['flex-auto', 'min-h-px', 'p-3'],
     icon: ['fa', 'fa-chevron-down'],
     iconWrapper: ['transform', 'transition-transform'],
-    richTextWrapper: ['font-normal', 'mb-0', 'p-s', 'text-s'],
+    richTextWrapper: ['font-normal', 'mb-0', 'p-4', 'text-lg'],
   },
   variants: {
     isOpen: {
@@ -44,7 +45,7 @@ const tailwindVariants = tv({
   },
 });
 
-const AccordionItem = (props: AccordionProps): JSX.Element => {
+const AccordionItem = (props: AccordionItemProps): JSX.Element => {
   const { content, heading } = props?.fields || {};
   const { uid } = props?.rendering || {};
 
@@ -76,7 +77,7 @@ const AccordionItem = (props: AccordionProps): JSX.Element => {
     });
 
   return (
-    <div className={base()} data-component="authorable/shared/hztl-page-content/accordion">
+    <div className={base()} data-component="authorable/shared/hztl-page-content/accordionitem">
       <div>
         <button
           aria-expanded={isOpen}
