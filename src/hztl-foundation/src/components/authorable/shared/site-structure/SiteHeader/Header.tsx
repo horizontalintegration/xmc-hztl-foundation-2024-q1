@@ -11,19 +11,25 @@ import { HeaderProps } from './headerInterface';
 import HeaderDesktop from './HeaderDesktop';
 import HeaderMobile from './HeaderMobile';
 import HeaderQuery from './Header.graphql';
+import { useRouter } from 'next/router';
 
 export const Default = (props: HeaderProps) => {
   const [selectedCountry, setSelectedCountry] = useState('');
-  const defaultCountry =
-    props?.HeaderData?.item?.country?.targetItems?.[0]?.language?.jsonValue?.name;
+  const router = useRouter();
   useEffect(() => {
-    if (defaultCountry) {
-      setSelectedCountry(defaultCountry);
+    if (router.locale) {
+      setSelectedCountry(router.locale);
     }
-  }, [defaultCountry]);
+  }, [router?.locale]);
 
   const isDesktop = useMediaQuery('(min-width: 992px)');
 
+  const { pathname, asPath, query } = router;
+
+  const onClickLanguage = (country: string) => {
+    setSelectedCountry(country);
+    router.push({ pathname, query }, asPath, { locale: country });
+  };
   /*
    * Rendering
    */
@@ -38,13 +44,13 @@ export const Default = (props: HeaderProps) => {
         <HeaderMobile
           {...props}
           selectedCountry={selectedCountry}
-          setSelectedCountry={setSelectedCountry}
+          setSelectedCountry={(country) => onClickLanguage(country)}
         />
       ) : (
         <HeaderDesktop
           {...props}
           selectedCountry={selectedCountry}
-          setSelectedCountry={setSelectedCountry}
+          setSelectedCountry={(country) => onClickLanguage(country)}
         />
       )}
     </header>

@@ -80,7 +80,7 @@ const tailwindVariants = tv({
 
 const HeaderDesktop = (props: HeaderPropsComponent) => {
   const { HeaderData, selectedCountry, setSelectedCountry } = props;
-  const { item } = HeaderData;
+  const { item } = HeaderData || {};
   const [dropdownOpen, setDropdownOpen] = useState<null | number>(null);
   const router = useRouter();
   const [showSearch, setShowSearch] = useState(false);
@@ -132,7 +132,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
     searchBox,
   } = tailwindVariants();
 
-  const { logo, logoLink, navigationList } = item;
+  const { logo, logoLink, navigationList } = item || {};
 
   /*
    * Rendering

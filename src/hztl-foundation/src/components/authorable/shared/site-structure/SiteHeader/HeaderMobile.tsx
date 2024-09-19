@@ -82,7 +82,7 @@ const tailwindVariants = tv({
 
 const HeaderMobile = (props: HeaderPropsComponent) => {
   const { HeaderData, selectedCountry, setSelectedCountry } = props;
-  const { item } = HeaderData;
+  const { item } = HeaderData || {};
   const [dropdownOpen, setDropdownOpen] = useState<null | number>(null);
   const [showSearch, setShowSearch] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);

@@ -103,7 +103,7 @@ export type FooterProps = ComponentProps &
 
 export const Default = (props: FooterProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
-  const { item } = props?.FooterData;
+  const { item } = props?.FooterData || {};
   const footerColumns = item?.footerColumns.items;
   const footerLogo = item?.footerLogo;
 

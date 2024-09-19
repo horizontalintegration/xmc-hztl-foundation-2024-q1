@@ -6,7 +6,7 @@ const publicUrl = jssConfig.publicUrl;
 /**
  * @type {import('next').NextConfig}
  */
-const nextConfig = {
+ const nextConfig = {
   // Set assetPrefix to our public URL
   assetPrefix: publicUrl,
 
@@ -21,7 +21,7 @@ const nextConfig = {
   i18n: {
     // These are all the locales you want to support in your application.
     // These should generally match (or at least be a subset of) those in Sitecore.
-    locales: ['en', 'es-MX', 'fr-CA'],
+    locales: ['en', 'es-MX', 'fr-CA','ar-AE'],
     // This is the locale that will be used when visiting a non-locale
     // prefixed path e.g. `/styleguide`.
     defaultLocale: jssConfig.defaultLanguage,
@@ -29,7 +29,7 @@ const nextConfig = {
 
   // Enable React Strict Mode
   reactStrictMode: true,
-
+  
   async rewrites() {
     // When in connected mode we want to proxy Sitecore paths off to Sitecore
     return [
