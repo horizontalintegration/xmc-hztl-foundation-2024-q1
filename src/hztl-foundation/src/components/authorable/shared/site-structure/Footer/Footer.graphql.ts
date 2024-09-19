@@ -39,4 +39,5 @@ fragment columnLinks on MultilistField {
 }
 }
 `;
+
 export default FooterQuery;

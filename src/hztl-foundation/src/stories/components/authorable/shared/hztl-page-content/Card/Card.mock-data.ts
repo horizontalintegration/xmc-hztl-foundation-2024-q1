@@ -8,11 +8,9 @@ const defaultData: CardProps = {
   fields: {
     CardImage: {
       value: {
-        src: 'https://dummyimage.com/450x299/000/fff',
+        src: 'https://dummyimage.com/395x300/cfcdc8/2f2d2e',
         alt: 'Image Alt text',
         title: 'Image title',
-        width: 450,
-        height: 299,
       },
     },
     CardLink1: {
@@ -53,11 +51,9 @@ export const CardA: CardProps = {
   fields: {
     CardImage: {
       value: {
-        src: 'https://dummyimage.com/900x600/000/fff',
+        src: 'https://dummyimage.com/900x600/cfcdc8/2f2d2e',
         alt: 'Image Alt text',
         title: 'Image title',
-        width: '100%',
-        height: 'auto',
       },
     },
     CardLink1: {
@@ -113,11 +109,9 @@ export const CardB: CardProps = {
   fields: {
     CardImage: {
       value: {
-        src: 'https://dummyimage.com/900x600/000/fff',
+        src: 'https://dummyimage.com/900x600/cfcdc8/2f2d2e',
         alt: 'Image Alt text',
         title: 'Image title',
-        width: '100%',
-        height: 'auto',
       },
     },
     CardLink1: {
@@ -173,11 +167,9 @@ export const CardC: CardProps = {
   fields: {
     CardImage: {
       value: {
-        src: 'https://dummyimage.com/900x600/000/fff',
+        src: 'https://dummyimage.com/900x600/cfcdc8/2f2d2e',
         alt: 'Image Alt text',
         title: 'Image title',
-        width: '100%',
-        height: 'auto',
       },
     },
     CardLink1: {

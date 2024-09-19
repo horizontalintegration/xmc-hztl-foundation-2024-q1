@@ -1,6 +1,7 @@
 // Global
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Splide, SplideTrack } from '@splidejs/react-splide';
+import '@splidejs/splide/css';
 import { tv } from 'tailwind-variants';
 import '@splidejs/splide/css';
 // import { IconContext } from 'react-icons';
@@ -10,19 +11,17 @@ import { AiOutlinePauseCircle } from 'react-icons/ai';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
+import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 
 // Local
 import { HztlPageContent } from '../../../../.generated/Feature.HztlFoundation.model';
 // import { SvgIcon } from 'helpers/SvgIconWrapper';
 import { withStandardComponentWrapper } from 'helpers/HOC';
+import { SvgIcon } from 'helpers/SvgIcon';
 
 export type CarouselProps = ComponentProps & HztlPageContent.CarouselItem;
 
-/*
- * Tailwind Variants
- */
-
-const tailwindVariants = tv({
+const TAILWIND_VARIANTS = tv({
   slots: {
     base: ['component', 'relative', 'p-2'],
     slideArrows: ['splide__arrows'],
@@ -42,8 +41,7 @@ const tailwindVariants = tv({
       'max-lg:!top-auto',
       'max-lg:bottom-[100px]',
     ],
-    screenReader: ['sr-only'],
-    progressBarWrapper: ['splide__progress'],
+    previousButtonIcon: ['fill-theme-black'],
     progressBarItem: ['splide__progress__bar'],
     slideControls: ['absolute', 'bottom-2', 'lg:bottom-8', 'lg:right-14', 'right-6', 'text-gray'],
     slideControlButton: ['splide__toggle', 'icon-hover-focus-rounded'],
@@ -63,18 +61,23 @@ const tailwindVariants = tv({
 });
 
 const Carousel = (props: CarouselProps): JSX.Element => {
-  const id = props?.params?.RenderingIdentifier;
-  const phKey = `carousel-${props?.params?.DynamicPlaceholderId}`;
+  const { DynamicPlaceholderId, RenderingIdentifier } = props?.params || {};
+
+  const phKey = `carousel-${DynamicPlaceholderId}`;
 
   const {
     base,
-    slideArrows,
-    previousButton,
+    iconStyles,
     nextButton,
-    screenReader,
-    progressBarWrapper,
+    nextButtonIcon,
+    pauseButton,
+    playButton,
+    previousButton,
+    previousButtonIcon,
     progressBarItem,
-    slideControls,
+    progressBarWrapper,
+    screenReader,
+    slideArrows,
     slideControlButton,
     playButton,
     pauseButton,
@@ -87,18 +90,21 @@ const Carousel = (props: CarouselProps): JSX.Element => {
    */
 
   return (
-    <div id={id ? id : undefined} className={base()}>
+    <div className={base()} id={RenderingIdentifier}>
       <Splide
         hasTrack={false}
         options={{
+          autoplay: 'pause',
+          classes: {
+            page: 'splide__pagination__page bg-theme-lightgrey border-black h-4 w-4',
+          },
+          gap: '.01rem',
+          interval: 3000,
+          pagination: true,
+          perMove: 1,
+          perPage: 1,
           rewind: true,
           width: '100%',
-          gap: '.01rem',
-          perPage: 1,
-          perMove: 1,
-          pagination: true,
-          autoplay: 'pause',
-          interval: 3000,
         }}
       >
         <SplideTrack>
@@ -148,14 +154,11 @@ const Carousel = (props: CarouselProps): JSX.Element => {
         <ul className={pagination()}></ul> {/* Pagination dots */}
         <div className={slideControls()}>
           <button className={slideControlButton()} type="button">
-            {/* Play button */}
             <span className={playButton()}>
               <span className={screenReader()}>Play slideshow</span>
               {/* <SvgIcon className={iconStyles()} icon={'play'} /> */}
               <AiOutlinePlayCircle size="2.3em" title="Play slideshow" />
             </span>
-
-            {/* Pause button */}
             <span className={pauseButton()}>
               <span className={screenReader()}>Pause slideshow</span>
               {/* <SvgIcon className={iconStyles()} icon={'pause'} /> */}

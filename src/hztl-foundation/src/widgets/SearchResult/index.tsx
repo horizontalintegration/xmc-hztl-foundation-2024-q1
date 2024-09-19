@@ -28,7 +28,7 @@ import {
 import { urlToFacet, useEnsureFacetUrl } from './use-ensure-facet-url';
 import PreviewSearchListComponent from '../SearchPreview';
 import { ChangeEvent, useEffect, useState } from 'react';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { SvgIcon } from 'helpers/SvgIcon';
 
 type ArticleCardItemCardProps = {
   className?: string;

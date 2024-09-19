@@ -38,7 +38,7 @@ const Modal = (props: ModalProps): JSX.Element => {
 
   if (!props?.fields) return <></>;
 
-  if (!isEditing) {
+  if (isEditing) {
     const { base } = TAILWIND_VARIANTS();
 
     return (

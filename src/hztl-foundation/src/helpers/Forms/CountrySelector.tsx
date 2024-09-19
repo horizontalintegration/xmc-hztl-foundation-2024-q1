@@ -6,7 +6,7 @@ import { tv } from 'tailwind-variants';
 import useOutsideClick from 'src/hooks/useClickOutside';
 
 // Local
-import { CountrySelectorInterface } from 'components/authorable/shared/site-structure/SiteHeader/headerInterface';
+import { CountrySelectorInterface } from 'components/authorable/shared/site-structure/Header/headerInterface';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 
 /*
