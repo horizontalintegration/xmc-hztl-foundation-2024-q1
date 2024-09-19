@@ -107,7 +107,7 @@ module.exports = {
         'container-width': '1440px', // DEPRECATED
         'spacing-spacing-3': '12px', // DEPRECATED
         'spacing-spacing-4': '16px', // DEPRECATED
-        'spacing-spacing-5': '40px', // DEPRECATED
+        'spacing-spacing-5': '24px', // DEPRECATED
       },
     },
   },

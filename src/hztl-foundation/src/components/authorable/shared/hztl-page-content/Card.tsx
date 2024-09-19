@@ -36,6 +36,8 @@ const tailwindVariants = tv({
       'text-button',
       'text-center',
       'text-white',
+      'flex-auto',
+      'max-w-[200px]',
     ],
     ctaSecondary: [
       'border-gray',
@@ -50,6 +52,8 @@ const tailwindVariants = tv({
       'text-black',
       'text-center',
       'text-xs',
+      'flex-auto',
+      'max-w-[200px]',
     ],
     description: ['font-modern', 'font-regular', 'mb-xxs', 'opacity-90', 'text-black', 'text-xs'],
     eyebrow: ['font-modern', 'font-regular', 'mb-xxs', 'opacity-80', 'text-black', 'text-xxs'],

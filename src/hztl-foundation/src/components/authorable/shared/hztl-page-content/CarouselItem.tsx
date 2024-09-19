@@ -39,36 +39,13 @@ const tailwindVariants = tv({
       'mmd:items-center',
       'items-start',
     ],
-    wrapper: ['slide-content', 'flex-1'],
-    content: ['slide-content-inner', 'flex', 'justify-center'],
-    inner: ['relative', 'flex', 'flex-col', 'gap-s', 'p-6', 'w-auto'],
+    wrapper: ['slide-content', 'flex-1', 'w-full'],
+    content: ['slide-content-inner', 'flex'],
+    inner: ['relative', 'flex', 'flex-col', 'gap-s', 'md:p-6', 'w-full'],
     heading: ['md:text-5xl', 'text-3xl', 'capitalize', 'font-bold'],
-    description: ['text-xs', 'text-black'],
+    description: ['text-xs', 'text-black', 'leading-normal'],
     ctaWrapper: ['flex'],
-    ctaButtons: ['flex', 'md:flex-row', 'flex-col', 'gap-xs'],
-    ctaButton1: [
-      'w-32',
-      'h-12',
-      'rounded',
-      'content-center',
-      'text-center',
-      'bg-gray',
-      'text-white',
-      'text-button',
-      'font-bold',
-    ],
-    ctaButton2: [
-      'w-32',
-      'h-12',
-      'rounded',
-      'content-center',
-      'text-center',
-      'text-button',
-      'font-bold',
-      'border-1',
-      'border-gray',
-      'text-gray',
-    ],
+    ctaButtons: ['flex', 'flex-row', 'gap-xs'],
     slideMedia: ['slide-media', 'flex-1'],
   },
 });
@@ -83,8 +60,6 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
     description,
     ctaWrapper,
     ctaButtons,
-    ctaButton1,
-    ctaButton2,
     slideMedia,
   } = tailwindVariants();
 
@@ -117,13 +92,11 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
                     <LinkWrapper
                       field={props?.fields?.primaryCTA}
                       aria-label={props?.fields?.primaryCTA?.value.text}
-                      className={ctaButton1()}
                       ctaStyle={styles.cta1}
                     ></LinkWrapper>
                     <LinkWrapper
                       field={props?.fields?.secondaryCTA}
                       aria-label={props?.fields?.secondaryCTA?.value.text}
-                      className={ctaButton2()}
                       ctaStyle={styles.cta2}
                     ></LinkWrapper>
                   </div>

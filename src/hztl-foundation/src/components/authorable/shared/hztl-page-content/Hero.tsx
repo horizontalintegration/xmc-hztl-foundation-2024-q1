@@ -15,9 +15,9 @@ const Hero = (props: HeroProps): JSX.Element => {
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
   return (
-    <section className="component hero my-ml min-h-[50vh] flex flex-col-reverse md:flex-row justify-center items-center">
+    <section className="component hero my-ml min-h-[50vh] flex flex-col-reverse gap-14 md:flex-row justify-center items-center">
       <div className="w-full md:w-1/2 flex items-center justify-center">
-        <div className="max-w-[472px] w-fit px-s py-ml">
+        <div className="max-w-[472px] w-fit p-spacing-spacing-5">
           <PlainTextWrapper
             tag="h2"
             className="font-modern text-l font-bold mb-6"
@@ -25,20 +25,22 @@ const Hero = (props: HeroProps): JSX.Element => {
           />
           <RichTextWrapper
             tag="div"
-            className="text-gray text-base mb-m"
+            className="text-gray text-base mb-m leading-normal"
             field={props.fields?.Description}
           />
 
-          <div className="flex gap-xxs flex-wrap justify-center md:justify-normal">
+          <div className="flex gap-spacing-spacing-5 flex-wrap justify-center md:justify-normal">
             <LinkWrapper
               field={props.fields?.cta1Link}
               suppressNewTabIcon={true}
               ctaStyle={styles.cta1}
+              className="flex-auto max-w-[200px]"
             />
             <LinkWrapper
               field={props.fields?.cta2Link}
               suppressNewTabIcon={true}
               ctaStyle={styles.cta2}
+              className="flex-auto max-w-[200px]"
             />
           </div>
         </div>

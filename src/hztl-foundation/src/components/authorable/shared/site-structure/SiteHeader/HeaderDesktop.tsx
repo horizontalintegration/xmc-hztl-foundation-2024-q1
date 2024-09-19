@@ -37,8 +37,8 @@ const tailwindVariants = tv({
     base: ['top-0', 'w-full', 'bg-white', 'z-50', 'font-avenir', '!md:text-cyan-700'],
     wrapper: ['border-color-grayscale-base-black'],
     divider: ['h-3', 'opacity-100', 'bg-color-grayscale-warm-600'],
-    inner: ['flex', 'justify-center', 'p-spacing-spacing-4'],
-    container: ['w-full', 'max-w-screen-xl'],
+    inner: ['flex', 'justify-center'],
+    container: ['w-full', 'max-w-[1440px]', 'p-spacing-spacing-4'], // todo: replace later 1440px with a breakpoint variable
     menuWrapper: ['flex', 'justify-between'],
     menuItems: [
       'flex',
@@ -64,7 +64,7 @@ const tailwindVariants = tv({
       'flex',
       'items-center',
       'justify-between',
-      'max-w-screen-xl',
+      'max-w-[1440px]', //todo: replace later 1440px with a token
       'xl:mx-auto',
       'py-10',
       'px-20',
