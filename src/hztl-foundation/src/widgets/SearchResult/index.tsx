@@ -509,7 +509,7 @@ type ArticleModel = {
   content_text?: string;
   image_url?: string;
   source_id?: string;
-  eye_brow?:string;
+  eye_brow?: string;
 };
 
 type ArticleSearchResultsProps = {

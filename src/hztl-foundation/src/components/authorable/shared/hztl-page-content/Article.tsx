@@ -12,28 +12,40 @@ import { withStandardComponentWrapper } from 'helpers/HOC';
 export type ArticleProps = ComponentProps & HztlPageContent.Article;
 
 const Article = (props: ArticleProps): JSX.Element => {
-  const { Description, Eyebrow, Heading, Subheading, Image, ReadMoreCTA } =
-    props?.fields || {};
+  const { Description, Eyebrow, Heading, Subheading, Image, ReadMoreCTA } = props?.fields || {};
   //const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
   const id = props?.params?.RenderingIdentifier;
 
   return (
     <section>
-      <div className={`component ${props.params?.styles.trimEnd()}`}
-      data-component="authorable/article"
-      id={id ? id : undefined}>
-      <div className="py-spacing-spacing-7 px-spacing-spacing-4 md:px-spacing-spacing-2">
-      <ImageWrapper className="image_url" field={Image} />
-      <div className="m-auto p-l text-left">
-        <PlainTextWrapper className="eye_brow font-regular mb-xxs opacity-80 text-xxs" editable field={Eyebrow} tag="h6" />
-        <RichTextWrapper className="title font-bold font-modern mb-xxs text-4xl" field={Heading} />
-        <RichTextWrapper className="subtitle font-bold font-modern mb-xxs opacity-80 text-m" field={Subheading} />
-        <RichTextWrapper className="description" field={Description} />
-        <LinkWrapper className="url hidden" field={ReadMoreCTA} />
+      <div
+        className={`component ${props.params?.styles.trimEnd()}`}
+        data-component="authorable/article"
+        id={id ? id : undefined}
+      >
+        <div className="py-spacing-spacing-7 px-spacing-spacing-4 md:px-spacing-spacing-2">
+          <ImageWrapper className="image_url" field={Image} />
+          <div className="m-auto p-l text-left">
+            <PlainTextWrapper
+              className="eye_brow font-regular mb-xxs opacity-80 text-xxs"
+              editable
+              field={Eyebrow}
+              tag="h6"
+            />
+            <RichTextWrapper
+              className="title font-bold font-modern mb-xxs text-4xl"
+              field={Heading}
+            />
+            <RichTextWrapper
+              className="subtitle font-bold font-modern mb-xxs opacity-80 text-m"
+              field={Subheading}
+            />
+            <RichTextWrapper className="description" field={Description} />
+            <LinkWrapper className="url hidden" field={ReadMoreCTA} />
+          </div>
+        </div>
       </div>
-      </div>
-    </div>
     </section>
     // <section className="component my-ml min-h-[50vh] flex flex-col-reverse md:flex-row justify-center items-center">
     //   <div className="w-full md:w-1/2 flex items-center justify-center">
