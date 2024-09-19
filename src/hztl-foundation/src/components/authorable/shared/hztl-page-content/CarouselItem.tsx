@@ -37,7 +37,7 @@ const tailwindVariants = tv({
       'lg:text-left',
       'xl:max-w-[50%]',
     ],
-    wrapper: ['relative', 'p-6', 'lg:bg-white', 'lg:text-black'],
+    wrapper: ['relative', 'p-6', 'bg-neutral-50', 'text-black'],
     content: ['slide-content-inner', 'flex', 'justify-center'],
     inner: ['relative', 'flex', 'flex-col', 'gap-s', 'p-6', 'w-auto'],
     heading: ['mb-4', 'text-5xl', 'font-semibold', 'leading-[48px]'],

@@ -58,6 +58,7 @@ const tailwindVariants = tv({
       '!left-1/2',
       'transform',
       '-translate-x-1/2',
+      // 'space-x-1', //sapce between pagination dots
     ],
   },
 });
@@ -152,14 +153,14 @@ const Carousel = (props: CarouselProps): JSX.Element => {
             <span className={playButton()}>
               <span className={screenReader()}>Play slideshow</span>
               {/* <SvgIcon className={iconStyles()} icon={'play'} /> */}
-              <AiOutlinePlayCircle size="2.3em" title="Play slideshow" />
+              <AiOutlinePlayCircle size="2.5em" title="Play slideshow" />
             </span>
 
             {/* Pause button */}
             <span className={pauseButton()}>
               <span className={screenReader()}>Pause slideshow</span>
               {/* <SvgIcon className={iconStyles()} icon={'pause'} /> */}
-              <AiOutlinePauseCircle size="2.3em" title="Pause slideshow" />
+              <AiOutlinePauseCircle size="2.5em" title="Pause slideshow" />
             </span>
           </button>
         </div>
