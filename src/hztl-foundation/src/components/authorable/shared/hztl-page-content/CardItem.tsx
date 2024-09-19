@@ -64,10 +64,10 @@ const TAILWIND_VARIANTS = tv({
   },
 });
 
-export type CardProps = ComponentProps &
+export type CardItemProps = ComponentProps &
   HztlPageContent.Card & { componentName?: string; dataSource?: string; uid: string };
 
-const Card = (props: CardProps): JSX.Element => {
+const CardItem = (props: CardItemProps): JSX.Element => {
   const { CardImage, CardLink1, CardLink2, Description, Eyebrow, Heading, Subheading } =
     props?.fields || {};
   const { RenderingIdentifier } = props?.params || {};
@@ -99,7 +99,7 @@ const Card = (props: CardProps): JSX.Element => {
   return (
     <div
       className={base()}
-      data-component="authorable/shared/hztl-page-content/card"
+      data-component="authorable/shared/hztl-page-content/carditem"
       id={RenderingIdentifier}
     >
       <div className={header()}>
@@ -121,4 +121,4 @@ const Card = (props: CardProps): JSX.Element => {
   );
 };
 
-export const Default = withStandardComponentWrapper(Card);
+export const Default = withStandardComponentWrapper(CardItem);

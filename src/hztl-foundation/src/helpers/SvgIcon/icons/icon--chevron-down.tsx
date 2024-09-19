@@ -3,14 +3,13 @@ const IconChevronDown = (): JSX.Element => {
   return (
     <>
       <path
+        d="M23,6.5l-11,11L1,6.5"
         fill="none"
-        strokeLinejoin="round"
+        stroke="currentColor"
         strokeLinecap="round"
-        strokeMiterlimit="4"
-        strokeWidth="85.3333"
-        stroke="#000"
-        d="M1021.219 302.854l-488.006 488.006-488.006-488.006"
-      ></path>
+        strokeLinejoin="round"
+        strokeWidth={2}
+      />
     </>
   );
 };

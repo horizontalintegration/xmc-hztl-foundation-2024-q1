@@ -4,10 +4,10 @@ import { ComponentRendering } from '@sitecore-jss/sitecore-jss-nextjs';
 // Local
 import { CardListProps } from 'components/authorable/shared/hztl-page-content/CardList';
 import {
-  CardA,
-  CardB,
-  CardC,
-} from 'stories/components/authorable/shared/hztl-page-content/Card/Card.mock-data';
+  CardItemA,
+  CardItemB,
+  CardItemC,
+} from 'stories/components/authorable/shared/hztl-page-content/CardItem/CardItem.mock-data';
 
 const defaultData: CardListProps = {
   params: {
@@ -19,9 +19,9 @@ const defaultData: CardListProps = {
     dataSource: 'Storybook',
     placeholders: {
       'cardlist-1': [
-        CardA as ComponentRendering,
-        CardB as ComponentRendering,
-        CardC as ComponentRendering,
+        CardItemA as ComponentRendering,
+        CardItemB as ComponentRendering,
+        CardItemC as ComponentRendering,
       ],
     },
   },

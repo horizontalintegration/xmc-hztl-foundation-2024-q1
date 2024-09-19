@@ -3,11 +3,12 @@ const IconChevronUp = (): JSX.Element => {
   return (
     <>
       <path
-        d="M1 8L8 0.999999L15 8"
-        stroke="#2F2D2E"
-        strokeWidth="2"
+        d="M1,17.5L12,6.5l11,11"
+        fill="none"
+        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
+        strokeWidth={2}
       />
     </>
   );
