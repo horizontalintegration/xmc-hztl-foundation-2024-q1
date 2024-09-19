@@ -1,7 +1,7 @@
 // Global
 import { SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/splide/css';
 import { tv } from 'tailwind-variants';
+import '@splidejs/splide/css';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
@@ -9,13 +9,20 @@ import { parseStyleParams } from 'lib/utils/style-param-utils';
 
 // Local
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
+import { ItemEx } from '../../../../.generated/_.Sitecore.Override';
 import { withStandardComponentWrapper } from 'helpers/HOC';
-import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 
-const TAILWIND_VARIANTS = tv({
+export type CarouselItemProps = ComponentProps & ItemEx & HztlPageContent.CarouselItem;
+
+/*
+ * Tailwind Variants
+ */
+
+const tailwindVariants = tv({
   slots: {
     base: [
       'slide-content',
@@ -43,12 +50,7 @@ const TAILWIND_VARIANTS = tv({
   },
 });
 
-export type CarouselItemProps = ComponentProps &
-  HztlPageContent.CarouselItem & { componentName?: string; dataSource?: string; uid: string };
-
 const CarouselItem = (props: CarouselItemProps): JSX.Element => {
-  const { description, image, primaryCTA, secondaryCTA, title } = props?.fields || {};
-
   const {
     base,
     wrapper,
@@ -60,23 +62,17 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
     ctaButtons,
     ctaButton1,
     ctaButton2,
-    ctaButtons,
-    ctaWrapper,
-    descriptionText,
-    heading,
-    inner,
     slideMedia,
-    wrapper,
-  } = TAILWIND_VARIANTS();
+  } = tailwindVariants();
 
   /*
    * Rendering
    */
 
-  if (!props?.fields) return <></>;
-
+  if (!props?.fields) {
+    return <></>;
+  }
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
-
   return (
     <>
       <SplideSlide>
