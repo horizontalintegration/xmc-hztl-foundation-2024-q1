@@ -115,48 +115,54 @@ export const PreviewSearchBasicComponent = ({
 
   return (
     <PreviewSearch.Root>
+      {/* SEARCH BAR */}
       <div className="search-container w-full flex">
-        <div className="searchinput relative w-[85%]">
+        <div className="searchinput relative w-full">
           <form id="searchSubmit" onSubmit={onHandle}>
             <PreviewSearch.Input
               id="keyword"
-              className="w-full box-border py-2 px-2 focus:outline-solid focus:outline-1 focus:outline-gray-500 border-1"
+              className="w-full box-border py-2 px-2 pr-10 focus:outline-solid focus:outline-1 focus:outline-gray-500 border-1"
               onChange={keyphraseHandler}
               autoComplete="off"
               placeholder="Search"
               value={searchText}
             />
-          </form>
-          {searchText && (
-            <div
-              className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
-              onClick={onResetText}
+            {searchText && (
+              <div
+                className="absolute inset-y-0 right-10 p-3 flex items-center cursor-pointer"
+                onClick={onResetText}
+              >
+                {/* HERE IS THE X ICON THAT SHOWS UP TO CLEAR SEARCH */}
+                <SvgIcon size="xxs" viewBox="6 6 12 12" fill="none" icon="close" />
+              </div>
+            )}
+            <button
+              onClick={onShowMoreResult}
+              role="click to search"
+              className="absolute inset-y-0 right-0 p-3 flex justify-center items-center cursor-pointer border-l"
             >
-              <SvgIcon size="xs" viewBox="0 0 12 12" fill="none" icon="close" />
-            </div>
-          )}
-        </div>
-        <div
-          onClick={onShowMoreResult}
-          className="magnifier-search flex justify-center w-[15%] border-l-0 border-x border-y mx-auto items-center cursor-pointer"
-        >
-          <SvgIcon icon="magnifier" size="xs" viewBox="0 0 18 18" fill="none" />
+              <SvgIcon icon="magnifier" size="xs" viewBox="0 0 18 18" fill="none" />
+            </button>
+          </form>
         </div>
       </div>
 
+      {/* SEARCH RESULTS */}
+      {/* CODE FOR SEARCH RESULTS STARTS HERE */}
       <PreviewSearch.Content
         ref={widgetRef}
-        className="flex justify-center pt-0 shadow-[2px_5px_5px_5px_rgba(0,0,0,0.3)] transition-opacity	w-[var(--radix-popover-trigger-width)] bg-white z-10"
+        className="flex justify-center pt-0 border-x border-b transition-opacity	w-[var(--radix-popover-trigger-width)] bg-white z-10"
       >
+        {/* DISPLAY LOADING IF RESULTS ARE STILL NOT READY */}
         <Presence present={loading}>
-          <div className="flex flex-1 items-center">
+          <div className="flex flex-1 items-center p-4">
             <svg
               aria-busy={loading}
               aria-hidden={!loading}
               focusable="false"
               role="progressbar"
               viewBox="0 0 20 20"
-              className="block fill-red-600 m-auto h-[50px] w-[50px] animate-spin"
+              className="block fill-black-600 m-auto h-[25px] w-[25px] animate-spin"
             >
               <path d="M7.229 1.173a9.25 9.25 0 1 0 11.655 11.412 1.25 1.25 0 1 0-2.4-.698 6.75 6.75 0 1 1-8.506-8.329 1.25 1.25 0 1 0-.75-2.385z" />
             </svg>
@@ -170,6 +176,7 @@ export const PreviewSearchBasicComponent = ({
                 data-loading={loading}
                 className="flex flex-col w-full"
               >
+                {/* DISPLAY LOADING IF RESULTS ARE STILL NOT READY */}
                 <Presence present={loading}>
                   <div className="flex flex-1 items-center">
                     <svg
@@ -184,8 +191,10 @@ export const PreviewSearchBasicComponent = ({
                     </svg>
                   </div>
                 </Presence>
+                {/* THIS IS THE LIST OF SEARCH RESULTS THAT SHOW UP */}
                 {!loading && (
                   <>
+                    {/* LOOP OVER ALL SEARCH RESULTS TO DISPLAY */}
                     {articles.map((article) => (
                       <PreviewSearch.Item key={article.id} asChild>
                         <a
@@ -193,7 +202,7 @@ export const PreviewSearchBasicComponent = ({
                           className="flex flex-col box-border no-underline w-full text-black"
                         >
                           <div className="p-2">
-                            <ArticleCard.Root className="flex w-full p-2 cursor-pointer gap-x-2">
+                            <ArticleCard.Root className="flex w-full p-2 cursor-pointer gap-x-2 items-center">
                               <div className="search-content space-y-2 w-3/4">
                                 <ArticleCard.Title className="w-full overflow-hidden text-base font-normal">
                                   {'Item Label'}
@@ -205,7 +214,7 @@ export const PreviewSearchBasicComponent = ({
                               <div className=" relative h-[6em] flex justify-center items-center overflow-hidden">
                                 <ArticleCard.Image
                                   src={article.image_url || DEFAULT_IMG_URL}
-                                  className="block w-[24px] h-[24px]"
+                                  className="block w-[50px] h-[50px]"
                                 />
                               </div>
                             </ArticleCard.Root>

@@ -14,6 +14,7 @@ import structuredClone from '@ungap/structured-clone';
 
 export type LinkWrapperProps = Omit<LinkProps, 'field'> &
   CtaProps & {
+    callback?: () => void;
     className?: string;
     field?: LinkField | LinkFieldValue;
     gtmEvent?: GtmEvent;
@@ -25,18 +26,19 @@ export type LinkWrapperProps = Omit<LinkProps, 'field'> &
 const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
   (
     {
+      callback,
       children,
       className,
+      ctaIcon,
+      ctaIconAlignment,
+      ctaStyle,
+      ctaVariant,
       editable = true,
       field,
       gtmEvent,
       showLinkTextWithChildrenPresent = true,
       srOnlyText,
       suppressNewTabIcon,
-      ctaStyle,
-      ctaVariant,
-      ctaIconAlignment,
-      ctaIcon,
       ...props
     }: LinkWrapperProps,
     ref
@@ -85,6 +87,8 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
       };
 
       sendGTMEvent(gtmEventInner);
+
+      if (callback) callback();
     };
 
     /*

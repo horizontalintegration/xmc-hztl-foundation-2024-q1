@@ -6,16 +6,16 @@ import Player from 'video.js/dist/types/player';
 import 'video.js/dist/video-js.css';
 
 export type Source = {
-  src: string;
-  type: string;
+  src?: string;
+  type?: string;
 };
 
 export type Track = {
-  isDefault: boolean;
-  kind: string;
-  label: string;
-  srclang: string;
-  src: string;
+  isDefault?: boolean;
+  kind?: string;
+  label?: string;
+  srclang?: string;
+  src?: string;
 };
 
 type VideoJSProps = {
@@ -37,16 +37,16 @@ type VideoJSProps = {
 
 export type VideoWrapperProps = {
   autoplay?: boolean;
-  captions?: Track[];
+  captions: Track[];
   controls?: boolean;
   fluid?: boolean;
-  height?: number | string;
+  height?: string;
   loop?: boolean;
   muted?: boolean;
   poster?: string;
   sources: Source[];
-  subtitles?: Track[];
-  width?: number | string;
+  subtitles: Track[];
+  width?: string;
 };
 
 /*

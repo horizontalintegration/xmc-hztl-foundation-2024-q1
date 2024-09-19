@@ -1,18 +1,16 @@
 // Global
 import React from 'react';
-import { SitecoreContextReactContext } from '@sitecore-jss/sitecore-jss-nextjs';
+import { SitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Decorator } from '@storybook/react';
 import { I18nProvider, I18n } from 'next-localization';
 
 // Lib
-import { mockSitecoreContext } from '../src/lib/testing/mocks';
+import { componentBuilder } from '../src/temp/componentBuilder';
 
 export const componentGlobalWrapper: Decorator = (Story) => (
-  <SitecoreContextReactContext.Provider value={mockSitecoreContext}>
-    <div>
-      <Story />
-    </div>
-  </SitecoreContextReactContext.Provider>
+  <SitecoreContext componentFactory={componentBuilder.getComponentFactory({ isEditing: false })}>
+    <Story />
+  </SitecoreContext>
 );
 
 export const i18nWrapper: Decorator = (Story) => {

@@ -3,8 +3,8 @@ const IconClose = (): JSX.Element => {
     <>
       <path
         xmlns="http://www.w3.org/2000/svg"
-        d="M1.5 10.5L10.5 1.5M1.5 1.5L10.5 10.5"
-        stroke="#2F2D2E"
+        d="M.5,23.5L23.5.5M.5.5l23,23"
+        stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
