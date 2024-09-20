@@ -36,66 +36,37 @@ const tailwindVariants = tv({
       'lg:p-5',
       'lg:text-left',
       'xl:max-w-[50%]',
-      'z-10', // Ensure the content is above the background
-      'sm:w-full', // Take the full width of the container
-      'sm:relative', // Keep relative positioning for larger screens
+      'z-10',
+      'sm:w-full',
+      'sm:relative',
     ],
-    wrapper: [
-      'relative',
-      'lg:p-6',
-      'text-black',
-      'bg-neutral-50', // No background on mobile
-      'p-4', // Decreased padding on mobile
-    ],
+    wrapper: ['relative', 'lg:p-6', 'text-black', 'bg-neutral-50', 'p-4'],
     content: ['slide-content-inner', 'flex', 'justify-start', 'items-center'],
-    inner: [
-      'relative',
-      'flex',
-      'flex-col',
-      'gap-s',
-      'p-4', // Less padding on mobile
-      'w-auto',
-      'sm:p-6', // Reset padding for larger screens
-    ],
+    inner: ['relative', 'flex', 'flex-col', 'gap-s', 'p-4', 'w-auto', 'sm:p-6'],
     heading: [
       'mb-4',
-      'text-2xl', // Smaller heading size on mobile
+      'text-2xl',
       'font-semibold',
-      'leading-[32px]', // Adjust line height for mobile
-      'sm:text-5xl', // Reset size for larger screens
-      'sm:leading-[48px]', // Reset line height for larger screens
+      'leading-[32px]',
+      'sm:text-5xl',
+      'sm:leading-[48px]',
     ],
-    description: [
-      'mb-4',
-      'text-base', // Smaller text for mobile
-      'sm:text-lg', // Reset text size for larger screens
-    ],
+    description: ['mb-4', 'text-base', 'sm:text-lg'],
     ctaWrapper: ['flex'],
     ctaButtons: ['flex'],
-    ctaButton1: [
-      'btn',
-      'lg:btn--inverse',
-      'mr-4',
-      'text-sm', // Smaller CTA button on mobile
-      'sm:text-base', // Reset for larger screens
-    ],
-    ctaButton2: [
-      'btn',
-      'lg:btn--inverse',
-      'text-sm', // Smaller CTA button on mobile
-      'sm:text-base', // Reset for larger screens
-    ],
+    ctaButton1: ['btn', 'lg:btn--inverse', 'mr-4', 'text-sm', 'sm:text-base'],
+    ctaButton2: ['btn', 'lg:btn--inverse', 'text-sm', 'sm:text-base'],
     slideMedia: [
       'slide-media',
-      'h-screen', // Make the image cover the entire screen height
-      'w-full', // Full width
-      'absolute', // Position absolutely behind the content
+      'h-screen',
+      'w-full',
+      'absolute',
       'top-0',
       'left-0',
       'bg-cover',
       'bg-center',
-      'sm:relative', // Reset for larger screens
-      'sm:max-h-[500px]', // Limit height for larger screens
+      'sm:relative',
+      'sm:max-h-[500px]',
     ],
   },
 });

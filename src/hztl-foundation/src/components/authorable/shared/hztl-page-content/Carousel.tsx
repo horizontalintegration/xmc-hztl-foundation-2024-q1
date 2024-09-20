@@ -42,14 +42,7 @@ const tailwindVariants = tv({
     progressBarWrapper: ['splide__progress'],
     progressBarItem: ['splide__progress__bar'],
     slideControls: ['absolute', 'bottom-2', 'lg:bottom-8', 'lg:right-14', 'right-6', 'text-gray'],
-    slideControlButton: [
-      'splide__toggle',
-      'icon-hover-focus-rounded',
-      // 'border-2', // Adjust the border width
-      // 'border-blue-500', // Set the border color
-      // 'hover:border-blue-700', // Add hover effect for border color
-      // 'rounded-full', // Makes the button round
-    ],
+    slideControlButton: ['splide__toggle', 'icon-hover-focus-rounded'],
     playButton: ['splide__toggle__play', 'text-blue-500'],
     pauseButton: ['splide__toggle__pause'],
     iconStyles: ['h-l', 'w-l'],
