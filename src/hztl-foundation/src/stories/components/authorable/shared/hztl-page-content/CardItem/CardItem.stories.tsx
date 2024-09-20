@@ -5,8 +5,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { expandObj, flattenObj } from 'lib/object-parser';
 
 // Local
-import { CardProps, Default } from 'components/authorable/shared/hztl-page-content/Card';
-import defaultData from './Card.mock-data';
+import { CardItemProps, Default } from 'components/authorable/shared/hztl-page-content/CardItem';
+import defaultData from './CardItem.mock-data';
 
 const meta: Meta<typeof Default> = {
   argTypes: {},
@@ -18,7 +18,7 @@ const meta: Meta<typeof Default> = {
       </div>
     ),
   ],
-  title: 'Components/Authorable/shared/hztl-page-content/Card',
+  title: 'Components/Authorable/shared/hztl-page-content/Card Item',
 };
 
 export default meta;
@@ -30,6 +30,6 @@ export const Card: Story = {
     ...flattenObj(defaultData),
   },
   render: (args) => {
-    return <Default {...(expandObj({ ...args }) as CardProps)} />;
+    return <Default {...(expandObj({ ...args }) as CardItemProps)} />;
   },
 };

@@ -1,7 +1,7 @@
-import { CardProps } from 'components/authorable/shared/hztl-page-content/Card';
+import { CardItemProps } from 'components/authorable/shared/hztl-page-content/CardItem';
 
-const defaultData: CardProps = {
-  componentName: 'Card',
+const defaultData: CardItemProps = {
+  componentName: 'CardItem',
   dataSource: '{843DC614-0990-49B0-AF51-D3ECDAFD64CA}',
   params: {},
   rendering: { componentName: 'Default', dataSource: 'Storybook' },
@@ -45,8 +45,8 @@ const defaultData: CardProps = {
   uid: 'e638f904-8b30-4a51-9eb9-3008bf26e5b0',
 };
 
-export const CardA: CardProps = {
-  componentName: 'Card',
+export const CardItemA: CardItemProps = {
+  componentName: 'CardItem',
   dataSource: '{843DC614-0990-49B0-AF51-D3ECDAFD64CE}',
   fields: {
     CardImage: {
@@ -103,8 +103,8 @@ export const CardA: CardProps = {
   uid: 'e638f904-8b30-4a51-9eb9-3008bf26e5b3',
 };
 
-export const CardB: CardProps = {
-  componentName: 'Card',
+export const CardItemB: CardItemProps = {
+  componentName: 'CardItem',
   dataSource: '{843DC614-0990-49B0-AF51-D3ECDAFD64CF}',
   fields: {
     CardImage: {
@@ -161,8 +161,8 @@ export const CardB: CardProps = {
   uid: 'e638f904-8b30-4a51-9eb9-3008bf26e5b4',
 };
 
-export const CardC: CardProps = {
-  componentName: 'Card',
+export const CardItemC: CardItemProps = {
+  componentName: 'CardItem',
   dataSource: '{843DC614-0990-49B0-AF51-D3ECDAFD64CG}',
   fields: {
     CardImage: {

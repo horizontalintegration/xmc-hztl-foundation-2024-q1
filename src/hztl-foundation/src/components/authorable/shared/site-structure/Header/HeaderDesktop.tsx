@@ -23,7 +23,7 @@ const TAILWIND_VARIANTS = tv({
     buttonItem: ['font-semibold', 'px-2', 'py-1', 'text-theme-black', 'text-xl'],
     buttonItemIcon: ['duration-200', 'h-auto', 'trasition', '!w-xs'],
     buttonItemSublink: ['flex', 'gap-2', 'items-center'],
-    container: ['max-w-screen-xl', 'w-full'],
+    container: ['max-w-screen-xxl', 'w-full'],
     divider: ['h-3', 'opacity-100', 'bg-theme-black'],
     dropDownMenuCol: ['col-span-4', 'py-1', 'text-start', 'xl:col-span-3'],
     dropDownMenuColHeading: ['font-bold', 'text-lg', 'mb-2'],
@@ -36,7 +36,7 @@ const TAILWIND_VARIANTS = tv({
       'flex',
       'items-center',
       'justify-between',
-      'max-w-screen-xl',
+      'max-w-screen-xxl',
       'px-20',
       'py-10',
       'xl:mx-auto',
@@ -50,7 +50,7 @@ const TAILWIND_VARIANTS = tv({
       'w-full',
       'z-10',
     ],
-    inner: ['flex', 'justify-center', 'p-4'],
+    inner: ['flex', 'justify-center'],
     languageWrapper: ['flex', 'items-center', 'justify-end'],
     logoContainer: ['flex', 'items-center'],
     menuItems: ['flex', 'items-center', 'px-3', 'lg:gap-4', 'lg:px-10'],
@@ -254,7 +254,7 @@ const NavItem = (props: NavItemInterface) => {
               fill="none"
               icon="chevron-up"
               size="xs"
-              viewBox="0 0 16 9"
+              viewBox="0 0 24 24"
             />
           </span>
         </button>
@@ -268,7 +268,7 @@ const NavItem = (props: NavItemInterface) => {
 
 const HeaderDesktop = (props: HeaderPropsComponent) => {
   const { HeaderData, selectedCountry, setSelectedCountry } = props || {};
-  const { item } = HeaderData;
+  const { item } = HeaderData || {};
   const { logo, logoLink, navigationList } = item;
 
   const isEditing = useIsEditing();

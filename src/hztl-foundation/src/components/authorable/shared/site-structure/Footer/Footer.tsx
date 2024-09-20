@@ -97,7 +97,7 @@ export type FooterProps = ComponentProps &
   SiteStructure.Footer.Footer & { FooterData: { item: Item } };
 
 export const Default = (props: FooterProps): JSX.Element => {
-  const { item } = props?.FooterData;
+  const { item } = props?.FooterData || {};
   const { RenderingIdentifier } = props?.params || {};
 
   const footerColumns = item?.footerColumns.items;
