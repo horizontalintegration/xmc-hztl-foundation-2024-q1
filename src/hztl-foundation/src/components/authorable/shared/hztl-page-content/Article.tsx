@@ -28,7 +28,7 @@ const Article = (props: ArticleProps): JSX.Element => {
           <ImageWrapper className="image_url" field={Image} />
           <div className="m-auto p-l text-left">
             <PlainTextWrapper
-              className="eye_brow font-regular mb-xxs opacity-80 text-xxs"
+              className="eyebrow font-regular mb-xxs opacity-80 text-xxs"
               editable
               field={Eyebrow}
               tag="h6"
