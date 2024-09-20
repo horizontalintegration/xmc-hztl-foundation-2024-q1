@@ -22,7 +22,7 @@ import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTex
 const TAILWIND_VARIANTS = tv({
   slots: {
     base: [
-      // 'slide-content',
+      'slide-content',
       'lg:absolute',
       'lg:left-[10%]',
       'lg:top-1/2 ',
@@ -123,7 +123,7 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
   return (
     <>
       <SplideSlide>
-        <div className="flex">
+        <div className="flex min-h-[480px] justify-center items-center">
           {/* Slide Content. */}
           <div className={base()}>
             <div className={content()}>
