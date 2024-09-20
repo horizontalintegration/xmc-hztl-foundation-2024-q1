@@ -14,6 +14,7 @@ import {
   CtaIcons,
   CtaStyleProperties,
   CtaVariants,
+  CtaVisibility,
 } from 'lib/utils/style-param-utils/modules/ctas';
 
 import { StyleParamRecord } from 'lib/utils/style-param-utils';
@@ -23,6 +24,7 @@ export type CtaProps = {
   ctaIcon?: CtaIcons;
   ctaIconAlignment?: CtaIconAlignments;
   ctaVariant?: CtaVariants;
+  ctaVisibility?: CtaVisibility;
 };
 
 export type ButtonWrapperProps = ButtonHTMLAttributes<HTMLButtonElement> &
@@ -119,6 +121,14 @@ export const ctaTailwindVariant = tv({
       },
       tertiary: {
         base: ['bg-white', 'text-black', 'focus:bg-white', 'hover:bg-mild-gray'],
+      },
+    },
+    visibility: {
+      visible: {
+        base: [],
+      },
+      hidden: {
+        base: ['hidden'],
       },
     },
   },
