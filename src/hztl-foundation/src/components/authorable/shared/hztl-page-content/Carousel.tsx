@@ -91,7 +91,7 @@ const Carousel = (props: CarouselProps): JSX.Element => {
           rewind: true,
           width: '100%',
           classes: {
-            page: 'splide__pagination__page bg-theme-lightgrey border-black h-4 w-4',
+            page: 'splide__pagination__page lg:!h-[17px] lg:!w-[17px] !h-[12px] !w-[12px]',
           },
           gap: '.01rem',
           perPage: 1,
@@ -113,7 +113,7 @@ const Carousel = (props: CarouselProps): JSX.Element => {
               width="1024"
               height="1024"
               viewBox="0 0 1024 1024"
-              className="!h-12 !w-12"
+              className="lg:!h-12 lg:!w-12"
             >
               <g id="icomoon-ignore"></g>
               <path
@@ -131,7 +131,7 @@ const Carousel = (props: CarouselProps): JSX.Element => {
               width="1024"
               height="1024"
               viewBox="0 0 1024 1024"
-              className="!h-12 !w-12"
+              className="lg:!h-12 lg:!w-12"
             >
               <g id="icomoon-ignore"></g>
               <path
@@ -163,6 +163,7 @@ const Carousel = (props: CarouselProps): JSX.Element => {
                 viewBox="0 0 40 40"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="lg:!h-10 lg:!w-10 !h-9 !w-9"
               >
                 <path
                   d="M18 15L26 20L18 25V15Z"
@@ -192,6 +193,7 @@ const Carousel = (props: CarouselProps): JSX.Element => {
                 viewBox="0 0 40 40"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="lg:!h-10 lg:!w-10 !h-9 !w-9"
               >
                 <path
                   d="M16.6667 15V25M23.3333 15V25M35 20C35 28.2843 28.2843 35 20 35C11.7157 35 5 28.2843 5 20C5 11.7157 11.7157 5 20 5C28.2843 5 35 11.7157 35 20Z"

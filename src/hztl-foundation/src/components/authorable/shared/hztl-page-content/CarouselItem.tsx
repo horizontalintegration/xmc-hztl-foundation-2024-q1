@@ -78,7 +78,8 @@ const TAILWIND_VARIANTS = tv({
     ],
     slideMedia: [
       'slide-media',
-      'h-screen',
+      'h-full',
+      'lg:h-screen',
       'w-full',
       'absolute',
       'top-0',
@@ -86,7 +87,7 @@ const TAILWIND_VARIANTS = tv({
       'bg-cover',
       'bg-center',
       'sm:relative',
-      'sm:max-h-[500px]',
+      'lg:max-h-[500px]',
     ],
   },
 });
@@ -159,7 +160,7 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
 
           {/* Slide media. */}
           <div className={slideMedia()}>
-            <ImageWrapper field={image} className="h-auto w-full" />
+            <ImageWrapper field={image} className="h-full w-full object-cover" />
           </div>
         </div>
       </SplideSlide>

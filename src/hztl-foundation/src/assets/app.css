@@ -102,8 +102,8 @@ button[data-state='open'] .facets-accordian-arrow {
 
 /*carousel pagination dots*/
 .splide__pagination__page {
-  width: 1.0625em !important;
-  height: 1.0625em !important;
+  /* width: 1.0625em !important;
+  height: 1.0625em !important; */
   border-radius: 50%;
   border: 0.5px solid black !important;
 }
