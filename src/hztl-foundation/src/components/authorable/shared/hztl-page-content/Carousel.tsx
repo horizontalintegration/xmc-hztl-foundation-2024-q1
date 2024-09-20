@@ -24,7 +24,7 @@ export type CarouselProps = ComponentProps & HztlPageContent.CarouselItem;
 
 const tailwindVariants = tv({
   slots: {
-    base: ['component', 'relative', 'p-2'],
+    base: ['component', 'relative', 'p-2', 'overflow:hidden'],
     slideArrows: ['splide__arrows'],
     previousButton: [
       'splide__arrow',

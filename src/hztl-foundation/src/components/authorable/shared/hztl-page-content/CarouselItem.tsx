@@ -36,17 +36,67 @@ const tailwindVariants = tv({
       'lg:p-5',
       'lg:text-left',
       'xl:max-w-[50%]',
+      'z-10', // Ensure the content is above the background
+      'sm:w-full', // Take the full width of the container
+      'sm:relative', // Keep relative positioning for larger screens
     ],
-    wrapper: ['relative', 'p-6', 'bg-neutral-50', 'text-black'],
+    wrapper: [
+      'relative',
+      'p-6',
+      'text-black',
+      'bg-neutral-50', // No background on mobile
+      'p-4', // Decreased padding on mobile
+    ],
     content: ['slide-content-inner', 'flex', 'justify-center'],
-    inner: ['relative', 'flex', 'flex-col', 'gap-s', 'p-6', 'w-auto'],
-    heading: ['mb-4', 'text-5xl', 'font-semibold', 'leading-[48px]'],
-    description: ['mb-4'],
+    inner: [
+      'relative',
+      'flex',
+      'flex-col',
+      'gap-s',
+      'p-4', // Less padding on mobile
+      'w-auto',
+      'sm:p-6', // Reset padding for larger screens
+    ],
+    heading: [
+      'mb-4',
+      'text-2xl', // Smaller heading size on mobile
+      'font-semibold',
+      'leading-[32px]', // Adjust line height for mobile
+      'sm:text-5xl', // Reset size for larger screens
+      'sm:leading-[48px]', // Reset line height for larger screens
+    ],
+    description: [
+      'mb-4',
+      'text-base', // Smaller text for mobile
+      'sm:text-lg', // Reset text size for larger screens
+    ],
     ctaWrapper: ['flex'],
     ctaButtons: ['flex'],
-    ctaButton1: ['btn', 'lg:btn--inverse', 'mr-4'],
-    ctaButton2: ['btn', 'lg:btn--inverse'],
-    slideMedia: ['slide-media', 'max-h-[500px]'],
+    ctaButton1: [
+      'btn',
+      'lg:btn--inverse',
+      'mr-4',
+      'text-sm', // Smaller CTA button on mobile
+      'sm:text-base', // Reset for larger screens
+    ],
+    ctaButton2: [
+      'btn',
+      'lg:btn--inverse',
+      'text-sm', // Smaller CTA button on mobile
+      'sm:text-base', // Reset for larger screens
+    ],
+    slideMedia: [
+      'slide-media',
+      'h-screen', // Make the image cover the entire screen height
+      'w-full', // Full width
+      'absolute', // Position absolutely behind the content
+      'top-0',
+      'left-0',
+      'bg-cover',
+      'bg-center',
+      'sm:relative', // Reset for larger screens
+      'sm:max-h-[500px]', // Limit height for larger screens
+    ],
   },
 });
 
@@ -76,7 +126,7 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
   return (
     <>
       <SplideSlide>
-        <div className="relative">
+        <div className="flex">
           {/* Slide Content. */}
           <div className={base()}>
             <div className="slide-content-inner">
