@@ -1,84 +1,70 @@
+// Global
 import React from 'react';
-// Helpers
+import { tv } from 'tailwind-variants';
+
+// Lib
+import { ComponentProps } from 'lib/component-props';
+
+// Local
+import { withStandardComponentWrapper } from 'helpers/HOC';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
-import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
-//import { parseStyleParams } from 'lib/utils/style-param-utils';
-import { withStandardComponentWrapper } from 'helpers/HOC';
 
-export type ArticleProps = ComponentProps & HztlPageContent.Article;
+const TAILWIND_VARIANTS = tv({
+  slots: {
+    base: ['component', 'p-6'],
+    contentContainer: ['p-10'],
+    cta: ['hidden'],
+    description: [],
+    eyebrow: ['font-normal', 'mb-2', 'opacity-80', 'text-xs'],
+    heading: ['font-bold', 'font-modern', 'mb-2', 'text-4xl'],
+    subheading: ['font-bold', 'font-modern', 'mb-2', 'opacity-80', 'text-2xl'],
+  },
+});
+
+export type ArticleProps = ComponentProps &
+  HztlPageContent.Article & {
+    componentName?: string;
+    dataSource?: string;
+    uid?: string;
+  };
 
 const Article = (props: ArticleProps): JSX.Element => {
   const { Description, Eyebrow, Heading, Subheading, Image, ReadMoreCTA } = props?.fields || {};
-  //const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
+  const { RenderingIdentifier, styles } = props?.params || {};
 
-  const id = props?.params?.RenderingIdentifier;
+  /*
+   * RENDERING
+   */
+
+  const customTailwindVariants = tv({
+    extend: TAILWIND_VARIANTS,
+    slots: {
+      base: [styles.trimEnd()],
+    },
+  });
+
+  const { base, contentContainer, cta, description, eyebrow, heading, subheading } =
+    customTailwindVariants();
 
   return (
-    <section>
-      <div
-        className={`component ${props.params?.styles.trimEnd()}`}
-        data-component="authorable/article"
-        id={id ? id : undefined}
-      >
-        <div className="py-spacing-spacing-7 px-spacing-spacing-4 md:px-spacing-spacing-2">
-          <ImageWrapper className="image_url" field={Image} />
-          <div className="m-auto p-l text-left">
-            <PlainTextWrapper
-              className="eyebrow font-regular mb-xxs opacity-80 text-xxs"
-              editable
-              field={Eyebrow}
-              tag="h6"
-            />
-            <RichTextWrapper
-              className="title font-bold font-modern mb-xxs text-4xl"
-              field={Heading}
-            />
-            <RichTextWrapper
-              className="subtitle font-bold font-modern mb-xxs opacity-80 text-m"
-              field={Subheading}
-            />
-            <RichTextWrapper className="description" field={Description} />
-            <LinkWrapper className="url hidden" field={ReadMoreCTA} />
-          </div>
-        </div>
+    <section
+      className={base()}
+      data-component="authorable/shared/hztl-page-content/article"
+      id={RenderingIdentifier}
+    >
+      <ImageWrapper field={Image} />
+      <div className={contentContainer()}>
+        <PlainTextWrapper className={eyebrow()} editable field={Eyebrow} tag="h6" />
+        <RichTextWrapper className={heading()} field={Heading} />
+        <RichTextWrapper className={subheading()} field={Subheading} />
+        <RichTextWrapper className={description()} field={Description} />
+        <LinkWrapper className={cta()} field={ReadMoreCTA} />
       </div>
     </section>
-    // <section className="component my-ml min-h-[50vh] flex flex-col-reverse md:flex-row justify-center items-center">
-    //   <div className="w-full md:w-1/2 flex items-center justify-center">
-    //     <div className="max-w-[472px] w-fit px-s py-ml">
-    //       <PlainTextWrapper
-    //         tag="h2"
-    //         className="font-modern text-l font-bold mb-6"
-    //         field={props.fields?.Heading}
-    //       />
-    //       <RichTextWrapper
-    //         tag="div"
-    //         className="text-gray text-base mb-m"
-    //         field={props.fields?.Description}
-    //       />
-
-    //       <div className="flex gap-xxs flex-wrap justify-center md:justify-normal">
-    //         <LinkWrapper
-    //           field={props.fields?.cta1Link}
-    //           suppressNewTabIcon={true}
-    //           ctaStyle={styles.cta1}
-    //         />
-    //         <LinkWrapper
-    //           field={props.fields?.cta2Link}
-    //           suppressNewTabIcon={true}
-    //           ctaStyle={styles.cta2}
-    //         />
-    //       </div>
-    //     </div>
-    //   </div>
-    //   <div className="w-full md:w-1/2">
-    //     <ImageWrapper field={props.fields?.Image} />
-    //   </div>
-    // </section>
   );
 };
 
