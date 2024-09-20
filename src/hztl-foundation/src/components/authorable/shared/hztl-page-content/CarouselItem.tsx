@@ -1,7 +1,7 @@
 // Global
 import { SplideSlide } from '@splidejs/react-splide';
-import { tv } from 'tailwind-variants';
 import '@splidejs/splide/css';
+import { tv } from 'tailwind-variants';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
@@ -9,23 +9,20 @@ import { parseStyleParams } from 'lib/utils/style-param-utils';
 
 // Local
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
-import { ItemEx } from '../../../../.generated/_.Sitecore.Override';
 import { withStandardComponentWrapper } from 'helpers/HOC';
-import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
+import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
-
-export type CarouselItemProps = ComponentProps & ItemEx & HztlPageContent.CarouselItem;
 
 /*
  * Tailwind Variants
  */
 
-const tailwindVariants = tv({
+const TAILWIND_VARIANTS = tv({
   slots: {
     base: [
-      'slide-content',
+      // 'slide-content',
       'lg:absolute',
       'lg:left-[10%]',
       'lg:top-1/2 ',
@@ -44,6 +41,8 @@ const tailwindVariants = tv({
     content: ['slide-content-inner', 'flex', 'justify-start', 'items-center'],
     inner: ['relative', 'flex', 'flex-col', 'gap-s', 'p-4', 'w-auto', 'sm:p-6'],
     heading: [
+      'capitalize',
+      'font-bold',
       'mb-4',
       'text-2xl',
       'font-semibold',
@@ -51,11 +50,32 @@ const tailwindVariants = tv({
       'sm:text-5xl',
       'sm:leading-[48px]',
     ],
-    description: ['mb-4', 'text-base', 'sm:text-lg'],
+    descriptionText: ['mb-4', 'text-base', 'sm:text-lg', 'text-theme-black'],
     ctaWrapper: ['flex'],
-    ctaButtons: ['flex'],
-    ctaButton1: ['btn', 'lg:btn--inverse', 'mr-4', 'text-sm', 'sm:text-base'],
-    ctaButton2: ['btn', 'lg:btn--inverse', 'text-sm', 'sm:text-base'],
+    ctaButtons: ['flex', 'flex-col', 'gap-3', 'md:flex-row'],
+    ctaButton1: [
+      'bg-theme-black',
+      'content-center',
+      'font-bold',
+      'h-12',
+      'rounded',
+      'text-center',
+      'text-sm',
+      'text-white',
+      'w-32',
+    ],
+    ctaButton2: [
+      'border',
+      'border-theme-black',
+      'content-center',
+      'font-bold',
+      'h-12',
+      'rounded',
+      'text-center',
+      'text-sm',
+      'text-theme-black',
+      'w-32',
+    ],
     slideMedia: [
       'slide-media',
       'h-screen',
@@ -71,20 +91,25 @@ const tailwindVariants = tv({
   },
 });
 
+export type CarouselItemProps = ComponentProps &
+  HztlPageContent.CarouselItem & { componentName?: string; dataSource?: string; uid: string };
+
 const CarouselItem = (props: CarouselItemProps): JSX.Element => {
+  const { description, image, primaryCTA, secondaryCTA, title } = props?.fields || {};
+
   const {
     base,
-    wrapper,
     content,
-    // inner,
-    heading,
-    description,
-    ctaWrapper,
-    ctaButtons,
     ctaButton1,
     ctaButton2,
+    ctaButtons,
+    ctaWrapper,
+    descriptionText,
+    heading,
+    //inner,
     slideMedia,
-  } = tailwindVariants();
+    wrapper,
+  } = TAILWIND_VARIANTS();
 
   /*
    * Rendering
@@ -102,26 +127,26 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
           <div className={base()}>
             <div className={content()}>
               <div className={wrapper()}>
-                <PlainTextWrapper tag="h2" className={heading()} field={props?.fields?.title} />
+                <PlainTextWrapper tag="h2" className={heading()} field={title} />
 
                 {/* Slide description. */}
-                {props?.fields?.description && (
-                  <RichTextWrapper field={props?.fields?.description} className={description()} />
+                {description && (
+                  <RichTextWrapper field={description} className={descriptionText()} />
                 )}
 
                 {/* Slide links. */}
-                {props?.fields?.primaryCTA && (
+                {primaryCTA && (
                   <div className={ctaWrapper()}>
                     <div className={ctaButtons()}>
                       <LinkWrapper
-                        field={props?.fields?.primaryCTA}
-                        aria-label={props?.fields?.primaryCTA?.value.text}
+                        field={primaryCTA}
+                        aria-label={primaryCTA?.value.text}
                         className={ctaButton1()}
                         ctaStyle={styles.cta1}
                       ></LinkWrapper>
                       <LinkWrapper
-                        field={props?.fields?.secondaryCTA}
-                        aria-label={props?.fields?.secondaryCTA?.value.text}
+                        field={secondaryCTA}
+                        aria-label={secondaryCTA?.value.text}
                         className={ctaButton2()}
                         ctaStyle={styles.cta2}
                       ></LinkWrapper>
@@ -134,7 +159,7 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
 
           {/* Slide media. */}
           <div className={slideMedia()}>
-            <ImageWrapper field={props?.fields?.image} className="h-auto w-full" />
+            <ImageWrapper field={image} className="h-auto w-full" />
           </div>
         </div>
       </SplideSlide>

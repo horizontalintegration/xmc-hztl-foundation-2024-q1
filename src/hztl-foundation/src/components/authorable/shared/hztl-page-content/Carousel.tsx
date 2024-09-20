@@ -22,7 +22,7 @@ export type CarouselProps = ComponentProps & HztlPageContent.CarouselItem;
  * Tailwind Variants
  */
 
-const tailwindVariants = tv({
+const TAILWIND_VARIANTS = tv({
   slots: {
     base: ['component', 'relative', 'p-2', 'overflow:hidden'],
     slideArrows: ['splide__arrows'],
@@ -43,7 +43,7 @@ const tailwindVariants = tv({
     progressBarItem: ['splide__progress__bar'],
     slideControls: ['absolute', 'bottom-2', 'lg:bottom-8', 'lg:right-14', 'right-6', 'text-gray'],
     slideControlButton: ['splide__toggle', 'icon-hover-focus-rounded'],
-    playButton: ['splide__toggle__play', 'text-blue-500'],
+    playButton: ['splide__toggle__play'],
     pauseButton: ['splide__toggle__pause'],
     iconStyles: ['h-l', 'w-l'],
     pagination: [
@@ -60,8 +60,8 @@ const tailwindVariants = tv({
 });
 
 const Carousel = (props: CarouselProps): JSX.Element => {
-  const id = props?.params?.RenderingIdentifier;
-  const phKey = `carousel-${props?.params?.DynamicPlaceholderId}`;
+  const { DynamicPlaceholderId, RenderingIdentifier } = props?.params || {};
+  const phKey = `carousel-${DynamicPlaceholderId}`;
 
   const {
     base,
@@ -77,19 +77,22 @@ const Carousel = (props: CarouselProps): JSX.Element => {
     pauseButton,
     pagination,
     // iconStyles,
-  } = tailwindVariants();
+  } = TAILWIND_VARIANTS();
 
   /*
    * Rendering
    */
 
   return (
-    <div id={id ? id : undefined} className={base()}>
+    <div className={base()} id={RenderingIdentifier}>
       <Splide
         hasTrack={false}
         options={{
           rewind: true,
           width: '100%',
+          classes: {
+            page: 'splide__pagination__page bg-theme-lightgrey border-black h-4 w-4',
+          },
           gap: '.01rem',
           perPage: 1,
           perMove: 1,
