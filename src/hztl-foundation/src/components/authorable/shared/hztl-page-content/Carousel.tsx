@@ -4,9 +4,9 @@ import { Splide, SplideTrack } from '@splidejs/react-splide';
 import { tv } from 'tailwind-variants';
 import '@splidejs/splide/css';
 // import { IconContext } from 'react-icons';
-import { AiOutlinePlayCircle } from 'react-icons/ai';
-import { AiOutlinePauseCircle } from 'react-icons/ai';
-// import { FaChevronRight } from 'react-icons/fa6';
+// import { AiOutlinePlayCircle } from 'react-icons/ai';
+// import { AiOutlinePauseCircle } from 'react-icons/ai';
+// // import { FaChevronRight } from 'react-icons/fa6';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
@@ -46,8 +46,15 @@ const tailwindVariants = tv({
     progressBarWrapper: ['splide__progress'],
     progressBarItem: ['splide__progress__bar'],
     slideControls: ['absolute', 'bottom-2', 'lg:bottom-8', 'lg:right-14', 'right-6', 'text-gray'],
-    slideControlButton: ['splide__toggle', 'icon-hover-focus-rounded'],
-    playButton: ['splide__toggle__play'],
+    slideControlButton: [
+      'splide__toggle',
+      'icon-hover-focus-rounded',
+      // 'border-2', // Adjust the border width
+      // 'border-blue-500', // Set the border color
+      // 'hover:border-blue-700', // Add hover effect for border color
+      // 'rounded-full', // Makes the button round
+    ],
+    playButton: ['splide__toggle__play', 'text-blue-500'],
     pauseButton: ['splide__toggle__pause'],
     iconStyles: ['h-l', 'w-l'],
     pagination: [
@@ -59,6 +66,10 @@ const tailwindVariants = tv({
       'transform',
       '-translate-x-1/2',
       // 'space-x-1', //sapce between pagination dots
+      '[&_.splide__pagination__page]:!w-[7rem]', // Non-active pagination dots size
+      '[&_.splide__pagination__page]:h-[17rem]', // Non-active pagination dots size
+      '[&_.splide__pagination__page.is-active]:w-[26rem]', // Active pagination dot size
+      '[&_.splide__pagination__page.is-active]:h-[26rem]', // Active pagination dot
     ],
   },
 });
@@ -153,14 +164,55 @@ const Carousel = (props: CarouselProps): JSX.Element => {
             <span className={playButton()}>
               <span className={screenReader()}>Play slideshow</span>
               {/* <SvgIcon className={iconStyles()} icon={'play'} /> */}
-              <AiOutlinePlayCircle size="2.5em" title="Play slideshow" />
+              {/* <AiOutlinePlayCircle
+                size="2.5em"
+                title="Play slideshow"
+                className="text-black thin-icon"
+              /> */}
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18 15L26 20L18 25V15Z"
+                  stroke="#2F2D2E"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M35 20C35 28.2843 28.2843 35 20 35C11.7157 35 5 28.2843 5 20C5 11.7157 11.7157 5 20 5C28.2843 5 35 11.7157 35 20Z"
+                  stroke="#2F2D2E"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </span>
 
             {/* Pause button */}
             <span className={pauseButton()}>
               <span className={screenReader()}>Pause slideshow</span>
               {/* <SvgIcon className={iconStyles()} icon={'pause'} /> */}
-              <AiOutlinePauseCircle size="2.5em" title="Pause slideshow" />
+              {/* <AiOutlinePauseCircle size="2.5em" title="Pause slideshow" className="text-black" /> */}
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.6667 15V25M23.3333 15V25M35 20C35 28.2843 28.2843 35 20 35C11.7157 35 5 28.2843 5 20C5 11.7157 11.7157 5 20 5C28.2843 5 35 11.7157 35 20Z"
+                  stroke="#2F2D2E"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </span>
           </button>
         </div>
