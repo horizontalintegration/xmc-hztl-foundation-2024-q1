@@ -65,11 +65,7 @@ const tailwindVariants = tv({
       '!left-1/2',
       'transform',
       '-translate-x-1/2',
-      // 'space-x-1', //sapce between pagination dots
-      '[&_.splide__pagination__page]:!w-[7rem]', // Non-active pagination dots size
-      '[&_.splide__pagination__page]:h-[17rem]', // Non-active pagination dots size
-      '[&_.splide__pagination__page.is-active]:w-[26rem]', // Active pagination dot size
-      '[&_.splide__pagination__page.is-active]:h-[26rem]', // Active pagination dot
+      'space-x-1', //sapce between pagination dots
     ],
   },
 });
