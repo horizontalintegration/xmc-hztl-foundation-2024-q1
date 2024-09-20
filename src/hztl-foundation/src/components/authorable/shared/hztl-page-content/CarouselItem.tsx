@@ -42,12 +42,12 @@ const tailwindVariants = tv({
     ],
     wrapper: [
       'relative',
-      'p-6',
+      'lg:p-6',
       'text-black',
       'bg-neutral-50', // No background on mobile
       'p-4', // Decreased padding on mobile
     ],
-    content: ['slide-content-inner', 'flex', 'justify-center'],
+    content: ['slide-content-inner', 'flex', 'justify-start', 'items-center'],
     inner: [
       'relative',
       'flex',
@@ -104,7 +104,7 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
   const {
     base,
     wrapper,
-    // content,
+    content,
     // inner,
     heading,
     description,
@@ -129,7 +129,7 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
         <div className="flex">
           {/* Slide Content. */}
           <div className={base()}>
-            <div className="slide-content-inner">
+            <div className={content()}>
               <div className={wrapper()}>
                 <PlainTextWrapper tag="h2" className={heading()} field={props?.fields?.title} />
 
