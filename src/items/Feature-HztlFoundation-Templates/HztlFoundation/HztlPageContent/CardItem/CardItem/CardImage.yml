@@ -1,24 +1,30 @@
 ﻿---
-ID: "315c2094-ebe1-45d3-b7f6-c57fec3d057c"
-Parent: "8621c625-cdd3-4a2a-942d-07ae3c04a6c7"
-Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
-Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Card Folder
+ID: "d7b576b3-7bea-46e6-bb0a-49edb06481d7"
+Parent: "24019745-6603-48e3-b89b-c26d6a656d6a"
+Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardItem/CardItem/CardImage
 SharedFields:
-- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
-  Hint: __Icon
-  Value: Office/32x32/folder_window.png
+- ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
+  Hint: Source
+  Value: "query:$siteMedia"
+- ID: "24cb32f0-e364-4f37-b400-0f2899097b5b"
+  Hint: Enable Shared Language Fallback
+  Value: 1
+- ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
+  Hint: Type
+  Value: Image
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
-  Value: 400
-- ID: "f7d48a55-2158-4f02-9356-756654404f73"
-  Hint: __Standard values
-  Value: "{F949C81A-1647-43F8-8414-864AE3A0FE0C}"
+  Value: 100
 Languages:
 - Language: "de-DE"
   Fields:
+  - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
+    Hint: Title
+    Value: Text
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Text Ordner
+    Value: Text
   Versions:
   - Version: 1
     Fields:
@@ -44,31 +50,37 @@ Languages:
       Hint: __Updated
       Value: 20240311T150131Z
 - Language: en
+  Fields:
+  - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
+    Hint: Title
+    Value: 
   Versions:
   - Version: 1
     Fields:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
-      Value: 20120620T142219Z
-    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
-      Hint: __Created by
-      Value: |
-        sitecore\admin
+      Value: 20111206T055448Z
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "79d728b3-2e66-4c69-a65e-e0a390229d0a"
+      Value: "156ad4f4-4589-456b-829f-b6bab5e72cb7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\asavalagi@horizontal.com
+        sitecore\mchaniyara@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240618T095705Z
+      Value: 20240527T134230Z
+    - ID: "fa622538-0c13-4130-a001-45984241aa00"
+      Hint: Enable Language Fallback
+      Value: 1
 - Language: "ja-JP"
   Fields:
+  - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
+    Hint: Title
+    Value: テキスト
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: テキスト フォルダー
+    Value: テキスト
   Versions:
   - Version: 1
     Fields:
@@ -95,9 +107,12 @@ Languages:
       Value: 20240311T150131Z
 - Language: "zh-CN"
   Fields:
+  - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
+    Hint: Title
+    Value: 文本
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: 文本文件夹
+    Value: 文本
   Versions:
   - Version: 1
     Fields:
