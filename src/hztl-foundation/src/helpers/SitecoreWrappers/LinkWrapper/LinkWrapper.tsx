@@ -53,6 +53,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
       ctaIconAlignment,
       ctaStyle,
       ctaVariant,
+      ctaVisibility,
       editable = true,
       field,
       gtmEvent,
@@ -72,6 +73,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
     ctaIcon = ctaIcon ?? ctaStyle?.ctaIcon;
     ctaVariant = ctaVariant ?? ctaStyle?.ctaVariant ?? 'link';
     ctaIconAlignment = ctaIconAlignment ?? ctaStyle?.ctaIconAlignment ?? 'right';
+    ctaVisibility = ctaVisibility ?? ctaStyle?.ctaVisibility ?? 'visible';
 
     // Clone the object so we don't modify the original.
     // This addresses some edge cases issues when the same link is rendered more than once
@@ -91,6 +93,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
       className: className,
       iconAlignment: ctaIconAlignment,
       variant: ctaVariant,
+      visibility: ctaVisibility,
     });
 
     /*
