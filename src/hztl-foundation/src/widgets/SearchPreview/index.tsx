@@ -8,7 +8,7 @@ import { WidgetDataType, usePreviewSearch, widget } from '@sitecore-search/react
 import { ArticleCard, Presence, PreviewSearch } from '@sitecore-search/ui';
 import { useEnsureSearchUrl } from './use-ensure-search-url';
 import { useRouter } from 'next/router';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { SvgIcon } from 'helpers/SvgIcon';
 
 type ArticleModel = {
   id: string;
@@ -116,7 +116,7 @@ export const PreviewSearchBasicComponent = ({
   return (
     <PreviewSearch.Root>
       {/* SEARCH BAR */}
-      <div className="search-container w-full flex">
+      <div className="search-container w-full flex p-4">
         <div className="searchinput relative w-full">
           <form id="searchSubmit" onSubmit={onHandle}>
             <PreviewSearch.Input

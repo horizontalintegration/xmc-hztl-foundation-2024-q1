@@ -3,13 +3,12 @@ import { HeroProps } from 'components/authorable/shared/hztl-page-content/Hero';
 const defaultData: HeroProps = {
   rendering: { componentName: 'Default', dataSource: 'Storybook' },
   params: {
-    Styles:
-      'cta1:ctaVariant:primary cta1:ctaIcon:arrow-right cta1:ctaIconAlignment:right cta2:ctaVariant:secondary cta2:ctaIcon:download cta2:ctaIconAlignment:left ',
+    Styles: 'cta1:ctaVariant:primary cta2:ctaVariant:secondary',
   },
   fields: {
     Image: {
       value: {
-        src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/placeholder_gray_4by3.png?h=600&iar=0&w=800',
+        src: 'https://dummyimage.com/650x480/cfcdc8/2f2d2e',
         alt: 'placeholder_gray_4by3',
         width: '800',
         height: '600',

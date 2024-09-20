@@ -7,13 +7,14 @@ import { tv } from 'tailwind-variants';
 import { GtmEvent } from 'lib/utils/gtm-utils';
 
 // Local
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { SvgIcon } from 'helpers/SvgIcon';
 import {
   CtaElements,
   CtaIconAlignments,
   CtaIcons,
   CtaStyleProperties,
   CtaVariants,
+  CtaVisibility,
 } from 'lib/utils/style-param-utils/modules/ctas';
 
 import { StyleParamRecord } from 'lib/utils/style-param-utils';
@@ -23,6 +24,7 @@ export type CtaProps = {
   ctaIcon?: CtaIcons;
   ctaIconAlignment?: CtaIconAlignments;
   ctaVariant?: CtaVariants;
+  ctaVisibility?: CtaVisibility;
 };
 
 export type ButtonWrapperProps = ButtonHTMLAttributes<HTMLButtonElement> &
@@ -54,67 +56,79 @@ export const ctaTailwindVariant = tv({
       },
       primary: {
         base: [
+          'bg-black',
           'flex',
+          'font-bold',
           'font-modern',
           'gap-xxs',
           'items-center',
           'justify-center',
           'leading-normal',
-          'py-3',
           'px-8',
+          'py-3',
           'rounded',
-          'bg-black',
+          'text-center',
           'text-white',
+          'active:!bg-light-gray',
+          'active:!outline-black',
+          'active:!text-black',
           'disabled:bg-mild-gray',
-          'disabled:text-dark-gray',
           'disabled:no-underline',
+          'disabled:text-dark-gray',
+          'focus:-outline-offset-4',
           'focus:bg-gray',
-          'focus:outline',
           'focus:outline-4',
           'focus:outline-gray',
-          'focus:-outline-offset-4',
+          'focus:outline',
           'focus:text-white',
           'hover:!bg-dark-gray',
-          'hover:underline',
-          'active:!bg-light-gray',
-          'active:!text-black',
-          'active:!outline-black',
+          'hover:no-underline',
         ],
       },
       secondary: {
         base: [
+          'bg-white',
+          'border-black',
+          'border',
           'flex',
+          'font-bold',
           'font-modern',
           'gap-xxs',
           'items-center',
           'justify-center',
           'leading-normal',
-          'py-3',
           'px-8',
+          'py-3',
           'rounded',
-          'bg-white',
-          'border',
-          'border-black',
           'text-black',
+          'text-center',
+          'active:!bg-light-gray',
+          'active:!outline-black',
+          'active:!text-black',
           'disabled:bg-mild-gray',
-          'disabled:text-dark-gray',
           'disabled:no-underline',
+          'disabled:text-dark-gray',
+          'focus:-outline-offset-4',
           'focus:bg-gray',
-          'focus:outline',
           'focus:outline-4',
           'focus:outline-gray',
-          'focus:-outline-offset-4',
+          'focus:outline',
           'focus:text-white',
           'hover:!bg-dark-gray',
           'hover:!text-white',
-          'hover:underline',
-          'active:!bg-light-gray',
-          'active:!text-black',
-          'active:!outline-black',
+          'hover:no-underline',
         ],
       },
       tertiary: {
         base: ['bg-white', 'text-black', 'focus:bg-white', 'hover:bg-mild-gray'],
+      },
+    },
+    visibility: {
+      visible: {
+        base: [],
+      },
+      hidden: {
+        base: ['hidden'],
       },
     },
   },
