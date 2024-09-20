@@ -268,7 +268,7 @@ const NavItem = (props: NavItemInterface) => {
 
 const HeaderDesktop = (props: HeaderPropsComponent) => {
   const { HeaderData, selectedCountry, setSelectedCountry } = props || {};
-  const { item } = HeaderData;
+  const { item } = HeaderData || {};
   const { logo, logoLink, navigationList } = item;
 
   const isEditing = useIsEditing();
