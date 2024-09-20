@@ -65,7 +65,7 @@ const TAILWIND_VARIANTS = tv({
 });
 
 export type CardItemProps = ComponentProps &
-  HztlPageContent.Card & { componentName?: string; dataSource?: string; uid: string };
+  HztlPageContent.CardItem & { componentName?: string; dataSource?: string; uid: string };
 
 const CardItem = (props: CardItemProps): JSX.Element => {
   const { CardImage, CardLink1, CardLink2, Description, Eyebrow, Heading, Subheading } =

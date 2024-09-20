@@ -2,7 +2,7 @@
 ID: "3a7d27e5-b935-46da-b8fb-fe1e260957d8"
 Parent: "8621c625-cdd3-4a2a-942d-07ae3c04a6c7"
 Template: "ab86861a-6030-46c5-b394-e8f99e8b87db"
-Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Card
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardItem
 SharedFields:
 - ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
   Hint: __Icon

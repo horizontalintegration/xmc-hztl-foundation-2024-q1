@@ -194,9 +194,9 @@ export namespace HztlPageContent {
   export type CaptionFolderJson = {};
 
   /**
-   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Card
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardItem
    */
-  export type Card = {
+  export type CardItem = {
     fields?: {
       /**
        * Represents the Text field (d7b576b3-7bea-46e6-bb0a-49edb06481d7).
@@ -236,9 +236,9 @@ export namespace HztlPageContent {
   };
 
   /**
-   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Card
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardItem
    */
-  export type CardJson = {
+  export type CardItemJson = {
     /**
      * Represents the Text field (d7b576b3-7bea-46e6-bb0a-49edb06481d7).
      */
@@ -291,29 +291,29 @@ export namespace HztlPageContent {
 }
 export namespace HztlPageContent.RenderingParameters {
   /**
-   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Card
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/CardItem
    */
-  export type Card = {
+  export type CardItem = {
     fields?: {};
   };
 
   /**
-   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Card
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/CardItem
    */
-  export type CardJson = {};
+  export type CardItemJson = {};
 }
 export namespace HztlPageContent {
   /**
-   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Card Folder
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardItem Folder
    */
-  export type CardFolder = {
+  export type CardItemFolder = {
     fields?: {};
   };
 
   /**
-   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Card Folder
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardItem Folder
    */
-  export type CardFolderJson = {};
+  export type CardItemFolderJson = {};
 }
 export namespace HztlPageContent.RenderingParameters {
   /**
@@ -1852,21 +1852,21 @@ export namespace HztlPageContent.Constants {
 
     BaseTemplateIds: [],
   };
-  export const Card = {
+  export const CardItem = {
     TemplateId: '3a7d27e5-b935-46da-b8fb-fe1e260957d8',
 
     BaseTemplateIds: [],
   };
 }
 export namespace HztlPageContent.RenderingParameters.Constants {
-  export const Card = {
+  export const CardItem = {
     TemplateId: 'c3ed0731-9d2b-4ec8-9494-760921cadd37',
 
     BaseTemplateIds: [],
   };
 }
 export namespace HztlPageContent.Constants {
-  export const CardFolder = {
+  export const CardItemFolder = {
     TemplateId: '315c2094-ebe1-45d3-b7f6-c57fec3d057c',
 
     BaseTemplateIds: [],
