@@ -60,7 +60,8 @@ const TAILWIND_VARIANTS = tv({
       'text-center',
       'text-sm',
       'text-white',
-      'w-32',
+      'lg:w-32',
+      'w-full',
     ],
     ctaButton2: [
       'border',
@@ -72,7 +73,8 @@ const TAILWIND_VARIANTS = tv({
       'text-center',
       'text-sm',
       'text-theme-black',
-      'w-32',
+      'lg:w-32',
+      'w-full',
     ],
     slideMedia: [
       'slide-media',
