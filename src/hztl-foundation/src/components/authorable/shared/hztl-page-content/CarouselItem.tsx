@@ -23,7 +23,7 @@ const TAILWIND_VARIANTS = tv({
   slots: {
     base: [
       'slide-content',
-      'lg:absolute',
+      'absolute',
       'lg:left-[10%]',
       'lg:top-1/2 ',
       'lg:box-border',
@@ -34,8 +34,7 @@ const TAILWIND_VARIANTS = tv({
       'lg:text-left',
       'xl:max-w-[50%]',
       'z-10',
-      'sm:w-full',
-      'sm:relative',
+      'max-w-[70%]',
     ],
     wrapper: ['relative', 'lg:p-6', 'text-black', 'bg-neutral-50', 'p-4'],
     content: ['slide-content-inner', 'flex', 'justify-start', 'items-center'],
@@ -45,14 +44,13 @@ const TAILWIND_VARIANTS = tv({
       'font-bold',
       'mb-4',
       'text-2xl',
-      'font-semibold',
       'leading-[32px]',
-      'sm:text-5xl',
-      'sm:leading-[48px]',
+      'lg:text-4xl',
+      'lg:leading-[48px]',
+      'text-theme-black',
     ],
     descriptionText: ['mb-4', 'text-base', 'sm:text-lg', 'text-theme-black'],
-    ctaWrapper: ['flex'],
-    ctaButtons: ['flex', 'flex-col', 'gap-3', 'md:flex-row'],
+    ctaButtons: ['flex', 'flex-col', 'gap-3', 'lg:flex-row', 'items-center'],
     ctaButton1: [
       'bg-theme-black',
       'content-center',
@@ -79,14 +77,12 @@ const TAILWIND_VARIANTS = tv({
     slideMedia: [
       'slide-media',
       'h-full',
-      'lg:h-screen',
       'w-full',
       'absolute',
       'top-0',
       'left-0',
       'bg-cover',
       'bg-center',
-      'sm:relative',
       'lg:max-h-[500px]',
     ],
   },
@@ -104,7 +100,6 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
     ctaButton1,
     ctaButton2,
     ctaButtons,
-    ctaWrapper,
     descriptionText,
     heading,
     //inner,
@@ -137,21 +132,19 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
 
                 {/* Slide links. */}
                 {primaryCTA && (
-                  <div className={ctaWrapper()}>
-                    <div className={ctaButtons()}>
-                      <LinkWrapper
-                        field={primaryCTA}
-                        aria-label={primaryCTA?.value.text}
-                        className={ctaButton1()}
-                        ctaStyle={styles.cta1}
-                      ></LinkWrapper>
-                      <LinkWrapper
-                        field={secondaryCTA}
-                        aria-label={secondaryCTA?.value.text}
-                        className={ctaButton2()}
-                        ctaStyle={styles.cta2}
-                      ></LinkWrapper>
-                    </div>
+                  <div className={ctaButtons()}>
+                    <LinkWrapper
+                      field={primaryCTA}
+                      aria-label={primaryCTA?.value.text}
+                      className={ctaButton1()}
+                      ctaStyle={styles.cta1}
+                    ></LinkWrapper>
+                    <LinkWrapper
+                      field={secondaryCTA}
+                      aria-label={secondaryCTA?.value.text}
+                      className={ctaButton2()}
+                      ctaStyle={styles.cta2}
+                    ></LinkWrapper>
                   </div>
                 )}
               </div>
