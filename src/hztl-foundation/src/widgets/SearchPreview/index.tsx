@@ -121,7 +121,7 @@ export const PreviewSearchBasicComponent = ({
           <form id="searchSubmit" onSubmit={onHandle}>
             <PreviewSearch.Input
               id="keyword"
-              className="w-full box-border py-2 px-2 pr-10 focus:outline-solid focus:outline-1 focus:outline-gray-500 border-1"
+              className="w-full box-border py-2 px-2 pr-10 focus:outline-solid focus:outline-1 focus:outline-gray-500 border-1 border-black"
               onChange={keyphraseHandler}
               autoComplete="off"
               placeholder="Search"
@@ -139,7 +139,7 @@ export const PreviewSearchBasicComponent = ({
             <button
               onClick={onShowMoreResult}
               role="click to search"
-              className="absolute inset-y-0 right-0 p-3 flex justify-center items-center cursor-pointer border-l"
+              className="absolute inset-y-0 right-0 p-3 flex justify-center items-center cursor-pointer border-l border-black"
             >
               <SvgIcon icon="magnifier" size="xs" viewBox="0 0 18 18" fill="none" />
             </button>
