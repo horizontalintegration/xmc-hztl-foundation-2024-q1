@@ -23,7 +23,7 @@ const TAILWIND_VARIANTS = tv({
     buttonItem: ['font-semibold', 'px-2', 'py-1', 'text-theme-black', 'text-xl'],
     buttonItemIcon: ['duration-200', 'h-auto', 'trasition', '!w-xs'],
     buttonItemSublink: ['flex', 'gap-2', 'items-center'],
-    container: ['max-w-screen-xl', 'w-full'],
+    container: ['max-w-screen-xl', 'p-4', 'w-full'],
     divider: ['h-3', 'opacity-100', 'bg-theme-black'],
     dropDownMenuCol: ['col-span-4', 'py-1', 'text-start', 'xl:col-span-3'],
     dropDownMenuColHeading: ['font-bold', 'text-lg', 'mb-2'],
@@ -385,7 +385,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
                     selectedCountry={selectedCountry}
                     setSelectedCountry={setSelectedCountry}
                   />
-                  <div className="flex p-4">
+                  <div className="flex">
                     <PreviewSearchListComponent defaultItemsPerPage={5} rfkId={'rfkid_101'} />
                   </div>
                 </div>

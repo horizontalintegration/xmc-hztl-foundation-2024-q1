@@ -18,9 +18,21 @@ export default async function middleware(
   req: NextRequest,
   ev: NextFetchEvent
 ): Promise<NextResponse> {
+  const { locale } = req?.nextUrl;
+
   const response = NextResponse.next();
 
   debug.common('next middleware start');
+
+  try {
+    const res = await fetch(req.nextUrl);
+
+    if (locale && locale !== 'en' && res.status === 404) {
+      return NextResponse.redirect(new URL(`/`, req.url));
+    }
+  } catch (err) {
+    console.error(err);
+  }
 
   const start = Date.now();
 
