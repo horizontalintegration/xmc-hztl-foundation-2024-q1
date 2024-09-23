@@ -19,8 +19,16 @@ export default async function middleware(
   ev: NextFetchEvent
 ): Promise<NextResponse> {
   const response = NextResponse.next();
-
   debug.common('next middleware start');
+  const { locale } = req.nextUrl;
+  try {
+    const res = await fetch(req.nextUrl);
+    if (locale && locale !== 'en' && res.status === 404) {
+      return NextResponse.redirect(new URL(`/`, req.url));
+    }
+  } catch (err) {
+    console.log(err);
+  }
 
   const start = Date.now();
   const finalRes = await (Object.values(plugins) as MiddlewarePlugin[])

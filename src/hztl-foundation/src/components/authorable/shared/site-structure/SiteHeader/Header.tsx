@@ -12,19 +12,17 @@ import HeaderDesktop from './HeaderDesktop';
 import HeaderMobile from './HeaderMobile';
 import HeaderQuery from './Header.graphql';
 import { useRouter } from 'next/router';
-
 export const Default = (props: HeaderProps) => {
   const [selectedCountry, setSelectedCountry] = useState('');
   const router = useRouter();
-  useEffect(() => {
-    if (router.locale) {
-      setSelectedCountry(router.locale);
-    }
-  }, [router?.locale]);
+  const { pathname, asPath, query, locale } = router;
 
   const isDesktop = useMediaQuery('(min-width: 992px)');
-
-  const { pathname, asPath, query } = router;
+  useEffect(() => {
+    if (locale) {
+      setSelectedCountry(locale);
+    }
+  }, [locale]);
 
   const onClickLanguage = (country: string) => {
     setSelectedCountry(country);
