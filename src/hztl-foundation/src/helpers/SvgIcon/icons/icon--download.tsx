@@ -1,34 +1,35 @@
-/* eslint-disable prettier/prettier */
 const IconDownload = (): JSX.Element => {
   return (
     <>
-      <path
-        fill="none"
-        strokeLinejoin="miter"
-        strokeLinecap="butt"
-        strokeMiterlimit="4"
-        strokeWidth="120.4706"
-        stroke="#000"
-        d="M437.32 715.636v-715.636"
-      ></path>
-      <path
-        fill="none"
-        strokeLinejoin="miter"
-        strokeLinecap="butt"
-        strokeMiterlimit="4"
-        strokeWidth="120.4706"
-        stroke="#000"
-        d="M826.912 314.074l-393.579 393.578-393.58-393.578"
-      ></path>
-      <path
-        fill="none"
-        strokeLinejoin="miter"
-        strokeLinecap="butt"
-        strokeMiterlimit="4"
-        strokeWidth="120.4706"
-        stroke="#000"
-        d="M-0.002 954.189h874.671"
-      ></path>
+      <g>
+        <path
+          d="M12,17.7V.5"
+          fill="none"
+          fillRule="evenodd"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+        />
+        <path
+          d="M21.5,8.1l-9.5,9.5L2.5,8.1"
+          fill="none"
+          fillRule="evenodd"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+        />
+        <path
+          d="M1.5,23.5h21.1"
+          fill="none"
+          fillRule="evenodd"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+        />
+      </g>
     </>
   );
 };

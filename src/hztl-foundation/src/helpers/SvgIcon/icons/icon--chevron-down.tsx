@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 const IconChevronDown = (): JSX.Element => {
   return (
     <>

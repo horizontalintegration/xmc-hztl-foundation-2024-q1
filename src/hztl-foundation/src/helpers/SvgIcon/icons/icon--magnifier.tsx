@@ -1,13 +1,13 @@
-/* eslint-disable prettier/prettier */
 const IconMagnifier = (): JSX.Element => {
   return (
     <>
       <path
-        d="M14.75 14.75L10.25 10.25M11.75 6.5C11.75 9.39949 9.39949 11.75 6.5 11.75C3.60051 11.75 1.25 9.39949 1.25 6.5C1.25 3.60051 3.60051 1.25 6.5 1.25C9.39949 1.25 11.75 3.60051 11.75 6.5Z"
-        stroke="#2F2D2E"
-        strokeWidth="2"
+        d="M21.5,21.5l-6.3-6.3M17.3,9.9c0,4.1-3.3,7.4-7.4,7.4s-7.4-3.3-7.4-7.4,3.3-7.4,7.4-7.4,7.4,3.3,7.4,7.4Z"
+        fill="none"
+        stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
+        strokeWidth={2}
       />
     </>
   );
