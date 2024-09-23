@@ -37,15 +37,15 @@
   background-color: black;
 }
 
-.toggle-menu input[type='checkbox']:checked~.hamburger-lines .line1 {
+.toggle-menu input[type='checkbox']:checked ~ .hamburger-lines .line1 {
   transform: rotate(45deg);
 }
 
-.toggle-menu input[type='checkbox']:checked~.hamburger-lines .line2 {
+.toggle-menu input[type='checkbox']:checked ~ .hamburger-lines .line2 {
   transform: scaleY(0);
 }
 
-.toggle-menu input[type='checkbox']:checked~.hamburger-lines .line3 {
+.toggle-menu input[type='checkbox']:checked ~ .hamburger-lines .line3 {
   transform: rotate(-45deg);
 }
 
@@ -82,11 +82,11 @@ button[data-state='open'] .facets-accordian-arrow {
   background-size: 0 3px;
   background-position: 0 100%;
   background-repeat: no-repeat;
-  transition: background-size .5s ease-in-out;
+  transition: background-size 0.5s ease-in-out;
 }
 
 .header-link-black {
-  background-image: linear-gradient(transparent, transparent), linear-gradient(#000000, #000000)
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#000000, #000000);
 }
 
 .header-link:hover {
@@ -98,4 +98,12 @@ button[data-state='open'] .facets-accordian-arrow {
 
 .limit-counter {
   display: none;
+}
+
+/*carousel pagination dots*/
+.splide__pagination__page {
+  /* width: 1.0625em !important;
+  height: 1.0625em !important; */
+  border-radius: 50%;
+  border: 0.5px solid black !important;
 }

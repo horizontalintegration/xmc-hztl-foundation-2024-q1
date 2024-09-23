@@ -1,5 +1,6 @@
 // Global
 import { GetStaticComponentProps } from '@sitecore-jss/sitecore-jss-nextjs';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 // Lib
@@ -13,11 +14,10 @@ import HeaderDesktop from './HeaderDesktop';
 import HeaderMobile from './HeaderMobile';
 
 export const Default = (props: HeaderProps) => {
-  const { HeaderData } = props || {};
-
   const isDesktop = useMediaQuery('(min-width: 992px)');
+  const router = useRouter();
 
-  const defaultCountry = HeaderData?.item?.country?.targetItems?.[0]?.language?.jsonValue?.name;
+  const { pathname, asPath, query } = router;
 
   /*
    * STATE
@@ -26,12 +26,22 @@ export const Default = (props: HeaderProps) => {
   const [selectedCountry, setSelectedCountry] = useState('');
 
   /*
+   * EVENT HANDLERS
+   */
+
+  const onClickLanguage = (country: string) => {
+    setSelectedCountry(country);
+
+    router.push({ pathname, query }, asPath, { locale: country });
+  };
+
+  /*
    * LIFECYCLE
    */
 
   useEffect(() => {
-    if (defaultCountry) setSelectedCountry(defaultCountry);
-  }, [defaultCountry]);
+    if (router?.locale) setSelectedCountry(router?.locale);
+  }, [router?.locale]);
 
   /*
    * Rendering
@@ -47,13 +57,13 @@ export const Default = (props: HeaderProps) => {
         <HeaderMobile
           {...props}
           selectedCountry={selectedCountry}
-          setSelectedCountry={setSelectedCountry}
+          setSelectedCountry={(country) => onClickLanguage(country)}
         />
       ) : (
         <HeaderDesktop
           {...props}
           selectedCountry={selectedCountry}
-          setSelectedCountry={setSelectedCountry}
+          setSelectedCountry={(country) => onClickLanguage(country)}
         />
       )}
     </header>
@@ -62,6 +72,7 @@ export const Default = (props: HeaderProps) => {
 
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
   const graphQLClient = graphqlClientFactory({});
+
   const result = await graphQLClient.request<unknown>(HeaderQuery, {
     datasource: rendering.dataSource,
     params: rendering.params,
