@@ -22,7 +22,6 @@ SharedFields:
     {9A9AD175-E344-4981-B0DE-1CCD331E244C}
     {51E59991-8711-4229-AA31-1E24AF4C9045}
     {36029F86-71F2-4CF4-BB6A-B3B35CAF9306}
-    {36C557EB-2C49-4707-B68E-3845BC60F085}
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{3B1B96DC-D773-41C3-BF29-22D7FE941875}"
@@ -48,7 +47,7 @@ Languages:
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\arawat@horizontal.com
+        sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
       Value: 20240906T125607Z
