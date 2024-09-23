@@ -103,12 +103,12 @@ const ArticleHorizontalItemCard = ({
       className={`group flex flex-row flex-nowrap w-full relative gap-x-6 py-4 ${className}`}
     >
       <div className="w-[70%] space-y-2">
-        <span className="text-[12px] font-normal">Eyebrow</span>
+        <span className="text-[12px] font-normal">{article.eyebrow || 'Eyebrow'}</span>
         <ArticleCard.Title className="font-modern text-4xl font-bold line-clamp-1">
           {article.title || 'Headline'}
         </ArticleCard.Title>
-        <ArticleCard.Subtitle className="mt-3 font-bold text-[20px] line-clamp-1">
-          {article.name || 'Subhead'}
+        <ArticleCard.Subtitle className="mt-3 text-gray-500 text-[20px] font-normal line-clamp-1">
+          {article.subtitle || 'Subhead'}
         </ArticleCard.Subtitle>
         {article.description && displayText && (
           <div className="line-clamp-3 text-sm">{article.description}</div>
@@ -509,6 +509,7 @@ type ArticleModel = {
   content_text?: string;
   image_url?: string;
   source_id?: string;
+  eyebrow?: string;
 };
 
 type ArticleSearchResultsProps = {
