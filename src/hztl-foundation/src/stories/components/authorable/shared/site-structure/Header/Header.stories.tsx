@@ -24,6 +24,20 @@ const meta: Meta<typeof Default> = {
       </QueryClientProvider>
     ),
   ],
+  parameters: {
+    docs: {
+      description: {
+        component: `
+
+## Overview
+
+The Header component is a prominent section located at the top of a webpage that typically contains branding elements, primary navigation links, and sometimes user account controls (e.g., login/logout, profile settings). It serves as the first point of interaction for users, helping them navigate the website and understand the brand identity.
+## Usage
+
+Use the Header component to provide users with easy access to the main navigation of your site, such as links to key pages or sections (home, about, contact, etc.). It’s also the perfect place for displaying the company logo, search bars, and important user actions like account management or shopping cart icons. Ensure the header remains simple, intuitive, and responsive, particularly for mobile users. The header should remain consistent across the site for ease of use and help users orient themselves quickly.`,
+      },
+    },
+  },
 };
 
 export default meta;

@@ -77,7 +77,21 @@ const meta: Meta<ModalProps> = {
     /* eslint-disable  @typescript-eslint/no-explicit-any */
   } as any,
   component: Modal,
-  parameters: { controls: { sort: 'requiredFirst' } },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+
+## Overview
+
+The modal component uses a JSS Placeholder to define its content, and listens for changes to the URL hash and a specific hash value to trigger the a given modal to open. In editing mode, the modal's content will be presented inline, and the URL hash value will be presented to the content author.</p><p>
+## Usage
+
+`,
+      },
+    },
+    controls: { sort: 'requiredFirst' },
+  },
   title: 'Components/Authorable/Shared/hztl-page-content/Modal',
 };
 
@@ -94,7 +108,7 @@ export const Default: Story = {
     docs: {
       description: {
         story:
-          "<p>The modal component uses a JSS Placeholder to define its content, and listens for changes to the URL hash and a specific hash value to trigger the a given modal to open. In editing mode, the modal's content will be presented inline, and the URL hash value will be presented to the content author.</p><p><strong>NOTE: Due to Storybook's use of the iframe tag, Modal stories must be opened in a new tab to function correctly.</strong></p>",
+          "<p><strong>NOTE: Due to Storybook's use of the iframe tag, Modal stories must be opened in a new tab to function correctly.</strong></p>",
       },
     },
   },

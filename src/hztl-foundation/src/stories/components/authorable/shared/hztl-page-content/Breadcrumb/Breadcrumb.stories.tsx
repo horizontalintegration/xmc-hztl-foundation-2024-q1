@@ -12,6 +12,20 @@ const meta: Meta<typeof Default> = {
   title: 'Components/Authorable/shared/hztl-page-content/Breadcrumb',
   component: Default,
   argTypes: {},
+  parameters: {
+    docs: {
+      description: {
+        component: `
+
+## Overview
+
+The Breadcrumb component presents navigation conveying a page's location within the site hierarchy. It also provides a shortcut to explore similar content within the same section or category.
+## Usage
+
+Use it when you want to help users understand where they are within the site hierarchy and to provide them a way to navigate to parent pages.`,
+      },
+    },
+  },
 };
 
 export default meta;
