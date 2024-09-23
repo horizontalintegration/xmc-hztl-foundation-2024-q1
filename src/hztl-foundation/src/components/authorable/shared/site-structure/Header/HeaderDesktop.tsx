@@ -385,7 +385,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
                     selectedCountry={selectedCountry}
                     setSelectedCountry={setSelectedCountry}
                   />
-                  <div className="flex p-4">
+                  <div className="flex">
                     <PreviewSearchListComponent defaultItemsPerPage={5} rfkId={'rfkid_101'} />
                   </div>
                 </div>
