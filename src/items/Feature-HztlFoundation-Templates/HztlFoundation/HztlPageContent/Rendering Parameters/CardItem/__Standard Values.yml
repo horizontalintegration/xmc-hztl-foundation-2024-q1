@@ -2,7 +2,7 @@
 ID: "ddd80eb2-33d3-45dc-80df-922dd097133d"
 Parent: "c3ed0731-9d2b-4ec8-9494-760921cadd37"
 Template: "c3ed0731-9d2b-4ec8-9494-760921cadd37"
-Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Card/__Standard Values
+Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/CardItem/__Standard Values
 Languages:
 - Language: en
   Versions:
