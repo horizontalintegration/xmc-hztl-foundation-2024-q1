@@ -11,9 +11,7 @@ const config: StorybookConfig = {
     '@storybook/addon-onboarding',
     '@whitespace/storybook-addon-html',
   ],
-  docs: {
-    autodocs: 'tag',
-  },
+  docs: {},
   env: (config) => ({
     ...config,
     IS_STORYBOOK: 'true',

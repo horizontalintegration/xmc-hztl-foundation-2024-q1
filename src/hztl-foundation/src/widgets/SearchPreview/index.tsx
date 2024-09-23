@@ -8,7 +8,7 @@ import { WidgetDataType, usePreviewSearch, widget } from '@sitecore-search/react
 import { ArticleCard, Presence, PreviewSearch } from '@sitecore-search/ui';
 import { useEnsureSearchUrl } from './use-ensure-search-url';
 import { useRouter } from 'next/router';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { SvgIcon } from 'helpers/SvgIcon';
 
 type ArticleModel = {
   id: string;
@@ -132,7 +132,8 @@ export const PreviewSearchBasicComponent = ({
                 className="absolute inset-y-0 right-10 p-3 flex items-center cursor-pointer"
                 onClick={onResetText}
               >
-                <SvgIcon size="xs" viewBox="0 0 12 12" fill="none" icon="close" />
+                {/* HERE IS THE X ICON THAT SHOWS UP TO CLEAR SEARCH */}
+                <SvgIcon size="xxs" viewBox="6 6 12 12" fill="none" icon="close" />
               </div>
             )}
             <button
@@ -154,14 +155,14 @@ export const PreviewSearchBasicComponent = ({
       >
         {/* DISPLAY LOADING IF RESULTS ARE STILL NOT READY */}
         <Presence present={loading}>
-          <div className="flex flex-1 items-center">
+          <div className="flex flex-1 items-center p-4">
             <svg
               aria-busy={loading}
               aria-hidden={!loading}
               focusable="false"
               role="progressbar"
               viewBox="0 0 20 20"
-              className="block fill-red-600 m-auto h-[50px] w-[50px] animate-spin"
+              className="block fill-black-600 m-auto h-[25px] w-[25px] animate-spin"
             >
               <path d="M7.229 1.173a9.25 9.25 0 1 0 11.655 11.412 1.25 1.25 0 1 0-2.4-.698 6.75 6.75 0 1 1-8.506-8.329 1.25 1.25 0 1 0-.75-2.385z" />
             </svg>

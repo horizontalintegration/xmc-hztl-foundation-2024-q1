@@ -8,15 +8,15 @@ import { tv } from 'tailwind-variants';
 import { GtmEvent } from 'lib/utils/gtm-utils';
 
 // Local
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { SvgIcon } from 'helpers/SvgIcon';
 
-type ModalSize = 'extra-large' | 'fluid' | 'large' | 'medium' | 'small' | undefined;
+export type ModalSize = 'extra-large' | 'fluid' | 'large' | 'medium' | 'small' | undefined;
 
 export type ModalWrapperProps = {
   content: ReactNode;
   gtmEvent?: GtmEvent;
-  id: string;
-  label: string;
+  id?: string;
+  label?: string;
   openOnLoad?: boolean;
   size?: ModalSize;
   title?: ReactNode;
@@ -48,6 +48,7 @@ const modalWrapperStyles = tv({
       'bg-white',
       'border',
       'border-mild-gray',
+      'component',
       'flex',
       'flex-col',
       'gap-5',

@@ -106,6 +106,116 @@ export namespace HztlPageContent {
    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/AccordionItem Folder
    */
   export type AccordionItemFolderJson = {};
+
+  /**
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Article
+   */
+  export type Article = {
+    fields?: {
+      /**
+       * Represents the Description field (0f32a2fc-cf28-4638-b189-95f6dd595f03).
+       */
+      Description?: Field<string>;
+
+      /**
+       * Represents the Eyebrow field (190eb410-eace-4ecc-b85b-50bdbefbf3f1).
+       */
+      Eyebrow?: Field<string>;
+
+      /**
+       * Represents the Heading field (a5cefc0f-bf2e-4120-9e26-104984c5cfdb).
+       */
+      Heading?: Field<string>;
+
+      /**
+       * Represents the Image field (9ee80c54-b436-4242-83e5-f520d0a37a98).
+       */
+      Image?: ImageField;
+
+      /**
+       * Represents the ReadMoreCTA field (1d04bc72-ad20-4114-a08c-68a814b05a0f).
+       */
+      ReadMoreCTA?: LinkField;
+
+      /**
+       * Represents the Subheading field (3b7af112-333c-413f-8903-d0ad77a3f385).
+       */
+      Subheading?: Field<string>;
+    };
+  };
+
+  /**
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Article
+   */
+  export type ArticleJson = {
+    /**
+     * Represents the Description field (0f32a2fc-cf28-4638-b189-95f6dd595f03).
+     */
+    Description?: {
+      jsonValue: Field<string>;
+    };
+
+    /**
+     * Represents the Eyebrow field (190eb410-eace-4ecc-b85b-50bdbefbf3f1).
+     */
+    Eyebrow?: {
+      jsonValue: Field<string>;
+    };
+
+    /**
+     * Represents the Heading field (a5cefc0f-bf2e-4120-9e26-104984c5cfdb).
+     */
+    Heading?: {
+      jsonValue: Field<string>;
+    };
+
+    /**
+     * Represents the Image field (9ee80c54-b436-4242-83e5-f520d0a37a98).
+     */
+    Image?: {
+      jsonValue: ImageField;
+    };
+
+    /**
+     * Represents the ReadMoreCTA field (1d04bc72-ad20-4114-a08c-68a814b05a0f).
+     */
+    ReadMoreCTA?: {
+      jsonValue: LinkField;
+    };
+
+    /**
+     * Represents the Subheading field (3b7af112-333c-413f-8903-d0ad77a3f385).
+     */
+    Subheading?: {
+      jsonValue: Field<string>;
+    };
+  };
+}
+export namespace HztlPageContent.RenderingParameters {
+  /**
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Article
+   */
+  export type Article = {
+    fields?: {};
+  };
+
+  /**
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Article
+   */
+  export type ArticleJson = {};
+}
+export namespace HztlPageContent {
+  /**
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Articles Folder
+   */
+  export type ArticlesFolder = {
+    fields?: {};
+  };
+
+  /**
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Articles Folder
+   */
+  export type ArticlesFolderJson = {};
 }
 export namespace HztlPageContent.RenderingParameters {
   /**
@@ -122,9 +232,81 @@ export namespace HztlPageContent.RenderingParameters {
 }
 export namespace HztlPageContent {
   /**
-   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Card
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Caption
    */
-  export type Card = {
+  export type Caption = {
+    fields?: {
+      /**
+       * Represents the isDefault? field (e48178f9-19be-4e0f-881d-9009c051d70c).
+       */
+      isDefault?: Field<boolean>;
+
+      /**
+       * Represents the Label field (7e9570fc-a9f7-4a0c-be6b-68889fcad437).
+       */
+      label?: Field<string>;
+
+      /**
+       * Represents the Source field (dbb5123b-b004-47d7-a96c-2e06139c7435).
+       */
+      src?: FileField;
+
+      /**
+       * Represents the Source Language field (b788847d-6e3f-4772-b6d5-67a1330dcf28).
+       */
+      srclang?: Field<string>;
+    };
+  };
+
+  /**
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Caption
+   */
+  export type CaptionJson = {
+    /**
+     * Represents the isDefault? field (e48178f9-19be-4e0f-881d-9009c051d70c).
+     */
+    isDefault?: {
+      jsonValue: Field<boolean>;
+    };
+
+    /**
+     * Represents the Label field (7e9570fc-a9f7-4a0c-be6b-68889fcad437).
+     */
+    label?: {
+      jsonValue: Field<string>;
+    };
+
+    /**
+     * Represents the Source field (dbb5123b-b004-47d7-a96c-2e06139c7435).
+     */
+    src?: {
+      jsonValue: FileField;
+    };
+
+    /**
+     * Represents the Source Language field (b788847d-6e3f-4772-b6d5-67a1330dcf28).
+     */
+    srclang?: {
+      jsonValue: Field<string>;
+    };
+  };
+
+  /**
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Caption Folder
+   */
+  export type CaptionFolder = {
+    fields?: {};
+  };
+
+  /**
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Caption Folder
+   */
+  export type CaptionFolderJson = {};
+
+  /**
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardItem
+   */
+  export type CardItem = {
     fields?: {
       /**
        * Represents the Text field (d7b576b3-7bea-46e6-bb0a-49edb06481d7).
@@ -164,9 +346,9 @@ export namespace HztlPageContent {
   };
 
   /**
-   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Card
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardItem
    */
-  export type CardJson = {
+  export type CardItemJson = {
     /**
      * Represents the Text field (d7b576b3-7bea-46e6-bb0a-49edb06481d7).
      */
@@ -219,29 +401,29 @@ export namespace HztlPageContent {
 }
 export namespace HztlPageContent.RenderingParameters {
   /**
-   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Card
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/CardItem
    */
-  export type Card = {
+  export type CardItem = {
     fields?: {};
   };
 
   /**
-   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Card
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/CardItem
    */
-  export type CardJson = {};
+  export type CardItemJson = {};
 }
 export namespace HztlPageContent {
   /**
-   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Card Folder
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardItem Folder
    */
-  export type CardFolder = {
+  export type CardItemFolder = {
     fields?: {};
   };
 
   /**
-   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Card Folder
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/CardItem Folder
    */
-  export type CardFolderJson = {};
+  export type CardItemFolderJson = {};
 }
 export namespace HztlPageContent.RenderingParameters {
   /**
@@ -952,6 +1134,163 @@ export namespace HztlPageContent {
    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Hero Folder
    */
   export type HeroFolderJson = {};
+
+  /**
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/InlineVideo
+   */
+  export type InlineVideo = {
+    fields?: {
+      /**
+       * Represents the Autoplay field (71ac9499-279b-40c7-b7c6-8829a95f76e2).
+       */
+      autoplay?: Field<boolean>;
+
+      /**
+       * Represents the Select Captions field (2f82dc62-02c1-458f-a1f2-9ac7ffe5fb0d).
+       */
+      captions?: Item[];
+
+      /**
+       * Represents the Controls field (c155ea28-3deb-4948-98b3-7c0b06d040b5).
+       */
+      controls?: Field<boolean>;
+
+      /**
+       * Represents the Fluid field (890f71e6-63b9-473a-8487-9202a0944fea).
+       */
+      fluid?: Field<boolean>;
+
+      /**
+       * Represents the Video Height field (2908b616-53bb-4c70-8aad-345cf018d044).
+       */
+      height?: Field<string>;
+
+      /**
+       * Represents the Enable Loop field (e828907b-c5d8-4422-879f-5b8ef2fd7c1c).
+       */
+      loop?: Field<boolean>;
+
+      /**
+       * Represents the Muted field (fe007238-6cd4-4576-9458-7f439c1dad62).
+       */
+      muted?: Field<boolean>;
+
+      /**
+       * Represents the Video Poster field (bcbef63b-ce1a-48e7-8ff0-4564538748d2).
+       */
+      poster?: ImageField;
+
+      /**
+       * Represents the Select Video Sources field (c08700f2-c7e7-4b12-a129-04614669d882).
+       */
+      sources?: Item[];
+
+      /**
+       * Represents the Select Subtitles field (dd2763f2-7df0-4810-96da-c51c8c48bc23).
+       */
+      subtitles?: Item[];
+
+      /**
+       * Represents the Video Width field (ce97a913-c4b8-44bd-aa60-b8910b5b7671).
+       */
+      width?: Field<string>;
+    };
+  };
+
+  /**
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/InlineVideo
+   */
+  export type InlineVideoJson = {
+    /**
+     * Represents the Autoplay field (71ac9499-279b-40c7-b7c6-8829a95f76e2).
+     */
+    autoplay?: {
+      jsonValue: Field<boolean>;
+    };
+
+    /**
+     * Represents the Select Captions field (2f82dc62-02c1-458f-a1f2-9ac7ffe5fb0d).
+     */
+    captions?: {
+      jsonValue: Item[];
+    };
+
+    /**
+     * Represents the Controls field (c155ea28-3deb-4948-98b3-7c0b06d040b5).
+     */
+    controls?: {
+      jsonValue: Field<boolean>;
+    };
+
+    /**
+     * Represents the Fluid field (890f71e6-63b9-473a-8487-9202a0944fea).
+     */
+    fluid?: {
+      jsonValue: Field<boolean>;
+    };
+
+    /**
+     * Represents the Video Height field (2908b616-53bb-4c70-8aad-345cf018d044).
+     */
+    height?: {
+      jsonValue: Field<string>;
+    };
+
+    /**
+     * Represents the Enable Loop field (e828907b-c5d8-4422-879f-5b8ef2fd7c1c).
+     */
+    loop?: {
+      jsonValue: Field<boolean>;
+    };
+
+    /**
+     * Represents the Muted field (fe007238-6cd4-4576-9458-7f439c1dad62).
+     */
+    muted?: {
+      jsonValue: Field<boolean>;
+    };
+
+    /**
+     * Represents the Video Poster field (bcbef63b-ce1a-48e7-8ff0-4564538748d2).
+     */
+    poster?: {
+      jsonValue: ImageField;
+    };
+
+    /**
+     * Represents the Select Video Sources field (c08700f2-c7e7-4b12-a129-04614669d882).
+     */
+    sources?: {
+      jsonValue: Item[];
+    };
+
+    /**
+     * Represents the Select Subtitles field (dd2763f2-7df0-4810-96da-c51c8c48bc23).
+     */
+    subtitles?: {
+      jsonValue: Item[];
+    };
+
+    /**
+     * Represents the Video Width field (ce97a913-c4b8-44bd-aa60-b8910b5b7671).
+     */
+    width?: {
+      jsonValue: Field<string>;
+    };
+  };
+}
+export namespace HztlPageContent.RenderingParameters {
+  /**
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/InlineVideo
+   */
+  export type InlineVideo = {
+    fields?: {};
+  };
+
+  /**
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/InlineVideo
+   */
+  export type InlineVideoJson = {};
 }
 export namespace SiteStructure.Footer {
   /**
@@ -1063,7 +1402,155 @@ export namespace SiteStructure.Header {
       jsonValue: Field<string>;
     };
   };
+}
+export namespace HztlPageContent {
+  /**
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Modal
+   */
+  export type Modal = {
+    fields?: {
+      /**
+       * Represents the ID field (331968d5-bbd9-456f-aadc-1d38f07ccb41).
+       */
+      id?: Field<string>;
 
+      /**
+       * Represents the Label field (abf7dbc9-bb80-4d33-b15d-04188dc6e027).
+       */
+      label?: Field<string>;
+
+      /**
+       * Represents the Open OnLoad field (27706ce8-a10b-489b-ad0c-4bd2e685faaa).
+       */
+      openOnLoad?: Field<boolean>;
+
+      /**
+       * Represents the Modal Size field (00a5b2be-d942-469d-b348-1dea6839fbe1).
+       */
+      size?: Item;
+
+      /**
+       * Represents the Modal Title field (392a9b53-e3e9-4cf7-8863-c7a57caafa2d).
+       */
+      title?: Field<string>;
+
+      /**
+       * Represents the Trigger field (737891b0-d2c7-4dbc-a090-b140aaf8948a).
+       */
+      trigger?: Field<string>;
+    };
+  };
+
+  /**
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Modal
+   */
+  export type ModalJson = {
+    /**
+     * Represents the ID field (331968d5-bbd9-456f-aadc-1d38f07ccb41).
+     */
+    id?: {
+      jsonValue: Field<string>;
+    };
+
+    /**
+     * Represents the Label field (abf7dbc9-bb80-4d33-b15d-04188dc6e027).
+     */
+    label?: {
+      jsonValue: Field<string>;
+    };
+
+    /**
+     * Represents the Open OnLoad field (27706ce8-a10b-489b-ad0c-4bd2e685faaa).
+     */
+    openOnLoad?: {
+      jsonValue: Field<boolean>;
+    };
+
+    /**
+     * Represents the Modal Size field (00a5b2be-d942-469d-b348-1dea6839fbe1).
+     */
+    size?: {
+      jsonValue: Item;
+    };
+
+    /**
+     * Represents the Modal Title field (392a9b53-e3e9-4cf7-8863-c7a57caafa2d).
+     */
+    title?: {
+      jsonValue: Field<string>;
+    };
+
+    /**
+     * Represents the Trigger field (737891b0-d2c7-4dbc-a090-b140aaf8948a).
+     */
+    trigger?: {
+      jsonValue: Field<string>;
+    };
+  };
+}
+export namespace HztlPageContent.RenderingParameters {
+  /**
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Modal
+   */
+  export type Modal = {
+    fields?: {};
+  };
+
+  /**
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Modal
+   */
+  export type ModalJson = {};
+}
+export namespace HztlPageContent {
+  /**
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Modal Folder
+   */
+  export type ModalFolder = {
+    fields?: {};
+  };
+
+  /**
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Modal Folder
+   */
+  export type ModalFolderJson = {};
+
+  /**
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Modal Size Folder
+   */
+  export type ModalSizeFolder = {
+    fields?: {};
+  };
+
+  /**
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Modal Size Folder
+   */
+  export type ModalSizeFolderJson = {};
+
+  /**
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/ModalSize
+   */
+  export type ModalSize = {
+    fields?: {
+      /**
+       * Represents the Label Size field (fafa04d5-4881-4fda-b659-0e09a24ff4e4).
+       */
+      SizeLabel?: Field<string>;
+    };
+  };
+
+  /**
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/ModalSize
+   */
+  export type ModalSizeJson = {
+    /**
+     * Represents the Label Size field (fafa04d5-4881-4fda-b659-0e09a24ff4e4).
+     */
+    SizeLabel?: {
+      jsonValue: Field<string>;
+    };
+  };
+}
+export namespace SiteStructure.Header {
   /**
    * Represents the template /sitecore/templates/Feature/HztlFoundation/SiteStructure/Header/Navigation Group
    */
@@ -1337,127 +1824,77 @@ export namespace SiteStructure.Footer {
 }
 export namespace HztlPageContent {
   /**
-   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Video
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Subtitle
    */
-  export type Video = {
+  export type Subtitle = {
     fields?: {
       /**
-       * Represents the Auto Play field (cc9ff798-2632-4dd7-8232-d0ed4eec610a).
+       * Represents the isDefault ? field (85cd1f33-85cd-4da6-85b0-b213c3a75bd4).
        */
-      AutoPlay?: Field<boolean>;
+      isDefault?: Field<boolean>;
 
       /**
-       * Represents the Description field (134d9bd4-2c2a-4e9e-bab2-db2d28b95e91).
+       * Represents the Label field (f7be5a20-ce79-409b-8a01-b17bc29a055f).
        */
-      Description?: Field<string>;
+      label?: Field<string>;
 
       /**
-       * Represents the Launch Video Label field (7309f54e-30f9-4f91-9b3f-823d19c0d02c).
+       * Represents the Source field (d5bd3e9f-194b-4174-a0e2-718fe3fc5d50).
        */
-      LaunchVideoLabel?: Field<string>;
+      src?: FileField;
 
       /**
-       * Represents the Loop field (78172cff-d1e4-4d25-b975-571720c4d851).
+       * Represents the Source Language field (572aa920-c1b1-432d-b048-be263cf743c0).
        */
-      Loop?: Field<boolean>;
-
-      /**
-       * Represents the Open In Modal field (63902d6a-ce74-4da9-9e28-a0aa20941447).
-       */
-      OpenInModal?: Field<boolean>;
-
-      /**
-       * Represents the Select Video File field (b8501628-ca79-4ece-a335-96b9737bb2d0).
-       */
-      SelectFile?: FileField;
-
-      /**
-       * Represents the Title field (5730fada-fbf4-45ba-bbeb-8aecc5f19a2b).
-       */
-      Title?: Field<string>;
-
-      /**
-       * Represents the YouTube ID field (afab73e8-9129-47b2-b665-fcc338e6dd38).
-       */
-      YoutubeId?: Field<string>;
+      srclang?: Field<string>;
     };
   };
 
   /**
-   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Video
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Subtitle
    */
-  export type VideoJson = {
+  export type SubtitleJson = {
     /**
-     * Represents the Auto Play field (cc9ff798-2632-4dd7-8232-d0ed4eec610a).
+     * Represents the isDefault ? field (85cd1f33-85cd-4da6-85b0-b213c3a75bd4).
      */
-    AutoPlay?: {
+    isDefault?: {
       jsonValue: Field<boolean>;
     };
 
     /**
-     * Represents the Description field (134d9bd4-2c2a-4e9e-bab2-db2d28b95e91).
+     * Represents the Label field (f7be5a20-ce79-409b-8a01-b17bc29a055f).
      */
-    Description?: {
+    label?: {
       jsonValue: Field<string>;
     };
 
     /**
-     * Represents the Launch Video Label field (7309f54e-30f9-4f91-9b3f-823d19c0d02c).
+     * Represents the Source field (d5bd3e9f-194b-4174-a0e2-718fe3fc5d50).
      */
-    LaunchVideoLabel?: {
-      jsonValue: Field<string>;
-    };
-
-    /**
-     * Represents the Loop field (78172cff-d1e4-4d25-b975-571720c4d851).
-     */
-    Loop?: {
-      jsonValue: Field<boolean>;
-    };
-
-    /**
-     * Represents the Open In Modal field (63902d6a-ce74-4da9-9e28-a0aa20941447).
-     */
-    OpenInModal?: {
-      jsonValue: Field<boolean>;
-    };
-
-    /**
-     * Represents the Select Video File field (b8501628-ca79-4ece-a335-96b9737bb2d0).
-     */
-    SelectFile?: {
+    src?: {
       jsonValue: FileField;
     };
 
     /**
-     * Represents the Title field (5730fada-fbf4-45ba-bbeb-8aecc5f19a2b).
+     * Represents the Source Language field (572aa920-c1b1-432d-b048-be263cf743c0).
      */
-    Title?: {
-      jsonValue: Field<string>;
-    };
-
-    /**
-     * Represents the YouTube ID field (afab73e8-9129-47b2-b665-fcc338e6dd38).
-     */
-    YoutubeId?: {
+    srclang?: {
       jsonValue: Field<string>;
     };
   };
-}
-export namespace HztlPageContent.RenderingParameters {
+
   /**
-   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Video
+   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Subtitle Folder
    */
-  export type Video = {
+  export type SubtitleFolder = {
     fields?: {};
   };
 
   /**
-   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Rendering Parameters/Video
+   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Subtitle Folder
    */
-  export type VideoJson = {};
-}
-export namespace HztlPageContent {
+  export type SubtitleFolderJson = {};
+
   /**
    * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Video Folder
    */
@@ -1506,6 +1943,25 @@ export namespace HztlPageContent.Constants {
 
     BaseTemplateIds: [],
   };
+  export const Article = {
+    TemplateId: 'a0c50e61-fbf6-46d9-8fc6-8bad51c43b27',
+
+    BaseTemplateIds: [],
+  };
+}
+export namespace HztlPageContent.RenderingParameters.Constants {
+  export const Article = {
+    TemplateId: '5148d5b4-8fbd-4f02-a7aa-403c6827d92c',
+
+    BaseTemplateIds: [],
+  };
+}
+export namespace HztlPageContent.Constants {
+  export const ArticlesFolder = {
+    TemplateId: 'bf0d9dd3-56f0-4ca1-b373-0cb353be3d6b',
+
+    BaseTemplateIds: [],
+  };
 }
 export namespace HztlPageContent.RenderingParameters.Constants {
   export const Breadcrumb = {
@@ -1515,21 +1971,31 @@ export namespace HztlPageContent.RenderingParameters.Constants {
   };
 }
 export namespace HztlPageContent.Constants {
-  export const Card = {
+  export const Caption = {
+    TemplateId: '2cd23443-319d-4dba-867b-a20d89c62ca4',
+
+    BaseTemplateIds: [],
+  };
+  export const CaptionFolder = {
+    TemplateId: 'ccbbcefb-59af-446d-ba0c-e4a4f07ab3e9',
+
+    BaseTemplateIds: [],
+  };
+  export const CardItem = {
     TemplateId: '3a7d27e5-b935-46da-b8fb-fe1e260957d8',
 
     BaseTemplateIds: [],
   };
 }
 export namespace HztlPageContent.RenderingParameters.Constants {
-  export const Card = {
+  export const CardItem = {
     TemplateId: 'c3ed0731-9d2b-4ec8-9494-760921cadd37',
 
     BaseTemplateIds: [],
   };
 }
 export namespace HztlPageContent.Constants {
-  export const CardFolder = {
+  export const CardItemFolder = {
     TemplateId: '315c2094-ebe1-45d3-b7f6-c57fec3d057c',
 
     BaseTemplateIds: [],
@@ -1642,6 +2108,18 @@ export namespace HztlPageContent.Constants {
 
     BaseTemplateIds: [],
   };
+  export const InlineVideo = {
+    TemplateId: '5da29931-8225-44fb-bb4a-95a709fdd3ca',
+
+    BaseTemplateIds: [],
+  };
+}
+export namespace HztlPageContent.RenderingParameters.Constants {
+  export const InlineVideo = {
+    TemplateId: 'c6f82986-4451-4b9e-b4c6-43c9a7eef1bd',
+
+    BaseTemplateIds: [],
+  };
 }
 export namespace SiteStructure.Footer.Constants {
   export const LegalInfo = {
@@ -1668,6 +2146,39 @@ export namespace SiteStructure.Header.Constants {
 
     BaseTemplateIds: [],
   };
+}
+export namespace HztlPageContent.Constants {
+  export const Modal = {
+    TemplateId: '38df8869-da3e-4248-855c-5b2d232e8e53',
+
+    BaseTemplateIds: [],
+  };
+}
+export namespace HztlPageContent.RenderingParameters.Constants {
+  export const Modal = {
+    TemplateId: '587d5d1e-7779-4593-bae3-12b8e751b984',
+
+    BaseTemplateIds: [],
+  };
+}
+export namespace HztlPageContent.Constants {
+  export const ModalFolder = {
+    TemplateId: 'd7585a9a-c415-4901-a91e-568606eda847',
+
+    BaseTemplateIds: [],
+  };
+  export const ModalSizeFolder = {
+    TemplateId: '7a23ac4a-9d1f-4ab0-a7d6-d6cddffee4e5',
+
+    BaseTemplateIds: [],
+  };
+  export const ModalSize = {
+    TemplateId: '48717be4-bf42-4610-9957-ed26f14e9c0c',
+
+    BaseTemplateIds: [],
+  };
+}
+export namespace SiteStructure.Header.Constants {
   export const NavigationGroup = {
     TemplateId: '7b95a120-283b-474a-a839-6e06409c23a9',
 
@@ -1734,20 +2245,16 @@ export namespace SiteStructure.Footer.Constants {
   };
 }
 export namespace HztlPageContent.Constants {
-  export const Video = {
-    TemplateId: 'a3b32791-b568-49f1-b923-ceb5a9885fbe',
+  export const Subtitle = {
+    TemplateId: '2b077662-0af4-4f9e-881e-45b9e100ca52',
 
     BaseTemplateIds: [],
   };
-}
-export namespace HztlPageContent.RenderingParameters.Constants {
-  export const Video = {
-    TemplateId: 'c6f82986-4451-4b9e-b4c6-43c9a7eef1bd',
+  export const SubtitleFolder = {
+    TemplateId: '75ab253c-631c-4f97-aec9-261130a2ae0a',
 
     BaseTemplateIds: [],
   };
-}
-export namespace HztlPageContent.Constants {
   export const VideoFolder = {
     TemplateId: '448910ae-0623-4221-888e-397b0dcfd793',
 
