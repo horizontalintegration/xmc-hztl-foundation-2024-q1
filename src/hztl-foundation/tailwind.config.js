@@ -7,19 +7,18 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
 
   safelist: [
-    // Layout section classes
     {
-      pattern: /self-(start|center|end)/, // Matches self-start, self-center, self-end
-      variants: ['', 'md', 'lg', 'xl', '2xl'], // Responsive variants
+      pattern: /self-(start|center|end)/,
+      variants: ['', 'md', 'lg', 'xl', '2xl'],
     },
     {
-      pattern: /ml-(0|auto)|mr-(0|auto)|mx-auto/, // Matches ml-0, mr-auto, mx-auto
-      variants: ['', 'md', 'lg', 'xl', '2xl'], // Responsive variants
+      pattern: /ml-(0|auto)|mr-(0|auto)|mx-auto/,
+      variants: ['', 'md', 'lg', 'xl', '2xl'],
     },
     {
       pattern:
-        /^(inline|inline-block|block|flex|inline-flex|table|table-row|table-cell|hidden|basic-full)$/, // Matches inline, inline-block, block, flex, inline-flex, table, table-row, table-cell, hidden and basic-full
-      variants: ['', 'sm', 'md', 'lg', 'xl', '2xl'], // Responsive variants
+        /^(inline|inline-block|block|flex|inline-flex|table|table-row|table-cell|hidden|basic-full)$/,
+      variants: ['', 'sm', 'md', 'lg', 'xl', '2xl'],
     },
   ],
   theme: {

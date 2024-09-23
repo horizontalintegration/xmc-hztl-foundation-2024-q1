@@ -39,17 +39,26 @@ export type HeroProps = ComponentProps & HztlPageContent.Hero;
 
 const Hero = (props: HeroProps): JSX.Element => {
   const { cta1Link, cta2Link, Description, Heading, Image } = props?.fields || {};
+  const { GridParameters } = props?.params || {};
+
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
-  const gridParameters = props.params?.GridParameters;
+
+  /*
+   * Rendering
+   */
+
+  const modifiedTailwindVariants = tv({
+    extend: TAILWIND_VARIANTS,
+    slots: {
+      base: GridParameters,
+    },
+  });
 
   const { base, columnA, columnB, contentContainer, ctaContainer, description, heading } =
-    TAILWIND_VARIANTS();
+    modifiedTailwindVariants();
 
   return (
-    <section
-      className={`${base()} ${gridParameters}`}
-      data-component="authorable/shared/hztml-page-content/hero"
-    >
+    <section className={base()} data-component="authorable/shared/hztml-page-content/hero">
       <div className={columnA()}>
         <div className={contentContainer()}>
           <PlainTextWrapper className={heading()} field={Heading} tag="h1" />
