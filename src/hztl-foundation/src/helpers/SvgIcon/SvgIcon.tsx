@@ -11,7 +11,11 @@ import { tv } from 'tailwind-variants';
  * using the naming scheme 'icon--[name].tsx'
  */
 
-export type IconTypes =
+type SvgFill = 'currentColor' | 'none';
+
+export type SvgIconSize = 'xxs' | 'xs' | 'sm' | 'md' | 'em' | 'lg';
+
+export type SvgIconTypes =
   | undefined
   | 'arrow-left'
   | 'arrow-right'
@@ -21,21 +25,16 @@ export type IconTypes =
   | 'download'
   | 'magnifier'
   | 'new-window'
-  | 'outline-search'
   | 'pause'
   | 'play'
   | 'plus'
   | 'refine'
   | 'sorting';
 
-export type SvgIconSize = 'xxs' | 'xs' | 'sm' | 'md' | 'em' | 'lg';
-
-export type SVGFill = 'currentColor' | 'none';
-
 export interface SvgIconProps {
   className?: string;
-  fill?: SVGFill;
-  icon: IconTypes;
+  fill?: SvgFill;
+  icon: SvgIconTypes;
   size?: SvgIconSize;
   viewBox?: string;
 }
