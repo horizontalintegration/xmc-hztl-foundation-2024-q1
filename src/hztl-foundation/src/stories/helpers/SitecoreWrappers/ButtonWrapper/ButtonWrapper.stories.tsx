@@ -40,7 +40,19 @@ const meta: Meta<ButtonWrapperProps> = {
       options: ['button', 'reset', 'submit'],
     },
   },
-  parameters: { controls: { sort: 'requiredFirst' } },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+## Overview
+The Button Wrapper component provides a container for buttons, managing their alignment, spacing, and responsive behavior within a layout. It can hold multiple buttons and ensures consistent styling and placement across different screen sizes.
+
+## Usage
+Use the Button Wrapper when you need to group one or more buttons together in a structured format, such as for forms, toolbars, or call-to-action sections. It ensures that buttons are evenly spaced, aligned, and responsive, enhancing user interaction and visual clarity.`,
+      },
+    },
+    controls: { sort: 'requiredFirst' },
+  },
   tags: ['autodocs'],
   title: 'Helpers/Sitecore Wrappers/Button Wrapper',
 };
