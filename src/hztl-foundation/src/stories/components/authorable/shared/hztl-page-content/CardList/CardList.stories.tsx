@@ -12,6 +12,20 @@ const meta: Meta<CardListProps> = {
   argTypes: {},
   component: Default,
   title: 'Components/Authorable/shared/hztl-page-content/Card List',
+  parameters: {
+    docs: {
+      description: {
+        component: `
+## Overview
+
+The Card List component displays a collection of individual cards, each representing distinct content or actions. It provides a visually organized layout to help users quickly scan and engage with multiple items, such as products, services, or articles, at once.
+
+## Usage
+
+Use the Card List when you want to showcase multiple related items in a grid or list format. This component is ideal for highlighting products, displaying blog summaries, listing services, or presenting options in a visually engaging and easy-to-navigate manner.`,
+      },
+    },
+  },
 };
 
 export default meta;

@@ -62,7 +62,20 @@ const meta: Meta<LinkWrapperProps> = {
     },
     /* eslint-disable  @typescript-eslint/no-explicit-any */
   } as any,
-  parameters: { controls: { sort: 'requiredFirst' } },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+## Overview
+
+The Link Wrapper component serves as a container for links, providing structure, styling, and consistent behavior across a layout. It ensures that hyperlinks are properly formatted, accessible, and responsive to user interactions, while supporting features like tooltips, icons, or button-like appearances.
+## Usage
+
+Use the Link Wrapper when you need to organize and style multiple links within a specific section, such as navigation menus, footers, or call-to-action areas. It is ideal for grouping related links together, ensuring they are easy to identify, interact with, and accessible across all devices and screen sizes.`,
+      },
+    },
+    controls: { sort: 'requiredFirst' },
+  },
   tags: ['autodocs'],
   title: 'Helpers/Sitecore Wrappers/Link Wrapper',
 };

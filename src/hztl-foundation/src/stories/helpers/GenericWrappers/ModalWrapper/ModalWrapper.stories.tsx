@@ -88,7 +88,20 @@ const meta: Meta<ModalWrapperProps> = {
     /* eslint-disable  @typescript-eslint/no-explicit-any */
   } as any,
   component: ModalWrapper,
-  parameters: { controls: { sort: 'requiredFirst' } },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+## Overview
+
+The Modal Wrapper component provides the framework for displaying modal dialogs, which are overlay elements that focus the user’s attention on a specific task or piece of content. It serves as a container for modals, ensuring proper positioning, accessibility, and backdrop control.
+## Usage
+
+Use the Modal Wrapper when you need to display content or interactions that require the user's full attention without navigating away from the current page. It is ideal for forms, confirmations, alerts, or any content that needs to be emphasized temporarily while restricting interaction with the background.`,
+      },
+    },
+    controls: { sort: 'requiredFirst' },
+  },
   tags: ['autodocs'],
   title: 'Helpers/Generic Wrappers/Modal Wrapper',
 };
