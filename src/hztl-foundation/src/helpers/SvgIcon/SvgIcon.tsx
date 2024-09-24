@@ -34,10 +34,10 @@ export type SVGFill = 'currentColor' | 'none';
 
 export interface SvgIconProps {
   className?: string;
-  fill?: SVGFill;
+  fill?: SVGFill; // The "fill" attribute must be applied to individual <path /> tags in order to be effective. Applying it to <svg /> does nothing.
   icon: IconTypes;
   size?: SvgIconSize;
-  viewBox?: string;
+  viewBox?: string; // This could pretty easily be hard coded as the "size" attribute is doing the hard work here.
 }
 
 const TAILWIND_VARIANTS = tv({

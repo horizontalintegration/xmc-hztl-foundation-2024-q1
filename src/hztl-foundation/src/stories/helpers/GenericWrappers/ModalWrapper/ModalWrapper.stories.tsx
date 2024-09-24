@@ -93,10 +93,9 @@ const meta: Meta<ModalWrapperProps> = {
       description: {
         component: `
 ## Overview
-
 The Modal Wrapper component provides the framework for displaying modal dialogs, which are overlay elements that focus the user’s attention on a specific task or piece of content. It serves as a container for modals, ensuring proper positioning, accessibility, and backdrop control.
-## Usage
 
+## Usage
 Use the Modal Wrapper when you need to display content or interactions that require the user's full attention without navigating away from the current page. It is ideal for forms, confirmations, alerts, or any content that needs to be emphasized temporarily while restricting interaction with the background.`,
       },
     },

@@ -33,22 +33,40 @@ const meta: Meta<LinkWrapperProps> = {
     },
     className: { description: 'Can be used to apply custom Tailwind CSS selectors to a link.' },
     editable: { control: 'boolean' },
-    field: { table: { disable: true } },
     'field.value.href': {
       description: 'The URI for the link.',
       optional: false,
+      table: {
+        category: 'fields',
+      },
     },
     'field.value.linktype': {
       control: 'select',
       options: ['external'],
+      table: {
+        category: 'fields',
+      },
     },
     'field.value.target': {
       control: 'select',
       description: 'The target for the link.',
       options: ['_blank', '_self', '_parent', '_top'],
+      table: {
+        category: 'fields',
+      },
     },
-    'field.value.text': { description: 'The text for the link.' },
-    'field.value.title': { description: 'The title for the link.' },
+    'field.value.text': {
+      description: 'The text for the link.',
+      table: {
+        category: 'fields',
+      },
+    },
+    'field.value.title': {
+      description: 'The title for the link.',
+      table: {
+        category: 'fields',
+      },
+    },
     showLinkTextWithChildrenPresent: { control: 'boolean' },
     srOnlyText: {
       description:
@@ -67,10 +85,9 @@ const meta: Meta<LinkWrapperProps> = {
       description: {
         component: `
 ## Overview
-
 The Link Wrapper component serves as a container for links, providing structure, styling, and consistent behavior across a layout. It ensures that hyperlinks are properly formatted, accessible, and responsive to user interactions, while supporting features like tooltips, icons, or button-like appearances.
-## Usage
 
+## Usage
 Use the Link Wrapper when you need to organize and style multiple links within a specific section, such as navigation menus, footers, or call-to-action areas. It is ideal for grouping related links together, ensuring they are easy to identify, interact with, and accessible across all devices and screen sizes.`,
       },
     },

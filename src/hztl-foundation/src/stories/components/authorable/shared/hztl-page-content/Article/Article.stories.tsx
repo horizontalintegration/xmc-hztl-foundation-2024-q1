@@ -17,10 +17,9 @@ const meta: Meta<typeof Default> = {
       description: {
         component: `
 ## Overview
-
 The Article component is designed to present detailed written content, such as blog posts, news stories, or long-form informational pieces. It includes sections for headings, paragraphs, images, and other multimedia to create a cohesive and engaging reading experience.
-## Usage
 
+## Usage
 Use the Article component when you need to deliver in-depth information on a specific topic. This component is ideal for blog posts, news articles, case studies, and editorial content, allowing users to consume large bodies of text while offering a structured and easily readable format.`,
       },
     },

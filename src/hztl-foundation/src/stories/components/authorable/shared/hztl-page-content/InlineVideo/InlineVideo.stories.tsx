@@ -111,6 +111,31 @@ const meta: Meta<InlineVideoProps> = {
         category: 'fields',
       },
     },
+    'params.DynamicPlaceholderId': {
+      table: {
+        category: 'params',
+      },
+    },
+    'params.FieldNames': {
+      table: {
+        category: 'params',
+      },
+    },
+    'params.GridParameters': {
+      table: {
+        category: 'params',
+      },
+    },
+    'rendering.componentName': {
+      table: {
+        category: 'rendering',
+      },
+    },
+    'rendering.dataSource': {
+      table: {
+        category: 'rendering',
+      },
+    },
     /* eslint-disable  @typescript-eslint/no-explicit-any */
   } as any,
   component: InlineVideo,
@@ -119,12 +144,10 @@ const meta: Meta<InlineVideoProps> = {
     docs: {
       description: {
         component: `
-
 ## Overview
-
 The Inline Video component embeds a video directly within the content of a page, allowing users to watch videos without leaving the current page or opening a modal. It can be accompanied by controls like play/pause, volume adjustment, and fullscreen mode, providing an interactive media experience while maintaining context within the content.
-## Usage
 
+## Usage
 Use the Inline Video component when you want to integrate multimedia content seamlessly into your page, such as tutorials, product demonstrations, or promotional videos. It’s ideal for situations where you want to keep users engaged without redirecting them to a separate video player or disrupting their browsing experience. Ensure that the video is of high quality, relevant to the surrounding content, and includes captions or transcripts for accessibility.`,
       },
     },

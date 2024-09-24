@@ -66,10 +66,9 @@ const meta: Meta<VideoWrapperProps> = {
       description: {
         component: `
 ## Overview
-
 The Video Wrapper component serves as a container for embedding video content within a page. It ensures the video is responsive, properly sized, and well-integrated into the design, providing controls for play, pause, volume, and full-screen viewing as needed.
-## Usage
 
+## Usage
 Use the Video Wrapper when you want to embed video content on a page, such as tutorials, product demonstrations, or promotional videos. It ensures that the video adjusts to various screen sizes and maintains accessibility and functionality across different devices.`,
       },
     },
