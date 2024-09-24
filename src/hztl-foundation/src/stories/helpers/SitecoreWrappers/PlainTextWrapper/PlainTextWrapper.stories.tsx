@@ -15,6 +15,20 @@ const meta: Meta<typeof PlainTextWrapper> = {
   argTypes: {
     editable: { control: 'boolean' },
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+## Overview
+
+The Plain Text Wrapper component is designed to contain and display text in its simplest form, without additional formatting or media elements. It ensures that the text is aligned properly within the layout and can handle responsive scaling for various screen sizes while maintaining readability.
+
+## Usage
+
+Use the Plain Text Wrapper when you need to display basic, unformatted text content such as labels, descriptions, or instructions. It’s ideal for sections where minimal styling is required, ensuring clear and consistent text presentation in any context.`,
+      },
+    },
+  },
 };
 
 export default meta;
