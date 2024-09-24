@@ -15,24 +15,42 @@ import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 
+/*
+ * Tailwind Variants
+ */
+
 const TAILWIND_VARIANTS = tv({
   slots: {
     base: [
-      'flex-col-reverse',
-      'flex',
-      'items-start',
-      'min-h-[500px]',
-      'mx-auto',
-      'py-6',
-      'relative',
-      'w-[80%]',
-      'md:flex-row',
-      'md:items-center',
-      'md:justify-center',
-      'md:w-[85%]',
-      'sm:h-auto',
+      'slide-content',
+      'absolute',
+      'lg:left-[10%]',
+      'lg:top-1/2 ',
+      'lg:box-border',
+      'lg:max-w-[70%]',
+      'lg:-translate-y-1/2',
+      'lg:transform',
+      'lg:p-5',
+      'lg:text-left',
+      'xl:max-w-[50%]',
+      'z-10',
+      'max-w-[70%]',
     ],
-    content: ['flex', 'justify-center'],
+    wrapper: ['relative', 'lg:p-6', 'text-black', 'bg-neutral-50', 'p-4'],
+    content: ['slide-content-inner', 'flex', 'justify-start', 'items-center'],
+    inner: ['relative', 'flex', 'flex-col', 'gap-s', 'p-4', 'w-auto', 'sm:p-6'],
+    heading: [
+      'capitalize',
+      'font-bold',
+      'mb-4',
+      'text-2xl',
+      'leading-[32px]',
+      'lg:text-4xl',
+      'lg:leading-[48px]',
+      'text-theme-black',
+    ],
+    descriptionText: ['mb-4', 'text-base', 'sm:text-lg', 'text-theme-black'],
+    ctaButtons: ['flex', 'flex-col', 'gap-3', 'lg:flex-row', 'items-center'],
     ctaButton1: [
       'bg-theme-black',
       'content-center',
@@ -42,7 +60,8 @@ const TAILWIND_VARIANTS = tv({
       'text-center',
       'text-sm',
       'text-white',
-      'w-32',
+      'lg:w-32',
+      'w-full',
     ],
     ctaButton2: [
       'border',
@@ -54,15 +73,20 @@ const TAILWIND_VARIANTS = tv({
       'text-center',
       'text-sm',
       'text-theme-black',
-      'w-32',
+      'lg:w-32',
+      'w-full',
     ],
-    ctaButtons: ['flex', 'flex-col', 'gap-3', 'md:flex-row'],
-    ctaWrapper: ['flex'],
-    descriptionText: ['text-theme-black'],
-    heading: ['capitalize', 'font-bold', 'text-3xl', 'md:text-5xl'],
-    inner: ['relative', 'flex', 'flex-col', 'gap-6', 'p-6', 'w-auto'],
-    slideMedia: ['flex-1'],
-    wrapper: ['flex-1'],
+    slideMedia: [
+      'slide-media',
+      'h-full',
+      'w-full',
+      'absolute',
+      'top-0',
+      'left-0',
+      'bg-cover',
+      'bg-center',
+      'lg:max-h-[500px]',
+    ],
   },
 });
 
@@ -78,10 +102,9 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
     ctaButton1,
     ctaButton2,
     ctaButtons,
-    ctaWrapper,
     descriptionText,
     heading,
-    inner,
+    //inner,
     slideMedia,
     wrapper,
   } = TAILWIND_VARIANTS();
@@ -90,20 +113,27 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
    * Rendering
    */
 
-  if (!props?.fields) return <></>;
-
+  if (!props?.fields) {
+    return <></>;
+  }
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
-
   return (
-    <SplideSlide>
-      <div className={base()}>
-        <div className={wrapper()}>
-          <div className={content()}>
-            <div className={inner()}>
-              <PlainTextWrapper tag="h2" className={heading()} field={title} />
-              {description && <RichTextWrapper field={description} className={descriptionText()} />}
-              {primaryCTA && (
-                <div className={ctaWrapper()}>
+    <>
+      <SplideSlide>
+        <div className="flex min-h-[480px] justify-center items-center">
+          {/* Slide Content. */}
+          <div className={base()}>
+            <div className={content()}>
+              <div className={wrapper()}>
+                <PlainTextWrapper tag="h2" className={heading()} field={title} />
+
+                {/* Slide description. */}
+                {description && (
+                  <RichTextWrapper field={description} className={descriptionText()} />
+                )}
+
+                {/* Slide links. */}
+                {primaryCTA && (
                   <div className={ctaButtons()}>
                     <LinkWrapper
                       field={primaryCTA}
@@ -118,16 +148,18 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
                       ctaStyle={styles.cta2}
                     ></LinkWrapper>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
+
+          {/* Slide media. */}
+          <div className={slideMedia()}>
+            <ImageWrapper field={image} className="h-full w-full object-cover" />
+          </div>
         </div>
-        <div className={slideMedia()}>
-          <ImageWrapper field={image} />
-        </div>
-      </div>
-    </SplideSlide>
+      </SplideSlide>
+    </>
   );
 };
 
