@@ -60,7 +60,7 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
           {/* Header component */}
           {route && <Placeholder name="headless-header" rendering={route} />}
           <main>
-            <div id="content" className="mt-xl md:mt-xxl">
+            <div id="content" className="mt-20">
               {route && <Placeholder name="headless-main" rendering={route} />}
             </div>
           </main>
