@@ -14,7 +14,7 @@ import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTex
 
 export type ModalProps = ComponentProps &
   HztlPageContent.Modal & {
-    dataSource: string;
+    dataSource?: string;
     uid: string;
   };
 
