@@ -11,13 +11,7 @@ const defaultData: ModalProps = {
     label: { value: 'Modal' },
     openOnLoad: { value: false },
     size: {
-      displayName: '',
-      fields: {
-        SizeLabel: { value: 'large' },
-      },
-      id: '',
-      name: '',
-      url: '',
+      value: 'large',
     },
     title: { value: 'Title' },
   },
@@ -32,6 +26,7 @@ const defaultData: ModalProps = {
     },
   },
   uid: '2845070A-AEBD-4B45-A59D-88269B081204',
+  dataSource: 'Storybook',
 };
 
 export const noData = {

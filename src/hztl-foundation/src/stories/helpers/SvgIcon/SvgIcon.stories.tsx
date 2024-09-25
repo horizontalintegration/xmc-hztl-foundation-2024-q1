@@ -48,7 +48,20 @@ const meta: Meta<SvgIconProps> = {
     },
   },
   component: SvgIcon,
-  parameters: { controls: { sort: 'requiredFirst' } },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+## Overview
+
+The SVG Icon Wrapper component is designed to contain and display Scalable Vector Graphics (SVG) icons, ensuring they remain sharp and responsive across various screen sizes and devices. It allows for easy integration of vector-based icons with support for customization such as sizing, coloring, and animation.
+## Usage
+
+Use the SVG Icon Wrapper when you need to embed vector icons within your design, such as in buttons, navigation menus, or status indicators. It’s ideal for ensuring that icons maintain clarity and scalability, while offering flexibility in terms of style, interaction, and responsiveness.`,
+      },
+    },
+    controls: { sort: 'requiredFirst' },
+  },
   tags: ['autodocs'],
   title: 'Helpers/SVG Icon Wrapper',
 };
