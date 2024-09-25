@@ -17,7 +17,7 @@ export const Default = (props: HeaderProps) => {
   const isDesktop = useMediaQuery('(min-width: 992px)');
   const router = useRouter();
 
-  const { pathname, asPath, query } = router;
+  const { locale, pathname, asPath, query } = router;
 
   /*
    * STATE
@@ -40,8 +40,8 @@ export const Default = (props: HeaderProps) => {
    */
 
   useEffect(() => {
-    if (router?.locale) setSelectedCountry(router?.locale);
-  }, [router?.locale]);
+    if (locale) setSelectedCountry(locale);
+  }, [locale]);
 
   /*
    * Rendering
