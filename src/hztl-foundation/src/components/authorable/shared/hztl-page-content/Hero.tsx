@@ -13,6 +13,7 @@ import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
+import layoutOptions from 'helpers/LayoutOptions/LayoutOptions'; // imported the layout options
 
 const TAILWIND_VARIANTS = tv({
   slots: {
@@ -39,27 +40,26 @@ export type HeroProps = ComponentProps & HztlPageContent.Hero;
 
 const Hero = (props: HeroProps): JSX.Element => {
   const { cta1Link, cta2Link, Description, Heading, Image } = props?.fields || {};
-  const { GridParameters } = props?.params || {};
-
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
-  /*
-   * Rendering
-   */
+  const { GridParameters } = props?.params || {};
 
-  const modifiedTailwindVariants = tv({
-    extend: TAILWIND_VARIANTS,
-    slots: {
-      base: GridParameters,
-    },
-  });
+  console.log('@@grid', GridParameters); // Grid Parameter Value
+  console.log('@@styles', props.params?.Styles); // Styles value
 
   const { base, columnA, columnB, contentContainer, ctaContainer, description, heading } =
-    modifiedTailwindVariants();
+    TAILWIND_VARIANTS();
+
+  //destructing the properties
+  const { parent, child } = layoutOptions(GridParameters)();
 
   return (
-    <section className={base()} data-component="authorable/shared/hztml-page-content/hero">
-      <div className={columnA()}>
+    <section
+      className={`${base()} ${parent()}`} //parent classes are applied here
+      data-component="authorable/shared/hztml-page-content/hero"
+    >
+      {/* child Classed are applied here.*/}
+      <div className={`${columnA()} ${child()}`}>
         <div className={contentContainer()}>
           <PlainTextWrapper className={heading()} field={Heading} tag="h1" />
           <RichTextWrapper className={description()} field={Description} tag="div" />
@@ -69,7 +69,7 @@ const Hero = (props: HeroProps): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className={columnB()}>
+      <div className={`${columnB()}`}>
         <ImageWrapper field={Image} />
       </div>
     </section>

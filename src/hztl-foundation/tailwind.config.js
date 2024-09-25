@@ -12,6 +12,10 @@ module.exports = {
       variants: ['', 'md', 'lg', 'xl', '2xl'],
     },
     {
+      pattern: /order-(first|last)/,
+      variants: ['', 'md', 'lg', 'xl', '2xl'],
+    },
+    {
       pattern: /ml-(0|auto)|mr-(0|auto)|mx-auto/,
       variants: ['', 'md', 'lg', 'xl', '2xl'],
     },
