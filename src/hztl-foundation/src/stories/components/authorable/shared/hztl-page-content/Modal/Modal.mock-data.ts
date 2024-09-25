@@ -11,13 +11,7 @@ const defaultData: ModalProps = {
     label: { value: 'Modal' },
     openOnLoad: { value: false },
     size: {
-      displayName: '',
-      fields: {
-        SizeLabel: { value: 'large' },
-      },
-      id: '',
-      name: '',
-      url: '',
+      value: 'large',
     },
     title: { value: 'Title' },
   },
