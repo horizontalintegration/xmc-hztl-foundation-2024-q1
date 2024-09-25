@@ -103,7 +103,7 @@ const CardItem = (props: CardItemProps): JSX.Element => {
       id={RenderingIdentifier}
     >
       <div className={header()}>
-        <ImageWrapper field={CardImage} layout="fill" />
+        <ImageWrapper field={CardImage} />
       </div>
       <div className={body()}>
         <div className={content()}>

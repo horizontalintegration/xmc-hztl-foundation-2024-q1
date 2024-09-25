@@ -14,7 +14,7 @@ import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTex
 
 export type ModalProps = ComponentProps &
   HztlPageContent.Modal & {
-    dataSource: string;
+    dataSource?: string;
     uid: string;
   };
 
@@ -62,7 +62,7 @@ const Modal = (props: ModalProps): JSX.Element => {
       id={uid}
       label={label?.value}
       openOnLoad={openOnLoad?.value}
-      size={size?.fields?.value as ModalSize}
+      size={size?.value as ModalSize}
       title={title?.value}
     />
   );

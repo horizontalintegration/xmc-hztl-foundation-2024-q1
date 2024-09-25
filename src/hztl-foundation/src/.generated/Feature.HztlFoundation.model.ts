@@ -1427,7 +1427,7 @@ export namespace HztlPageContent {
       /**
        * Represents the Modal Size field (00a5b2be-d942-469d-b348-1dea6839fbe1).
        */
-      size?: Item;
+      size?: Field<string>;
 
       /**
        * Represents the Modal Title field (392a9b53-e3e9-4cf7-8863-c7a57caafa2d).
@@ -1470,7 +1470,7 @@ export namespace HztlPageContent {
      * Represents the Modal Size field (00a5b2be-d942-469d-b348-1dea6839fbe1).
      */
     size?: {
-      jsonValue: Item;
+      jsonValue: Field<string>;
     };
 
     /**
@@ -1513,42 +1513,6 @@ export namespace HztlPageContent {
    * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Modal Folder
    */
   export type ModalFolderJson = {};
-
-  /**
-   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Modal Size Folder
-   */
-  export type ModalSizeFolder = {
-    fields?: {};
-  };
-
-  /**
-   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Modal Size Folder
-   */
-  export type ModalSizeFolderJson = {};
-
-  /**
-   * Represents the template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/ModalSize
-   */
-  export type ModalSize = {
-    fields?: {
-      /**
-       * Represents the Label Size field (fafa04d5-4881-4fda-b659-0e09a24ff4e4).
-       */
-      SizeLabel?: Field<string>;
-    };
-  };
-
-  /**
-   * Represents the GraphQL template /sitecore/templates/Feature/HztlFoundation/HztlPageContent/ModalSize
-   */
-  export type ModalSizeJson = {
-    /**
-     * Represents the Label Size field (fafa04d5-4881-4fda-b659-0e09a24ff4e4).
-     */
-    SizeLabel?: {
-      jsonValue: Field<string>;
-    };
-  };
 }
 export namespace SiteStructure.Header {
   /**
@@ -2164,16 +2128,6 @@ export namespace HztlPageContent.RenderingParameters.Constants {
 export namespace HztlPageContent.Constants {
   export const ModalFolder = {
     TemplateId: 'd7585a9a-c415-4901-a91e-568606eda847',
-
-    BaseTemplateIds: [],
-  };
-  export const ModalSizeFolder = {
-    TemplateId: '7a23ac4a-9d1f-4ab0-a7d6-d6cddffee4e5',
-
-    BaseTemplateIds: [],
-  };
-  export const ModalSize = {
-    TemplateId: '48717be4-bf42-4610-9957-ed26f14e9c0c',
 
     BaseTemplateIds: [],
   };

@@ -4,12 +4,18 @@ Parent: "55673b5f-7a0e-4aa2-b7e9-6932f2acf4e4"
 Template: "455a3e98-a627-4b40-8035-e683a0331ac7"
 Path: /sitecore/templates/Feature/HztlFoundation/HztlPageContent/Modal/Modal Data/size
 SharedFields:
+- ID: "074f44ca-359a-4c13-b3aa-4a6be2a675b1"
+  Hint: Validation
+  Value: "^(extra-large|fluid|large|medium|small)?$"
 - ID: "1eb8ae32-e190-44a6-968d-ed904c794ebf"
   Hint: Source
-  Value: "query:$site/*[@@name='Data']/*[@@templatename='Modal Folder']/*[@@templatename='Modal Size Folder']/*[@@templateid='{48717BE4-BF42-4610-9957-ED26F14E9C0C}']"
+  Value: 
 - ID: "ab162cc0-dc80-4abf-8871-998ee5d7ba32"
   Hint: Type
-  Value: Droplink
+  Value: "Single-Line Text"
+- ID: "b118496a-0f78-4a27-b55f-0a6c4b0b0fe1"
+  Hint: Default value
+  Value: large
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 400
@@ -19,6 +25,12 @@ Languages:
   - ID: "19a69332-a23e-4e70-8d16-b2640cb24cc8"
     Hint: Title
     Value: Modal Size
+  - ID: "9541e67d-ce8c-4225-803d-33f7f29f09ef"
+    Hint: __Short description
+    Value: "Please enter one of the following values: 'extra-large', 'fluid', 'large', 'medium', or 'small'."
+  - ID: "b12e4906-b96b-495e-b343-cd2e92dc6347"
+    Hint: ValidationText
+    Value: "Please enter one of the following values: 'extra-large', 'fluid', 'large', 'medium', or 'small'."
   Versions:
   - Version: 1
     Fields:
@@ -35,11 +47,11 @@ Languages:
         sitecore\vthakur@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "e92fe166-92bc-47f2-9bbb-13ea414f9a6d"
+      Value: "8fefa9e0-d2a5-4ebd-922e-4d6e039e2dc7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
         sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240911T103357Z
+      Value: 20240925T070648Z
