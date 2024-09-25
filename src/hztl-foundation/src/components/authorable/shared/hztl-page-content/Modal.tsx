@@ -14,6 +14,7 @@ import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTex
 
 export type ModalProps = ComponentProps &
   HztlPageContent.Modal & {
+    dataSource: string;
     uid: string;
   };
 
@@ -28,7 +29,7 @@ const TAILWIND_VARIANTS = tv({
  */
 
 const Modal = (props: ModalProps): JSX.Element => {
-  const { uid } = props || {};
+  const { dataSource, uid } = props || {};
   const { label, openOnLoad, size, title } = props?.fields || {};
   const { DynamicPlaceholderId } = props?.params || {};
 
@@ -49,7 +50,7 @@ const Modal = (props: ModalProps): JSX.Element => {
             <Placeholder name={placeholderKey} rendering={props.rendering} />
           </div>
         </div>
-        <p>URL Hash: {`#modal-${uid}`}</p>
+        <p>URL Hash: {`#modal-{ ${uid} | ${dataSource} }`}</p>
       </>
     );
   }

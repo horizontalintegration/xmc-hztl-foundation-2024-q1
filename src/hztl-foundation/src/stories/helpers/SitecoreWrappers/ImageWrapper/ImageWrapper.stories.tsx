@@ -17,17 +17,29 @@ const meta: Meta<typeof ImageWrapper> = {
     // @ts-ignore
     'field.value.alt': {
       description: 'Alternative text for the image.',
+      table: {
+        category: 'fields',
+      },
     },
     'field.value.height': {
       description:
         'Using layout="intrinsic" or layout="fixed", the height prop refers to the rendered height value in pixels. This will affect how large the image appears.<br /><br />Using layout="responsive" or layout="fill", the height prop refers to the image\'s original height in pixels, so this will affect the aspect ratio (i.e. how scaled the image is in relation to its container).',
+      table: {
+        category: 'fields',
+      },
     },
     'field.value.src': {
       description: 'The URI for the image asset.',
+      table: {
+        category: 'fields',
+      },
     },
     'field.value.width': {
       description:
         'Using layout="intrinsic" or layout="fixed", the width prop refers to the rendered width value in pixels. This will affect how large the image appears.<br /><br />Using layout="responsive" or layout="fill", the width prop refers to the image\'s original width in pixels, so this will affect the aspect ratio (i.e. how scaled the image is in relation to its container).',
+      table: {
+        category: 'fields',
+      },
     },
     layout: {
       control: 'select',
@@ -54,6 +66,18 @@ const meta: Meta<typeof ImageWrapper> = {
   component: ImageWrapper,
   tags: ['autodocs'],
   title: 'Helpers/Sitecore Wrappers/Image Wrapper',
+  parameters: {
+    docs: {
+      description: {
+        component: `
+## Overview
+The Image Wrapper component is a container for displaying images within a responsive and well-structured layout. It ensures that images are scaled appropriately based on screen size, maintaining aspect ratios and alignment for an optimal visual experience across devices.
+
+## Usage
+Use the Image Wrapper when you want to embed images within a layout, such as product visuals, banners, or galleries. It ensures that images remain responsive and retain their quality, while providing options for captions, borders, and other design elements. Ideal for media-heavy pages or sections where image clarity and adaptability are essential.`,
+      },
+    },
+  },
 };
 
 export default meta;
