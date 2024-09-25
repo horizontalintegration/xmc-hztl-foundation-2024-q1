@@ -22,6 +22,7 @@ const TAILWIND_VARIANTS = tv({
     eyebrow: ['font-normal', 'mb-2', 'opacity-80', 'text-xs'],
     heading: ['font-bold', 'font-modern', 'mb-2', 'text-4xl'],
     subheading: ['font-bold', 'font-modern', 'mb-2', 'opacity-80', 'text-2xl'],
+    image: ['js-image'],
   },
 });
 
@@ -47,7 +48,7 @@ const Article = (props: ArticleProps): JSX.Element => {
     },
   });
 
-  const { base, contentContainer, cta, description, eyebrow, heading, subheading } =
+  const { base, contentContainer, cta, description, eyebrow, heading, subheading, image } =
     customTailwindVariants();
 
   return (
@@ -56,13 +57,13 @@ const Article = (props: ArticleProps): JSX.Element => {
       data-component="authorable/shared/hztl-page-content/article"
       id={RenderingIdentifier}
     >
-      <ImageWrapper field={Image} />
+      <ImageWrapper field={Image} className={image()} />
       <div className={contentContainer()}>
-        <PlainTextWrapper className={eyebrow()} editable field={Eyebrow} tag="h6" />
-        <RichTextWrapper className={heading()} field={Heading} />
-        <RichTextWrapper className={subheading()} field={Subheading} />
-        <RichTextWrapper className={description()} field={Description} />
-        <LinkWrapper className={cta()} field={ReadMoreCTA} />
+        <PlainTextWrapper className={eyebrow()} data-name='eyebrow' editable field={Eyebrow} />
+        <RichTextWrapper className={heading()} data-name='heading' field={Heading} />
+        <RichTextWrapper className={subheading()} data-name='subheading' field={Subheading} />
+        <RichTextWrapper className={description()} data-name='description' field={Description} />
+        <LinkWrapper className={cta()} data-name='cta' field={ReadMoreCTA} />
       </div>
     </section>
   );
