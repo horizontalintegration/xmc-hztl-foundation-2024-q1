@@ -47,8 +47,8 @@ const TAILWIND_VARIANTS = tv({
     dropDownItemName: ['font-bold', 'text-lg'],
     dropDownMenuGroup: ['pt-4', 'px-4'],
     dropDownMenuWrapper: ['bg-theme-lightgrey', 'my-4'],
-    hamburgerBase: ['flex', 'gap-4', 'h-full', 'items-center', 'justify-center', 'w-full'],
-    hamburgerItem: ['flex', 'items-center', 'justify-center', 'mt-0', 'relative', 'w-4'],
+    hamburgerBase: ['flex', 'gap-3', 'h-full', 'items-center', 'justify-center', 'w-full'],
+    hamburgerItem: ['flex', 'items-center', 'justify-center', 'mt-0', '', 'w-4'],
     hamburgerWrapper: ['flex', 'items-center'],
     headerSection: ['flex', 'justify-between', 'p-4'],
     languageSelection: ['bg-theme-lightgrey', 'p-4', 'rounded my-1'],
@@ -234,7 +234,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
           <button
             aria-expanded={openMenu}
             aria-label="Toogle Search"
-            className="hamburger-button items-center align-middle absolute right-0 z-[2] block h-m w-[17px] cursor-pointer"
+            className="hamburger-button h-[17px] w-[17px] cursor-pointer"
             onClick={() => toggleSearch()}
           >
             {/* Todo: Use the SVGIcon helper component */}
@@ -259,7 +259,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
           <button
             aria-expanded={openMenu}
             aria-label="Toggle Menu"
-            className="hamburger-button absolute right-2 z-[2] block h-m w-[17px] cursor-pointer"
+            className="hamburger-button h-[17px] w-[17px] cursor-pointer"
             onClick={() => toggleHamburger()}
           >
             <svg
