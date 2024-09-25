@@ -8,7 +8,7 @@ import { tv } from 'tailwind-variants';
 import { GtmEvent } from 'lib/utils/gtm-utils';
 
 // Local
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { SvgIcon } from 'helpers/SvgIcon';
 
 export type ModalSize = 'extra-large' | 'fluid' | 'large' | 'medium' | 'small' | undefined;
 
@@ -35,10 +35,10 @@ Modal.defaultStyles = {
     zIndex: 100,
   },
 };
+
 Modal.setAppElement(process.env.IS_STORYBOOK ? '#storybook-root' : '#__next');
 
-// Tailwind Variants
-const modalWrapperStyles = tv({
+const TAILWIND_VARIANTS = tv({
   slots: {
     body: [],
     closeButton: ['h-3', 'w-3'],
@@ -98,7 +98,7 @@ const ModalWrapper = (props: ModalWrapperProps): JSX.Element => {
   } = props || {};
 
   const { body, closeButton, closeButtonIcon, modal, titleBar, titleBarText, triggerContainer } =
-    modalWrapperStyles({
+    TAILWIND_VARIANTS({
       size: size,
     });
 

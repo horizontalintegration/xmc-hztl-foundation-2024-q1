@@ -1,50 +1,76 @@
+// Global
 import React from 'react';
-// Helpers
+import { tv } from 'tailwind-variants';
+
+// Lib
+import { ComponentProps } from 'lib/component-props';
+import { parseStyleParams } from 'lib/utils/style-param-utils';
+import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
+
+// Local
+import { withStandardComponentWrapper } from 'helpers/HOC';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
-import { ComponentProps } from 'lib/component-props';
-import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
-import { parseStyleParams } from 'lib/utils/style-param-utils';
-import { withStandardComponentWrapper } from 'helpers/HOC';
+
+const TAILWIND_VARIANTS = tv({
+  slots: {
+    base: [
+      'component',
+      'flex',
+      'flex-col-reverse',
+      'items-center',
+      'justify-center',
+      'min-h-[50vh]',
+      'my-8',
+      'md:flex-row',
+    ],
+    columnA: ['flex', 'items-center', 'justify-center', 'w-full', 'md:w-1/2'],
+    columnB: ['w-full', 'md:w-1/2'],
+    contentContainer: ['max-w-[472px]', 'p-6', 'w-fit'],
+    ctaContainer: ['flex', 'flex-wrap', 'gap-6', 'justify-center', 'md:justify-normal'],
+    description: ['mb-6', 'text-base'],
+    heading: ['font-bold', 'font-modern', 'mb-6', 'text-5xl', 'md:text-4xl'],
+  },
+});
 
 export type HeroProps = ComponentProps & HztlPageContent.Hero;
 
 const Hero = (props: HeroProps): JSX.Element => {
+  const { cta1Link, cta2Link, Description, Heading, Image } = props?.fields || {};
+  const { GridParameters } = props?.params || {};
+
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
-  return (
-    <section className="component hero my-ml min-h-[50vh] flex flex-col-reverse md:flex-row justify-center items-center">
-      <div className="w-full md:w-1/2 flex items-center justify-center">
-        <div className="max-w-[472px] w-fit px-s py-ml">
-          <PlainTextWrapper
-            tag="h2"
-            className="font-modern text-l font-bold mb-6"
-            field={props.fields?.Heading}
-          />
-          <RichTextWrapper
-            tag="div"
-            className="text-gray text-base mb-m"
-            field={props.fields?.Description}
-          />
+  /*
+   * Rendering
+   */
 
-          <div className="flex gap-xxs flex-wrap justify-center md:justify-normal">
-            <LinkWrapper
-              field={props.fields?.cta1Link}
-              suppressNewTabIcon={true}
-              ctaStyle={styles.cta1}
-            />
-            <LinkWrapper
-              field={props.fields?.cta2Link}
-              suppressNewTabIcon={true}
-              ctaStyle={styles.cta2}
-            />
+  const modifiedTailwindVariants = tv({
+    extend: TAILWIND_VARIANTS,
+    slots: {
+      base: GridParameters,
+    },
+  });
+
+  const { base, columnA, columnB, contentContainer, ctaContainer, description, heading } =
+    modifiedTailwindVariants();
+
+  return (
+    <section className={base()} data-component="authorable/shared/hztml-page-content/hero">
+      <div className={columnA()}>
+        <div className={contentContainer()}>
+          <PlainTextWrapper className={heading()} field={Heading} tag="h1" />
+          <RichTextWrapper className={description()} field={Description} tag="div" />
+          <div className={ctaContainer()}>
+            <LinkWrapper ctaStyle={styles.cta1} field={cta1Link} suppressNewTabIcon={true} />
+            <LinkWrapper ctaStyle={styles.cta2} field={cta2Link} suppressNewTabIcon={true} />
           </div>
         </div>
       </div>
-      <div className="w-full md:w-1/2">
-        <ImageWrapper field={props.fields?.Image} />
+      <div className={columnB()}>
+        <ImageWrapper field={Image} />
       </div>
     </section>
   );

@@ -28,7 +28,7 @@ import {
 import { urlToFacet, useEnsureFacetUrl } from './use-ensure-facet-url';
 import PreviewSearchListComponent from '../SearchPreview';
 import { ChangeEvent, useEffect, useState } from 'react';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { SvgIcon } from 'helpers/SvgIcon';
 
 type ArticleCardItemCardProps = {
   className?: string;
@@ -103,12 +103,12 @@ const ArticleHorizontalItemCard = ({
       className={`group flex flex-row flex-nowrap w-full relative gap-x-6 py-4 ${className}`}
     >
       <div className="w-[70%] space-y-2">
-        <span className="text-[12px] font-normal">Eyebrow</span>
+        <span className="text-[12px] font-normal">{article.eyebrow || 'Eyebrow'}</span>
         <ArticleCard.Title className="font-modern text-4xl font-bold line-clamp-1">
           {article.title || 'Headline'}
         </ArticleCard.Title>
-        <ArticleCard.Subtitle className="mt-3 font-bold text-[20px] line-clamp-1">
-          {article.name || 'Subhead'}
+        <ArticleCard.Subtitle className="mt-3 text-gray-500 text-[20px] font-normal line-clamp-1">
+          {article.subtitle || 'Subhead'}
         </ArticleCard.Subtitle>
         {article.description && displayText && (
           <div className="line-clamp-3 text-sm">{article.description}</div>
@@ -151,7 +151,7 @@ const Filter = () => {
           <button
             key={`${selectedFacet.facetId}${selectedFacet.facetLabel}${selectedFacet.valueLabel}`}
             onClick={() => onRemoveFilter(selectedFacet)}
-            className="bg-black text-ellipsis text-sm text-white bg-gray-400 rounded-lg pl-2.5 pr-7 py-2.5 whitespace-no-wrap max-w-full overflow-hidden relative cursor-pointer 
+            className="text-ellipsis text-sm text-white bg-gray-400 rounded-lg pl-2.5 pr-7 py-2.5 whitespace-no-wrap max-w-full overflow-hidden relative cursor-pointer 
       before:content-[''] before:-rotate-45 before:absolute before:w-3.5 before:h-0.5 before:right-2 before:top-2/4 before:bg-white 
       after:content-[''] after:rotate-45 after:absolute after:w-3.5 after:h-0.5 after:right-2 after:top-2/4 after:bg-white 
       focus:outline-indigo-500"
@@ -509,6 +509,7 @@ type ArticleModel = {
   content_text?: string;
   image_url?: string;
   source_id?: string;
+  eyebrow?: string;
 };
 
 type ArticleSearchResultsProps = {

@@ -9,8 +9,28 @@ import useIsEditing from 'lib/hooks/use-is-editing';
 import { GtmEvent } from 'lib/utils/gtm-utils';
 
 import { CtaProps, ctaTailwindVariant } from '../ButtonWrapper/ButtonWrapper';
-import { SvgIcon } from 'helpers/SvgIconWrapper';
+import { SvgIcon } from 'helpers/SvgIcon';
 import structuredClone from '@ungap/structured-clone';
+
+const INTERNAL_LINK_REGEX = /^\/|^\#/g;
+
+const NEW_TAB_ICON = (
+  <span className="svg-icon inline-flex align-middle h-6 w-6">
+    <svg
+      aria-hidden="true"
+      className="inline ml-2 -mt-1 h-em w-em"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z"
+        clipRule="evenodd"
+        fillRule="evenodd"
+      ></path>
+    </svg>
+  </span>
+);
 
 export type LinkWrapperProps = Omit<LinkProps, 'field'> &
   CtaProps & {
@@ -33,6 +53,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
       ctaIconAlignment,
       ctaStyle,
       ctaVariant,
+      ctaVisibility,
       editable = true,
       field,
       gtmEvent,
@@ -52,6 +73,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
     ctaIcon = ctaIcon ?? ctaStyle?.ctaIcon;
     ctaVariant = ctaVariant ?? ctaStyle?.ctaVariant ?? 'link';
     ctaIconAlignment = ctaIconAlignment ?? ctaStyle?.ctaIconAlignment ?? 'right';
+    ctaVisibility = ctaVisibility ?? ctaStyle?.ctaVisibility ?? 'visible';
 
     // Clone the object so we don't modify the original.
     // This addresses some edge cases issues when the same link is rendered more than once
@@ -71,6 +93,7 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
       className: className,
       iconAlignment: ctaIconAlignment,
       variant: ctaVariant,
+      visibility: ctaVisibility,
     });
 
     /*
@@ -148,23 +171,3 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
 LinkWrapper.displayName = 'LinkWrapper';
 
 export default LinkWrapper;
-
-const INTERNAL_LINK_REGEX = /^\/|^\#/g;
-
-const NEW_TAB_ICON = (
-  <span className="svg-icon inline-flex align-middle -ml-3 h-6 w-6">
-    <svg
-      aria-hidden="true"
-      className="inline ml-2 -mt-1 h-em w-em"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z"
-        clipRule="evenodd"
-        fillRule="evenodd"
-      ></path>
-    </svg>
-  </span>
-);

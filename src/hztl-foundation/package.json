@@ -52,6 +52,7 @@
     "postcss": "^8.4.38",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.3.0",
     "react-modal": "^3.16.1",
     "sass": "^1.52.3",
     "sass-alias": "^1.0.5",
@@ -137,11 +138,13 @@
     "prestorybook": "npm run bootstrap",
     "prebuild-storybook": "npm run bootstrap",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_f457a31cb75e79b"
   },
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
     ]
-  }
+  },
+  "homepage": "https://github.com/sitecore/jss#readme"
 }
