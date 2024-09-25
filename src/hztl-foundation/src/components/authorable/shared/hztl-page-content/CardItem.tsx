@@ -16,37 +16,12 @@ import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWr
 
 const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['border', 'border-theme-darkgrey', 'flex', 'flex-col', 'items-center', 'justify-center'],
+    base: ['border', 'border-theme-darkgrey', 'flex', 'flex-col', 'items-center', 'justify-center', 'mx-4', 'md:mx-0'],
     body: ['flex', 'flex-col', 'grow', 'p-10', 'w-full'],
     content: ['grow', 'w-full'],
-    ctaPrimary: [
-      'bg-theme-black',
-      'flex',
-      'font-bold',
-      'font-modern',
-      'items-center',
-      'justify-center',
-      'px-4',
-      'py-3',
-      'rounded',
-      'text-sm',
-      'text-center',
-      'text-white',
-    ],
-    ctaSecondary: [
-      'border',
-      'border-theme-grey',
-      'flex',
-      'font-bold',
-      'font-modern',
-      'items-center',
-      'justify-center',
-      'p-3',
-      'rounded',
-      'text-theme-black',
-      'text-center',
-      'text-xs',
-    ],
+    ctaPrimary: ['px-8'],
+    ctaSecondary: ['px-8'],
+    ctaLink: ['text-theme-darkblue', 'text-base'],
     description: [
       'font-modern',
       'font-regular',
@@ -57,7 +32,7 @@ const TAILWIND_VARIANTS = tv({
       'leading-6',
     ],
     eyebrow: ['font-modern', 'font-regular', 'mb-2', 'opacity-80', 'text-theme-black', 'text-xs'],
-    footer: ['flex', 'flex-wrap', 'gap-2', 'justify-normal', 'w-full'],
+    footer: ['flex', 'flex-wrap', 'gap-2', 'justify-normal', 'w-full', 'items-center'],
     header: ['border-b', 'border-theme-darkgrey', 'relative', 'w-full'],
     heading: ['font-bold', 'font-modern', 'mb-2', 'text-4xl', 'text-theme-black'],
     subheading: ['font-bold', 'font-modern', 'mb-2', 'opacity-80', 'text-theme-black', 'text-2xl'],
@@ -88,6 +63,7 @@ const CardItem = (props: CardItemProps): JSX.Element => {
     content,
     ctaPrimary,
     ctaSecondary,
+    ctaLink,
     description,
     eyebrow,
     footer,
@@ -95,6 +71,22 @@ const CardItem = (props: CardItemProps): JSX.Element => {
     heading,
     subheading,
   } = TAILWIND_VARIANTS();
+
+  /**
+   * Function to get the CTA style.
+   * If ctaStyle is undefined, it defaults to the provided defaultVariant.
+   *
+   * @param {any} ctaStyle - The CTA style object.
+   * @param {string} defaultVariant - The default variant to use if ctaStyle is undefined.
+   * @returns {object} - The CTA style object with the appropriate variant.
+   */
+
+  const getCtaStyle = (ctaStyle: any, defaultVariant: string) => {
+    return {
+      ...ctaStyle,
+      ctaVariant: ctaStyle?.ctaVariant ?? defaultVariant,
+    };
+  };
 
   return (
     <div
@@ -113,8 +105,16 @@ const CardItem = (props: CardItemProps): JSX.Element => {
           <RichTextWrapper className={description()} field={Description} />
         </div>
         <div className={footer()}>
-          <LinkWrapper className={ctaPrimary()} ctaStyle={styles.cta1} field={CardLink1} />
-          <LinkWrapper className={ctaSecondary()} ctaStyle={styles.cta2} field={CardLink2} />
+        <LinkWrapper
+            className={styles.cta1?.ctaVariant === 'link' ? ctaLink() : ctaPrimary()}
+            ctaStyle={getCtaStyle(styles.cta1, 'primary')}
+            field={CardLink1}
+          />
+          <LinkWrapper
+            className={styles.cta2?.ctaVariant === 'link' ? ctaLink() : ctaSecondary()}
+            ctaStyle={getCtaStyle(styles.cta2, 'secondary')}
+            field={CardLink2}
+          />
         </div>
       </div>
     </div>

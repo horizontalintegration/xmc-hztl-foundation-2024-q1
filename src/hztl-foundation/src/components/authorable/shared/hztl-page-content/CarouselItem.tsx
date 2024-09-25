@@ -51,31 +51,9 @@ const TAILWIND_VARIANTS = tv({
     ],
     descriptionText: ['mb-4', 'text-base', 'sm:text-lg', 'text-theme-black'],
     ctaButtons: ['flex', 'flex-col', 'gap-3', 'lg:flex-row', 'items-center'],
-    ctaButton1: [
-      'bg-theme-black',
-      'content-center',
-      'font-bold',
-      'h-12',
-      'rounded',
-      'text-center',
-      'text-sm',
-      'text-white',
-      'lg:w-32',
-      'w-full',
-    ],
-    ctaButton2: [
-      'border',
-      'border-theme-black',
-      'content-center',
-      'font-bold',
-      'h-12',
-      'rounded',
-      'text-center',
-      'text-sm',
-      'text-theme-black',
-      'lg:w-32',
-      'w-full',
-    ],
+    ctaPrimary: ['px-4'],
+    ctaSecondary: ['px-4'],
+    ctaLink: ['text-theme-darkblue', 'text-base'],
     slideMedia: [
       'slide-media',
       'h-full',
@@ -99,9 +77,10 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
   const {
     base,
     content,
-    ctaButton1,
-    ctaButton2,
+    ctaPrimary,
+    ctaSecondary,
     ctaButtons,
+    ctaLink,
     descriptionText,
     heading,
     //inner,
@@ -117,6 +96,23 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
     return <></>;
   }
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
+
+  /**
+ * Function to get the CTA style.
+ * If ctaStyle is undefined, it defaults to the provided defaultVariant.
+ *
+ * @param {any} ctaStyle - The CTA style object.
+ * @param {string} defaultVariant - The default variant to use if ctaStyle is undefined.
+ * @returns {object} - The CTA style object with the appropriate variant.
+ */
+
+  const getCtaStyle = (ctaStyle: any, defaultVariant: string) => {
+    return {
+      ...ctaStyle,
+      ctaVariant: ctaStyle?.ctaVariant ?? defaultVariant,
+    };
+  };
+
   return (
     <>
       <SplideSlide>
@@ -138,14 +134,14 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
                     <LinkWrapper
                       field={primaryCTA}
                       aria-label={primaryCTA?.value.text}
-                      className={ctaButton1()}
-                      ctaStyle={styles.cta1}
+                      className={styles.cta1?.ctaVariant === 'link' ? ctaLink() : ctaPrimary()}
+                      ctaStyle={getCtaStyle(styles.cta1, 'primary')}
                     ></LinkWrapper>
                     <LinkWrapper
                       field={secondaryCTA}
                       aria-label={secondaryCTA?.value.text}
-                      className={ctaButton2()}
-                      ctaStyle={styles.cta2}
+                      className={styles.cta2?.ctaVariant === 'link' ? ctaLink() : ctaSecondary()}
+                      ctaStyle={getCtaStyle(styles.cta2, 'secondary')}
                     ></LinkWrapper>
                   </div>
                 )}
