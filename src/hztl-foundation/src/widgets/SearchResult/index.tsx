@@ -100,8 +100,9 @@ const ArticleHorizontalItemCard = ({
   return (
     <ArticleCard.Root
       key={article.id}
-      className={`group flex flex-row flex-nowrap w-full relative gap-x-6 py-4 ${className}`}
+      className={`group flex flex-row flex-nowrap w-full relative gap-x-6 py-4 items-center ${className}`}
     >
+      {/* CONTENT OF THE RESULT CARD */}
       <div className="w-[70%] space-y-2">
         <span className="text-[12px] font-normal">{article.eyebrow || 'Eyebrow'}</span>
         <ArticleCard.Title className="font-modern text-4xl font-bold line-clamp-1">
@@ -117,10 +118,11 @@ const ArticleHorizontalItemCard = ({
           <a className="underline text-base font-bold cursor-pointer" href={article.url}>
             Read more
           </a>
-          <SvgIcon icon="arrow-right" viewBox="0 0 16 10" size="xs" fill="none" />
+          <SvgIcon icon="arrow-right" viewBox="0 0 24 24" size="xs" fill="none" />
         </div>
       </div>
-      <div className="w-[30%] md:w-1/5 overflow-hidden bg-gray-200 ">
+      {/* IMAGE OF THE RESULT CARD */}
+      <div className="w-[30%] md:w-1/5 overflow-hidden  bg-gray-200">
         <ArticleCard.Image
           height={'100'}
           width={'100'}
@@ -311,7 +313,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                   {/* DROPDOWN/UP ICON */}
                   <SvgIcon
                     className="facets-accordian-arrow"
-                    viewBox="0 0 16 9"
+                    viewBox="0 0 24 24"
                     size="xs"
                     icon="chevron-up"
                     fill="none"
@@ -380,6 +382,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
   );
 };
 
+// PAGINATION CODE IN THE BOTTOM OF THE RESULTS
 const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) => {
   const { onPageNumberChange } = useSearchResultsActions();
   return (
@@ -398,7 +401,7 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
         onClick={(e) => e.preventDefault()}
         className="flex items-center cursor-pointer my-0 mx-2 data-[current=true]:hidden hover:text-indigo-500 focus:outline-indigo-500"
       >
-        <SvgIcon icon="arrow-left" size="xs" viewBox="0 0 16 16" fill="none" />
+        <SvgIcon icon="arrow-left" size="xs" viewBox="0 0 24 24" fill="none" />
       </Pagination.PrevPage>
       <Pagination.Pages>
         {(pagination) =>
@@ -412,7 +415,7 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
                 aria-label={`Page ${page}`}
                 page={page as number}
                 onClick={(e) => e.preventDefault()}
-                className="inline-flex items-center justify-center w-8 h-8 rounded-full p-2 cursor-pointer data-[current=true]:text-white data-[current=true]:bg-dark-gray data-[current=true]:pointer-events-none data-[current=true]:no-underline"
+                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-400 p-2 cursor-pointer data-[current=true]:text-white data-[current=true]:bg-dark-gray data-[current=true]:pointer-events-none data-[current=true]:no-underline"
               >
                 {page}
               </Pagination.Page>
@@ -426,8 +429,8 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
         onClick={(e) => e.preventDefault()}
         className="flex items-center justify-center cursor-pointer my-0 mx-2 data-[current=true]:hidden hover:text-indigo-500 focus:outline-indigo-500"
       >
-        {/* <SvgIcon icon="arrow-right" size="xs" viewBox="0 0 16 16" fill="none" /> */}
-        <svg
+        <SvgIcon icon="arrow-right" size="xs" viewBox="0 0 24 24" fill="none" />
+        {/* <svg
           width="9"
           height="16"
           viewBox="0 0 9 16"
@@ -441,7 +444,7 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
             stroke-linecap="round"
             stroke-linejoin="round"
           />
-        </svg>
+        </svg> */}
       </Pagination.NextPage>
     </Pagination.Root>
   );
@@ -641,7 +644,7 @@ export const SearchResultsWithInputComponent = ({
                 onClick={() => {
                   setMobileFilterToogle(!mobileFilterToogle);
                 }}
-                className={`mmd:hidden flex items-center justify-center w-full border rounded px-2 h-12 gap-2 mt-2`}
+                className={`lg:hidden flex items-center justify-center w-full border rounded px-2 h-12 gap-2 mt-2`}
               >
                 {/* THIS IS FOR REFINE BY MOBILE */}
                 <span className="text-lg font-semibold mt-2">Refine By</span>
