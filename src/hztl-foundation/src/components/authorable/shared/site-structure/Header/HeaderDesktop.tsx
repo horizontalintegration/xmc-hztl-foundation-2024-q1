@@ -360,7 +360,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
           <div className={inner()}>
             <div className={container()}>
               <div className={menuWrapper()}>
-                <div className="flex">
+                <div className="flex md:pl-6">
                   <Logo logo={logo.jsonValue} logoLink={logoLink.jsonValue} />
                   <ul className={menuItems()} role="presentation">
                     {navigationList?.items?.map((item, index) => (
