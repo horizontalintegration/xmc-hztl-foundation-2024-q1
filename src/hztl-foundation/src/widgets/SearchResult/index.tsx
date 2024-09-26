@@ -651,7 +651,7 @@ export const SearchResultsWithInputComponent = ({
                 <SvgIcon icon="refine" viewBox="0 0 24 24" size="xs" fill="none" />
               </div>
               <div
-                className={`refineby-container ${mobileFilterToogle ? 'block' : 'hidden'} mmd:block`}
+                className={`refineby-container ${mobileFilterToogle ? 'block' : 'hidden'} lg:block`}
               >
                 {/* THIS IS FOR REFINE BY DESKTOP */}
                 <div className="sort-order flex flex-col gap-3">
