@@ -605,7 +605,7 @@ export const SearchResultsWithInputComponent = ({
 
   return (
     <div ref={widgetRef}>
-      <div className="flex sm:flex-col mmd:flex-row relative max-w-full px-4 text-black text-opacity-75 gap-4">
+      <div className="flex flex-col lg:flex-row relative max-w-full px-4 text-black text-opacity-75 gap-4">
         {/* LOADING STATE */}
         {isFetching && (
           <div className="w-full h-full fixed top-0 left-0 bottom-0 right-0 z-30 bg-white opacity-50">
