@@ -151,7 +151,7 @@ export const PreviewSearchBasicComponent = ({
       {/* CODE FOR SEARCH RESULTS STARTS HERE */}
       <PreviewSearch.Content
         ref={widgetRef}
-        className="flex justify-center pt-0 border-x border-b transition-opacity	w-[var(--radix-popover-trigger-width)] bg-white z-10"
+        className="flex justify-center pt-0 border-x border-b border-black transition-opacity	w-[var(--radix-popover-trigger-width)] bg-white z-10"
       >
         {/* DISPLAY LOADING IF RESULTS ARE STILL NOT READY */}
         <Presence present={loading}>
