@@ -234,7 +234,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
           <button
             aria-expanded={openMenu}
             aria-label="Toogle Search"
-            className="hamburger-button h-[17px] w-[17px] cursor-pointer"
+            className="hamburger-button h-[32px] w-[32px] flex items-center justify-center cursor-pointer"
             onClick={() => toggleSearch()}
           >
             {/* Todo: Use the SVGIcon helper component */}
@@ -255,11 +255,11 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
             </svg>
           </button>
         </li>
-        <li className="toggle-menu relative mb-2 flex w-s items-center justify-center">
+        <li className="toggle-menu flex items-center justify-center">
           <button
             aria-expanded={openMenu}
             aria-label="Toggle Menu"
-            className="hamburger-button h-[17px] w-[17px] cursor-pointer"
+            className="hamburger-button h-[32px] w-[32px] flex items-center justify-center cursor-pointer"
             onClick={() => toggleHamburger()}
           >
             {!openMenu ? (
@@ -298,8 +298,8 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M0.868654 0.868654C1.49349 0.243815 2.50656 0.243815 3.1314 0.868654L10 7.73728L16.8687 0.868654C17.4935 0.243815 18.5066 0.243815 19.1314 0.868654C19.7562 1.49349 19.7562 2.50656 19.1314 3.1314L12.2628 10L19.1314 16.8687C19.7562 17.4935 19.7562 18.5066 19.1314 19.1314C18.5066 19.7562 17.4935 19.7562 16.8687 19.1314L10 12.2628L3.1314 19.1314C2.50656 19.7562 1.49349 19.7562 0.868654 19.1314C0.243815 18.5066 0.243815 17.4935 0.868654 16.8687L7.73728 10L0.868654 3.1314C0.243815 2.50656 0.243815 1.49349 0.868654 0.868654Z"
                   fill="black"
                 />
