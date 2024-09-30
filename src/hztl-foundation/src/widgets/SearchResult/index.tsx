@@ -145,7 +145,7 @@ const Filter = () => {
           className="clear-filter cursor-pointer flex gap-3 items-center text-base font-bold text-black underline text-opacity-75 hover:text-indigo-500 hover:opacity-1 focus:outline-indigo-500"
         >
           <span className="cursor-pointer">Reset Filters</span>
-          <SvgIcon size="xs" icon="close" viewBox="0 0 16 10 " />
+          <SvgIcon size="xxs" icon="close" viewBox="0 0 24 24 " />
         </div>
       </div>
       <div className="flex flex-wrap">
@@ -153,7 +153,7 @@ const Filter = () => {
           <button
             key={`${selectedFacet.facetId}${selectedFacet.facetLabel}${selectedFacet.valueLabel}`}
             onClick={() => onRemoveFilter(selectedFacet)}
-            className="text-ellipsis text-sm text-white bg-gray-400 rounded-lg pl-2.5 pr-7 py-2.5 whitespace-no-wrap max-w-full overflow-hidden relative cursor-pointer 
+            className="text-ellipsis text-sm text-white bg-black rounded-lg pl-2.5 pr-7 py-2.5 whitespace-no-wrap max-w-full overflow-hidden relative cursor-pointer 
       before:content-[''] before:-rotate-45 before:absolute before:w-3.5 before:h-0.5 before:right-2 before:top-2/4 before:bg-white 
       after:content-[''] after:rotate-45 after:absolute after:w-3.5 after:h-0.5 after:right-2 after:top-2/4 after:bg-white 
       focus:outline-indigo-500"
@@ -303,7 +303,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
             facetId={f.name}
             key={fIndex}
             id={f.name + fIndex}
-            className="mb-2 border-x border-y w-full gap-2 rounded-md"
+            className="mb-2 border-x border-y w-full gap-2"
           >
             <div className="facets-header">
               <AccordionFacets.Header className="flex px-3 py-1.5">
@@ -330,7 +330,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                     type="text"
                     onChange={(e) => onFacetSearch(e, fIndex)}
                     placeholder="Search"
-                    className="w-full rounded border px-2 h-[48px] border-black"
+                    className="w-full border px-2 h-[48px] border-black"
                   />
                   <div className="magnifier-icon absolute top-1/2 right-2 transform -translate-y-1/2">
                     <SvgIcon icon="magnifier" size="xs" viewBox="0 0 18 18" fill="none" />
@@ -348,7 +348,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
                   >
                     {/* ACTUAL check+label */}
                     <div className="facetlabel justify-start w-11/12 items-center flex gap-2">
-                      <AccordionFacets.ItemCheckbox className="form-checkbox flex-none w-5 h-5 border border-gray-300 rounded cursor-pointer transition duration-500 ease-in-out hover:border-heading aria-checked:ring-1 aria-checked:ring-black aria-checked:focus aria-checked:hover:bg-heading aria-checked:focus:bg-heading">
+                      <AccordionFacets.ItemCheckbox className="form-checkbox flex-none w-5 h-5 border border-gray-300 cursor-pointer transition duration-500 ease-in-out hover:border-heading aria-checked:ring-1 aria-checked:ring-black aria-checked:focus aria-checked:hover:bg-heading aria-checked:focus:bg-heading">
                         <AccordionFacets.ItemCheckboxIndicator>
                           <CheckIcon className="w-full h-full" />
                         </AccordionFacets.ItemCheckboxIndicator>
@@ -644,7 +644,7 @@ export const SearchResultsWithInputComponent = ({
                 onClick={() => {
                   setMobileFilterToogle(!mobileFilterToogle);
                 }}
-                className={`lg:hidden flex items-center justify-center w-full border rounded px-2 h-12 gap-2 mt-2`}
+                className={`lg:hidden flex items-center justify-center w-full border  px-2 h-12 gap-2 mt-2`}
               >
                 {/* THIS IS FOR REFINE BY MOBILE */}
                 <span className="text-lg font-semibold mt-2">Refine By</span>
@@ -663,7 +663,7 @@ export const SearchResultsWithInputComponent = ({
                     </label>
                     <div
                       id="sorting"
-                      className="sort-wrapper border-x border-y border-slate-500 rounded px-2"
+                      className="sort-wrapper border-x border-y border-slate-500  px-2"
                     >
                       <SortOrder options={sortChoices} selected={sortType} />
                     </div>

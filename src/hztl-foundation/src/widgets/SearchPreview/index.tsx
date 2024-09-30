@@ -116,12 +116,12 @@ export const PreviewSearchBasicComponent = ({
   return (
     <PreviewSearch.Root>
       {/* SEARCH BAR */}
-      <div className="search-container w-full flex">
+      <div className="search-container w-full lg:w-[250px] flex">
         <div className="searchinput relative w-full">
           <form id="searchSubmit" onSubmit={onHandle}>
             <PreviewSearch.Input
               id="keyword"
-              className="w-full box-border py-2 px-2 pr-10 focus:outline-solid focus:outline-1 focus:outline-gray-500 border-1 border-black"
+              className="w-full py-2 px-2 pr-10 focus:outline-solid focus:outline-1 focus:outline-gray-500 border-x border-y border-black"
               onChange={keyphraseHandler}
               autoComplete="off"
               placeholder="Search"
