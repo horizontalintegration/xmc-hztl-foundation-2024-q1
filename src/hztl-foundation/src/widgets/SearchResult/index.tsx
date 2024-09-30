@@ -395,7 +395,7 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
           page: v,
         })
       }
-      className="flex gap-4"
+      className="flex gap-4 text-base"
     >
       <Pagination.PrevPage
         onClick={(e) => e.preventDefault()}
@@ -415,7 +415,7 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
                 aria-label={`Page ${page}`}
                 page={page as number}
                 onClick={(e) => e.preventDefault()}
-                className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gray-400 p-2 cursor-pointer data-[current=true]:text-white data-[current=true]:bg-dark-gray data-[current=true]:pointer-events-none data-[current=true]:no-underline"
+                className="inline-flex mx-2 items-center justify-center w-8 h-8 rounded-full p-2 cursor-pointer data-[current=true]:text-white data-[current=true]:bg-gray-500 data-[current=true]:pointer-events-none data-[current=true]:no-underline"
               >
                 {page}
               </Pagination.Page>
