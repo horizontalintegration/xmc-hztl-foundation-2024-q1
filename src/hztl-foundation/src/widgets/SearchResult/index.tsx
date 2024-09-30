@@ -450,25 +450,26 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
   );
 };
 
+// CODE FOR SORT DROPDOWN
 const SortOrder = ({ options, selected }: SortOrderProps) => {
   const selectedSortIndex = options.findIndex((s) => s.name === selected);
   const { onSortChange } = useSearchResultsActions();
   return (
     <SortSelect.Root defaultValue={options[selectedSortIndex]?.name} onValueChange={onSortChange}>
-      <SortSelect.Trigger className="cursor-pointer flex items-center bg-transparent h-10 gap-1 focus:outline-indigo-500 justify-between w-full">
+      <SortSelect.Trigger className="cursor-pointer  flex items-center bg-transparent h-10 px-2 focus:outline-gray-500 justify-between w-full">
         <SortSelect.SelectValue>
           {selectedSortIndex > -1 ? options[selectedSortIndex].label : ''}
         </SortSelect.SelectValue>
         {/* <SortSelect.Icon /> */}
         <SvgIcon icon="sorting" viewBox="0 0 24 24" size="xs" />
       </SortSelect.Trigger>
-      <SortSelect.Content className="bg-white shadow-[4px_4px_8px_#CFCFCF] z-[100] absolute top-6 focus-within:border-indigo-500 w-full ">
-        <SortSelect.Viewport className="p-1 z-[50000]">
+      <SortSelect.Content className="bg-white shadow-inner border focus-within:border-gray-500 w-full ">
+        <SortSelect.Viewport className="p-2">
           {options.map((option: SearchResponseSortChoice) => (
             <SortSelect.Option
               value={option}
               key={option.name}
-              className="flex items-center leading-none cursor-pointer select-none whitespace-no-wrap h-10 px-1 hover:bg-indigo-500 hover:text-white data-[state=checked]:text-indigo-500 data-[state=checked]:bg-white focus:outline-indigo-500"
+              className="flex items-center cursor-pointer select-none h-10 px-1 hover:bg-gray-500 hover:text-white data-[state=checked]:text-gray-500 data-[state=checked]:bg-white focus:outline-gray-500"
             >
               <SortSelect.OptionText>{option.label}</SortSelect.OptionText>
             </SortSelect.Option>
@@ -661,10 +662,7 @@ export const SearchResultsWithInputComponent = ({
                     <label className="text-base font-bold mb-1" htmlFor="sorting">
                       Sort
                     </label>
-                    <div
-                      id="sorting"
-                      className="sort-wrapper border-x border-y border-gray-400  px-2"
-                    >
+                    <div id="sorting" className="sort-wrapper border-x border-y border-gray-400">
                       <SortOrder options={sortChoices} selected={sortType} />
                     </div>
                   </div>
