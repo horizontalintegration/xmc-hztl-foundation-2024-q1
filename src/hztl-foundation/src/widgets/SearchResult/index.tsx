@@ -303,7 +303,7 @@ const SearchFacets = ({ facets }: SearchFacetsProps) => {
             facetId={f.name}
             key={fIndex}
             id={f.name + fIndex}
-            className="mb-2 border-x border-y w-full gap-2"
+            className="mb-2 border-x border-y border-gray-400 w-full gap-2"
           >
             <div className="facets-header">
               <AccordionFacets.Header className="flex px-3 py-1.5">
@@ -663,7 +663,7 @@ export const SearchResultsWithInputComponent = ({
                     </label>
                     <div
                       id="sorting"
-                      className="sort-wrapper border-x border-y border-slate-500  px-2"
+                      className="sort-wrapper border-x border-y border-gray-400  px-2"
                     >
                       <SortOrder options={sortChoices} selected={sortType} />
                     </div>
