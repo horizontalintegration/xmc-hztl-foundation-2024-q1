@@ -156,7 +156,7 @@ const Filter = () => {
             className="text-ellipsis text-sm text-white bg-black rounded-lg pl-2.5 pr-7 py-2.5 whitespace-no-wrap max-w-full overflow-hidden relative cursor-pointer 
       before:content-[''] before:-rotate-45 before:absolute before:w-3.5 before:h-0.5 before:right-2 before:top-2/4 before:bg-white 
       after:content-[''] after:rotate-45 after:absolute after:w-3.5 after:h-0.5 after:right-2 after:top-2/4 after:bg-white 
-      focus:outline-indigo-500"
+      focus:outline-indigo-500 mr-1 mt-1"
           >
             {buildFacetLabel(selectedFacet)}
           </button>
@@ -395,7 +395,7 @@ const SearchPagination = ({ currentPage, totalPages }: SearchPaginationProps) =>
           page: v,
         })
       }
-      className="flex gap-4 text-base"
+      className="flex gap-4 text-base cursor-pointer"
     >
       <Pagination.PrevPage
         onClick={(e) => e.preventDefault()}
