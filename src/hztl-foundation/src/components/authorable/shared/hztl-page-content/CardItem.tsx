@@ -16,7 +16,16 @@ import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWr
 
 const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['border', 'border-theme-darkgrey', 'flex', 'flex-col', 'items-center', 'justify-center', 'mx-4', 'md:mx-0'],
+    base: [
+      'border',
+      'border-theme-darkgrey',
+      'flex',
+      'flex-col',
+      'items-center',
+      'justify-center',
+      'mx-4',
+      'md:mx-0',
+    ],
     body: ['flex', 'flex-col', 'grow', 'p-10', 'w-full'],
     content: ['grow', 'w-full'],
     ctaPrimary: ['px-8'],
@@ -105,7 +114,7 @@ const CardItem = (props: CardItemProps): JSX.Element => {
           <RichTextWrapper className={description()} field={Description} />
         </div>
         <div className={footer()}>
-        <LinkWrapper
+          <LinkWrapper
             className={styles.cta1?.ctaVariant === 'link' ? ctaLink() : ctaPrimary()}
             ctaStyle={getCtaStyle(styles.cta1, 'primary')}
             field={CardLink1}
