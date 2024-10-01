@@ -57,7 +57,7 @@ const TAILWIND_VARIANTS = tv({
     menuItems: ['flex', 'flex-col', 'gap-4', 'm-0', 'p-4'],
     menuNavItem: ['group', 'list-none', 'm-0', 'relative'],
     searchWrapper: ['bg-white', 'p-2'],
-    wrapper: ['bg-white', 'fixed', 'top-0', 'w-full', 'z-50'],
+    wrapper: ['bg-white', 'fixed', 'top-0', 'w-full', 'z-40'],
   },
   variants: {
     isOpen: {
