@@ -48,6 +48,9 @@ module.exports = {
         xxs: ['0.625rem', '0.75rem'] /* 10px,  12px */,
         xxxs: ['0.5rem', '0.5rem'] /*  8px,   8px */,
       },
+      maxWidth: {
+        '8xl': '1440px',
+      },
       screens: {
         xxl: '1440px',
       },
