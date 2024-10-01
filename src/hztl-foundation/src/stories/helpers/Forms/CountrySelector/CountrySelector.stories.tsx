@@ -9,7 +9,7 @@ const CountrySelectorWithState = (args: CountrySelectorInterface) => {
   const [selectedCountry, setSelectedCountry] = useState(args.selectedCountry);
 
   return (
-    <div className="inline-flex border-x border-y shadow">
+    <div className="inline-flex border-2 shadow">
       <CountrySelector
         {...args}
         selectedCountry={selectedCountry}
