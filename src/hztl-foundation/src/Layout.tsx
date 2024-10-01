@@ -61,7 +61,7 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
         <div className={mainClassPageEditing}>
           {route && <Placeholder name="headless-header" rendering={route} />}
           <main>
-            <div id="content" className="mt-xl md:mt-xxl">
+            <div id="content" className="mt-20">
               {route && <Placeholder name="headless-main" rendering={route} />}
             </div>
           </main>
