@@ -116,12 +116,12 @@ export const PreviewSearchBasicComponent = ({
   return (
     <PreviewSearch.Root>
       {/* SEARCH BAR */}
-      <div className="search-container w-full flex p-4">
+      <div className="search-container w-full lg:min-w-[250px] flex">
         <div className="searchinput relative w-full">
           <form id="searchSubmit" onSubmit={onHandle}>
             <PreviewSearch.Input
               id="keyword"
-              className="w-full box-border py-2 px-2 pr-10 focus:outline-solid focus:outline-1 focus:outline-gray-500 border-1 border-black"
+              className="w-full py-2 px-2 pr-10 focus:outline-solid focus:outline-1 focus:outline-gray-500 border-x border-y border-black"
               onChange={keyphraseHandler}
               autoComplete="off"
               placeholder="Search"
@@ -151,7 +151,7 @@ export const PreviewSearchBasicComponent = ({
       {/* CODE FOR SEARCH RESULTS STARTS HERE */}
       <PreviewSearch.Content
         ref={widgetRef}
-        className="flex justify-center pt-0 border-x border-b transition-opacity	w-[var(--radix-popover-trigger-width)] bg-white z-10"
+        className="flex justify-center pt-0 border-x border-b border-black transition-opacity	w-[var(--radix-popover-trigger-width)] bg-white z-10"
       >
         {/* DISPLAY LOADING IF RESULTS ARE STILL NOT READY */}
         <Presence present={loading}>
