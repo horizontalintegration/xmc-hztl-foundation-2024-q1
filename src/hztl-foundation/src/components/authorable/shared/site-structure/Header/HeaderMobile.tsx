@@ -47,10 +47,10 @@ const TAILWIND_VARIANTS = tv({
     dropDownItemName: ['font-bold', 'text-lg'],
     dropDownMenuGroup: ['pt-4', 'px-4'],
     dropDownMenuWrapper: ['bg-theme-lightgrey', 'my-4'],
-    hamburgerBase: ['flex', 'gap-3', 'h-full', 'items-center', 'justify-center', 'w-full'],
+    hamburgerBase: ['flex', 'gap-5', 'h-full', 'items-center', 'justify-center', 'w-full'],
     hamburgerItem: ['flex', 'items-center', 'justify-center', 'mt-0', '', 'w-4'],
     hamburgerWrapper: ['flex', 'items-center'],
-    headerSection: ['flex', 'justify-between', 'p-4'],
+    headerSection: ['flex', 'justify-between', 'p-4', 'md:px-8'],
     languageSelection: ['bg-theme-lightgrey', 'p-4', 'rounded my-1'],
     languageWrapper: ['absolute', 'bg-white', 'border-b', 'border-black', 'w-full'],
     linkWrapper: ['font-semibold', 'gap-2', '!place-items-center', 'px-4', 'text-black', 'text-s'],
@@ -255,7 +255,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
             </svg>
           </button>
         </li>
-        <li className="toggle-menu flex items-center justify-center">
+        <li className="toggle-menu flex items-center justify-center w-5">
           <button
             aria-expanded={openMenu}
             aria-label="Toggle Menu"

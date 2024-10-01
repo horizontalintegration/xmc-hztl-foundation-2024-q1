@@ -6,6 +6,7 @@ import { tv } from 'tailwind-variants';
 // Lib
 import { ComponentProps } from 'lib/component-props';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
+import { CtaVariants } from 'lib/utils/style-param-utils/modules/ctas';
 
 // Local
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
@@ -98,15 +99,19 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
   /**
- * Function to get the CTA style.
- * If ctaStyle is undefined, it defaults to the provided defaultVariant.
- *
- * @param {any} ctaStyle - The CTA style object.
- * @param {string} defaultVariant - The default variant to use if ctaStyle is undefined.
- * @returns {object} - The CTA style object with the appropriate variant.
- */
+   * Function to get the CTA style.
+   * If ctaStyle is undefined, it defaults to the provided defaultVariant.
+   *
+   * @param {CtaStyle} ctaStyle - The CTA style object.
+   * @param {string} defaultVariant - The default variant to use if ctaStyle is undefined.
+   * @returns {object} - The CTA style object with the appropriate variant.
+   */
 
-  const getCtaStyle = (ctaStyle: any, defaultVariant: string) => {
+  interface CtaStyle {
+    ctaVariant?: CtaVariants;
+  }
+
+  const getCtaStyle = (ctaStyle: CtaStyle = {}, defaultVariant: CtaVariants) => {
     return {
       ...ctaStyle,
       ctaVariant: ctaStyle?.ctaVariant ?? defaultVariant,
