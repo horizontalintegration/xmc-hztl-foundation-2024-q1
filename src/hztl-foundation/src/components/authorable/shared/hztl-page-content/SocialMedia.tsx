@@ -9,36 +9,23 @@ import { SiteStructure } from '../../../../.generated/Feature.HztlFoundation.mod
 // Local
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
+import { IconTypes, SvgIcon } from 'helpers/SvgIcon';
 
 // Types
 export type SocialMediaProps = ComponentProps & SiteStructure.Footer.SocialMedia;
 
-/*
- * Tailwind Variants
- */
-
-const tailwindVariants = tv({
+const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['flex', 'justify-end', 'col-span-2', 'mmd:col-span-1'],
-    wrapper: [
-      'w-full',
-      'flex',
-      'max-w-[724px]',
-      'py-4',
-      'px-spacing-spacing-4',
-      'ml:px-16',
-      'items-center',
-      'justify-center',
-      'mmd:justify-start',
-    ],
-    content: ['flex', 'gap-8'],
+    base: ['flex', 'hidden', 'md:block'],
+    iconList: ['flex', 'flex-row', 'gap-8', 'w-fit'],
+    link: ['text-theme-black', 'hover:text-theme-grey'],
+    svg: ['h-6', 'w-6'],
   },
 });
 
 export const Default = (props: SocialMediaProps): JSX.Element => {
-  const id = props?.params?.RenderingIdentifier;
-
-  const { base, wrapper, content } = tailwindVariants();
+  const { socialMediaLinks } = props?.fields || {};
+  const { RenderingIdentifier } = props?.params || {};
 
   /*
    * Rendering
@@ -48,28 +35,44 @@ export const Default = (props: SocialMediaProps): JSX.Element => {
     return <></>;
   }
 
+  const extendedTailwindVariants = tv({
+    extend: TAILWIND_VARIANTS,
+    slots: {
+      base: [props?.params?.styles],
+    },
+  });
+
+  const { base, iconList, link, svg } = extendedTailwindVariants();
+
   return (
     <div
-      className={`${base()} ${props?.params?.styles !== undefined ? props?.params?.styles : ''}`}
-      data-component="authorable/general/social-media"
-      id={id}
+      className={base()}
+      data-component="authorable/shared/hztl-page-content/socialmedia"
+      id={RenderingIdentifier}
     >
-      <div className={wrapper()}>
-        <div className={content()}>
-          {props?.fields?.socialMediaLinks?.map((icon, index) => {
-            const { socialMediaLink, socialMediaLogo } = icon?.fields;
-            return (
+      <ul className={iconList()}>
+        {socialMediaLinks?.map((icon) => {
+          const { socialMediaLink } = icon?.fields;
+
+          return (
+            <li key={icon?.id}>
               <LinkWrapper
-                key={index}
-                suppressNewTabIcon={true}
+                className={link()}
                 field={socialMediaLink as LinkField}
+                suppressNewTabIcon={true}
               >
-                <ImageWrapper field={socialMediaLogo as ImageField} />
+                <SvgIcon
+                  className={svg()}
+                  fill="none"
+                  icon={icon?.name?.toLowerCase() as IconTypes}
+                  size="em"
+                  viewBox="0 0 24 24"
+                />
               </LinkWrapper>
-            );
-          })}
-        </div>
-      </div>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };

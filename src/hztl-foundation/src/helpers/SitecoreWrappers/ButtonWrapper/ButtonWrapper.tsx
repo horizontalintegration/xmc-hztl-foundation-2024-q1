@@ -60,7 +60,8 @@ export const ctaTailwindVariant = tv({
           'hover:text-theme-darkblue',
           'active:text-theme-lightteal',
           'active:underline',
-          'focus:outline-theme-darkblue'],
+          'focus:outline-theme-darkblue',
+        ],
       },
       primary: {
         base: [

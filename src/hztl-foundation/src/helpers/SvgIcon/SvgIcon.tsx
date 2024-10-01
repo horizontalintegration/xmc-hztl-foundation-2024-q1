@@ -19,14 +19,19 @@ export type IconTypes =
   | 'chevron-up'
   | 'close'
   | 'download'
+  | 'facebook'
+  | 'instagram'
   | 'magnifier'
   | 'new-window'
   | 'outline-search'
   | 'pause'
+  | 'pinterest'
   | 'play'
   | 'plus'
   | 'refine'
-  | 'sorting';
+  | 'sorting'
+  | 'tiktok'
+  | 'youtube';
 
 export type SvgIconSize = 'xxs' | 'xs' | 'sm' | 'md' | 'em' | 'lg';
 

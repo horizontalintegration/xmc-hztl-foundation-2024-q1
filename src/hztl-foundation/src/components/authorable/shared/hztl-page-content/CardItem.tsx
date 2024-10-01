@@ -6,6 +6,7 @@ import { tv } from 'tailwind-variants';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
+import { CtaVariants } from 'lib/utils/style-param-utils/modules/ctas';
 
 // Local
 import { withStandardComponentWrapper } from 'helpers/HOC';
@@ -16,7 +17,16 @@ import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWr
 
 const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['border', 'border-theme-darkgrey', 'flex', 'flex-col', 'items-center', 'justify-center', 'mx-4', 'md:mx-0'],
+    base: [
+      'border',
+      'border-theme-darkgrey',
+      'flex',
+      'flex-col',
+      'items-center',
+      'justify-center',
+      'mx-4',
+      'md:mx-0',
+    ],
     body: ['flex', 'flex-col', 'grow', 'p-10', 'w-full'],
     content: ['grow', 'w-full'],
     ctaPrimary: ['px-8'],
@@ -76,12 +86,16 @@ const CardItem = (props: CardItemProps): JSX.Element => {
    * Function to get the CTA style.
    * If ctaStyle is undefined, it defaults to the provided defaultVariant.
    *
-   * @param {any} ctaStyle - The CTA style object.
-   * @param {string} defaultVariant - The default variant to use if ctaStyle is undefined.
+   * @param {CtaStyle} ctaStyle - The CTA style object.
+   * @param {CtaVariants} defaultVariant - The default variant to use if ctaStyle is undefined.
    * @returns {object} - The CTA style object with the appropriate variant.
    */
 
-  const getCtaStyle = (ctaStyle: any, defaultVariant: string) => {
+  interface CtaStyle {
+    ctaVariant?: CtaVariants;
+  }
+
+  const getCtaStyle = (ctaStyle: CtaStyle = {}, defaultVariant: CtaVariants) => {
     return {
       ...ctaStyle,
       ctaVariant: ctaStyle?.ctaVariant ?? defaultVariant,
@@ -105,7 +119,7 @@ const CardItem = (props: CardItemProps): JSX.Element => {
           <RichTextWrapper className={description()} field={Description} />
         </div>
         <div className={footer()}>
-        <LinkWrapper
+          <LinkWrapper
             className={styles.cta1?.ctaVariant === 'link' ? ctaLink() : ctaPrimary()}
             ctaStyle={getCtaStyle(styles.cta1, 'primary')}
             field={CardLink1}

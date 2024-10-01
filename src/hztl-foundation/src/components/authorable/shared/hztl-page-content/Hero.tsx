@@ -6,6 +6,7 @@ import { tv } from 'tailwind-variants';
 import { ComponentProps } from 'lib/component-props';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
+import { CtaVariants } from 'lib/utils/style-param-utils/modules/ctas';
 
 // Local
 import { withStandardComponentWrapper } from 'helpers/HOC';
@@ -32,7 +33,14 @@ const TAILWIND_VARIANTS = tv({
     columnA: ['flex', 'items-center', 'justify-center', 'w-full', 'md:w-1/2'],
     columnB: ['w-full', 'md:w-1/2'],
     contentContainer: ['max-w-[472px]', 'p-6', 'w-fit'],
-    ctaContainer: ['flex', 'flex-wrap', 'gap-6', 'justify-center', 'items-center', 'md:justify-normal'],
+    ctaContainer: [
+      'flex',
+      'flex-wrap',
+      'gap-6',
+      'justify-center',
+      'items-center',
+      'md:justify-normal',
+    ],
     description: ['mb-6', 'text-base'],
     heading: ['font-bold', 'font-modern', 'mb-6', 'text-5xl', 'md:text-4xl'],
   },
@@ -67,19 +75,23 @@ const Hero = (props: HeroProps): JSX.Element => {
     ctaSecondary,
     ctaLink,
     description,
-    heading
+    heading,
   } = modifiedTailwindVariants();
 
   /**
- * Function to get the CTA style.
- * If ctaStyle is undefined, it defaults to the provided defaultVariant.
- *
- * @param {any} ctaStyle - The CTA style object.
- * @param {string} defaultVariant - The default variant to use if ctaStyle is undefined.
- * @returns {object} - The CTA style object with the appropriate variant.
- */
+   * Function to get the CTA style.
+   * If ctaStyle is undefined, it defaults to the provided defaultVariant.
+   *
+   * @param {CtaStyle} ctaStyle - The CTA style object.
+   * @param {string} defaultVariant - The default variant to use if ctaStyle is undefined.
+   * @returns {object} - The CTA style object with the appropriate variant.
+   */
 
-  const getCtaStyle = (ctaStyle: any, defaultVariant: string) => {
+  interface CtaStyle {
+    ctaVariant?: CtaVariants;
+  }
+
+  const getCtaStyle = (ctaStyle: CtaStyle = {}, defaultVariant: CtaVariants) => {
     return {
       ...ctaStyle,
       ctaVariant: ctaStyle?.ctaVariant ?? defaultVariant,

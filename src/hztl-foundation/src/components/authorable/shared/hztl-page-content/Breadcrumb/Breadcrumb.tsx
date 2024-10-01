@@ -28,7 +28,7 @@ const TAILWIND_VARIANTS = tv({
     icon: ['h-auto', 'w-auto'],
     iconContainer: ['ml-3'],
     linkWrapper: ['flex', 'font-bold', 'items-center', 'text-theme-black', 'underline'],
-    list: ['flex', 'gap-2', 'items-center', 'list', 'm-3', 'md:m-0'],
+    list: ['flex', 'gap-2', 'items-center', 'list', 'm-4', 'md:m-0'],
     listItem: ['list-none'],
   },
 });
