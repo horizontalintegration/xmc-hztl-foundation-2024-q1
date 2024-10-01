@@ -66,7 +66,7 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
             </div>
           </main>
           <footer className="bg-gray-200">
-            <div className="md:grid md:grid-cols-2 md:items-center md:m-auto md:max-w-8xl">
+            <div className="m-auto max-w-7xl md:grid md:grid-cols-2 md:items-center md:m-auto">
               {route && <Placeholder name="headless-footer" rendering={route} />}
             </div>
           </footer>
