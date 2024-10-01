@@ -98,13 +98,13 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
   /**
-   * Function to get the CTA style.
-   * If ctaStyle is undefined, it defaults to the provided defaultVariant.
-   *
-   * @param {any} ctaStyle - The CTA style object.
-   * @param {string} defaultVariant - The default variant to use if ctaStyle is undefined.
-   * @returns {object} - The CTA style object with the appropriate variant.
-   */
+ * Function to get the CTA style.
+ * If ctaStyle is undefined, it defaults to the provided defaultVariant.
+ *
+ * @param {any} ctaStyle - The CTA style object.
+ * @param {string} defaultVariant - The default variant to use if ctaStyle is undefined.
+ * @returns {object} - The CTA style object with the appropriate variant.
+ */
 
   const getCtaStyle = (ctaStyle: any, defaultVariant: string) => {
     return {

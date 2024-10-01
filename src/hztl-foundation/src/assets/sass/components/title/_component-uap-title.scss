@@ -5,12 +5,11 @@
   background: $title-bg;
   h1,
   .field-title {
-    > a,
-    > span {
+    >a, >span {
       @include border-basic(bottom, $border-basic-color);
       font-size: $font-extrabig;
       margin-bottom: $small-margin;
-      color: #bdff69;
+      color: #BDFF69;
       line-height: normal;
       padding-bottom: 10px;
       display: block;
@@ -19,7 +18,7 @@
       &:hover {
         color: $title-color-active;
       }
-    }
   }
+}
   @import '@sass/variants/title';
 }
