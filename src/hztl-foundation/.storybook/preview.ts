@@ -28,7 +28,7 @@ const preview: Preview = {
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ['autodocs', 'autodocs'],
 };
 
 export const decorators = [componentGlobalWrapper, i18nWrapper];
