@@ -1,0 +1,41 @@
+{
+  "name": "xmc-hztl-foundation-2024-q1",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0",
+    "yarn": "yarn is not supported, please use npm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/horizontalintegration/xmc-hztl-foundation-2024-q1"
+  },
+  "author": {
+    "name": "Horizontal Digital",
+    "url": "https://www.horizontaldigital.com/"
+  },
+  "homepage": "https://github.com/horizontalintegration/xmc-hztl-foundation-2024-q1",
+  "bugs": {
+    "url": "https://horizontal.atlassian.net/jira/software/c/projects/FIS"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.49.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.2.1",
+    "commitlint-config-jira": "^1.6.4",
+    "commitlint-plugin-jira-rules": "^1.6.4",
+    "husky": "^8.0.0",
+    "npm-run-all": "^4.1.5",
+    "yarpm": "^1.2.0"
+  },
+  "scripts": {
+    "install-all": "yarpm-pnpm install && cd src/hztl-foundation && yarpm-pnpm install",
+    "precommit:app": "cd src/hztl-foundation && npm-run-all precommit",
+    "precommit": "npm-run-all precommit:*",
+    "prepare": "husky install",
+    "prepush:app": "cd src/hztl-foundation && npm-run-all prepush",
+    "prepush": "npm-run-all prepush:*"
+  }
+}
