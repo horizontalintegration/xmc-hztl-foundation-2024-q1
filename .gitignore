@@ -84,3 +84,4 @@ packages/
 /.env.local
 .nova
 tsconfig.tsbuildinfo
+node_modules

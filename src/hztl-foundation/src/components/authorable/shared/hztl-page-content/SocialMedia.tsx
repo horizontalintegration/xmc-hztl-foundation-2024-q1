@@ -1,5 +1,5 @@
 // Global
-import { ImageField, LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
+import { LinkField } from '@sitecore-jss/sitecore-jss-nextjs';
 import { tv } from 'tailwind-variants';
 
 // Lib
@@ -7,7 +7,6 @@ import { ComponentProps } from 'lib/component-props';
 import { SiteStructure } from '../../../../.generated/Feature.HztlFoundation.model';
 
 // Local
-import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 import LinkWrapper from 'helpers/SitecoreWrappers/LinkWrapper/LinkWrapper';
 import { IconTypes, SvgIcon } from 'helpers/SvgIcon';
 
