@@ -11,17 +11,25 @@ const config: StorybookConfig = {
     '@storybook/addon-onboarding',
     '@whitespace/storybook-addon-html',
   ],
+
   docs: {},
+
   env: (config) => ({
     ...config,
     IS_STORYBOOK: 'true',
   }),
+
   framework: {
     name: '@storybook/nextjs',
     options: {},
   },
+
   staticDirs: ['../public', '../src/stories/assets'],
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+  },
 };
 
 export default config;
