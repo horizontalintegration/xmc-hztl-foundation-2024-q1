@@ -157,6 +157,13 @@ const meta: Meta<typeof Default> = {
     /* eslint-disable  @typescript-eslint/no-explicit-any */
   } as any,
   component: Default,
+  decorators: [
+    (Story) => (
+      <div className="max-w-7xl">
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     docs: {
       description: {

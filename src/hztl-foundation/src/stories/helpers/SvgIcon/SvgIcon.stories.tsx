@@ -36,6 +36,7 @@ const meta: Meta<SvgIconProps> = {
         'new-window',
         'outline-search',
         'icon-pause',
+        'pause',
         'pinterest',
         'play',
         'plus',
