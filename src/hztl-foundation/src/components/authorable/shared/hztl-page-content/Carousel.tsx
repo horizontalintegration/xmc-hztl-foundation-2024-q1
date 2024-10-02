@@ -30,7 +30,7 @@ const SPLIDE_OPTIONS = {
 
 const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['component', 'overflow-hidden', 'p-2', 'relative'],
+    base: ['component', 'overflow-hidden', 'relative'],
     nextButton: [
       'splide__arrow',
       'splide__arrow--next',
