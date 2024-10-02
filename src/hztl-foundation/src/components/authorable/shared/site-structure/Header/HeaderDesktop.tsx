@@ -50,7 +50,7 @@ const TAILWIND_VARIANTS = tv({
       'w-full',
       'z-10',
     ],
-    inner: ['flex', 'justify-center'],
+    inner: ['flex', 'justify-center', 'p-4'],
     languageWrapper: ['flex', 'items-center', 'justify-end'],
     logoContainer: ['flex', 'items-center'],
     menuItems: ['flex', 'items-center', 'px-3', 'lg:gap-4', 'lg:px-10'],
