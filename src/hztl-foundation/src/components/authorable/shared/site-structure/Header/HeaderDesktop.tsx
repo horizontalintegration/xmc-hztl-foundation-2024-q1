@@ -111,6 +111,14 @@ const TAILWIND_VARIANTS = tv({
         buttonItemIcon: ['rotate-0'],
       },
     },
+    isScrollLocked: {
+      false: {
+        base: ['fixed'],
+      },
+      true: {
+        base: ['absolute'],
+      },
+    },
   },
 });
 
@@ -283,6 +291,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
   const [dropdownOpen, setDropdownOpen] = useState<number | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [isScrollLocked, setIsScrollLocked] = useState(false);
 
   const isDropdownOpen = dropdownOpen !== null || showSearch;
 
@@ -330,6 +339,18 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
     };
   }, [router.events]);
 
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsScrollLocked(document.body.hasAttribute('data-scroll-locked'));
+    });
+
+    observer.observe(document.body, { attributes: true });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   /*
    * Rendering
    */
@@ -349,7 +370,11 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
     menuItems,
     languageWrapper,
     searchBox,
-  } = TAILWIND_VARIANTS({ isEditing: isEditing, isDropdownOpen: isDropdownOpen });
+  } = TAILWIND_VARIANTS({
+    isEditing: isEditing,
+    isDropdownOpen: isDropdownOpen,
+    isScrollLocked: isScrollLocked,
+  });
 
   return (
     <>
