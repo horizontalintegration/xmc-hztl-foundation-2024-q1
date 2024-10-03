@@ -1,7 +1,24 @@
 const IconPlay = (): JSX.Element => {
   return (
     <>
-      <path d="M256 0c-141.385 0-256 114.615-256 256s114.615 256 256 256 256-114.615 256-256-114.615-256-256-256zM256 464c-114.875 0-208-93.125-208-208s93.125-208 208-208 208 93.125 208 208-93.125 208-208 208zM192 144l192 112-192 112z"></path>
+      <path
+        clipRule="evenodd"
+        d="M10.6,8.4l5.7,3.6-5.7,3.6v-7.2Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
+      <path
+        clipRule="evenodd"
+        d="M22.8,12c0,5.9-4.8,10.8-10.8,10.8S1.2,17.9,1.2,12,6.1,1.2,12,1.2s10.8,4.8,10.8,10.8Z"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+      />
     </>
   );
 };
