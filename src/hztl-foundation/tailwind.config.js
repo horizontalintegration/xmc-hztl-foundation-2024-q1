@@ -5,7 +5,6 @@ const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
-
   safelist: [
     {
       pattern: /self-(start|center|end)/,
@@ -29,7 +28,7 @@ module.exports = {
           darkgrey: '#515152',
           grey: '#787779',
           lightgrey: '#cfcdc8',
-          offwhite:'#F1F1F1',
+          offwhite: '#F1F1F1',
           bgblack: '#404040',
           montecarlo: '#7fc3ba',
           salmon: '#f58466',
@@ -48,8 +47,15 @@ module.exports = {
         xxs: ['0.625rem', '0.75rem'] /* 10px,  12px */,
         xxxs: ['0.5rem', '0.5rem'] /*  8px,   8px */,
       },
+      maxHeight: {
+        125: '500px',
+      },
       maxWidth: {
         '8xl': '1440px',
+      },
+      minHeight: {
+        120: '480px',
+        125: '500px',
       },
       screens: {
         xxl: '1440px',
