@@ -50,7 +50,7 @@ const TAILWIND_VARIANTS = tv({
       'w-full',
       'z-10',
     ],
-    inner: ['flex', 'justify-center'],
+    inner: ['flex', 'justify-center', 'p-4'],
     languageWrapper: ['flex', 'items-center', 'justify-end'],
     logoContainer: ['flex', 'items-center'],
     menuItems: ['flex', 'items-center', 'px-3', 'lg:gap-4', 'lg:px-10'],
@@ -360,7 +360,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
           <div className={inner()}>
             <div className={container()}>
               <div className={menuWrapper()}>
-                <div className="flex">
+                <div className="flex md:pl-6">
                   <Logo logo={logo.jsonValue} logoLink={logoLink.jsonValue} />
                   <ul className={menuItems()} role="presentation">
                     {navigationList?.items?.map((item, index) => (

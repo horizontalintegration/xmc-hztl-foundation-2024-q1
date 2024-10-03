@@ -1,0 +1,32 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run prepush
+
+# Ensure that our branch name is in the correct format
+
+echo "Running pre-push checks 🔎"
+
+# Set the Jira project prefix
+nojira="NOJIRA"
+projectname="FIS"
+
+# Get the current branch and apply it to a variable
+currentbranch=`git branch | grep \* | cut -d ' ' -f2`
+# Test current branch name
+if [[ "$currentbranch" =~ ^(release|hotfix|feature|bug)/($nojira|$projectname)-[0-9]+-[a-z0-9-]+ ]]
+then
+  echo "Branch name is properly formatted"
+  echo " "
+else
+  echo "Your branch name should be in the following format:"
+  echo "  feature/$projectname-001-hello-world"
+  echo " "
+  echo "Further documentation on proper branch naming can be found here:"
+  echo "https://horizontal.atlassian.net/wiki/spaces/SJ/pages/7273883601407/Branching+Strategies+-+Git#Branch-naming"
+  echo " "
+  exit 1
+fi
+
+# Run unit tests
+npm run prepush

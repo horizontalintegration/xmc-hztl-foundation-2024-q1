@@ -13,13 +13,13 @@ const TAILWIND_VARIANTS = tv({
   slots: {
     base: ['col-span-2', 'flex', 'justify-start', 'md:col-span-1'],
     content: [
-      'flex-col',
       'flex',
+      'flex-col',
       'gap-2',
       'items-center',
       'text-center',
-      'lg:text-left',
       'lg:items-end',
+      'lg:text-left',
     ],
     divider: ['bg-theme-black', 'h-full', 'w-px'],
     legalMenuItems: ['flex', 'items-center'],
@@ -31,10 +31,11 @@ const TAILWIND_VARIANTS = tv({
       'items-center',
       'justify-center',
       'max-w-[724px]',
-      'px-spacing-spacing-4',
+      'px-3',
       'py-4',
       'w-full',
       'md:justify-end',
+      'md:!px-0',
     ],
   },
 });
@@ -65,17 +66,6 @@ export const Default = (props: LegalInfoProps): JSX.Element => {
   const { copyrightText, legalMenu } = props?.fields || {};
   const { RenderingIdentifier } = props?.params || {};
 
-  const {
-    base,
-    wrapper,
-    content,
-    textWrapper,
-    linkWrapper,
-    legalMenuWrapper,
-    legalMenuItems,
-    divider,
-  } = TAILWIND_VARIANTS();
-
   /*
    * Rendering
    */
@@ -84,9 +74,27 @@ export const Default = (props: LegalInfoProps): JSX.Element => {
     return <></>;
   }
 
+  const extendedTailwindVariants = tv({
+    extend: TAILWIND_VARIANTS,
+    slots: {
+      base: [props?.params?.styles],
+    },
+  });
+
+  const {
+    base,
+    content,
+    divider,
+    legalMenuItems,
+    legalMenuWrapper,
+    linkWrapper,
+    textWrapper,
+    wrapper,
+  } = extendedTailwindVariants();
+
   return (
     <div
-      className={`${base()} ${props?.params?.styles !== undefined ? props?.params?.styles : ''}`}
+      className={base()}
       data-component="authorable/shared/hztml-page-content/legalinfo"
       id={RenderingIdentifier}
     >

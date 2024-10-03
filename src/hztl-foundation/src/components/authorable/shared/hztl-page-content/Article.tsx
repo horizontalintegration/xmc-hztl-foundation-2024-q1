@@ -59,11 +59,17 @@ const Article = (props: ArticleProps): JSX.Element => {
     >
       <ImageWrapper field={Image} className={image()} />
       <div className={contentContainer()}>
-        <PlainTextWrapper className={eyebrow()} data-name='eyebrow' editable field={Eyebrow} tag="p"/>
-        <RichTextWrapper className={heading()} data-name='heading' field={Heading} />
-        <RichTextWrapper className={subheading()} data-name='subheading' field={Subheading} />
-        <RichTextWrapper className={description()} data-name='description' field={Description} />
-        <LinkWrapper className={cta()} data-name='cta' field={ReadMoreCTA} />
+        <PlainTextWrapper
+          className={eyebrow()}
+          data-name="eyebrow"
+          editable
+          field={Eyebrow}
+          tag="p"
+        />
+        <RichTextWrapper className={heading()} data-name="heading" field={Heading} />
+        <RichTextWrapper className={subheading()} data-name="subheading" field={Subheading} />
+        <RichTextWrapper className={description()} data-name="description" field={Description} />
+        <LinkWrapper className={cta()} data-name="cta" field={ReadMoreCTA} />
       </div>
     </section>
   );

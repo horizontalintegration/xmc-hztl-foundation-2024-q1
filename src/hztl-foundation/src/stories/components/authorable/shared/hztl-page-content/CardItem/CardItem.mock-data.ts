@@ -15,22 +15,21 @@ const defaultData: CardItemProps = {
     },
     CardLink1: {
       value: {
-        href: 'https://www.horizontaldigital.com',
+        href: 'https://www.example.com',
         text: 'Learn More',
-        linktype: 'external',
-        target: '_blank',
+        linktype: 'internal',
       },
     },
     CardLink2: {
       value: {
-        href: 'https://www.horizontaldigital.com',
+        href: 'https://www.example.com',
         text: 'Download',
-        linktype: 'external',
+        linktype: 'internal',
       },
     },
     Description: {
       value:
-        '<p>Lorem ipsum dolor sit amet, consectetur<br> adipiscing elit, sed do eiusmod tempor incididunt<br> ut labore et dolore magna aliqua.</p>',
+        '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>',
     },
     Eyebrow: {
       value: 'Eyebrow',
@@ -71,9 +70,9 @@ export const CardItemA: CardItemProps = {
     },
     CardLink2: {
       value: {
-        href: 'https://www.bing.com',
-        linktype: 'external',
-        url: 'https://www.bing.com',
+        href: 'https://www.example.com',
+        linktype: 'internal',
+        url: 'https://www.example.com',
         target: '',
         text: 'Download',
         title: '',
@@ -129,9 +128,9 @@ export const CardItemB: CardItemProps = {
     },
     CardLink2: {
       value: {
-        href: 'https://www.bing.com',
-        linktype: 'external',
-        url: 'https://www.bing.com',
+        href: 'https://www.example.com',
+        linktype: 'internal',
+        url: 'https://www.example.com',
         target: '',
         text: 'Download',
         title: '',
@@ -187,9 +186,9 @@ export const CardItemC: CardItemProps = {
     },
     CardLink2: {
       value: {
-        href: 'https://www.bing.com',
-        linktype: 'external',
-        url: 'https://www.bing.com',
+        href: 'https://www.example.com',
+        linktype: 'internal',
+        url: 'https://www.example.com',
         target: '',
         text: 'Download',
         title: '',
