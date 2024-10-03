@@ -9,10 +9,9 @@ const defaultData: ModalProps = {
   fields: {
     id: { value: '' },
     label: { value: 'Modal' },
+    name: { value: 'uniquemodalidentifier' },
     openOnLoad: { value: false },
-    size: {
-      value: 'large',
-    },
+    size: { value: 'large' },
     title: { value: 'Title' },
   },
   params: {
