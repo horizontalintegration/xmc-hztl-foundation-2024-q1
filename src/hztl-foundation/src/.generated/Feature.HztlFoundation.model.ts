@@ -1420,6 +1420,11 @@ export namespace HztlPageContent {
       label?: Field<string>;
 
       /**
+       * Represents the Name field (737891b0-d2c7-4dbc-a090-b140aaf8948a).
+       */
+      name?: Field<string>;
+
+      /**
        * Represents the Open OnLoad field (27706ce8-a10b-489b-ad0c-4bd2e685faaa).
        */
       openOnLoad?: Field<boolean>;
@@ -1433,11 +1438,6 @@ export namespace HztlPageContent {
        * Represents the Modal Title field (392a9b53-e3e9-4cf7-8863-c7a57caafa2d).
        */
       title?: Field<string>;
-
-      /**
-       * Represents the Trigger field (737891b0-d2c7-4dbc-a090-b140aaf8948a).
-       */
-      trigger?: Field<string>;
     };
   };
 
@@ -1460,6 +1460,13 @@ export namespace HztlPageContent {
     };
 
     /**
+     * Represents the Name field (737891b0-d2c7-4dbc-a090-b140aaf8948a).
+     */
+    name?: {
+      jsonValue: Field<string>;
+    };
+
+    /**
      * Represents the Open OnLoad field (27706ce8-a10b-489b-ad0c-4bd2e685faaa).
      */
     openOnLoad?: {
@@ -1477,13 +1484,6 @@ export namespace HztlPageContent {
      * Represents the Modal Title field (392a9b53-e3e9-4cf7-8863-c7a57caafa2d).
      */
     title?: {
-      jsonValue: Field<string>;
-    };
-
-    /**
-     * Represents the Trigger field (737891b0-d2c7-4dbc-a090-b140aaf8948a).
-     */
-    trigger?: {
       jsonValue: Field<string>;
     };
   };
