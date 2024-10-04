@@ -1,23 +1,20 @@
+@import url('./_react-modal');
+@import url('./_rte');
+@import url('./_sitecore-forms');
+@import url('./_splide');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import './_react-modal.css';
-@import './_rte.css';
-
-/*
-  Hides Sitecore editor markup,
-  if you run the app in connected mode while the Sitecore cookies
-  are set to edit mode.
-*/
+/* Hides Sitecore editor markup, if you run the app in connected mode while the Sitecore cookies are set to edit mode. */
+/* stylelint-disable selector-class-pattern */
 .scChromeData,
 .scpm {
   display: none !important;
 }
 
-/*
-  Styles for default JSS error components
-*/
+/* Styles for default JSS error components. */
 .sc-jss-editing-error,
 .sc-jss-placeholder-error {
   padding: 1em;
