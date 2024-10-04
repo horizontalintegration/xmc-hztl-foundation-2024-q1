@@ -11,12 +11,11 @@
 /* stylelint-disable selector-class-pattern */
 .scChromeData,
 .scpm {
-  display: none !important;
+  @apply !hidden;
 }
 
 /* Styles for default JSS error components. */
 .sc-jss-editing-error,
 .sc-jss-placeholder-error {
-  padding: 1em;
-  background-color: lightyellow;
+  @apply bg-[lightyellow] p-4;
 }
