@@ -44,13 +44,13 @@ const CardList = (props: CardListProps): JSX.Element => {
    */
 
   return (
-    <div
+    <section
       className={base()}
       data-component="authorable/shared/hztl-page-content/cardlist"
       id={RenderingIdentifier}
     >
       <Placeholder name={phKey} rendering={props.rendering} />
-    </div>
+    </section>
   );
 };
 

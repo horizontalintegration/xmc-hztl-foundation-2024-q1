@@ -10,10 +10,10 @@ const defaultData: CarouselItemProps = {
     },
     image: {
       value: {
-        src: 'https://dummyimage.com/550x310/cfcdc8/2f2d2e',
+        src: 'https://dummyimage.com/2560x1000/cfcdc8/2f2d2e',
         alt: 'carousel img',
-        width: '1920',
-        height: '1080',
+        width: '1280',
+        height: '500',
       },
     },
     primaryCTA: {
@@ -64,10 +64,10 @@ export const carouselItem2: CarouselItemProps = {
     },
     image: {
       value: {
-        src: 'https://dummyimage.com/550x310/cfcdc8/2f2d2e',
+        src: 'https://dummyimage.com/2560x1000/cfcdc8/2f2d2e',
         alt: 'carousel img',
-        width: '1920',
-        height: '1080',
+        width: '1280',
+        height: '500',
       },
     },
     primaryCTA: {
@@ -118,10 +118,10 @@ export const carouselItem3: CarouselItemProps = {
     },
     image: {
       value: {
-        src: 'https://dummyimage.com/550x310/cfcdc8/2f2d2e',
+        src: 'https://dummyimage.com/2560x1000/cfcdc8/2f2d2e',
         alt: 'carousel img',
-        width: '1920',
-        height: '1080',
+        width: '1280',
+        height: '500',
       },
     },
     primaryCTA: {
