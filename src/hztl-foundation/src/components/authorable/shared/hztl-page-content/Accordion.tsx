@@ -29,13 +29,13 @@ const Accordion = (props: AccordionProps): JSX.Element => {
   const { base } = TAILWIND_VARIANTS();
 
   return (
-    <div
+    <section
       className={base()}
       data-component="authorable/shared/hztml-page-content/accordion"
       id={RenderingIdentifier}
     >
       <Placeholder name={phKey} rendering={props.rendering} />
-    </div>
+    </section>
   );
 };
 

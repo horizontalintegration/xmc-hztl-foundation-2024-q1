@@ -23,8 +23,6 @@ const TAILWIND_VARIANTS = tv({
       'flex-col-reverse',
       'items-center',
       'justify-center',
-      'min-h-[50vh]',
-      'my-8',
       'md:flex-row',
     ],
     ctaPrimary: ['px-8'],
