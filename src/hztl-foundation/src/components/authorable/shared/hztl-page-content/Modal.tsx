@@ -17,7 +17,7 @@ export type ModalProps = ComponentProps & HztlPageContent.Modal;
 const TAILWIND_VARIANTS = tv({
   slots: {
     base: ['border', 'component', 'flex', 'flex-col', 'gap-5', 'p-5', 'rounded'],
-    name: ['my-2'],
+    urlHash: ['my-2'],
   },
 });
 
@@ -36,7 +36,7 @@ const Modal = (props: ModalProps): JSX.Element => {
   if (!props?.fields) return <></>;
 
   if (isEditing) {
-    const { base, name } = TAILWIND_VARIANTS();
+    const { base, urlHash } = TAILWIND_VARIANTS();
 
     return (
       <>
@@ -46,7 +46,7 @@ const Modal = (props: ModalProps): JSX.Element => {
             <Placeholder name={placeholderKey} rendering={props.rendering} />
           </div>
         </div>
-        <p className={name()}>
+        <p className={urlHash()}>
           URL Hash: #modal-
           <PlainTextWrapper editable field={name} tag="span" />
         </p>
