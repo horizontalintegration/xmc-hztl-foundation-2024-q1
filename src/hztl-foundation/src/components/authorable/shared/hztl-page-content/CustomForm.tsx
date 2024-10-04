@@ -19,7 +19,7 @@ export const Default = (props: CustomFormProps): JSX.Element => {
   const id = props?.params?.RenderingIdentifier;
   if (props?.fields) {
     return (
-      <div className={`component card ${props?.params?.styles}`} id={id ? id : undefined}>
+      <section className={`component card ${props?.params?.styles}`} id={id ? id : undefined}>
         <div data-component="authorable/general/card" className="flex justify-center items-center">
           <div className="mx-auto my-0">
             <div className="border border-gray">
@@ -44,7 +44,7 @@ export const Default = (props: CustomFormProps): JSX.Element => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 

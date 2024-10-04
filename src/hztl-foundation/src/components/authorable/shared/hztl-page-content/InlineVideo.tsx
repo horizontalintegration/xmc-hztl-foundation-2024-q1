@@ -99,19 +99,21 @@ const InlineVideo = (props: InlineVideoProps): JSX.Element => {
     })) || [];
 
   return (
-    <VideoWrapper
-      autoplay={autoplay?.value}
-      captions={mappedCaptions}
-      controls={controls?.value}
-      fluid={fluid?.value}
-      height={height?.value}
-      loop={loop?.value}
-      muted={muted?.value}
-      poster={poster?.value?.src}
-      sources={mappedSources}
-      subtitles={mappedSubtitles}
-      width={width?.value}
-    />
+    <section data-component="authorable/shared/hztml-page-content/inlinevideo">
+      <VideoWrapper
+        autoplay={autoplay?.value}
+        captions={mappedCaptions}
+        controls={controls?.value}
+        fluid={fluid?.value}
+        height={height?.value}
+        loop={loop?.value}
+        muted={muted?.value}
+        poster={poster?.value?.src}
+        sources={mappedSources}
+        subtitles={mappedSubtitles}
+        width={width?.value}
+      />
+    </section>
   );
 };
 
