@@ -261,7 +261,7 @@ input:disabled {
   background: var(--AW-White, #fff);
 }
 
-input:disabled + label {
+input:disabled+label {
   color: var(--AW-Dark-Grey, #686869);
   font-family: 'Open Sans';
   font-size: 14px;
@@ -350,7 +350,7 @@ ol {
 }
 
 a {
-  color: var(--RbA-Text-Link, #326222);
+  color: var(--Black, var(--Primary, #2F2D2E));
   font-family: 'Open Sans';
   font-size: 12px;
   font-style: normal;
@@ -464,4 +464,3 @@ table {
     }
   }
 }
-

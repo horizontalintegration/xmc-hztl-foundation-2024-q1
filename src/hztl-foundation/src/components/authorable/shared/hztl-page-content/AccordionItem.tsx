@@ -30,7 +30,6 @@ const tailwindVariants = tv({
       'w-full',
     ],
     contentContainer: ['flex-auto', 'min-h-px', 'p-3'],
-    icon: ['fa', 'fa-chevron-down'],
     iconWrapper: ['transform', 'transition-transform'],
     richTextWrapper: ['font-normal', 'mb-0', 'p-4', 'text-lg'],
   },
@@ -72,10 +71,9 @@ const AccordionItem = (props: AccordionItemProps): JSX.Element => {
     return <></>;
   }
 
-  const { base, buttonWrapper, icon, iconWrapper, contentContainer, richTextWrapper } =
-    tailwindVariants({
-      isOpen,
-    });
+  const { base, buttonWrapper, iconWrapper, contentContainer, richTextWrapper } = tailwindVariants({
+    isOpen,
+  });
 
   return (
     <div className={base()} data-component="authorable/shared/hztl-page-content/accordionitem">
@@ -89,13 +87,7 @@ const AccordionItem = (props: AccordionItemProps): JSX.Element => {
         >
           <Text field={heading} tag="h3" />
           <span className={iconWrapper()}>
-            <SvgIcon
-              className={icon()}
-              fill="none"
-              icon="chevron-down"
-              size="xxs"
-              viewBox="0 0 24 24"
-            />
+            <SvgIcon fill="none" icon="chevron-down" size="xxs" viewBox="0 0 24 24" />
           </span>
         </button>
         {context?.sitecoreContext?.pageEditing ? (

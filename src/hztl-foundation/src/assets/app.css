@@ -57,15 +57,15 @@
   border: 1px solid gray !important;
 }
 
-a {
+/* a {
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
-}
+} */
 
-button[data-state='closed'] .facets-accordian-arrow {
+/* button[data-state='closed'] .facets-accordian-arrow {
   transform: rotate(180deg);
   transition: transform 0.2s ease-in-out;
 }
@@ -73,9 +73,9 @@ button[data-state='closed'] .facets-accordian-arrow {
 button[data-state='open'] .facets-accordian-arrow {
   transform: rotate(0deg);
   transition: transform 0.2s ease-in-out;
-}
+} */
 
-/* Custom Header Link */
+/* ----------------------- Custom Header Link ----------------------- */
 .header-link {
   border-bottom-width: 0;
   background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
@@ -94,18 +94,18 @@ button[data-state='open'] .facets-accordian-arrow {
   background-position: 0 100%;
 }
 
-/* Sitecore Custom Form CSS */
-
-.limit-counter {
-  display: none;
-}
-
 /*carousel pagination dots*/
 .splide__pagination__page {
   /* width: 1.0625em !important;
   height: 1.0625em !important; */
   border-radius: 50%;
   border: 0.5px solid black !important;
+}
+
+/* ----------------------- Sitecore Custom Form CSS ----------------------- */
+
+.limit-counter {
+  display: none;
 }
 
 .iti__country-list {
@@ -138,14 +138,19 @@ button[data-state='open'] .facets-accordian-arrow {
   width: 25px !important;
 }
 
+.button-component {
+  margin-right: auto !important;
+}
+
+.submit-button {
+  background-color: #2F2D2E !important;
+  min-width: 200px !important;
+  border-radius: 0px !important;
+}
 
 .global-input-element,
 .global-input-wrapper {
   border-radius: 0px !important;
-}
-
-.form-input-error-field input {
-  /* border-color: #f03434 !important; */
 }
 
 .form-page {

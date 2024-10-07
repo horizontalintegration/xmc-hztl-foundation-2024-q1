@@ -24,7 +24,7 @@ const TAILWIND_VARIANTS = tv({
     buttonItemIcon: ['duration-200', 'h-auto', 'trasition', '!w-xs'],
     buttonItemSublink: ['flex', 'gap-2', 'items-center'],
     container: ['max-w-screen-xxl', 'w-full'],
-    divider: ['h-3', 'opacity-100', 'bg-theme-black'],
+    divider: ['h-3', 'opacity-100', '-mt-[2px]', 'bg-theme-black'],
     dropDownMenuCol: ['col-span-4', 'py-1', 'text-start', 'xl:col-span-3'],
     dropDownMenuColHeading: ['font-bold', 'text-lg', 'mb-2'],
     dropDownMenuColItems: ['flex', 'flex-col', 'gap-2', 'list-none'],
@@ -241,7 +241,8 @@ const NavItem = (props: NavItemInterface) => {
       {!isList ? (
         <LinkWrapper
           aria-haspopup="false"
-          className={navTitleLinkWrapper()}
+          className={`header-link
+          header-link-black ${navTitleLinkWrapper()}`}
           ctaVariant="link"
           field={props?.navigationLink.jsonValue}
           role="menuitem"
