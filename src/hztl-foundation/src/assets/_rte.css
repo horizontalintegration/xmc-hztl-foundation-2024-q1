@@ -1,5 +1,4 @@
 @tailwind components;
-@tailwind utilities;
 
 @layer components {
   .rte h1 {
@@ -30,6 +29,7 @@
   }
 
   /* If you're using invalid combinations, you don't get nice styling. */
+  /* stylelint-disable selector-max-compound-selectors */
   .rte h2 + h3,
   .rte h3 + h4,
   .rte h4 + h5,
