@@ -1,7 +1,5 @@
 // Global
 import { GetStaticComponentProps } from '@sitecore-jss/sitecore-jss-nextjs';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 
 // Lib
 import graphqlClientFactory from 'lib/graphql-client-factory';
