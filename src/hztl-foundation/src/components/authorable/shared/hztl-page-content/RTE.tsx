@@ -1,28 +1,54 @@
+// Global
 import React from 'react';
+import { tv } from 'tailwind-variants';
+
+// Lib
 import { ComponentProps } from 'lib/component-props';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
+
+// Local
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
+
+const TAILWIND_VARIANTS = tv({
+  slots: {
+    base: ['component'],
+    contentContainer: ['p-4'],
+    placeholder: ['is-empty-hint'],
+  },
+});
 
 export type RTEProps = ComponentProps & HztlPageContent.Rte;
 
 export const Default = (props: RTEProps): JSX.Element => {
-  const text = props.fields ? (
-    <RichTextWrapper field={props?.fields?.text} />
-  ) : (
-    <span className="is-empty-hint">Rich text</span>
-  );
+  const { text } = props?.fields || {};
+  const { RenderingIdentifier, styles } = props?.params || {};
 
-  const id = props?.params?.RenderingIdentifier;
+  /*
+   * RENDERING
+   */
+
+  const extendedTailwindVariants = tv({
+    extend: TAILWIND_VARIANTS,
+    slots: {
+      base: [styles?.trimEnd()],
+    },
+  });
+
+  const { base, contentContainer, placeholder } = extendedTailwindVariants();
+
+  const children = text ? (
+    <RichTextWrapper field={text} />
+  ) : (
+    <span className={placeholder()}>Rich text</span>
+  );
 
   return (
     <div
-      className={`component rich-text ${props.params?.styles.trimEnd()}`}
-      data-component="authorable/rte"
-      id={id ? id : undefined}
+      className={base()}
+      data-component="authorable/shared/hztl-page-content/rte"
+      id={RenderingIdentifier}
     >
-      <div className="py-spacing-spacing-7 px-spacing-spacing-4 md:px-spacing-spacing-2">
-        {text}
-      </div>
+      <div className={contentContainer()}>{children}</div>
     </div>
   );
 };

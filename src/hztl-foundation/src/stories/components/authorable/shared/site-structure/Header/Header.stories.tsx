@@ -105,9 +105,11 @@ const meta: Meta<typeof Default> = {
   component: Default,
   decorators: [
     (Story) => (
-      <QueryClientProvider client={queryClient}>
-        <Story />
-      </QueryClientProvider>
+      <div className="min-h-80">
+        <QueryClientProvider client={queryClient}>
+          <Story />
+        </QueryClientProvider>
+      </div>
     ),
   ],
   parameters: {

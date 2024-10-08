@@ -9,10 +9,9 @@ const defaultData: ModalProps = {
   fields: {
     id: { value: '' },
     label: { value: 'Modal' },
+    name: { value: 'uniquemodalidentifier' },
     openOnLoad: { value: false },
-    size: {
-      value: 'large',
-    },
+    size: { value: 'large' },
     title: { value: 'Title' },
   },
   params: {
@@ -25,8 +24,6 @@ const defaultData: ModalProps = {
       'modal-1': [inlineVideoData as ComponentRendering],
     },
   },
-  uid: '2845070A-AEBD-4B45-A59D-88269B081204',
-  dataSource: 'Storybook',
 };
 
 export const noData = {
