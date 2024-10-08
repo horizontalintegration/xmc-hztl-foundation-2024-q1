@@ -51,15 +51,21 @@ const AccordionItem = (props: AccordionItemProps): JSX.Element => {
 
   const context = useSitecoreContext();
 
-  /* State */
+  /*
+   * State
+   */
 
   const [isOpen, setIsOpen] = useState(false);
 
-  /* Convenience Methods */
+  /*
+   * Convenience Methods
+   */
 
   const toggleAccordion = () => setIsOpen(!isOpen);
 
-  /* Rendering */
+  /*
+   * Rendering
+   */
 
   if (!props?.fields) {
     return <></>;

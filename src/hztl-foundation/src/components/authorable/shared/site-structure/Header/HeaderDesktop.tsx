@@ -53,6 +53,7 @@ const TAILWIND_VARIANTS = tv({
     inner: ['flex', 'justify-center', 'p-4'],
     languageWrapper: ['flex', 'items-center', 'justify-end'],
     logoContainer: ['flex', 'items-center'],
+    menuContainer: ['flex', 'md:pl-6'],
     menuItems: ['flex', 'items-center', 'px-3', 'lg:gap-4', 'lg:px-10'],
     menuWrapper: ['flex', 'justify-between'],
     navTitleLinkWrapper: [
@@ -241,8 +242,7 @@ const NavItem = (props: NavItemInterface) => {
       {!isList ? (
         <LinkWrapper
           aria-haspopup="false"
-          className={`header-link
-          header-link-black ${navTitleLinkWrapper()}`}
+          className={navTitleLinkWrapper()}
           ctaVariant="link"
           field={props?.navigationLink.jsonValue}
           role="menuitem"
@@ -252,8 +252,7 @@ const NavItem = (props: NavItemInterface) => {
       ) : (
         <button
           aria-haspopup="true"
-          className={`header-link
-          header-link-black ${buttonItem()}`}
+          className={buttonItem()}
           onClick={() => isList && props.open()}
           role="menuitem"
         >
@@ -368,6 +367,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
     divider,
     inner,
     container,
+    menuContainer,
     menuWrapper,
     menuItems,
     languageWrapper,
@@ -387,7 +387,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
           <div className={inner()}>
             <div className={container()}>
               <div className={menuWrapper()}>
-                <div className="flex md:pl-6">
+                <div className={menuContainer()}>
                   <Logo logo={logo.jsonValue} logoLink={logoLink.jsonValue} />
                   <ul className={menuItems()} role="presentation">
                     {navigationList?.items?.map((item, index) => (
