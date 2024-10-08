@@ -101,15 +101,17 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                 )
               );
             })}
-          <li aria-current="true" className={currentPage()}>
-            <Text
-              encode={false}
-              field={{
-                value: Title?.jsonValue?.value,
-              }}
-              tag="span"
-            />
-          </li>
+          {ancestors.length > 0 && (
+            <li aria-current="true" className={currentPage()}>
+              <Text
+                encode={false}
+                field={{
+                  value: Title?.jsonValue?.value,
+                }}
+                tag="span"
+              />
+            </li>
+          )}
         </ul>
       </nav>
       <div

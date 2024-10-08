@@ -12,6 +12,7 @@ import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWr
 const TAILWIND_VARIANTS = tv({
   slots: {
     base: ['component'],
+    contentContainer: ['p-4'],
     placeholder: ['is-empty-hint'],
   },
 });
@@ -33,7 +34,7 @@ export const Default = (props: RTEProps): JSX.Element => {
     },
   });
 
-  const { base, placeholder } = extendedTailwindVariants();
+  const { base, contentContainer, placeholder } = extendedTailwindVariants();
 
   const children = text ? (
     <RichTextWrapper field={text} />
@@ -47,7 +48,7 @@ export const Default = (props: RTEProps): JSX.Element => {
       data-component="authorable/shared/hztl-page-content/rte"
       id={RenderingIdentifier}
     >
-      {children}
+      <div className={contentContainer()}>{children}</div>
     </div>
   );
 };
