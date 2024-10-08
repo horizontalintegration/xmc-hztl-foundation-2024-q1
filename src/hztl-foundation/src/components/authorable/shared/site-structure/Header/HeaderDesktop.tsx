@@ -275,7 +275,7 @@ const NavItem = (props: NavItemInterface) => {
 };
 
 const HeaderDesktop = (props: HeaderPropsComponent) => {
-  const { HeaderData, selectedCountry, setSelectedCountry } = props || {};
+  const { HeaderData } = props || {};
   const { item } = HeaderData || {};
   const { logo, logoLink, navigationList } = item;
 
@@ -405,11 +405,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
                   </ul>
                 </div>
                 <div className={languageWrapper()}>
-                  <CountrySelector
-                    countryData={item?.country?.targetItems}
-                    selectedCountry={selectedCountry}
-                    setSelectedCountry={setSelectedCountry}
-                  />
+                  <CountrySelector countryData={item?.country?.targetItems} />
                   <div className="flex">
                     <PreviewSearchListComponent defaultItemsPerPage={5} rfkId={'rfkid_101'} />
                   </div>
