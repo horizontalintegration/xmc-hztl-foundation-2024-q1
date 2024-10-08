@@ -252,7 +252,8 @@ const NavItem = (props: NavItemInterface) => {
       ) : (
         <button
           aria-haspopup="true"
-          className={buttonItem()}
+          className={`header-link
+          header-link-black ${buttonItem()}`}
           onClick={() => isList && props.open()}
           role="menuitem"
         >

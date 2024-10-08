@@ -50,10 +50,6 @@
   @apply transition-transform duration-100;
 }
 
-.splide__pagination__page {
-  border: 1px solid gray !important;
-}
-
 /* a {
   text-decoration: none;
 }
@@ -83,7 +79,7 @@ button[data-state='open'] .facets-accordian-arrow {
 }
 
 .header-link-black {
-  background-image: linear-gradient(transparent, transparent), linear-gradient(#000000, #000000);
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#000, #000);
 }
 
 .header-link:hover {
@@ -91,15 +87,21 @@ button[data-state='open'] .facets-accordian-arrow {
   background-position: 0 100%;
 }
 
-/*carousel pagination dots*/
+/* carousel pagination dots */
 .splide__pagination__page {
   /* width: 1.0625em !important;
-  height: 1.0625em !important; */
+  height: 1.0625em !important; 
+  border: 0.5px solid black !important; */
   border-radius: 50%;
-  border: 0.5px solid black !important;
+  border: 1px solid gray !important;
+
 }
 
 /* ----------------------- Sitecore Custom Form CSS ----------------------- */
+
+.main-form-wrapper {
+  justify-content: left !important;
+}
 
 .limit-counter {
   display: none;
@@ -128,7 +130,7 @@ button[data-state='open'] .facets-accordian-arrow {
 
 .form-select-option:hover {
   background: #EAE8E8 !important;
-  color: #000000 !important;
+  color: #000 !important;
 }
 
 .form-select-option .selected-indicator {
@@ -142,12 +144,12 @@ button[data-state='open'] .facets-accordian-arrow {
 .submit-button {
   background-color: #2F2D2E !important;
   min-width: 200px !important;
-  border-radius: 0px !important;
+  border-radius: 0 !important;
 }
 
 .global-input-element,
 .global-input-wrapper {
-  border-radius: 0px !important;
+  border-radius: 0 !important;
 }
 
 .form-page {
@@ -156,4 +158,10 @@ button[data-state='open'] .facets-accordian-arrow {
 
 .global-input-label {
   cursor: pointer;
+}
+
+td,
+th {
+  border: 1px solid black;
+  padding: 5px;
 }
