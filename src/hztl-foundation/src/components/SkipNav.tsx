@@ -3,11 +3,11 @@ import SkipNavHelper from './SkipNavHelper';
 
 const SkipNav: React.FC = () => {
   return (
-    <div className="relative">
+    <div>
       <a
         href="#content"
         title="Skip to the main content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:w-full focus:bg-black focus:text-white focus:p-2 focus:z-50 focus:flex focus:justify-center"
+        className="sr-only focus:not-sr-only focus:absolute top-0 left-0 focus:bg-theme-black focus:text-white focus:underline focus:py-2 focus:px-4 focus:z-50 focus:flex rounded-none"
       >
         Skip to main content
       </a>

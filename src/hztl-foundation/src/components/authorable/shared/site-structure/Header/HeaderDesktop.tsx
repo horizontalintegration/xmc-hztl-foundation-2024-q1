@@ -20,7 +20,28 @@ import PreviewSearchListComponent from 'src/widgets/SearchPreview';
 const TAILWIND_VARIANTS = tv({
   slots: {
     base: ['bg-white', 'font-avenir', 'top-0', 'w-full', 'z-40'],
-    buttonItem: ['font-semibold', 'px-2', 'py-1', 'text-theme-black', 'text-xl'],
+    borderAnimationLine: [
+      'absolute',
+      'inset-x-0',
+      'bottom-0',
+      'h-0.5',
+      'bg-black',
+      'transform',
+      'scale-x-0',
+      'transition-transform',
+      'duration-300',
+      'ease-out',
+      'group-hover:scale-x-100',
+    ],
+    buttonItem: [
+      'font-semibold',
+      'px-2',
+      'py-1',
+      'text-theme-black',
+      'text-xl',
+      'group',
+      'relative',
+    ],
     buttonItemIcon: ['duration-200', 'h-auto', 'trasition', '!w-xs'],
     buttonItemSublink: ['flex', 'gap-2', 'items-center'],
     container: ['max-w-screen-xxl', 'w-full'],
@@ -57,6 +78,8 @@ const TAILWIND_VARIANTS = tv({
     menuWrapper: ['flex', 'justify-between'],
     navTitleLinkWrapper: [
       'font-semibold',
+      'relative',
+      'group',
       'px-2',
       'py-1',
       'text-theme-black',
@@ -231,7 +254,13 @@ const NavItem = (props: NavItemInterface) => {
    * Rendering
    */
 
-  const { buttonItem, buttonItemIcon, buttonItemSublink, navTitleLinkWrapper } = TAILWIND_VARIANTS({
+  const {
+    borderAnimationLine,
+    buttonItem,
+    buttonItemIcon,
+    buttonItemSublink,
+    navTitleLinkWrapper,
+  } = TAILWIND_VARIANTS({
     isActive: isActive,
     isRotated: isList && index === dropdownOpen,
   });
@@ -246,6 +275,7 @@ const NavItem = (props: NavItemInterface) => {
           field={props?.navigationLink.jsonValue}
           role="menuitem"
         >
+          <span className={borderAnimationLine()} />
           <PlainTextWrapper field={navigationTitle.jsonValue} />
         </LinkWrapper>
       ) : (
@@ -255,6 +285,7 @@ const NavItem = (props: NavItemInterface) => {
           onClick={() => isList && props.open()}
           role="menuitem"
         >
+          <span className={borderAnimationLine()} />
           <span className={buttonItemSublink()}>
             <PlainTextWrapper field={navigationTitle.jsonValue} />
             <SvgIcon
