@@ -14,7 +14,7 @@ import { SvgIcon } from 'helpers/SvgIcon';
 
 const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['pl-4', 'component'],
+    base: ['component'],
     currentPage: [
       'flex',
       'items-center',
