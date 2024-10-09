@@ -12,7 +12,7 @@ export const defaultData: FooterProps = {
       footerLogo: {
         jsonValue: {
           value: {
-            src: 'https://edge.sitecorecloud.io/horizontald8261-xmchztlfounf6cb-dev-2730/media/Project/HztlFoundation/SiteAlpha/Header/logo-placeholder.png?h=45&iar=0&w=60',
+            src: './assets/hztl_logo.png',
             alt: 'Horizontal Digital',
             width: '60',
             height: '45',

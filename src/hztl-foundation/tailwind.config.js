@@ -46,6 +46,7 @@ module.exports = {
         125: '500px',
       },
       screens: {
+        mdlg: '992px',
         xxl: '1440px',
       },
     },
