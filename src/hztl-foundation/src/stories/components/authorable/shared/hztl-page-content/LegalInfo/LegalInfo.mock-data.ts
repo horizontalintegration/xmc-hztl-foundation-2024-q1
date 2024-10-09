@@ -21,7 +21,7 @@ const defaultData: LegalInfoProps = {
               title: '',
               target: '',
               querystring: '',
-              id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+              id: '{E9ABAFA1-377C-4525-A419-9A3A8044D435}',
               href: '/',
             },
           },

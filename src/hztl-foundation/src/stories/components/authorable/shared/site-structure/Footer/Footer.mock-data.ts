@@ -40,7 +40,7 @@ export const defaultData: FooterProps = {
                         title: '',
                         target: '',
                         querystring: '',
-                        id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+                        id: '{E9ABAFA1-377C-4577-A43-9A3A8044D435}',
                         href: '/',
                       },
                     },
@@ -53,7 +53,7 @@ export const defaultData: FooterProps = {
                     jsonValue: {
                       value: {
                         class: '',
-                        id: '{3677269A-E29B-4802-8C2A-4611C266DFD8}',
+                        id: '{3677269A-E29B-4802-8C2A-4693C266DFD8}',
                         querystring: '',
                         anchor: '',
                         target: '',
@@ -185,7 +185,7 @@ export const defaultData: FooterProps = {
                     jsonValue: {
                       value: {
                         class: '',
-                        id: '{3677269A-E29B-4802-8C2A-4611C266DFD8}',
+                        id: '{3677269A-E29B-4802-8C2A-2311C266DFD8}',
                         querystring: '',
                         anchor: '',
                         target: '',
@@ -238,7 +238,7 @@ export const defaultData: FooterProps = {
                         title: '',
                         target: '',
                         querystring: '',
-                        id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+                        id: '{E9ABAFA1-377C-4577-A419-9A3A7744D435}',
                         href: '/',
                       },
                     },
