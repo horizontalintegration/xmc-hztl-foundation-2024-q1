@@ -1,8 +1,8 @@
 // Global
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Splide, SplideProps, SplideTrack } from '@splidejs/react-splide';
-import { tv } from 'tailwind-variants';
 import '@splidejs/splide/css';
+import { tv } from 'tailwind-variants';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
