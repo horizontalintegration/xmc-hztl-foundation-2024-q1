@@ -48,20 +48,8 @@ export type HeroProps = ComponentProps & HztlPageContent.Hero;
 
 const Hero = (props: HeroProps): JSX.Element => {
   const { cta1Link, cta2Link, Description, Heading, Image } = props?.fields || {};
-  const { GridParameters } = props?.params || {};
 
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
-
-  /*
-   * Rendering
-   */
-
-  const modifiedTailwindVariants = tv({
-    extend: TAILWIND_VARIANTS,
-    slots: {
-      base: GridParameters,
-    },
-  });
 
   const {
     base,
@@ -74,7 +62,7 @@ const Hero = (props: HeroProps): JSX.Element => {
     ctaLink,
     description,
     heading,
-  } = modifiedTailwindVariants();
+  } = TAILWIND_VARIANTS();
 
   /**
    * Function to get the CTA style.

@@ -52,16 +52,7 @@ export const ctaTailwindVariant = tv({
     },
     variant: {
       link: {
-        base: [
-          'border-0',
-          'h-fit',
-          'w-fit',
-          'font-bold',
-          'hover:text-theme-darkblue',
-          'active:text-theme-lightteal',
-          'active:underline',
-          'focus:outline-theme-darkblue',
-        ],
+        base: ['border-0', 'h-fit', 'w-fit', 'font-bold', 'focus:outline-theme-darkblue'],
       },
       primary: {
         base: [
