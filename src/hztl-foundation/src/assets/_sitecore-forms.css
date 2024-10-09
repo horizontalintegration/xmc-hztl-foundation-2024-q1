@@ -20,6 +20,10 @@
   @apply !w-6;
 }
 
+.form-input-error-field .form-input-wrapper-div {
+  @apply !border-red-500;
+}
+
 .global-input-element,
 .global-input-wrapper {
   @apply !rounded-none !font-modern;
