@@ -53,7 +53,7 @@
   }
 
   .rte a {
-    @layer hover:underline font-semibold;
+    @apply hover:underline font-semibold hover:text-theme-darkgrey;
   }
 
   .rte p,
@@ -85,9 +85,19 @@
     @apply font-bold;
   }
 
-  .rte ul > li,
+  .rte ul > li {
+    @apply mb-3 !list-inside;
+    list-style: disc;
+  }
+  
   .rte ol > li {
-    @layer mb-3;
+    @apply mb-3 !list-inside;
+    list-style: circle;
+  }
+
+  .rte .rte-indent-2, .rte .rte-indent-1 {
+    @apply mb-3 !list-inside;
+    list-style: inside;
   }
 
   .rte ul > li:last-child,
@@ -149,5 +159,26 @@
 
   .rte .rte-indent-8 {
     @apply pl-80;
+  }
+
+  .rte button[type="submit"][name="field-submit"] {
+    @apply bg-black flex font-bold font-modern gap-x-2 items-center justify-center leading-normal px-4 py-3 rounded text-center text-white active:bg-theme-grey active:text-white disabled:bg-theme-offwhite disabled:no-underline disabled:text-white focus:-outline-offset-4 focus:bg-theme-lightgrey focus:outline-4 focus:outline-black focus:outline focus:text-black hover:bg-theme-darkgrey hover:text-white hover:no-underline;
+  }
+
+  .rte button[type="reset"][name="field-reset"] {
+    @apply bg-white border-black border flex font-bold font-modern gap-x-2 items-center justify-center leading-normal px-4 py-3 rounded text-black text-center active:bg-theme-grey active:border-theme-darkgrey active:text-white disabled:bg-theme-offwhite disabled:no-underline disabled:text-white focus:-outline-offset-4 focus:bg-theme-lightgrey focus:outline-4 focus:outline-black focus:outline focus:text-black hover:bg-theme-darkgrey hover:text-white hover:border-theme-darkgrey hover:no-underline;
+  }
+
+  .rte blockquote {
+      @apply block;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 40px;
+      margin-inline-end: 40px;
+      unicode-bidi: isolate;
+  }
+
+  .rte td, .rte th {
+    @apply border p-[5px] border-solid border-[black];
   }
 }

@@ -31,7 +31,7 @@ const TAILWIND_VARIANTS = tv({
     dropDownMenuColItemsLink: ['font-notoSans', 'text-theme-black', 'hover:underline'],
     dropDownMenuContent: ['my-2', 'w-full'],
     dropDownMenuGrid: ['gap-y-0', 'gap-20', 'grid', 'md:grid-cols-12'],
-    dropDownMenuInner: ['bg-theme-lightgrey', 'mt-6'],
+    dropDownMenuInner: ['bg-theme-lightgrey', 'mt-[1.4rem]'],
     dropDownMenuSection: [
       'flex',
       'items-center',
@@ -62,8 +62,8 @@ const TAILWIND_VARIANTS = tv({
       'py-1',
       'text-theme-black',
       'text-xl',
-      'hover:no-underline',
-      'hover:text-theme-black',
+      // 'hover:no-underline',
+      // 'hover:text-theme-black',
     ],
     overlay: [
       'shadow-md',
@@ -242,7 +242,7 @@ const NavItem = (props: NavItemInterface) => {
       {!isList ? (
         <LinkWrapper
           aria-haspopup="false"
-          className={navTitleLinkWrapper()}
+          className={`header-link ${navTitleLinkWrapper()}`}
           ctaVariant="link"
           field={props?.navigationLink.jsonValue}
           role="menuitem"
@@ -252,7 +252,7 @@ const NavItem = (props: NavItemInterface) => {
       ) : (
         <button
           aria-haspopup="true"
-          className={buttonItem()}
+          className={`header-link ${buttonItem()}`}
           onClick={() => isList && props.open()}
           role="menuitem"
         >

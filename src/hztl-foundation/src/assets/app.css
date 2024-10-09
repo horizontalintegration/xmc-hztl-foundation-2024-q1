@@ -19,3 +19,34 @@
 .sc-jss-placeholder-error {
   @apply bg-[lightyellow] p-4;
 }
+
+/* Header on Hover effect */
+.header-link {
+  display: inline-block;
+  position: relative;
+  color: black;
+  text-decoration: none;
+}
+
+.header-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  border-radius: 5px;
+  height: 0.1em;
+  bottom: 0;
+  left: 0;
+  background: currentcolor;
+  transform-origin: bottom right;
+  transition: transform 0.5s ease-out;
+}
+
+.header-link:hover {
+  color: #515152 !important;
+}
+
+.header-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
