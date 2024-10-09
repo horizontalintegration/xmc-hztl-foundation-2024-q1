@@ -24,14 +24,14 @@ const TAILWIND_VARIANTS = tv({
     buttonItemIcon: ['duration-200', 'h-auto', 'trasition', '!w-xs'],
     buttonItemSublink: ['flex', 'gap-2', 'items-center'],
     container: ['max-w-screen-xxl', 'w-full'],
-    divider: ['h-3', 'opacity-100', 'bg-theme-black'],
+    divider: ['h-3', 'opacity-100', '-mt-[2px]', 'bg-theme-black'],
     dropDownMenuCol: ['col-span-4', 'py-1', 'text-start', 'xl:col-span-3'],
     dropDownMenuColHeading: ['font-bold', 'text-lg', 'mb-2'],
     dropDownMenuColItems: ['flex', 'flex-col', 'gap-2', 'list-none'],
     dropDownMenuColItemsLink: ['font-notoSans', 'text-theme-black', 'hover:underline'],
     dropDownMenuContent: ['my-2', 'w-full'],
     dropDownMenuGrid: ['gap-y-0', 'gap-20', 'grid', 'md:grid-cols-12'],
-    dropDownMenuInner: ['bg-theme-lightgrey', 'mt-6'],
+    dropDownMenuInner: ['bg-theme-lightgrey', 'mt-[1.4rem]'],
     dropDownMenuSection: [
       'flex',
       'items-center',
@@ -53,6 +53,7 @@ const TAILWIND_VARIANTS = tv({
     inner: ['flex', 'justify-center', 'p-4'],
     languageWrapper: ['flex', 'items-center', 'justify-end'],
     logoContainer: ['flex', 'items-center'],
+    menuContainer: ['flex', 'md:pl-6'],
     menuItems: ['flex', 'items-center', 'px-3', 'lg:gap-4', 'lg:px-10'],
     menuWrapper: ['flex', 'justify-between'],
     navTitleLinkWrapper: [
@@ -61,8 +62,8 @@ const TAILWIND_VARIANTS = tv({
       'py-1',
       'text-theme-black',
       'text-xl',
-      'hover:no-underline',
-      'hover:text-theme-black',
+      // 'hover:no-underline',
+      // 'hover:text-theme-black',
     ],
     overlay: [
       'shadow-md',
@@ -241,7 +242,7 @@ const NavItem = (props: NavItemInterface) => {
       {!isList ? (
         <LinkWrapper
           aria-haspopup="false"
-          className={navTitleLinkWrapper()}
+          className={`header-link ${navTitleLinkWrapper()}`}
           ctaVariant="link"
           field={props?.navigationLink.jsonValue}
           role="menuitem"
@@ -251,7 +252,7 @@ const NavItem = (props: NavItemInterface) => {
       ) : (
         <button
           aria-haspopup="true"
-          className={buttonItem()}
+          className={`header-link ${buttonItem()}`}
           onClick={() => isList && props.open()}
           role="menuitem"
         >
@@ -366,6 +367,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
     divider,
     inner,
     container,
+    menuContainer,
     menuWrapper,
     menuItems,
     languageWrapper,
@@ -385,7 +387,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
           <div className={inner()}>
             <div className={container()}>
               <div className={menuWrapper()}>
-                <div className="flex md:pl-6">
+                <div className={menuContainer()}>
                   <Logo logo={logo.jsonValue} logoLink={logoLink.jsonValue} />
                   <ul className={menuItems()} role="presentation">
                     {navigationList?.items?.map((item, index) => (

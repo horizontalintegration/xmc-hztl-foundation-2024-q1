@@ -13,7 +13,7 @@ export type AccordionProps = ComponentProps;
 
 const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['component', 'border-b-theme-black', 'border-b', 'border-solid', 'my-8'],
+    base: ['component', 'border-b-theme-black', 'border-b', 'border-solid'],
   },
 });
 
