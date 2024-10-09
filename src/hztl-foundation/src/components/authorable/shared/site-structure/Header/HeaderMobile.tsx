@@ -72,7 +72,7 @@ const TAILWIND_VARIANTS = tv({
 });
 
 const HeaderMobile = (props: HeaderPropsComponent) => {
-  const { HeaderData, selectedCountry, setSelectedCountry } = props || {};
+  const { HeaderData } = props || {};
   const { item } = HeaderData || {};
   const { logo, logoLink, navigationList } = item || {};
 
@@ -374,11 +374,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
           <div className={languageWrapper()} ref={menuContainerRef}>
             {!showSearch && (
               <div className={languageSelection()}>
-                <CountrySelector
-                  countryData={item?.country?.targetItems}
-                  selectedCountry={selectedCountry}
-                  setSelectedCountry={setSelectedCountry}
-                />
+                <CountrySelector countryData={item?.country?.targetItems} />
               </div>
             )}
             {showSearch ? (
