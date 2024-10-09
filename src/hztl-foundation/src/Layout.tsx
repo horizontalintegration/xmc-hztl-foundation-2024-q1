@@ -1,12 +1,12 @@
 // Global
 import { Placeholder, LayoutServiceData, Field, HTMLLink } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Environment, PageController, WidgetsProvider } from '@sitecore-search/react';
-import SkipNav from 'components/SkipNav';
 import Head from 'next/head';
 import React from 'react';
 import { tv } from 'tailwind-variants';
 
 // Local
+import SkipNav from 'components/SkipNav';
 import Scripts from 'src/Scripts';
 import jssConfig from 'src/temp/config';
 import config from 'temp/config';
@@ -77,7 +77,6 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
       >
         <div className={mainClassPageEditing}>
           <SkipNav />
-          {/* Header component */}
           {route && <Placeholder name="headless-header" rendering={route} />}
           <main>
             <div className={mainContentContainer()} id="content">

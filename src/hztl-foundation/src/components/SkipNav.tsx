@@ -1,4 +1,7 @@
+// Global
 import React from 'react';
+
+// Local
 import SkipNavHelper from './SkipNavHelper';
 
 const SkipNav: React.FC = () => {
