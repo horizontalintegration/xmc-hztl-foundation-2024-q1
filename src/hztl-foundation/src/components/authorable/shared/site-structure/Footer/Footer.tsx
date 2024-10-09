@@ -20,15 +20,15 @@ import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWr
 
 const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['px-3', 'pt-14', 'md:col-span-2', 'md:!px-0'], // TODO: The '!' here should not be necessary, but again, gobs of extra SCSS in a Tailwind project.
+    base: ['px-3', 'pt-14', 'mdlg:col-span-4', 'mdlg:!px-0'], // TODO: The '!' here should not be necessary, but again, gobs of extra SCSS in a Tailwind project.
     contentContainer: [
       'flex',
       'flex-col',
       'm-auto',
       'w-full',
-      'md:flex',
-      'md:flex-row',
-      'md:gap-40',
+      'mdlg:flex',
+      'mdlg:flex-row',
+      'mdlg:gap-40',
     ],
     hr: ['border-b', 'border-b-theme-black'],
     linkListContainer: [
@@ -38,13 +38,14 @@ const TAILWIND_VARIANTS = tv({
       'grid-cols-2',
       'grow',
       'mb-3',
-      'md:grid-cols-4',
-      'md:gap-x-40',
+      'mdlg:grid-cols-4',
+      'mdlg:gap-x-10',
+      'xl:gap-x-40',
     ],
     linkListItem: ['p-2', 'first:p-0'],
     linkListLink: ['capitalize', 'font-bold', 'font-modern'],
     linkListTitle: ['capitalize', 'font-bold', 'font-modern'],
-    logoContainer: ['mb-24', 'md:mb-0'],
+    logoContainer: ['mb-24', 'mdlg:mb-0'],
   },
 });
 

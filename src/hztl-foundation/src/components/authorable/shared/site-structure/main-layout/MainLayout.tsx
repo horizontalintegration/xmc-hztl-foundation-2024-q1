@@ -14,8 +14,8 @@ const TAILWIND_VARIANTS = tv({
       'm-auto',
       'max-w-screen-xl',
       'w-full',
-      'md:gap-11.5',
-      'md:p-8',
+      'mdlg:gap-11.5',
+      'mdlg:p-8',
     ],
   },
 });
