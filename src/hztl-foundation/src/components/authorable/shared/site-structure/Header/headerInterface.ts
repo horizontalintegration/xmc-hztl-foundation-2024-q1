@@ -7,8 +7,6 @@ import { SiteStructure } from 'src/.generated/Feature.HztlFoundation.model';
 
 export interface CountrySelectorInterface {
   countryData?: HeaderCountry[];
-  selectedCountry: string;
-  setSelectedCountry: (value: string) => void;
 }
 
 export interface HeaderCountry {

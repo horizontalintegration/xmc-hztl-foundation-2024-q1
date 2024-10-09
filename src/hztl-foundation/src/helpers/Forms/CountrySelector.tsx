@@ -8,6 +8,7 @@ import useOutsideClick from 'src/hooks/useClickOutside';
 // Local
 import { CountrySelectorInterface } from 'components/authorable/shared/site-structure/Header/headerInterface';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
+import { useRouter } from 'next/router';
 
 /*
  * Tailwind Variants
@@ -63,14 +64,15 @@ const tailwindVariants = tv({
   },
 });
 
-const CountrySelector = ({
-  countryData,
-  selectedCountry,
-  setSelectedCountry,
-}: CountrySelectorInterface) => {
+const CountrySelector = ({ countryData }: CountrySelectorInterface) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const router = useRouter();
+
+  const { locale, pathname, asPath, query } = router;
+
   const selectedCountryData = countryData?.find(
-    (item) => item?.language?.jsonValue?.name === selectedCountry && item.name
+    (item) => item?.language?.jsonValue?.name === locale && item.name
   );
   const selectRef = useRef<HTMLDivElement>(null);
   const handleClickOutside = () => {
@@ -89,7 +91,6 @@ const CountrySelector = ({
     dropDownImageWrapper,
     dropDownItemName,
   } = tailwindVariants();
-
   /*
    * Rendering
    */
@@ -122,7 +123,9 @@ const CountrySelector = ({
                   key={item.language.jsonValue.id}
                   className={`${dropDownMenuItem()} ${selectedCountryData?.language.jsonValue.name === item?.language.jsonValue.name ? 'bg-slate-300' : ''}`}
                   onClick={() => {
-                    setSelectedCountry(item.language.jsonValue.name);
+                    const country = item.language.jsonValue.name;
+
+                    router.push({ pathname, query }, asPath, { locale: country });
                     setDropdownOpen(false);
                   }}
                 >
