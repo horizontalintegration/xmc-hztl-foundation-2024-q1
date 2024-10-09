@@ -3,6 +3,11 @@
   @apply px-0 py-5;
 }
 
+.form-select-option,
+.global-text {
+  @apply !font-modern;
+}
+
 .form-select-option:hover {
   @apply !text-black !bg-theme-offwhite;
 }
@@ -17,11 +22,11 @@
 
 .global-input-element,
 .global-input-wrapper {
-  @apply !rounded-none;
+  @apply !rounded-none !font-modern;
 }
 
 .iti__country {
-  @apply !list-none !mx-1.5 !m-0;
+  @apply !list-none !mx-1.5 !m-0 !font-modern;
 }
 
 .iti__country-list {
@@ -29,7 +34,7 @@
 }
 
 .iti__selected-country {
-  @apply !bg-theme-offwhite !h-[-webkit-fill-available] !inline-flex !text-black !w-auto;
+  @apply !bg-theme-offwhite !h-[-webkit-fill-available] !inline-flex !text-black !w-auto !font-modern;
 }
 
 .limit-counter {
@@ -37,6 +42,10 @@
 }
 
 .global-input-label {
-  @apply cursor-pointer;
+  @apply cursor-pointer !font-modern;
+}
+
+.global-button-wrapper button {
+  @apply !bg-theme-black !rounded !leading-normal !px-4 !py-3 hover:!bg-theme-darkgrey focus:!-outline-offset-4 focus:!bg-theme-lightgrey focus:!bg-theme-lightgrey focus:!outline-black focus:!outline focus:!text-black focus:!outline-4 !font-modern;
 }
 /* stylelint-enable selector-class-pattern */
