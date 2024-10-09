@@ -1,82 +1,113 @@
 // Global
-import { useRef, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect, useRef, useState } from 'react';
 import { tv } from 'tailwind-variants';
 
 // Lib
 import useOutsideClick from 'src/hooks/useClickOutside';
 
 // Local
-import { CountrySelectorInterface } from 'components/authorable/shared/site-structure/Header/headerInterface';
+import {
+  CountrySelectorInterface,
+  HeaderCountry,
+} from 'components/authorable/shared/site-structure/Header/headerInterface';
 import ImageWrapper from 'helpers/SitecoreWrappers/ImageWrapper/ImageWrapper';
 
-/*
- * Tailwind Variants
- */
-
-const tailwindVariants = tv({
+const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['relative', 'block', 'text-left', 'md:mr-4'],
+    base: ['block', 'relative', 'text-left', 'md:mr-4'],
     buttonClasses: [
       'block',
-      'w-full',
-      'md:p-xxs',
       'border-gray-300',
-      'rounded-md',
-      'font-semibold',
-      'text-base',
-      'focus:border-none',
-      'sm:text-sm',
       'cursor-pointer',
-    ],
-    imageContainer: ['flex', 'items-center'],
-    countryNameWrapper: ['ml-3', 'block', 'font-semibold', 'truncate'],
-    dropDownMenuWrapper: [
-      'w-full',
-      'md:w-auto',
-      'absolute',
-      'mt-1',
+      'font-semibold',
       'rounded-md',
-      'shadow-lg',
-      'bg-white',
-      'z-10',
-    ],
-    dropDownMenuList: [
-      'max-h-60',
-      'm-0',
-      'py-1',
       'text-base',
-      'overflow-auto',
-      'focus:outline-none',
+      'w-full',
+      'focus:border-none',
+      'md:p-xxs',
       'sm:text-sm',
     ],
+    countryNameWrapper: ['block', 'font-semibold', 'ml-3', 'truncate'],
+    dropDownImageWrapper: ['flex', 'items-center', 'pr-9', 'py-2 '],
+    dropDownItemName: ['block', 'font-semibold', 'ml-3'],
     dropDownMenuItem: [
       'cursor-pointer',
-      'select-none',
-      'relative',
       'list-none',
       'ml-0',
       'px-4',
+      'relative',
+      'select-none',
       'hover:text-slate-500',
     ],
-    dropDownImageWrapper: ['flex', 'items-center', 'py-2 ', 'pr-9'],
-    dropDownItemName: ['ml-3', 'block', 'font-semibold'],
+    dropDownMenuList: [
+      'm-0',
+      'max-h-60',
+      'overflow-auto',
+      'py-1',
+      'text-base',
+      'focus:outline-none',
+      'sm:text-sm',
+    ],
+    dropDownMenuWrapper: [
+      'absolute',
+      'bg-white',
+      'mt-1',
+      'rounded-md',
+      'shadow-lg',
+      'w-full',
+      'z-10',
+      'md:w-auto',
+    ],
+    imageContainer: ['flex', 'items-center'],
+  },
+  variants: {
+    isSelected: {
+      false: {
+        dropDownMenuItem: [],
+      },
+      true: {
+        dropDownMenuItem: ['bg-slate-300'],
+      },
+    },
   },
 });
 
-const CountrySelector = ({
-  countryData,
-  selectedCountry,
-  setSelectedCountry,
-}: CountrySelectorInterface) => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const selectedCountryData = countryData?.find(
-    (item) => item?.language?.jsonValue?.name === selectedCountry && item.name
-  );
+const CountrySelector = ({ countryData }: CountrySelectorInterface) => {
+  const router = useRouter();
+
+  const { locale, pathname, asPath, query } = router;
+
   const selectRef = useRef<HTMLDivElement>(null);
-  const handleClickOutside = () => {
-    setDropdownOpen(false);
-  };
+
+  /*
+   * State
+   */
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedCountryData, setSelectedCountryData] = useState<HeaderCountry>();
+
+  /*
+   * Event Handlers
+   */
+
+  const handleClickOutside = () => setDropdownOpen(false);
+
+  /*
+   * Lifecycle
+   */
+
+  useEffect(() => {
+    setSelectedCountryData(
+      countryData?.find((item) => item?.language?.jsonValue?.name === locale && item.name)
+    );
+  }, [countryData]);
+
   useOutsideClick(selectRef, dropdownOpen, handleClickOutside);
+
+  /*
+   * Rendering
+   */
 
   const {
     base,
@@ -85,11 +116,9 @@ const CountrySelector = ({
     countryNameWrapper,
     dropDownMenuWrapper,
     dropDownMenuList,
-    dropDownMenuItem,
     dropDownImageWrapper,
     dropDownItemName,
-  } = tailwindVariants();
-
+  } = TAILWIND_VARIANTS();
   /*
    * Rendering
    */
@@ -97,10 +126,10 @@ const CountrySelector = ({
   return (
     <div className={base()} ref={selectRef}>
       <button
-        type="button"
         aria-label="Country Select"
         className={buttonClasses()}
         onClick={() => setDropdownOpen(!dropdownOpen)}
+        type="button"
       >
         {selectedCountryData && (
           <div className={imageContainer()}>
@@ -117,23 +146,35 @@ const CountrySelector = ({
         <div className={dropDownMenuWrapper()}>
           <ul className={dropDownMenuList()}>
             {countryData &&
-              countryData.map((item) => (
-                <li
-                  key={item.language.jsonValue.id}
-                  className={`${dropDownMenuItem()} ${selectedCountryData?.language.jsonValue.name === item?.language.jsonValue.name ? 'bg-slate-300' : ''}`}
-                  onClick={() => {
-                    setSelectedCountry(item.language.jsonValue.name);
-                    setDropdownOpen(false);
-                  }}
-                >
-                  <div className={dropDownImageWrapper()}>
-                    <ImageWrapper
-                      field={{ value: { ...item.flag.jsonValue.value, width: '20', height: '20' } }}
-                    />
-                    <span className={dropDownItemName()}>{item.name}</span>
-                  </div>
-                </li>
-              ))}
+              countryData.map((item) => {
+                const { dropDownMenuItem } = TAILWIND_VARIANTS({
+                  isSelected:
+                    selectedCountryData?.language.jsonValue.name === item?.language.jsonValue.name,
+                });
+
+                return (
+                  <li
+                    className={dropDownMenuItem()}
+                    key={item.language.jsonValue.id}
+                    onClick={() => {
+                      const country = item.language.jsonValue.name;
+
+                      router.push({ pathname, query }, asPath, { locale: country });
+
+                      setDropdownOpen(false);
+                    }}
+                  >
+                    <div className={dropDownImageWrapper()}>
+                      <ImageWrapper
+                        field={{
+                          value: { ...item.flag.jsonValue.value, width: '20', height: '20' },
+                        }}
+                      />
+                      <span className={dropDownItemName()}>{item.name}</span>
+                    </div>
+                  </li>
+                );
+              })}
           </ul>
         </div>
       )}
