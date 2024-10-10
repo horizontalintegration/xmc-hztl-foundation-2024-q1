@@ -140,7 +140,7 @@ const TAILWIND_VARIANTS = tv({
         divider: ['h-3'],
       },
       true: {
-        inner: ['py-4'],
+        inner: ['py-3'],
         divider: ['h-2'],
       },
     },
