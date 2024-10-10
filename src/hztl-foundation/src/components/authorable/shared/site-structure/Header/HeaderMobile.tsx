@@ -262,7 +262,7 @@ const HeaderMobile = (props: HeaderPropsComponent) => {
             className="hamburger-button h-[32px] w-[32px] flex items-center justify-center cursor-pointer"
             onClick={() => toggleHamburger()}
           >
-            {!openMenu ? (
+            {!openMenu || showSearch ? (
               <svg
                 fill="none"
                 height="32"
