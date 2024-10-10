@@ -137,9 +137,11 @@ const TAILWIND_VARIANTS = tv({
     isScrolled: {
       false: {
         inner: ['py-7'],
+        divider: ['h-3'],
       },
       true: {
-        inner: ['py-4'], // Reduced padding when scrolled
+        inner: ['py-4'],
+        divider: ['h-2'],
       },
     },
     isScrollLocked: {
