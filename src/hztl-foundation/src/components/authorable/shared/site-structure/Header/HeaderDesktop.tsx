@@ -20,7 +20,15 @@ import PreviewSearchListComponent from 'src/widgets/SearchPreview';
 const TAILWIND_VARIANTS = tv({
   slots: {
     base: ['bg-white', 'font-avenir', 'top-0', 'w-full', 'z-50'],
-    buttonItem: ['font-semibold', 'px-2', 'py-1', 'text-theme-black', 'text-xl'],
+    buttonItem: [
+      'font-semibold',
+      'relative',
+      'group',
+      'px-2',
+      'py-1',
+      'text-theme-black',
+      'text-xl',
+    ],
     buttonItemIcon: ['duration-200', 'h-auto', 'trasition', '!w-xs'],
     buttonItemSublink: ['flex', 'gap-2', 'items-center'],
     container: ['max-w-screen-xxl', 'w-full'],
@@ -56,14 +64,28 @@ const TAILWIND_VARIANTS = tv({
     menuContainer: ['flex', 'md:pl-6'],
     menuItems: ['flex', 'items-center', 'px-3', 'lg:gap-4', 'lg:px-10'],
     menuWrapper: ['flex', 'justify-between'],
+    navAnimation: [
+      'absolute',
+      'inset-x-0',
+      'bottom-0',
+      'h-0.5',
+      'bg-black',
+      'transform',
+      'origin-left',
+      'scale-x-0',
+      'transition-transform',
+      'duration-300',
+      'ease-out',
+      'group-hover:scale-x-100',
+    ],
     navTitleLinkWrapper: [
       'font-semibold',
+      'relative',
+      'group',
       'px-2',
       'py-1',
       'text-theme-black',
       'text-xl',
-      // 'hover:no-underline',
-      // 'hover:text-theme-black',
     ],
     overlay: [
       'shadow-md',
@@ -232,30 +254,33 @@ const NavItem = (props: NavItemInterface) => {
    * Rendering
    */
 
-  const { buttonItem, buttonItemIcon, buttonItemSublink, navTitleLinkWrapper } = TAILWIND_VARIANTS({
-    isActive: isActive,
-    isRotated: isList && index === dropdownOpen,
-  });
+  const { buttonItem, buttonItemIcon, buttonItemSublink, navTitleLinkWrapper, navAnimation } =
+    TAILWIND_VARIANTS({
+      isActive: isActive,
+      isRotated: isList && index === dropdownOpen,
+    });
 
   return (
     <li>
       {!isList ? (
         <LinkWrapper
           aria-haspopup="false"
-          className={`header-link ${navTitleLinkWrapper()}`}
+          className={navTitleLinkWrapper()}
           ctaVariant="link"
           field={props?.navigationLink.jsonValue}
           role="menuitem"
         >
+          <span className={navAnimation()} />
           <PlainTextWrapper field={navigationTitle.jsonValue} />
         </LinkWrapper>
       ) : (
         <button
           aria-haspopup="true"
-          className={`header-link ${buttonItem()}`}
+          className={buttonItem()}
           onClick={() => isList && props.open()}
           role="menuitem"
         >
+          <span className={navAnimation()} />
           <span className={buttonItemSublink()}>
             <PlainTextWrapper field={navigationTitle.jsonValue} />
             <SvgIcon
