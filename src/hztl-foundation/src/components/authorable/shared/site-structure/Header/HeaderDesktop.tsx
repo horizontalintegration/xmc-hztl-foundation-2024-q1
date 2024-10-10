@@ -58,7 +58,7 @@ const TAILWIND_VARIANTS = tv({
       'w-full',
       'z-10',
     ],
-    inner: ['flex', 'justify-center', 'p-4'],
+    inner: ['flex', 'justify-center', 'px-4', 'py-7', 'transition-all', 'duration-200'],
     languageWrapper: ['flex', 'items-center', 'justify-end'],
     logoContainer: ['flex', 'items-center'],
     menuContainer: ['flex', 'md:pl-6'],
@@ -132,6 +132,14 @@ const TAILWIND_VARIANTS = tv({
       },
       true: {
         buttonItemIcon: ['rotate-0'],
+      },
+    },
+    isScrolled: {
+      false: {
+        inner: ['py-7'],
+      },
+      true: {
+        inner: ['py-4'], // Reduced padding when scrolled
       },
     },
     isScrollLocked: {
@@ -400,6 +408,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
   } = TAILWIND_VARIANTS({
     isEditing: isEditing,
     isDropdownOpen: isDropdownOpen,
+    isScrolled: isScrolled,
     isScrollLocked: isScrollLocked,
   });
 
