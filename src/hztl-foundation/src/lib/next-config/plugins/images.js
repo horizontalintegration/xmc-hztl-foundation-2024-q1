@@ -1,4 +1,4 @@
-const micromatch = require('next/dist/compiled/micromatch');
+const micromatch = require('micromatch');
 const makeRe = micromatch.makeRe;
 
 /**
