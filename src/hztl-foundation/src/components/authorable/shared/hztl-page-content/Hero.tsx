@@ -17,28 +17,14 @@ import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWr
 
 const TAILWIND_VARIANTS = tv({
   slots: {
-    base: [
-      'component',
-      'flex',
-      'flex-col-reverse',
-      'items-center',
-      'justify-center',
-      'md:flex-row',
-    ],
+    base: ['component', 'flex', 'flex-col-reverse', 'items-center', 'md:flex-row'],
     ctaPrimary: ['px-8'],
     ctaSecondary: ['px-8'],
     ctaLink: ['text-theme-darkblue', 'text-base'],
-    columnA: ['flex', 'items-center', 'justify-center', 'w-full', 'md:w-1/2'],
+    columnA: ['flex', 'w-full', 'md:w-1/2'],
     columnB: ['w-full', 'md:w-1/2'],
-    contentContainer: ['max-w-[472px]', 'p-6', 'w-fit'],
-    ctaContainer: [
-      'flex',
-      'flex-wrap',
-      'gap-6',
-      'justify-center',
-      'items-center',
-      'md:justify-normal',
-    ],
+    contentContainer: ['max-w-[472px]', 'p-4', 'w-full'],
+    ctaContainer: ['flex', 'flex-wrap', 'gap-6', 'md:justify-normal'],
     description: ['mb-6', 'text-base'],
     heading: ['font-bold', 'font-modern', 'mb-6', 'text-5xl', 'md:text-4xl'],
   },
