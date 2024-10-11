@@ -137,8 +137,35 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
         </div>
       );
 
-    // If no content is present, don't print
-    if (!anchor && !href && !text) return <></>;
+    /*
+     *
+     * #1 | Link Text: Yes, Path URL: Yes (Link text and URL are defined)
+     * Expected Results: CTA should be visible on the front-end page
+     *
+     * #2 | Link Text: Yes, Path URL: No (Link text is defined, URL is empty)
+     * Expected Results: CTA should not be visible on the front-end page
+     * When the link is empty and the URL is set External, the href value is 'http://' (a Sitecore bug)
+     * (text && (!href || href === 'http://' || href === 'https://'))
+     *
+     * #3 | Link Text: No, Path URL: Yes (Internal link) (Link text is empty, URL is an internal link or a Sitecore item)
+     * Expected Results: CTA should display the Path text in the front-end
+     * Updated the title={title || text || href} and <span>{text || href}</span>
+     *
+     * #4 | Link Text: No, Path URL: Yes (External link) (Link text is empty, URL is an external link)
+     * Expected Results: CTA should display the Path text in the front-end without '/'
+     * Updated the <span>{text || (href?.startsWith('/') ? href.slice(1) : href)}</span>
+     *
+     * #5 | Link Text: Not, Path: Not (Link text is empty and URL is empty)
+     * Expected Results: CTA should not be visible on the front-end page
+     * if (!anchor && !href && !text) return <></>;
+     *
+     */
+    if (
+      (!anchor && !href && !text) ||
+      (text && (!href || href === 'http://' || href === 'https://')) // (a Sitecore bug when the External link is empty)
+    ) {
+      return <></>;
+    }
 
     return (
       <NextLink
@@ -149,9 +176,9 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
         onClick={() => handleOnClick()}
         ref={ref}
         target={target}
-        title={title || text}
+        title={title || text || href}
       >
-        {text && <span>{text}</span>}
+        <span>{text || (href?.startsWith('/') ? href.slice(1) : href)}</span>
         {children}
         {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />}
         {(target === '_blank' || srOnlyText) && (
