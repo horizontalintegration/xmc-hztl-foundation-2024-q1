@@ -23,7 +23,7 @@ const TAILWIND_VARIANTS = tv({
     ctaLink: ['text-theme-darkblue', 'text-base'],
     columnA: ['flex', 'w-full', 'md:w-1/2'],
     columnB: ['w-full', 'md:w-1/2'],
-    contentContainer: ['max-w-[472px]', 'p-4', 'w-full'],
+    contentContainer: ['md:max-w-lg', 'p-4', 'w-full'],
     ctaContainer: ['flex', 'flex-wrap', 'gap-6', 'md:justify-normal'],
     description: ['mb-6', 'text-base'],
     heading: ['font-bold', 'font-modern', 'mb-6', 'text-5xl', 'md:text-4xl'],
