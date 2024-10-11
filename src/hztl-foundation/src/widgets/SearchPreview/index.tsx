@@ -116,7 +116,7 @@ export const PreviewSearchBasicComponent = ({
   return (
     <PreviewSearch.Root>
       {/* SEARCH BAR */}
-      <div className="search-container w-full lg:min-w-[250px] flex">
+      <div className="search-container w-fit lg:min-w-[250px] flex">
         <div className="searchinput relative w-full">
           <form id="searchSubmit" onSubmit={onHandle}>
             <PreviewSearch.Input

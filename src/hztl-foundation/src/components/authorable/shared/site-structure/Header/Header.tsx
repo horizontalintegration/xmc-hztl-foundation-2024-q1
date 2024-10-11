@@ -3,7 +3,6 @@ import { GetStaticComponentProps } from '@sitecore-jss/sitecore-jss-nextjs';
 
 // Lib
 import graphqlClientFactory from 'lib/graphql-client-factory';
-import { useMediaQuery } from 'src/hooks/useMediaQuery';
 
 // Local
 import HeaderQuery from './Header.graphql';
@@ -12,8 +11,6 @@ import HeaderDesktop from './HeaderDesktop';
 import HeaderMobile from './HeaderMobile';
 
 export const Default = (props: HeaderProps) => {
-  const isDesktop = useMediaQuery('(min-width: 992px)');
-
   /*
    * Rendering
    */
@@ -22,7 +19,17 @@ export const Default = (props: HeaderProps) => {
     return <></>;
   }
 
-  return <header>{!isDesktop ? <HeaderMobile {...props} /> : <HeaderDesktop {...props} />}</header>;
+  return (
+    <header>
+      <div className="hidden md:block">
+        <HeaderDesktop {...props} />
+      </div>
+
+      <div className="block md:hidden">
+        <HeaderMobile {...props} />
+      </div>
+    </header>
+  );
 };
 
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {
