@@ -52,4 +52,12 @@
 .global-button-wrapper button {
   @apply !bg-theme-black !rounded !leading-normal !px-4 !py-3 hover:!bg-theme-darkgrey focus:!-outline-offset-4 focus:!bg-theme-lightgrey focus:!bg-theme-lightgrey focus:!outline-black focus:!outline focus:!text-black focus:!outline-4 !font-modern;
 }
+
+.form-input-element:focus-visible,
+.form-input-radio-element:focus-visible,
+.global-input-element:focus-visible,
+.global-checkbox-element:focus-visible,
+.iti__selected-country:focus-visible {
+  @apply focus:outline focus:outline-2 !outline-theme-darkblue;
+}
 /* stylelint-enable selector-class-pattern */
