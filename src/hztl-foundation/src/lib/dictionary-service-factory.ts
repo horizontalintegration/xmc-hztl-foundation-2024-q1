@@ -34,10 +34,9 @@ export class DictionaryServiceFactory {
             It will only try the request once by default.
             retries: 'number' 
           */
-          retries:
-            (process.env.GRAPH_QL_SERVICE_RETRIES &&
-              parseInt(process.env.GRAPH_QL_SERVICE_RETRIES, 10)) ||
-            0,
+          retries: (process.env.GRAPH_QL_SERVICE_RETRIES &&
+            parseInt(process.env.GRAPH_QL_SERVICE_RETRIES, 10)) as number,
+          useSiteQuery: true,
         })
       : new RestDictionaryService({
           apiHost: config.sitecoreApiHost,
