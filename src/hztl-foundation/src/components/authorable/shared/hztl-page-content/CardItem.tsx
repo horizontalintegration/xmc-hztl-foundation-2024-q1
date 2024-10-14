@@ -6,7 +6,7 @@ import { tv } from 'tailwind-variants';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
-import { CtaVariants } from 'lib/utils/style-param-utils/modules/ctas';
+import { getCtaStyle } from 'lib/utils/cta-utils';
 
 // Local
 import { withStandardComponentWrapper } from 'helpers/HOC';
@@ -72,26 +72,6 @@ const CardItem = (props: CardItemProps): JSX.Element => {
     heading,
     subheading,
   } = TAILWIND_VARIANTS();
-
-  /**
-   * Function to get the CTA style.
-   * If ctaStyle is undefined, it defaults to the provided defaultVariant.
-   *
-   * @param {CtaStyle} ctaStyle - The CTA style object.
-   * @param {CtaVariants} defaultVariant - The default variant to use if ctaStyle is undefined.
-   * @returns {object} - The CTA style object with the appropriate variant.
-   */
-
-  interface CtaStyle {
-    ctaVariant?: CtaVariants;
-  }
-
-  const getCtaStyle = (ctaStyle: CtaStyle = {}, defaultVariant: CtaVariants) => {
-    return {
-      ...ctaStyle,
-      ctaVariant: ctaStyle?.ctaVariant ?? defaultVariant,
-    };
-  };
 
   return (
     <div
