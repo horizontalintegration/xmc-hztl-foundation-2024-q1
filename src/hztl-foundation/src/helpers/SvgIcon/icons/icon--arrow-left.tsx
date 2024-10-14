@@ -1,4 +1,4 @@
-const IconArrow = (): JSX.Element => {
+const IconArrowLeft = (): JSX.Element => {
   return (
     <>
       <path
@@ -11,4 +11,4 @@ const IconArrow = (): JSX.Element => {
   );
 };
 
-export default IconArrow;
+export default IconArrowLeft;

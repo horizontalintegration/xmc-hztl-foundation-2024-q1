@@ -3,6 +3,7 @@ import { sendGTMEvent } from '@next/third-parties/google';
 import { Link, LinkProps, LinkField, LinkFieldValue } from '@sitecore-jss/sitecore-jss-nextjs';
 import NextLink from 'next/link';
 import React, { forwardRef } from 'react';
+import { tv } from 'tailwind-variants';
 
 // Lib
 import useIsEditing from 'lib/hooks/use-is-editing';
@@ -13,24 +14,6 @@ import { SvgIcon } from 'helpers/SvgIcon';
 import structuredClone from '@ungap/structured-clone';
 
 const INTERNAL_LINK_REGEX = /^\/|^\#/g;
-
-const NEW_TAB_ICON = (
-  <span className="svg-icon inline-flex align-middle h-6 w-6">
-    <svg
-      aria-hidden="true"
-      className="inline ml-2 -mt-1 h-em w-em"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z"
-        clipRule="evenodd"
-        fillRule="evenodd"
-      ></path>
-    </svg>
-  </span>
-);
 
 export type LinkWrapperProps = Omit<LinkProps, 'field'> &
   CtaProps & {
@@ -89,13 +72,6 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
 
     const text = !showLinkTextWithChildrenPresent && children ? '' : fieldValue.text;
 
-    const { base, icon } = ctaTailwindVariant({
-      className: className,
-      iconAlignment: ctaIconAlignment,
-      variant: ctaVariant,
-      visibility: ctaVisibility,
-    });
-
     /*
      * EVENT HANDLERS
      */
@@ -118,10 +94,24 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
      * RENDERING
      */
 
+    const linkWrapperTailwindVariant = tv({
+      extend: ctaTailwindVariant,
+      slots: {
+        base: [className],
+        iconNewTab: ['align-middle', 'inline-flex', 'ml-2', '-mt-1'],
+      },
+    });
+
+    const { base, icon, iconNewTab } = linkWrapperTailwindVariant({
+      iconAlignment: ctaIconAlignment,
+      variant: ctaVariant,
+      visibility: ctaVisibility,
+    });
+
     if (isEditing && editable)
       return (
         // Adding the CSS classes to a wrapping div so we can include the icon
-        <div className={`${base()} ${className ? className : ''}`}>
+        <div className={base()}>
           <Link
             {...props}
             field={field}
@@ -137,21 +127,48 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
         </div>
       );
 
-    // If no content is present, don't print
-    if (!anchor && !href && !text) return <></>;
+    /*
+     *
+     * #1 | Link Text: Yes, Path URL: Yes (Link text and URL are defined)
+     * Expected Results: CTA should be visible on the front-end page
+     *
+     * #2 | Link Text: Yes, Path URL: No (Link text is defined, URL is empty)
+     * Expected Results: CTA should not be visible on the front-end page
+     * When the link is empty and the URL is set External, the href value is 'http://' (a Sitecore bug)
+     * (text && (!href || href === 'http://' || href === 'https://'))
+     *
+     * #3 | Link Text: No, Path URL: Yes (Internal link) (Link text is empty, URL is an internal link or a Sitecore item)
+     * Expected Results: CTA should display the Path text in the front-end
+     * Updated the title={title || text || href} and <span>{text || href}</span>
+     *
+     * #4 | Link Text: No, Path URL: Yes (External link) (Link text is empty, URL is an external link)
+     * Expected Results: CTA should display the Path text in the front-end without '/'
+     * Updated the <span>{text || (href?.startsWith('/') ? href.slice(1) : href)}</span>
+     *
+     * #5 | Link Text: Not, Path: Not (Link text is empty and URL is empty)
+     * Expected Results: CTA should not be visible on the front-end page
+     * if (!anchor && !href && !text) return <></>;
+     *
+     */
+    if (
+      (!anchor && !href && !text) ||
+      (text && (!href || href === 'http://' || href === 'https://')) // (a Sitecore bug when the External link is empty)
+    ) {
+      return <></>;
+    }
 
     return (
       <NextLink
         {...props}
-        className={`${base()} ${className ? className : ''}`}
+        className={base()}
         data-component="helpers/sitecorewrappers/linkwrapper"
         href={{ pathname: href, query: querystring, hash: anchor }}
         onClick={() => handleOnClick()}
         ref={ref}
         target={target}
-        title={title || text}
+        title={title || text || href}
       >
-        {text && <span>{text}</span>}
+        {!children && <span>{text || (href?.startsWith('/') ? href.slice(1) : href)}</span>}
         {children}
         {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />}
         {(target === '_blank' || srOnlyText) && (
@@ -160,7 +177,9 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
               {/* Preserve a single space character before SR Tab Text */}
               {`${srOnlyText ? srOnlyText : ''}${target === '_blank' && ' (Opens in a new tab)'}`}
             </span>
-            {!suppressNewTabIcon && target === '_blank' && NEW_TAB_ICON}
+            {!suppressNewTabIcon && target === '_blank' && (
+              <SvgIcon className={iconNewTab()} icon="new-tab" size="xs" />
+            )}
           </>
         )}
       </NextLink>

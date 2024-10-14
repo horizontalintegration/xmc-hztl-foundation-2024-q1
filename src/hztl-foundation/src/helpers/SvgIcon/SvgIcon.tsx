@@ -22,6 +22,7 @@ export type IconTypes =
   | 'facebook'
   | 'instagram'
   | 'magnifier'
+  | 'new-tab'
   | 'new-window'
   | 'outline-search'
   | 'pause'
