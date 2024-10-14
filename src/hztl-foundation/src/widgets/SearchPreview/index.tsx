@@ -139,7 +139,7 @@ export const PreviewSearchBasicComponent = ({
             <button
               onClick={onShowMoreResult}
               role="click to search"
-              className="absolute inset-y-0 right-0 p-3 flex justify-center items-center cursor-pointer border-l border-black"
+              className="absolute inset-y-0 right-0 p-3 flex justify-center items-center cursor-pointer border-l border-black focus:outline-theme-darkblue"
             >
               <SvgIcon icon="magnifier" size="xs" viewBox="0 0 18 18" fill="none" />
             </button>
