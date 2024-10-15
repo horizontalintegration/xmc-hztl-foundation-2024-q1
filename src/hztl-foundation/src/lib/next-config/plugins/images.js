@@ -13,7 +13,6 @@ const imagesPlugin = (nextConfig = {}) => {
 /** @type {import('next/dist/shared/lib/image-config').ImageConfig} */
 const nextConfigImages = {
   dangerouslyAllowSVG: true,
-  domains: ['edge.sitecorecloud.io', 'via.placeholder.com'],
   remotePatterns: [
     {
       hostname: 'edge.sitecorecloud.io',
@@ -39,10 +38,7 @@ function isValidNextImageDomain(src) {
   }
   try {
     const url = new URL(src);
-    if (
-      nextConfigImages.domains.some((domain) => url.hostname === domain) ||
-      nextConfigImages.remotePatterns.some((p) => matchRemotePattern(p, url))
-    ) {
+    if (nextConfigImages.remotePatterns.some((p) => matchRemotePattern(p, url))) {
       return true;
     }
   } catch {
