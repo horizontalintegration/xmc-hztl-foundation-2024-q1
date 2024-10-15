@@ -17,7 +17,16 @@ import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWr
 
 const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['border', 'border-theme-darkgrey', 'flex', 'flex-col', 'items-center', 'justify-center'],
+    base: [
+      'border',
+      'border-theme-darkgrey',
+      'flex',
+      'flex-col',
+      'items-center',
+      'justify-center',
+      'mx-4',
+      'lg:mx-0',
+    ],
     body: ['flex', 'flex-col', 'grow', 'p-10', 'w-full'],
     content: ['grow', 'w-full'],
     ctaPrimary: ['px-8', 'py-4'],
@@ -53,10 +62,6 @@ const CardItem = (props: CardItemProps): JSX.Element => {
   /*
    * Rendering
    */
-
-  if (!props?.fields) {
-    return <></>;
-  }
 
   const {
     base,

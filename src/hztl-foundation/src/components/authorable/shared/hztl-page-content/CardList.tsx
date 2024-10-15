@@ -45,16 +45,13 @@ const CardList = (props: CardListProps): JSX.Element => {
 
   return (
     <>
-      {props?.rendering?.placeholders?.[phKey] &&
-        props?.rendering?.placeholders?.[phKey]?.length > 0 && (
-          <section
-            className={base()}
-            data-component="authorable/shared/hztl-page-content/cardlist"
-            id={RenderingIdentifier}
-          >
-            <Placeholder name={phKey} rendering={props.rendering} />
-          </section>
-        )}
+      <section
+        className={base()}
+        data-component="authorable/shared/hztl-page-content/cardlist"
+        id={RenderingIdentifier}
+      >
+        <Placeholder name={phKey} rendering={props.rendering} />
+      </section>
     </>
   );
 };
