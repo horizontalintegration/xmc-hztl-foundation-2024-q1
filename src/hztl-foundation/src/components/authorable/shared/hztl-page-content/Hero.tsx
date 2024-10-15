@@ -36,8 +36,7 @@ const Hero = (props: HeroProps): JSX.Element => {
   const { cta1Link, cta2Link, Description, Heading, Image } = props?.fields || {};
 
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
-  console.log('styles', styles);
-  console.log('styles.cta2?.ctaVariant', styles.cta2?.ctaVariant);
+
   const {
     base,
     columnA,
