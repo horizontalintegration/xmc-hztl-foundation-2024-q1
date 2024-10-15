@@ -18,7 +18,7 @@ const TAILWIND_VARIANTS = tv({
     colCount: '3',
   },
   slots: {
-    base: ['component', 'gap-6', 'grid', 'grid-cols-none'],
+    base: ['component', 'gap-6', 'grid', 'grid-cols-none', 'px-4', 'mdlg:px-0'],
   },
   variants: {
     colCount: {
