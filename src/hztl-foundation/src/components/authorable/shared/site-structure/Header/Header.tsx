@@ -1,7 +1,5 @@
 // Global
 import { GetStaticComponentProps } from '@sitecore-jss/sitecore-jss-nextjs';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 
 // Lib
 import graphqlClientFactory from 'lib/graphql-client-factory';
@@ -15,33 +13,6 @@ import HeaderMobile from './HeaderMobile';
 
 export const Default = (props: HeaderProps) => {
   const isDesktop = useMediaQuery('(min-width: 992px)');
-  const router = useRouter();
-
-  const { locale, pathname, asPath, query } = router;
-
-  /*
-   * STATE
-   */
-
-  const [selectedCountry, setSelectedCountry] = useState('');
-
-  /*
-   * EVENT HANDLERS
-   */
-
-  const onClickLanguage = (country: string) => {
-    setSelectedCountry(country);
-
-    router.push({ pathname, query }, asPath, { locale: country });
-  };
-
-  /*
-   * LIFECYCLE
-   */
-
-  useEffect(() => {
-    if (locale) setSelectedCountry(locale);
-  }, [locale]);
 
   /*
    * Rendering
@@ -51,23 +22,7 @@ export const Default = (props: HeaderProps) => {
     return <></>;
   }
 
-  return (
-    <header>
-      {!isDesktop ? (
-        <HeaderMobile
-          {...props}
-          selectedCountry={selectedCountry}
-          setSelectedCountry={(country) => onClickLanguage(country)}
-        />
-      ) : (
-        <HeaderDesktop
-          {...props}
-          selectedCountry={selectedCountry}
-          setSelectedCountry={(country) => onClickLanguage(country)}
-        />
-      )}
-    </header>
-  );
+  return <header>{!isDesktop ? <HeaderMobile {...props} /> : <HeaderDesktop {...props} />}</header>;
 };
 
 export const getStaticProps: GetStaticComponentProps = async (rendering, layoutData) => {

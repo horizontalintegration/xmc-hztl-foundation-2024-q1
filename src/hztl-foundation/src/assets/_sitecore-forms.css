@@ -1,0 +1,63 @@
+/* stylelint-disable selector-class-pattern */
+.form-page {
+  @apply px-0 py-5;
+}
+
+.form-select-option,
+.global-text {
+  @apply !font-modern;
+}
+
+.form-select-option:hover {
+  @apply !text-black !bg-theme-offwhite;
+}
+
+.form-select-option-container {
+  @apply !border !border-[#0000006b];
+}
+
+.form-select-option .selected-indicator {
+  @apply !w-6;
+}
+
+.form-input-error-field .form-input-wrapper-div {
+  @apply !border-red-500;
+}
+
+.global-input-element,
+.global-input-wrapper {
+  @apply !rounded-none !font-modern;
+}
+
+.iti__country {
+  @apply !list-none !mx-1.5 !m-0 !font-modern;
+}
+
+.iti__country-list {
+  @apply !ps-0;
+}
+
+.iti__selected-country {
+  @apply !bg-theme-offwhite !h-[-webkit-fill-available] !inline-flex !text-black !w-auto !font-modern;
+}
+
+.limit-counter {
+  @apply hidden;
+}
+
+.global-input-label {
+  @apply cursor-pointer !font-modern;
+}
+
+.global-button-wrapper button {
+  @apply !bg-theme-black !rounded !leading-normal !px-4 !py-3 hover:!bg-theme-darkgrey focus:!-outline-offset-4 focus:!bg-theme-lightgrey focus:!bg-theme-lightgrey focus:!outline-black focus:!outline focus:!text-black focus:!outline-4 !font-modern;
+}
+
+.form-input-element:focus-visible,
+.form-input-radio-element:focus-visible,
+.global-input-element:focus-visible,
+.global-checkbox-element:focus-visible,
+.iti__selected-country:focus-visible {
+  @apply focus:outline focus:outline-2 !outline-theme-darkblue;
+}
+/* stylelint-enable selector-class-pattern */

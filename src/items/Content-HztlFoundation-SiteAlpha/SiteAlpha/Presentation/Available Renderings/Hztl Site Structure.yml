@@ -9,7 +9,7 @@ SharedFields:
   Hint: Renderings
   Value: |
     {F499F675-F235-4E68-BDC0-73C610B481D6}
-    {F499F675-F235-4E68-BDC0-73C610B481D6}
+    {519BC820-7DC4-4C65-8E59-A1B158A3502B}
     {485717BC-C143-4F35-8EFF-DC311ED896D7}
     {AC415DBD-09BC-4129-BD29-09584A8D6155}
     {479F1102-54E1-4F2F-805B-1CFB640F3335}
@@ -34,11 +34,11 @@ Languages:
         sitecore\mchaniyara@horizontal.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c8901a67-0add-45b9-816c-10f9d8359990"
+      Value: "5d349954-3616-48bb-a776-9cec580ba3bf"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\mchaniyara@horizontal.com
+        sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240612T074301Z
+      Value: 20241009T095157Z

@@ -20,18 +20,27 @@ import PreviewSearchListComponent from 'src/widgets/SearchPreview';
 const TAILWIND_VARIANTS = tv({
   slots: {
     base: ['bg-white', 'font-avenir', 'top-0', 'w-full', 'z-50'],
-    buttonItem: ['font-semibold', 'px-2', 'py-1', 'text-theme-black', 'text-xl'],
+    buttonItem: [
+      'font-semibold',
+      'relative',
+      'group',
+      'px-2',
+      'py-1',
+      'text-theme-black',
+      'text-xl',
+      'focus:outline-theme-darkblue',
+    ],
     buttonItemIcon: ['duration-200', 'h-auto', 'trasition', '!w-xs'],
     buttonItemSublink: ['flex', 'gap-2', 'items-center'],
     container: ['max-w-screen-xxl', 'w-full'],
-    divider: ['h-3', 'opacity-100', 'bg-theme-black'],
+    divider: ['h-3', 'opacity-100', '-mt-[2px]', 'bg-theme-black'],
     dropDownMenuCol: ['col-span-4', 'py-1', 'text-start', 'xl:col-span-3'],
     dropDownMenuColHeading: ['font-bold', 'text-lg', 'mb-2'],
     dropDownMenuColItems: ['flex', 'flex-col', 'gap-2', 'list-none'],
     dropDownMenuColItemsLink: ['font-notoSans', 'text-theme-black', 'hover:underline'],
     dropDownMenuContent: ['my-2', 'w-full'],
     dropDownMenuGrid: ['gap-y-0', 'gap-20', 'grid', 'md:grid-cols-12'],
-    dropDownMenuInner: ['bg-theme-lightgrey', 'mt-6'],
+    dropDownMenuInner: ['bg-theme-lightgrey', 'mt-[1.4rem]'],
     dropDownMenuSection: [
       'flex',
       'items-center',
@@ -50,19 +59,34 @@ const TAILWIND_VARIANTS = tv({
       'w-full',
       'z-10',
     ],
-    inner: ['flex', 'justify-center', 'p-4'],
+    inner: ['flex', 'justify-center', 'px-4', 'py-7', 'transition-all', 'duration-200'],
     languageWrapper: ['flex', 'items-center', 'justify-end'],
     logoContainer: ['flex', 'items-center'],
+    menuContainer: ['flex', 'md:pl-6'],
     menuItems: ['flex', 'items-center', 'px-3', 'lg:gap-4', 'lg:px-10'],
     menuWrapper: ['flex', 'justify-between'],
+    navAnimation: [
+      'absolute',
+      'inset-x-0',
+      'bottom-0',
+      'h-0.5',
+      'bg-black',
+      'transform',
+      'origin-left',
+      'scale-x-0',
+      'transition-transform',
+      'duration-300',
+      'ease-out',
+      'group-hover:scale-x-100',
+    ],
     navTitleLinkWrapper: [
       'font-semibold',
+      'relative',
+      'group',
       'px-2',
       'py-1',
       'text-theme-black',
       'text-xl',
-      'hover:no-underline',
-      'hover:text-theme-black',
     ],
     overlay: [
       'shadow-md',
@@ -109,6 +133,24 @@ const TAILWIND_VARIANTS = tv({
       },
       true: {
         buttonItemIcon: ['rotate-0'],
+      },
+    },
+    isScrolled: {
+      false: {
+        inner: ['py-7'],
+        divider: ['h-3'],
+      },
+      true: {
+        inner: ['py-3'],
+        divider: ['h-2'],
+      },
+    },
+    isScrollLocked: {
+      false: {
+        base: ['fixed'],
+      },
+      true: {
+        base: ['absolute'],
       },
     },
   },
@@ -223,10 +265,11 @@ const NavItem = (props: NavItemInterface) => {
    * Rendering
    */
 
-  const { buttonItem, buttonItemIcon, buttonItemSublink, navTitleLinkWrapper } = TAILWIND_VARIANTS({
-    isActive: isActive,
-    isRotated: isList && index === dropdownOpen,
-  });
+  const { buttonItem, buttonItemIcon, buttonItemSublink, navTitleLinkWrapper, navAnimation } =
+    TAILWIND_VARIANTS({
+      isActive: isActive,
+      isRotated: isList && index === dropdownOpen,
+    });
 
   return (
     <li>
@@ -238,6 +281,7 @@ const NavItem = (props: NavItemInterface) => {
           field={props?.navigationLink.jsonValue}
           role="menuitem"
         >
+          <span className={navAnimation()} />
           <PlainTextWrapper field={navigationTitle.jsonValue} />
         </LinkWrapper>
       ) : (
@@ -247,6 +291,7 @@ const NavItem = (props: NavItemInterface) => {
           onClick={() => isList && props.open()}
           role="menuitem"
         >
+          <span className={navAnimation()} />
           <span className={buttonItemSublink()}>
             <PlainTextWrapper field={navigationTitle.jsonValue} />
             <SvgIcon
@@ -267,7 +312,7 @@ const NavItem = (props: NavItemInterface) => {
 };
 
 const HeaderDesktop = (props: HeaderPropsComponent) => {
-  const { HeaderData, selectedCountry, setSelectedCountry } = props || {};
+  const { HeaderData } = props || {};
   const { item } = HeaderData || {};
   const { logo, logoLink, navigationList } = item;
 
@@ -283,6 +328,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
   const [dropdownOpen, setDropdownOpen] = useState<number | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [isScrollLocked, setIsScrollLocked] = useState(false);
 
   const isDropdownOpen = dropdownOpen !== null || showSearch;
 
@@ -330,6 +376,18 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
     };
   }, [router.events]);
 
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsScrollLocked(document.body.hasAttribute('data-scroll-locked'));
+    });
+
+    observer.observe(document.body, { attributes: true });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   /*
    * Rendering
    */
@@ -345,11 +403,17 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
     divider,
     inner,
     container,
+    menuContainer,
     menuWrapper,
     menuItems,
     languageWrapper,
     searchBox,
-  } = TAILWIND_VARIANTS({ isEditing: isEditing, isDropdownOpen: isDropdownOpen });
+  } = TAILWIND_VARIANTS({
+    isEditing: isEditing,
+    isDropdownOpen: isDropdownOpen,
+    isScrolled: isScrolled,
+    isScrollLocked: isScrollLocked,
+  });
 
   return (
     <>
@@ -360,7 +424,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
           <div className={inner()}>
             <div className={container()}>
               <div className={menuWrapper()}>
-                <div className="flex md:pl-6">
+                <div className={menuContainer()}>
                   <Logo logo={logo.jsonValue} logoLink={logoLink.jsonValue} />
                   <ul className={menuItems()} role="presentation">
                     {navigationList?.items?.map((item, index) => (
@@ -380,11 +444,7 @@ const HeaderDesktop = (props: HeaderPropsComponent) => {
                   </ul>
                 </div>
                 <div className={languageWrapper()}>
-                  <CountrySelector
-                    countryData={item?.country?.targetItems}
-                    selectedCountry={selectedCountry}
-                    setSelectedCountry={setSelectedCountry}
-                  />
+                  <CountrySelector countryData={item?.country?.targetItems} />
                   <div className="flex">
                     <PreviewSearchListComponent defaultItemsPerPage={5} rfkId={'rfkid_101'} />
                   </div>

@@ -1,20 +1,13 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
 import CountrySelector from 'helpers/Forms/CountrySelector';
 import { CountrySelectorInterface } from 'components/authorable/shared/site-structure/Header/headerInterface';
 import { mockCountryData } from './CountrySelector.mock-data';
 
 // Wrapper component to handle state
 const CountrySelectorWithState = (args: CountrySelectorInterface) => {
-  const [selectedCountry, setSelectedCountry] = useState(args.selectedCountry);
-
   return (
     <div className="inline-flex border-x border-y shadow">
-      <CountrySelector
-        {...args}
-        selectedCountry={selectedCountry}
-        setSelectedCountry={setSelectedCountry}
-      />
+      <CountrySelector {...args} />
     </div>
   );
 };
@@ -23,14 +16,7 @@ const CountrySelectorWithState = (args: CountrySelectorInterface) => {
 const meta: Meta<typeof CountrySelector> = {
   title: 'Helpers/Forms/Country Selector',
   component: CountrySelector,
-  argTypes: {
-    selectedCountry: {
-      control: 'text',
-    },
-    setSelectedCountry: {
-      action: 'setSelectedCountry',
-    },
-  },
+  argTypes: {},
   parameters: {
     docs: {
       description: {
@@ -49,7 +35,6 @@ export default meta;
 export const Default: StoryObj<CountrySelectorInterface> = {
   args: {
     countryData: mockCountryData,
-    selectedCountry: 'United States',
   },
   render: (args) => <CountrySelectorWithState {...args} />,
 };
@@ -57,7 +42,6 @@ export const Default: StoryObj<CountrySelectorInterface> = {
 export const Canada: StoryObj<CountrySelectorInterface> = {
   args: {
     countryData: mockCountryData,
-    selectedCountry: 'Canada',
   },
   render: (args) => <CountrySelectorWithState {...args} />,
 };
@@ -65,7 +49,6 @@ export const Canada: StoryObj<CountrySelectorInterface> = {
 export const Mexico: StoryObj<CountrySelectorInterface> = {
   args: {
     countryData: mockCountryData,
-    selectedCountry: 'Mexico',
   },
   render: (args) => <CountrySelectorWithState {...args} />,
 };
@@ -73,7 +56,6 @@ export const Mexico: StoryObj<CountrySelectorInterface> = {
 export const UAE: StoryObj<CountrySelectorInterface> = {
   args: {
     countryData: mockCountryData,
-    selectedCountry: 'UAE',
   },
   render: (args) => <CountrySelectorWithState {...args} />,
 };

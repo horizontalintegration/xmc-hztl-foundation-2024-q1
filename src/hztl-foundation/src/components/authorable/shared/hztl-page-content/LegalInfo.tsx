@@ -11,15 +11,15 @@ import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWr
 
 const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['col-span-2', 'flex', 'justify-start', 'md:col-span-1'],
+    base: ['col-span-2', 'flex', 'justify-start', 'mdlg:col-span-3'],
     content: [
       'flex',
       'flex-col',
       'gap-2',
       'items-center',
       'text-center',
-      'lg:items-end',
-      'lg:text-left',
+      'mdlg:items-end',
+      'mdlg:text-left',
     ],
     divider: ['bg-theme-black', 'h-full', 'w-px'],
     legalMenuItems: ['flex', 'items-center'],
@@ -30,12 +30,11 @@ const TAILWIND_VARIANTS = tv({
       'flex',
       'items-center',
       'justify-center',
-      'max-w-[724px]',
       'px-3',
       'py-4',
       'w-full',
-      'md:justify-end',
-      'md:!px-0',
+      'mdlg:justify-end',
+      'mdlg:!px-0',
     ],
   },
 });
@@ -57,6 +56,7 @@ type LegalMenuItem = {
       };
     };
   };
+  id: string;
   name: string;
 };
 
@@ -106,7 +106,7 @@ export const Default = (props: LegalInfoProps): JSX.Element => {
               const { legalLink } = legalMenuItem?.fields || {};
 
               return (
-                <div key={legalLink?.value?.id} className={legalMenuItems()}>
+                <div key={legalMenuItem?.id} className={legalMenuItems()}>
                   <LinkWrapper
                     className={linkWrapper()}
                     field={{ ...legalLink }}

@@ -33,6 +33,7 @@ const meta: Meta<SvgIconProps> = {
         'facebook',
         'instagram',
         'magnifier',
+        'new-tab',
         'new-window',
         'outline-search',
         'icon-pause',

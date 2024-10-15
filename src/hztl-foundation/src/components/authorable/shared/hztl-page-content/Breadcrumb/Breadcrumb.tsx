@@ -45,7 +45,7 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
    */
 
   return (
-    <div
+    <section
       className={base()}
       data-component="authorable/shared/hztml-page-content/breadcrumb"
       data-testid="breadcrumbs"
@@ -101,15 +101,17 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
                 )
               );
             })}
-          <li aria-current="true" className={currentPage()}>
-            <Text
-              encode={false}
-              field={{
-                value: Title?.jsonValue?.value,
-              }}
-              tag="span"
-            />
-          </li>
+          {ancestors.length > 0 && (
+            <li aria-current="true" className={currentPage()}>
+              <Text
+                encode={false}
+                field={{
+                  value: Title?.jsonValue?.value,
+                }}
+                tag="span"
+              />
+            </li>
+          )}
         </ul>
       </nav>
       <div
@@ -118,7 +120,7 @@ export const Default = (staticProps: BreadcrumbDataType): JSX.Element => {
           background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.00) -4.17%, #FFF 104.17%)',
         }}
       />
-    </div>
+    </section>
   );
 };
 

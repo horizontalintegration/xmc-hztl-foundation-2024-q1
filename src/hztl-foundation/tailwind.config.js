@@ -5,21 +5,6 @@ const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
-  safelist: [
-    {
-      pattern: /self-(start|center|end)/,
-      variants: ['', 'md', 'lg', 'xl', '2xl'],
-    },
-    {
-      pattern: /ml-(0|auto)|mr-(0|auto)|mx-auto/,
-      variants: ['', 'md', 'lg', 'xl', '2xl'],
-    },
-    {
-      pattern:
-        /^(inline|inline-block|block|flex|inline-flex|table|table-row|table-cell|hidden|basic-full)$/,
-      variants: ['', 'sm', 'md', 'lg', 'xl', '2xl'],
-    },
-  ],
   theme: {
     extend: {
       colors: {
@@ -47,6 +32,9 @@ module.exports = {
         xxs: ['0.625rem', '0.75rem'] /* 10px,  12px */,
         xxxs: ['0.5rem', '0.5rem'] /*  8px,   8px */,
       },
+      gap: {
+        11.5: '46px',
+      },
       maxHeight: {
         125: '500px',
       },
@@ -58,6 +46,7 @@ module.exports = {
         125: '500px',
       },
       screens: {
+        mdlg: '992px',
         xxl: '1440px',
       },
     },

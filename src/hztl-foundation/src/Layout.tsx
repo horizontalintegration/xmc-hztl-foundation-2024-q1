@@ -3,11 +3,28 @@ import { Placeholder, LayoutServiceData, Field, HTMLLink } from '@sitecore-jss/s
 import { Environment, PageController, WidgetsProvider } from '@sitecore-search/react';
 import Head from 'next/head';
 import React from 'react';
+import { tv } from 'tailwind-variants';
 
 // Local
 import Scripts from 'src/Scripts';
 import jssConfig from 'src/temp/config';
 import config from 'temp/config';
+
+const TAILWIND_VARIANTS = tv({
+  slots: {
+    footer: ['bg-gray-200'],
+    footerContentContainer: [
+      'm-auto',
+      'max-w-7xl',
+      'p-4',
+      'mdlg:grid',
+      'mdlg:grid-cols-4',
+      'mdlg:items-center',
+      'mdlg:m-auto',
+    ],
+    mainContentContainer: ['mt-[90px]'],
+  },
+});
 
 interface LayoutProps {
   layoutData: LayoutServiceData;
@@ -20,53 +37,53 @@ interface RouteFields {
   Content?: Field;
 }
 
-// Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor.
-// If you're not supporting the Experience Editor, you can remove this.
-const publicUrl = config.publicUrl;
+// Prefix public assets with a public URL to enable compatibility with Sitecore Experience Editor. If you're not supporting the Experience Editor, you can remove this.
+const { publicUrl } = config;
 
 const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
   const { route } = layoutData.sitecore;
-  const fields = route?.fields as RouteFields;
-  const isPageEditing = layoutData.sitecore.context.pageEditing;
-  const mainClassPageEditing = isPageEditing ? 'editing-mode' : 'prod-mode';
+  const { Content, Title } = route?.fields as RouteFields;
+  const { pageEditing } = layoutData.sitecore.context;
 
-  // Fetching the whole URL for the og:url
   const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const mainClassPageEditing = pageEditing ? 'editing-mode' : 'prod-mode';
 
   PageController.getContext().setLocaleLanguage('en');
   PageController.getContext().setLocaleCountry('us');
+
+  /*
+   * RENDERING
+   */
+
+  const { footer, footerContentContainer, mainContentContainer } = TAILWIND_VARIANTS();
 
   return (
     <>
       <Scripts />
       <Head>
-        <title>{fields?.Title?.value?.toString() || 'Page'}</title>
-        {fields?.Title?.value && (
-          <meta content={fields?.Content?.value?.toString()} name="description" />
-        )}
-        <link rel="icon" href={`${publicUrl}/favicon.ico`} />
+        <title>{Title?.value?.toString() || 'Page'}</title>
+        {Content?.value && <meta content={Content?.value?.toString()} name="description" />}
+        <link href={`${publicUrl}/favicon.ico`} rel="icon" />
         {headLinks.map((headLink) => (
-          <link rel={headLink.rel} key={headLink.href} href={headLink.href} />
+          <link href={headLink.href} key={headLink.href} rel={headLink.rel} />
         ))}
         {currentUrl && <meta content={currentUrl} property="og:url" />}
       </Head>
-
       <WidgetsProvider
         apiKey={jssConfig.sitecoreSearchApiKey}
         customerKey={jssConfig.sitecoreSearchCustomerKey}
         env={jssConfig.sitecoreSearchEnv as Environment}
         publicSuffix={true}
       >
-        {/* root placeholder for the app, which we add components to using route data */}
         <div className={mainClassPageEditing}>
           {route && <Placeholder name="headless-header" rendering={route} />}
           <main>
-            <div id="content" className="mt-20">
+            <div className={mainContentContainer()} id="content">
               {route && <Placeholder name="headless-main" rendering={route} />}
             </div>
           </main>
-          <footer className="bg-gray-200">
-            <div className="m-auto max-w-7xl md:grid md:grid-cols-2 md:items-center md:m-auto">
+          <footer className={footer()}>
+            <div className={footerContentContainer()}>
               {route && <Placeholder name="headless-footer" rendering={route} />}
             </div>
           </footer>

@@ -1,8 +1,8 @@
 // Global
 import { Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
 import { Splide, SplideProps, SplideTrack } from '@splidejs/react-splide';
-import { tv } from 'tailwind-variants';
 import '@splidejs/splide/css';
+import { tv } from 'tailwind-variants';
 
 // Lib
 import { ComponentProps } from 'lib/component-props';
@@ -97,7 +97,11 @@ const Carousel = (props: CarouselProps): JSX.Element => {
   } = TAILWIND_VARIANTS();
 
   return (
-    <div className={base()} id={RenderingIdentifier}>
+    <section
+      className={base()}
+      data-component="authorable/shared/hztl-page-content/carousel"
+      id={RenderingIdentifier}
+    >
       <Splide hasTrack={false} options={SPLIDE_OPTIONS}>
         <SplideTrack>
           <Placeholder name={phKey} rendering={props.rendering} />
@@ -129,7 +133,7 @@ const Carousel = (props: CarouselProps): JSX.Element => {
           </button>
         </div>
       </Splide>
-    </div>
+    </section>
   );
 };
 

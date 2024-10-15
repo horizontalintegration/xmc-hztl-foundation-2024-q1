@@ -1,0 +1,11 @@
+/* stylelint-disable selector-class-pattern */
+.splide__pagination__page {
+  @apply !border !border-[0.5px] !border-black rounded-[50%];
+}
+
+.splide__pagination__page:focus-visible,
+.splide__arrow:focus-visible,
+.splide__toggle:focus-visible {
+  @apply !outline-theme-darkblue;
+}
+/* stylelint-enable selector-class-pattern */

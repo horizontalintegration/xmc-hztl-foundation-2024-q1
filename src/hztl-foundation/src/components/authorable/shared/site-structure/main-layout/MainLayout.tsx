@@ -7,7 +7,16 @@ import { ComponentProps } from 'lib/component-props';
 
 const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['m-auto', 'max-w-screen-xl', 'w-full', 'md:p-8'],
+    base: [
+      'gap-6',
+      'grid',
+      'grid-cols-1',
+      'm-auto',
+      'max-w-screen-xl',
+      'w-full',
+      'mdlg:gap-11.5',
+      'mdlg:p-8',
+    ],
   },
 });
 
@@ -22,15 +31,8 @@ export const Default = (props: ComponentProps): JSX.Element => {
       data-component="authorable/shared/site-structure/mainlayout"
       id={RenderingIdentifier}
     >
-      <div>
-        <Placeholder name="hztl-headless-breadcrumb" rendering={props.rendering} />
-      </div>
-      <div>
-        <Placeholder name="hztl-headless-hero" rendering={props.rendering} />
-      </div>
-      <div>
-        <Placeholder name="hztl-headless-main-content" rendering={props.rendering} />
-      </div>
+      <Placeholder name="hztl-headless-breadcrumb" rendering={props.rendering} />
+      <Placeholder name="hztl-headless-main-content" rendering={props.rendering} />
     </div>
   );
 };

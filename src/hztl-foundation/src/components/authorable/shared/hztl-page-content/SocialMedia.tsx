@@ -15,7 +15,7 @@ export type SocialMediaProps = ComponentProps & SiteStructure.Footer.SocialMedia
 
 const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['flex', 'hidden', 'md:block'],
+    base: ['flex', 'hidden', 'mdlg:block'],
     iconList: ['flex', 'flex-row', 'gap-8', 'w-fit'],
     link: ['text-theme-black', 'hover:text-theme-grey'],
     svg: ['h-6', 'w-6'],

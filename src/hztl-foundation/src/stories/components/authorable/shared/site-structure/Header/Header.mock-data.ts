@@ -25,71 +25,45 @@ export const defaultData: HeaderProps = {
             title: '',
             target: '',
             querystring: '',
-            id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+            id: '{E9ABAFA1-377C-4577-A419-9A3A804554D435}',
             href: '/',
           },
         },
       },
-      //***To be used in the search***//
-      // searchPlaceholder?: {
-      //   jsonValue: {
-      //     value: 'Search',
-      //   },
-      // },
       navigationList: {
         items: [
           {
+            displayName: '',
             id: 'C66695A69283458A817B779BAAD2B4CB',
+            megaMenuList: {
+              items: [],
+            },
             name: 'Services',
+            navigationLink: {
+              jsonValue: {
+                value: {
+                  anchor: '',
+                  class: '',
+                  href: '/Services',
+                  id: '{0E789CBB-8DE4-4B66-AC09-69B1A4359003}',
+                  linktype: 'internal',
+                  querystring: '',
+                  target: '',
+                  text: 'Services',
+                  title: 'Services',
+                },
+              },
+            },
             navigationTitle: {
               jsonValue: {
                 value: 'Services',
               },
             },
-            navigationLink: {
-              jsonValue: {
-                value: {
-                  text: '',
-                  anchor: '',
-                  linktype: 'internal',
-                  class: '',
-                  title: '',
-                  target: '',
-                  querystring: '',
-                  id: '{0E789CBB-8DE4-4B66-AC09-69B1A4359003}',
-                  href: '/Services',
-                },
-              },
-            },
-            megaMenuList: {
-              items: [],
-            },
             url: '',
-            displayName: '',
           },
           {
+            displayName: '',
             id: '333B5DD687CC4F01BDFAFF106333A26D',
-            name: 'Work',
-            navigationTitle: {
-              jsonValue: {
-                value: 'Work',
-              },
-            },
-            navigationLink: {
-              jsonValue: {
-                value: {
-                  text: '',
-                  anchor: '',
-                  linktype: 'internal',
-                  class: '',
-                  title: '',
-                  target: '|Custom',
-                  querystring: '',
-                  id: '{17215E7D-7E44-45A8-A5E5-E9411CBCF28D}',
-                  href: '/Work',
-                },
-              },
-            },
             megaMenuList: {
               items: [
                 {
@@ -115,7 +89,7 @@ export const defaultData: HeaderProps = {
                               title: 'Link1',
                               target: '',
                               querystring: '',
-                              id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+                              id: '{E9ABAFA1-377C-4577-A419-9A311044D435}',
                               href: '/',
                             },
                           },
@@ -157,7 +131,7 @@ export const defaultData: HeaderProps = {
                               title: '',
                               target: '|Custom',
                               querystring: '',
-                              id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+                              id: '{E9ABAFA1-377C-4577-8719-9A3A8044D435}',
                               href: '/',
                             },
                           },
@@ -193,7 +167,7 @@ export const defaultData: HeaderProps = {
                               title: '',
                               target: '|Custom',
                               querystring: '',
-                              id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+                              id: '{E9AB35A1-377C-4577-A419-9A3A8044D435}',
                               href: '/',
                             },
                           },
@@ -235,7 +209,7 @@ export const defaultData: HeaderProps = {
                               title: '',
                               target: '|Custom',
                               querystring: '',
-                              id: '{E9ABAFA1-377C-4577-A419-9A3A8044D435}',
+                              id: '{E9ABAFA1-377C-4577-A419-976A8044D435}',
                               href: '/',
                             },
                           },
@@ -250,37 +224,56 @@ export const defaultData: HeaderProps = {
                 },
               ],
             },
+            name: 'Work',
+            navigationLink: {
+              jsonValue: {
+                value: {
+                  anchor: '',
+                  class: '',
+                  href: '/Work',
+                  id: '{17215E7D-7E44-45A8-A5E5-E9411CBCF28D}',
+                  linktype: 'internal',
+                  querystring: '',
+                  text: '',
+                  title: '',
+                },
+              },
+            },
+            navigationTitle: {
+              jsonValue: {
+                value: 'Work',
+              },
+            },
             url: '',
-            displayName: '',
           },
           {
+            displayName: '',
             id: '469F54C045B24FD2866764AAC54CFA76',
+            megaMenuList: {
+              items: [],
+            },
             name: 'About Us',
+            navigationLink: {
+              jsonValue: {
+                value: {
+                  anchor: '',
+                  class: '',
+                  href: '/About-Us',
+                  id: '72ef333d-7bcb-466f-adb5-55b41989ee0a',
+                  linktype: 'internal',
+                  querystring: '',
+                  target: '',
+                  text: '',
+                  title: '',
+                },
+              },
+            },
             navigationTitle: {
               jsonValue: {
                 value: 'About Us',
               },
             },
-            navigationLink: {
-              jsonValue: {
-                value: {
-                  linktype: 'internal',
-                  id: '72ef333d-7bcb-466f-adb5-55b41989ee0a',
-                  anchor: '',
-                  querystring: '',
-                  target: '',
-                  class: '',
-                  text: '',
-                  title: '',
-                  href: '/About-Us',
-                },
-              },
-            },
-            megaMenuList: {
-              items: [],
-            },
             url: '',
-            displayName: '',
           },
           {
             id: 'AF18415D498145B4A2A8738FA72AA167',
