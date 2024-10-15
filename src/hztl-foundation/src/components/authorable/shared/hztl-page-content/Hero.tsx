@@ -6,7 +6,7 @@ import { tv } from 'tailwind-variants';
 import { ComponentProps } from 'lib/component-props';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
-import { getCtaStyle } from 'lib/utils/cta-utils';
+import { getCtaStyle, getCtaClassName } from 'lib/utils/cta-utils';
 
 // Local
 import { withStandardComponentWrapper } from 'helpers/HOC';
@@ -36,7 +36,8 @@ const Hero = (props: HeroProps): JSX.Element => {
   const { cta1Link, cta2Link, Description, Heading, Image } = props?.fields || {};
 
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
-
+  console.log('styles', styles);
+  console.log('styles.cta2?.ctaVariant', styles.cta2?.ctaVariant);
   const {
     base,
     columnA,
@@ -58,13 +59,25 @@ const Hero = (props: HeroProps): JSX.Element => {
           <RichTextWrapper className={description()} field={Description} tag="div" />
           <div className={ctaContainer()}>
             <LinkWrapper
-              className={styles.cta1?.ctaVariant === 'link' ? ctaLink() : ctaPrimary()}
+              className={getCtaClassName(
+                styles.cta1?.ctaVariant,
+                ctaLink,
+                ctaPrimary,
+                ctaSecondary,
+                ctaPrimary
+              )}
               ctaStyle={getCtaStyle(styles.cta1, 'primary')}
               field={cta1Link}
               suppressNewTabIcon={true}
             />
             <LinkWrapper
-              className={styles.cta2?.ctaVariant === 'link' ? ctaLink() : ctaSecondary()}
+              className={getCtaClassName(
+                styles.cta2?.ctaVariant,
+                ctaLink,
+                ctaPrimary,
+                ctaSecondary,
+                ctaSecondary
+              )}
               ctaStyle={getCtaStyle(styles.cta2, 'secondary')}
               suppressNewTabIcon={true}
               field={cta2Link}

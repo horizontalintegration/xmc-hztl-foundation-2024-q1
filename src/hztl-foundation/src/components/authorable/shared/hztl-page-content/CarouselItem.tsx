@@ -6,7 +6,7 @@ import { tv } from 'tailwind-variants';
 // Lib
 import { ComponentProps } from 'lib/component-props';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
-import { getCtaStyle } from 'lib/utils/cta-utils';
+import { getCtaStyle, getCtaClassName } from 'lib/utils/cta-utils';
 
 // Local
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
@@ -111,13 +111,25 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
                   <div className={ctaButtons()}>
                     <LinkWrapper
                       aria-label={primaryCTA?.value.text}
-                      className={styles.cta1?.ctaVariant === 'link' ? ctaLink() : ctaPrimary()}
+                      className={getCtaClassName(
+                        styles.cta1?.ctaVariant,
+                        ctaLink,
+                        ctaPrimary,
+                        ctaSecondary,
+                        ctaPrimary
+                      )}
                       ctaStyle={getCtaStyle(styles.cta1, 'primary')}
                       field={primaryCTA}
                     ></LinkWrapper>
                     <LinkWrapper
                       aria-label={secondaryCTA?.value.text}
-                      className={styles.cta2?.ctaVariant === 'link' ? ctaLink() : ctaSecondary()}
+                      className={getCtaClassName(
+                        styles.cta2?.ctaVariant,
+                        ctaLink,
+                        ctaPrimary,
+                        ctaSecondary,
+                        ctaSecondary
+                      )}
                       ctaStyle={getCtaStyle(styles.cta2, 'secondary')}
                       field={secondaryCTA}
                     ></LinkWrapper>

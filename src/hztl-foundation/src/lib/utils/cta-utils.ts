@@ -11,4 +11,23 @@ const getCtaStyle = (ctaStyle: CtaStyle = {}, defaultVariant: CtaVariants) => {
   };
 };
 
-export { getCtaStyle };
+const getCtaClassName = (
+  ctaVariant: string | undefined,
+  linkStyle: () => string,
+  primaryStyle: () => string,
+  secondaryStyle: () => string,
+  defaultStyle: () => string
+): string => {
+  switch (ctaVariant) {
+    case 'link':
+      return linkStyle();
+    case 'primary':
+      return primaryStyle();
+    case 'secondary':
+      return secondaryStyle();
+    default:
+      return defaultStyle(); // Use the provided default style
+  }
+};
+
+export { getCtaStyle, getCtaClassName };

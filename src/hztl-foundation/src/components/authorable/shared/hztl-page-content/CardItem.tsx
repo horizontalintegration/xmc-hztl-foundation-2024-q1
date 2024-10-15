@@ -6,7 +6,7 @@ import { tv } from 'tailwind-variants';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
-import { getCtaStyle } from 'lib/utils/cta-utils';
+import { getCtaStyle, getCtaClassName } from 'lib/utils/cta-utils';
 
 // Local
 import { withStandardComponentWrapper } from 'helpers/HOC';
@@ -91,12 +91,24 @@ const CardItem = (props: CardItemProps): JSX.Element => {
         </div>
         <div className={footer()}>
           <LinkWrapper
-            className={styles.cta1?.ctaVariant === 'link' ? ctaLink() : ctaPrimary()}
+            className={getCtaClassName(
+              styles.cta1?.ctaVariant,
+              ctaLink,
+              ctaPrimary,
+              ctaSecondary,
+              ctaPrimary
+            )}
             ctaStyle={getCtaStyle(styles.cta1, 'primary')}
             field={CardLink1}
           />
           <LinkWrapper
-            className={styles.cta2?.ctaVariant === 'link' ? ctaLink() : ctaSecondary()}
+            className={getCtaClassName(
+              styles.cta2?.ctaVariant,
+              ctaLink,
+              ctaPrimary,
+              ctaSecondary,
+              ctaSecondary
+            )}
             ctaStyle={getCtaStyle(styles.cta2, 'secondary')}
             field={CardLink2}
           />
