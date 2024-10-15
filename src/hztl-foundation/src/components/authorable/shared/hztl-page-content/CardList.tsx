@@ -18,7 +18,7 @@ const TAILWIND_VARIANTS = tv({
     colCount: '3',
   },
   slots: {
-    base: ['component', 'gap-6', 'grid', 'grid-cols-none'],
+    base: ['component', 'gap-6', 'grid', 'grid-cols-none', 'px-4', 'mdlg:px-0'],
   },
   variants: {
     colCount: {
@@ -45,16 +45,13 @@ const CardList = (props: CardListProps): JSX.Element => {
 
   return (
     <>
-      {props?.rendering?.placeholders?.[phKey] &&
-        props?.rendering?.placeholders?.[phKey]?.length > 0 && (
-          <section
-            className={base()}
-            data-component="authorable/shared/hztl-page-content/cardlist"
-            id={RenderingIdentifier}
-          >
-            <Placeholder name={phKey} rendering={props.rendering} />
-          </section>
-        )}
+      <section
+        className={base()}
+        data-component="authorable/shared/hztl-page-content/cardlist"
+        id={RenderingIdentifier}
+      >
+        <Placeholder name={phKey} rendering={props.rendering} />
+      </section>
     </>
   );
 };
