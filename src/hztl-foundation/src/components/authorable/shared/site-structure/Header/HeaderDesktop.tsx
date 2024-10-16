@@ -28,6 +28,7 @@ const TAILWIND_VARIANTS = tv({
       'py-1',
       'text-theme-black',
       'text-xl',
+      'focus:outline-theme-darkblue',
     ],
     buttonItemIcon: ['duration-200', 'h-auto', 'trasition', '!w-xs'],
     buttonItemSublink: ['flex', 'gap-2', 'items-center'],

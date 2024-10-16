@@ -25,6 +25,7 @@ const TAILWIND_VARIANTS = tv({
       'text-base',
       'w-full',
       'focus:border-none',
+      'focus:outline-theme-darkblue',
       'md:p-xxs',
       'sm:text-sm',
     ],

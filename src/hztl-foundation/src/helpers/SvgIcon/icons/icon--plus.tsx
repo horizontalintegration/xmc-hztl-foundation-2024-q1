@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 const IconPlus = (): JSX.Element => {
   return (
     <>
