@@ -3,7 +3,12 @@ import { CardItemProps } from 'components/authorable/shared/hztl-page-content/Ca
 const defaultData: CardItemProps = {
   componentName: 'CardItem',
   dataSource: '{843DC614-0990-49B0-AF51-D3ECDAFD64CA}',
-  params: {},
+  params: {
+    DynamicPlaceholderId: '10',
+    FieldNames: 'Default',
+    GridParameters: 'basis-full',
+    Styles: 'cta1:ctaVariant:link cta2:ctaVariant:secondary',
+  },
   rendering: { componentName: 'Default', dataSource: 'Storybook' },
   fields: {
     CardImage: {
@@ -97,6 +102,7 @@ export const CardItemA: CardItemProps = {
     DynamicPlaceholderId: '11',
     FieldNames: 'Default',
     GridParameters: 'basis-full',
+    Styles: 'cta1:ctaVariant:primary cta2:ctaVariant:secondary',
   },
   rendering: { componentName: 'Default', dataSource: 'Storybook' },
   uid: 'e638f904-8b30-4a51-9eb9-3008bf26e5b3',
@@ -155,6 +161,7 @@ export const CardItemB: CardItemProps = {
     DynamicPlaceholderId: '12',
     FieldNames: 'Default',
     GridParameters: 'basis-full',
+    Styles: 'cta1:ctaVariant:primary cta2:ctaVariant:secondary',
   },
   rendering: { componentName: 'Default', dataSource: 'Storybook' },
   uid: 'e638f904-8b30-4a51-9eb9-3008bf26e5b4',
@@ -213,6 +220,7 @@ export const CardItemC: CardItemProps = {
     DynamicPlaceholderId: '13',
     FieldNames: 'Default',
     GridParameters: 'basis-full',
+    Styles: 'cta1:ctaVariant:primary cta2:ctaVariant:secondary',
   },
   rendering: { componentName: 'Default', dataSource: 'Storybook' },
   uid: 'e638f904-8b30-4a51-9eb9-3008bf26e5b5',
