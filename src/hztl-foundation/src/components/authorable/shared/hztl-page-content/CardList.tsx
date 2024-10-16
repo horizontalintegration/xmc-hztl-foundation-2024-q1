@@ -43,17 +43,24 @@ const CardList = (props: CardListProps): JSX.Element => {
    * Rendering
    */
 
-  return (
-    <>
-      <section
-        className={base()}
-        data-component="authorable/shared/hztl-page-content/cardlist"
-        id={RenderingIdentifier}
-      >
-        <Placeholder name={phKey} rendering={props.rendering} />
-      </section>
-    </>
-  );
+  if (
+    props?.rendering?.placeholders?.[phKey] &&
+    props?.rendering?.placeholders?.[phKey]?.length === 0
+  ) {
+    return <></>;
+  } else {
+    return (
+      <>
+        <section
+          className={base()}
+          data-component="authorable/shared/hztl-page-content/cardlist"
+          id={RenderingIdentifier}
+        >
+          <Placeholder name={phKey} rendering={props.rendering} />
+        </section>
+      </>
+    );
+  }
 };
 
 export const Default = withStandardComponentWrapper(CardList, false);
