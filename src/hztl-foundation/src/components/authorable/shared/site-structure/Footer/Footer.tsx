@@ -141,7 +141,7 @@ export const Default = (props: FooterProps): JSX.Element => {
                   />
                 </li>
                 {links?.map((link) => (
-                  <li className={linkListItem()} key={link?.link?.jsonValue?.value?.id as string}>
+                  <li className={linkListItem()} key={link?.id as string}>
                     <LinkWrapper className={linkListLink()} field={link?.link?.jsonValue} />
                   </li>
                 ))}

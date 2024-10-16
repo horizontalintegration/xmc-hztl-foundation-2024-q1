@@ -4,6 +4,7 @@ import {
   GraphQLSitemapXmlService,
   AxiosResponse,
 } from '@sitecore-jss/sitecore-jss-nextjs';
+import clientFactory from 'lib/graphql-client-factory';
 import { siteResolver } from 'lib/site-resolver';
 import config from 'temp/config';
 
@@ -23,8 +24,7 @@ const sitemapApi = async (
 
   // create sitemap graphql service
   const sitemapXmlService = new GraphQLSitemapXmlService({
-    endpoint: config.graphQLEndpoint,
-    apiKey: config.sitecoreApiKey,
+    clientFactory,
     siteName: site.name,
   });
 

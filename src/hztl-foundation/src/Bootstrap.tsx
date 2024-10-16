@@ -1,6 +1,7 @@
 import { SitecorePageProps } from 'lib/page-props';
 import { context } from 'src/lib/context';
 import config from 'temp/config';
+import './generate-metadata';
 
 /**
  * The Bootstrap component is the entry point for performing any initialization logic
