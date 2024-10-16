@@ -85,6 +85,26 @@ const meta: Meta<typeof Default> = {
         category: 'fields',
       },
     },
+    'params.DynamicPlaceholderId': {
+      table: {
+        category: 'params',
+      },
+    },
+    'params.FieldNames': {
+      table: {
+        category: 'params',
+      },
+    },
+    'params.GridParameters': {
+      table: {
+        category: 'params',
+      },
+    },
+    'params.Styles': {
+      table: {
+        category: 'params',
+      },
+    },
     'rendering.componentName': {
       table: {
         category: 'rendering',

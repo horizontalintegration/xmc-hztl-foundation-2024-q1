@@ -6,7 +6,7 @@ import { tv } from 'tailwind-variants';
 import { ComponentProps } from 'lib/component-props';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
-import { CtaVariants } from 'lib/utils/style-param-utils/modules/ctas';
+import { getCtaStyle } from 'lib/utils/cta-utils';
 
 // Local
 import { withStandardComponentWrapper } from 'helpers/HOC';
@@ -16,17 +16,34 @@ import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTex
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 
 const TAILWIND_VARIANTS = tv({
+  defaultVariants: {
+    style: 'primary',
+  },
   slots: {
     base: ['component', 'flex', 'flex-col-reverse', 'items-center', 'md:flex-row'],
-    ctaPrimary: ['px-8'],
-    ctaSecondary: ['px-8'],
-    ctaLink: ['text-theme-darkblue', 'text-base'],
+    cta: [],
     columnA: ['flex', 'w-full', 'md:w-1/2'],
     columnB: ['w-full', 'md:w-1/2'],
     contentContainer: ['md:max-w-lg', 'p-4', 'w-full'],
     ctaContainer: ['flex', 'flex-wrap', 'gap-6', 'md:justify-normal'],
     description: ['mb-6', 'text-base'],
     heading: ['font-bold', 'font-modern', 'mb-6', 'text-5xl', 'md:text-4xl'],
+  },
+  variants: {
+    style: {
+      link: {
+        cta: ['text-base', 'text-theme-darkblue'],
+      },
+      primary: {
+        cta: ['px-8'],
+      },
+      secondary: {
+        cta: ['px-8'],
+      },
+      tertiary: {
+        cta: ['px-8'],
+      },
+    },
   },
 });
 
@@ -37,38 +54,8 @@ const Hero = (props: HeroProps): JSX.Element => {
 
   const styles = parseStyleParams(props.params, ['cta1', 'cta2']);
 
-  const {
-    base,
-    columnA,
-    columnB,
-    contentContainer,
-    ctaContainer,
-    ctaPrimary,
-    ctaSecondary,
-    ctaLink,
-    description,
-    heading,
-  } = TAILWIND_VARIANTS();
-
-  /**
-   * Function to get the CTA style.
-   * If ctaStyle is undefined, it defaults to the provided defaultVariant.
-   *
-   * @param {CtaStyle} ctaStyle - The CTA style object.
-   * @param {string} defaultVariant - The default variant to use if ctaStyle is undefined.
-   * @returns {object} - The CTA style object with the appropriate variant.
-   */
-
-  interface CtaStyle {
-    ctaVariant?: CtaVariants;
-  }
-
-  const getCtaStyle = (ctaStyle: CtaStyle = {}, defaultVariant: CtaVariants) => {
-    return {
-      ...ctaStyle,
-      ctaVariant: ctaStyle?.ctaVariant ?? defaultVariant,
-    };
-  };
+  const { base, cta, columnA, columnB, contentContainer, ctaContainer, description, heading } =
+    TAILWIND_VARIANTS();
 
   return (
     <section className={base()} data-component="authorable/shared/hztml-page-content/hero">
@@ -78,13 +65,13 @@ const Hero = (props: HeroProps): JSX.Element => {
           <RichTextWrapper className={description()} field={Description} tag="div" />
           <div className={ctaContainer()}>
             <LinkWrapper
-              className={styles.cta1?.ctaVariant === 'link' ? ctaLink() : ctaPrimary()}
+              className={cta({ style: styles.cta1?.ctaVariant })}
               ctaStyle={getCtaStyle(styles.cta1, 'primary')}
               field={cta1Link}
               suppressNewTabIcon={true}
             />
             <LinkWrapper
-              className={styles.cta2?.ctaVariant === 'link' ? ctaLink() : ctaSecondary()}
+              className={cta({ style: styles.cta2?.ctaVariant })}
               ctaStyle={getCtaStyle(styles.cta2, 'secondary')}
               suppressNewTabIcon={true}
               field={cta2Link}

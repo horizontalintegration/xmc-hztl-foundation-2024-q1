@@ -6,7 +6,7 @@ import { tv } from 'tailwind-variants';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 import { ComponentProps } from 'lib/component-props';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
-import { CtaVariants } from 'lib/utils/style-param-utils/modules/ctas';
+import { getCtaStyle } from 'lib/utils/cta-utils';
 
 // Local
 import { withStandardComponentWrapper } from 'helpers/HOC';
@@ -16,13 +16,14 @@ import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTex
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
 
 const TAILWIND_VARIANTS = tv({
+  defaultVariants: {
+    style: 'primary',
+  },
   slots: {
     base: ['border', 'border-theme-darkgrey', 'flex', 'flex-col', 'items-center', 'justify-center'],
     body: ['flex', 'flex-col', 'grow', 'p-10', 'w-full'],
     content: ['grow', 'w-full'],
-    ctaPrimary: ['px-8', 'py-4'],
-    ctaSecondary: ['px-8', 'py-4'],
-    ctaLink: ['text-base', 'text-theme-darkblue'],
+    cta: [],
     description: [
       'font-modern',
       'font-regular',
@@ -37,6 +38,22 @@ const TAILWIND_VARIANTS = tv({
     header: ['border-b', 'border-theme-darkgrey', 'relative', 'w-full'],
     heading: ['font-bold', 'font-modern', 'mb-2', 'text-4xl', 'text-theme-black'],
     subheading: ['font-bold', 'font-modern', 'mb-2', 'opacity-80', 'text-theme-black', 'text-2xl'],
+  },
+  variants: {
+    style: {
+      link: {
+        cta: ['text-base', 'text-theme-darkblue'],
+      },
+      primary: {
+        cta: ['px-8', 'py-4'],
+      },
+      secondary: {
+        cta: ['px-8', 'py-4'],
+      },
+      tertiary: {
+        cta: ['px-8', 'py-4'],
+      },
+    },
   },
 });
 
@@ -54,40 +71,8 @@ const CardItem = (props: CardItemProps): JSX.Element => {
    * Rendering
    */
 
-  const {
-    base,
-    body,
-    content,
-    ctaPrimary,
-    ctaSecondary,
-    ctaLink,
-    description,
-    eyebrow,
-    footer,
-    header,
-    heading,
-    subheading,
-  } = TAILWIND_VARIANTS();
-
-  /**
-   * Function to get the CTA style.
-   * If ctaStyle is undefined, it defaults to the provided defaultVariant.
-   *
-   * @param {CtaStyle} ctaStyle - The CTA style object.
-   * @param {CtaVariants} defaultVariant - The default variant to use if ctaStyle is undefined.
-   * @returns {object} - The CTA style object with the appropriate variant.
-   */
-
-  interface CtaStyle {
-    ctaVariant?: CtaVariants;
-  }
-
-  const getCtaStyle = (ctaStyle: CtaStyle = {}, defaultVariant: CtaVariants) => {
-    return {
-      ...ctaStyle,
-      ctaVariant: ctaStyle?.ctaVariant ?? defaultVariant,
-    };
-  };
+  const { base, body, content, cta, description, eyebrow, footer, header, heading, subheading } =
+    TAILWIND_VARIANTS();
 
   return (
     <div
@@ -107,12 +92,12 @@ const CardItem = (props: CardItemProps): JSX.Element => {
         </div>
         <div className={footer()}>
           <LinkWrapper
-            className={styles.cta1?.ctaVariant === 'link' ? ctaLink() : ctaPrimary()}
+            className={cta({ style: styles.cta1?.ctaVariant })}
             ctaStyle={getCtaStyle(styles.cta1, 'primary')}
             field={CardLink1}
           />
           <LinkWrapper
-            className={styles.cta2?.ctaVariant === 'link' ? ctaLink() : ctaSecondary()}
+            className={cta({ style: styles.cta2?.ctaVariant })}
             ctaStyle={getCtaStyle(styles.cta2, 'secondary')}
             field={CardLink2}
           />
