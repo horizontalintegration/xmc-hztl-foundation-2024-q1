@@ -6,10 +6,10 @@ import React from 'react';
 import { tv } from 'tailwind-variants';
 
 // Local
+import SkipNav from 'components/authorable/shared/site-structure/SkipNav/SkipNav';
 import Scripts from 'src/Scripts';
 import jssConfig from 'src/temp/config';
 import config from 'temp/config';
-import SkipNav from 'components/authorable/shared/hztl-page-content/SkipNav';
 
 const TAILWIND_VARIANTS = tv({
   slots: {
