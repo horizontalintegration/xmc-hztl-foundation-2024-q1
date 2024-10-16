@@ -56,6 +56,7 @@ type LegalMenuItem = {
       };
     };
   };
+  id: string;
   name: string;
 };
 
@@ -105,7 +106,7 @@ export const Default = (props: LegalInfoProps): JSX.Element => {
               const { legalLink } = legalMenuItem?.fields || {};
 
               return (
-                <div key={legalLink?.value?.id} className={legalMenuItems()}>
+                <div key={legalMenuItem?.id} className={legalMenuItems()}>
                   <LinkWrapper
                     className={linkWrapper()}
                     field={{ ...legalLink }}

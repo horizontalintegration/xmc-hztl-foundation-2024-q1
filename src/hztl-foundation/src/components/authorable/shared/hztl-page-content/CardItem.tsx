@@ -54,10 +54,6 @@ const CardItem = (props: CardItemProps): JSX.Element => {
    * Rendering
    */
 
-  if (!props?.fields) {
-    return <></>;
-  }
-
   const {
     base,
     body,

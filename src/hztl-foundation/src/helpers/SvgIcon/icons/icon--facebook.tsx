@@ -1,4 +1,4 @@
-const IconArrow = (): JSX.Element => {
+const IconFacebook = (): JSX.Element => {
   return (
     <>
       <g>
@@ -15,4 +15,4 @@ const IconArrow = (): JSX.Element => {
   );
 };
 
-export default IconArrow;
+export default IconFacebook;

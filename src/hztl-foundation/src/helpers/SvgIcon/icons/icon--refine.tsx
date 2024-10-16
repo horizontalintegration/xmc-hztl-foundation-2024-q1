@@ -1,5 +1,4 @@
-/* eslint-disable prettier/prettier */
-const IconPlus = (): JSX.Element => {
+const IconRefine = (): JSX.Element => {
   return (
     <>
       <path
@@ -13,4 +12,4 @@ const IconPlus = (): JSX.Element => {
   );
 };
 
-export default IconPlus;
+export default IconRefine;

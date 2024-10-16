@@ -28,6 +28,7 @@ const tailwindVariants = tv({
       'p-3',
       'text-xl',
       'w-full',
+      'focus:outline-theme-darkblue',
     ],
     contentContainer: ['flex-auto', 'min-h-px', 'p-3'],
     iconWrapper: ['transform', 'transition-transform'],

@@ -56,6 +56,10 @@
     @apply hover:underline font-semibold hover:text-theme-darkgrey;
   }
 
+  .rte a:focus-visible {
+    @apply outline-theme-darkblue;
+  }
+
   .rte p,
   .rte ul,
   .rte ol {
