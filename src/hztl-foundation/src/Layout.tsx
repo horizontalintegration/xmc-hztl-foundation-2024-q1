@@ -6,6 +6,7 @@ import React from 'react';
 import { tv } from 'tailwind-variants';
 
 // Local
+import SkipNav from 'components/authorable/shared/site-structure/SkipNav/SkipNav';
 import Scripts from 'src/Scripts';
 import jssConfig from 'src/temp/config';
 import config from 'temp/config';
@@ -75,6 +76,7 @@ const Layout = ({ layoutData, headLinks }: LayoutProps): JSX.Element => {
         env={jssConfig.sitecoreSearchEnv as Environment}
         publicSuffix={true}
       >
+        <SkipNav />
         <div className={mainClassPageEditing}>
           {route && <Placeholder name="headless-header" rendering={route} />}
           <main>

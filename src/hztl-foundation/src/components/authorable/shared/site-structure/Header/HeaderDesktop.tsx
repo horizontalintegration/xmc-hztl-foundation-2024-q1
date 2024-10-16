@@ -19,7 +19,7 @@ import PreviewSearchListComponent from 'src/widgets/SearchPreview';
 
 const TAILWIND_VARIANTS = tv({
   slots: {
-    base: ['bg-white', 'font-avenir', 'top-0', 'w-full', 'z-50'],
+    base: ['bg-white', 'font-avenir', 'top-0', 'w-full', 'z-40'],
     buttonItem: [
       'font-semibold',
       'relative',
