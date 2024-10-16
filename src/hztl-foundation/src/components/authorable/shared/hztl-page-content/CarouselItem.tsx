@@ -6,7 +6,7 @@ import { tv } from 'tailwind-variants';
 // Lib
 import { ComponentProps } from 'lib/component-props';
 import { parseStyleParams } from 'lib/utils/style-param-utils';
-import { getCtaStyle, getCtaClassName } from 'lib/utils/cta-utils';
+import { getCtaStyle } from 'lib/utils/cta-utils';
 
 // Local
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
@@ -19,11 +19,9 @@ import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTex
 const TAILWIND_VARIANTS = tv({
   slots: {
     content: ['slide-content-inner', 'flex', 'items-center', 'justify-start'],
+    cta: [],
     descriptionText: ['mb-4', 'text-base', 'text-theme-black', 'sm:text-lg'],
     ctaButtons: ['flex', 'flex-col', 'gap-3', 'items-center', 'lg:flex-row'],
-    ctaLink: ['text-base', 'text-theme-darkblue'],
-    ctaPrimary: ['px-4'],
-    ctaSecondary: ['px-4'],
     heading: [
       'capitalize',
       'font-bold',
@@ -63,6 +61,22 @@ const TAILWIND_VARIANTS = tv({
     ],
     wrapper: ['bg-neutral-50', 'p-4', 'relative', 'text-black', 'lg:p-6'],
   },
+  variants: {
+    style: {
+      link: {
+        cta: ['text-base', 'text-theme-darkblue'],
+      },
+      primary: {
+        cta: ['px-4'],
+      },
+      secondary: {
+        cta: ['px-4'],
+      },
+      tertiary: {
+        cta: ['px-4'],
+      },
+    },
+  },
 });
 
 export type CarouselItemProps = ComponentProps &
@@ -75,16 +89,10 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
    * Rendering
    */
 
-  if (!props?.fields) {
-    return <></>;
-  }
-
   const {
     content,
-    ctaPrimary,
-    ctaSecondary,
+    cta,
     ctaButtons,
-    ctaLink,
     descriptionText,
     heading,
     imageWrapper,
@@ -111,25 +119,13 @@ const CarouselItem = (props: CarouselItemProps): JSX.Element => {
                   <div className={ctaButtons()}>
                     <LinkWrapper
                       aria-label={primaryCTA?.value.text}
-                      className={getCtaClassName(
-                        styles.cta1?.ctaVariant,
-                        ctaLink,
-                        ctaPrimary,
-                        ctaSecondary,
-                        ctaPrimary
-                      )}
+                      className={cta({ style: styles.cta1?.ctaVariant })}
                       ctaStyle={getCtaStyle(styles.cta1, 'primary')}
                       field={primaryCTA}
                     ></LinkWrapper>
                     <LinkWrapper
                       aria-label={secondaryCTA?.value.text}
-                      className={getCtaClassName(
-                        styles.cta2?.ctaVariant,
-                        ctaLink,
-                        ctaPrimary,
-                        ctaSecondary,
-                        ctaSecondary
-                      )}
+                      className={cta({ style: styles.cta2?.ctaVariant })}
                       ctaStyle={getCtaStyle(styles.cta2, 'secondary')}
                       field={secondaryCTA}
                     ></LinkWrapper>

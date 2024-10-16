@@ -97,7 +97,7 @@ const CardItem = (props: CardItemProps): JSX.Element => {
             field={CardLink1}
           />
           <LinkWrapper
-            className={cta({ style: styles.cta1?.ctaVariant })}
+            className={cta({ style: styles.cta2?.ctaVariant })}
             ctaStyle={getCtaStyle(styles.cta2, 'secondary')}
             field={CardLink2}
           />
