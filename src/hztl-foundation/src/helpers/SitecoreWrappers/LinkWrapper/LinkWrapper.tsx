@@ -168,7 +168,12 @@ const LinkWrapper = forwardRef<HTMLAnchorElement, LinkWrapperProps>(
         target={target}
         title={title || text || href}
       >
-        {!children && <span>{text || (href?.startsWith('/') ? href.slice(1) : href)}</span>}
+        {!children ? (
+          <span>{text || (href?.startsWith('/') ? href.slice(1) : href)}</span>
+        ) : (
+          <span>{text}</span>
+        )}
+
         {children}
         {ctaIcon && <SvgIcon className={icon()} icon={ctaIcon} size="xs" />}
         {(target === '_blank' || srOnlyText) && (
