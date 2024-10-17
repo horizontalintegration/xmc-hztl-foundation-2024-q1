@@ -8,8 +8,9 @@ import { ComponentProps } from 'lib/component-props';
 
 // Local
 import { withStandardComponentWrapper } from 'helpers/HOC';
+import { parseStyleParams } from 'lib/utils/style-param-utils';
 
-type ColCount = '1' | '2' | '3' | '4' | '5' | '6' | undefined;
+type ColCount = '1' | '2' | '3' | '4' | undefined;
 
 export type CardListProps = ComponentProps;
 
@@ -26,16 +27,15 @@ const TAILWIND_VARIANTS = tv({
       '2': { base: ['lg:grid-cols-2'] },
       '3': { base: ['lg:grid-cols-3'] },
       '4': { base: ['lg:grid-cols-4'] },
-      '5': { base: ['lg:grid-cols-5'] },
-      '6': { base: ['lg:grid-cols-6'] },
     },
   },
 });
 
 const CardList = (props: CardListProps): JSX.Element => {
-  const { DynamicPlaceholderId, RenderingIdentifier, cardsPerRow } = props?.params || {};
+  const { DynamicPlaceholderId, RenderingIdentifier } = props?.params || {};
+  const styles = parseStyleParams(props.params, ['cards']);
 
-  const { base } = TAILWIND_VARIANTS({ colCount: cardsPerRow as ColCount });
+  const { base } = TAILWIND_VARIANTS({ colCount: styles?.cards?.cardsPerRow as ColCount });
 
   const phKey = `cardlist-${DynamicPlaceholderId}`;
 
