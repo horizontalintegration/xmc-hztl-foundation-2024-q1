@@ -29,7 +29,7 @@ const TAILWIND_VARIANTS = tv({
       'md:p-xxs',
       'sm:text-sm',
     ],
-    countryNameWrapper: ['block', 'font-semibold', 'ml-3', 'truncate'],
+    countryNameWrapper: ['hidden', 'lg:block', 'font-semibold', 'ml-3', 'truncate'],
     dropDownImageWrapper: ['flex', 'items-center', 'pr-9', 'py-2 '],
     dropDownItemName: ['block', 'font-semibold', 'ml-3'],
     dropDownMenuItem: [
