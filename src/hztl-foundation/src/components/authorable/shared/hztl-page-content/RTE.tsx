@@ -8,6 +8,7 @@ import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 
 // Local
 import RichTextWrapper from 'helpers/SitecoreWrappers/RichTextWrapper/RichTextWrapper';
+import useDictionary from 'src/hooks/useDictionary';
 
 const TAILWIND_VARIANTS = tv({
   slots: {
@@ -23,6 +24,8 @@ export const Default = (props: RTEProps): JSX.Element => {
   const { text } = props?.fields || {};
   const { RenderingIdentifier, styles } = props?.params || {};
 
+  const { getDictionaryValue } = useDictionary();
+
   /*
    * RENDERING
    */
@@ -36,11 +39,12 @@ export const Default = (props: RTEProps): JSX.Element => {
 
   const { base, contentContainer, placeholder } = extendedTailwindVariants();
 
-  const children = text ? (
-    <RichTextWrapper field={text} />
-  ) : (
-    <span className={placeholder()}>Rich text</span>
-  );
+  const children =
+    text && text.value != '' ? (
+      <RichTextWrapper field={text} />
+    ) : (
+      <span className={placeholder()}>{getDictionaryValue('RTEText')}</span>
+    );
 
   return (
     <div

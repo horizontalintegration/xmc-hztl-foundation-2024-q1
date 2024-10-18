@@ -11,6 +11,7 @@ import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 // Local
 import ModalWrapper, { ModalSize } from 'helpers/GenericWrappers/ModalWrapper/ModalWrapper';
 import PlainTextWrapper from 'helpers/SitecoreWrappers/PlainTextWrapper/PlainTextWrapper';
+import useDictionary from 'src/hooks/useDictionary';
 
 export type ModalProps = ComponentProps & HztlPageContent.Modal;
 
@@ -28,6 +29,8 @@ const TAILWIND_VARIANTS = tv({
 const Modal = (props: ModalProps): JSX.Element => {
   const { label, name, openOnLoad, size, title } = props?.fields || {};
   const { DynamicPlaceholderId } = props?.params || {};
+
+  const { getDictionaryValue } = useDictionary();
 
   const isEditing = useIsEditing();
 
@@ -47,7 +50,7 @@ const Modal = (props: ModalProps): JSX.Element => {
           </div>
         </div>
         <p className={urlHash()}>
-          URL Hash: #modal-
+          {getDictionaryValue('ModalURLHash')}
           <PlainTextWrapper editable field={name} tag="span" />
         </p>
       </>

@@ -7,6 +7,7 @@ import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
 
 // Local
 import VideoWrapper, { Source, Track } from 'helpers/GenericWrappers/VideoWrapper/VideoWrapper';
+import useDictionary from 'src/hooks/useDictionary';
 
 type RawSource = {
   displayName?: string;
@@ -65,11 +66,13 @@ const InlineVideo = (props: InlineVideoProps): JSX.Element => {
     width,
   } = props?.fields || {};
 
+  const { getDictionaryValue } = useDictionary();
+
   if (!props?.fields)
     return (
       <div className="component video">
         <div className="component-content">
-          <span className="is-empty-hint">Video</span>
+          <span className="is-empty-hint">{getDictionaryValue('VideoUnavailable')}</span>
         </div>
       </div>
     );
