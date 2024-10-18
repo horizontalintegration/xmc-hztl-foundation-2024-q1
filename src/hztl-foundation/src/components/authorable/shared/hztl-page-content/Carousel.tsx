@@ -11,6 +11,7 @@ import { ComponentProps } from 'lib/component-props';
 import { withStandardComponentWrapper } from 'helpers/HOC';
 import { SvgIcon } from 'helpers/SvgIcon';
 import { HztlPageContent } from 'src/.generated/Feature.HztlFoundation.model';
+import useDictionary from 'src/hooks/useDictionary';
 
 export type CarouselProps = ComponentProps & HztlPageContent.CarouselItem;
 
@@ -75,6 +76,8 @@ const Carousel = (props: CarouselProps): JSX.Element => {
 
   const phKey = `carousel-${DynamicPlaceholderId}`;
 
+  const { getDictionaryValue } = useDictionary();
+
   /*
    * Rendering
    */
@@ -108,11 +111,11 @@ const Carousel = (props: CarouselProps): JSX.Element => {
         </SplideTrack>
         <div className={slideArrows()}>
           <button className={previousButton()}>
-            <span className={screenReader()}>Previous slide</span>
+            <span className={screenReader()}>{getDictionaryValue('PreviousSlide')}</span>
             <SvgIcon className={previousButtonIcon()} icon="arrow-right" size="md" />
           </button>
           <button className={nextButton()}>
-            <span className={screenReader()}>Next slide</span>
+            <span className={screenReader()}>{getDictionaryValue('NextSlide')}</span>
             <SvgIcon className={nextButtonIcon()} icon="arrow-right" size="md" />
           </button>
         </div>
@@ -123,11 +126,11 @@ const Carousel = (props: CarouselProps): JSX.Element => {
         <div className={slideControls()}>
           <button className={slideControlButton()} type="button">
             <span className={playButton()}>
-              <span className={screenReader()}>Play slideshow</span>
+              <span className={screenReader()}>{getDictionaryValue('PlaySlideshow')}</span>
               <SvgIcon icon="play" size="sm" />
             </span>
             <span className={pauseButton()}>
-              <span className={screenReader()}>Pause slideshow</span>
+              <span className={screenReader()}>{getDictionaryValue('PauseSlideshow')}</span>
               <SvgIcon icon="pause" size="sm" />
             </span>
           </button>
