@@ -4,6 +4,41 @@ Parent: "dd929dfc-fe81-4ba5-bd07-b9c368ee4d01"
 Template: "628b007c-334f-40f6-a849-aaa4b566fb74"
 Path: /sitecore/content/HztlFoundation/Global/Countries/Canada
 Languages:
+- Language: "ar-AE"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20240911T091536Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "69f06655-321b-4926-ad73-304f2e52e2f5"
+      Hint: language
+      Value: "{AAA125BD-E0B3-4663-AE2D-01D7D90E5A82}"
+    - ID: "6ad8e19e-4264-41b9-80b1-e2b0b0a3f64a"
+      Hint: flag
+      Value: |
+        <image mediaid="{A7961302-B297-4ED2-97AF-F8B2970B07EA}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "f76d4299-57f7-4a20-9706-fed0912aa19b"
+    - ID: "a17a2b7a-f531-4b23-a829-9c283763ac9a"
+      Hint: name
+      Value: Canada (French)
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20240911T091611Z
 - Language: en
   Versions:
   - Version: 1
@@ -18,16 +53,90 @@ Languages:
     - ID: "69f06655-321b-4926-ad73-304f2e52e2f5"
       Hint: language
       Value: "{AAA125BD-E0B3-4663-AE2D-01D7D90E5A82}"
+    - ID: "6ad8e19e-4264-41b9-80b1-e2b0b0a3f64a"
+      Hint: flag
+      Value: |
+        <image mediaid="{A7961302-B297-4ED2-97AF-F8B2970B07EA}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "44b1b77e-f015-483f-8036-b0dde8c116f5"
+      Value: "727143cf-c1b0-40f1-a443-bb1dd4c99d0a"
     - ID: "a17a2b7a-f531-4b23-a829-9c283763ac9a"
       Hint: name
-      Value: canada
+      Value: Canada (French)
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\dkakade@horizontal.com
+        sitecore\vthakur@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240704T122555Z
+      Value: 20240911T090736Z
+- Language: "es-MX"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20240923T123848Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "69f06655-321b-4926-ad73-304f2e52e2f5"
+      Hint: language
+      Value: "{AAA125BD-E0B3-4663-AE2D-01D7D90E5A82}"
+    - ID: "6ad8e19e-4264-41b9-80b1-e2b0b0a3f64a"
+      Hint: flag
+      Value: |
+        <image mediaid="{A7961302-B297-4ED2-97AF-F8B2970B07EA}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "1a9d5177-166c-4bec-9abc-0063e7d5d034"
+    - ID: "a17a2b7a-f531-4b23-a829-9c283763ac9a"
+      Hint: name
+      Value: Canada (French)
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20240923T124213Z
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20240911T090252Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "69f06655-321b-4926-ad73-304f2e52e2f5"
+      Hint: language
+      Value: "{AAA125BD-E0B3-4663-AE2D-01D7D90E5A82}"
+    - ID: "6ad8e19e-4264-41b9-80b1-e2b0b0a3f64a"
+      Hint: flag
+      Value: |
+        <image mediaid="{A7961302-B297-4ED2-97AF-F8B2970B07EA}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "9cfbc54e-43f2-436f-ad47-ba3ed6a727f3"
+    - ID: "a17a2b7a-f531-4b23-a829-9c283763ac9a"
+      Hint: name
+      Value: Canada (French)
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20240911T090728Z
