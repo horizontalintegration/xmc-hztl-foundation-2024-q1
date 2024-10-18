@@ -3,7 +3,46 @@ ID: "aa73a58c-ee0e-4dc1-942a-a0dd8dc97366"
 Parent: "dd929dfc-fe81-4ba5-bd07-b9c368ee4d01"
 Template: "628b007c-334f-40f6-a849-aaa4b566fb74"
 Path: /sitecore/content/HztlFoundation/Global/Countries/Mexico
+SharedFields:
+- ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
+  Hint: __Sortorder
+  Value: 400
 Languages:
+- Language: "ar-AE"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20240911T091724Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "69f06655-321b-4926-ad73-304f2e52e2f5"
+      Hint: language
+      Value: "{BF231C92-697E-42A8-802E-A7159871F9C6}"
+    - ID: "6ad8e19e-4264-41b9-80b1-e2b0b0a3f64a"
+      Hint: flag
+      Value: |
+        <image mediaid="{9C5F213E-84A8-4DCC-AEDA-D5A02D5B8F56}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "c9dd24c4-73fb-4991-bca8-43d5fcc37f85"
+    - ID: "a17a2b7a-f531-4b23-a829-9c283763ac9a"
+      Hint: name
+      Value: Mexico (Spanish)
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20240911T091755Z
 - Language: en
   Versions:
   - Version: 1
@@ -11,13 +50,97 @@ Languages:
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20240620T114244Z
+    - ID: "601e2dfe-f313-4952-8654-b6b98f8695a6"
+      Hint: externalLink
+      Value: |
+        <link linktype="external" url="https://www.sitecore.com/fr-ca" />
+    - ID: "69f06655-321b-4926-ad73-304f2e52e2f5"
+      Hint: language
+      Value: "{BF231C92-697E-42A8-802E-A7159871F9C6}"
+    - ID: "6ad8e19e-4264-41b9-80b1-e2b0b0a3f64a"
+      Hint: flag
+      Value: |
+        <image mediaid="{9C5F213E-84A8-4DCC-AEDA-D5A02D5B8F56}" />
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "7906462d-f0d7-4824-9937-7e062b87eb24"
+      Value: "7cb0a3f3-64a8-41fb-8836-e3ba36e4fcf1"
+    - ID: "a17a2b7a-f531-4b23-a829-9c283763ac9a"
+      Hint: name
+      Value: Mexico (Spanish)
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\dhruvi.patel@horizontal.com
+        sitecore\dkakade@horizontal.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20240620T132114Z
+      Value: 20240704T141452Z
+- Language: "es-MX"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20240923T124256Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "69f06655-321b-4926-ad73-304f2e52e2f5"
+      Hint: language
+      Value: "{BF231C92-697E-42A8-802E-A7159871F9C6}"
+    - ID: "6ad8e19e-4264-41b9-80b1-e2b0b0a3f64a"
+      Hint: flag
+      Value: |
+        <image mediaid="{9C5F213E-84A8-4DCC-AEDA-D5A02D5B8F56}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "343edd25-b20d-4205-8325-ab8322f10016"
+    - ID: "a17a2b7a-f531-4b23-a829-9c283763ac9a"
+      Hint: name
+      Value: Mexico (Spanish)
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20240923T124327Z
+- Language: "fr-CA"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20240911T090409Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "69f06655-321b-4926-ad73-304f2e52e2f5"
+      Hint: language
+      Value: "{BF231C92-697E-42A8-802E-A7159871F9C6}"
+    - ID: "6ad8e19e-4264-41b9-80b1-e2b0b0a3f64a"
+      Hint: flag
+      Value: |
+        <image mediaid="{9C5F213E-84A8-4DCC-AEDA-D5A02D5B8F56}" />
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "82889b9d-9132-4389-94fa-472ecc975f40"
+    - ID: "a17a2b7a-f531-4b23-a829-9c283763ac9a"
+      Hint: name
+      Value: Mexico (Spanish)
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\vthakur@horizontal.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20240911T090719Z
